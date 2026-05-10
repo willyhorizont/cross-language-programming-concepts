@@ -168,7 +168,9 @@
         "stdio.h": "c"
     },
     "code-runner.ignoreSelection": true,
+    "code-runner.runInTerminal": true,
     "code-runner.executorMap": {
+        "shellscript": "bash $fullFileName",
         "javascript": "bash ./runner/javascript/run.sh $fileName",
         "python": "cd $dir && python $fileName",
         "php": "cd $dir && php $fileName",
@@ -208,7 +210,6 @@
         "groovy": "groovy",
         "powershell": "powershell -ExecutionPolicy ByPass -File",
         "bat": "cmd /c",
-        "shellscript": "bash",
         "fsharp": "fsi",
         "typescript": "ts-node",
         "coffeescript": "coffee",
