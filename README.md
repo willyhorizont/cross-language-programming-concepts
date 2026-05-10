@@ -29,6 +29,25 @@ bash ./runner/r/run.sh filename.r
 
 ---
 
+# Go
+
+## Build
+
+```bash
+chmod +x docker/go/setup.sh
+chmod +x runner/go/run.sh
+
+./docker/go/setup.sh
+```
+
+## Run
+
+```bash
+bash ./runner/go/run.sh filename.go
+```
+
+---
+
 # JavaScript
 
 ## Build
