@@ -172,6 +172,7 @@
     "code-runner.runInTerminal": true,
     "code-runner.executorMapByFileExtension": {
         ".mojo": "bash ./runner/mojo/run.sh $fileName",
+        ".scala": "bash ./runner/scala/run.sh $fileName",
     },
     "code-runner.executorMap": {
         "shellscript": "bash $fullFileName",
@@ -193,7 +194,7 @@
         "wolfram": "cd $dir && wolframscript -file $fileName",
         "raku": "cd $dir && raku $fileName",
         // "scala": "cd $dir && scala $fileName", // run .scala file using scala interpreter
-        "scala": "cd \"$dir..\\..\\utils\" && python compile_and_run_scala_file.py $dir$fileName", // compile .scala file to .class and run the .class
+        "scala": "bash ./runner/scala/run.sh $fileName",
         "mojo": "bash ./runner/mojo/run.sh $fileName",
         "scala2": "cd $dir && scalac $fileName && scala $fileNameWithoutExt && del \"$dir*.class\"", // compile .scala file to .class and run the .class
         "scala3": "cd $dir && scalac $fileName && scala $fileNameWithoutExt && del \"$dir*.class\"  && del \"$dir*.tasty\"", // compile .scala file to .class and run the .class

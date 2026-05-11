@@ -4,6 +4,10 @@ LANGUAGE_NAME="$1"
 COMMAND_CHECK_LANGUAGE_VERSION="$2"
 COMMAND_RUN_LANGUAGE_CODE="$3"
 
+shift 3
+
+VARIADIC_ARGUMENTS=("$@")
+
 IMAGE_NAME="cross-language-programming-concepts-$LANGUAGE_NAME:configured"
 
 if ! docker image inspect "$IMAGE_NAME" > /dev/null 2>&1; then
@@ -12,13 +16,16 @@ if ! docker image inspect "$IMAGE_NAME" > /dev/null 2>&1; then
 fi
 
 docker run --rm \
+    --entrypoint bash \
     "$IMAGE_NAME" \
-    bash -c "$COMMAND_CHECK_LANGUAGE_VERSION"
+    -c "$COMMAND_CHECK_LANGUAGE_VERSION"
 
 echo "---"
 
 docker run --rm \
+    --entrypoint bash \
+    "${VARIADIC_ARGUMENTS[@]}" \
     -v "$(pwd)":/workspace \
     -w "/workspace/languages/$LANGUAGE_NAME" \
     "$IMAGE_NAME" \
-    bash -c "$COMMAND_RUN_LANGUAGE_CODE"
+    -c "$COMMAND_RUN_LANGUAGE_CODE"

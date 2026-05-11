@@ -4,64 +4,28 @@ Cross-language implementations of common programming concepts, data structures, 
 
 ## Requirements
 
-- Docker Engine
+- [Docker Engine](https://docs.docker.com/engine/install/)
 - Git
-- Visual Studio Code (optional)
+
+---
+## Recommended environment
+
+- GNU/Linux or GNU+Linux
+- Visual Studio Code + [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
 
 ---
 
-# R
-
-## Build
-
-```bash
-chmod +x docker/r/setup.sh
-chmod +x runner/r/run.sh
-
-./docker/r/setup.sh
-```
-
-## Run
-
-```bash
-bash ./runner/r/run.sh filename.r
-```
-
----
-
-# Go
-
-## Build
-
-```bash
-chmod +x docker/go/setup.sh
-chmod +x runner/go/run.sh
-
-./docker/go/setup.sh
-```
-
-## Run
-
-```bash
-bash ./runner/go/run.sh filename.go
-```
-
----
-
-# JavaScript
-
-## Build
+## Build command example
 
 ```bash
 chmod +x docker/javascript/setup.sh
 chmod +x runner/javascript/run.sh
 
 ./docker/javascript/setup.sh
-./runner/javascript/install.sh
 ```
 
-## Run
+## Run command example
 
 ```bash
-bash ./runner/javascript/run.sh filename.js
+bash ./runner/javascript/run.sh hello-world.js
 ```
