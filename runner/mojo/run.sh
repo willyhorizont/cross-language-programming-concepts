@@ -2,9 +2,9 @@
 
 FILE="$1"
 
-LANGUAGE_NAME="javascript"
-COMMAND_CHECK_LANGUAGE_VERSION="node --version"
-COMMAND_RUN_LANGUAGE_CODE="node \"$FILE\""
+LANGUAGE_NAME="mojo"
+COMMAND_CHECK_LANGUAGE_VERSION="mojo --version"
+COMMAND_RUN_LANGUAGE_CODE="mojo \"$FILE\""
 
 bash ./runner/runner.sh \
     "$LANGUAGE_NAME" \

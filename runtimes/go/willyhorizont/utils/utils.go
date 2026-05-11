@@ -3,51 +3,26 @@ package utils
 import (
 	"errors"
 	"reflect"
+	"cross-language-programming-concepts/runtimes/go/willyhorizont/types"
 )
 
-type JsLikeAny interface{}
-type JsLikeArray []JsLikeAny
-type JsLikeObject map[string]JsLikeAny
-type JsLikeFunction func(...JsLikeAny) JsLikeAny
+type jsLikeAny = types.JsLikeAny
+type jsLikeArray = types.JsLikeArray
+type jsLikeObject = types.JsLikeObject
+type jsLikeFunction = types.JsLikeFunction
 
-type jsLikeUndefined struct{}
-var JsLikeUndefined = &jsLikeUndefined{}
+var jsLikeUndefined = types.JsLikeUndefined
+var jsLikeType = types.JsLikeType
 
-var JsLikeType = struct {
-	Undefined string
-	Null string
-	Boolean string
-	String string
-	Int string
-	Float string
-	Object string
-	Array string
-	Function string
-	Error string
-	Date string
-}{
-	Undefined: "Undefined",
-	Null: "Null",
-	Boolean: "Boolean",
-	String: "String",
-	Int: "Int",
-	Float: "Float",
-	Object: "Object",
-	Array: "Array",
-	Function: "Function",
-	Error: "Error",
-	Date: "Date",
-}
-
-func Ternary(isConditionTrue bool, callbackFunctionIfConditionTrue JsLikeFunction, callbackFunctionIfConditionFalse JsLikeFunction) JsLikeAny {
+func Ternary(isConditionTrue bool, callbackFunctionIfConditionTrue jsLikeFunction, callbackFunctionIfConditionFalse jsLikeFunction) jsLikeAny {
 	if (isConditionTrue == true) {
 		return callbackFunctionIfConditionTrue()
 	}
 	return callbackFunctionIfConditionFalse()
 }
 
-func ArraySome(callbackFunction func(...JsLikeAny) bool, anyArray JsLikeAny) bool {
-	for arrayItemIndex, arrayItem := range anyArray.(JsLikeArray) {
+func ArraySome(callbackFunction func(...jsLikeAny) bool, anyArray jsLikeAny) bool {
+	for arrayItemIndex, arrayItem := range anyArray.(jsLikeArray) {
 		if (callbackFunction(arrayItem, arrayItemIndex, anyArray) == true) {
 			return true
 		}
@@ -55,93 +30,93 @@ func ArraySome(callbackFunction func(...JsLikeAny) bool, anyArray JsLikeAny) boo
 	return false
 }
 
-func CheckIsLikeJsUndefined(anything JsLikeAny) bool {
-    return (anything == JsLikeUndefined)
+func CheckIsLikeJsUndefined(anything jsLikeAny) bool {
+    return (anything == jsLikeUndefined)
 }
 
-func CheckIsLikeJsNull(anything JsLikeAny) bool {
+func CheckIsLikeJsNull(anything jsLikeAny) bool {
 	return (anything == nil)
 }
 
-func CheckIsLikeJsBoolean(anything JsLikeAny) bool {
+func CheckIsLikeJsBoolean(anything jsLikeAny) bool {
 	return ((reflect.TypeOf(anything).Kind() == reflect.Bool) && ((anything == true) || (anything == false)))
 }
 
-func CheckIsLikeJsString(anything JsLikeAny) bool {
+func CheckIsLikeJsString(anything jsLikeAny) bool {
 	return (reflect.TypeOf(anything).Kind() == reflect.String)
 }
 
-func CheckIsLikeJsInt(anything JsLikeAny) bool {
+func CheckIsLikeJsInt(anything jsLikeAny) bool {
 	anyGoKind := reflect.TypeOf(anything).Kind()
-	return (ArraySome(func(variadicArguments ...JsLikeAny) bool {
+	return (ArraySome(func(variadicArguments ...jsLikeAny) bool {
 		numericGoKind := variadicArguments[0]
 		return (anyGoKind == numericGoKind)
-	}, (JsLikeArray{reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64, reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64})))
+	}, (jsLikeArray{reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64, reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64})))
 }
 
-func CheckIsLikeJsFloat(anything JsLikeAny) bool {
+func CheckIsLikeJsFloat(anything jsLikeAny) bool {
 	anyGoKind := reflect.TypeOf(anything).Kind()
-	return (ArraySome(func(variadicArguments ...JsLikeAny) bool {
+	return (ArraySome(func(variadicArguments ...jsLikeAny) bool {
 		numericGoKind := variadicArguments[0]
 		return (anyGoKind == numericGoKind)
-	}, (JsLikeArray{reflect.Float32, reflect.Float64, reflect.Complex64, reflect.Complex128})))
+	}, (jsLikeArray{reflect.Float32, reflect.Float64, reflect.Complex64, reflect.Complex128})))
 }
 
-func CheckIsLikeJsObject(anything JsLikeAny) bool {
+func CheckIsLikeJsObject(anything jsLikeAny) bool {
 	anyGoType := reflect.TypeOf(anything)
-	return ((anyGoType.Kind() == reflect.Map) || ((anyGoType.Kind() == reflect.Map) && (anyGoType.Key().Kind() == reflect.String) && (anyGoType.Elem().Kind() == reflect.Interface)) || (anyGoType == reflect.TypeOf(JsLikeObject{})) || (anyGoType.String() == "map[string]interface {}") || (anyGoType.String() == "map[string]interface {  }"))
+	return ((anyGoType.Kind() == reflect.Map) || ((anyGoType.Kind() == reflect.Map) && (anyGoType.Key().Kind() == reflect.String) && (anyGoType.Elem().Kind() == reflect.Interface)) || (anyGoType == reflect.TypeOf(jsLikeObject{})) || (anyGoType.String() == "map[string]interface {}") || (anyGoType.String() == "map[string]interface {  }"))
 }
 
-func CheckIsLikeJsArray(anything JsLikeAny) bool {
+func CheckIsLikeJsArray(anything jsLikeAny) bool {
 	anyGoType := reflect.TypeOf(anything)
-	return ((anyGoType.Kind() == reflect.Slice) || (anyGoType == reflect.TypeOf(JsLikeArray{})) || (anyGoType.String() == "[]interface {}") || (anyGoType.String() == "[]interface {  }"))
+	return ((anyGoType.Kind() == reflect.Slice) || (anyGoType == reflect.TypeOf(jsLikeArray{})) || (anyGoType.String() == "[]interface {}") || (anyGoType.String() == "[]interface {  }"))
 }
 
-func CheckIsLikeJsFunction(anything JsLikeAny) bool {
+func CheckIsLikeJsFunction(anything jsLikeAny) bool {
 	return (reflect.TypeOf(anything).Kind() == reflect.Func)
 }
 
-func GetJsLikeType(anything JsLikeAny) string {
+func GetJsLikeType(anything jsLikeAny) string {
 	// TODO
 	if (CheckIsLikeJsUndefined(anything) == true) {
-		return JsLikeType.Undefined
+		return jsLikeType.Undefined
 	}
 	if (CheckIsLikeJsNull(anything) == true) {
-		return JsLikeType.Null
+		return jsLikeType.Null
 	}
 	if (CheckIsLikeJsBoolean(anything) == true) {
-		return JsLikeType.Boolean
+		return jsLikeType.Boolean
 	}
 	if (CheckIsLikeJsString(anything) == true) {
-		return JsLikeType.String
+		return jsLikeType.String
 	}
 	if (CheckIsLikeJsInt(anything) == true) {
-		return JsLikeType.Int
+		return jsLikeType.Int
 	}
 	if (CheckIsLikeJsFloat(anything) == true) {
-		return JsLikeType.Float
+		return jsLikeType.Float
 	}
 	if (CheckIsLikeJsObject(anything) == true) {
-		return JsLikeType.Object
+		return jsLikeType.Object
 	}
 	if (CheckIsLikeJsArray(anything) == true) {
-		return JsLikeType.Array
+		return jsLikeType.Array
 	}
 	if (CheckIsLikeJsFunction(anything) == true) {
-		return JsLikeType.Function
+		return jsLikeType.Function
 	}
 	// TODO
 	// if (CheckIsLikeJsError(anything) == true) {
-	// 	return JsLikeType.Error
+	// 	return jsLikeType.Error
 	// }
 	// TODO
 	// if (CheckIsLikeJsDate(anything) == true) {
-	// 	return JsLikeType.Date
+	// 	return jsLikeType.Date
 	// }
 	return reflect.TypeOf(anything).String()
 }
 
-func ParseFloat(anything JsLikeAny) JsLikeAny {
+func ParseFloat(anything jsLikeAny) jsLikeAny {
 	switch anyGoType := anything.(type) {
 	case float64:
 		return anyGoType

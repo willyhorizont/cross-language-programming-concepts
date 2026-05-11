@@ -1,4 +1,4 @@
-source("../../utils/utils.r")
+source("../../runtimes/r/utils.r")
 console_log <- willy_horizont$utils$console_log
 json_stringify <- willy_horizont$utils$json_stringify
 get_type <- willy_horizont$utils$get_type

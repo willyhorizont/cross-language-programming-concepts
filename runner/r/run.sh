@@ -1,20 +1,12 @@
 #!/bin/bash
 
-IMAGE_NAME="cross-language-programming-concepts-r:configured"
+FILE="$1"
 
-if ! docker image inspect $IMAGE_NAME > /dev/null 2>&1; then
-    echo "Docker image not found. Running setup.sh..."
-    bash ./docker/r/setup.sh
-fi
+LANGUAGE_NAME="r"
+COMMAND_CHECK_LANGUAGE_VERSION="R --version"
+COMMAND_RUN_LANGUAGE_CODE="Rscript \"$FILE\""
 
-docker run --rm \
-    $IMAGE_NAME \
-    R --version
-
-echo "---"
-
-docker run --rm \
-    -v "$(pwd)":/workspace \
-    -w /workspace/languages/r \
-    $IMAGE_NAME \
-    Rscript "$1"
+bash ./runner/runner.sh \
+    "$LANGUAGE_NAME" \
+    "$COMMAND_CHECK_LANGUAGE_VERSION" \
+    "$COMMAND_RUN_LANGUAGE_CODE"

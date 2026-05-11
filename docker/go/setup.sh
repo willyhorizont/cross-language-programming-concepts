@@ -1,6 +1,10 @@
 #!/bin/bash
 
+LANGUAGE_NAME="go"
+
+IMAGE_NAME="cross-language-programming-concepts-$LANGUAGE_NAME:configured"
+
 docker build \
-    -t cross-language-programming-concepts-go:configured \
-    -f docker/go/Dockerfile \
+    -t $IMAGE_NAME \
+    -f docker/$LANGUAGE_NAME/Dockerfile \
     .

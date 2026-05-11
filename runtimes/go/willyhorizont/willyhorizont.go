@@ -2,30 +2,28 @@ package willyhorizont
 
 import (
 	"cross-language-programming-concepts/runtimes/go/willyhorizont/utils"
+	"cross-language-programming-concepts/runtimes/go/willyhorizont/types"
 )
 
-type JsLikeAny = utils.JsLikeAny
-type JsLikeArray = utils.JsLikeArray
-type JsLikeObject = utils.JsLikeObject
-type JsLikeFunction = utils.JsLikeFunction
-
-var JsLikeUndefined = utils.JsLikeUndefined
-var JsLikeType = utils.JsLikeType
+type jsLikeAny = types.JsLikeAny
+type jsLikeArray = types.JsLikeArray
+type jsLikeObject = types.JsLikeObject
+type jsLikeFunction = types.JsLikeFunction
 
 var Utils = struct {
-    Ternary func(bool, JsLikeFunction, JsLikeFunction) JsLikeAny
-	ArraySome func(func(...JsLikeAny) bool, JsLikeAny) bool
-	CheckIsLikeJsUndefined func(JsLikeAny) bool
-	CheckIsLikeJsNull func(JsLikeAny) bool
-	CheckIsLikeJsBoolean func(JsLikeAny) bool
-	CheckIsLikeJsString func(JsLikeAny) bool
-	CheckIsLikeJsInt func(JsLikeAny) bool
-	CheckIsLikeJsFloat func(JsLikeAny) bool
-	CheckIsLikeJsObject func(JsLikeAny) bool
-	CheckIsLikeJsArray func(JsLikeAny) bool
-	CheckIsLikeJsFunction func(JsLikeAny) bool
-	GetJsLikeType func(JsLikeAny) string
-	ParseFloat func(JsLikeAny) JsLikeAny
+    Ternary func(bool, jsLikeFunction, jsLikeFunction) jsLikeAny
+	ArraySome func(func(...jsLikeAny) bool, jsLikeAny) bool
+	CheckIsLikeJsUndefined func(jsLikeAny) bool
+	CheckIsLikeJsNull func(jsLikeAny) bool
+	CheckIsLikeJsBoolean func(jsLikeAny) bool
+	CheckIsLikeJsString func(jsLikeAny) bool
+	CheckIsLikeJsInt func(jsLikeAny) bool
+	CheckIsLikeJsFloat func(jsLikeAny) bool
+	CheckIsLikeJsObject func(jsLikeAny) bool
+	CheckIsLikeJsArray func(jsLikeAny) bool
+	CheckIsLikeJsFunction func(jsLikeAny) bool
+	GetJsLikeType func(jsLikeAny) string
+	ParseFloat func(jsLikeAny) jsLikeAny
 }{
     Ternary: utils.Ternary,
     ArraySome: utils.ArraySome,
