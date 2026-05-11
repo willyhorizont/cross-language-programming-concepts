@@ -14,7 +14,7 @@ js_like_object <- (\(...) {
     return(result)
 })
 
-js_like_undefined <- tryCatch(something, error = (\(any_error) (structure(list(), class = c("js_like_undefined")))))
+js_like_undefined <- tryCatch(something_undefined, error = (\(any_error) (structure(list(), class = c("js_like_undefined")))))
 
 js_like_type = js_like_object(
     "Undefined" %:% "Undefined",
