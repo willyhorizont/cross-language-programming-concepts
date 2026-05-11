@@ -1,0 +1,5 @@
+list all docker images:
+docker images
+
+remove docker image example:
+docker rmi cross-language-programming-concepts-go:configured

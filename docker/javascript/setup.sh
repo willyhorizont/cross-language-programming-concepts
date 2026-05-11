@@ -1,12 +1,14 @@
 #!/bin/bash
 
+IMAGE_NAME="cross-language-programming-concepts-javascript:configured"
+
 docker build \
-    -t cross-language-programming-concepts-javascript:configured \
+    -t $IMAGE_NAME \
     -f docker/javascript/Dockerfile \
     .
 
 docker run --rm \
     -v "$(pwd)":/workspace \
     -w /workspace \
-    cross-language-programming-concepts-javascript:configured \
+    $IMAGE_NAME \
     npm install --no-fund --no-audit

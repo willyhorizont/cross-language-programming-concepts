@@ -12,7 +12,7 @@ type JsLikeFunction = willyhorizont.JsLikeFunction
 
 func main() {
 	fmt.Println(willyhorizont.Utils.CheckIsLikeJsNull(nil))
-	
+
 	JsLikeUndefined := willyhorizont.JsLikeUndefined
 	checkIsLikeJsNull := willyhorizont.Utils.CheckIsLikeJsNull
 	checkIsLikeJsUndefined := willyhorizont.Utils.CheckIsLikeJsUndefined

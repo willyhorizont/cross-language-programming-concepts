@@ -1,4 +1,4 @@
-FROM rocker/r-ver:4.6.0
+FROM r-base:4.6.0
 
 WORKDIR /workspace
 
