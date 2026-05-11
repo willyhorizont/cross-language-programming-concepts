@@ -51,6 +51,7 @@
         "panel.background": "#29161d",
     },
 
+    "explorer.compactFolders": false,
     "workbench.editor.tabSizing": "fixed",
     "workbench.editor.tabSizingFixedMinWidth": 38,
     "workbench.editor.pinnedTabSizing": "normal",

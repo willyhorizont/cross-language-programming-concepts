@@ -2,32 +2,18 @@ package main
 
 import (
     "fmt"
-    "cross-language-programming-concepts/utils"
+    "cross-language-programming-concepts/runtimes/go/willyhorizont"
 )
 
-func main() {
-    fmt.Println("Hello, World!")
-    fmt.Println(utils.Multiply(2, 3))
+func factorial(n int) int {
+    if n <= 1 {
+        return 1
+    }
+    return n * factorial(n-1)
+}
 
-	var something interface{}
-	something = "foo"
-    fmt.Println(utils.GetType(something))
-    something = 123
-    fmt.Println(utils.GetType(something))
-    something = 123.789
-    fmt.Println(utils.GetType(something))
-    something = -123
-    fmt.Println(utils.GetType(something))
-    something = -123.789
-    fmt.Println(utils.GetType(something))
-    something = true
-    fmt.Println(utils.GetType(something))
-    something = false
-    fmt.Println(utils.GetType(something))
-    something = nil
-    fmt.Println(utils.GetType(something))
-    something = []interface{}{1, 2, 3}
-    fmt.Println(utils.GetType(something))
-    something = map[string]interface{}{"foo": "bar"}
-    fmt.Println(utils.GetType(something))
+func main() {
+    fmt.Println(factorial(5))
+
+    fmt.Println(willyhorizont.Utils.Ternary(true, 100, 200))
 }
