@@ -10,6 +10,7 @@ docker build \
     .
 
 docker run --rm \
+    --entrypoint bash \
     -v "$(pwd)":/workspace \
     -w /workspace \
     $IMAGE_NAME \
