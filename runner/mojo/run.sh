@@ -1,10 +1,10 @@
 #!/bin/bash
 
-FILE="$1"
+FILE_NAME_WITH_EXTENSION="$1"
 
 LANGUAGE_NAME="mojo"
 COMMAND_CHECK_LANGUAGE_VERSION="mojo --version"
-COMMAND_RUN_LANGUAGE_CODE="mojo \"$FILE\""
+COMMAND_RUN_LANGUAGE_CODE="mojo \"$FILE_NAME_WITH_EXTENSION\""
 
 bash ./runner/runner.sh \
     "$LANGUAGE_NAME" \

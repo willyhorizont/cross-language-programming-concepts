@@ -201,7 +201,7 @@
         // "c": "gcc --version",
         "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt && rm -f \"$dir$fileNameWithoutExt\"",
         // "java": "cd $dir && javac $fileName && java $fileNameWithoutExt && del \"$dir*.class\"",
-        "java": "cd \"$dir..\\..\\utils\" && python compile_and_run_java_file.py $dir$fileName", // compile .java file to .class and run the .class
+        "java": "bash ./runner/java/run.sh $fileName",
         "gdscript": "cd $dir && godot --script --headless $fileName",
         "elixir": "cd $dir && elixir $fileName",
         "perl6": "cd $dir && perl6 $fileName",

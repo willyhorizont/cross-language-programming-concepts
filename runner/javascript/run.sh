@@ -1,10 +1,10 @@
 #!/bin/bash
 
-FILE="$1"
+FILE_NAME_WITH_EXTENSION="$1"
 
 LANGUAGE_NAME="javascript"
 COMMAND_CHECK_LANGUAGE_VERSION="node --version"
-COMMAND_RUN_LANGUAGE_CODE="node \"$FILE\""
+COMMAND_RUN_LANGUAGE_CODE="node \"$FILE_NAME_WITH_EXTENSION\""
 
 bash ./runner/runner.sh \
     "$LANGUAGE_NAME" \
