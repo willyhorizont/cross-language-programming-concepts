@@ -34,7 +34,7 @@ bash ./runner/javascript/run.sh hello-world.js
 
 ## Programming concepts 
 
-### cross-language-features:  
+### cross-language-features  
   1.  [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/cross-language-features.js)  
   2.  [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/cross-language-features.py)  
   3.  [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/cross-language-features.php)  
@@ -56,7 +56,9 @@ bash ./runner/javascript/run.sh hello-world.js
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/cross-language-features.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/cross-language-features.java)  
 
-### comments:  
+---
+
+### comments  
   1.  [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/comments.js)  
   2.  [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/comments.py)  
   3.  [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/comments.php)  
@@ -78,7 +80,9 @@ bash ./runner/javascript/run.sh hello-world.js
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/comments.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/comments.java)  
 
-### hello-world:  
+---
+
+### hello-world  
   1.  [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/hello-world.js)  
   2.  [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/hello-world.py)  
   3.  [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/hello-world.php)  
@@ -100,7 +104,9 @@ bash ./runner/javascript/run.sh hello-world.js
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/hello-world.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/hello-world.java)  
 
-### conditionals:  
+---
+
+### conditionals  
   1.  [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/conditionals.js)  
   2.  [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/conditionals.py)  
   3.  [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/conditionals.php)  
@@ -122,7 +128,9 @@ bash ./runner/javascript/run.sh hello-world.js
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/conditionals.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/conditionals.java)  
 
-### loops:  
+---
+
+### loops  
   1.  [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/loops.js)  
   2.  [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/loops.py)  
   3.  [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/loops.php)  
@@ -144,7 +152,9 @@ bash ./runner/javascript/run.sh hello-world.js
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/loops.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/loops.java)  
 
-### functions:  
+---
+
+### functions  
   1.  [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/functions.js)  
   2.  [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/functions.py)  
   3.  [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/functions.php)  
@@ -166,7 +176,9 @@ bash ./runner/javascript/run.sh hello-world.js
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/functions.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/functions.java)  
 
-### error-handling:  
+---
+
+### error-handling  
   1.  [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/error-handling.js)  
   2.  [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/error-handling.py)  
   3.  [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/error-handling.php)  
@@ -188,7 +200,9 @@ bash ./runner/javascript/run.sh hello-world.js
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/error-handling.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/error-handling.java)  
 
-### python-like list:  
+---
+
+### python-like list  
   1.  [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/python-like-list.js) : Array  
   2.  [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/python-like-list.py) : list  
   3.  [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/python-like-list.php) : array  
@@ -210,7 +224,9 @@ bash ./runner/javascript/run.sh hello-world.js
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/python-like-list.scala) : mutable.ArrayBuffer[Any]  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/python-like-list.java) : ArrayList&lt;Object&gt;  
 
-### python-like Dict:  
+---
+
+### python-like Dict  
   1.  [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.js) : Object  
   2.  [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.py) : Dict  
   3.  [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.php) : associative array  
@@ -232,7 +248,9 @@ bash ./runner/javascript/run.sh hello-world.js
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.scala) : mutable.Map[String, Any]  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&gt;  
 
-### loop-through-each-list-item:  
+---
+
+### loop-through-each-list-item  
   1.  [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/loop-through-each-list-item.js)  
   2.  [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/loop-through-each-list-item.py)  
   3.  [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/loop-through-each-list-item.php)  
@@ -254,7 +272,9 @@ bash ./runner/javascript/run.sh hello-world.js
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/loop-through-each-list-item.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/loop-through-each-list-item.java)  
 
-### get-is-any-item-in-list-matching-condition (some / any / exists / contains / includes):  
+---
+
+### get-is-any-item-in-list-matching-condition (some / any / exists / contains / includes)  
   1.  [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/get-is-any-item-in-list-matching-condition.js)  
   2.  [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/get-is-any-item-in-list-matching-condition.py)  
   3.  [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/get-is-any-item-in-list-matching-condition.php)  
@@ -276,7 +296,9 @@ bash ./runner/javascript/run.sh hello-world.js
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/get-is-any-item-in-list-matching-condition.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/get-is-any-item-in-list-matching-condition.java)  
 
-### get-is-all-item-in-list-matching-condition (every / all):  
+---
+
+### get-is-all-item-in-list-matching-condition (every / all)  
   1.  [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/get-is-all-item-in-list-matching-condition.js)  
   2.  [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/get-is-all-item-in-list-matching-condition.py)  
   3.  [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/get-is-all-item-in-list-matching-condition.php)  
@@ -298,7 +320,9 @@ bash ./runner/javascript/run.sh hello-world.js
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/get-is-all-item-in-list-matching-condition.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/get-is-all-item-in-list-matching-condition.java)  
 
-### get-first-list-item-matching-condition (find):  
+---
+
+### get-first-list-item-matching-condition (find)  
   1.  [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/get-first-list-item-matching-condition.js)  
   2.  [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/get-first-list-item-matching-condition.py)  
   3.  [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/get-first-list-item-matching-condition.php)  
@@ -320,7 +344,9 @@ bash ./runner/javascript/run.sh hello-world.js
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/get-first-list-item-matching-condition.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/get-first-list-item-matching-condition.java)  
 
-### get-index-of-list-item-matching-condition (findIndex):  
+---
+
+### get-index-of-list-item-matching-condition (findIndex)  
   1.  [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/get-index-of-list-item-matching-condition.js)  
   2.  [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/get-index-of-list-item-matching-condition.py)  
   3.  [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/get-index-of-list-item-matching-condition.php)  
@@ -342,7 +368,9 @@ bash ./runner/javascript/run.sh hello-world.js
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/get-index-of-list-item-matching-condition.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/get-index-of-list-item-matching-condition.java)  
 
-### get-all-list-item-matching-condition (filter / grep):  
+---
+
+### get-all-list-item-matching-condition (filter / grep)  
   1.  [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/get-all-list-item-matching-condition.js)  
   2.  [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/get-all-list-item-matching-condition.py)  
   3.  [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/get-all-list-item-matching-condition.php)  
@@ -364,7 +392,9 @@ bash ./runner/javascript/run.sh hello-world.js
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/get-all-list-item-matching-condition.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/get-all-list-item-matching-condition.java)  
 
-### transform-each-list-item (map / apply):  
+---
+
+### transform-each-list-item (map / apply)  
   1.  [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/transform-each-list-item.js)  
   2.  [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/transform-each-list-item.py)  
   3.  [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/transform-each-list-item.php)  
@@ -386,7 +416,9 @@ bash ./runner/javascript/run.sh hello-world.js
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/transform-each-list-item.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/transform-each-list-item.java)  
 
-### combine-all-list-item (reduce / fold / aggregate):  
+---
+
+### combine-all-list-item (reduce / fold / aggregate)  
   1.  [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/combine-all-list-item.js)  
   2.  [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/combine-all-list-item.py)  
   3.  [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/combine-all-list-item.php)  
