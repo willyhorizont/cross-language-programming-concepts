@@ -1,35 +1,28 @@
 package types
 
-type JsLikeAny interface{}
-type JsLikeArray []JsLikeAny
-type JsLikeObject map[string]JsLikeAny
-type JsLikeFunction func(...JsLikeAny) JsLikeAny
+type Any interface{}
+type PythonLikeList []Any
+type PythonLikeDict map[string]Any
+type JsLikeFunction func(...Any) Any
 
-type jsLikeUndefined struct{}
-var JsLikeUndefined = &jsLikeUndefined{}
-
-var JsLikeType = struct {
-	Undefined string
-	Null string
-	Boolean string
-	String string
-	Int string
-	Float string
-	Object string
-	Array string
-	Function string
-	Error string
-	Date string
+var AnyType = struct {
+	JsLikeUndefined string
+	JsLikeNull string
+	JsLikeBoolean string
+	JsLikeString string
+	JsLikeInt string
+	JsLikeFloat string
+	PythonLikeDict string
+	PythonLikeList string
+	JsLikeFunction string
 }{
-	Undefined: "Undefined",
-	Null: "Null",
-	Boolean: "Boolean",
-	String: "String",
-	Int: "Int",
-	Float: "Float",
-	Object: "Object",
-	Array: "Array",
-	Function: "Function",
-	Error: "Error",
-	Date: "Date",
+	JsLikeUndefined: "JsLikeUndefined",
+	JsLikeNull: "JsLikeNull",
+	JsLikeBoolean: "JsLikeBoolean",
+	JsLikeString: "JsLikeString",
+	JsLikeInt: "JsLikeInt",
+	JsLikeFloat: "JsLikeFloat",
+	PythonLikeDict: "PythonLikeDict",
+	PythonLikeList: "PythonLikeList",
+	JsLikeFunction: "JsLikeFunction",
 }

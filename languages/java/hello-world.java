@@ -5,7 +5,7 @@ import willyhorizont.runtime.Utils;
 @SuppressWarnings("unchecked")
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
+        System.out.println("hello, world");
 
         Any something;
         something = new JsLikeArray(1, 2, 3);

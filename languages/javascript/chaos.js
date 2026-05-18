@@ -1,7 +1,7 @@
 globalThis.WillyHorizont = require("willyhorizont.github.io");
 globalThis.WillyHorizont.Utils = require("willyhorizont.github.io/utils.js");
 
-console.log("Hello, World!");
+console.log("hello, world");
 
 {
     let i = 0;

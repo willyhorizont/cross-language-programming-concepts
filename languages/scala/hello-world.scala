@@ -1,7 +1,7 @@
 import scala.collection.mutable
 
 @main def apply(): Unit = {
-    println("Hello, World!")
+    println("hello, world")
 
     var something: Any = null
     // something = undefined // TODO

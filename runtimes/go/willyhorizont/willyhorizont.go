@@ -5,37 +5,37 @@ import (
 	"cross-language-programming-concepts/runtimes/go/willyhorizont/types"
 )
 
-type jsLikeAny = types.JsLikeAny
-type jsLikeArray = types.JsLikeArray
-type jsLikeObject = types.JsLikeObject
+type any = types.Any
+type pythonLikeList = types.PythonLikeList
+type pythonLikeDict = types.PythonLikeDict
 type jsLikeFunction = types.JsLikeFunction
 
 var Utils = struct {
-    Ternary func(bool, jsLikeFunction, jsLikeFunction) jsLikeAny
-	ArraySome func(func(...jsLikeAny) bool, jsLikeAny) bool
-	CheckIsLikeJsUndefined func(jsLikeAny) bool
-	CheckIsLikeJsNull func(jsLikeAny) bool
-	CheckIsLikeJsBoolean func(jsLikeAny) bool
-	CheckIsLikeJsString func(jsLikeAny) bool
-	CheckIsLikeJsInt func(jsLikeAny) bool
-	CheckIsLikeJsFloat func(jsLikeAny) bool
-	CheckIsLikeJsObject func(jsLikeAny) bool
-	CheckIsLikeJsArray func(jsLikeAny) bool
-	CheckIsLikeJsFunction func(jsLikeAny) bool
-	GetJsLikeType func(jsLikeAny) string
-	ParseFloat func(jsLikeAny) jsLikeAny
+    Ternary func(bool, jsLikeFunction, jsLikeFunction) any
+	ArraySome func(func(...any) bool, any) bool
+	CheckIsJsLikeUndefined func(any) bool
+	CheckIsJsLikeNull func(any) bool
+	CheckIsJsLikeBoolean func(any) bool
+	CheckIsJsLikeString func(any) bool
+	CheckIsJsLikeInt func(any) bool
+	CheckIsJsLikeFloat func(any) bool
+	CheckIsPythonLikeDict func(any) bool
+	CheckIsPythonLikeList func(any) bool
+	CheckIsJsLikeFunction func(any) bool
+	GetType func(any) string
+	ParseFloat func(any) any
 }{
     Ternary: utils.Ternary,
     ArraySome: utils.ArraySome,
-    CheckIsLikeJsUndefined: utils.CheckIsLikeJsUndefined,
-    CheckIsLikeJsNull: utils.CheckIsLikeJsNull,
-	CheckIsLikeJsBoolean: utils.CheckIsLikeJsBoolean,
-	CheckIsLikeJsString: utils.CheckIsLikeJsString,
-	CheckIsLikeJsInt: utils.CheckIsLikeJsInt,
-	CheckIsLikeJsFloat: utils.CheckIsLikeJsFloat,
-	CheckIsLikeJsObject: utils.CheckIsLikeJsObject,
-	CheckIsLikeJsArray: utils.CheckIsLikeJsArray,
-	CheckIsLikeJsFunction: utils.CheckIsLikeJsFunction,
-	GetJsLikeType: utils.GetJsLikeType,
+    CheckIsJsLikeUndefined: utils.CheckIsJsLikeUndefined,
+    CheckIsJsLikeNull: utils.CheckIsJsLikeNull,
+	CheckIsJsLikeBoolean: utils.CheckIsJsLikeBoolean,
+	CheckIsJsLikeString: utils.CheckIsJsLikeString,
+	CheckIsJsLikeInt: utils.CheckIsJsLikeInt,
+	CheckIsJsLikeFloat: utils.CheckIsJsLikeFloat,
+	CheckIsPythonLikeDict: utils.CheckIsPythonLikeDict,
+	CheckIsPythonLikeList: utils.CheckIsPythonLikeList,
+	CheckIsJsLikeFunction: utils.CheckIsJsLikeFunction,
+	GetType: utils.GetType,
 	ParseFloat: utils.ParseFloat,
 }
