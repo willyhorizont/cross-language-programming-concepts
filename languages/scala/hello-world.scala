@@ -4,8 +4,6 @@ import scala.collection.mutable
     println("hello, world")
 
     var something: Any = null
-    // something = undefined // TODO
-    // println(something)
     something = null
     println(something)
     something = true

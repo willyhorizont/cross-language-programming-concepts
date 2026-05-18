@@ -4,11 +4,6 @@ json_stringify <- willy_horizont$utils$json_stringify
 get_type <- willy_horizont$utils$get_type
 curry <- willy_horizont$utils$curry
 
-something <- js_like_undefined
-console_log(paste0('js_like_undefined === ', json_stringify(something, pretty = FALSE)))
-console_log(get_type(something))
-console_log()
-
 something <- NULL
 console_log(paste0('NULL === ', json_stringify(something, pretty = FALSE)))
 console_log(get_type(something))

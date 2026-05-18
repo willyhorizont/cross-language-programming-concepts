@@ -14,10 +14,7 @@ js_like_object <- (\(...) {
     return(result)
 })
 
-js_like_undefined <- tryCatch(something_undefined, error = (\(any_error) (structure(list(), class = c("js_like_undefined")))))
-
 js_like_type = js_like_object(
-    "Undefined" %:% "Undefined",
     "Null" %:% "Null",
     "Boolean" %:% "Boolean",
     "String" %:% "String",
@@ -36,7 +33,6 @@ willy_horizont <- (\() {
         curry = (\(any_function, ...) (\(current_result) (any_function(current_result, ...))))
         console_log <- (\(...) cat(paste0(..., "\n")))
         check_is_js_like_array_or_object_or_neither <- (\(anything) (if ((class(anything) != "list") && (is.list(anything) == FALSE)) ("neither") else (if (length(anything) == 0) ("js_like_array") else (if (is.null(names(anything)) == TRUE) ("js_like_array") else ("js_like_object")))))
-        check_is_js_like_undefined <- (\(anything) (identical(class(anything), c("js_like_undefined"))))
         check_is_js_like_null <- (\(anything) ((class(anything) == "NULL") && (is.null(anything) == TRUE)))
         check_is_js_like_boolean <- (\(anything) ((class(anything) == "logical") && (is.logical(anything) == TRUE)))
         check_is_js_like_string <- (\(anything) ((class(anything) == "character") && (is.character(anything) == TRUE)))
@@ -47,7 +43,7 @@ willy_horizont <- (\() {
         check_is_js_like_function <- (\(anything) (is.function(anything) == TRUE))
         check_is_js_like_error <- (\(anything) (inherits(anything, "error") == TRUE))
         check_is_js_like_date <- (\(anything) ((inherits(anything, "Date") == TRUE) || (inherits(anything, "POSIXct") == TRUE) || (inherits(anything, "POSIXlt") == TRUE)))
-        get_type <- (\(anything) (if (check_is_js_like_null(anything) == TRUE) (js_like_type[["Null"]]) else (if (check_is_js_like_undefined(anything) == TRUE) (js_like_type[["Undefined"]]) else (if (check_is_js_like_boolean(anything) == TRUE) (js_like_type[["Boolean"]]) else (if (check_is_js_like_string(anything) == TRUE) (js_like_type[["String"]]) else (if (check_is_js_like_int(anything) == TRUE) (js_like_type[["Int"]]) else (if (check_is_js_like_float(anything) == TRUE) (js_like_type[["Float"]]) else (if (check_is_js_like_object(anything) == TRUE) (js_like_type[["Object"]]) else (if (check_is_js_like_array(anything) == TRUE) (js_like_type[["Array"]]) else (if (check_is_js_like_function(anything) == TRUE) (js_like_type[["Function"]]) else (if (check_is_js_like_error(anything) == TRUE) (js_like_type[["Error"]]) else (if (check_is_js_like_date(anything) == TRUE) (js_like_type[["Date"]]) else (class(anything))))))))))))))
+        get_type <- (\(anything) (if (check_is_js_like_null(anything) == TRUE) (js_like_type[["Null"]]) else (if (check_is_js_like_boolean(anything) == TRUE) (js_like_type[["Boolean"]]) else (if (check_is_js_like_string(anything) == TRUE) (js_like_type[["String"]]) else (if (check_is_js_like_int(anything) == TRUE) (js_like_type[["Int"]]) else (if (check_is_js_like_float(anything) == TRUE) (js_like_type[["Float"]]) else (if (check_is_js_like_object(anything) == TRUE) (js_like_type[["Object"]]) else (if (check_is_js_like_array(anything) == TRUE) (js_like_type[["Array"]]) else (if (check_is_js_like_function(anything) == TRUE) (js_like_type[["Function"]]) else (if (check_is_js_like_error(anything) == TRUE) (js_like_type[["Error"]]) else (if (check_is_js_like_date(anything) == TRUE) (js_like_type[["Date"]]) else (class(anything)))))))))))))
         format_function_string <- (\(anything) {
             any_vector <- deparse(anything)
             part_one <- paste(any_vector[1:min(2, length(any_vector))], collapse = "")
@@ -60,7 +56,6 @@ willy_horizont <- (\() {
             indent_level <- 0
             json_stringify_inner <- (\(anything_inner, indent_inner) {
                 anything_inner_type <- get_type(anything_inner)
-                if (anything_inner_type == js_like_type[["Undefined"]]) return("undefined")
                 if (anything_inner_type == js_like_type[["Null"]]) return("null")
                 if ((anything_inner_type == js_like_type[["Boolean"]]) && (anything_inner == TRUE)) return("True")
                 if ((anything_inner_type == js_like_type[["Boolean"]]) && (anything_inner == FALSE)) return("False")
@@ -107,7 +102,6 @@ willy_horizont <- (\() {
             "curry" %:% curry,
             "console_log" %:% console_log,
             "check_is_js_like_array_or_object_or_neither" %:% check_is_js_like_array_or_object_or_neither,
-            "check_is_js_like_undefined" %:% check_is_js_like_undefined,
             "check_is_js_like_null" %:% check_is_js_like_null,
             "check_is_js_like_boolean" %:% check_is_js_like_boolean,
             "check_is_js_like_string" %:% check_is_js_like_string,

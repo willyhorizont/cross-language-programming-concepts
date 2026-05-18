@@ -19,7 +19,6 @@ console.log(`multiplyByTwo(10): ${multiplyByTwo(10)}`);
 2. support dynamic-typed value, or has workaround
 */
 const somePythonLikeList = [
-    undefined,
     null,
     true,
     false,
@@ -34,7 +33,6 @@ const somePythonLikeList = [
 ];
 console.log(`somePythonLikeList: ${jsonStringify(somePythonLikeList, { pretty: true })}`);
 const somePythonLikeDict = {
-    "some_undefined": undefined,
     "some_null": null,
     "some_boolean_true": true,
     "some_boolean_false": false,

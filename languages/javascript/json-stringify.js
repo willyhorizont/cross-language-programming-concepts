@@ -2,7 +2,6 @@ const WillyHorizont = require("willyhorizont.github.io");
 const { jsonStringify } = WillyHorizont.Utils;
 
 const somePythonLikeList = [
-    undefined,
     null,
     true,
     false,
@@ -18,7 +17,6 @@ const somePythonLikeList = [
 console.log(`somePythonLikeList: ${jsonStringify(somePythonLikeList)}`);
 console.log(`somePythonLikeList: ${jsonStringify(somePythonLikeList, { pretty: true })}`);
 const somePythonLikeDict = {
-    "some_undefined": undefined,
     "some_null": null,
     "some_boolean_true": true,
     "some_boolean_false": false,

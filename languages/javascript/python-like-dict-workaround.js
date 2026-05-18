@@ -2,7 +2,6 @@ const WillyHorizont = require("willyhorizont.github.io");
 const { jsonStringify } = WillyHorizont.Utils;
 
 const somePythonLikeDict = {
-    "some_undefined": undefined,
     "some_null": null,
     "some_boolean_true": true,
     "some_boolean_false": false,
@@ -19,7 +18,6 @@ console.log(`somePythonLikeDict: ${jsonStringify(somePythonLikeDict, { pretty: t
 console.log(`somePythonLikeDict["some_string"]: ${jsonStringify(somePythonLikeDict["some_string"], { pretty: true })}`);
 
 const somePythonLikeDictWorkaroundAa = (key) => {
-    if (key === "some_undefined") return undefined;
     if (key === "some_null") return null;
     if (key === "some_boolean_true") return true;
     if (key === "some_boolean_false") return false;
@@ -38,8 +36,6 @@ console.log(`somePythonLikeDictWorkaroundAa("some_string"): ${jsonStringify(some
 
 const somePythonLikeDictWorkaroundBb = (key) => {
     switch (key) {
-        case "some_undefined":
-            return undefined;
         case "some_null":
             return null;
         case "some_boolean_true":
@@ -70,7 +66,6 @@ console.log(`somePythonLikeDictWorkaroundBb: ${jsonStringify(somePythonLikeDictW
 console.log(`somePythonLikeDictWorkaroundBb("some_string"): ${jsonStringify(somePythonLikeDictWorkaroundBb("some_string"), { pretty: true })}`);
 
 const somePythonLikeDictWorkaroundCc = (key) => (
-    (key === "some_undefined") ? undefined :
     (key === "some_null") ? null :
     (key === "some_boolean_true") ? true :
     (key === "some_boolean_false") ? false :
