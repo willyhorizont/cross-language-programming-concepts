@@ -178,7 +178,7 @@
         "shellscript": "bash $fullFileName",
         "javascript": "bash ./runner/javascript/run.sh $fileName",
         "python": "cd $dir && python $fileName",
-        "php": "cd $dir && php $fileName",
+        "php": "bash ./runner/php/run.sh $fileName",
         "go": "bash ./runner/go/run.sh $fileName",
         "perl": "cd $dir && perl $fileName",
         "julia": "cd $dir && julia $fileName",

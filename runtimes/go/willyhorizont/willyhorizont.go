@@ -15,7 +15,7 @@ type PythonLikeDictEntry struct {
 	Key   string
 	Value TypeDotAny
 }
-type TypeDotPythonLikeDictPreserveOrder []PythonLikeDictEntry
+type TypeDotPythonLikeDictPreserveOrder []PythonLikeDictEntry // TODO
 type TypeDotPythonLikeDict map[string]TypeDotAny
 type TypeDotJsLikeFunction func(...TypeDotAny) TypeDotAny
 type TypeDotJsLikeInt int64
@@ -95,6 +95,7 @@ func getIsPythonLikeDict(variadicArguments ...TypeDotAny) TypeDotAny {
 
 func getIsPythonLikeList(variadicArguments ...TypeDotAny) TypeDotAny {
 	anything := variadicArguments[0]
+	// TODO
 	anyGoType := reflect.TypeOf(anything)
 	return ((anyGoType.Kind() == reflect.Slice) || (anyGoType == reflect.TypeOf(TypeDotPythonLikeList{})) || (anyGoType.String() == "[]interface {}") || (anyGoType.String() == "[]interface {  }"))
 }
@@ -198,6 +199,7 @@ func pipe(variadicArguments ...TypeDotAny) TypeDotAny {
 }
 
 func jsonStringify(variadicArguments ...TypeDotAny) TypeDotAny {
+	// TODO
 	next, stop := iter.Pull(slices.Values(variadicArguments))
 	defer stop()
 
