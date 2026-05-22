@@ -3,7 +3,7 @@
 FILE_NAME_WITH_EXTENSION="$1"
 
 LANGUAGE_NAME="javascript"
-COMMAND_CHECK_LANGUAGE_VERSION="node --version"
+COMMAND_CHECK_LANGUAGE_VERSION="node --version && npm --version"
 COMMAND_RUN_LANGUAGE_CODE="node \"$FILE_NAME_WITH_EXTENSION\""
 
 bash ./runner/runner.sh \

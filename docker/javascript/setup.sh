@@ -10,7 +10,7 @@ docker build \
     .
 
 COMMAND_INSTALL_DEPENDENCIES="
-npm install -g npm@latest --no-fund --no-audit
+npm install -g npm@11.13.0 --no-fund --no-audit
 rm -rf node_modules package-lock.json
 npm install --no-fund --no-audit
 "
