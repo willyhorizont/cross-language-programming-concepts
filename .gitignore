@@ -9,3 +9,7 @@ __pycache__
 *.jar
 *.class
 Main.java
+
+.env*
+package.json
+package-lock.json

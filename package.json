@@ -1,5 +1,5 @@
 {
-    "dependencies": {
-        "willyhorizont.github.io": "github:willyhorizont/willyhorizont.github.io"
-    }
+  "dependencies": {
+    "willyhorizont.github.io": "github:willyhorizont/willyhorizont.github.io#1.0.0"
+  }
 }
