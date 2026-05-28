@@ -2,6 +2,7 @@
 
 clear_docker_cache() {
     sudo docker rm -f local-cache
+    sudo rm -rf /var/lib/docker-cache
 }
 
 print_docker_cache(){
@@ -15,7 +16,7 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 sudo docker run -d -p 127.0.0.1:5000:5000 \
   --name local-cache \
-  -e REGISTRY_PROXY_REMOTEURL=https://docker.io \
+  -e REGISTRY_PROXY_REMOTEURL=https://registry-1.docker.io \
   -v /var/lib/docker-cache:/var/lib/registry \
   --restart always \
   registry:2
