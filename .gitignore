@@ -13,3 +13,5 @@ Main.java
 .env*
 package.json
 package-lock.json
+
+composer

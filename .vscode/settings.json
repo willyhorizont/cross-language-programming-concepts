@@ -176,6 +176,7 @@
         ".nu": "bash ./runner/nu/run.sh $fileName",
         ".elv": "bash ./runner/elv/run.sh $fileName",
         ".vim": "bash ./runner/vim9script/run.sh $fileName",
+        ".rs": "bash ./runner/rust/run.sh $fileName",
     },
     "code-runner.executorMap": {
         "shellscript": "bash $fullFileName",
@@ -208,7 +209,7 @@
         "gdscript": "cd $dir && godot --script --headless $fileName",
         "elixir": "cd $dir && elixir $fileName",
         "perl6": "cd $dir && perl6 $fileName",
-        "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt.exe && del \"$dir$fileNameWithoutExt.exe\"",
+        "rust": "bash ./runner/rust/run.sh $fileName",
         "crystal": "cd $dir && crystal $fileName",
         "v": "cd $dir && v run $fileName",
         "odin": "cd $dir && odin run $fileName -file",
