@@ -1,0 +1,2 @@
+resources:
+https://learnxinyminutes.com/vim9script/

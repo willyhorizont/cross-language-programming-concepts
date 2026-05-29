@@ -32,7 +32,32 @@ bash ./runner/javascript/run.sh hello-world.js
 
 ---
 
-## Programming concepts 
+## Languages  
+1. [JavaScript]("https://nodejs.org/") <—> [https://nodejs.org/](https://nodejs.org/)  
+2. [Python]("https://www.python.org/") <—> [https://www.python.org/](https://www.python.org/)  
+3. [PHP]("https://www.php.net/") <—> [https://www.php.net/](https://www.php.net/)  
+4. [GO]("https://go.dev/") <—> [https://go.dev/](https://go.dev/)  
+5. [Perl]("https://www.perl.org/") <—> [https://www.perl.org/](https://www.perl.org/)  
+6. [Julia]("https://julialang.org/") <—> [https://julialang.org/](https://julialang.org/)  
+7. [Lua]("https://www.lua.org/") <—> [https://www.lua.org/](https://www.lua.org/)  
+8. [Ruby]("https://www.ruby-lang.org/") <—> [https://www.ruby-lang.org/](https://www.ruby-lang.org/)  
+9. [R]("https://www.r-project.org/") <—> [https://www.r-project.org/](https://www.r-project.org/)  
+10. [Kotlin]("https://kotlinlang.org/") <—> [https://kotlinlang.org/](https://kotlinlang.org/)  
+11. [Swift]("https://www.swift.org/") <—> [https://www.swift.org/](https://www.swift.org/)  
+12. [Dart]("https://dart.dev/") <—> [https://dart.dev/](https://dart.dev/)  
+13. [VB.NET]("https://learn.microsoft.com/en-us/dotnet/visual-basic/") <—> [https://learn.microsoft.com/en-us/dotnet/visual-basic/](https://learn.microsoft.com/en-us/dotnet/visual-basic/)  
+14. [C#]("https://learn.microsoft.com/en-us/dotnet/csharp/") <—> [https://learn.microsoft.com/en-us/dotnet/csharp/](https://learn.microsoft.com/en-us/dotnet/csharp/)  
+15. [MATLAB]("https://www.mathworks.com/products/matlab.html") <—> [https://www.mathworks.com/products/matlab.html](https://www.mathworks.com/products/matlab.html)  
+16. [GNU Octave]("https://octave.org/") <—> [https://octave.org/](https://octave.org/)  
+17. [Wolfram Language Script]("https://www.wolfram.com/wolframscript/") <—> [https://www.wolfram.com/wolframscript/](https://www.wolfram.com/wolframscript/)  
+18. [Raku]("https://raku.org/") <—> [https://raku.org/](https://raku.org/)  
+19. [Scala]("https://www.scala-lang.org/") <—> [https://www.scala-lang.org/](https://www.scala-lang.org/)  
+20. [Java]("https://www.oracle.com/java/") <—> [https://www.oracle.com/java/](https://www.oracle.com/java/)  
+21. [Nu]("https://www.nushell.sh/") <—> [https://www.nushell.sh/](https://www.nushell.sh/)  
+22. [Elv]("https://elv.sh/") <—> [https://elv.sh/](https://elv.sh/)  
+23. [Vim9 Script]("https://vimhelp.org/vim9.txt.html") <—> [https://vimhelp.org/vim9.txt.html](https://vimhelp.org/vim9.txt.html)  
+
+## Programming concepts  
 
 ### cross-language-features  
   1.  [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/cross-language-features.js)  
@@ -55,6 +80,9 @@ bash ./runner/javascript/run.sh hello-world.js
   18. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/cross-language-features.raku)  
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/cross-language-features.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/cross-language-features.java)  
+  21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/cross-language-features.nu)  
+  22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/cross-language-features.elv)  
+  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/cross-language-features.vim)  
 
 ---
 
@@ -79,6 +107,9 @@ bash ./runner/javascript/run.sh hello-world.js
   18. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/comments.raku)  
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/comments.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/comments.java)  
+  21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/comments.nu)  
+  22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/comments.elv)  
+  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/comments.vim)  
 
 ---
 
@@ -103,6 +134,9 @@ bash ./runner/javascript/run.sh hello-world.js
   18. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/hello-world.raku)  
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/hello-world.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/hello-world.java)  
+  21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/hello-world.nu)  
+  22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/hello-world.elv)  
+  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/hello-world.vim)  
 
 ---
 
@@ -127,6 +161,9 @@ bash ./runner/javascript/run.sh hello-world.js
   18. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/conditionals.raku)  
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/conditionals.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/conditionals.java)  
+  21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/conditionals.nu)  
+  22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/conditionals.elv)  
+  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/conditionals.vim)  
 
 ---
 
@@ -151,6 +188,9 @@ bash ./runner/javascript/run.sh hello-world.js
   18. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/loops.raku)  
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/loops.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/loops.java)  
+  21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/loops.nu)  
+  22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/loops.elv)  
+  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/loops.vim)  
 
 ---
 
@@ -175,6 +215,9 @@ bash ./runner/javascript/run.sh hello-world.js
   18. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/functions.raku)  
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/functions.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/functions.java)  
+  21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/functions.nu)  
+  22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/functions.elv)  
+  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/functions.vim)  
 
 ---
 
@@ -199,6 +242,9 @@ bash ./runner/javascript/run.sh hello-world.js
   18. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/error-handling.raku)  
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/error-handling.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/error-handling.java)  
+  21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/error-handling.nu)  
+  22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/error-handling.elv)  
+  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/error-handling.vim)  
 
 ---
 
@@ -223,6 +269,9 @@ bash ./runner/javascript/run.sh hello-world.js
   18. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/python-like-list.raku) : List  
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/python-like-list.scala) : mutable.ArrayBuffer[Any]  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/python-like-list.java) : ArrayList&lt;Object&gt;  
+  21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/python-like-list.java) : ArrayList&lt;Object&nu;  
+  22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/python-like-list.java) : ArrayList&lt;Object&elv;  
+  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/python-like-list.java) : ArrayList&lt;Object&vim;  
 
 ---
 
@@ -247,6 +296,9 @@ bash ./runner/javascript/run.sh hello-world.js
   18. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.raku) : HASH  
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.scala) : mutable.Map[String, Any]  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&gt;  
+  21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&nu;  
+  22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&elv;  
+  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&vim;  
 
 ---
 
@@ -271,6 +323,9 @@ bash ./runner/javascript/run.sh hello-world.js
   18. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/loop-through-each-list-item.raku)  
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/loop-through-each-list-item.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/loop-through-each-list-item.java)  
+  21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/loop-through-each-list-item.nu)  
+  22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/loop-through-each-list-item.elv)  
+  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/loop-through-each-list-item.vim)  
 
 ---
 
@@ -295,6 +350,9 @@ bash ./runner/javascript/run.sh hello-world.js
   18. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/get-is-any-item-in-list-matching-condition.raku)  
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/get-is-any-item-in-list-matching-condition.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/get-is-any-item-in-list-matching-condition.java)  
+  21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/get-is-any-item-in-list-matching-condition.nu)  
+  22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/get-is-any-item-in-list-matching-condition.elv)  
+  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-is-any-item-in-list-matching-condition.vim)  
 
 ---
 
@@ -319,6 +377,9 @@ bash ./runner/javascript/run.sh hello-world.js
   18. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/get-is-all-item-in-list-matching-condition.raku)  
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/get-is-all-item-in-list-matching-condition.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/get-is-all-item-in-list-matching-condition.java)  
+  21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/get-is-all-item-in-list-matching-condition.nu)  
+  22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/get-is-all-item-in-list-matching-condition.elv)  
+  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-is-all-item-in-list-matching-condition.vim)  
 
 ---
 
@@ -343,6 +404,9 @@ bash ./runner/javascript/run.sh hello-world.js
   18. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/get-first-list-item-matching-condition.raku)  
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/get-first-list-item-matching-condition.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/get-first-list-item-matching-condition.java)  
+  21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/get-first-list-item-matching-condition.nu)  
+  22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/get-first-list-item-matching-condition.elv)  
+  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-first-list-item-matching-condition.vim)  
 
 ---
 
@@ -367,6 +431,9 @@ bash ./runner/javascript/run.sh hello-world.js
   18. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/get-index-of-list-item-matching-condition.raku)  
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/get-index-of-list-item-matching-condition.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/get-index-of-list-item-matching-condition.java)  
+  21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/get-index-of-list-item-matching-condition.nu)  
+  22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/get-index-of-list-item-matching-condition.elv)  
+  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-index-of-list-item-matching-condition.vim)  
 
 ---
 
@@ -391,6 +458,9 @@ bash ./runner/javascript/run.sh hello-world.js
   18. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/get-all-list-item-matching-condition.raku)  
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/get-all-list-item-matching-condition.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/get-all-list-item-matching-condition.java)  
+  21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/get-all-list-item-matching-condition.nu)  
+  22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/get-all-list-item-matching-condition.elv)  
+  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-all-list-item-matching-condition.vim)  
 
 ---
 
@@ -415,6 +485,9 @@ bash ./runner/javascript/run.sh hello-world.js
   18. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/transform-each-list-item.raku)  
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/transform-each-list-item.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/transform-each-list-item.java)  
+  21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/transform-each-list-item.nu)  
+  22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/transform-each-list-item.elv)  
+  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/transform-each-list-item.vim)  
 
 ---
 
@@ -439,3 +512,6 @@ bash ./runner/javascript/run.sh hello-world.js
   18. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/combine-all-list-item.raku)  
   19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/combine-all-list-item.scala)  
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/combine-all-list-item.java)  
+  21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/combine-all-list-item.nu)  
+  22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/combine-all-list-item.elv)  
+  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/combine-all-list-item.vim)  

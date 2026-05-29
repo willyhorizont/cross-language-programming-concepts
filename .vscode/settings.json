@@ -173,6 +173,9 @@
     "code-runner.executorMapByFileExtension": {
         ".mojo": "bash ./runner/mojo/run.sh $fileName",
         ".scala": "bash ./runner/scala/run.sh $fileName",
+        ".nu": "bash ./runner/nu/run.sh $fileName",
+        ".elv": "bash ./runner/elv/run.sh $fileName",
+        ".vim": "bash ./runner/vim9script/run.sh $fileName",
     },
     "code-runner.executorMap": {
         "shellscript": "bash $fullFileName",
