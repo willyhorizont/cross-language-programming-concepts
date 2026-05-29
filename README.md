@@ -5,7 +5,7 @@ Cross-language implementations of common programming concepts, data structures, 
 ## Requirements
 
 - [Docker Engine](https://docs.docker.com/engine/install/)
-- Git
+- [Git](https://git-scm.com/)
 
 ---
 ## Recommended environment
@@ -33,31 +33,31 @@ bash ./runner/javascript/run.sh hello-world.js
 ---
 
 ## Languages  
-1. [JavaScript]("https://nodejs.org/") <—> [https://nodejs.org/](https://nodejs.org/)  
-2. [Python]("https://www.python.org/") <—> [https://www.python.org/](https://www.python.org/)  
-3. [PHP]("https://www.php.net/") <—> [https://www.php.net/](https://www.php.net/)  
-4. [GO]("https://go.dev/") <—> [https://go.dev/](https://go.dev/)  
-5. [Perl]("https://www.perl.org/") <—> [https://www.perl.org/](https://www.perl.org/)  
-6. [Julia]("https://julialang.org/") <—> [https://julialang.org/](https://julialang.org/)  
-7. [Lua]("https://www.lua.org/") <—> [https://www.lua.org/](https://www.lua.org/)  
-8. [Ruby]("https://www.ruby-lang.org/") <—> [https://www.ruby-lang.org/](https://www.ruby-lang.org/)  
-9. [R]("https://www.r-project.org/") <—> [https://www.r-project.org/](https://www.r-project.org/)  
-10. [Kotlin]("https://kotlinlang.org/") <—> [https://kotlinlang.org/](https://kotlinlang.org/)  
-11. [Swift]("https://www.swift.org/") <—> [https://www.swift.org/](https://www.swift.org/)  
-12. [Dart]("https://dart.dev/") <—> [https://dart.dev/](https://dart.dev/)  
-13. [VB.NET]("https://learn.microsoft.com/en-us/dotnet/visual-basic/") <—> [https://learn.microsoft.com/en-us/dotnet/visual-basic/](https://learn.microsoft.com/en-us/dotnet/visual-basic/)  
-14. [C#]("https://learn.microsoft.com/en-us/dotnet/csharp/") <—> [https://learn.microsoft.com/en-us/dotnet/csharp/](https://learn.microsoft.com/en-us/dotnet/csharp/)  
-15. [MATLAB]("https://www.mathworks.com/products/matlab.html") <—> [https://www.mathworks.com/products/matlab.html](https://www.mathworks.com/products/matlab.html)  
-16. [GNU Octave]("https://octave.org/") <—> [https://octave.org/](https://octave.org/)  
-17. [Wolfram Language Script]("https://www.wolfram.com/wolframscript/") <—> [https://www.wolfram.com/wolframscript/](https://www.wolfram.com/wolframscript/)  
-18. [Raku]("https://raku.org/") <—> [https://raku.org/](https://raku.org/)  
-19. [Scala]("https://www.scala-lang.org/") <—> [https://www.scala-lang.org/](https://www.scala-lang.org/)  
-20. [Java]("https://www.oracle.com/java/") <—> [https://www.oracle.com/java/](https://www.oracle.com/java/)  
-21. [Nu]("https://www.nushell.sh/") <—> [https://www.nushell.sh/](https://www.nushell.sh/)  
-22. [Elv]("https://elv.sh/") <—> [https://elv.sh/](https://elv.sh/)  
-23. [Vim9 Script]("https://vimhelp.org/vim9.txt.html") <—> [https://vimhelp.org/vim9.txt.html](https://vimhelp.org/vim9.txt.html)  
-24. [Rust]("https://rust-lang.org/") <—> [https://rust-lang.org/](https://rust-lang.org/)  
-25. [Nix]("https://nixos.org/") <—> [https://nixos.org/](https://nixos.org/)  
+1. [JavaScript](https://nodejs.org/) <—> [https://nodejs.org/](https://nodejs.org/)  
+2. [Python](https://www.python.org/) <—> [https://www.python.org/](https://www.python.org/)  
+3. [PHP](https://www.php.net/) <—> [https://www.php.net/](https://www.php.net/)  
+4. [GO](https://go.dev/) <—> [https://go.dev/](https://go.dev/)  
+5. [Perl](https://www.perl.org/) <—> [https://www.perl.org/](https://www.perl.org/)  
+6. [Julia](https://julialang.org/) <—> [https://julialang.org/](https://julialang.org/)  
+7. [Lua](https://www.lua.org/) <—> [https://www.lua.org/](https://www.lua.org/)  
+8. [Ruby](https://www.ruby-lang.org/) <—> [https://www.ruby-lang.org/](https://www.ruby-lang.org/)  
+9. [R](https://www.r-project.org/) <—> [https://www.r-project.org/](https://www.r-project.org/)  
+10. [Kotlin](https://kotlinlang.org/) <—> [https://kotlinlang.org/](https://kotlinlang.org/)  
+11. [Swift](https://www.swift.org/) <—> [https://www.swift.org/](https://www.swift.org/)  
+12. [Dart](https://dart.dev/) <—> [https://dart.dev/](https://dart.dev/)  
+13. [VB.NET](https://learn.microsoft.com/en-us/dotnet/visual-basic/) <—> [https://learn.microsoft.com/en-us/dotnet/visual-basic/](https://learn.microsoft.com/en-us/dotnet/visual-basic/)  
+14. [C#](https://learn.microsoft.com/en-us/dotnet/csharp/) <—> [https://learn.microsoft.com/en-us/dotnet/csharp/](https://learn.microsoft.com/en-us/dotnet/csharp/)  
+15. [MATLAB](https://www.mathworks.com/products/matlab.html) <—> [https://www.mathworks.com/products/matlab.html](https://www.mathworks.com/products/matlab.html)  
+16. [GNU Octave](https://octave.org/) <—> [https://octave.org/](https://octave.org/)  
+17. [Wolfram Language Script](https://www.wolfram.com/wolframscript/) <—> [https://www.wolfram.com/wolframscript/](https://www.wolfram.com/wolframscript/)  
+18. [Raku](https://raku.org/) <—> [https://raku.org/](https://raku.org/)  
+19. [Scala](https://www.scala-lang.org/) <—> [https://www.scala-lang.org/](https://www.scala-lang.org/)  
+20. [Java](https://www.oracle.com/java/) <—> [https://www.oracle.com/java/](https://www.oracle.com/java/)  
+21. [Nu](https://www.nushell.sh/) <—> [https://www.nushell.sh/](https://www.nushell.sh/)  
+22. [Elv](https://elv.sh/) <—> [https://elv.sh/](https://elv.sh/)  
+23. [Vim9 Script](https://vimhelp.org/vim9.txt.html) <—> [https://vimhelp.org/vim9.txt.html](https://vimhelp.org/vim9.txt.html)  
+24. [Rust](https://rust-lang.org/) <—> [https://rust-lang.org/](https://rust-lang.org/)  
+25. [Nix](https://nixos.org/) <—> [https://nixos.org/](https://nixos.org/)  
 
 ## Programming concepts  
 
