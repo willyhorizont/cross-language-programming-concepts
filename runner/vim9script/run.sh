@@ -12,11 +12,13 @@ if [ -f "$ENV_FILE" ]; then
     source "$ENV_FILE"
 fi
 
-DOCKERFILE_PATH="$ROOT_DIR/docker/$LANGUAGE_NAME/Dockerfile"
-IMAGE=$(awk 'NR==1 {sub(/^FROM[ ]{1}/,""); print}' "$DOCKERFILE_PATH" 2>/dev/null)
-IMAGE=${IMAGE:-"thinca/vim:v9.2.0555-basic-ubuntu"}
+IMAGE="thinca/vim:v9.2.0555-basic-ubuntu"
 
-echo ">$COMMAND_CHECK_LANGUAGE_VERSION"
+echo "
+echo \">docker images\"
+$IMAGE
+>vim --version 2>/dev/null | head -n 1
+"
 
 docker run -it --rm \
     "$IMAGE" \

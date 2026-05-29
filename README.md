@@ -57,6 +57,7 @@ bash ./runner/javascript/run.sh hello-world.js
 22. [Elv]("https://elv.sh/") <—> [https://elv.sh/](https://elv.sh/)  
 23. [Vim9 Script]("https://vimhelp.org/vim9.txt.html") <—> [https://vimhelp.org/vim9.txt.html](https://vimhelp.org/vim9.txt.html)  
 24. [Rust]("https://rust-lang.org/") <—> [https://rust-lang.org/](https://rust-lang.org/)  
+25. [Nix]("https://nixos.org/") <—> [https://nixos.org/](https://nixos.org/)  
 
 ## Programming concepts  
 
@@ -85,6 +86,7 @@ bash ./runner/javascript/run.sh hello-world.js
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/cross-language-features.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/cross-language-features.vim)  
   24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/cross-language-features.rs)  
+  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/cross-language-features.nix)  
 
 ---
 
@@ -113,6 +115,7 @@ bash ./runner/javascript/run.sh hello-world.js
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/comments.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/comments.vim)  
   23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/comments.rs)  
+  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/comments.nix)  
 
 ---
 
@@ -141,6 +144,7 @@ bash ./runner/javascript/run.sh hello-world.js
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/hello-world.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/hello-world.vim)  
   23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/hello-world.rs)  
+  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/hello-world.nix)  
 
 ---
 
@@ -169,6 +173,7 @@ bash ./runner/javascript/run.sh hello-world.js
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/conditionals.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/conditionals.vim)  
   23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/conditionals.rs)  
+  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/conditionals.nix)  
 
 ---
 
@@ -197,6 +202,7 @@ bash ./runner/javascript/run.sh hello-world.js
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/loops.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/loops.vim)  
   23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/loops.rs)  
+  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/loops.nix)  
 
 ---
 
@@ -225,6 +231,7 @@ bash ./runner/javascript/run.sh hello-world.js
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/functions.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/functions.vim)  
   23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/functions.rs)  
+  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/functions.nix)  
 
 ---
 
@@ -253,6 +260,7 @@ bash ./runner/javascript/run.sh hello-world.js
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/error-handling.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/error-handling.vim)  
   23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/error-handling.rs)  
+  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/error-handling.nix)  
 
 ---
 
@@ -281,6 +289,7 @@ bash ./runner/javascript/run.sh hello-world.js
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/python-like-list.java) : ArrayList&lt;Object&elv;  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/python-like-list.java) : ArrayList&lt;Object&vim;  
   23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/python-like-list.java) : ArrayList&lt;Object&rs;  
+  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/python-like-list.java) : ArrayList&lt;Object&nix;  
 
 ---
 
@@ -309,6 +318,7 @@ bash ./runner/javascript/run.sh hello-world.js
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&elv;  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&vim;  
   23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&rs;  
+  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&nix;  
 
 ---
 
@@ -337,6 +347,7 @@ bash ./runner/javascript/run.sh hello-world.js
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/loop-through-each-list-item.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/loop-through-each-list-item.vim)  
   23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/loop-through-each-list-item.rs)  
+  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/loop-through-each-list-item.nix)  
 
 ---
 
@@ -365,6 +376,7 @@ bash ./runner/javascript/run.sh hello-world.js
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/get-is-any-item-in-list-matching-condition.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-is-any-item-in-list-matching-condition.vim)  
   23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/get-is-any-item-in-list-matching-condition.rs)  
+  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/get-is-any-item-in-list-matching-condition.nix)  
 
 ---
 
@@ -393,6 +405,7 @@ bash ./runner/javascript/run.sh hello-world.js
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/get-is-all-item-in-list-matching-condition.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-is-all-item-in-list-matching-condition.vim)  
   23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/get-is-all-item-in-list-matching-condition.rs)  
+  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/get-is-all-item-in-list-matching-condition.nix)  
 
 ---
 
@@ -421,6 +434,7 @@ bash ./runner/javascript/run.sh hello-world.js
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/get-first-list-item-matching-condition.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-first-list-item-matching-condition.vim)  
   23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/get-first-list-item-matching-condition.rs)  
+  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/get-first-list-item-matching-condition.nix)  
 
 ---
 
@@ -449,6 +463,7 @@ bash ./runner/javascript/run.sh hello-world.js
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/get-index-of-list-item-matching-condition.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-index-of-list-item-matching-condition.vim)  
   23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/get-index-of-list-item-matching-condition.rs)  
+  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/get-index-of-list-item-matching-condition.nix)  
 
 ---
 
@@ -477,6 +492,7 @@ bash ./runner/javascript/run.sh hello-world.js
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/get-all-list-item-matching-condition.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-all-list-item-matching-condition.vim)  
   23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/get-all-list-item-matching-condition.rs)  
+  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/get-all-list-item-matching-condition.nix)  
 
 ---
 
@@ -505,6 +521,7 @@ bash ./runner/javascript/run.sh hello-world.js
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/transform-each-list-item.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/transform-each-list-item.vim)  
   23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/transform-each-list-item.rs)  
+  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/transform-each-list-item.nix)  
 
 ---
 
@@ -533,3 +550,4 @@ bash ./runner/javascript/run.sh hello-world.js
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/combine-all-list-item.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/combine-all-list-item.vim)  
   23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/combine-all-list-item.rs)  
+  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/combine-all-list-item.nix)  

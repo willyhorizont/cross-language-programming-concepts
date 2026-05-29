@@ -177,6 +177,7 @@
         ".elv": "bash ./runner/elv/run.sh $fileName",
         ".vim": "bash ./runner/vim9script/run.sh $fileName",
         ".rs": "bash ./runner/rust/run.sh $fileName",
+        ".nix": "bash ./runner/nix/run.sh $fileName",
     },
     "code-runner.executorMap": {
         "shellscript": "bash $fullFileName",

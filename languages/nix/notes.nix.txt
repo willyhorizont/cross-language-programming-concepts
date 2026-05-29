@@ -1,0 +1,7 @@
+resources:
+https://nix.dev/tutorials/nix-language.html
+https://nixos.org/guides/nix-pills/
+https://nix.dev/manual/nix/2.28/language/index.html
+https://nixos.org/
+https://nixos.org/download/
+https://nixos.org/learn/
