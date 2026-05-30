@@ -59,8 +59,7 @@ bash ./runner/javascript/run.sh hello-world.js
 24. [Rust](https://rust-lang.org/) <—> [https://rust-lang.org/](https://rust-lang.org/)  
 25. [Nix](https://nixos.org/) <—> [https://nixos.org/](https://nixos.org/)  
 26. [Tcl](https://www.tcl-lang.org/) <—> [https://www.tcl-lang.org/](https://www.tcl-lang.org/)  
-27. [GDScript](https://www.tcl-lang.org/) <—> [https://www.gdscript-lang.org/](https://www.tcl-lang.ogd)  
-28. [GDScript](https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html) <—> [https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html](https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html)  
+27. [GDScript](https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html) <—> [https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html](https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html)  
 
 ## Programming concepts  
 
@@ -151,8 +150,9 @@ bash ./runner/javascript/run.sh hello-world.js
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/hello-world.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/hello-world.vim)  
   24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/hello-world.rs)  
-  26. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/hello-world.nix)  
-  27. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/hello-world.tcl)  
+  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/hello-world.nix)  
+  26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/hello-world.tcl)  
+  27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/hello-world.gd)  
 
 ---
 
