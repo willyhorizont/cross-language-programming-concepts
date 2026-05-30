@@ -12,12 +12,12 @@ if [ -f "$ENV_FILE" ]; then
     source "$ENV_FILE"
 fi
 
-if [ "$IS_RUNTIME_COMPILED" != "TRUE" ]; then
+if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
     rm -rf "$ROOT_DIR/runtimes/$LANGUAGE_NAME/willyhorizont/runtime/"*.class
     rm -rf "$ROOT_DIR/runtimes/$LANGUAGE_NAME/willyhorizont/"*.class
     rm -rf "$ROOT_DIR/runtimes/$LANGUAGE_NAME/"*.class
     find "$ROOT_DIR/runtimes/$LANGUAGE_NAME" -name "*.java" -print0 | xargs -0 javac -d "$ROOT_DIR/runtimes/$LANGUAGE_NAME"
-    echo 'IS_RUNTIME_COMPILED="TRUE"' > "$ENV_FILE"
+    echo 'IS_RUNTIME_INSTALLED="TRUE"' > "$ENV_FILE"
 fi
 
 IMAGE="eclipse-temurin:26.0.1_8-jdk"

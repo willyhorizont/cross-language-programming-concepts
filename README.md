@@ -15,18 +15,10 @@ Cross-language implementations of common programming concepts, data structures, 
 
 ---
 
-## Build command example
-
-```bash
-chmod +x docker/javascript/setup.sh
-chmod +x runner/javascript/run.sh
-
-./docker/javascript/setup.sh
-```
-
 ## Run command example
 
 ```bash
+chmod +x docker/javascript/setup.sh
 bash ./runner/javascript/run.sh hello-world.js
 ```
 
@@ -280,7 +272,7 @@ bash ./runner/javascript/run.sh hello-world.js
 
 ---
 
-### python-like list  
+### python-like-list  
   1.  [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/python-like-list.js) : Array  
   2.  [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/python-like-list.py) : list  
   3.  [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/python-like-list.php) : array  
@@ -311,38 +303,38 @@ bash ./runner/javascript/run.sh hello-world.js
 
 ---
 
-### python-like Dict  
-  1.  [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.js) : Object  
-  2.  [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.py) : Dict  
-  3.  [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.php) : associative array  
-  4.  [GO](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.go) : map[string]interface{}  
-  5.  [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.pl) : HASH  
-  6.  [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.jl) : Dict{String, Any}
-  7.  [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.lua) : hash table
-  8.  [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.rb) : Hash  
-  9.  [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.r) : associative list  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.kt) : MutableMap&lt;String, Any?&gt;  
-  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.swift) : OrderedDictionary&lt;String, Any?&gt;  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.dart) : Map&lt;String, dynamic&gt;  
-  13. [VB.NET](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.vb) : Dictionary(Of String, Object)  
-  14. [C#](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.cs) : Dictionary&lt;string, dynamic&gt;  
-  15. [MATLAB](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.m) : struct  
-  16. [GNU Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gnu-octave/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.m) : struct  
-  17. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.wls) : Association  
-  18. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.raku) : HASH  
-  19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.scala) : mutable.Map[String, Any]  
-  20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&gt;  
-  21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&nu;  
-  22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&elv;  
-  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&vim;  
-  24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&rs;  
-  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&nix;  
-  26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&tcl;  
-  27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&gd;  
+### python-like-dict  
+  1.  [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/python-like-dict.js) : Object  
+  2.  [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/python-like-dict.py) : Dict  
+  3.  [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/python-like-dict.php) : associative array  
+  4.  [GO](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/python-like-dict.go) : map[string]interface{}  
+  5.  [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/python-like-dict.pl) : HASH  
+  6.  [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/python-like-dict.jl) : Dict{String, Any}
+  7.  [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/python-like-dict.lua) : hash table
+  8.  [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/python-like-dict.rb) : Hash  
+  9.  [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/python-like-dict.r) : associative list  
+  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/python-like-dict.kt) : MutableMap&lt;String, Any?&gt;  
+  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/python-like-dict.swift) : OrderedDictionary&lt;String, Any?&gt;  
+  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/python-like-dict.dart) : Map&lt;String, dynamic&gt;  
+  13. [VB.NET](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/python-like-dict.vb) : Dictionary(Of String, Object)  
+  14. [C#](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/python-like-dict.cs) : Dictionary&lt;string, dynamic&gt;  
+  15. [MATLAB](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab/python-like-dict.m) : struct  
+  16. [GNU Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gnu-octave/python-like-dict.m) : struct  
+  17. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/python-like-dict.wls) : Association  
+  18. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/python-like-dict.raku) : HASH  
+  19. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/python-like-dict.scala) : mutable.Map[String, Any]  
+  20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/python-like-dict.java) : HashMap&lt;String, Object&gt;  
+  21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/python-like-dict.java) : HashMap&lt;String, Object&nu;  
+  22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/python-like-dict.java) : HashMap&lt;String, Object&elv;  
+  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/python-like-dict.java) : HashMap&lt;String, Object&vim;  
+  24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/python-like-dict.java) : HashMap&lt;String, Object&rs;  
+  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/python-like-dict.java) : HashMap&lt;String, Object&nix;  
+  26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/python-like-dict.java) : HashMap&lt;String, Object&tcl;  
+  27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/python-like-dict.java) : HashMap&lt;String, Object&gd;  
 
 ---
 
-### loop-through-each-list-item  
+### loop-through-each-list-item (forEach)  
   1.  [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/loop-through-each-list-item.js)  
   2.  [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/loop-through-each-list-item.py)  
   3.  [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/loop-through-each-list-item.php)  

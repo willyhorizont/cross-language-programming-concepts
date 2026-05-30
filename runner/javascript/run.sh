@@ -14,17 +14,17 @@ fi
 
 IMAGE="node:26.1.0"
 
-if [ "$IS_RUNTIME_COMPILED" != "TRUE" ]; then
-    COMMAND_INSTALL_NPM="npm install -g npm@11.13.0 --no-fund --no-audit --silent"
+if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
+    COMMAND_INSTALL_PACKAGE_MANAGER="npm install -g npm@11.13.0 --no-fund --no-audit --silent"
     COMMAND_INSTALL_RUNTIME="npm install github:willyhorizont/willyhorizont.github.io#1.0.0 --no-fund --no-audit --silent"
-    echo ">$COMMAND_INSTALL_NPM"
+    echo ">$COMMAND_INSTALL_PACKAGE_MANAGER"
     echo ">$COMMAND_INSTALL_RUNTIME"
 
     COMMAND_POST_INSTALLATION="
     rm -rf /workspace/node_modules
     rm -rf /workspace/package.json
     rm -rf /workspace/package-lock.json
-    $COMMAND_INSTALL_NPM
+    $COMMAND_INSTALL_PACKAGE_MANAGER
     $COMMAND_INSTALL_RUNTIME
     "
 
@@ -33,7 +33,7 @@ if [ "$IS_RUNTIME_COMPILED" != "TRUE" ]; then
         -w /workspace \
         "$IMAGE" \
         bash -c "$COMMAND_POST_INSTALLATION"
-    echo 'IS_RUNTIME_COMPILED="TRUE"' > "$ENV_FILE"
+    echo 'IS_RUNTIME_INSTALLED="TRUE"' > "$ENV_FILE"
 fi
 
 COMMAND_CHECK_LANGUAGE_VERSION="
