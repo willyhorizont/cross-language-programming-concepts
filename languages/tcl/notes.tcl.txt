@@ -1,0 +1,1 @@
+in Tcl everything is a string
