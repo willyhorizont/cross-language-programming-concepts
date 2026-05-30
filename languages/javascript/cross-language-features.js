@@ -14,6 +14,9 @@ sayHello(() => {
 const multiply = (a) => (b) => (a * b);
 const multiplyByTwo = multiply(2);
 console.log(`multiplyByTwo(10): ${multiplyByTwo(10)}`);
+const multiplyByEight = multiply(8);
+console.log(`multiplyByEight(4): ${multiplyByEight(4)}`);
+console.log(`multiplyByTwo(8): ${multiplyByTwo(8)}`);
 
 /*
 2. support dynamic-typed value, or has workaround

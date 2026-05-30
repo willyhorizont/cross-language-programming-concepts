@@ -178,6 +178,7 @@
         ".vim": "bash ./runner/vim9script/run.sh $fileName",
         ".rs": "bash ./runner/rust/run.sh $fileName",
         ".nix": "bash ./runner/nix/run.sh $fileName",
+        ".tcl": "bash ./runner/tcl/run.sh $fileName",
     },
     "code-runner.executorMap": {
         "shellscript": "bash $fullFileName",
@@ -283,4 +284,5 @@
     "editor.multiCursorLimit": 100000,
     "editor.minimap.enabled": true,
     "java.project.referencedLibraries": [],
+    "tclLsp.dialect": "tcl9.0",
 }
