@@ -59,6 +59,8 @@ bash ./runner/javascript/run.sh hello-world.js
 24. [Rust](https://rust-lang.org/) <—> [https://rust-lang.org/](https://rust-lang.org/)  
 25. [Nix](https://nixos.org/) <—> [https://nixos.org/](https://nixos.org/)  
 26. [Tcl](https://www.tcl-lang.org/) <—> [https://www.tcl-lang.org/](https://www.tcl-lang.org/)  
+27. [GDScript](https://www.tcl-lang.org/) <—> [https://www.gdscript-lang.org/](https://www.tcl-lang.ogd)  
+28. [GDScript](https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html) <—> [https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html](https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html)  
 
 ## Programming concepts  
 
@@ -88,7 +90,8 @@ bash ./runner/javascript/run.sh hello-world.js
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/cross-language-features.vim)  
   24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/cross-language-features.rs)  
   25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/cross-language-features.nix)  
-  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/cross-language-features.tcl)  
+  26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/cross-language-features.tcl)  
+  27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/cross-language-features.gd)  
 
 ---
 
@@ -116,9 +119,10 @@ bash ./runner/javascript/run.sh hello-world.js
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/comments.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/comments.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/comments.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/comments.rs)  
-  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/comments.nix)  
-  23. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/comments.tcl)  
+  24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/comments.rs)  
+  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/comments.nix)  
+  26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/comments.tcl)  
+  27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/comments.gd)  
 
 ---
 
@@ -146,9 +150,9 @@ bash ./runner/javascript/run.sh hello-world.js
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/hello-world.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/hello-world.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/hello-world.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/hello-world.rs)  
-  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/hello-world.nix)  
-  23. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/hello-world.tcl)  
+  24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/hello-world.rs)  
+  26. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/hello-world.nix)  
+  27. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/hello-world.tcl)  
 
 ---
 
@@ -176,9 +180,10 @@ bash ./runner/javascript/run.sh hello-world.js
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/conditionals.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/conditionals.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/conditionals.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/conditionals.rs)  
-  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/conditionals.nix)  
-  23. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/conditionals.tcl)  
+  24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/conditionals.rs)  
+  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/conditionals.nix)  
+  26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/conditionals.tcl)  
+  27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/conditionals.gd)  
 
 ---
 
@@ -206,9 +211,10 @@ bash ./runner/javascript/run.sh hello-world.js
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/loops.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/loops.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/loops.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/loops.rs)  
-  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/loops.nix)  
-  23. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/loops.tcl)  
+  24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/loops.rs)  
+  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/loops.nix)  
+  26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/loops.tcl)  
+  27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/loops.gd)  
 
 ---
 
@@ -236,9 +242,10 @@ bash ./runner/javascript/run.sh hello-world.js
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/functions.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/functions.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/functions.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/functions.rs)  
-  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/functions.nix)  
-  23. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/functions.tcl)  
+  24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/functions.rs)  
+  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/functions.nix)  
+  26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/functions.tcl)  
+  27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/functions.gd)  
 
 ---
 
@@ -266,9 +273,10 @@ bash ./runner/javascript/run.sh hello-world.js
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/error-handling.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/error-handling.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/error-handling.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/error-handling.rs)  
-  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/error-handling.nix)  
-  23. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/error-handling.tcl)  
+  24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/error-handling.rs)  
+  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/error-handling.nix)  
+  26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/error-handling.tcl)  
+  27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/error-handling.gd)  
 
 ---
 
@@ -296,9 +304,10 @@ bash ./runner/javascript/run.sh hello-world.js
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/python-like-list.java) : ArrayList&lt;Object&nu;  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/python-like-list.java) : ArrayList&lt;Object&elv;  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/python-like-list.java) : ArrayList&lt;Object&vim;  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/python-like-list.java) : ArrayList&lt;Object&rs;  
-  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/python-like-list.java) : ArrayList&lt;Object&nix;  
-  23. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/python-like-list.java) : ArrayList&lt;Object&tcl;  
+  24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/python-like-list.java) : ArrayList&lt;Object&rs;  
+  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/python-like-list.java) : ArrayList&lt;Object&nix;  
+  26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/python-like-list.java) : ArrayList&lt;Object&tcl;  
+  27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/python-like-list.java) : ArrayList&lt;Object&gd;  
 
 ---
 
@@ -326,9 +335,10 @@ bash ./runner/javascript/run.sh hello-world.js
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&nu;  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&elv;  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&vim;  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&rs;  
-  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&nix;  
-  23. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&tcl;  
+  24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&rs;  
+  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&nix;  
+  26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&tcl;  
+  27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/preserved-order-pair-of-string-key-and-dynamic-typed-value-list-data-structure.java) : HashMap&lt;String, Object&gd;  
 
 ---
 
@@ -356,9 +366,10 @@ bash ./runner/javascript/run.sh hello-world.js
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/loop-through-each-list-item.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/loop-through-each-list-item.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/loop-through-each-list-item.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/loop-through-each-list-item.rs)  
-  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/loop-through-each-list-item.nix)  
-  23. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/loop-through-each-list-item.tcl)  
+  24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/loop-through-each-list-item.rs)  
+  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/loop-through-each-list-item.nix)  
+  26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/loop-through-each-list-item.tcl)  
+  27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/loop-through-each-list-item.gd)  
 
 ---
 
@@ -386,9 +397,10 @@ bash ./runner/javascript/run.sh hello-world.js
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/get-is-any-item-in-list-matching-condition.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/get-is-any-item-in-list-matching-condition.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-is-any-item-in-list-matching-condition.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/get-is-any-item-in-list-matching-condition.rs)  
-  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/get-is-any-item-in-list-matching-condition.nix)  
-  23. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/get-is-any-item-in-list-matching-condition.tcl)  
+  24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/get-is-any-item-in-list-matching-condition.rs)  
+  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/get-is-any-item-in-list-matching-condition.nix)  
+  26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/get-is-any-item-in-list-matching-condition.tcl)  
+  27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/get-is-any-item-in-list-matching-condition.gd)  
 
 ---
 
@@ -416,9 +428,10 @@ bash ./runner/javascript/run.sh hello-world.js
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/get-is-all-item-in-list-matching-condition.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/get-is-all-item-in-list-matching-condition.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-is-all-item-in-list-matching-condition.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/get-is-all-item-in-list-matching-condition.rs)  
-  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/get-is-all-item-in-list-matching-condition.nix)  
-  23. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/get-is-all-item-in-list-matching-condition.tcl)  
+  24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/get-is-all-item-in-list-matching-condition.rs)  
+  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/get-is-all-item-in-list-matching-condition.nix)  
+  26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/get-is-all-item-in-list-matching-condition.tcl)  
+  27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/get-is-all-item-in-list-matching-condition.gd)  
 
 ---
 
@@ -446,9 +459,10 @@ bash ./runner/javascript/run.sh hello-world.js
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/get-first-list-item-matching-condition.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/get-first-list-item-matching-condition.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-first-list-item-matching-condition.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/get-first-list-item-matching-condition.rs)  
-  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/get-first-list-item-matching-condition.nix)  
-  23. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/get-first-list-item-matching-condition.tcl)  
+  24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/get-first-list-item-matching-condition.rs)  
+  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/get-first-list-item-matching-condition.nix)  
+  26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/get-first-list-item-matching-condition.tcl)  
+  27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/get-first-list-item-matching-condition.gd)  
 
 ---
 
@@ -476,9 +490,10 @@ bash ./runner/javascript/run.sh hello-world.js
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/get-index-of-list-item-matching-condition.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/get-index-of-list-item-matching-condition.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-index-of-list-item-matching-condition.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/get-index-of-list-item-matching-condition.rs)  
-  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/get-index-of-list-item-matching-condition.nix)  
-  23. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/get-index-of-list-item-matching-condition.tcl)  
+  24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/get-index-of-list-item-matching-condition.rs)  
+  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/get-index-of-list-item-matching-condition.nix)  
+  26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/get-index-of-list-item-matching-condition.tcl)  
+  27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/get-index-of-list-item-matching-condition.gd)  
 
 ---
 
@@ -506,9 +521,10 @@ bash ./runner/javascript/run.sh hello-world.js
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/get-all-list-item-matching-condition.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/get-all-list-item-matching-condition.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-all-list-item-matching-condition.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/get-all-list-item-matching-condition.rs)  
-  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/get-all-list-item-matching-condition.nix)  
-  23. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/get-all-list-item-matching-condition.tcl)  
+  24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/get-all-list-item-matching-condition.rs)  
+  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/get-all-list-item-matching-condition.nix)  
+  26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/get-all-list-item-matching-condition.tcl)  
+  27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/get-all-list-item-matching-condition.gd)  
 
 ---
 
@@ -536,9 +552,10 @@ bash ./runner/javascript/run.sh hello-world.js
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/transform-each-list-item.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/transform-each-list-item.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/transform-each-list-item.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/transform-each-list-item.rs)  
-  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/transform-each-list-item.nix)  
-  23. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/transform-each-list-item.tcl)  
+  24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/transform-each-list-item.rs)  
+  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/transform-each-list-item.nix)  
+  26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/transform-each-list-item.tcl)  
+  27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/transform-each-list-item.gd)  
 
 ---
 
@@ -566,6 +583,7 @@ bash ./runner/javascript/run.sh hello-world.js
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/combine-all-list-item.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/combine-all-list-item.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/combine-all-list-item.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/combine-all-list-item.rs)  
-  23. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/combine-all-list-item.nix)  
-  23. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/combine-all-list-item.tcl)  
+  24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/combine-all-list-item.rs)  
+  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/combine-all-list-item.nix)  
+  26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/combine-all-list-item.tcl)  
+  27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/combine-all-list-item.gd)  

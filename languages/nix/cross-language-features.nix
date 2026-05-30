@@ -11,7 +11,7 @@ do [
             (callbackFunction null));
     in
         sayHello (_:
-            builtins.trace "how are you?" null
+            builtins.trace "wold" null
         )
     )
     (let

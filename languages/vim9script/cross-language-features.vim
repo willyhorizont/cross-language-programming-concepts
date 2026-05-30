@@ -6,7 +6,7 @@ var SayHello = (Callback) => {
     Callback()
 }
 SayHello(() => {
-    echomsg "how are you?"
+    echomsg "wold"
 })
 var Multiply = (a) => (b) => (a * b)
 var MultiplyByTwo = Multiply(2)

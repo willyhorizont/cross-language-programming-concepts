@@ -179,6 +179,7 @@
         ".rs": "bash ./runner/rust/run.sh $fileName",
         ".nix": "bash ./runner/nix/run.sh $fileName",
         ".tcl": "bash ./runner/tcl/run.sh $fileName",
+        ".gd": "bash ./runner/gdscript/run.sh $fileName",
     },
     "code-runner.executorMap": {
         "shellscript": "bash $fullFileName",
@@ -208,7 +209,7 @@
         "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt && rm -f \"$dir$fileNameWithoutExt\"",
         // "java": "cd $dir && javac $fileName && java $fileNameWithoutExt && del \"$dir*.class\"",
         "java": "bash ./runner/java/run.sh $fileName",
-        "gdscript": "cd $dir && godot --script --headless $fileName",
+        "gdscript": "bash ./runner/gdscript/run.sh $fileName",
         "elixir": "cd $dir && elixir $fileName",
         "perl6": "cd $dir && perl6 $fileName",
         "rust": "bash ./runner/rust/run.sh $fileName",
@@ -285,4 +286,12 @@
     "editor.minimap.enabled": true,
     "java.project.referencedLibraries": [],
     "tclLsp.dialect": "tcl9.0",
+    "[*]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4
+    },
+    "[gdscript]": {
+        "editor.insertSpaces": false,
+        "editor.tabSize": 4
+    }
 }

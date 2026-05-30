@@ -4,7 +4,7 @@ let say_hello = {|callback_function|
     do $callback_function
 }
 do $say_hello {||
-    print "how are you?"
+    print "wold"
 }
 let multiply = {|a| {|b| $a * $b}}
 let multiply_by_two = do $multiply 2

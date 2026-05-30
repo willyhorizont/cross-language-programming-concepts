@@ -15,7 +15,7 @@ do [
                 (callbackFunction null));
             _ =
             _.sayHello (_:
-                builtins.trace "how are you?" null
+                builtins.trace "wold" null
             );
             multiply = (a: (b: a * b));
             multiplyByTwo = (_.multiply 2);

@@ -9,7 +9,7 @@ const sayHello = (callbackFunction) => {
     callbackFunction();
 };
 sayHello(() => {
-    console.log("how are you?");
+    console.log("wold");
 });
 const multiply = (a) => (b) => (a * b);
 const multiplyByTwo = multiply(2);

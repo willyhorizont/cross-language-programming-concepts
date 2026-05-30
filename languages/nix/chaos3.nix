@@ -13,7 +13,7 @@ do [
                         builtins.trace "hello"
                         (callbackFunction null));
                     sayHello (_:
-                        builtins.trace "how are you?" null
+                        builtins.trace "wold" null
                     );
                     multiply = (a: (b: a * b));
                     multiplyByTwo = (multiply 2);

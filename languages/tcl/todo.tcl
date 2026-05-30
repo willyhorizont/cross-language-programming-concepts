@@ -14,7 +14,7 @@ set say_hello {{callback_function} {
     apply $callback_function
 }}
 apply $say_hello {{} {
-    puts "how are you?"
+    puts "wold"
 }}
 Function create multiplyByTwo {2}
 puts "multiplyByTwo(10): [multiplyByTwo assign {{variadic_arguments} {

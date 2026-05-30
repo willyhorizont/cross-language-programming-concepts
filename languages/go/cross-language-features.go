@@ -13,7 +13,7 @@ func main() {
 		return nil
     })
     sayHello(willyhorizont.TypeDotJsLikeFunction(func(variadicArguments ...willyhorizont.TypeDotAny) willyhorizont.TypeDotAny {
-		fmt.Println("how are you?")
+		fmt.Println("wold")
 		return nil
     }))
 	var multiply willyhorizont.TypeDotAny = willyhorizont.TypeDotJsLikeFunction(func(variadicArguments ...willyhorizont.TypeDotAny) willyhorizont.TypeDotAny {
