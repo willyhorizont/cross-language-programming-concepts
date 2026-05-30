@@ -1,16 +1,6 @@
 cross-language-programming-concepts/
 ├── .vscode/
 │   └── settings.json
-├── docker/
-│   ├── r/
-│   │   └── setup.sh
-│   │   └── Dockerfile
-│   ├── javascript/
-│   │   └── setup.sh
-│   │   └── Dockerfile
-│   └── go/
-│       └── setup.sh
-│       └── Dockerfile
 ├── languages/
 │   ├── go/
 │   │   └── chaos.go
@@ -46,8 +36,5 @@ cross-language-programming-concepts/
 ├── utils/
 │   └── utils.r
 ├── .gitignore
-├── go.mod
 ├── LICENSE
-├── package-lock.json
-├── package.json
 └── README.md
