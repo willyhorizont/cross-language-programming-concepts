@@ -58,8 +58,7 @@ bash ./runner/javascript/run.sh hello-world.js
 23. [Vim9 Script](https://vimhelp.org/vim9.txt.html) <—> [https://vimhelp.org/vim9.txt.html](https://vimhelp.org/vim9.txt.html)  
 24. [Rust](https://rust-lang.org/) <—> [https://rust-lang.org/](https://rust-lang.org/)  
 25. [Nix](https://nixos.org/) <—> [https://nixos.org/](https://nixos.org/)  
-26. [Tcl](https://nixos.org/) <—> [https://nixos.org/](htcl://nixos.otcl)  
-27. [Tcl](https://www.tcl-lang.org/) <—> [https://www.tcl-lang.org/](https://www.tcl-lang.org/)  
+26. [Tcl](https://www.tcl-lang.org/) <—> [https://www.tcl-lang.org/](https://www.tcl-lang.org/)  
 
 ## Programming concepts  
 
