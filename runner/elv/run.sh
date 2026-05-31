@@ -1,6 +1,7 @@
 #!/bin/bash
 
 FILE_NAME_WITH_EXTENSION="$1"
+FILE_NAME_WITHOUT_EXTENSION="${FILE_NAME_WITH_EXTENSION%.*}"
 
 SCRIPT_DIR=$(dirname "$(realpath "$0")")
 LANGUAGE_NAME=$(basename "$SCRIPT_DIR")

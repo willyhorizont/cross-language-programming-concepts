@@ -1,6 +1,7 @@
 #!/bin/bash
 
 FILE_NAME_WITH_EXTENSION="$1"
+FILE_NAME_WITHOUT_EXTENSION="${FILE_NAME_WITH_EXTENSION%.*}"
 
 SCRIPT_DIR=$(dirname "$(realpath "$0")")
 LANGUAGE_NAME=$(basename "$SCRIPT_DIR")
@@ -17,6 +18,7 @@ IMAGE="nickblah/lua:5.5.0-luarocks"
 COMMAND_CHECK_LANGUAGE_VERSION="
 echo \">docker images\"
 echo \"$IMAGE\"
+echo \"luarocks:3.13.0\"
 echo \">lua -v\"
 lua -v
 echo \">luarocks --version\"

@@ -13,18 +13,20 @@ if [ -f "$ENV_FILE" ]; then
     source "$ENV_FILE"
 fi
 
-IMAGE="python:3.14.5"
+IMAGE="ruby:4.0.5"
 
 COMMAND_CHECK_LANGUAGE_VERSION="
 echo \">docker images\"
 echo \"$IMAGE\"
-echo \">python --version\"
-python --version
+echo \">ruby -v\"
+ruby -v
+echo \">ruby --version\"
+ruby --version
 "
 
 COMMAND_RUN_LANGUAGE_CODE="
 cd /workspace/languages/$LANGUAGE_NAME
-python $FILE_NAME_WITH_EXTENSION
+ruby $FILE_NAME_WITH_EXTENSION
 cd /workspace
 "
 

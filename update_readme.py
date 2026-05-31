@@ -295,10 +295,10 @@ base_url = "https://github.com/willyhorizont/cross-language-programming-concepts
 
 
 def generate_languages():
-    zxc = "\n".join([f"{number}. [{language[1]}]({language[2]}) &lt;—&gt; [{language[2]}]({language[2]})  " for number, language in enumerate(languages, start=1)])
-    return zxc
+    asd = "\n".join([f"{number}. [{language[1]}]({language[2]}) &lt;—&gt; [{language[2]}]({language[2]})  " for number, language in enumerate(languages, start=1)])
+    return asd
     # with open("repo-utils-output-languages.txt", "w") as file:
-    #     file.write(zxc)
+    #     file.write(asd)
 
 
 def generate_programming_concepts():
@@ -312,8 +312,8 @@ def generate_programming_concepts():
     #     file.write(asd)
 
 
-def generate_readme(new_languages, new_programming_concepts):
-    return (f"""
+def main():
+    generated_readme = (f"""
 # cross-language-programming-concepts
 
 Cross-language implementations of common programming concepts, data structures, algorithms, and patterns. Rewrite of [https://github.com/willyhorizont/learn_programming_languages_with_javascript](https://github.com/willyhorizont/learn_programming_languages_with_javascript)
@@ -341,16 +341,16 @@ bash /runner/javascript/run.sh hello-world.js
 ---
 
 ## Languages  
-{new_languages}
+{generate_languages()}
 
 ## Programming concepts  
 
-{new_programming_concepts}
+{generate_programming_concepts()}
 
 """.strip() + "  \n")
+    with open("README.md", "w") as file:
+        file.write(generated_readme)
 
 
 if __name__ == "__main__":
-    generated_readme = generate_readme(generate_languages(), generate_programming_concepts())
-    with open("README.md", "w") as file:
-        file.write(generated_readme)
+    main()

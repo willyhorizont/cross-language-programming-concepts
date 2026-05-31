@@ -1,6 +1,7 @@
 #!/bin/bash
 
 FILE_NAME_WITH_EXTENSION="$1"
+FILE_NAME_WITHOUT_EXTENSION="${FILE_NAME_WITH_EXTENSION%.*}"
 
 SCRIPT_DIR=$(dirname "$(realpath "$0")")
 LANGUAGE_NAME=$(basename "$SCRIPT_DIR")
@@ -24,8 +25,8 @@ rustc --version
 COMMAND_RUN_LANGUAGE_CODE="
 cd /workspace/languages/$LANGUAGE_NAME
 rustc $FILE_NAME_WITH_EXTENSION
-./${FILE_NAME_WITH_EXTENSION%.*}
-rm -rf ./${FILE_NAME_WITH_EXTENSION%.*}
+./$FILE_NAME_WITHOUT_EXTENSION
+rm -rf $FILE_NAME_WITHOUT_EXTENSION
 cd /workspace
 "
 

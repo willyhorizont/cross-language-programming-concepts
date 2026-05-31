@@ -1,4 +1,34 @@
 {
+    // 1. turn off VS Code IntelliSense
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.quickSuggestions": {
+        "other": "off",
+        "comments": "off",
+        "strings": "off"
+    },
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.parameterHints.enabled": false,
+    "editor.codeActionsOnSave": {},
+    
+    // 2. Turn off Error Checking
+    "editor.showUnused": false,
+    "editor.showDeprecated": false,
+    "problems.decorations.enabled": false,
+
+    // 3. Turn off Language Server
+    "javascript.validate.enable": false,
+    "javascript.suggest.enabled": false,
+
+    "typescript.validate.enable": false,
+    "typescript.suggest.enabled": false,
+
+    "python.languageServer": "None",
+    "python.analysis.diagnosticMode": "openFilesOnly",
+
+    "kotlin.languageServer.enabled": false,
+
+    "editor.semanticHighlighting.enabled": true,
+
     "workbench.preferredDarkColorTheme": "Visual Studio 2017 Dark - C++",
     "workbench.colorTheme": "Visual Studio 2017 Dark - C++",
     // "workbench.colorTheme": "Visual Studio Dark - C++",
@@ -90,7 +120,7 @@
             "strings": true
         },
         "editor.suggest.insertMode": "replace",
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "vscode.json-language-features"
     },
     "diffEditor.ignoreTrimWhitespace": false,
     "javascript.validate.enable": false,
@@ -180,6 +210,7 @@
         ".nix": "bash ./runner/nix/run.sh $fileName",
         ".tcl": "bash ./runner/tcl/run.sh $fileName",
         ".gd": "bash ./runner/gdscript/run.sh $fileName",
+        ".kt": "bash ./runner/kotlin/run.sh $fileName",
     },
     "code-runner.executorMap": {
         "shellscript": "bash $fullFileName",
@@ -190,9 +221,9 @@
         "perl": "bash ./runner/perl/run.sh $fileName",
         "julia": "bash ./runner/julia/run.sh $fileName",
         "lua": "bash ./runner/lua/run.sh $fileName",
-        "ruby": "cd $dir && ruby $fileName",
+        "ruby": "bash ./runner/ruby/run.sh $fileName",
         "r": "bash ./runner/r/run.sh $fileName",
-        "kotlin": "cd $dir && kotlinc $fileNameWithoutExt.kt -include-runtime -d $fileNameWithoutExt.jar && kotlin $fileNameWithoutExt.jar && del \"$dir$fileNameWithoutExt.jar\"",
+        "kotlin": "bash ./runner/kotlin/run.sh $fileName",
         "swift": "cd $dir && swiftc $fileName && $dir$fileNameWithoutExt && rm -f $dir$fileNameWithoutExt",
         "dart": "cd $dir && dart run $fileName",
         "vb": "cd $dir && vbc $fileName && $dir$fileNameWithoutExt.exe && del \"$dir$fileNameWithoutExt.exe\"",
@@ -265,7 +296,6 @@
     "rubyLsp.rubyVersionManager": {
         "identifier": "none"
     },
-    "editor.codeActionsOnSave": {},
     "[go]": {
         "editor.formatOnSave": false
     },
