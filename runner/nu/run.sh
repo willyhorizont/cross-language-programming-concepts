@@ -7,6 +7,8 @@ SCRIPT_DIR=$(dirname "$(realpath "$0")")
 LANGUAGE_NAME=$(basename "$SCRIPT_DIR")
 ROOT_DIR=$(realpath "$SCRIPT_DIR/../..")
 
+"$ROOT_DIR/utils.sh" "setup_language_specific_vscode_extensions" "$LANGUAGE_NAME" 2>/dev/null
+
 ENV_FILE="$ROOT_DIR/.env.$LANGUAGE_NAME"
 
 if [ -f "$ENV_FILE" ]; then

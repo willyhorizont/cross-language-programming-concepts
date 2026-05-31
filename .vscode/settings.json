@@ -29,6 +29,74 @@
 
     "editor.semanticHighlighting.enabled": true,
 
+    "workbench.editor.showTabs": "none",
+    "workbench.tree.indent": 24,
+
+    "views.customizations": {
+        "viewContainerLocations": {
+            "workbench.views.service.auxiliarybar.d8075f6a-32ff-4930-b609-1ce17888bc4e": 0
+        },
+        "viewLocations": {
+            "workbench.explorer.openEditorsView": "workbench.views.service.auxiliarybar.d8075f6a-32ff-4930-b609-1ce17888bc4e"
+        },
+        "viewContainerBadgeEnablementStates": {}
+    },
+    "workbench.views.service.auxiliarybar.d8075f6a-32ff-4930-b609-1ce17888bc4e.state.hidden": [
+        {
+            "id": "workbench.explorer.openEditorsView",
+            "isHidden": false
+        }
+    ],
+    "workbench.explorer.views.state.hidden": [
+        {
+            "id": "workbench.explorer.openEditorsView",
+            "isHidden": false
+        },
+    ],
+    "workbench.activity.pinnedViewlets2": [
+        {
+            "id": "workbench.view.explorer",
+            "pinned": true,
+            "visible": true,
+            "order": 0
+        },
+        {
+            "id": "workbench.views.service.auxiliarybar.d8075f6a-32ff-4930-b609-1ce17888bc4e",
+            "pinned": true,
+            "visible": true,
+            "order": 1
+        },
+        {
+            "id": "workbench.view.search",
+            "pinned": true,
+            "visible": true,
+            "order": 2
+        },
+        {
+            "id": "workbench.view.scm",
+            "pinned": true,
+            "visible": true,
+            "order": 3
+        },
+        {
+            "id": "workbench.view.extensions",
+            "pinned": true,
+            "visible": true,
+            "order": 4
+        },
+        {
+            "id": "workbench.view.editSessions",
+            "pinned": true,
+            "visible": true,
+            "order": 5
+        },
+        {
+            "id": "userDataProfiles",
+            "pinned": true,
+            "visible": true,
+            "order": 6
+        }
+    ],
     "workbench.preferredDarkColorTheme": "Visual Studio 2017 Dark - C++",
     "workbench.colorTheme": "Visual Studio 2017 Dark - C++",
     // "workbench.colorTheme": "Visual Studio Dark - C++",

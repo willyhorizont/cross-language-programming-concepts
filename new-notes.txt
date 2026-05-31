@@ -1,3 +1,33 @@
 https://endoflife.date/perl
 
 code --list-extensions > extensions.txt
+cat extensions.txt | xargs -L 1 code --install-extension
+
+try jq:
+https://jqlang.org/manual/ | jq 1.8 Manual
+https://jqlang.org | jq
+https://github.com/jqlang/jq | jqlang/jq: Command-line JSON processor
+https://learnxinyminutes.com/jq/ | Learn jq in Y Minutes
+https://www.youtube.com/watch?v=m9dhrq9iRHA | (341) The Ultimate JQ Tutorial: Everything You Need to Know to Parse JSON Like a Pro - YouTube
+
+code --disable-extension <nama-id-ekstensi>
+code --disable-extensions
+code . --profile "Nama Profil Anda"
+
+# Membuka VS Code dengan profil Default
+code --profile "Default"
+code --profile "Default" .
+
+--extensions-dir <dir>                                       Set the root path for extensions.
+--list-extensions                                            List the installed extensions.
+--show-versions                                              Show versions of installed extensions, when using --list-extension.
+--install-extension (<extension-id> | <extension-vsix-path>) Installs an extension.
+--uninstall-extension <extension-id>                         Uninstalls an extension.
+--enable-proposed-api <extension-id>                         Enables proposed api features for an extension.
+--disable-extensions                                         Disable all installed extensions.
+
+# Membuka VS Code dengan profil kotlin
+code --profile "kotlin"
+code --profile "kotlin" .
+
+https://weberdominik.com/blog/vscode-vertical-tabs/
