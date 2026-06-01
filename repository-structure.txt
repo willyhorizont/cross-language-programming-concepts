@@ -20,13 +20,6 @@ cross-language-programming-concepts/
 │       └── hello-world.js
 │       └── fibonacci.js
 │       └── fizzbuzz.js
-├── runner/
-│   ├── r/
-│   │   └── run.sh
-│   ├── go/
-│   │   └── run.sh
-│   └── javascript/
-│       └── run.sh
 ├── runtimes/
 │   └── go/
 │       └── willyhorizont/

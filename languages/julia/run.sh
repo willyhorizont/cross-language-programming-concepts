@@ -7,24 +7,26 @@ SCRIPT_DIR=$(dirname "$(realpath "$0")")
 LANGUAGE_NAME=$(basename "$SCRIPT_DIR")
 ROOT_DIR=$(realpath "$SCRIPT_DIR/../..")
 
-ENV_FILE="$ROOT_DIR/.env.$LANGUAGE_NAME"
+LANGUAGE_ENV_FILE="$ROOT_DIR/.env.$LANGUAGE_NAME"
 
-if [ -f "$ENV_FILE" ]; then
-    source "$ENV_FILE"
+if [ -f "$LANGUAGE_ENV_FILE" ]; then
+    source "$LANGUAGE_ENV_FILE"
 fi
 
-IMAGE="prijindal/godot:4.6.3-stable-standard"
+"$ROOT_DIR/utils.sh" "setup_language_specific_vscode_extensions" "$LANGUAGE_NAME" 2>/dev/null
+
+IMAGE="julia:1.12.6"
 
 COMMAND_CHECK_LANGUAGE_VERSION="
 echo \">docker images\"
 echo \"$IMAGE\"
-echo \">godot --version\"
-godot --version
+echo \">julia --version\"
+julia --version
 "
 
 COMMAND_RUN_LANGUAGE_CODE="
 cd /workspace/languages/$LANGUAGE_NAME
-godot --script --headless $FILE_NAME_WITH_EXTENSION
+julia $FILE_NAME_WITH_EXTENSION
 cd /workspace
 "
 

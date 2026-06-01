@@ -334,8 +334,8 @@ Cross-language implementations of common programming concepts, data structures, 
 ## Run command example
 
 ```bash
-chmod +x /runner/javascript/run.sh
-bash /runner/javascript/run.sh hello-world.js
+chmod +x /languages/javascript/run.sh
+bash /languages/javascript/run.sh hello-world.js
 ```
 
 ---

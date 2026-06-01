@@ -7,26 +7,29 @@ SCRIPT_DIR=$(dirname "$(realpath "$0")")
 LANGUAGE_NAME=$(basename "$SCRIPT_DIR")
 ROOT_DIR=$(realpath "$SCRIPT_DIR/../..")
 
-"$ROOT_DIR/utils.sh" "setup_language_specific_vscode_extensions" "$LANGUAGE_NAME" 2>/dev/null
+LANGUAGE_ENV_FILE="$ROOT_DIR/.env.$LANGUAGE_NAME"
 
-ENV_FILE="$ROOT_DIR/.env.$LANGUAGE_NAME"
-
-if [ -f "$ENV_FILE" ]; then
-    source "$ENV_FILE"
+if [ -f "$LANGUAGE_ENV_FILE" ]; then
+    source "$LANGUAGE_ENV_FILE"
 fi
 
-IMAGE="ghcr.io/nushell/nushell:0.113.0-bookworm"
+"$ROOT_DIR/utils.sh" "setup_language_specific_vscode_extensions" "$LANGUAGE_NAME" 2>/dev/null
+
+IMAGE="nickblah/lua:5.5.0-luarocks"
 
 COMMAND_CHECK_LANGUAGE_VERSION="
 echo \">docker images\"
 echo \"$IMAGE\"
-echo \">nu --version\"
-nu --version
+echo \"luarocks:3.13.0\"
+echo \">lua -v\"
+lua -v
+echo \">luarocks --version\"
+luarocks --version
 "
 
 COMMAND_RUN_LANGUAGE_CODE="
 cd /workspace/languages/$LANGUAGE_NAME
-nu $FILE_NAME_WITH_EXTENSION
+lua $FILE_NAME_WITH_EXTENSION
 cd /workspace
 "
 

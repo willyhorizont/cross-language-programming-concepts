@@ -7,24 +7,28 @@ SCRIPT_DIR=$(dirname "$(realpath "$0")")
 LANGUAGE_NAME=$(basename "$SCRIPT_DIR")
 ROOT_DIR=$(realpath "$SCRIPT_DIR/../..")
 
-ENV_FILE="$ROOT_DIR/.env.$LANGUAGE_NAME"
+LANGUAGE_ENV_FILE="$ROOT_DIR/.env.$LANGUAGE_NAME"
 
-if [ -f "$ENV_FILE" ]; then
-    source "$ENV_FILE"
+if [ -f "$LANGUAGE_ENV_FILE" ]; then
+    source "$LANGUAGE_ENV_FILE"
 fi
 
-IMAGE="julia:1.12.6"
+"$ROOT_DIR/utils.sh" "setup_language_specific_vscode_extensions" "$LANGUAGE_NAME" 2>/dev/null
+
+IMAGE="ruby:4.0.5"
 
 COMMAND_CHECK_LANGUAGE_VERSION="
 echo \">docker images\"
 echo \"$IMAGE\"
-echo \">julia --version\"
-julia --version
+echo \">ruby -v\"
+ruby -v
+echo \">ruby --version\"
+ruby --version
 "
 
 COMMAND_RUN_LANGUAGE_CODE="
 cd /workspace/languages/$LANGUAGE_NAME
-julia $FILE_NAME_WITH_EXTENSION
+ruby $FILE_NAME_WITH_EXTENSION
 cd /workspace
 "
 

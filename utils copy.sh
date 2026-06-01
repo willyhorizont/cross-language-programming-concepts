@@ -55,13 +55,6 @@ setup_language_specific_vscode_extensions() {
     "
     vscode_extensions["elv"]=$(echo "$vscode_extensions_for_elv" | xargs)
 
-    vscode_extensions_for_tcl="\
-        ${vscode_extensions['base']} \
-
-        rashwell.tcl \
-    "
-    vscode_extensions["tcl"]=$(echo "$vscode_extensions_for_tcl" | xargs)
-
     declare -a language_specific_vscode_extensions=(
         "javascript"
         "python"
@@ -92,20 +85,20 @@ setup_language_specific_vscode_extensions() {
         "gdscript"
     )
 
-    local supported_vscode_extensions="\
+    local vscode_extensions_supported="\
         ${vscode_extensions['base']} \
     "
     for lang in "${language_specific_vscode_extensions[@]}"; do
         if [ -n "${vscode_extensions[$lang]}" ]; then
-            supported_vscode_extensions="\
-                $supported_vscode_extensions \
+            vscode_extensions_supported="\
+                $vscode_extensions_supported \
                 ${vscode_extensions[$lang]} \
             "
         fi
     done
-    # vscode_extensions["supported"]=$(echo "$supported_vscode_extensions" | xargs | tr ' ' '\n' | tr '[:upper:]' '[:lower:]' | sort -u | xargs)
-    vscode_extensions["supported"]=$(echo "$supported_vscode_extensions" | xargs | tr ' ' '\n' | sort -u | xargs)
-    # vscode_extensions["supported"]=$(echo "$supported_vscode_extensions" | xargs)
+    # vscode_extensions["supported"]=$(echo "$vscode_extensions_supported" | xargs | tr ' ' '\n' | tr '[:upper:]' '[:lower:]' | sort -u | xargs)
+    vscode_extensions["supported"]=$(echo "$vscode_extensions_supported" | xargs | tr ' ' '\n' | sort -u | xargs)
+    # vscode_extensions["supported"]=$(echo "$vscode_extensions_supported" | xargs)
 
     local selected_lang="base"
     for lang in "${language_specific_vscode_extensions[@]}"; do
@@ -126,10 +119,10 @@ setup_language_specific_vscode_extensions() {
     for target_ext in ${vscode_extensions[$matched_lang]}; do
         # if grep -qix "$target_ext" "$current_installed_extensions"; then
         if grep -qx "$target_ext" "$current_installed_extensions"; then
-            # echo "[language specific extensions] $target_ext already installed"
+            echo "[language specific extensions] $target_ext already installed"
             continue
         fi
-        # echo "[language specific extensions] installing $target_ext..."
+        echo "[language specific extensions] installing $target_ext..."
         code --install-extension "$target_ext" --force
     done
 
@@ -164,22 +157,48 @@ setup_language_specific_vscode_extensions() {
             fi
         done
 
-        # if $is_supported; then
-        #     # echo "[language specific extensions] disabling $installed_ext..."
-        #     # code --disable-extension "$installed_ext" -r .
-        #     extensions_to_disable+=("$installed_ext")
-        #     continue
-        # fi
-        if ! $is_supported; then
-            # echo "[language specific extensions] uninstalling $installed_ext..."
+        if $is_supported; then
+            # echo "[language specific extensions] disabling $installed_ext..."
+            # code --disable-extension "$installed_ext" -r .
+            extensions_to_disable+=("$installed_ext")
+        else
+            echo "[language specific extensions] uninstalling $installed_ext..."
             code --uninstall-extension "$installed_ext"
-            continue
         fi
     done < <(code --list-extensions 2>/dev/null | grep -v -E "(stdin|Usage|Options)")
 
+    sync_disabled_extensions "${extensions_to_disable[@]}"
+
     # rm -f "$current_installed_extensions"
     echo "CURRENT_LANGUAGE=$selected_lang" > ".env"
-    echo "[language specific extensions] switched to $selected_lang"
+    echo "[language specific extensions] successfully switched to $selected_lang"
+}
+
+sync_disabled_extensions() {
+    local settings_json=""
+    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        settings_json="$HOME/.config/Code/User/settings.json"
+    elif [[ "$OSTYPE" == "darwin"* ]]; then
+        settings_json="$HOME/Library/Application Support/Code/User/settings.json"
+    else
+        settings_json="$APPDATA/Code/User/settings.json"
+    fi
+
+    [ ! -f "$settings_json" ] && echo "{}" > "$settings_json"
+
+    node -e "
+    const fs = require('fs');
+    const path = '$settings_json';
+    const disabledList = process.argv.slice(1);
+
+    let data = {};
+    try {
+        data = JSON.parse(fs.readFileSync(path, 'utf8'));
+    } catch(e) {}
+
+    data['extensions.disabledExtensions'] = disabledList;
+    fs.writeFileSync(path, JSON.stringify(data, null, 4));
+    " "${@}"
 }
 
 print_separator() {

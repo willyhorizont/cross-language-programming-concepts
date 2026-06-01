@@ -7,24 +7,26 @@ SCRIPT_DIR=$(dirname "$(realpath "$0")")
 LANGUAGE_NAME=$(basename "$SCRIPT_DIR")
 ROOT_DIR=$(realpath "$SCRIPT_DIR/../..")
 
-ENV_FILE="$ROOT_DIR/.env.$LANGUAGE_NAME"
+LANGUAGE_ENV_FILE="$ROOT_DIR/.env.$LANGUAGE_NAME"
 
-if [ -f "$ENV_FILE" ]; then
-    source "$ENV_FILE"
+if [ -f "$LANGUAGE_ENV_FILE" ]; then
+    source "$LANGUAGE_ENV_FILE"
 fi
 
-IMAGE="perl:5.42.2"
+"$ROOT_DIR/utils.sh" "setup_language_specific_vscode_extensions" "$LANGUAGE_NAME" 2>/dev/null
+
+IMAGE="prijindal/godot:4.6.3-stable-standard"
 
 COMMAND_CHECK_LANGUAGE_VERSION="
 echo \">docker images\"
 echo \"$IMAGE\"
-echo \">perl -v\"
-perl -v
+echo \">godot --version\"
+godot --version
 "
 
 COMMAND_RUN_LANGUAGE_CODE="
 cd /workspace/languages/$LANGUAGE_NAME
-perl $FILE_NAME_WITH_EXTENSION
+godot --script --headless $FILE_NAME_WITH_EXTENSION
 cd /workspace
 "
 

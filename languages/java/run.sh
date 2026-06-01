@@ -7,18 +7,20 @@ SCRIPT_DIR=$(dirname "$(realpath "$0")")
 LANGUAGE_NAME=$(basename "$SCRIPT_DIR")
 ROOT_DIR=$(realpath "$SCRIPT_DIR/../..")
 
-ENV_FILE="$ROOT_DIR/.env.$LANGUAGE_NAME"
+LANGUAGE_ENV_FILE="$ROOT_DIR/.env.$LANGUAGE_NAME"
 
-if [ -f "$ENV_FILE" ]; then
-    source "$ENV_FILE"
+if [ -f "$LANGUAGE_ENV_FILE" ]; then
+    source "$LANGUAGE_ENV_FILE"
 fi
+
+"$ROOT_DIR/utils.sh" "setup_language_specific_vscode_extensions" "$LANGUAGE_NAME" 2>/dev/null
 
 if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
     rm -rf "$ROOT_DIR/runtimes/$LANGUAGE_NAME/willyhorizont/runtime/"*.class
     rm -rf "$ROOT_DIR/runtimes/$LANGUAGE_NAME/willyhorizont/"*.class
     rm -rf "$ROOT_DIR/runtimes/$LANGUAGE_NAME/"*.class
     find "$ROOT_DIR/runtimes/$LANGUAGE_NAME" -name "*.java" -print0 | xargs -0 javac -d "$ROOT_DIR/runtimes/$LANGUAGE_NAME"
-    echo 'IS_RUNTIME_INSTALLED="TRUE"' > "$ENV_FILE"
+    echo 'IS_RUNTIME_INSTALLED="TRUE"' > "$LANGUAGE_ENV_FILE"
 fi
 
 IMAGE="eclipse-temurin:26.0.1_8-jdk"

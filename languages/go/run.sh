@@ -7,26 +7,26 @@ SCRIPT_DIR=$(dirname "$(realpath "$0")")
 LANGUAGE_NAME=$(basename "$SCRIPT_DIR")
 ROOT_DIR=$(realpath "$SCRIPT_DIR/../..")
 
-ENV_FILE="$ROOT_DIR/.env.$LANGUAGE_NAME"
+LANGUAGE_ENV_FILE="$ROOT_DIR/.env.$LANGUAGE_NAME"
 
-if [ -f "$ENV_FILE" ]; then
-    source "$ENV_FILE"
+if [ -f "$LANGUAGE_ENV_FILE" ]; then
+    source "$LANGUAGE_ENV_FILE"
 fi
 
-IMAGE="rust:1.96.0"
+"$ROOT_DIR/utils.sh" "setup_language_specific_vscode_extensions" "$LANGUAGE_NAME" 2>/dev/null
+
+IMAGE="golang:1.26.3"
 
 COMMAND_CHECK_LANGUAGE_VERSION="
 echo \">docker images\"
 echo \"$IMAGE\"
-echo \">rustc --version\"
-rustc --version
+echo \">go version\"
+go version
 "
 
 COMMAND_RUN_LANGUAGE_CODE="
 cd /workspace/languages/$LANGUAGE_NAME
-rustc $FILE_NAME_WITH_EXTENSION
-./$FILE_NAME_WITHOUT_EXTENSION
-rm -rf $FILE_NAME_WITHOUT_EXTENSION
+go run $FILE_NAME_WITH_EXTENSION
 cd /workspace
 "
 
