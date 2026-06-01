@@ -137,12 +137,11 @@
             "python-like-dict": "associative list"
         },
         [
-            "hridoy.r-development",
             "reditorsupport.r",
             "reditorsupport.r-syntax"
         ],
         [
-            
+            "hridoy.r-development"
         ]
     ],
     [

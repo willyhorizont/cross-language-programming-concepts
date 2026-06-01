@@ -1,11 +1,22 @@
 #!/bin/bash
 
-FILE_NAME_WITH_EXTENSION="$1"
+if [ -z "$1" -o -z "$2" ]; then
+    echo "usage:"
+    echo "run.sh <path-to-filename-with-ext> <language>"
+    exit 0
+fi
+
+PATH_TO_FILE_NAME_WITH_EXTENSION="$1"
+LANGUAGE_NAME="$2"
+FILE_NAME_WITH_EXTENSION=$(basename "$PATH_TO_FILE_NAME_WITH_EXTENSION")
 FILE_NAME_WITHOUT_EXTENSION="${FILE_NAME_WITH_EXTENSION%.*}"
+FILE_EXTENSION="${FILE_NAME_WITH_EXTENSION##*.}"
 
 SCRIPT_DIR=$(dirname "$(realpath "$0")")
-LANGUAGE_NAME=$(basename "$SCRIPT_DIR")
 ROOT_DIR=$(realpath "$SCRIPT_DIR/../..")
+
+PATH_TO_TEMP_FILE_WITH_EXTENSION="$ROOT_DIR/languages/$LANGUAGE_NAME/temp.$FILE_EXTENSION"
+cp -f "$PATH_TO_FILE_NAME_WITH_EXTENSION" "$PATH_TO_TEMP_FILE_WITH_EXTENSION"
 
 LANGUAGE_ENV_FILE="$ROOT_DIR/.env.$LANGUAGE_NAME"
 
@@ -26,10 +37,11 @@ rustc --version
 
 COMMAND_RUN_LANGUAGE_CODE="
 cd /workspace/languages/$LANGUAGE_NAME
-rustc $FILE_NAME_WITH_EXTENSION
-./$FILE_NAME_WITHOUT_EXTENSION
-rm -rf $FILE_NAME_WITHOUT_EXTENSION
-cd /workspace
+
+rustc temp.$FILE_EXTENSION
+./temp
+rm -rf temp.$FILE_EXTENSION
+rm -rf temp
 "
 
 docker run -it --rm \

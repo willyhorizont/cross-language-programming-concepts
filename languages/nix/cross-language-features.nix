@@ -11,14 +11,16 @@ do [
             (callbackFunction null));
     in
         sayHello (_:
-            builtins.trace "wold" null
+            builtins.trace "wold"
+            null
         )
     )
     (let
         multiply = (a: (b: a * b));
         multiplyByTwo = (multiply 2);
     in
-        builtins.trace (multiplyByTwo 10) null
+        builtins.trace (multiplyByTwo 10)
+        null
     )
 
     /*
@@ -39,8 +41,10 @@ do [
             (a: (b: a * b))
         ];
     in
-        builtins.trace (builtins.deepSeq somePythonLikeList somePythonLikeList) null
-        # builtins.trace (builtins.toJSON somePythonLikeList) null # error if contain function
+        builtins.trace (builtins.deepSeq somePythonLikeList somePythonLikeList)
+        null
+        # builtins.trace (builtins.toJSON somePythonLikeList) # error if contain function
+        # null
     )
     (let
         somePythonLikeDict = {
@@ -57,7 +61,9 @@ do [
             "some_function" = (a: (b: a * b));
         };
     in
-        builtins.trace (builtins.deepSeq somePythonLikeDict somePythonLikeDict) null
-        # builtins.trace (builtins.toJSON somePythonLikeDict) null # error if contain function
+        builtins.trace (builtins.deepSeq somePythonLikeDict somePythonLikeDict)
+        null
+        # builtins.trace (builtins.toJSON somePythonLikeDict) # error if contain function
+        # null
     )
 ]

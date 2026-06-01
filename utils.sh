@@ -29,10 +29,6 @@ setup_language_specific_vscode_extensions() {
 
     declare -a language_specific_vscode_extensions
     mapfile -t language_specific_vscode_extensions < <(jq -r '.[] | .[0]' "languages.json")
-    for lang in "${language_specific_vscode_extensions[@]}"; do
-        echo "$lang"
-    done
-    return 0
 
     local supported_vscode_extensions="\
         ${vscode_extensions['base']} \
@@ -62,6 +58,8 @@ setup_language_specific_vscode_extensions() {
         matched_lang="$selected_lang"
     fi
 
+    declare -a just_installed_extensions=()
+    mapfile -t just_installed_extensions < "vscode-extensions-base.txt"
     local current_installed_extensions="vscode-extensions-current.txt"
     code --list-extensions 2>/dev/null | grep -v -E "(stdin|Usage|Options)" > "$current_installed_extensions"
 
@@ -73,10 +71,11 @@ setup_language_specific_vscode_extensions() {
         fi
         # echo "[language specific extensions] installing $target_ext..."
         code --install-extension "$target_ext" --force
+        just_installed_extensions+=( "$target_ext" )
     done
 
     # code --list-extensions > "$current_installed_extensions" 2>/dev/null
-    rm -f "$current_installed_extensions"
+    # # rm -f "$current_installed_extensions"
 
     local -a extensions_to_disable=()
 
@@ -120,10 +119,12 @@ setup_language_specific_vscode_extensions() {
             code --uninstall-extension "$installed_ext"
             continue
         fi
-    done < <(code --list-extensions 2>/dev/null | grep -v -E "(stdin|Usage|Options)")
+    # done < <(code --list-extensions 2>/dev/null | grep -v -E "(stdin|Usage|Options)")
+    done < $current_installed_extensions
 
     # rm -f "$current_installed_extensions"
     echo "CURRENT_LANGUAGE=$selected_lang" > ".env"
+    printf "%s\n" "${just_installed_extensions[@]}" > "vscode-extensions-current.txt"
     echo "[language specific extensions] switched to $selected_lang"
 }
 
