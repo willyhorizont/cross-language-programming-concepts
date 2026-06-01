@@ -9,88 +9,30 @@ setup_language_specific_vscode_extensions() {
         return 0
     fi
     declare -A vscode_extensions
-    vscode_extensions_base="\
-        alecghost.tree-sitter-vscode \
-        evgeniypeshkov.syntax-highlighter \
+    vscode_extensions["base"]=$(cat 'vscode-extensions-base.txt' | xargs)
+    if ! command -v jq &> /dev/null; then
+        echo "jq not installed. installing jq..."
+        sudo apt update && sudo apt install -y jq
+    fi
+    mapfile -t langs_from_json < <(jq -r '.[] | .[0]' "languages.json")
 
-        formulahendry.code-runner \
-        aaron-bond.better-comments \
-        adpyke.codesnap \
-        cardinal90.multi-cursor-case-preserve \
-        christian-kohler.path-intellisense \
-        mechatroner.rainbow-csv \
-        naumovs.color-highlight \
-        oderwat.indent-rainbow \
-        ritwickdey.liveserver \
-        hjb2012.vscode-es6-string-html \
-        tobermory.es6-string-html \
-        vscode-icons-team.vscode-icons \
-        ms-vscode.cpptools-themes \
-        wholroyd.jinja \
-        yzhang.markdown-all-in-one \
-    "
-    # "tomrijndorp.find-it-faster"
-    vscode_extensions["base"]=$(echo "$vscode_extensions_base" | xargs)
+    for lang_from_json in "${langs_from_json[@]}"; do
+        lang_exts_from_json=$(jq -r --arg b "$lang_from_json" '.[] | select(.[0] == $b) | .[5] | .[]' "languages.json" | xargs)
+        vscode_extensions_for_lang_from_json="\
+            ${vscode_extensions['base']} \
 
-    vscode_extensions_for_kotlin="\
-        ${vscode_extensions['base']} \
+            $lang_exts_from_json \
+        "
 
-        fwcd.kotlin \
-        mathiasfrohlich.Kotlin \
-        esafirm.kotlin-formatter \
-    "
-    vscode_extensions["kotlin"]=$(echo "$vscode_extensions_for_kotlin" | xargs)
+        vscode_extensions["$lang_from_json"]=$(echo "$vscode_extensions_for_lang_from_json" | xargs)
+    done
 
-    vscode_extensions_for_nu="\
-        ${vscode_extensions['base']} \
-
-        TheNuProjectContributors.vscode-nushell-lang \
-    "
-    vscode_extensions["nu"]=$(echo "$vscode_extensions_for_nu" | xargs)
-
-    vscode_extensions_for_elv="\
-        ${vscode_extensions['base']} \
-
-        elves.elvish \
-    "
-    vscode_extensions["elv"]=$(echo "$vscode_extensions_for_elv" | xargs)
-
-    vscode_extensions_for_tcl="\
-        ${vscode_extensions['base']} \
-
-        rashwell.tcl \
-    "
-    vscode_extensions["tcl"]=$(echo "$vscode_extensions_for_tcl" | xargs)
-
-    declare -a language_specific_vscode_extensions=(
-        "javascript"
-        "python"
-        "php"
-        "go"
-        "perl"
-        "julia"
-        "lua"
-        "ruby"
-        "r"
-        "kotlin"
-        "swift"
-        "dart"
-        "visual-basic-dot-net"
-        "c-sharp"
-        "matlab"
-        "gnu-octave"
-        "wolfram-language-script"
-        "raku"
-        "scala"
-        "java"
-        "nu"
-        "elv"
-        "vim9script"
-        "rust"
-        "nix"
-        "tcl"
-        "gdscript"
-    )
+    declare -a language_specific_vscode_extensions
+    mapfile -t language_specific_vscode_extensions < <(jq -r '.[] | .[0]' "languages.json")
+    for lang in "${language_specific_vscode_extensions[@]}"; do
+        echo "$lang"
+    done
+    return 0
 
     local supported_vscode_extensions="\
         ${vscode_extensions['base']} \
@@ -103,8 +45,8 @@ setup_language_specific_vscode_extensions() {
             "
         fi
     done
-    # vscode_extensions["supported"]=$(echo "$supported_vscode_extensions" | xargs | tr ' ' '\n' | tr '[:upper:]' '[:lower:]' | sort -u | xargs)
-    vscode_extensions["supported"]=$(echo "$supported_vscode_extensions" | xargs | tr ' ' '\n' | sort -u | xargs)
+    vscode_extensions["supported"]=$(echo "$supported_vscode_extensions" | xargs | tr ' ' '\n' | tr '[:upper:]' '[:lower:]' | sort -u | xargs)
+    # vscode_extensions["supported"]=$(echo "$supported_vscode_extensions" | xargs | tr ' ' '\n' | sort -u | xargs)
     # vscode_extensions["supported"]=$(echo "$supported_vscode_extensions" | xargs)
 
     local selected_lang="base"
@@ -124,8 +66,8 @@ setup_language_specific_vscode_extensions() {
     code --list-extensions 2>/dev/null | grep -v -E "(stdin|Usage|Options)" > "$current_installed_extensions"
 
     for target_ext in ${vscode_extensions[$matched_lang]}; do
-        # if grep -qix "$target_ext" "$current_installed_extensions"; then
-        if grep -qx "$target_ext" "$current_installed_extensions"; then
+        if grep -qix "$target_ext" "$current_installed_extensions"; then
+        # if grep -qx "$target_ext" "$current_installed_extensions"; then
             # echo "[language specific extensions] $target_ext already installed"
             continue
         fi
@@ -141,12 +83,12 @@ setup_language_specific_vscode_extensions() {
     while read -r installed_ext; do
         [ -z "$installed_ext" ] && continue
 
-        # local installed_ext_lower="${installed_ext,,}"
+        local installed_ext_lower="${installed_ext,,}"
 
         local is_in_current_lang=false
         for target_ext in ${vscode_extensions[$matched_lang]}; do
-            # if [ "$installed_ext_lower" == "${target_ext,,}" ]; then
-            if [ "$installed_ext" == "$target_ext" ]; then
+            if [ "$installed_ext_lower" == "${target_ext,,}" ]; then
+            # if [ "$installed_ext" == "$target_ext" ]; then
                 is_in_current_lang=true
                 break
             fi
@@ -154,12 +96,14 @@ setup_language_specific_vscode_extensions() {
 
         $is_in_current_lang && continue
 
-        local is_supported=false
+        # local is_supported=false
+        local should_keep=false
 
         for target_ext in ${vscode_extensions["supported"]}; do
-            # if [ "$installed_ext_lower" == "${target_ext,,}" ]; then
-            if [ "$installed_ext" == "$target_ext" ]; then
-                is_supported=true
+            if [ "$installed_ext_lower" == "${target_ext,,}" ]; then
+            # if [ "$installed_ext" == "$target_ext" ]; then
+                # is_supported=true
+                should_keep=false
                 break
             fi
         done
@@ -170,7 +114,8 @@ setup_language_specific_vscode_extensions() {
         #     extensions_to_disable+=("$installed_ext")
         #     continue
         # fi
-        if ! $is_supported; then
+        # if ! is_supported; then
+        if ! should_keep; then
             # echo "[language specific extensions] uninstalling $installed_ext..."
             code --uninstall-extension "$installed_ext"
             continue
