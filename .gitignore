@@ -17,3 +17,7 @@ package-lock.json
 composer
 
 vscode-extensions-current.txt
+
+temp.*
+
+languages/java/willyhorizont/

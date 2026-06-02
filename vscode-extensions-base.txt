@@ -1,5 +1,5 @@
 ms-vscode.cpptools-themes
-vscode-icons-team.vscode-icons
+emmanuelbeziat.vscode-great-icons
 aaron-bond.better-comments
 adpyke.codesnap
 cardinal90.multi-cursor-case-preserve

@@ -1,4 +1,5 @@
 {
+    "extensions.ignoreRecommendations": true,
     "julia.juliaup.install.hint": false,
     // 1. turn off VS Code IntelliSense
     "editor.suggestOnTriggerCharacters": false,
@@ -149,6 +150,90 @@
         "editorOverviewRuler.border": "#29161d",
         "panel.background": "#29161d",
     },
+    "editor.tokenColorCustomizations": {
+        "[Visual Studio 2017 Dark - C++]": {
+            "variables": "#dfc570",
+            "textMateRules": [
+                {
+                    "scope": "keyword.operator",
+                    "settings": {
+                        "foreground": "#f33535"
+                    }
+                },
+                {
+                    "scope": "punctuation.definition.string.begin",
+                    "settings": {
+                        "foreground": "#f33535"
+                    }
+                },
+                {
+                    "scope": "punctuation.definition.string.end",
+                    "settings": {
+                        "foreground": "#f33535"
+                    }
+                },
+                {
+                    "scope": "punctuation.separator",
+                    "settings": {
+                        "foreground": "#f33535"
+                    }
+                },
+                {
+                    "scope": "punctuation.terminator",
+                    "settings": {
+                        "foreground": "#f33535"
+                    }
+                },
+                {
+                    "scope": "punctuation.separator.continuation",
+                    "settings": {
+                        "foreground": "#f33535"
+                    }
+                },
+            ]
+        }
+    },
+    // "editor.semanticTokenColorCustomizations": {
+    //     "enabled": true, // enable for all themes
+    //     "[Visual Studio 2017 Dark - C++]": {
+    //         "enabled": true,
+    //         "rules": {
+    //             // "type":  "#969696",
+    //             // "namespace": "#00897B",
+    //             // "function": "#ffc5ff",
+    //             "variable": "#dfc570",
+    //             "operator": "#f33535",
+    //             "punctuation": "#ff5517",
+    //             // "string": "#ffe07c"
+    //         }
+    //     }
+    // },
+    "editor.semanticTokenColorCustomizations": {
+        "enabled": true, // enable for all themes
+        "[Default Dark+]": {
+            "enabled": true // enable for a particular theme
+        }
+    },
+    "files.defaultLanguage": "javascript",
+    "files.associations": {
+        // "*.txt": "javascript",
+        // "*.elv": "raku",
+        // "*.gd": "python",
+        // "*.kt": "java",
+        // "*.nix": "fsharp",
+        // "*.nu": "python",
+        // "*.r": "javascript",
+        // "*.scala": "java",
+        // "*.tcl": "shellscript",
+        // "*.vim": "csharp",
+        
+        "*.m": "matlab",
+        "*.st": "smalltalk",
+        // "stdlib.h": "c",
+        // "cstdlib": "c",
+        // "type_traits": "c",
+        // "stdio.h": "c"
+    },
 
     "explorer.compactFolders": false,
     "workbench.editor.tabSizing": "fixed",
@@ -158,7 +243,7 @@
     "workbench.editor.pinnedTabsOnSeparateRow": true,
     "workbench.editor.titleScrollbarSizing": "large",
     "workbench.editor.wrapTabs": true,
-    "workbench.iconTheme": "vscode-icons",
+    "workbench.iconTheme": "vscode-great-icons",
     "editor.fontFamily": "'Source Code Pro', Consolas, 'Courier New', monospace",
     "editor.maxTokenizationLineLength": 9999999999999999999999999999999999999999999999999999999,
     "editor.rulers": [],
@@ -258,42 +343,33 @@
     "d.dubCompiler": "dmd.EXE",
     "r.rpath.windows": "C:\\\\Users\\\\willy\\\\AppData\\\\Local\\\\Programs\\\\R-4.3.2\\\\bin\\\\x64\\\\R.exe",
     "r.rterm.windows": "C:\\\\Users\\\\willy\\\\AppData\\\\Local\\\\Programs\\\\R-4.3.2\\\\bin\\\\x64\\\\Rterm.exe",
-    "files.associations": {
-        "*.rmd": "markdown",
-        "*.m": "matlab",
-        "*.st": "smalltalk",
-        "stdlib.h": "c",
-        "cstdlib": "c",
-        "type_traits": "c",
-        "stdio.h": "c"
-    },
     "code-runner.ignoreSelection": true,
     "code-runner.runInTerminal": true,
     "code-runner.executorMapByFileExtension": {
-        ".kt": "bash $workspaceRoot/languages/kotlin/run.sh $dirWithoutTrailingSlash/$fileName kotlin",
-        ".scala": "bash $workspaceRoot/languages/scala/run.sh $dirWithoutTrailingSlash/$fileName scala",
-        ".nu": "bash $workspaceRoot/languages/nu/run.sh $dirWithoutTrailingSlash/$fileName nu",
-        ".elv": "bash $workspaceRoot/languages/elv/run.sh $dirWithoutTrailingSlash/$fileName elv",
-        ".vim": "bash $workspaceRoot/languages/vim9script/run.sh $dirWithoutTrailingSlash/$fileName vim9script",
-        ".nix": "bash $workspaceRoot/languages/nix/run.sh $dirWithoutTrailingSlash/$fileName nix",
-        ".tcl": "bash $workspaceRoot/languages/tcl/run.sh $dirWithoutTrailingSlash/$fileName tcl",
-        ".gd": "bash $workspaceRoot/languages/gdscript/run.sh $dirWithoutTrailingSlash/$fileName gdscript",
+        ".kt": "bash $workspaceRoot/languages/kotlin/run.sh $dirWithoutTrailingSlash/$fileName",
+        ".scala": "bash $workspaceRoot/languages/scala/run.sh $dirWithoutTrailingSlash/$fileName",
+        ".nu": "bash $workspaceRoot/languages/nu/run.sh $dirWithoutTrailingSlash/$fileName",
+        ".elv": "bash $workspaceRoot/languages/elv/run.sh $dirWithoutTrailingSlash/$fileName",
+        ".vim": "bash $workspaceRoot/languages/vim9script/run.sh $dirWithoutTrailingSlash/$fileName",
+        ".nix": "bash $workspaceRoot/languages/nix/run.sh $dirWithoutTrailingSlash/$fileName",
+        ".tcl": "bash $workspaceRoot/languages/tcl/run.sh $dirWithoutTrailingSlash/$fileName",
+        ".gd": "bash $workspaceRoot/languages/gdscript/run.sh $dirWithoutTrailingSlash/$fileName",
 
         // ".mojo": "bash ./languages/mojo/run.sh $fileName",
         // ".rs": "bash ./languages/rust/run.sh $fileName",
     },
     "code-runner.executorMap": {
         "shellscript": "bash $fullFileName",
-        "javascript": "bash $workspaceRoot/languages/javascript/run.sh $dirWithoutTrailingSlash/$fileName javascript",
-        "python": "bash $workspaceRoot/languages/python/run.sh $dirWithoutTrailingSlash/$fileName python",
-        "php": "bash $workspaceRoot/languages/php/run.sh $dirWithoutTrailingSlash/$fileName php",
-        "go": "bash $workspaceRoot/languages/go/run.sh $dirWithoutTrailingSlash/$fileName go",
-        "perl": "bash $workspaceRoot/languages/perl/run.sh $dirWithoutTrailingSlash/$fileName perl",
-        "julia": "bash $workspaceRoot/languages/julia/run.sh $dirWithoutTrailingSlash/$fileName julia",
-        "lua": "bash $workspaceRoot/languages/lua/run.sh $dirWithoutTrailingSlash/$fileName lua",
-        "ruby": "bash $workspaceRoot/languages/ruby/run.sh $dirWithoutTrailingSlash/$fileName ruby",
-        "r": "bash $workspaceRoot/languages/r/run.sh $dirWithoutTrailingSlash/$fileName r",
-        "kotlin": "bash $workspaceRoot/languages/kotlin/run.sh $dirWithoutTrailingSlash/$fileName kotlin",
+        "javascript": "bash $workspaceRoot/languages/javascript/run.sh $dirWithoutTrailingSlash/$fileName",
+        "python": "bash $workspaceRoot/languages/python/run.sh $dirWithoutTrailingSlash/$fileName",
+        "php": "bash $workspaceRoot/languages/php/run.sh $dirWithoutTrailingSlash/$fileName",
+        "go": "bash $workspaceRoot/languages/go/run.sh $dirWithoutTrailingSlash/$fileName",
+        "perl": "bash $workspaceRoot/languages/perl/run.sh $dirWithoutTrailingSlash/$fileName",
+        "julia": "bash $workspaceRoot/languages/julia/run.sh $dirWithoutTrailingSlash/$fileName",
+        "lua": "bash $workspaceRoot/languages/lua/run.sh $dirWithoutTrailingSlash/$fileName",
+        "ruby": "bash $workspaceRoot/languages/ruby/run.sh $dirWithoutTrailingSlash/$fileName",
+        "r": "bash $workspaceRoot/languages/r/run.sh $dirWithoutTrailingSlash/$fileName",
+        "kotlin": "bash $workspaceRoot/languages/kotlin/run.sh $dirWithoutTrailingSlash/$fileName",
         "swift": "cd $dir && swiftc $fileName && $dir$fileNameWithoutExt && rm -f $dir$fileNameWithoutExt",
         "dart": "cd $dir && dart run $fileName",
         "vb": "cd $dir && vbc $fileName && $dir$fileNameWithoutExt.exe && del \"$dir$fileNameWithoutExt.exe\"",
@@ -302,18 +378,18 @@
         "wolfram": "cd $dir && wolframscript -file $fileName",
         "raku": "cd $dir && raku $fileName",
         // "scala": "cd $dir && scala $fileName", // run .scala file using scala interpreter
-        "scala": "bash $workspaceRoot/languages/scala/run.sh $dirWithoutTrailingSlash/$fileName scala",
-        "mojo": "bash $workspaceRoot/languages/mojo/run.sh $dirWithoutTrailingSlash/$fileName mojo",
+        "scala": "bash $workspaceRoot/languages/scala/run.sh $dirWithoutTrailingSlash/$fileName",
+        "mojo": "bash $workspaceRoot/languages/mojo/run.sh $dirWithoutTrailingSlash/$fileName",
         "scala2": "cd $dir && scalac $fileName && scala $fileNameWithoutExt && del \"$dir*.class\"", // compile .scala file to .class and run the .class
         "scala3": "cd $dir && scalac $fileName && scala $fileNameWithoutExt && del \"$dir*.class\"  && del \"$dir*.tasty\"", // compile .scala file to .class and run the .class
         // "c": "gcc --version",
         "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt && rm -f \"$dir$fileNameWithoutExt\"",
         // "java": "cd $dir && javac $fileName && java $fileNameWithoutExt && del \"$dir*.class\"",
-        "java": "bash $workspaceRoot/languages/java/run.sh $dirWithoutTrailingSlash/$fileName java",
-        "gdscript": "bash $workspaceRoot/languages/gdscript/run.sh $dirWithoutTrailingSlash/$fileName gdscript",
+        "java": "bash $workspaceRoot/languages/java/run.sh $dirWithoutTrailingSlash/$fileName",
+        "gdscript": "bash $workspaceRoot/languages/gdscript/run.sh $dirWithoutTrailingSlash/$fileName",
         "elixir": "cd $dir && elixir $fileName",
         "perl6": "cd $dir && perl6 $fileName",
-        "rust": "bash $workspaceRoot/languages/rust/run.sh $dirWithoutTrailingSlash/$fileName rust",
+        "rust": "bash $workspaceRoot/languages/rust/run.sh $dirWithoutTrailingSlash/$fileName",
         "crystal": "cd $dir && crystal $fileName",
         "v": "cd $dir && v run $fileName",
         "odin": "cd $dir && odin run $fileName -file",

@@ -1,22 +1,20 @@
 #!/bin/bash
 
-if [ -z "$1" -o -z "$2" ]; then
+if [ -z "$1" ]; then
     echo "usage:"
-    echo "run.sh <path-to-filename-with-ext> <language>"
+    echo "run.sh <path-to-filename-with-extension>"
     exit 0
 fi
 
 PATH_TO_FILE_NAME_WITH_EXTENSION="$1"
-LANGUAGE_NAME="$2"
+PATH_TO_FILE_NAME_WITH_EXTENSION_DIR=$(dirname "$PATH_TO_FILE_NAME_WITH_EXTENSION")
 FILE_NAME_WITH_EXTENSION=$(basename "$PATH_TO_FILE_NAME_WITH_EXTENSION")
 FILE_NAME_WITHOUT_EXTENSION="${FILE_NAME_WITH_EXTENSION%.*}"
 FILE_EXTENSION="${FILE_NAME_WITH_EXTENSION##*.}"
 
 SCRIPT_DIR=$(dirname "$(realpath "$0")")
+LANGUAGE_NAME=$(basename "$SCRIPT_DIR")
 ROOT_DIR=$(realpath "$SCRIPT_DIR/../..")
-
-PATH_TO_TEMP_FILE_WITH_EXTENSION="$ROOT_DIR/languages/$LANGUAGE_NAME/temp.$FILE_EXTENSION"
-cp -f "$PATH_TO_FILE_NAME_WITH_EXTENSION" "$PATH_TO_TEMP_FILE_WITH_EXTENSION"
 
 LANGUAGE_ENV_FILE="$ROOT_DIR/.env.$LANGUAGE_NAME"
 
@@ -35,18 +33,19 @@ if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
     echo ">$COMMAND_INSTALL_RUNTIME"
 
     COMMAND_POST_INSTALLATION="
-    rm -rf /workspace/node_modules
-    rm -rf /workspace/package.json
-    rm -rf /workspace/package-lock.json
+    rm -rf $ROOT_DIR/node_modules
+    rm -rf $ROOT_DIR/package.json
+    rm -rf $ROOT_DIR/package-lock.json
     $COMMAND_INSTALL_PACKAGE_MANAGER
     $COMMAND_INSTALL_RUNTIME
     "
 
     docker run -it --rm \
-        -v "$ROOT_DIR":/workspace \
-        -w /workspace \
+        --entrypoint bash \
+        -v "$ROOT_DIR:$ROOT_DIR" \
+        -w "$ROOT_DIR" \
         "$IMAGE" \
-        bash -c "$COMMAND_POST_INSTALLATION"
+        -c "$COMMAND_POST_INSTALLATION"
     echo 'IS_RUNTIME_INSTALLED="TRUE"' > "$LANGUAGE_ENV_FILE"
 fi
 
@@ -60,21 +59,22 @@ npm --version
 "
 
 COMMAND_RUN_LANGUAGE_CODE="
-cd /workspace/languages/$LANGUAGE_NAME
+cd $PATH_TO_FILE_NAME_WITH_EXTENSION_DIR
 
-node temp.$FILE_EXTENSION
-rm -rf temp.$FILE_EXTENSION
+node $FILE_NAME_WITH_EXTENSION
+
+cd $ROOT_DIR
 "
 
 docker run -it --rm \
     --entrypoint bash \
-    -v "$ROOT_DIR":/workspace \
-    -w /workspace \
+    -v "$ROOT_DIR:$ROOT_DIR" \
+    -w "$ROOT_DIR" \
     "$IMAGE" \
     -c "
         $COMMAND_CHECK_LANGUAGE_VERSION
 
-        \"/workspace/utils.sh\" \"print_separator\"
+        $ROOT_DIR/utils.sh print_separator
 
         $COMMAND_RUN_LANGUAGE_CODE
     "

@@ -1,22 +1,20 @@
 #!/bin/bash
 
-if [ -z "$1" -o -z "$2" ]; then
+if [ -z "$1" ]; then
     echo "usage:"
-    echo "run.sh <path-to-filename-with-ext> <language>"
+    echo "run.sh <path-to-filename-with-extension>"
     exit 0
 fi
 
 PATH_TO_FILE_NAME_WITH_EXTENSION="$1"
-LANGUAGE_NAME="$2"
+PATH_TO_FILE_NAME_WITH_EXTENSION_DIR=$(dirname "$PATH_TO_FILE_NAME_WITH_EXTENSION")
 FILE_NAME_WITH_EXTENSION=$(basename "$PATH_TO_FILE_NAME_WITH_EXTENSION")
 FILE_NAME_WITHOUT_EXTENSION="${FILE_NAME_WITH_EXTENSION%.*}"
 FILE_EXTENSION="${FILE_NAME_WITH_EXTENSION##*.}"
 
 SCRIPT_DIR=$(dirname "$(realpath "$0")")
+LANGUAGE_NAME=$(basename "$SCRIPT_DIR")
 ROOT_DIR=$(realpath "$SCRIPT_DIR/../..")
-
-PATH_TO_TEMP_FILE_WITH_EXTENSION="$ROOT_DIR/languages/$LANGUAGE_NAME/temp.$FILE_EXTENSION"
-cp -f "$PATH_TO_FILE_NAME_WITH_EXTENSION" "$PATH_TO_TEMP_FILE_WITH_EXTENSION"
 
 LANGUAGE_ENV_FILE="$ROOT_DIR/.env.$LANGUAGE_NAME"
 
@@ -35,17 +33,15 @@ $IMAGE
 "
 
 docker run -it --rm \
+    -v "$ROOT_DIR:$ROOT_DIR" \
+    -w "$ROOT_DIR" \
     "$IMAGE" \
     vim --version 2>/dev/null | head -n 1
 
 "$ROOT_DIR/utils.sh" "print_separator"
 
 docker run -it --rm \
-    -v "$ROOT_DIR":/workspace \
-    -w /workspace \
+    -v "$ROOT_DIR:$ROOT_DIR" \
+    -w "$ROOT_DIR" \
     "$IMAGE" \
-    vim -es -c "source /workspace/languages/$LANGUAGE_NAME/temp.$FILE_EXTENSION" -c "echom ''" -c "verbose messages" -c "qa!"
-
-if [ -f "$PATH_TO_TEMP_FILE_WITH_EXTENSION" ]; then
-    rm -f "$PATH_TO_TEMP_FILE_WITH_EXTENSION"
-fi
+    vim -e -s -c "source $PATH_TO_FILE_NAME_WITH_EXTENSION" -c "echom ''" -c "verbose messages" -c "qa!"

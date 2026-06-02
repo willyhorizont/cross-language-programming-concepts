@@ -4,7 +4,7 @@
 
 setup_language_specific_vscode_extensions() {
     local -r target_lang="${1:-"base"}"
-    if [ "$CURRENT_LANGUAGE" == "$target_lang" ]; then
+    if [ "$CURRENT_ACTIVE_LANGUAGE" == "$target_lang" ]; then
         echo "[language specific extensions] vscode extension for \"$target_lang\" is active"
         return 0
     fi
@@ -113,8 +113,8 @@ setup_language_specific_vscode_extensions() {
         #     extensions_to_disable+=("$installed_ext")
         #     continue
         # fi
-        # if ! is_supported; then
-        if ! should_keep; then
+        # if ! $is_supported; then
+        if ! $should_keep; then
             # echo "[language specific extensions] uninstalling $installed_ext..."
             code --uninstall-extension "$installed_ext"
             continue
@@ -123,7 +123,7 @@ setup_language_specific_vscode_extensions() {
     done < $current_installed_extensions
 
     # rm -f "$current_installed_extensions"
-    echo "CURRENT_LANGUAGE=$selected_lang" > ".env"
+    echo "CURRENT_ACTIVE_LANGUAGE=$selected_lang" > ".env"
     printf "%s\n" "${just_installed_extensions[@]}" > "vscode-extensions-current.txt"
     echo "[language specific extensions] switched to $selected_lang"
 }

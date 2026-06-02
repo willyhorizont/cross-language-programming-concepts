@@ -28,7 +28,7 @@ var SomePythonLikeList = [
 # echomsg $"SomePythonLikeList: {json_encode(SomePythonLikeList)}"
 
 # 2. support dynamic-typed value, or has workaround
-var some_python_like_dict: dict<any> = {
+var SomePythonLikeDict: dict<any> = {
     some_null: null,
     some_boolean_true: true,
     some_boolean_false: false,
@@ -41,4 +41,4 @@ var some_python_like_dict: dict<any> = {
     some_python_like_dict: {foo: "bar"},
     some_function: (a, b) => (a * b)
 }
-# echomsg $"some_python_like_dict: {json_encode(some_python_like_dict)}"
+# echomsg $"SomePythonLikeDict: {json_encode(SomePythonLikeDict)}"

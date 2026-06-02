@@ -1,22 +1,20 @@
 #!/bin/bash
 
-if [ -z "$1" -o -z "$2" ]; then
+if [ -z "$1" ]; then
     echo "usage:"
-    echo "run.sh <path-to-filename-with-ext> <language>"
+    echo "run.sh <path-to-filename-with-extension>"
     exit 0
 fi
 
 PATH_TO_FILE_NAME_WITH_EXTENSION="$1"
-LANGUAGE_NAME="$2"
+PATH_TO_FILE_NAME_WITH_EXTENSION_DIR=$(dirname "$PATH_TO_FILE_NAME_WITH_EXTENSION")
 FILE_NAME_WITH_EXTENSION=$(basename "$PATH_TO_FILE_NAME_WITH_EXTENSION")
 FILE_NAME_WITHOUT_EXTENSION="${FILE_NAME_WITH_EXTENSION%.*}"
 FILE_EXTENSION="${FILE_NAME_WITH_EXTENSION##*.}"
 
 SCRIPT_DIR=$(dirname "$(realpath "$0")")
+LANGUAGE_NAME=$(basename "$SCRIPT_DIR")
 ROOT_DIR=$(realpath "$SCRIPT_DIR/../..")
-
-PATH_TO_TEMP_FILE_WITH_EXTENSION="$ROOT_DIR/languages/$LANGUAGE_NAME/temp.$FILE_EXTENSION"
-cp -f "$PATH_TO_FILE_NAME_WITH_EXTENSION" "$PATH_TO_TEMP_FILE_WITH_EXTENSION"
 
 LANGUAGE_ENV_FILE="$ROOT_DIR/.env.$LANGUAGE_NAME"
 
@@ -27,9 +25,6 @@ fi
 "$ROOT_DIR/utils.sh" "setup_language_specific_vscode_extensions" "$LANGUAGE_NAME" 2>/dev/null
 
 if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
-    rm -rf "$ROOT_DIR/runtimes/$LANGUAGE_NAME/willyhorizont/runtime/"*.class
-    rm -rf "$ROOT_DIR/runtimes/$LANGUAGE_NAME/willyhorizont/"*.class
-    rm -rf "$ROOT_DIR/runtimes/$LANGUAGE_NAME/"*.class
     find "$ROOT_DIR/runtimes/$LANGUAGE_NAME" -name "*.java" -print0 | xargs -0 javac -d "$ROOT_DIR/runtimes/$LANGUAGE_NAME"
     echo 'IS_RUNTIME_INSTALLED="TRUE"' > "$LANGUAGE_ENV_FILE"
 fi
@@ -45,30 +40,45 @@ echo \">javac -version\"
 javac -version
 "
 
+CLASS_NAME=$(grep "public class" "$PATH_TO_FILE_NAME_WITH_EXTENSION" | awk -F'[ {]' '{print $3}')
+
+sudo cp -r -a -f $ROOT_DIR/runtimes/$LANGUAGE_NAME/* $PATH_TO_FILE_NAME_WITH_EXTENSION_DIR
+
+CLEAN_WORDS="${FILE_NAME_WITHOUT_EXTENSION//[-_ ]/ }"
+FILE_NAME_WITHOUT_EXTENSION_PASCAL_CASE=""
+for word in $CLEAN_WORDS; do
+    FILE_NAME_WITHOUT_EXTENSION_PASCAL_CASE="${FILE_NAME_WITHOUT_EXTENSION_PASCAL_CASE}${word^}"
+done
+
+PATH_TO_FILE_NAME_WITH_EXTENSION_NEW="$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR/$FILE_NAME_WITHOUT_EXTENSION_PASCAL_CASE.java"
+
+sudo cp -a -f "$PATH_TO_FILE_NAME_WITH_EXTENSION" "$PATH_TO_FILE_NAME_WITH_EXTENSION_NEW"
+
+sed -i "s/\bclass $CLASS_NAME\b/class $FILE_NAME_WITHOUT_EXTENSION_PASCAL_CASE/g" "$PATH_TO_FILE_NAME_WITH_EXTENSION_NEW"
+
+PATH_TO_FILE_NAME_WITH_EXTENSION="$PATH_TO_FILE_NAME_WITH_EXTENSION_NEW"
+
+FILE_NAME_WITHOUT_EXTENSION="$FILE_NAME_WITHOUT_EXTENSION_PASCAL_CASE"
+
 COMMAND_RUN_LANGUAGE_CODE="
-rm -f /workspace/runtimes/$LANGUAGE_NAME/Main.java
-rm -f /workspace/runtimes/$LANGUAGE_NAME/Main.class
+javac -cp $PATH_TO_FILE_NAME_WITH_EXTENSION_DIR -d $PATH_TO_FILE_NAME_WITH_EXTENSION_DIR $PATH_TO_FILE_NAME_WITH_EXTENSION
 
-cp -f /workspace/languages/$LANGUAGE_NAME/temp.java /workspace/runtimes/$LANGUAGE_NAME/Main.java
-javac -cp /workspace/runtimes/$LANGUAGE_NAME -d /workspace/runtimes/$LANGUAGE_NAME /workspace/runtimes/$LANGUAGE_NAME/Main.java
-java -cp /workspace/runtimes/$LANGUAGE_NAME Main
-
-rm -f /workspace/languages/$LANGUAGE_NAME/temp.java
-
-rm -f /workspace/runtimes/$LANGUAGE_NAME/Main.java
-rm -f /workspace/runtimes/$LANGUAGE_NAME/Main.class
-rm -f /workspace/runtimes/$LANGUAGE_NAME/*.class
+java -cp $PATH_TO_FILE_NAME_WITH_EXTENSION_DIR $FILE_NAME_WITHOUT_EXTENSION
 "
 
 docker run -it --rm \
     --entrypoint bash \
-    -v "$ROOT_DIR":/workspace \
-    -w /workspace \
+    -v "$ROOT_DIR:$ROOT_DIR" \
+    -w "$ROOT_DIR" \
     "$IMAGE" \
     -c "
         $COMMAND_CHECK_LANGUAGE_VERSION
 
-        \"/workspace/utils.sh\" \"print_separator\"
+        $ROOT_DIR/utils.sh print_separator
 
         $COMMAND_RUN_LANGUAGE_CODE
     "
+
+rm -rf "$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR/$FILE_NAME_WITHOUT_EXTENSION_PASCAL_CASE.class"
+rm -rf "$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR/$FILE_NAME_WITHOUT_EXTENSION_PASCAL_CASE.java"
+rm -rf "$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR/willyhorizont"

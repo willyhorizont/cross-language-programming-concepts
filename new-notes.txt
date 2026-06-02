@@ -31,3 +31,5 @@ code --profile "kotlin"
 code --profile "kotlin" .
 
 https://weberdominik.com/blog/vscode-vertical-tabs/
+
+add https://nue.nu/
