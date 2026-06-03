@@ -67,7 +67,7 @@ Cross-language implementations of common programming concepts, data structures, 
 ## Run
 
 ```bash
-bash /languages/<language>/run.sh <path-to-code>.<file-extension>
+bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-extension>
 ```
 
 ---

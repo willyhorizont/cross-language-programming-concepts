@@ -2,32 +2,15 @@ cross-language-programming-concepts/
 ├── .vscode/
 │   └── settings.json
 ├── languages/
-│   ├── go/
-│   │   └── chaos.go
-│   │   └── factorial.go
-│   │   └── hello-world.go
-│   │   └── fibonacci.go
-│   │   └── fizzbuzz.go
-│   ├── r/
-│   │   └── chaos.r
-│   │   └── factorial.r
-│   │   └── hello-world.r
-│   │   └── fibonacci.r
-│   │   └── fizzbuzz.r
-│   └── javascript/
-│       └── chaos.js
-│       └── factorial.js
-│       └── hello-world.js
-│       └── fibonacci.js
-│       └── fizzbuzz.js
+│   └── <language>/
+│       └── <file-name>.<file-extension>
 ├── runtimes/
-│   └── go/
-│       └── willyhorizont/
-│           ├── utils/
-│           │   └── utils.go
-│           └── willyhorizont.go
-├── utils/
-│   └── utils.r
+│   └── <language>/
+│       └── <runtime>
 ├── .gitignore
+├── changelog.txt
+├── languages.json
 ├── LICENSE
-└── README.md
+├── README.md
+├── utils.sh
+└── vscode-extensions-base.txt
