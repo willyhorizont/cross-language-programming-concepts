@@ -33,11 +33,8 @@ if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
     echo ">$COMMAND_INSTALL_RUNTIME"
 
     COMMAND_POST_INSTALLATION="
-    rm -rf $ROOT_DIR/node_modules
-    rm -rf $ROOT_DIR/package.json
-    rm -rf $ROOT_DIR/package-lock.json
-    $COMMAND_INSTALL_PACKAGE_MANAGER
-    $COMMAND_INSTALL_RUNTIME
+        $COMMAND_INSTALL_PACKAGE_MANAGER
+        $COMMAND_INSTALL_RUNTIME
     "
 
     docker run -it --rm \
