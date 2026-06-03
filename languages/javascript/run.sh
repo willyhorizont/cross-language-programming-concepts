@@ -7,14 +7,14 @@ if [ -z "$1" ]; then
 fi
 
 PATH_TO_FILE_NAME_WITH_EXTENSION="$1"
-PATH_TO_FILE_NAME_WITH_EXTENSION_DIR=$(dirname "$PATH_TO_FILE_NAME_WITH_EXTENSION")
-FILE_NAME_WITH_EXTENSION=$(basename "$PATH_TO_FILE_NAME_WITH_EXTENSION")
+PATH_TO_FILE_NAME_WITH_EXTENSION_DIR="$(dirname "$PATH_TO_FILE_NAME_WITH_EXTENSION")"
+FILE_NAME_WITH_EXTENSION="$(basename "$PATH_TO_FILE_NAME_WITH_EXTENSION")"
 FILE_NAME_WITHOUT_EXTENSION="${FILE_NAME_WITH_EXTENSION%.*}"
 FILE_EXTENSION="${FILE_NAME_WITH_EXTENSION##*.}"
 
-SCRIPT_DIR=$(dirname "$(realpath "$0")")
-LANGUAGE_NAME=$(basename "$SCRIPT_DIR")
-ROOT_DIR=$(realpath "$SCRIPT_DIR/../..")
+SCRIPT_DIR="$(dirname "$(realpath "$0")")"
+LANGUAGE_NAME="$(basename "$SCRIPT_DIR")"
+ROOT_DIR="$(realpath "$SCRIPT_DIR/../..")"
 
 LANGUAGE_ENV_FILE="$ROOT_DIR/.env.$LANGUAGE_NAME"
 
@@ -26,24 +26,24 @@ fi
 
 IMAGE=$("$ROOT_DIR/utils.sh" "get_docker_image" "$LANGUAGE_NAME" 2>/dev/null)
 
+SEPARATOR=$("$ROOT_DIR/utils.sh" "print_separator")
+
 if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
     COMMAND_INSTALL_PACKAGE_MANAGER="npm install -g npm@11.13.0 --no-fund --no-audit --silent"
     COMMAND_INSTALL_RUNTIME="npm install github:willyhorizont/willyhorizont.github.io#1.0.0 --no-fund --no-audit --silent"
     echo ">$COMMAND_INSTALL_PACKAGE_MANAGER"
     echo ">$COMMAND_INSTALL_RUNTIME"
 
-    COMMAND_POST_INSTALLATION="
-        $COMMAND_INSTALL_PACKAGE_MANAGER
-        $COMMAND_INSTALL_RUNTIME
-    "
-
     docker run -it --rm \
         --entrypoint bash \
         -v "$ROOT_DIR:$ROOT_DIR" \
         -w "$ROOT_DIR" \
         "$IMAGE" \
-        -c "$COMMAND_POST_INSTALLATION"
-    echo 'IS_RUNTIME_INSTALLED="TRUE"' > "$LANGUAGE_ENV_FILE"
+        -c "
+            $COMMAND_INSTALL_PACKAGE_MANAGER
+            $COMMAND_INSTALL_RUNTIME
+        "
+    echo "IS_RUNTIME_INSTALLED=\"TRUE\"" > "$LANGUAGE_ENV_FILE"
 fi
 
 COMMAND_CHECK_LANGUAGE_VERSION="
@@ -56,11 +56,7 @@ npm --version
 "
 
 COMMAND_RUN_LANGUAGE_CODE="
-cd $PATH_TO_FILE_NAME_WITH_EXTENSION_DIR
-
-node $FILE_NAME_WITH_EXTENSION
-
-cd $ROOT_DIR
+node \"$FILE_NAME_WITH_EXTENSION\"
 "
 
 docker run -it --rm \
@@ -71,7 +67,11 @@ docker run -it --rm \
     -c "
         $COMMAND_CHECK_LANGUAGE_VERSION
 
-        $ROOT_DIR/utils.sh print_separator
+        echo \"$SEPARATOR\"
+
+        cd \"$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR\"
 
         $COMMAND_RUN_LANGUAGE_CODE
+
+        cd \"$ROOT_DIR\"
     "

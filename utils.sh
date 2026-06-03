@@ -29,7 +29,7 @@ setup_language_specific_vscode_extensions() {
     fi
     local -r target_lang="${1}"
     if [ "$CURRENT_ACTIVE_LANGUAGE" == "$target_lang" ]; then
-        echo "[language-specific-extensions] vscode extension for \"$target_lang\" is active"
+        echo "[language-specific-extensions] vscode extensions for \"$target_lang\" is active"
         return 0
     fi
 
@@ -93,7 +93,7 @@ setup_language_specific_vscode_extensions() {
 
     echo "CURRENT_ACTIVE_LANGUAGE=$target_lang" > $PATH_TO_DOT_ENV_FILE
     printf "%s\n" "${just_installed_extensions[@]}" > "$path_to_list_of_current_installed_extensions"
-    echo "[language-specific-extensions] vscode extension for \"$target_lang\" is active"
+    echo "[language-specific-extensions] vscode extensions for \"$target_lang\" is active"
 }
 
 print_separator() {

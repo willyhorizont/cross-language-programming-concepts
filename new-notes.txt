@@ -34,4 +34,6 @@ https://weberdominik.com/blog/vscode-vertical-tabs/
 
 add https://nue.nu/
 
-update utils.sh run.sh maku universal runner
+todo:
+install ext locally
+rename COMMAND_CHECK_LANGUAGE_VERSION to COMMAND_PRINT_VERSION

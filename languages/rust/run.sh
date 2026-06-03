@@ -7,14 +7,14 @@ if [ -z "$1" ]; then
 fi
 
 PATH_TO_FILE_NAME_WITH_EXTENSION="$1"
-PATH_TO_FILE_NAME_WITH_EXTENSION_DIR=$(dirname "$PATH_TO_FILE_NAME_WITH_EXTENSION")
-FILE_NAME_WITH_EXTENSION=$(basename "$PATH_TO_FILE_NAME_WITH_EXTENSION")
+PATH_TO_FILE_NAME_WITH_EXTENSION_DIR="$(dirname "$PATH_TO_FILE_NAME_WITH_EXTENSION")"
+FILE_NAME_WITH_EXTENSION="$(basename "$PATH_TO_FILE_NAME_WITH_EXTENSION")"
 FILE_NAME_WITHOUT_EXTENSION="${FILE_NAME_WITH_EXTENSION%.*}"
 FILE_EXTENSION="${FILE_NAME_WITH_EXTENSION##*.}"
 
-SCRIPT_DIR=$(dirname "$(realpath "$0")")
-LANGUAGE_NAME=$(basename "$SCRIPT_DIR")
-ROOT_DIR=$(realpath "$SCRIPT_DIR/../..")
+SCRIPT_DIR="$(dirname "$(realpath "$0")")"
+LANGUAGE_NAME="$(basename "$SCRIPT_DIR")"
+ROOT_DIR="$(realpath "$SCRIPT_DIR/../..")"
 
 LANGUAGE_ENV_FILE="$ROOT_DIR/.env.$LANGUAGE_NAME"
 
@@ -26,21 +26,21 @@ fi
 
 IMAGE=$("$ROOT_DIR/utils.sh" "get_docker_image" "$LANGUAGE_NAME" 2>/dev/null)
 
+SEPARATOR=$("$ROOT_DIR/utils.sh" "print_separator")
+
 COMMAND_CHECK_LANGUAGE_VERSION="
 echo \">docker images\"
 echo \"$IMAGE\"
 echo \">rustc --version\"
 rustc --version
+echo \">cargo --version\"
+cargo --version
 "
 
 COMMAND_RUN_LANGUAGE_CODE="
-cd $PATH_TO_FILE_NAME_WITH_EXTENSION_DIR
-
-rustc $PATH_TO_FILE_NAME_WITH_EXTENSION
-./$FILE_NAME_WITHOUT_EXTENSION
-rm -rf $PATH_TO_FILE_NAME_WITH_EXTENSION_DIR/$FILE_NAME_WITHOUT_EXTENSION
-
-cd $ROOT_DIR
+rustc \"$FILE_NAME_WITH_EXTENSION\"
+\"$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR/$FILE_NAME_WITHOUT_EXTENSION\"
+rm -rf \"$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR/$FILE_NAME_WITHOUT_EXTENSION\"
 "
 
 docker run -it --rm \
@@ -51,7 +51,11 @@ docker run -it --rm \
     -c "
         $COMMAND_CHECK_LANGUAGE_VERSION
 
-        $ROOT_DIR/utils.sh print_separator
+        echo \"$SEPARATOR\"
+
+        cd \"$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR\"
 
         $COMMAND_RUN_LANGUAGE_CODE
+
+        cd \"$ROOT_DIR\"
     "
