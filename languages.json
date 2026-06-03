@@ -4,10 +4,10 @@
         "JavaScript",
         "https://nodejs.org/",
         ".js",
-        [
-            "Array",
-            "Object"
-        ],
+        {
+            "python-like-list": "Array",
+            "python-like-dict": "Object"
+        },
         [
             
         ],
@@ -23,10 +23,10 @@
         "Python",
         "https://www.python.org/",
         ".py",
-        [
-            "list",
-            "Dict"
-        ],
+        {
+            "python-like-list": "list",
+            "python-like-dict": "Dict"
+        },
         [
             "ms-python.vscode-pylance"
         ],
@@ -42,10 +42,10 @@
         "PHP",
         "https://www.php.net/",
         ".php",
-        [
-            "array",
-            "associative array"
-        ],
+        {
+            "python-like-list": "array",
+            "python-like-dict": "associative array"
+        },
         [
             "bmewburn.vscode-intelephense-client"
         ],
@@ -61,10 +61,10 @@
         "GO",
         "https://go.dev/",
         ".go",
-        [
-            "Slice",
-            "map[string]interface{}"
-        ],
+        {
+            "python-like-list": "Slice",
+            "python-like-dict": "map[string]interface{}"
+        },
         [
             "golang.go"
         ],
@@ -80,10 +80,10 @@
         "Perl",
         "https://www.perl.org/",
         ".pl",
-        [
-            "ARRAY",
-            "HASH"
-        ],
+        {
+            "python-like-list": "ARRAY",
+            "python-like-dict": "HASH"
+        },
         [
             "bscan.perlnavigator"
         ],
@@ -99,10 +99,10 @@
         "Julia",
         "https://julialang.org/",
         ".jl",
-        [
-            "Vector{Any}",
-            "Dict{String, Any}"
-        ],
+        {
+            "python-like-list": "Vector{Any}",
+            "python-like-dict": "Dict{String, Any}"
+        },
         [
             "julialang.language-julia"
         ],
@@ -118,10 +118,10 @@
         "Lua",
         "https://www.lua.org/",
         ".lua",
-        [
-            "table",
-            "hash table"
-        ],
+        {
+            "python-like-list": "table",
+            "python-like-dict": "hash table"
+        },
         [
             
         ],
@@ -137,10 +137,10 @@
         "Ruby",
         "https://www.ruby-lang.org/",
         ".rb",
-        [
-            "Array",
-            "Hash"
-        ],
+        {
+            "python-like-list": "Array",
+            "python-like-dict": "Hash"
+        },
         [
             "Shopify.ruby-lsp"
         ],
@@ -156,10 +156,10 @@
         "R",
         "https://www.r-project.org/",
         ".r",
-        [
-            "list",
-            "associative list"
-        ],
+        {
+            "python-like-list": "list",
+            "python-like-dict": "associative list"
+        },
         [
             "reditorsupport.r",
             "reditorsupport.r-syntax"
@@ -176,10 +176,10 @@
         "Kotlin",
         "https://kotlinlang.org/",
         ".kt",
-        [
-            "MutableList&lt;Any?&gt;",
-            "MutableMap&lt;String, Any?&gt;"
-        ],
+        {
+            "python-like-list": "MutableList&lt;Any?&gt;",
+            "python-like-dict": "MutableMap&lt;String, Any?&gt;"
+        },
         [
             "fwcd.kotlin",
             "mathiasfrohlich.Kotlin",
@@ -197,10 +197,10 @@
         "Swift",
         "https://www.swift.org/",
         ".swift",
-        [
-            "Array",
-            "OrderedDictionary&lt;String, Any?&gt;"
-        ],
+        {
+            "python-like-list": "Array",
+            "python-like-dict": "OrderedDictionary&lt;String, Any?&gt;"
+        },
         [
             "swiftlang.swift-vscode"
         ],
@@ -213,10 +213,10 @@
         "Dart",
         "https://dart.dev/",
         ".dart",
-        [
-            "List&lt;dynamic&gt;",
-            "Map&lt;String, dynamic&gt;"
-        ],
+        {
+            "python-like-list": "List&lt;dynamic&gt;",
+            "python-like-dict": "Map&lt;String, dynamic&gt;"
+        },
         [
             "dart-code.dart-code"
         ],
@@ -229,10 +229,10 @@
         "Visual Basic .NET (VB.NET)",
         "https://learn.microsoft.com/en-us/dotnet/visual-basic/",
         ".vb",
-        [
-            "List(Of Object)",
-            "Dictionary(Of String, Object)"
-        ],
+        {
+            "python-like-list": "List(Of Object)",
+            "python-like-dict": "Dictionary(Of String, Object)"
+        },
         [
             "dnakode.vbnet-language-support"
         ],
@@ -245,10 +245,10 @@
         "C#",
         "https://learn.microsoft.com/en-us/dotnet/csharp/",
         ".cs",
-        [
-            "List&lt;dynamic&gt;",
-            "Dictionary&lt;string, dynamic&gt;"
-        ],
+        {
+            "python-like-list": "List&lt;dynamic&gt;",
+            "python-like-dict": "Dictionary&lt;string, dynamic&gt;"
+        },
         [
             "ms-dotnettools.csharp"
         ],
@@ -261,10 +261,10 @@
         "MATLAB",
         "https://www.mathworks.com/products/matlab.html",
         ".m",
-        [
-            "Cell Array",
-            "struct"
-        ],
+        {
+            "python-like-list": "Cell Array",
+            "python-like-dict": "struct"
+        },
         [
             "MathWorks.language-matlab",
             "gimly81.matlab"
@@ -278,10 +278,10 @@
         "GNU Octave",
         "https://octave.org/",
         ".m",
-        [
-            "Cell Array",
-            "struct"
-        ],
+        {
+            "python-like-list": "Cell Array",
+            "python-like-dict": "struct"
+        },
         [
             
         ],
@@ -294,10 +294,10 @@
         "Wolfram Language Script",
         "https://www.wolfram.com/wolframscript/",
         ".wls",
-        [
-            "List",
-            "Association"
-        ],
+        {
+            "python-like-list": "List",
+            "python-like-dict": "Association"
+        },
         [
             "shigma.vscode-wl",
             "WolframResearch.wolfram"
@@ -311,10 +311,10 @@
         "Raku",
         "https://raku.org/",
         ".raku",
-        [
-            "List",
-            "HASH"
-        ],
+        {
+            "python-like-list": "List",
+            "python-like-dict": "HASH"
+        },
         [
             "bscan.raku-navigator"
         ],
@@ -327,10 +327,10 @@
         "Scala",
         "https://www.scala-lang.org/",
         ".scala",
-        [
-            "mutable.ArrayBuffer[Any]",
-            "mutable.Map[String, Any]"
-        ],
+        {
+            "python-like-list": "mutable.ArrayBuffer[Any]",
+            "python-like-dict": "mutable.Map[String, Any]"
+        },
         [
             "scala-lang.scala"
         ],
@@ -346,10 +346,10 @@
         "Java",
         "https://www.oracle.com/java/",
         ".java",
-        [
-            "ArrayList&lt;Object&gt",
-            "HashMap&lt;String, Object&gt;"
-        ],
+        {
+            "python-like-list": "ArrayList&lt;Object&gt",
+            "python-like-dict": "HashMap&lt;String, Object&gt;"
+        },
         [
             
         ],
@@ -365,10 +365,10 @@
         "Nu",
         "https://www.nushell.sh/",
         ".nu",
-        [
-            null,
-            null
-        ],
+        {
+            "python-like-list": null,
+            "python-like-dict": null
+        },
         [
             "TheNuProjectContributors.vscode-nushell-lang"
         ],
@@ -384,10 +384,10 @@
         "Elv",
         "https://elv.sh/",
         ".elv",
-        [
-            null,
-            null
-        ],
+        {
+            "python-like-list": null,
+            "python-like-dict": null
+        },
         [
             "elves.elvish"
         ],
@@ -403,10 +403,10 @@
         "Vim9 Script",
         "https://vimhelp.org/vim9.txt.html",
         ".vim",
-        [
-            null,
-            null
-        ],
+        {
+            "python-like-list": null,
+            "python-like-dict": null
+        },
         [
             "xadillax.viml"
         ],
@@ -422,10 +422,10 @@
         "Rust",
         "https://rust-lang.org/",
         ".rs",
-        [
-            null,
-            null
-        ],
+        {
+            "python-like-list": null,
+            "python-like-dict": null
+        },
         [
             "dustypomerleau.rust-syntax",
             "rust-lang.rust-analyzer"
@@ -442,10 +442,10 @@
         "Nix",
         "https://nixos.org/",
         ".nix",
-        [
-            "List",
-            "Attribute Set"
-        ],
+        {
+            "python-like-list": "List",
+            "python-like-dict": "Attribute Set"
+        },
         [
             "jnoortheen.nix-ide"
         ],
@@ -461,10 +461,10 @@
         "Tcl",
         "https://www.tcl-lang.org/",
         ".tcl",
-        [
-            null,
-            null
-        ],
+        {
+            "python-like-list": null,
+            "python-like-dict": null
+        },
         [
             "bitwisecook.tcl-lsp"
         ],
@@ -480,10 +480,10 @@
         "GDScript",
         "https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html",
         ".gd",
-        [
-            null,
-            null
-        ],
+        {
+            "python-like-list": null,
+            "python-like-dict": null
+        },
         [
             "DoHe.godot-format",
             "geequlim.godot-tools",
