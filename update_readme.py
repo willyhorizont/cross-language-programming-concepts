@@ -67,8 +67,7 @@ Cross-language implementations of common programming concepts, data structures, 
 ## Run command example
 
 ```bash
-chmod +x /languages/javascript/run.sh
-bash /languages/javascript/run.sh hello-world.js
+bash /languages/javascript/run.sh <path-to-code>.js
 ```
 
 ---
