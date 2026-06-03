@@ -15,7 +15,7 @@ Cross-language implementations of common programming concepts, data structures, 
 
 ---
 
-## Run command example
+## Run
 
 ```bash
 bash /languages/javascript/run.sh <path-to-code>.js
