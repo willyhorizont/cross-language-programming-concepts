@@ -59,15 +59,15 @@ Cross-language implementations of common programming concepts, data structures, 
 ---
 ## Recommended environment
 
-- GNU/Linux or GNU+Linux
-- Visual Studio Code + [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
+- [GNU/Linux or GNU+Linux](https://linuxmint.com/download_lmde.php)
+- [Visual Studio Code](https://code.visualstudio.com/) + [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
 
 ---
 
 ## Run
 
 ```bash
-bash /languages/javascript/run.sh <path-to-code>.js
+bash /languages/<language>/run.sh <path-to-code>.<file-extension>
 ```
 
 ---
