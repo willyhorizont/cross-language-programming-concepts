@@ -215,9 +215,9 @@
         }
     },
     // "files.defaultLanguage": "javascript",
-    "files.defaultLanguage": "typescriptreact",
+    // "files.defaultLanguage": "typescriptreact",
     "files.associations": {
-        "*.*": "typescriptreact",
+        // "*.*": "typescriptreact",
         // "*.*": "typescript",
         // "*.*": "javascriptreact",
         // "*.*": "snippets",

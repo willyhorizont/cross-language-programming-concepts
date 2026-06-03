@@ -2,36 +2,33 @@
 
 (
     # 1. support function as value
-    declare -r say_hello=$(echo '#!/bin/bash
+    declare -r say_hello='#!/bin/bash
 
-                                declare -r -a variadic_arguments=( "$@" )
-                                declare -r callback_function="$1"
+                        declare -r -a variadic_arguments=( "$@" )
+                        declare -r callback_function="$1"
 
-                                echo "hello"
-                                bash -c "$callback_function" _ "${variadic_arguments[@]:1}"
-                                ' | sed 's/^[ \t]*//' | jq -Rs . | jq -r .
-                            )
-    bash -c "$say_hello" _ "$(echo '#!/bin/bash
+                        echo "hello"
+                        bash -c "$callback_function" _ "${variadic_arguments[@]:1}"
+                        '
+    bash -c "$say_hello" _ '#!/bin/bash
 
-                                    declare -r -a variadic_arguments=( "$@" )
+                            declare -r -a variadic_arguments=( "$@" )
 
-                                    echo "world"
-                                    ' | sed 's/^[ \t]*//' | jq -Rs . | jq -r .
-                                )"
-    declare -r multiply=$(echo '#!/bin/bash
+                            echo "world"
+                            '
+    declare -r multiply='#!/bin/bash
 
-                                declare -r -a variadic_arguments=( "$@" )
-                                declare -r a="$1"
+                        declare -r -a variadic_arguments=( "$@" )
+                        declare -r a="$1"
 
-                                echo "#!/bin/bash
+                        echo "#!/bin/bash
 
-                                    declare -r -a variadic_arguments=( "$@" )
-                                    declare -r b=\"\$1\"
+                            declare -r -a variadic_arguments=( "$@" )
+                            declare -r b=\"\$1\"
 
-                                    echo \$(($a * b))
-                                    "
-                                ' | sed 's/^[ \t]*//' | jq -Rs . | jq -r .
-                            )
+                            echo \$(($a * b))
+                            "
+                        '
     declare -r multiply_by_two="$(bash -c "$multiply" _ 2)"
     echo "bash -c \"\$multiply_by_two\" _ 10: $(bash -c "$multiply_by_two" _ 10)"
     declare -r multiply_by_eight="$(bash -c "$multiply" _ 8)"
@@ -57,10 +54,11 @@
                                                         declare -r b="$2"
 
                                                         echo $(( a * b ))
-                                                        ' | sed 's/^[ \t]*//' | jq -Rs .)
+                                                        ' | jq -Rs .)
                                             ]")
-    echo "$some_python_like_list" | jq  -r -c .
-    echo "$some_python_like_list" | jq  -r --indent 4 .
+    echo "$some_python_like_list" | jq -r "."
+    bash -c "$(jq -r '.[10]' < <(echo "$some_python_like_list"))" _ 7 5
+    echo "get_rectangle_area(7, 5): $(bash -c "$(jq -r '.[10]' < <(echo "$some_python_like_list"))" _ 7 5)"
     declare -r some_python_like_dict=$(echo "{
                                                 \"some_null\": null,
                                                 \"some_boolean_true\": true,
@@ -79,8 +77,9 @@
                                                                             declare -r b="$2"
 
                                                                             echo $(( a * b ))
-                                                                            ' | sed 's/^[ \t]*//' | jq -Rs .)
+                                                                            ' | jq -Rs .)
                                             }")
-    echo "$some_python_like_dict" | jq -r -c .
-    echo "$some_python_like_dict" | jq -r --indent 4 .
+    echo "$some_python_like_dict" | jq -r "."
+    bash -c "$(jq -r '.some_function' < <(echo "$some_python_like_dict"))" _ 7 5
+    echo "get_rectangle_area(7, 5): $(bash -c "$(jq -r '.some_function' < <(echo "$some_python_like_dict"))" _ 7 5)"
 )

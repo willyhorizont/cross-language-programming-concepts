@@ -40,8 +40,10 @@ setup_language_specific_vscode_extensions() {
     mapfile -t vscode_extensions_for_target_lang < <(jq -r --arg target "$target_lang" '.[] | select(.[0] == $target) | .[5] | .[]' "$ROOT_DIR/languages.json" 2>/dev/null)
 
     if [ ${#vscode_extensions_for_target_lang[@]} -eq 0 ]; then
+        echo "[language-specific-extensions] vscode extensions for \"$target_lang\" is not available"
         return 0
     fi
+    echo "[language-specific-extensions] found vscode extensions for \"$target_lang\""
 
     declare -a just_installed_extensions=()
     local path_to_vscode_extensions_base="$ROOT_DIR/vscode-extensions-base.txt"

@@ -494,5 +494,24 @@
         [
             ["prijindal/godot:4.6.3-stable-standard", ["prijindal/godot:4.6.3-stable-standard"]]
         ]
+    ],
+    [
+        "bash",
+        "Bash",
+        "https://www.gnu.org/software/bash/",
+        ".gd",
+        {
+            "python-like-list": "indexed array",
+            "python-like-dict": "associative array"
+        },
+        [
+
+        ],
+        [
+
+        ],
+        [
+            ["bash:5.2.37(1)", []]
+        ]
     ]
 ]

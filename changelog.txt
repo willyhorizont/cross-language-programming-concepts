@@ -4,3 +4,6 @@ finish cross-language-features.nix;
 
 (06/12 month) | Wed, 03 Jun 2026 | 20:34 | 08:34 PM
 finish update vim9script run.sh
+
+(06/12 month) | Thu, 03 Jun 2026 | 03:37 | 03:37 AM
+add Bash
