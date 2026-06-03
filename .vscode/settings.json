@@ -214,9 +214,17 @@
             "enabled": true // enable for a particular theme
         }
     },
-    "files.defaultLanguage": "javascript",
+    // "files.defaultLanguage": "javascript",
+    "files.defaultLanguage": "typescriptreact",
     "files.associations": {
-        // "*.txt": "javascript",
+        "*.*": "typescriptreact",
+        // "*.*": "typescript",
+        // "*.*": "javascriptreact",
+        // "*.*": "snippets",
+        // "*.*": "cuda-cpp",
+        // "*.*": "sql",
+        // "*.*": "objective-c",
+
         // "*.elv": "raku",
         // "*.gd": "python",
         // "*.kt": "java",

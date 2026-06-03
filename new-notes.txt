@@ -32,8 +32,22 @@ code --profile "kotlin" .
 
 https://weberdominik.com/blog/vscode-vertical-tabs/
 
-add https://nue.nu/
+@category:"programming languages" tcl
+ext:vim
+
+add:
+ps1 / pwsh / powershell
+typst
+https://nue.nu/
+
+change Language Mode to:
+cuda-cpp
+sql
+objective-c
+javascriptreact
+typescript
+typescriptreact
 
 todo:
+fine setSomethingId in chaos*.tcl
 install ext locally
-rename COMMAND_CHECK_LANGUAGE_VERSION to COMMAND_PRINT_VERSION

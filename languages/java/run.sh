@@ -39,7 +39,7 @@ PATH_TO_TARGET_FILE_WITH_EXTENSION="$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/$TAR
 
 cp -f "$PATH_TO_FILE_NAME_WITH_EXTENSION" "$PATH_TO_TARGET_FILE_WITH_EXTENSION"
 
-COMMAND_CHECK_LANGUAGE_VERSION="
+COMMAND_PRINT_VERSION="
 echo \">docker images\"
 echo \"$IMAGE\"
 echo \">java -version\"
@@ -59,7 +59,7 @@ docker run -it --rm \
     -w "$ROOT_DIR" \
     "$IMAGE" \
     -c "
-        $COMMAND_CHECK_LANGUAGE_VERSION
+        $COMMAND_PRINT_VERSION
 
         echo \"$SEPARATOR\"
 

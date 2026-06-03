@@ -46,7 +46,7 @@ if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
     echo "IS_RUNTIME_INSTALLED=\"TRUE\"" > "$LANGUAGE_ENV_FILE"
 fi
 
-COMMAND_CHECK_LANGUAGE_VERSION="
+COMMAND_PRINT_VERSION="
 echo \">docker images\"
 echo \"$IMAGE\"
 echo \">node --version\"
@@ -65,7 +65,7 @@ docker run -it --rm \
     -w "$ROOT_DIR" \
     "$IMAGE" \
     -c "
-        $COMMAND_CHECK_LANGUAGE_VERSION
+        $COMMAND_PRINT_VERSION
 
         echo \"$SEPARATOR\"
 

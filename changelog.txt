@@ -1,3 +1,6 @@
 (06/12 month) | Wed, 02 Jun 2026 | 02:24 | 02:24 AM
 finish rebuild utils.sh and run.sh to make universal runner;
 finish cross-language-features.nix;
+
+(06/12 month) | Wed, 03 Jun 2026 | 20:34 | 08:34 PM
+finish update vim9script run.sh

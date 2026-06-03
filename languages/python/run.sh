@@ -28,11 +28,13 @@ IMAGE=$("$ROOT_DIR/utils.sh" "get_docker_image" "$LANGUAGE_NAME" 2>/dev/null)
 
 SEPARATOR=$("$ROOT_DIR/utils.sh" "print_separator")
 
-COMMAND_CHECK_LANGUAGE_VERSION="
+COMMAND_PRINT_VERSION="
 echo \">docker images\"
 echo \"$IMAGE\"
 echo \">python --version\"
 python --version
+echo \">pip --version\"
+pip --version
 "
 
 COMMAND_RUN_LANGUAGE_CODE="
@@ -45,7 +47,7 @@ docker run -it --rm \
     -w "$ROOT_DIR" \
     "$IMAGE" \
     -c "
-        $COMMAND_CHECK_LANGUAGE_VERSION
+        $COMMAND_PRINT_VERSION
 
         echo \"$SEPARATOR\"
 

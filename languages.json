@@ -123,7 +123,7 @@
             "python-like-dict": "hash table"
         },
         [
-            
+            "sumneko.lua"
         ],
         [
 
@@ -181,12 +181,12 @@
             "python-like-dict": "MutableMap&lt;String, Any?&gt;"
         },
         [
-            "fwcd.kotlin",
-            "mathiasfrohlich.Kotlin",
-            "esafirm.kotlin-formatter"
+            "JetBrains.kotlin-server",
+            "fwcd.kotlin"
         ],
         [
-
+            "mathiasfrohlich.Kotlin",
+            "esafirm.kotlin-formatter"
         ],
         [
             ["danysk/kotlin:2.3.21-jdk23", ["danysk/kotlin:2.3.21-jdk23"]]
@@ -266,11 +266,10 @@
             "python-like-dict": "struct"
         },
         [
-            "MathWorks.language-matlab",
-            "gimly81.matlab"
+            "MathWorks.language-matlab"
         ],
         [
-            
+            "gimly81.matlab"
         ]
     ],
     [
@@ -283,10 +282,10 @@
             "python-like-dict": "struct"
         },
         [
-            
+            "MathWorks.language-matlab"
         ],
         [
-            
+            "gimly81.matlab"
         ]
     ],
     [
@@ -299,11 +298,10 @@
             "python-like-dict": "Association"
         },
         [
-            "shigma.vscode-wl",
             "WolframResearch.wolfram"
         ],
         [
-            
+            "shigma.vscode-wl"
         ]
     ],
     [
@@ -351,10 +349,12 @@
             "python-like-dict": "HashMap&lt;String, Object&gt;"
         },
         [
-            "redhat.java"
+            "redhat.java",
+            "Oracle.oracle-java",
+            ""
         ],
         [
-
+            "georgewfraser.vscode-javac"
         ],
         [
             ["eclipse-temurin:26.0.1_8-jdk", ["eclipse-temurin:26.0.1_8-jdk"]]
@@ -408,7 +408,7 @@
             "python-like-dict": null
         },
         [
-            "xadillax.viml"
+            
         ],
         [
 
@@ -427,11 +427,10 @@
             "python-like-dict": null
         },
         [
-            "dustypomerleau.rust-syntax",
             "rust-lang.rust-analyzer"
         ],
         [
-
+            "dustypomerleau.rust-syntax"
         ],
         [
             ["rust:1.96.0", ["rust:1.96.0"]]
@@ -485,13 +484,12 @@
             "python-like-dict": null
         },
         [
-            "DoHe.godot-format",
             "geequlim.godot-tools",
-            "poeticAndroid.pretty-gd-vs",
-            "EddieDover.gdscript-formatter-linter"
+            "EddieDover.gdscript-formatter-linter",
+            "DoHe.godot-format"
         ],
         [
-
+            "poeticAndroid.pretty-gd-vs"
         ],
         [
             ["prijindal/godot:4.6.3-stable-standard", ["prijindal/godot:4.6.3-stable-standard"]]

@@ -36,7 +36,7 @@ echo \">composer --version\"
 \"$PATH_TO_PACKAGE_MANAGER\" --version
 "
 
-COMMAND_CHECK_LANGUAGE_VERSION="
+COMMAND_PRINT_VERSION="
 if [ -f \"$PATH_TO_PACKAGE_MANAGER\" ]; then
     $COMMAND_CHECK_PACKAGE_MANAGER_VERSION
 fi
@@ -73,7 +73,7 @@ docker run -it --rm \
     bash -c "
         $COMMAND_INSTALL_PACKAGE_MANAGER
 
-        $COMMAND_CHECK_LANGUAGE_VERSION
+        $COMMAND_PRINT_VERSION
 
         echo \"$SEPARATOR\"
 

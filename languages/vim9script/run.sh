@@ -28,24 +28,30 @@ IMAGE=$("$ROOT_DIR/utils.sh" "get_docker_image" "$LANGUAGE_NAME" 2>/dev/null)
 
 SEPARATOR=$("$ROOT_DIR/utils.sh" "print_separator")
 
-# TODO: look after below code
-
-echo "
+COMMAND_PRINT_VERSION="
 echo \">docker images\"
-$IMAGE
->vim --version 2>/dev/null | head -n 1
+echo \"$IMAGE\"
+echo \">vim --version 2>/dev/null | head -n 2\"
+vim --version 2>/dev/null | head -n 2
+"
+
+COMMAND_RUN_LANGUAGE_CODE="
+vim -e -s -c \"source $PATH_TO_FILE_NAME_WITH_EXTENSION\" -c \"echomsg ''\" -c \"verbose messages\" -c \"qa!\"
 "
 
 docker run -it --rm \
+    --entrypoint bash \
     -v "$ROOT_DIR:$ROOT_DIR" \
     -w "$ROOT_DIR" \
     "$IMAGE" \
-    vim --version 2>/dev/null | head -n 1
+    -c "
+        $COMMAND_PRINT_VERSION
 
-"$ROOT_DIR/utils.sh" "print_separator"
+        echo \"$SEPARATOR\"
 
-docker run -it --rm \
-    -v "$ROOT_DIR:$ROOT_DIR" \
-    -w "$ROOT_DIR" \
-    "$IMAGE" \
-    vim -e -s -c "source $PATH_TO_FILE_NAME_WITH_EXTENSION" -c "echom ''" -c "verbose messages" -c "qa!"
+        cd \"$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR\"
+
+        $COMMAND_RUN_LANGUAGE_CODE
+
+        cd \"$ROOT_DIR\"
+    "

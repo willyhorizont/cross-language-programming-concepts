@@ -5,7 +5,6 @@ adpyke.codesnap
 cardinal90.multi-cursor-case-preserve
 christian-kohler.path-intellisense
 ecmel.vscode-html-css
-dbaeumer.vscode-eslint
 evgeniypeshkov.syntax-highlighter
 formulahendry.code-runner
 pokey.parse-tree

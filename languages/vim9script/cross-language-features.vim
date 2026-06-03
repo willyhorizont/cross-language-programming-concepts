@@ -11,7 +11,11 @@ SayHello(() => {
 var Multiply = (a) => (b) => (a * b)
 var MultiplyByTwo = Multiply(2)
 echomsg $"MultiplyByTwo(10): {MultiplyByTwo(10)}"
+var MultiplyByEight = Multiply(8)
+echomsg $"MultiplyByEight(4): {MultiplyByEight(4)}"
+echomsg $"MultiplyByTwo(8): {MultiplyByTwo(8)}"
 
+# 2. support dynamic-typed value, or has workaround
 var SomePythonLikeList = [
     null,
     true,
@@ -25,7 +29,7 @@ var SomePythonLikeList = [
     {foo: "bar"},
     (a, b) => (a * b)
 ]
-# echomsg $"SomePythonLikeList: {json_encode(SomePythonLikeList)}"
+# echomsg $"SomePythonLikeList: {json_encode(SomePythonLikeList)}" # error if contain function
 
 # 2. support dynamic-typed value, or has workaround
 var SomePythonLikeDict: dict<any> = {
@@ -41,4 +45,4 @@ var SomePythonLikeDict: dict<any> = {
     some_python_like_dict: {foo: "bar"},
     some_function: (a, b) => (a * b)
 }
-# echomsg $"SomePythonLikeDict: {json_encode(SomePythonLikeDict)}"
+# echomsg $"SomePythonLikeDict: {json_encode(SomePythonLikeDict)}" # error if contain function
