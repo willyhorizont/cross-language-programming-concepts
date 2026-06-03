@@ -3,7 +3,7 @@
 if [ -z "$1" ]; then
     echo "usage:"
     echo "run.sh <path-to-filename-with-extension>"
-    exit 0
+    exit 1
 fi
 
 PATH_TO_FILE_NAME_WITH_EXTENSION="$1"
@@ -24,7 +24,7 @@ fi
 
 "$ROOT_DIR/utils.sh" "setup_language_specific_vscode_extensions" "$LANGUAGE_NAME" 2>/dev/null
 
-IMAGE="nixos/nix:2.34.7"
+IMAGE=$("$ROOT_DIR/utils.sh" "get_docker_image" "$LANGUAGE_NAME" 2>/dev/null)
 
 COMMAND_CHECK_LANGUAGE_VERSION="
 echo \">docker images\"

@@ -3,8 +3,6 @@
 (
     # 1. support function as value
     declare -r say_hello='
-        #!/bin/bash
-
         declare -r -a variadic_arguments=( "$@" )
         declare -r callback_function="$1"
 
@@ -13,16 +11,12 @@
         return 0
     '
     bash -c "$say_hello" _ '
-        #!/bin/bash
-
         declare -r -a variadic_arguments=( "$@" )
 
         echo "world"
         return 0
     ' 2>/dev/null
     declare -r multiply='
-        #!/bin/bash
-
         declare -r -a variadic_arguments=( "$@" )
         declare -r a="$1"
 
@@ -54,8 +48,6 @@
     some_python_like_list+=( 1 2 3 )
     some_python_like_list+=( [foo]="bar" )
     some_python_like_list+=( '
-            #!/bin/bash
-
             declare -r -a variadic_arguments=( "$@" )
             declare -r a="$1"
             declare -r b="$2"
@@ -65,20 +57,19 @@
         ' )
     declare -A some_python_like_dict=()
     some_python_like_dict[some_null]="" # null
-    some_python_like_dict[some_boolean_true]="any-non-empty-string" # true
+    some_python_like_dict[some_boolean_true_one]="any-non-empty-string" # true
+    some_python_like_dict[some_boolean_true_two]=1 # true
     some_python_like_dict[some_boolean_false]="" # false
     some_python_like_dict[some_string]="foo"
     some_python_like_dict[some_int_positive]=123
     some_python_like_dict[some_int_negative]=-123
-    # some_python_like_dict[some_float_positive]=123.789 # error
+    # some_python_like_dict[some_float_positive]=123.789 # error, numeric is integer only
     some_python_like_dict[some_float_positive]="123.789"
-    # some_python_like_dict[some_float_negative]=-123.789 # error
+    # some_python_like_dict[some_float_negative]=-123.789 # error, numeric is integer only
     some_python_like_dict[some_float_negative]="-123.789"
-    # some_python_like_dict[some_python_like_list]=( 1 2 3 ) # error
-    # some_python_like_dict[some_python_like_dict]=( [foo]="bar" ) # error
+    # some_python_like_dict[some_python_like_list]=( 1 2 3 ) # error, list can not be nested 
+    # some_python_like_dict[some_python_like_dict]=( [foo]="bar" ) # error, dict can not be nested
     some_python_like_dict[some_function]='
-            #!/bin/bash
-
             declare -r -a variadic_arguments=( "$@" )
             declare -r a="$1"
             declare -r b="$2"

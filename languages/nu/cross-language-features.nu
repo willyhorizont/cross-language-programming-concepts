@@ -9,6 +9,9 @@ do $say_hello {||
 let multiply = {|a| {|b| $a * $b}}
 let multiply_by_two = do $multiply 2
 print $"do $multiply_by_two 10: (do $multiply_by_two 10)"
+let multiply_by_eight = do $multiply 8
+print $"do $multiply_by_eight 4: (do $multiply_by_eight 4)"
+print $"do $multiply_by_two 8: (do $multiply_by_two 8)"
 
 # 2. support dynamic-typed value, or has workaround
 let some_python_like_list = [

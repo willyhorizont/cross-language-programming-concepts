@@ -3,7 +3,7 @@
 if [ -z "$1" ]; then
     echo "usage:"
     echo "run.sh <path-to-filename-with-extension>"
-    exit 0
+    exit 1
 fi
 
 PATH_TO_FILE_NAME_WITH_EXTENSION="$1"
@@ -29,7 +29,7 @@ if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
     echo 'IS_RUNTIME_INSTALLED="TRUE"' > "$LANGUAGE_ENV_FILE"
 fi
 
-IMAGE="eclipse-temurin:26.0.1_8-jdk"
+IMAGE=$("$ROOT_DIR/utils.sh" "get_docker_image" "$LANGUAGE_NAME" 2>/dev/null)
 
 COMMAND_CHECK_LANGUAGE_VERSION="
 echo \">docker images\"

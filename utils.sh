@@ -1,131 +1,99 @@
 #!/bin/bash
 
-[ -f ".env" ] && source ".env"
+SCRIPT_DIR=$(dirname "$(realpath "$0")")
+ROOT_DIR=$(realpath "$SCRIPT_DIR")
+PATH_TO_DOT_ENV_FILE="$ROOT_DIR/.env"
+[ -f $PATH_TO_DOT_ENV_FILE ] && source $PATH_TO_DOT_ENV_FILE
+
+get_docker_image() {
+    if [ -z "$1" ]; then
+        echo "expected <language-id>"
+        exit 1
+    fi
+    local -r language_id="${1}"
+    local -r docker_image=$(jq -r --arg lang "$language_id" '
+        .[]
+
+        | select(.[0] == $lang)
+        | .[7][-1]
+        | .[-1]
+        | .[-1]
+    ' "$SCRIPT_DIR/languages.json")
+    echo "$docker_image"
+}
 
 setup_language_specific_vscode_extensions() {
-    local -r target_lang="${1:-"base"}"
+    if [ -z "$1" ]; then
+        echo "expected <language-id>"
+        exit 1
+    fi
+    local -r target_lang="${1}"
     if [ "$CURRENT_ACTIVE_LANGUAGE" == "$target_lang" ]; then
-        echo "[language specific extensions] vscode extension for \"$target_lang\" is active"
+        echo "[language-specific-extensions] vscode extension for \"$target_lang\" is active"
         return 0
     fi
-    declare -A vscode_extensions
-    vscode_extensions["base"]=$(cat 'vscode-extensions-base.txt' | xargs)
+
     if ! command -v jq &> /dev/null; then
         echo "jq not installed. installing jq..."
         sudo apt update && sudo apt install -y jq
     fi
-    mapfile -t langs_from_json < <(jq -r '.[] | .[0]' "languages.json")
+    mapfile -t vscode_extensions_for_target_lang < <(jq -r --arg target "$target_lang" '.[] | select(.[0] == $target) | .[5] | .[]' "$ROOT_DIR/languages.json" 2>/dev/null)
 
-    for lang_from_json in "${langs_from_json[@]}"; do
-        lang_exts_from_json=$(jq -r --arg b "$lang_from_json" '.[] | select(.[0] == $b) | .[5] | .[]' "languages.json" | xargs)
-        vscode_extensions_for_lang_from_json="\
-            ${vscode_extensions['base']} \
-
-            $lang_exts_from_json \
-        "
-
-        vscode_extensions["$lang_from_json"]=$(echo "$vscode_extensions_for_lang_from_json" | xargs)
-    done
-
-    declare -a language_specific_vscode_extensions
-    mapfile -t language_specific_vscode_extensions < <(jq -r '.[] | .[0]' "languages.json")
-
-    local supported_vscode_extensions="\
-        ${vscode_extensions['base']} \
-    "
-    for lang in "${language_specific_vscode_extensions[@]}"; do
-        if [ -n "${vscode_extensions[$lang]}" ]; then
-            supported_vscode_extensions="\
-                $supported_vscode_extensions \
-                ${vscode_extensions[$lang]} \
-            "
-        fi
-    done
-    vscode_extensions["supported"]=$(echo "$supported_vscode_extensions" | xargs | tr ' ' '\n' | tr '[:upper:]' '[:lower:]' | sort -u | xargs)
-    # vscode_extensions["supported"]=$(echo "$supported_vscode_extensions" | xargs | tr ' ' '\n' | sort -u | xargs)
-    # vscode_extensions["supported"]=$(echo "$supported_vscode_extensions" | xargs)
-
-    local selected_lang="base"
-    for lang in "${language_specific_vscode_extensions[@]}"; do
-        if [ "$lang" == "$target_lang" ]; then
-            selected_lang="$lang"
-            break
-        fi
-    done
-
-    local matched_lang="base"
-    if [ -n "${vscode_extensions[$selected_lang]}" ]; then
-        matched_lang="$selected_lang"
+    if [ ${#vscode_extensions_for_target_lang[@]} -eq 0 ]; then
+        return 0
     fi
 
     declare -a just_installed_extensions=()
-    mapfile -t just_installed_extensions < "vscode-extensions-base.txt"
-    local current_installed_extensions="vscode-extensions-current.txt"
-    code --list-extensions 2>/dev/null | grep -v -E "(stdin|Usage|Options)" > "$current_installed_extensions"
+    local path_to_vscode_extensions_base="$ROOT_DIR/vscode-extensions-base.txt"
+    mapfile -t base_extensions < $path_to_vscode_extensions_base
+    mapfile -t just_installed_extensions < $path_to_vscode_extensions_base
 
-    for target_ext in ${vscode_extensions[$matched_lang]}; do
-        if grep -qix "$target_ext" "$current_installed_extensions"; then
-        # if grep -qx "$target_ext" "$current_installed_extensions"; then
-            # echo "[language specific extensions] $target_ext already installed"
+    local path_to_list_of_current_installed_extensions="$ROOT_DIR/vscode-extensions-current.txt"
+    code --list-extensions 2>/dev/null | grep -v -E "(stdin|Usage|Options)" > "$path_to_list_of_current_installed_extensions"
+
+    for base_ext in "${base_extensions[@]}"; do
+        if grep -qix "$base_ext" "$path_to_list_of_current_installed_extensions"; then
             continue
         fi
-        # echo "[language specific extensions] installing $target_ext..."
-        code --install-extension "$target_ext" --force
-        just_installed_extensions+=( "$target_ext" )
+        code --install-extension "$base_ext" --force
+        just_installed_extensions+=( "$base_ext" )
     done
 
-    # code --list-extensions > "$current_installed_extensions" 2>/dev/null
-    # # rm -f "$current_installed_extensions"
-
-    local -a extensions_to_disable=()
+    for ext_for_target_lang in "${vscode_extensions_for_target_lang[@]}"; do
+        if grep -qix "$ext_for_target_lang" "$path_to_list_of_current_installed_extensions"; then
+            continue
+        fi
+        code --install-extension "$ext_for_target_lang" --force
+        just_installed_extensions+=( "$ext_for_target_lang" )
+    done
 
     while read -r installed_ext; do
         [ -z "$installed_ext" ] && continue
 
         local installed_ext_lower="${installed_ext,,}"
 
-        local is_in_current_lang=false
-        for target_ext in ${vscode_extensions[$matched_lang]}; do
-            if [ "$installed_ext_lower" == "${target_ext,,}" ]; then
-            # if [ "$installed_ext" == "$target_ext" ]; then
-                is_in_current_lang=true
-                break
-            fi
-        done
-
-        $is_in_current_lang && continue
-
-        # local is_supported=false
         local should_keep=false
 
-        for target_ext in ${vscode_extensions["supported"]}; do
-            if [ "$installed_ext_lower" == "${target_ext,,}" ]; then
-            # if [ "$installed_ext" == "$target_ext" ]; then
-                # is_supported=true
-                should_keep=false
+        if grep -qix "$installed_ext_lower" "$path_to_vscode_extensions_base"; then
+            continue
+        fi
+
+        for ext_for_target_lang in ${vscode_extensions_for_target_lang}; do
+            if [ "$installed_ext_lower" == "${ext_for_target_lang,,}" ]; then
+                should_keep=true
                 break
             fi
         done
 
-        # if $is_supported; then
-        #     # echo "[language specific extensions] disabling $installed_ext..."
-        #     # code --disable-extension "$installed_ext" -r .
-        #     extensions_to_disable+=("$installed_ext")
-        #     continue
-        # fi
-        # if ! $is_supported; then
         if ! $should_keep; then
-            # echo "[language specific extensions] uninstalling $installed_ext..."
             code --uninstall-extension "$installed_ext"
             continue
         fi
-    # done < <(code --list-extensions 2>/dev/null | grep -v -E "(stdin|Usage|Options)")
-    done < $current_installed_extensions
+    done < $path_to_list_of_current_installed_extensions
 
-    # rm -f "$current_installed_extensions"
-    echo "CURRENT_ACTIVE_LANGUAGE=$selected_lang" > ".env"
-    printf "%s\n" "${just_installed_extensions[@]}" > "vscode-extensions-current.txt"
-    echo "[language specific extensions] switched to $selected_lang"
+    echo "CURRENT_ACTIVE_LANGUAGE=$target_lang" > $PATH_TO_DOT_ENV_FILE
+    printf "%s\n" "${just_installed_extensions[@]}" > "$path_to_list_of_current_installed_extensions"
+    echo "[language-specific-extensions] vscode extension for \"$target_lang\" is active"
 }
 
 print_separator() {
@@ -150,6 +118,10 @@ fi
 
 if [ "$1" == "check_path" ]; then
     check_path "$2"
+fi
+
+if [ "$1" == "get_docker_image" ]; then
+    get_docker_image "$2"
 fi
 
 if [ "$1" == "setup_language_specific_vscode_extensions" ]; then

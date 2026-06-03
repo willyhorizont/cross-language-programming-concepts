@@ -297,7 +297,7 @@ bash /languages/javascript/run.sh hello-world.js
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/python-like-list.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/python-like-list.vim)  
   24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/python-like-list.rs)  
-  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/python-like-list.nix)  
+  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/python-like-list.nix) : List  
   26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/python-like-list.tcl)  
   27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/python-like-list.gd)  
 
@@ -328,7 +328,7 @@ bash /languages/javascript/run.sh hello-world.js
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/python-like-dict.elv)  
   23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/python-like-dict.vim)  
   24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/python-like-dict.rs)  
-  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/python-like-dict.nix)  
+  25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/python-like-dict.nix) : Attribute Set  
   26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/python-like-dict.tcl)  
   27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/python-like-dict.gd)  
 

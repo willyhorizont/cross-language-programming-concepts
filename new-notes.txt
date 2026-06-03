@@ -33,3 +33,5 @@ code --profile "kotlin" .
 https://weberdominik.com/blog/vscode-vertical-tabs/
 
 add https://nue.nu/
+
+update utils.sh run.sh maku universal runner

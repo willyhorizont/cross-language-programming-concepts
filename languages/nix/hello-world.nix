@@ -1,9 +1,22 @@
 let
-    do = _: builtins.deepSeq _ _;
+  do = variadicArguments:
+    builtins.foldl'
+      (accumulator: currentValue:
+      let
+        result = currentValue accumulator;
+      in
+        builtins.deepSeq result result
+      )
+      { }
+      variadicArguments;
 in
 do [
-    (let
-    in
-        builtins.trace "hello, world" null
-    )
+  (state:
+  let
+    newState = state // {
+    };
+  in
+    builtins.trace "hello, world"
+    newState
+  )
 ]
