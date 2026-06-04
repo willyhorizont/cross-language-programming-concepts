@@ -28,7 +28,7 @@ base_url = "https://github.com/willyhorizont/cross-language-programming-concepts
 
 
 def generate_languages():
-    asd = "\n".join([f"{number}. [{language[1]}]({language[2]}) &lt;—&gt; [{language[2]}]({language[2]})  " for number, language in enumerate(languages, start=1)])
+    asd = "\n".join([f"{number}. [{language[1]}]({language[2]}) : [{language[2]}]({language[2]})  " for number, language in enumerate(languages, start=1)])
     return asd
     # with open("repo-utils-output-languages.txt", "w") as file:
     #     file.write(asd)

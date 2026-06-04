@@ -32,7 +32,7 @@ var SomePythonLikeList = [
 # echomsg $"SomePythonLikeList: {json_encode(SomePythonLikeList)}" # error if contain function
 
 # 2. support dynamic-typed value, or has workaround
-var SomePythonLikeDict: dict<any> = {
+var SomePythonLikeDict = {
     some_null: null,
     some_boolean_true: true,
     some_boolean_false: false,

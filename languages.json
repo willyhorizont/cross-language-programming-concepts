@@ -58,7 +58,7 @@
     ],
     [
         "go",
-        "GO",
+        "Go",
         "https://go.dev/",
         ".go",
         {
@@ -345,7 +345,7 @@
         "https://www.oracle.com/java/",
         ".java",
         {
-            "python-like-list": "ArrayList&lt;Object&gt",
+            "python-like-list": "ArrayList&lt;Object&gt;",
             "python-like-dict": "HashMap&lt;String, Object&gt;"
         },
         [
@@ -366,8 +366,8 @@
         "https://www.nushell.sh/",
         ".nu",
         {
-            "python-like-list": null,
-            "python-like-dict": null
+            "python-like-list": "List",
+            "python-like-dict": "Record"
         },
         [
             "TheNuProjectContributors.vscode-nushell-lang"
@@ -385,8 +385,8 @@
         "https://elv.sh/",
         ".elv",
         {
-            "python-like-list": null,
-            "python-like-dict": null
+            "python-like-list": "List",
+            "python-like-dict": "Map"
         },
         [
             "elves.elvish"
@@ -404,8 +404,8 @@
         "https://vimhelp.org/vim9.txt.html",
         ".vim",
         {
-            "python-like-list": null,
-            "python-like-dict": null
+            "python-like-list": "List",
+            "python-like-dict": "Dictionary"
         },
         [
             
@@ -423,8 +423,8 @@
         "https://rust-lang.org/",
         ".rs",
         {
-            "python-like-list": null,
-            "python-like-dict": null
+            "python-like-list": "Vec",
+            "python-like-dict": "Map"
         },
         [
             "rust-lang.rust-analyzer"
@@ -461,8 +461,8 @@
         "https://www.tcl-lang.org/",
         ".tcl",
         {
-            "python-like-list": null,
-            "python-like-dict": null
+            "python-like-list": "list",
+            "python-like-dict": "dict"
         },
         [
             "bitwisecook.tcl-lsp"
@@ -480,8 +480,8 @@
         "https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html",
         ".gd",
         {
-            "python-like-list": null,
-            "python-like-dict": null
+            "python-like-list": "Array",
+            "python-like-dict": "Dictionary"
         },
         [
             "geequlim.godot-tools",
@@ -512,6 +512,25 @@
         ],
         [
             ["bash:5.2.37(1)", []]
+        ]
+    ],
+    [
+        "typst",
+        "Typst",
+        "https://typst.app/",
+        ".typ",
+        {
+            "python-like-list": "Array",
+            "python-like-dict": "Dictionary"
+        },
+        [
+            "myriad-dreamin.tinymist"
+        ],
+        [
+
+        ],
+        [
+            ["123marvin123/typst:0.14.2", ["123marvin123/typst:0.14.2"]]
         ]
     ]
 ]
