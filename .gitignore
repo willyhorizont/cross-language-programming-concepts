@@ -6,10 +6,6 @@ node_modules/
 __pycache__
 *.pyc
 
-*.jar
-*.class
-Main.java
-
 .env*
 package.json
 package-lock.json
@@ -20,7 +16,10 @@ vscode-extensions-current.txt
 
 temp.*
 
-languages/java/willyhorizont/
+runtimes/java/
+*.jar
+*.class
+Main.java
 
-output/
+runtimes/typst/willyhorizont/output/typst/
 *.pdf

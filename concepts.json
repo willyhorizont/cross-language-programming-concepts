@@ -1,0 +1,19 @@
+[
+    ["cross-language-features", null],
+    ["comments", null],
+    ["hello-world", null],
+    ["conditionals", null],
+    ["loops", null],
+    ["functions", null],
+    ["error-handling", null],
+    ["python-like-list", null],
+    ["python-like-dict", null],
+    ["loop-through-each-list-item", "(forEach)"],
+    ["get-is-any-item-in-list-matching-condition", "(some / any / exists / contains / includes)"],
+    ["get-is-all-item-in-list-matching-condition", "(every / all)"],
+    ["get-first-list-item-matching-condition", "(find)"],
+    ["get-index-of-list-item-matching-condition", "(findIndex)"],
+    ["get-all-list-item-matching-condition", "(filter / grep)"],
+    ["transform-each-list-item", "(map / apply)"],
+    ["combine-all-list-item", "(reduce / fold / aggregate)"]
+]

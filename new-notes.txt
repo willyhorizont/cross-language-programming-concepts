@@ -37,7 +37,7 @@ ext:vim
 
 add:
 ps1 / pwsh / powershell
-typst
+~~typst~~
 https://nue.nu/
 
 change Language Mode to:
