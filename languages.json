@@ -400,7 +400,7 @@
     ],
     [
         "vim9script",
-        "Vim9 Script",
+        "Vim9script",
         "https://vimhelp.org/vim9.txt.html",
         ".vim",
         {
@@ -499,7 +499,7 @@
         "bash",
         "Bash",
         "https://www.gnu.org/software/bash/",
-        ".gd",
+        ".sh",
         {
             "python-like-list": "indexed array",
             "python-like-dict": "associative array"
@@ -531,6 +531,25 @@
         ],
         [
             ["123marvin123/typst:0.14.2", ["123marvin123/typst:0.14.2"]]
+        ]
+    ],
+    [
+        "powershell",
+        "PowerShell",
+        "https://github.com/powershell/powershell",
+        ".ps1",
+        {
+            "python-like-list": "Array",
+            "python-like-dict": "HashTable"
+        },
+        [
+            "ms-vscode.PowerShell"
+        ],
+        [
+
+        ],
+        [
+            ["heywoodlh/powershell:7.6.2", ["heywoodlh/powershell:7.6.2"]]
         ]
     ]
 ]

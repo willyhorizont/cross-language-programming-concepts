@@ -46,13 +46,14 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 20. [Java](https://www.oracle.com/java/) : [https://www.oracle.com/java/](https://www.oracle.com/java/)  
 21. [Nu](https://www.nushell.sh/) : [https://www.nushell.sh/](https://www.nushell.sh/)  
 22. [Elv](https://elv.sh/) : [https://elv.sh/](https://elv.sh/)  
-23. [Vim9 Script](https://vimhelp.org/vim9.txt.html) : [https://vimhelp.org/vim9.txt.html](https://vimhelp.org/vim9.txt.html)  
+23. [Vim9script](https://vimhelp.org/vim9.txt.html) : [https://vimhelp.org/vim9.txt.html](https://vimhelp.org/vim9.txt.html)  
 24. [Rust](https://rust-lang.org/) : [https://rust-lang.org/](https://rust-lang.org/)  
 25. [Nix](https://nixos.org/) : [https://nixos.org/](https://nixos.org/)  
 26. [Tcl](https://www.tcl-lang.org/) : [https://www.tcl-lang.org/](https://www.tcl-lang.org/)  
 27. [GDScript](https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html) : [https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html](https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html)  
 28. [Bash](https://www.gnu.org/software/bash/) : [https://www.gnu.org/software/bash/](https://www.gnu.org/software/bash/)  
 29. [Typst](https://typst.app/) : [https://typst.app/](https://typst.app/)  
+30. [PowerShell](https://github.com/powershell/powershell) : [https://github.com/powershell/powershell](https://github.com/powershell/powershell)  
 
 ## Programming concepts  
 
@@ -79,13 +80,14 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/cross-language-features.java)  
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/cross-language-features.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/cross-language-features.elv)  
-  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/cross-language-features.vim)  
+  23. [Vim9script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/cross-language-features.vim)  
   24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/cross-language-features.rs)  
   25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/cross-language-features.nix)  
   26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/cross-language-features.tcl)  
   27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/cross-language-features.gd)  
-  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/cross-language-features.gd)  
+  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/cross-language-features.sh)  
   29. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/cross-language-features.typ)  
+  30. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/cross-language-features.ps1)  
 
 ---
 
@@ -112,13 +114,14 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/comments.java)  
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/comments.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/comments.elv)  
-  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/comments.vim)  
+  23. [Vim9script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/comments.vim)  
   24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/comments.rs)  
   25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/comments.nix)  
   26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/comments.tcl)  
   27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/comments.gd)  
-  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/comments.gd)  
+  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/comments.sh)  
   29. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/comments.typ)  
+  30. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/comments.ps1)  
 
 ---
 
@@ -145,13 +148,14 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/hello-world.java)  
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/hello-world.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/hello-world.elv)  
-  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/hello-world.vim)  
+  23. [Vim9script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/hello-world.vim)  
   24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/hello-world.rs)  
   25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/hello-world.nix)  
   26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/hello-world.tcl)  
   27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/hello-world.gd)  
-  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/hello-world.gd)  
+  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/hello-world.sh)  
   29. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/hello-world.typ)  
+  30. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/hello-world.ps1)  
 
 ---
 
@@ -178,13 +182,14 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/conditionals.java)  
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/conditionals.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/conditionals.elv)  
-  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/conditionals.vim)  
+  23. [Vim9script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/conditionals.vim)  
   24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/conditionals.rs)  
   25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/conditionals.nix)  
   26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/conditionals.tcl)  
   27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/conditionals.gd)  
-  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/conditionals.gd)  
+  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/conditionals.sh)  
   29. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/conditionals.typ)  
+  30. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/conditionals.ps1)  
 
 ---
 
@@ -211,13 +216,14 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/loops.java)  
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/loops.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/loops.elv)  
-  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/loops.vim)  
+  23. [Vim9script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/loops.vim)  
   24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/loops.rs)  
   25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/loops.nix)  
   26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/loops.tcl)  
   27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/loops.gd)  
-  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/loops.gd)  
+  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/loops.sh)  
   29. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/loops.typ)  
+  30. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/loops.ps1)  
 
 ---
 
@@ -244,13 +250,14 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/functions.java)  
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/functions.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/functions.elv)  
-  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/functions.vim)  
+  23. [Vim9script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/functions.vim)  
   24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/functions.rs)  
   25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/functions.nix)  
   26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/functions.tcl)  
   27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/functions.gd)  
-  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/functions.gd)  
+  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/functions.sh)  
   29. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/functions.typ)  
+  30. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/functions.ps1)  
 
 ---
 
@@ -277,13 +284,14 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/error-handling.java)  
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/error-handling.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/error-handling.elv)  
-  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/error-handling.vim)  
+  23. [Vim9script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/error-handling.vim)  
   24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/error-handling.rs)  
   25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/error-handling.nix)  
   26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/error-handling.tcl)  
   27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/error-handling.gd)  
-  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/error-handling.gd)  
+  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/error-handling.sh)  
   29. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/error-handling.typ)  
+  30. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/error-handling.ps1)  
 
 ---
 
@@ -310,13 +318,14 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/python-like-list.java) : ArrayList&lt;Object&gt;  
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/python-like-list.nu) : List  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/python-like-list.elv) : List  
-  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/python-like-list.vim) : List  
+  23. [Vim9script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/python-like-list.vim) : List  
   24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/python-like-list.rs) : Vec  
   25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/python-like-list.nix) : List  
   26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/python-like-list.tcl) : list  
   27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/python-like-list.gd) : Array  
-  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/python-like-list.gd) : indexed array  
+  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/python-like-list.sh) : indexed array  
   29. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/python-like-list.typ) : Array  
+  30. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/python-like-list.ps1) : Array  
 
 ---
 
@@ -343,13 +352,14 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/python-like-dict.java) : HashMap&lt;String, Object&gt;  
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/python-like-dict.nu) : Record  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/python-like-dict.elv) : Map  
-  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/python-like-dict.vim) : Dictionary  
+  23. [Vim9script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/python-like-dict.vim) : Dictionary  
   24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/python-like-dict.rs) : Map  
   25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/python-like-dict.nix) : Attribute Set  
   26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/python-like-dict.tcl) : dict  
   27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/python-like-dict.gd) : Dictionary  
-  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/python-like-dict.gd) : associative array  
+  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/python-like-dict.sh) : associative array  
   29. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/python-like-dict.typ) : Dictionary  
+  30. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/python-like-dict.ps1) : HashTable  
 
 ---
 
@@ -376,13 +386,14 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/loop-through-each-list-item.java)  
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/loop-through-each-list-item.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/loop-through-each-list-item.elv)  
-  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/loop-through-each-list-item.vim)  
+  23. [Vim9script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/loop-through-each-list-item.vim)  
   24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/loop-through-each-list-item.rs)  
   25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/loop-through-each-list-item.nix)  
   26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/loop-through-each-list-item.tcl)  
   27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/loop-through-each-list-item.gd)  
-  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/loop-through-each-list-item.gd)  
+  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/loop-through-each-list-item.sh)  
   29. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/loop-through-each-list-item.typ)  
+  30. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/loop-through-each-list-item.ps1)  
 
 ---
 
@@ -409,13 +420,14 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/get-is-any-item-in-list-matching-condition.java)  
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/get-is-any-item-in-list-matching-condition.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/get-is-any-item-in-list-matching-condition.elv)  
-  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-is-any-item-in-list-matching-condition.vim)  
+  23. [Vim9script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-is-any-item-in-list-matching-condition.vim)  
   24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/get-is-any-item-in-list-matching-condition.rs)  
   25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/get-is-any-item-in-list-matching-condition.nix)  
   26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/get-is-any-item-in-list-matching-condition.tcl)  
   27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/get-is-any-item-in-list-matching-condition.gd)  
-  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/get-is-any-item-in-list-matching-condition.gd)  
+  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/get-is-any-item-in-list-matching-condition.sh)  
   29. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/get-is-any-item-in-list-matching-condition.typ)  
+  30. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/get-is-any-item-in-list-matching-condition.ps1)  
 
 ---
 
@@ -442,13 +454,14 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/get-is-all-item-in-list-matching-condition.java)  
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/get-is-all-item-in-list-matching-condition.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/get-is-all-item-in-list-matching-condition.elv)  
-  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-is-all-item-in-list-matching-condition.vim)  
+  23. [Vim9script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-is-all-item-in-list-matching-condition.vim)  
   24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/get-is-all-item-in-list-matching-condition.rs)  
   25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/get-is-all-item-in-list-matching-condition.nix)  
   26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/get-is-all-item-in-list-matching-condition.tcl)  
   27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/get-is-all-item-in-list-matching-condition.gd)  
-  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/get-is-all-item-in-list-matching-condition.gd)  
+  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/get-is-all-item-in-list-matching-condition.sh)  
   29. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/get-is-all-item-in-list-matching-condition.typ)  
+  30. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/get-is-all-item-in-list-matching-condition.ps1)  
 
 ---
 
@@ -475,13 +488,14 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/get-first-list-item-matching-condition.java)  
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/get-first-list-item-matching-condition.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/get-first-list-item-matching-condition.elv)  
-  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-first-list-item-matching-condition.vim)  
+  23. [Vim9script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-first-list-item-matching-condition.vim)  
   24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/get-first-list-item-matching-condition.rs)  
   25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/get-first-list-item-matching-condition.nix)  
   26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/get-first-list-item-matching-condition.tcl)  
   27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/get-first-list-item-matching-condition.gd)  
-  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/get-first-list-item-matching-condition.gd)  
+  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/get-first-list-item-matching-condition.sh)  
   29. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/get-first-list-item-matching-condition.typ)  
+  30. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/get-first-list-item-matching-condition.ps1)  
 
 ---
 
@@ -508,13 +522,14 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/get-index-of-list-item-matching-condition.java)  
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/get-index-of-list-item-matching-condition.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/get-index-of-list-item-matching-condition.elv)  
-  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-index-of-list-item-matching-condition.vim)  
+  23. [Vim9script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-index-of-list-item-matching-condition.vim)  
   24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/get-index-of-list-item-matching-condition.rs)  
   25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/get-index-of-list-item-matching-condition.nix)  
   26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/get-index-of-list-item-matching-condition.tcl)  
   27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/get-index-of-list-item-matching-condition.gd)  
-  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/get-index-of-list-item-matching-condition.gd)  
+  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/get-index-of-list-item-matching-condition.sh)  
   29. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/get-index-of-list-item-matching-condition.typ)  
+  30. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/get-index-of-list-item-matching-condition.ps1)  
 
 ---
 
@@ -541,13 +556,14 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/get-all-list-item-matching-condition.java)  
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/get-all-list-item-matching-condition.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/get-all-list-item-matching-condition.elv)  
-  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-all-list-item-matching-condition.vim)  
+  23. [Vim9script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/get-all-list-item-matching-condition.vim)  
   24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/get-all-list-item-matching-condition.rs)  
   25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/get-all-list-item-matching-condition.nix)  
   26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/get-all-list-item-matching-condition.tcl)  
   27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/get-all-list-item-matching-condition.gd)  
-  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/get-all-list-item-matching-condition.gd)  
+  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/get-all-list-item-matching-condition.sh)  
   29. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/get-all-list-item-matching-condition.typ)  
+  30. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/get-all-list-item-matching-condition.ps1)  
 
 ---
 
@@ -574,13 +590,14 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/transform-each-list-item.java)  
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/transform-each-list-item.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/transform-each-list-item.elv)  
-  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/transform-each-list-item.vim)  
+  23. [Vim9script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/transform-each-list-item.vim)  
   24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/transform-each-list-item.rs)  
   25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/transform-each-list-item.nix)  
   26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/transform-each-list-item.tcl)  
   27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/transform-each-list-item.gd)  
-  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/transform-each-list-item.gd)  
+  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/transform-each-list-item.sh)  
   29. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/transform-each-list-item.typ)  
+  30. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/transform-each-list-item.ps1)  
 
 ---
 
@@ -607,10 +624,11 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   20. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/combine-all-list-item.java)  
   21. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/combine-all-list-item.nu)  
   22. [Elv](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elv/combine-all-list-item.elv)  
-  23. [Vim9 Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/combine-all-list-item.vim)  
+  23. [Vim9script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim9script/combine-all-list-item.vim)  
   24. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/combine-all-list-item.rs)  
   25. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/combine-all-list-item.nix)  
   26. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/combine-all-list-item.tcl)  
   27. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/combine-all-list-item.gd)  
-  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/combine-all-list-item.gd)  
+  28. [Bash](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/bash/combine-all-list-item.sh)  
   29. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/combine-all-list-item.typ)  
+  30. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/combine-all-list-item.ps1)  
