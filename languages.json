@@ -1,555 +1,622 @@
 [
-    [
-        "javascript",
-        "JavaScript",
-        "https://nodejs.org/",
-        ".js",
-        {
+    {
+        "id": "javascript",
+        "name": "JavaScript",
+        "url": "https://nodejs.org/",
+        "file_extension": ".js",
+        "concept_definition": {
             "python-like-list": "Array",
             "python-like-dict": "Object"
         },
-        [
-            
-        ],
-        [
-
-        ],
-        [
-            ["node:26.1.0", ["node:26.1.0"]]
+        "vscode_extensions": [],
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "node:26.1.0",
+                "docker_images": [
+                    "node:26.1.0"
+                ]
+            }
         ]
-    ],
-    [
-        "python",
-        "Python",
-        "https://www.python.org/",
-        ".py",
-        {
+    },
+    {
+        "id": "python",
+        "name": "Python",
+        "url": "https://www.python.org/",
+        "file_extension": ".py",
+        "concept_definition": {
             "python-like-list": "list",
             "python-like-dict": "Dict"
         },
-        [
+        "vscode_extensions": [
             "ms-python.vscode-pylance"
         ],
-        [
-
-        ],
-        [
-            ["python:3.14.5", ["python:3.14.5"]]
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "python:3.14.5",
+                "docker_images": [
+                    "python:3.14.5"
+                ]
+            }
         ]
-    ],
-    [
-        "php",
-        "PHP",
-        "https://www.php.net/",
-        ".php",
-        {
+    },
+    {
+        "id": "php",
+        "name": "PHP",
+        "url": "https://www.php.net/",
+        "file_extension": ".php",
+        "concept_definition": {
             "python-like-list": "array",
             "python-like-dict": "associative array"
         },
-        [
+        "vscode_extensions": [
             "bmewburn.vscode-intelephense-client"
         ],
-        [
-
-        ],
-        [
-            ["php:8.5.6-cli", ["php:8.5.6-cli"]]
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "php:8.5.6-cli",
+                "docker_images": [
+                    "php:8.5.6-cli"
+                ]
+            }
         ]
-    ],
-    [
-        "go",
-        "Go",
-        "https://go.dev/",
-        ".go",
-        {
+    },
+    {
+        "id": "go",
+        "name": "Go",
+        "url": "https://go.dev/",
+        "file_extension": ".go",
+        "concept_definition": {
             "python-like-list": "Slice",
             "python-like-dict": "map[string]interface{}"
         },
-        [
+        "vscode_extensions": [
             "golang.go"
         ],
-        [
-
-        ],
-        [
-            ["golang:1.26.3", ["golang:1.26.3"]]
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "golang:1.26.3",
+                "docker_images": [
+                    "golang:1.26.3"
+                ]
+            }
         ]
-    ],
-    [
-        "perl",
-        "Perl",
-        "https://www.perl.org/",
-        ".pl",
-        {
+    },
+    {
+        "id": "perl",
+        "name": "Perl",
+        "url": "https://www.perl.org/",
+        "file_extension": ".pl",
+        "concept_definition": {
             "python-like-list": "ARRAY",
             "python-like-dict": "HASH"
         },
-        [
+        "vscode_extensions": [
             "bscan.perlnavigator"
         ],
-        [
-
-        ],
-        [
-            ["perl:5.42.2", ["perl:5.42.2"]]
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "perl:5.42.2",
+                "docker_images": [
+                    "perl:5.42.2"
+                ]
+            }
         ]
-    ],
-    [
-        "julia",
-        "Julia",
-        "https://julialang.org/",
-        ".jl",
-        {
+    },
+    {
+        "id": "julia",
+        "name": "Julia",
+        "url": "https://julialang.org/",
+        "file_extension": ".jl",
+        "concept_definition": {
             "python-like-list": "Vector{Any}",
             "python-like-dict": "Dict{String, Any}"
         },
-        [
+        "vscode_extensions": [
             "julialang.language-julia"
         ],
-        [
-
-        ],
-        [
-            ["julia:1.12.6", ["julia:1.12.6"]]
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "julia:1.12.6",
+                "docker_images": [
+                    "julia:1.12.6"
+                ]
+            }
         ]
-    ],
-    [
-        "lua",
-        "Lua",
-        "https://www.lua.org/",
-        ".lua",
-        {
+    },
+    {
+        "id": "lua",
+        "name": "Lua",
+        "url": "https://www.lua.org/",
+        "file_extension": ".lua",
+        "concept_definition": {
             "python-like-list": "table",
             "python-like-dict": "hash table"
         },
-        [
+        "vscode_extensions": [
             "sumneko.lua"
         ],
-        [
-
-        ],
-        [
-            ["nickblah/lua:5.5.0-luarocks", ["nickblah/lua:5.5.0-luarocks"]]
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "nickblah/lua:5.5.0-luarocks",
+                "docker_images": [
+                    "nickblah/lua:5.5.0-luarocks"
+                ]
+            }
         ]
-    ],
-    [
-        "ruby",
-        "Ruby",
-        "https://www.ruby-lang.org/",
-        ".rb",
-        {
+    },
+    {
+        "id": "ruby",
+        "name": "Ruby",
+        "url": "https://www.ruby-lang.org/",
+        "file_extension": ".rb",
+        "concept_definition": {
             "python-like-list": "Array",
             "python-like-dict": "Hash"
         },
-        [
+        "vscode_extensions": [
             "Shopify.ruby-lsp"
         ],
-        [
-
-        ],
-        [
-            ["ruby:4.0.5", ["ruby:4.0.5"]]
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "ruby:4.0.5",
+                "docker_images": [
+                    "ruby:4.0.5"
+                ]
+            }
         ]
-    ],
-    [
-        "r",
-        "R",
-        "https://www.r-project.org/",
-        ".r",
-        {
+    },
+    {
+        "id": "r",
+        "name": "R",
+        "url": "https://www.r-project.org/",
+        "file_extension": ".r",
+        "concept_definition": {
             "python-like-list": "list",
             "python-like-dict": "associative list"
         },
-        [
+        "vscode_extensions": [
             "reditorsupport.r",
             "reditorsupport.r-syntax"
         ],
-        [
+        "vscode_extensions_archive": [
             "hridoy.r-development"
         ],
-        [
-            ["r-base:4.6.0", ["r-base:4.6.0"]]
+        "docker": [
+            {
+                "language_version_notes": "r-base:4.6.0",
+                "docker_images": [
+                    "r-base:4.6.0"
+                ]
+            }
         ]
-    ],
-    [
-        "kotlin",
-        "Kotlin",
-        "https://kotlinlang.org/",
-        ".kt",
-        {
+    },
+    {
+        "id": "kotlin",
+        "name": "Kotlin",
+        "url": "https://kotlinlang.org/",
+        "file_extension": ".kt",
+        "concept_definition": {
             "python-like-list": "MutableList&lt;Any?&gt;",
             "python-like-dict": "MutableMap&lt;String, Any?&gt;"
         },
-        [
+        "vscode_extensions": [
             "JetBrains.kotlin-server",
             "fwcd.kotlin"
         ],
-        [
+        "vscode_extensions_archive": [
             "mathiasfrohlich.Kotlin",
             "esafirm.kotlin-formatter"
         ],
-        [
-            ["danysk/kotlin:2.3.21-jdk23", ["danysk/kotlin:2.3.21-jdk23"]]
+        "docker": [
+            {
+                "language_version_notes": "danysk/kotlin:2.3.21-jdk23",
+                "docker_images": [
+                    "danysk/kotlin:2.3.21-jdk23"
+                ]
+            }
         ]
-    ],
-    [
-        "swift",
-        "Swift",
-        "https://www.swift.org/",
-        ".swift",
-        {
+    },
+    {
+        "id": "swift",
+        "name": "Swift",
+        "url": "https://www.swift.org/",
+        "file_extension": ".swift",
+        "concept_definition": {
             "python-like-list": "Array",
             "python-like-dict": "OrderedDictionary&lt;String, Any?&gt;"
         },
-        [
+        "vscode_extensions": [
             "swiftlang.swift-vscode"
         ],
-        [
-            
-        ]
-    ],
-    [
-        "dart",
-        "Dart",
-        "https://dart.dev/",
-        ".dart",
-        {
+        "vscode_extensions_archive": [],
+        "docker": []
+    },
+    {
+        "id": "dart",
+        "name": "Dart",
+        "url": "https://dart.dev/",
+        "file_extension": ".dart",
+        "concept_definition": {
             "python-like-list": "List&lt;dynamic&gt;",
             "python-like-dict": "Map&lt;String, dynamic&gt;"
         },
-        [
+        "vscode_extensions": [
             "dart-code.dart-code"
         ],
-        [
-            
-        ]
-    ],
-    [
-        "visual-basic-dot-net",
-        "Visual Basic .NET (VB.NET)",
-        "https://learn.microsoft.com/en-us/dotnet/visual-basic/",
-        ".vb",
-        {
+        "vscode_extensions_archive": [],
+        "docker": []
+    },
+    {
+        "id": "visual-basic-dot-net",
+        "name": "Visual Basic .NET (VB.NET)",
+        "url": "https://learn.microsoft.com/en-us/dotnet/visual-basic/",
+        "file_extension": ".vb",
+        "concept_definition": {
             "python-like-list": "List(Of Object)",
             "python-like-dict": "Dictionary(Of String, Object)"
         },
-        [
+        "vscode_extensions": [
             "dnakode.vbnet-language-support"
         ],
-        [
-            
-        ]
-    ],
-    [
-        "c-sharp",
-        "C#",
-        "https://learn.microsoft.com/en-us/dotnet/csharp/",
-        ".cs",
-        {
+        "vscode_extensions_archive": [],
+        "docker": []
+    },
+    {
+        "id": "c-sharp",
+        "name": "C#",
+        "url": "https://learn.microsoft.com/en-us/dotnet/csharp/",
+        "file_extension": ".cs",
+        "concept_definition": {
             "python-like-list": "List&lt;dynamic&gt;",
             "python-like-dict": "Dictionary&lt;string, dynamic&gt;"
         },
-        [
+        "vscode_extensions": [
             "ms-dotnettools.csharp"
         ],
-        [
-            
-        ]
-    ],
-    [
-        "matlab",
-        "MATLAB",
-        "https://www.mathworks.com/products/matlab.html",
-        ".m",
-        {
+        "vscode_extensions_archive": [],
+        "docker": []
+    },
+    {
+        "id": "matlab",
+        "name": "MATLAB",
+        "url": "https://www.mathworks.com/products/matlab.html",
+        "file_extension": ".m",
+        "concept_definition": {
             "python-like-list": "Cell Array",
             "python-like-dict": "struct"
         },
-        [
+        "vscode_extensions": [
             "MathWorks.language-matlab"
         ],
-        [
+        "vscode_extensions_archive": [
             "gimly81.matlab"
-        ]
-    ],
-    [
-        "gnu-octave",
-        "GNU Octave",
-        "https://octave.org/",
-        ".m",
-        {
+        ],
+        "docker": []
+    },
+    {
+        "id": "gnu-octave",
+        "name": "GNU Octave",
+        "url": "https://octave.org/",
+        "file_extension": ".m",
+        "concept_definition": {
             "python-like-list": "Cell Array",
             "python-like-dict": "struct"
         },
-        [
+        "vscode_extensions": [
             "MathWorks.language-matlab"
         ],
-        [
+        "vscode_extensions_archive": [
             "gimly81.matlab"
-        ]
-    ],
-    [
-        "wolfram-language-script",
-        "Wolfram Language Script",
-        "https://www.wolfram.com/wolframscript/",
-        ".wls",
-        {
+        ],
+        "docker": []
+    },
+    {
+        "id": "wolfram-language-script",
+        "name": "Wolfram Language Script",
+        "url": "https://www.wolfram.com/wolframscript/",
+        "file_extension": ".wls",
+        "concept_definition": {
             "python-like-list": "List",
             "python-like-dict": "Association"
         },
-        [
+        "vscode_extensions": [
             "WolframResearch.wolfram"
         ],
-        [
+        "vscode_extensions_archive": [
             "shigma.vscode-wl"
-        ]
-    ],
-    [
-        "raku",
-        "Raku",
-        "https://raku.org/",
-        ".raku",
-        {
+        ],
+        "docker": []
+    },
+    {
+        "id": "raku",
+        "name": "Raku",
+        "url": "https://raku.org/",
+        "file_extension": ".raku",
+        "concept_definition": {
             "python-like-list": "List",
             "python-like-dict": "HASH"
         },
-        [
+        "vscode_extensions": [
             "bscan.raku-navigator"
         ],
-        [
-            
-        ]
-    ],
-    [
-        "scala",
-        "Scala",
-        "https://www.scala-lang.org/",
-        ".scala",
-        {
+        "vscode_extensions_archive": [],
+        "docker": []
+    },
+    {
+        "id": "scala",
+        "name": "Scala",
+        "url": "https://www.scala-lang.org/",
+        "file_extension": ".scala",
+        "concept_definition": {
             "python-like-list": "mutable.ArrayBuffer[Any]",
             "python-like-dict": "mutable.Map[String, Any]"
         },
-        [
+        "vscode_extensions": [
             "scala-lang.scala"
         ],
-        [
-
-        ],
-        [
-            ["virtuslab/scala-cli:1.13.0 and virtuslab/scala-cli:1.14.0 == scala:3.8.3", ["virtuslab/scala-cli:1.13.0", "virtuslab/scala-cli:1.14.0"]]
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "virtuslab/scala-cli:1.13.0 and virtuslab/scala-cli:1.14.0 == scala:3.8.3",
+                "docker_images": [
+                    "virtuslab/scala-cli:1.13.0",
+                    "virtuslab/scala-cli:1.14.0"
+                ]
+            }
         ]
-    ],
-    [
-        "java",
-        "Java",
-        "https://www.oracle.com/java/",
-        ".java",
-        {
+    },
+    {
+        "id": "java",
+        "name": "Java",
+        "url": "https://www.oracle.com/java/",
+        "file_extension": ".java",
+        "concept_definition": {
             "python-like-list": "ArrayList&lt;Object&gt;",
             "python-like-dict": "HashMap&lt;String, Object&gt;"
         },
-        [
+        "vscode_extensions": [
             "redhat.java",
             "Oracle.oracle-java",
             ""
         ],
-        [
+        "vscode_extensions_archive": [
             "georgewfraser.vscode-javac"
         ],
-        [
-            ["eclipse-temurin:26.0.1_8-jdk", ["eclipse-temurin:26.0.1_8-jdk"]]
+        "docker": [
+            {
+                "language_version_notes": "eclipse-temurin:26.0.1_8-jdk",
+                "docker_images": [
+                    "eclipse-temurin:26.0.1_8-jdk"
+                ]
+            }
         ]
-    ],
-    [
-        "nu",
-        "Nu",
-        "https://www.nushell.sh/",
-        ".nu",
-        {
+    },
+    {
+        "id": "nu",
+        "name": "Nu",
+        "url": "https://www.nushell.sh/",
+        "file_extension": ".nu",
+        "concept_definition": {
             "python-like-list": "List",
             "python-like-dict": "Record"
         },
-        [
+        "vscode_extensions": [
             "TheNuProjectContributors.vscode-nushell-lang"
         ],
-        [
-
-        ],
-        [
-            ["ghcr.io/nushell/nushell:0.113.0-bookworm", ["ghcr.io/nushell/nushell:0.113.0-bookworm"]]
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "ghcr.io/nushell/nushell:0.113.0-bookworm",
+                "docker_images": [
+                    "ghcr.io/nushell/nushell:0.113.0-bookworm"
+                ]
+            }
         ]
-    ],
-    [
-        "elv",
-        "Elv",
-        "https://elv.sh/",
-        ".elv",
-        {
+    },
+    {
+        "id": "elv",
+        "name": "Elv",
+        "url": "https://elv.sh/",
+        "file_extension": ".elv",
+        "concept_definition": {
             "python-like-list": "List",
             "python-like-dict": "Map"
         },
-        [
+        "vscode_extensions": [
             "elves.elvish"
         ],
-        [
-
-        ],
-        [
-            ["ghcr.io/elves/elvish:v0.21.0", ["ghcr.io/elves/elvish:v0.21.0"]]
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "ghcr.io/elves/elvish:v0.21.0",
+                "docker_images": [
+                    "ghcr.io/elves/elvish:v0.21.0"
+                ]
+            }
         ]
-    ],
-    [
-        "vim9script",
-        "Vim9script",
-        "https://vimhelp.org/vim9.txt.html",
-        ".vim",
-        {
+    },
+    {
+        "id": "vim9script",
+        "name": "Vim9script",
+        "url": "https://vimhelp.org/vim9.txt.html",
+        "file_extension": ".vim",
+        "concept_definition": {
             "python-like-list": "List",
             "python-like-dict": "Dictionary"
         },
-        [
-            
-        ],
-        [
-
-        ],
-        [
-            ["thinca/vim:v9.2.0555-basic-ubuntu", ["thinca/vim:v9.2.0555-basic-ubuntu"]]
+        "vscode_extensions": [],
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "thinca/vim:v9.2.0555-basic-ubuntu",
+                "docker_images": [
+                    "thinca/vim:v9.2.0555-basic-ubuntu"
+                ]
+            }
         ]
-    ],
-    [
-        "rust",
-        "Rust",
-        "https://rust-lang.org/",
-        ".rs",
-        {
+    },
+    {
+        "id": "rust",
+        "name": "Rust",
+        "url": "https://rust-lang.org/",
+        "file_extension": ".rs",
+        "concept_definition": {
             "python-like-list": "Vec",
             "python-like-dict": "Map"
         },
-        [
+        "vscode_extensions": [
             "rust-lang.rust-analyzer"
         ],
-        [
+        "vscode_extensions_archive": [
             "dustypomerleau.rust-syntax"
         ],
-        [
-            ["rust:1.96.0", ["rust:1.96.0"]]
+        "docker": [
+            {
+                "language_version_notes": "rust:1.96.0",
+                "docker_images": [
+                    "rust:1.96.0"
+                ]
+            }
         ]
-    ],
-    [
-        "nix",
-        "Nix",
-        "https://nixos.org/",
-        ".nix",
-        {
+    },
+    {
+        "id": "nix",
+        "name": "Nix",
+        "url": "https://nixos.org/",
+        "file_extension": ".nix",
+        "concept_definition": {
             "python-like-list": "List",
             "python-like-dict": "Attribute Set"
         },
-        [
+        "vscode_extensions": [
             "jnoortheen.nix-ide"
         ],
-        [
-
-        ],
-        [
-            ["nixos/nix:2.34.7", ["nixos/nix:2.34.7"]]
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "nixos/nix:2.34.7",
+                "docker_images": [
+                    "nixos/nix:2.34.7"
+                ]
+            }
         ]
-    ],
-    [
-        "tcl",
-        "Tcl",
-        "https://www.tcl-lang.org/",
-        ".tcl",
-        {
+    },
+    {
+        "id": "tcl",
+        "name": "Tcl",
+        "url": "https://www.tcl-lang.org/",
+        "file_extension": ".tcl",
+        "concept_definition": {
             "python-like-list": "list",
             "python-like-dict": "dict"
         },
-        [
+        "vscode_extensions": [
             "bitwisecook.tcl-lsp"
         ],
-        [
-
-        ],
-        [
-            ["siqsuruq/tcl:9.0.3-debian", ["siqsuruq/tcl:9.0.3-debian"]]
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "siqsuruq/tcl:9.0.3-debian",
+                "docker_images": [
+                    "siqsuruq/tcl:9.0.3-debian"
+                ]
+            }
         ]
-    ],
-    [
-        "gdscript",
-        "GDScript",
-        "https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html",
-        ".gd",
-        {
+    },
+    {
+        "id": "gdscript",
+        "name": "GDScript",
+        "url": "https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html",
+        "file_extension": ".gd",
+        "concept_definition": {
             "python-like-list": "Array",
             "python-like-dict": "Dictionary"
         },
-        [
+        "vscode_extensions": [
             "geequlim.godot-tools",
             "EddieDover.gdscript-formatter-linter",
             "DoHe.godot-format"
         ],
-        [
+        "vscode_extensions_archive": [
             "poeticAndroid.pretty-gd-vs"
         ],
-        [
-            ["prijindal/godot:4.6.3-stable-standard", ["prijindal/godot:4.6.3-stable-standard"]]
+        "docker": [
+            {
+                "language_version_notes": "prijindal/godot:4.6.3-stable-standard",
+                "docker_images": [
+                    "prijindal/godot:4.6.3-stable-standard"
+                ]
+            }
         ]
-    ],
-    [
-        "bash",
-        "Bash",
-        "https://www.gnu.org/software/bash/",
-        ".sh",
-        {
+    },
+    {
+        "id": "bash",
+        "name": "Bash",
+        "url": "https://www.gnu.org/software/bash/",
+        "file_extension": ".sh",
+        "concept_definition": {
             "python-like-list": "indexed array",
             "python-like-dict": "associative array"
         },
-        [
-
-        ],
-        [
-
-        ],
-        [
-            ["bash:5.2.37(1)", []]
+        "vscode_extensions": [],
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "bash:5.2.37(1)",
+                "docker_images": []
+            }
         ]
-    ],
-    [
-        "typst",
-        "Typst",
-        "https://typst.app/",
-        ".typ",
-        {
+    },
+    {
+        "id": "typst",
+        "name": "Typst",
+        "url": "https://typst.app/",
+        "file_extension": ".typ",
+        "concept_definition": {
             "python-like-list": "Array",
             "python-like-dict": "Dictionary"
         },
-        [
+        "vscode_extensions": [
             "myriad-dreamin.tinymist"
         ],
-        [
-
-        ],
-        [
-            ["123marvin123/typst:0.14.2", ["123marvin123/typst:0.14.2"]]
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "123marvin123/typst:0.14.2",
+                "docker_images": [
+                    "123marvin123/typst:0.14.2"
+                ]
+            }
         ]
-    ],
-    [
-        "powershell",
-        "PowerShell",
-        "https://github.com/powershell/powershell",
-        ".ps1",
-        {
+    },
+    {
+        "id": "powershell",
+        "name": "PowerShell",
+        "url": "https://github.com/powershell/powershell",
+        "file_extension": ".ps1",
+        "concept_definition": {
             "python-like-list": "Array",
             "python-like-dict": "HashTable"
         },
-        [
+        "vscode_extensions": [
             "ms-vscode.PowerShell"
         ],
-        [
-
-        ],
-        [
-            ["heywoodlh/powershell:7.6.2", ["heywoodlh/powershell:7.6.2"]]
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "heywoodlh/powershell:7.6.2",
+                "docker_images": [
+                    "heywoodlh/powershell:7.6.2"
+                ]
+            }
         ]
-    ]
+    }
 ]

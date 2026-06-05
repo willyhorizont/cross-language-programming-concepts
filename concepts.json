@@ -1,19 +1,70 @@
 [
-    ["cross-language-features", null],
-    ["comments", null],
-    ["hello-world", null],
-    ["conditionals", null],
-    ["loops", null],
-    ["functions", null],
-    ["error-handling", null],
-    ["python-like-list", null],
-    ["python-like-dict", null],
-    ["loop-through-each-list-item", "(forEach)"],
-    ["get-is-any-item-in-list-matching-condition", "(some / any / exists / contains / includes)"],
-    ["get-is-all-item-in-list-matching-condition", "(every / all)"],
-    ["get-first-list-item-matching-condition", "(find)"],
-    ["get-index-of-list-item-matching-condition", "(findIndex)"],
-    ["get-all-list-item-matching-condition", "(filter / grep)"],
-    ["transform-each-list-item", "(map / apply)"],
-    ["combine-all-list-item", "(reduce / fold / aggregate)"]
+    {
+        "concept_name": "cross-language-features",
+        "concept_definition": null
+    },
+    {
+        "concept_name": "comments",
+        "concept_definition": null
+    },
+    {
+        "concept_name": "hello-world",
+        "concept_definition": null
+    },
+    {
+        "concept_name": "conditionals",
+        "concept_definition": null
+    },
+    {
+        "concept_name": "loops",
+        "concept_definition": null
+    },
+    {
+        "concept_name": "functions",
+        "concept_definition": null
+    },
+    {
+        "concept_name": "error-handling",
+        "concept_definition": null
+    },
+    {
+        "concept_name": "python-like-list",
+        "concept_definition": null
+    },
+    {
+        "concept_name": "python-like-dict",
+        "concept_definition": null
+    },
+    {
+        "concept_name": "loop-through-each-list-item",
+        "concept_definition": "(forEach)"
+    },
+    {
+        "concept_name": "get-is-any-item-in-list-matching-condition",
+        "concept_definition": "(some / any / exists / contains / includes)"
+    },
+    {
+        "concept_name": "get-is-all-item-in-list-matching-condition",
+        "concept_definition": "(every / all)"
+    },
+    {
+        "concept_name": "get-first-list-item-matching-condition",
+        "concept_definition": "(find)"
+    },
+    {
+        "concept_name": "get-index-of-list-item-matching-condition",
+        "concept_definition": "(findIndex)"
+    },
+    {
+        "concept_name": "get-all-list-item-matching-condition",
+        "concept_definition": "(filter / grep)"
+    },
+    {
+        "concept_name": "transform-each-list-item",
+        "concept_definition": "(map / apply)"
+    },
+    {
+        "concept_name": "combine-all-list-item",
+        "concept_definition": "(reduce / fold / aggregate)"
+    }
 ]

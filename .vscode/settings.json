@@ -245,12 +245,12 @@
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.cursorStyleInactive": "line",
-    "[*.typ]": {
+    "[typst]": {
         "editor.wordWrap": "off",
         "editor.tabSize": 4,
         "editor.insertSpaces": true,
         "editor.detectIndentation": false
-    }
+    },
     // "files.exclude": {
     //     "**/*.pdf": true
     // },

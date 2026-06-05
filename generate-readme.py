@@ -1,24 +1,23 @@
 import json
 
-
-with open("languages.json", "r") as file:
+with open("languages.json", "r", encoding="utf-8") as file:
     languages = json.load(file)
 
 base_url = "https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/"
 
 
 def generate_programming_concepts():
-    with open("concepts.json", "r") as file:
+    with open("concepts.json", "r", encoding="utf-8") as file:
         concepts = json.load(file)
-    manage_concept_per_language_definition = lambda concept, language: "" if not (len(language) >= 5) else ("" if not (programming_concept := language[4].get(concept[0])) else f" : {programming_concept}")
-    manage_concept_per_language_link = lambda concept, language: f"{base_url}{language[0]}/{concept[0]}{language[3]}"
-    manage_concept_per_language = lambda concept: "\n".join([f"  {number}. [{language[1]}]({manage_concept_per_language_link(concept, language)}){manage_concept_per_language_definition(concept, language)}  " for number, language in enumerate(languages, start=1)])
-    manage_concept_title = lambda concept: f"{concept[0]} {concept[1]}" if concept[1] else f"{concept[0]}"
-    return "\n\n---\n\n".join([f"### {manage_concept_title(concept)}  \n{manage_concept_per_language(concept)}" for concept in concepts])
+    get_concept_per_language_definition = lambda concept, language: "" if not (programming_concept := language["concept_definition"].get(concept["concept_name"])) else f" : {programming_concept}"
+    get_concept_per_language_link = lambda concept, language: f"{base_url}{language['id']}/{concept['concept_name']}{language['file_extension']}"
+    get_concept_per_language = lambda concept: "\n".join([f"  {number}. [{language['name']}]({get_concept_per_language_link(concept, language)}){get_concept_per_language_definition(concept, language)}  " for number, language in enumerate(languages, start=1)])
+    get_concept_title = lambda concept: f"{concept['concept_name']} {concept['concept_definition']}" if concept["concept_definition"] else f"{concept['concept_name']}"
+    return "\n\n---\n\n".join([f"### {get_concept_title(concept)}  \n{get_concept_per_language(concept)}" for concept in concepts])
 
 
 def main():
-    generate_languages = lambda: "\n".join([f"{number}. [{language[1]}]({language[2]}) : [{language[2]}]({language[2]})  " for number, language in enumerate(languages, start=1)])
+    generate_languages = lambda: "\n".join([f"{number}. [{language['name']}]({language['url']}) : [{language['url']}]({language['url']})  " for number, language in enumerate(languages, start=1)])
     generated_readme = (f"""
 # cross-language-programming-concepts
 
@@ -53,7 +52,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 {generate_programming_concepts()}
 
 """.strip() + "  \n")
-    with open("README.md", "w") as file:
+    with open("README.md", "w", encoding="utf-8") as file:
         file.write(generated_readme)
 
 

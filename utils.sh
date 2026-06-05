@@ -14,9 +14,10 @@ get_docker_image() {
     local -r docker_image=$(jq -r --arg lang "$language_id" '
         .[]
 
-        | select(.[0] == $lang)
-        | .[7][-1]
+        | select(.["id"] == $lang)
+        | .["docker"]
         | .[-1]
+        | .["docker_images"]
         | .[-1]
     ' "$SCRIPT_DIR/languages.json")
     echo "$docker_image"
@@ -37,7 +38,7 @@ setup_language_specific_vscode_extensions() {
         echo "jq not installed. installing jq..."
         sudo apt update && sudo apt install -y jq
     fi
-    mapfile -t vscode_extensions_for_target_lang < <(jq -r --arg target "$target_lang" '.[] | select(.[0] == $target) | .[5] | .[]' "$ROOT_DIR/languages.json" 2>/dev/null)
+    mapfile -t vscode_extensions_for_target_lang < <(jq -r --arg target "$target_lang" '.[] | select(.["id"] == $target) | .["vscode_extensions"] | .[]' "$ROOT_DIR/languages.json" 2>/dev/null)
 
     if [ ${#vscode_extensions_for_target_lang[@]} -eq 0 ]; then
         echo "[language-specific-extensions] vscode extensions for \"$target_lang\" is not available"
