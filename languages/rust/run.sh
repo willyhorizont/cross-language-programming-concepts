@@ -43,10 +43,9 @@ rustc \"$FILE_NAME_WITH_EXTENSION\"
 rm -rf \"$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR/$FILE_NAME_WITHOUT_EXTENSION\"
 "
 
-docker run -it --rm \
+docker run -i --rm \
     --entrypoint bash \
     -v "$ROOT_DIR:$ROOT_DIR" \
-    -w "$ROOT_DIR" \
     "$IMAGE" \
     -c "
         $COMMAND_PRINT_VERSION

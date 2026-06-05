@@ -39,11 +39,10 @@ COMMAND_RUN_LANGUAGE_CODE="
 scala-cli \"$FILE_NAME_WITH_EXTENSION\"
 "
 
-docker run -it --rm \
+docker run -i --rm \
     --entrypoint bash \
     -v scala-coursier-cache:/root/.cache/coursier \
     -v "$ROOT_DIR:$ROOT_DIR" \
-    -w "$ROOT_DIR" \
     "$IMAGE" \
     -c "
         $COMMAND_PRINT_VERSION

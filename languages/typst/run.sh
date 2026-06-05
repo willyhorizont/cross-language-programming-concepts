@@ -49,10 +49,9 @@ typst compile --open --root \"$ROOT_DIR\" --input user-name=$USER_NAME --input u
 echo \"if output not open automatically, open it here: \\\"$PATH_TO_OUTPUT_FILE_NAME_WITH_EXTENSION\\\"\"
 "
 
-docker run -it --rm \
+docker run -i --rm \
     --entrypoint bash \
     -v "$ROOT_DIR:$ROOT_DIR" \
-    -w "$ROOT_DIR" \
     "$IMAGE" \
     -c "
         $COMMAND_PRINT_VERSION

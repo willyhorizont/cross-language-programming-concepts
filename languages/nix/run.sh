@@ -47,10 +47,9 @@ nix-instantiate --eval --strict \"$FILE_NAME_WITH_EXTENSION\"
 
 separator=$("$ROOT_DIR/utils.sh" "print_separator")
 
-docker run -it --rm \
+docker run -i --rm \
     --entrypoint bash \
     -v "$ROOT_DIR:$ROOT_DIR" \
-    -w "$ROOT_DIR" \
     "$IMAGE" \
     -c "
         $COMMAND_PRINT_VERSION

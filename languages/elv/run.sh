@@ -39,9 +39,8 @@ COMMAND_RUN_LANGUAGE_CODE="
 elvish \"$FILE_NAME_WITH_EXTENSION\"
 "
 
-docker run -it --rm \
+docker run -i --rm \
     -v "$ROOT_DIR:$ROOT_DIR" \
-    -w "$ROOT_DIR" \
     "$IMAGE" \
     elvish -c "
         $COMMAND_PRINT_VERSION

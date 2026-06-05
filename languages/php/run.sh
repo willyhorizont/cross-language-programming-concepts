@@ -66,9 +66,8 @@ if [ ! -f \"$PATH_TO_PACKAGE_MANAGER\" ]; then
 fi
 "
 
-docker run -it --rm \
+docker run -i --rm \
     -v "$ROOT_DIR:$ROOT_DIR" \
-    -w "$ROOT_DIR" \
     "$IMAGE" \
     bash -c "
         $COMMAND_INSTALL_PACKAGE_MANAGER

@@ -39,10 +39,9 @@ COMMAND_RUN_LANGUAGE_CODE="
 vim -e -s -c \"source $PATH_TO_FILE_NAME_WITH_EXTENSION\" -c \"echomsg ''\" -c \"verbose messages\" -c \"qa!\"
 "
 
-docker run -it --rm \
+docker run -i --rm \
     --entrypoint bash \
     -v "$ROOT_DIR:$ROOT_DIR" \
-    -w "$ROOT_DIR" \
     "$IMAGE" \
     -c "
         $COMMAND_PRINT_VERSION

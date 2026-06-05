@@ -53,10 +53,9 @@ javac -cp \"$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR\" -d \"$PATH_TO_TARGET_FILE_
 java -cp \"$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR\" \"$TARGET_FILE_NAME_WITHOUT_EXTENSION\"
 "
 
-docker run -it --rm \
+docker run -i --rm \
     --entrypoint bash \
     -v "$ROOT_DIR:$ROOT_DIR" \
-    -w "$ROOT_DIR" \
     "$IMAGE" \
     -c "
         $COMMAND_PRINT_VERSION

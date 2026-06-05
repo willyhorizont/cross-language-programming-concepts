@@ -36,7 +36,7 @@ https://weberdominik.com/blog/vscode-vertical-tabs/
 ext:vim
 
 add:
-ps1 / pwsh / powershell
+~~ps1 / pwsh / powershell~~
 ~~typst~~
 https://nue.nu/
 
