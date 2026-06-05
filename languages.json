@@ -585,7 +585,8 @@
             "python-like-dict": "Dictionary"
         },
         "vscode_extensions": [
-            "myriad-dreamin.tinymist"
+            "myriad-dreamin.tinymist",
+            "mathematic.vscode-pdf"
         ],
         "vscode_extensions_archive": [],
         "docker": [

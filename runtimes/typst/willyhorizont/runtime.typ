@@ -49,7 +49,7 @@
     return [
         #set page(
             fill: rgb("1c1c1c"),
-            margin: 0cm,
+            margin: 4pt,
         )
         #set text(
             font: "DejaVu Sans Mono",

@@ -64,3 +64,7 @@ docker run -i --rm \
 
         cd \"$ROOT_DIR\"
     "
+
+if [ -f "$PATH_TO_OUTPUT_FILE_NAME_WITH_EXTENSION" ]; then
+    code -r "$PATH_TO_OUTPUT_FILE_NAME_WITH_EXTENSION"
+fi
