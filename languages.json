@@ -558,24 +558,6 @@
         ]
     },
     {
-        "id": "bash",
-        "name": "Bash",
-        "url": "https://www.gnu.org/software/bash/",
-        "file_extension": ".sh",
-        "concept_definition": {
-            "python-like-list": "indexed array",
-            "python-like-dict": "associative array"
-        },
-        "vscode_extensions": [],
-        "vscode_extensions_archive": [],
-        "docker": [
-            {
-                "language_version_notes": "bash:5.2.37(1)",
-                "docker_images": []
-            }
-        ]
-    },
-    {
         "id": "typst",
         "name": "Typst",
         "url": "https://typst.app/",
