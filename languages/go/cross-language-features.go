@@ -6,27 +6,27 @@ import (
 )
 
 func main() {
-	sayHello := willyhorizont.TypeDotJsLikeFunction(func(variadicArguments ...willyhorizont.TypeDotAny) willyhorizont.TypeDotAny {
+	sayHello := willyhorizont.DataTypeJsLikeFunction(func(variadicArguments ...willyhorizont.DataTypeAny) willyhorizont.DataTypeAny {
 		callbackFunction := variadicArguments[0]
         fmt.Println("hello")
-        (callbackFunction.(willyhorizont.TypeDotJsLikeFunction))()
+        (callbackFunction.(willyhorizont.DataTypeJsLikeFunction))()
 		return nil
     })
-    sayHello(willyhorizont.TypeDotJsLikeFunction(func(variadicArguments ...willyhorizont.TypeDotAny) willyhorizont.TypeDotAny {
+    sayHello(willyhorizont.DataTypeJsLikeFunction(func(variadicArguments ...willyhorizont.DataTypeAny) willyhorizont.DataTypeAny {
 		fmt.Println("wold")
 		return nil
     }))
-	var multiply willyhorizont.TypeDotAny = willyhorizont.TypeDotJsLikeFunction(func(variadicArguments ...willyhorizont.TypeDotAny) willyhorizont.TypeDotAny {
+	var multiply willyhorizont.DataTypeAny = willyhorizont.DataTypeJsLikeFunction(func(variadicArguments ...willyhorizont.DataTypeAny) willyhorizont.DataTypeAny {
 		a := variadicArguments[0]
-		return (willyhorizont.TypeDotJsLikeFunction(func(variadicArguments ...willyhorizont.TypeDotAny) willyhorizont.TypeDotAny {
+		return (willyhorizont.DataTypeJsLikeFunction(func(variadicArguments ...willyhorizont.DataTypeAny) willyhorizont.DataTypeAny {
 			b := variadicArguments[0]
-			return (willyhorizont.Utils.ParseFloat(willyhorizont.Utils.ParseFloat(a).(willyhorizont.TypeDotJsLikeFloat) * willyhorizont.Utils.ParseFloat(b).(willyhorizont.TypeDotJsLikeFloat)).(willyhorizont.TypeDotJsLikeFloat))
+			return (willyhorizont.Utils.ParseFloat(willyhorizont.Utils.ParseFloat(a).(willyhorizont.DataTypeJsLikeFloat) * willyhorizont.Utils.ParseFloat(b).(willyhorizont.DataTypeJsLikeFloat)).(willyhorizont.DataTypeJsLikeFloat))
 		}))
 	})
-	multiplyByTwo := multiply.(willyhorizont.TypeDotJsLikeFunction)(2)
-	fmt.Println("multiplyByTwo(10):", multiplyByTwo.(willyhorizont.TypeDotJsLikeFunction)(10))
+	multiplyByTwo := multiply.(willyhorizont.DataTypeJsLikeFunction)(2)
+	fmt.Println("multiplyByTwo(10):", multiplyByTwo.(willyhorizont.DataTypeJsLikeFunction)(10))
 
-	somePythonLikeList := willyhorizont.TypeDotPythonLikeList{
+	somePythonLikeList := willyhorizont.DataTypePythonLikeList{
 		nil,
 		true,
 		false,
@@ -35,16 +35,16 @@ func main() {
 		-123,
 		123.789,
 		-123.789,
-		willyhorizont.TypeDotPythonLikeList{1, 2, 3},
-		willyhorizont.TypeDotPythonLikeDict{"foo": "bar"},
-		willyhorizont.TypeDotJsLikeFunction(func(variadicArguments ...willyhorizont.TypeDotAny) willyhorizont.TypeDotAny {
+		willyhorizont.DataTypePythonLikeList{1, 2, 3},
+		willyhorizont.DataTypePythonLikeDict{"foo": "bar"},
+		willyhorizont.DataTypeJsLikeFunction(func(variadicArguments ...willyhorizont.DataTypeAny) willyhorizont.DataTypeAny {
 			a, b := variadicArguments[0], variadicArguments[1]
-			return (willyhorizont.Utils.ParseFloat(willyhorizont.Utils.ParseFloat(a).(willyhorizont.TypeDotJsLikeFloat) * willyhorizont.Utils.ParseFloat(b).(willyhorizont.TypeDotJsLikeFloat)).(willyhorizont.TypeDotJsLikeFloat))
+			return (willyhorizont.Utils.ParseFloat(willyhorizont.Utils.ParseFloat(a).(willyhorizont.DataTypeJsLikeFloat) * willyhorizont.Utils.ParseFloat(b).(willyhorizont.DataTypeJsLikeFloat)).(willyhorizont.DataTypeJsLikeFloat))
 		}),
 	}
-	fmt.Println("somePythonLikeList:", willyhorizont.Utils.JsonStringify(somePythonLikeList, willyhorizont.TypeDotPythonLikeDict{"pretty": true}))
+	fmt.Println("somePythonLikeList:", willyhorizont.Utils.JsonStringify(somePythonLikeList, willyhorizont.DataTypePythonLikeDict{"pretty": true}))
 
-	somePythonLikeDict := willyhorizont.TypeDotPythonLikeDict{
+	somePythonLikeDict := willyhorizont.DataTypePythonLikeDict{
 		"some_null": nil,
 		"some_boolean_true": true,
 		"some_boolean_false": false,
@@ -53,12 +53,12 @@ func main() {
 		"some_int_negative": -123,
 		"some_float_positive": 123.789,
 		"some_float_negative": -123.789,
-		"some_python_like_list": willyhorizont.TypeDotPythonLikeList{1, 2, 3},
-		"some_python_like_dict": willyhorizont.TypeDotPythonLikeDict{"foo": "bar"},
-		"some_function": willyhorizont.TypeDotJsLikeFunction(func(variadicArguments ...willyhorizont.TypeDotAny) willyhorizont.TypeDotAny {
+		"some_python_like_list": willyhorizont.DataTypePythonLikeList{1, 2, 3},
+		"some_python_like_dict": willyhorizont.DataTypePythonLikeDict{"foo": "bar"},
+		"some_function": willyhorizont.DataTypeJsLikeFunction(func(variadicArguments ...willyhorizont.DataTypeAny) willyhorizont.DataTypeAny {
 			a, b := variadicArguments[0], variadicArguments[1]
-			return (willyhorizont.Utils.ParseFloat(willyhorizont.Utils.ParseFloat(a).(willyhorizont.TypeDotJsLikeFloat) * willyhorizont.Utils.ParseFloat(b).(willyhorizont.TypeDotJsLikeFloat)).(willyhorizont.TypeDotJsLikeFloat))
+			return (willyhorizont.Utils.ParseFloat(willyhorizont.Utils.ParseFloat(a).(willyhorizont.DataTypeJsLikeFloat) * willyhorizont.Utils.ParseFloat(b).(willyhorizont.DataTypeJsLikeFloat)).(willyhorizont.DataTypeJsLikeFloat))
 		}),
 	}
-	fmt.Println("somePythonLikeDict:", willyhorizont.Utils.JsonStringify(somePythonLikeDict, willyhorizont.TypeDotPythonLikeDict{"pretty": true}))
+	fmt.Println("somePythonLikeDict:", willyhorizont.Utils.JsonStringify(somePythonLikeDict, willyhorizont.DataTypePythonLikeDict{"pretty": true}))
 }

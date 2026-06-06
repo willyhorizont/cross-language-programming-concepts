@@ -9,24 +9,24 @@ import (
 	"strings"
 )
 
-type TypeDotAny interface{}
-type TypeDotPythonLikeList []TypeDotAny
+type DataTypeAny interface{}
+type DataTypePythonLikeList []DataTypeAny
 type PythonLikeDictEntry struct {
 	Key   string
-	Value TypeDotAny
+	Value DataTypeAny
 }
-type TypeDotPythonLikeDictPreserveOrder []PythonLikeDictEntry // TODO
-type TypeDotPythonLikeDict map[string]TypeDotAny
-type TypeDotJsLikeFunction func(...TypeDotAny) TypeDotAny
-type TypeDotJsLikeInt int64
-type TypeDotJsLikeFloat float64
-// entries := TypeDotPythonLikeDictPreserveOrder{
+type DataTypePythonLikeDictPreserveOrder []PythonLikeDictEntry // TODO
+type DataTypePythonLikeDict map[string]DataTypeAny
+type DataTypeJsLikeFunction func(...DataTypeAny) DataTypeAny
+type DataTypeJsLikeInt int64
+type DataTypeJsLikeFloat float64
+// entries := DataTypePythonLikeDictPreserveOrder{
 // 	{"a", 1},
 // 	{"b", 2},
 // 	{"c", 3},
 // }
 
-var JsonType = TypeDotPythonLikeDict{
+var JsonType = DataTypePythonLikeDict{
 	"JsLikeNull": "JsLikeNull",
 	"JsLikeBoolean": "JsLikeBoolean",
 	"JsLikeString": "JsLikeString",
@@ -36,76 +36,76 @@ var JsonType = TypeDotPythonLikeDict{
 	"PythonLikeList": "PythonLikeList",
 }
 
-func ternary(variadicArguments ...TypeDotAny) TypeDotAny {
+func ternary(variadicArguments ...DataTypeAny) DataTypeAny {
 	isConditionTrue, callbackFunctionIfConditionTrue, callbackFunctionIfConditionFalse := variadicArguments[0], variadicArguments[1], variadicArguments[2]
 	if (isConditionTrue == true) {
-		return callbackFunctionIfConditionTrue.(TypeDotJsLikeFunction)()
+		return callbackFunctionIfConditionTrue.(DataTypeJsLikeFunction)()
 	}
-	return callbackFunctionIfConditionFalse.(TypeDotJsLikeFunction)()
+	return callbackFunctionIfConditionFalse.(DataTypeJsLikeFunction)()
 }
 
-func getIsAnyItemInListMatchingCondition(variadicArguments ...TypeDotAny) TypeDotAny {
+func getIsAnyItemInListMatchingCondition(variadicArguments ...DataTypeAny) DataTypeAny {
 	callbackFunction, anyPythonLikeList := variadicArguments[0], variadicArguments[1]
-	for pythonLikeListIndex, pythonLikeListItem := range anyPythonLikeList.(TypeDotPythonLikeList) {
-		if (callbackFunction.(TypeDotJsLikeFunction)(pythonLikeListItem, pythonLikeListIndex, anyPythonLikeList) == true) {
+	for pythonLikeListIndex, pythonLikeListItem := range anyPythonLikeList.(DataTypePythonLikeList) {
+		if (callbackFunction.(DataTypeJsLikeFunction)(pythonLikeListItem, pythonLikeListIndex, anyPythonLikeList) == true) {
 			return true
 		}
 	}
 	return false
 }
 
-func getIsJsLikeNull(variadicArguments ...TypeDotAny) TypeDotAny {
+func getIsJsLikeNull(variadicArguments ...DataTypeAny) DataTypeAny {
 	anything := variadicArguments[0]
 	return (anything == nil)
 }
 
-func getIsJsLikeBoolean(variadicArguments ...TypeDotAny) TypeDotAny {
+func getIsJsLikeBoolean(variadicArguments ...DataTypeAny) DataTypeAny {
 	anything := variadicArguments[0]
 	return ((reflect.TypeOf(anything).Kind() == reflect.Bool) && ((anything == true) || (anything == false)))
 }
 
-func getIsJsLikeString(variadicArguments ...TypeDotAny) TypeDotAny {
+func getIsJsLikeString(variadicArguments ...DataTypeAny) DataTypeAny {
 	anything := variadicArguments[0]
 	return (reflect.TypeOf(anything).Kind() == reflect.String)
 }
 
-func getIsJsLikeInt(variadicArguments ...TypeDotAny) TypeDotAny {
+func getIsJsLikeInt(variadicArguments ...DataTypeAny) DataTypeAny {
 	anything := variadicArguments[0]
 	anyGoKind := reflect.TypeOf(anything).Kind()
-	return (getIsAnyItemInListMatchingCondition(TypeDotJsLikeFunction(func(variadicArguments ...TypeDotAny) TypeDotAny {
+	return (getIsAnyItemInListMatchingCondition(DataTypeJsLikeFunction(func(variadicArguments ...DataTypeAny) DataTypeAny {
 		numericGoKind := variadicArguments[0]
 		return (anyGoKind == numericGoKind)
-	}), (TypeDotPythonLikeList{reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64, reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64})))
+	}), (DataTypePythonLikeList{reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64, reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64})))
 }
 
-func getIsJsLikeFloat(variadicArguments ...TypeDotAny) TypeDotAny {
+func getIsJsLikeFloat(variadicArguments ...DataTypeAny) DataTypeAny {
 	anything := variadicArguments[0]
 	anyGoKind := reflect.TypeOf(anything).Kind()
-	return (getIsAnyItemInListMatchingCondition(TypeDotJsLikeFunction(func(variadicArguments ...TypeDotAny) TypeDotAny {
+	return (getIsAnyItemInListMatchingCondition(DataTypeJsLikeFunction(func(variadicArguments ...DataTypeAny) DataTypeAny {
 		numericGoKind := variadicArguments[0]
 		return (anyGoKind == numericGoKind)
-	}), (TypeDotPythonLikeList{reflect.Float32, reflect.Float64, reflect.Complex64, reflect.Complex128})))
+	}), (DataTypePythonLikeList{reflect.Float32, reflect.Float64, reflect.Complex64, reflect.Complex128})))
 }
 
-func getIsPythonLikeDict(variadicArguments ...TypeDotAny) TypeDotAny {
+func getIsPythonLikeDict(variadicArguments ...DataTypeAny) DataTypeAny {
 	anything := variadicArguments[0]
 	anyGoType := reflect.TypeOf(anything)
-	return ((anyGoType.Kind() == reflect.Map) || ((anyGoType.Kind() == reflect.Map) && (anyGoType.Key().Kind() == reflect.String) && (anyGoType.Elem().Kind() == reflect.Interface)) || (anyGoType == reflect.TypeOf(TypeDotPythonLikeDict{})) || (anyGoType.String() == "map[string]interface {}") || (anyGoType.String() == "map[string]interface {  }"))
+	return ((anyGoType.Kind() == reflect.Map) || ((anyGoType.Kind() == reflect.Map) && (anyGoType.Key().Kind() == reflect.String) && (anyGoType.Elem().Kind() == reflect.Interface)) || (anyGoType == reflect.TypeOf(DataTypePythonLikeDict{})) || (anyGoType.String() == "map[string]interface {}") || (anyGoType.String() == "map[string]interface {  }"))
 }
 
-func getIsPythonLikeList(variadicArguments ...TypeDotAny) TypeDotAny {
+func getIsPythonLikeList(variadicArguments ...DataTypeAny) DataTypeAny {
 	anything := variadicArguments[0]
 	// TODO
 	anyGoType := reflect.TypeOf(anything)
-	return ((anyGoType.Kind() == reflect.Slice) || (anyGoType == reflect.TypeOf(TypeDotPythonLikeList{})) || (anyGoType.String() == "[]interface {}") || (anyGoType.String() == "[]interface {  }"))
+	return ((anyGoType.Kind() == reflect.Slice) || (anyGoType == reflect.TypeOf(DataTypePythonLikeList{})) || (anyGoType.String() == "[]interface {}") || (anyGoType.String() == "[]interface {  }"))
 }
 
-func getIsJsLikeFunction(variadicArguments ...TypeDotAny) TypeDotAny {
+func getIsJsLikeFunction(variadicArguments ...DataTypeAny) DataTypeAny {
 	anything := variadicArguments[0]
 	return (reflect.TypeOf(anything).Kind() == reflect.Func)
 }
 
-func getType(variadicArguments ...TypeDotAny) TypeDotAny {
+func getType(variadicArguments ...DataTypeAny) DataTypeAny {
 	anything := variadicArguments[0]
 	if (getIsJsLikeNull(anything) == true) {
 		return JsonType["JsLikeNull"]
@@ -131,7 +131,7 @@ func getType(variadicArguments ...TypeDotAny) TypeDotAny {
 	return reflect.TypeOf(anything).String()
 }
 
-func getStringValueOfPrimitive(variadicArguments ...TypeDotAny) TypeDotAny {
+func getStringValueOfPrimitive(variadicArguments ...DataTypeAny) DataTypeAny {
 	anything := variadicArguments[0]
 	if (anything == nil) {
 		return "null"
@@ -143,88 +143,88 @@ func getStringValueOfPrimitive(variadicArguments ...TypeDotAny) TypeDotAny {
 	if (anyGoValue.Kind() == reflect.String) {
 		return anyGoValue.String()
 	}
-	if ((getIsAnyItemInListMatchingCondition(TypeDotJsLikeFunction(func(variadicArguments ...TypeDotAny) TypeDotAny {
+	if ((getIsAnyItemInListMatchingCondition(DataTypeJsLikeFunction(func(variadicArguments ...DataTypeAny) DataTypeAny {
 		pythonLikeListItem, _ := variadicArguments[0], variadicArguments[1:]
 		return (anyGoValue.Kind() == pythonLikeListItem)
-	}), (TypeDotPythonLikeList{reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64}))) == true) {
+	}), (DataTypePythonLikeList{reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64}))) == true) {
 		return fmt.Sprintf("%d", anyGoValue.Int())
 	}
-	if ((getIsAnyItemInListMatchingCondition(TypeDotJsLikeFunction(func(variadicArguments ...TypeDotAny) TypeDotAny {
+	if ((getIsAnyItemInListMatchingCondition(DataTypeJsLikeFunction(func(variadicArguments ...DataTypeAny) DataTypeAny {
 		pythonLikeListItem, _ := variadicArguments[0], variadicArguments[1:]
 		return (anyGoValue.Kind() == pythonLikeListItem)
-	}), (TypeDotPythonLikeList{reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64}))) == true) {
+	}), (DataTypePythonLikeList{reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64}))) == true) {
 		return fmt.Sprintf("%d", anyGoValue.Uint())
 	}
-	if ((getIsAnyItemInListMatchingCondition(TypeDotJsLikeFunction(func(variadicArguments ...TypeDotAny) TypeDotAny {
+	if ((getIsAnyItemInListMatchingCondition(DataTypeJsLikeFunction(func(variadicArguments ...DataTypeAny) DataTypeAny {
 		pythonLikeListItem, _ := variadicArguments[0], variadicArguments[1:]
 		return (anyGoValue.Kind() == pythonLikeListItem)
-	}), (TypeDotPythonLikeList{reflect.Float32, reflect.Float64}))) == true) {
+	}), (DataTypePythonLikeList{reflect.Float32, reflect.Float64}))) == true) {
 		return fmt.Sprintf("%f", anyGoValue.Float())
 	}
-	if ((getIsAnyItemInListMatchingCondition(TypeDotJsLikeFunction(func(variadicArguments ...TypeDotAny) TypeDotAny {
+	if ((getIsAnyItemInListMatchingCondition(DataTypeJsLikeFunction(func(variadicArguments ...DataTypeAny) DataTypeAny {
 		pythonLikeListItem, _ := variadicArguments[0], variadicArguments[1:]
 		return (anyGoValue.Kind() == pythonLikeListItem)
-	}), (TypeDotPythonLikeList{reflect.Complex64, reflect.Complex128}))) == true) {
+	}), (DataTypePythonLikeList{reflect.Complex64, reflect.Complex128}))) == true) {
 		return fmt.Sprintf("%g", anyGoValue.Complex())
 	}
 	return errors.New("Error: expecting Go primitive value")
 }
 
-func combineAllListItem(variadicArguments ...TypeDotAny) TypeDotAny {
+func combineAllListItem(variadicArguments ...DataTypeAny) DataTypeAny {
 	callbackFunction, anyPythonLikeList, initialValue := variadicArguments[0], variadicArguments[1], variadicArguments[2]
 	result := initialValue
-	for pythonLikeListIndex, pythonLikeListItem := range anyPythonLikeList.(TypeDotPythonLikeList) {
-		result = callbackFunction.(TypeDotJsLikeFunction)(result, pythonLikeListItem, pythonLikeListIndex, anyPythonLikeList)
+	for pythonLikeListIndex, pythonLikeListItem := range anyPythonLikeList.(DataTypePythonLikeList) {
+		result = callbackFunction.(DataTypeJsLikeFunction)(result, pythonLikeListItem, pythonLikeListIndex, anyPythonLikeList)
 	}
 	return result
 }
 
-func pipe(variadicArguments ...TypeDotAny) TypeDotAny {
-	var pipeLastResult TypeDotAny = nil
-	pipeResult := combineAllListItem(TypeDotJsLikeFunction(func(variadicArguments ...TypeDotAny) TypeDotAny {
+func pipe(variadicArguments ...DataTypeAny) DataTypeAny {
+	var pipeLastResult DataTypeAny = nil
+	pipeResult := combineAllListItem(DataTypeJsLikeFunction(func(variadicArguments ...DataTypeAny) DataTypeAny {
 		currentResult, currentArgument, _ := variadicArguments[0], variadicArguments[1], variadicArguments[2:]
 		pipeLastResult = currentResult
 		if (currentResult == nil) {
 			return currentArgument
 		}
 		if (getIsJsLikeFunction(currentArgument) == true) {
-			return currentArgument.(TypeDotJsLikeFunction)(currentResult)
+			return currentArgument.(DataTypeJsLikeFunction)(currentResult)
 		}
 		return nil
 	}), variadicArguments, nil)
 	if (getIsJsLikeFunction(pipeResult) == true) {
-		return pipeResult.(TypeDotJsLikeFunction)(pipeLastResult)
+		return pipeResult.(DataTypeJsLikeFunction)(pipeLastResult)
 	}
 	return pipeResult
 }
 
-func jsonStringify(variadicArguments ...TypeDotAny) TypeDotAny {
+func jsonStringify(variadicArguments ...DataTypeAny) DataTypeAny {
 	// TODO
 	next, stop := iter.Pull(slices.Values(variadicArguments))
 	defer stop()
 
 	anything, _ := next()
-	var pretty TypeDotAny = false
+	var pretty DataTypeAny = false
 	pythonLikeDictOption, isExist := next()
 	if isExist {
-		pretty = pythonLikeDictOption.(TypeDotPythonLikeDict)["pretty"]
+		pretty = pythonLikeDictOption.(DataTypePythonLikeDict)["pretty"]
 	}
 
-	var indentation TypeDotAny = strings.Repeat(" ", 4)
-	tokenStack := TypeDotPythonLikeList{TypeDotPythonLikeDict{"type": "value", "value": anything, "indentationLevel": 0}}
+	var indentation DataTypeAny = strings.Repeat(" ", 4)
+	tokenStack := DataTypePythonLikeList{DataTypePythonLikeDict{"type": "value", "value": anything, "indentationLevel": 0}}
 
-	var result TypeDotAny = ""
+	var result DataTypeAny = ""
 	for (len(tokenStack) > 0) {
 		current := tokenStack[len(tokenStack)-1]
 		tokenStack = tokenStack[:len(tokenStack)-1]
-		currentValue := current.(TypeDotPythonLikeDict)["value"]
+		currentValue := current.(DataTypePythonLikeDict)["value"]
 
-		if (current.(TypeDotPythonLikeDict)["type"] == "raw") {
+		if (current.(DataTypePythonLikeDict)["type"] == "raw") {
 			result = result.(string) + currentValue.(string)
 			continue
 		}
 
-		currentIndentationLevel := current.(TypeDotPythonLikeDict)["indentationLevel"].(int)
+		currentIndentationLevel := current.(DataTypePythonLikeDict)["indentationLevel"].(int)
 		currentValueType := getType(currentValue)
 		if (currentValue == "nil") {
 			result = (result.(string) + "null")
@@ -243,43 +243,43 @@ func jsonStringify(variadicArguments ...TypeDotAny) TypeDotAny {
 			continue
 		}
 		if (currentValueType == JsonType["PythonLikeList"]) {
-			if (len(currentValue.(TypeDotPythonLikeList)) == 0) {
+			if (len(currentValue.(DataTypePythonLikeList)) == 0) {
 				result = (result.(string) + "[]")
 				continue
 			}
 			childIndentationLevel := (currentIndentationLevel + 1)
-			tokenStack = append(tokenStack, TypeDotPythonLikeDict{
+			tokenStack = append(tokenStack, DataTypePythonLikeDict{
 				"type": "raw",
-				"value": ternary((pretty == true), TypeDotJsLikeFunction(func(variadicArguments ...TypeDotAny) TypeDotAny {
+				"value": ternary((pretty == true), DataTypeJsLikeFunction(func(variadicArguments ...DataTypeAny) DataTypeAny {
 					return ("\n" + strings.Repeat(indentation.(string), currentIndentationLevel) + "]")
-				}), TypeDotJsLikeFunction(func(variadicArguments ...TypeDotAny) TypeDotAny {
+				}), DataTypeJsLikeFunction(func(variadicArguments ...DataTypeAny) DataTypeAny {
 					return "]"
 				})),
 				"indentationLevel": currentIndentationLevel,
 			})
-			for i := (len(currentValue.(TypeDotPythonLikeList)) - 1); (i >= 0); i = (i - 1) {
-				tokenStack = append(tokenStack, TypeDotPythonLikeDict{
+			for i := (len(currentValue.(DataTypePythonLikeList)) - 1); (i >= 0); i = (i - 1) {
+				tokenStack = append(tokenStack, DataTypePythonLikeDict{
 					"type": "value",
-					"value": currentValue.(TypeDotPythonLikeList)[i],
+					"value": currentValue.(DataTypePythonLikeList)[i],
 					"indentationLevel": childIndentationLevel,
 				})
 				if (i > 0) {
-					tokenStack = append(tokenStack, TypeDotPythonLikeDict{
+					tokenStack = append(tokenStack, DataTypePythonLikeDict{
 						"type": "raw",
-						"value": ternary((pretty == true), TypeDotJsLikeFunction(func(variadicArguments ...TypeDotAny) TypeDotAny {
+						"value": ternary((pretty == true), DataTypeJsLikeFunction(func(variadicArguments ...DataTypeAny) DataTypeAny {
 							return (",\n" + strings.Repeat(indentation.(string), childIndentationLevel))
-						}), TypeDotJsLikeFunction(func(variadicArguments ...TypeDotAny) TypeDotAny {
+						}), DataTypeJsLikeFunction(func(variadicArguments ...DataTypeAny) DataTypeAny {
 							return ", "
 						})),
 						"indentationLevel": childIndentationLevel,
 					})
 				}
 			}
-			tokenStack = append(tokenStack, TypeDotPythonLikeDict{
+			tokenStack = append(tokenStack, DataTypePythonLikeDict{
 				"type": "raw",
-				"value": ternary((pretty == true), TypeDotJsLikeFunction(func(variadicArguments ...TypeDotAny) TypeDotAny {
+				"value": ternary((pretty == true), DataTypeJsLikeFunction(func(variadicArguments ...DataTypeAny) DataTypeAny {
 					return ("[\n" + strings.Repeat(indentation.(string), childIndentationLevel))
-				}), TypeDotJsLikeFunction(func(variadicArguments ...TypeDotAny) TypeDotAny {
+				}), DataTypeJsLikeFunction(func(variadicArguments ...DataTypeAny) DataTypeAny {
 					return "["
 				})),
 				"indentationLevel": childIndentationLevel,
@@ -287,38 +287,38 @@ func jsonStringify(variadicArguments ...TypeDotAny) TypeDotAny {
 			continue
 		}
 		if (currentValueType == JsonType["PythonLikeDict"]) {
-			if (len(currentValue.(TypeDotPythonLikeDict)) == 0) {
+			if (len(currentValue.(DataTypePythonLikeDict)) == 0) {
 				result = (result.(string) + "{}")
 				continue
 			}
 			childIndentationLevel := (currentIndentationLevel + 1)
-			tokenStack = append(tokenStack, TypeDotPythonLikeDict{
+			tokenStack = append(tokenStack, DataTypePythonLikeDict{
 				"type": "raw",
-				"value": ternary((pretty == true), TypeDotJsLikeFunction(func(variadicArguments ...TypeDotAny) TypeDotAny {
+				"value": ternary((pretty == true), DataTypeJsLikeFunction(func(variadicArguments ...DataTypeAny) DataTypeAny {
 					return ("\n" + strings.Repeat(indentation.(string), currentIndentationLevel) + "}")
-				}), TypeDotJsLikeFunction(func(variadicArguments ...TypeDotAny) TypeDotAny {
+				}), DataTypeJsLikeFunction(func(variadicArguments ...DataTypeAny) DataTypeAny {
 					return " }"
 				})),
 				"indentationLevel": currentIndentationLevel,
 			})
 			pythonLikeDictEntryIndex := 0
-			for pythonLikeDictKey, pythonLikeDictValue := range currentValue.(TypeDotPythonLikeDict) {
-				tokenStack = append(tokenStack, TypeDotPythonLikeDict{
+			for pythonLikeDictKey, pythonLikeDictValue := range currentValue.(DataTypePythonLikeDict) {
+				tokenStack = append(tokenStack, DataTypePythonLikeDict{
 					"type": "value",
 					"value": pythonLikeDictValue,
 					"indentationLevel": childIndentationLevel,
 				})
-				tokenStack = append(tokenStack, TypeDotPythonLikeDict{
+				tokenStack = append(tokenStack, DataTypePythonLikeDict{
 					"type": "raw",
 					"value": ("\"" + pythonLikeDictKey + "\": "),
 					"indentationLevel": childIndentationLevel,
 				})
-				if ((pythonLikeDictEntryIndex + 1) != len(currentValue.(TypeDotPythonLikeDict))) {
-					tokenStack = append(tokenStack, TypeDotPythonLikeDict{
+				if ((pythonLikeDictEntryIndex + 1) != len(currentValue.(DataTypePythonLikeDict))) {
+					tokenStack = append(tokenStack, DataTypePythonLikeDict{
 						"type": "raw",
-						"value": ternary((pretty == true), TypeDotJsLikeFunction(func(variadicArguments ...TypeDotAny) TypeDotAny {
+						"value": ternary((pretty == true), DataTypeJsLikeFunction(func(variadicArguments ...DataTypeAny) DataTypeAny {
 							return (",\n" + strings.Repeat(indentation.(string), childIndentationLevel))
-						}), TypeDotJsLikeFunction(func(variadicArguments ...TypeDotAny) TypeDotAny {
+						}), DataTypeJsLikeFunction(func(variadicArguments ...DataTypeAny) DataTypeAny {
 							return ", "
 						})),
 						"indentationLevel": childIndentationLevel,
@@ -326,11 +326,11 @@ func jsonStringify(variadicArguments ...TypeDotAny) TypeDotAny {
 				}
 				pythonLikeDictEntryIndex += 1
 			}
-			tokenStack = append(tokenStack, TypeDotPythonLikeDict{
+			tokenStack = append(tokenStack, DataTypePythonLikeDict{
 				"type": "raw",
-				"value": ternary((pretty == true), TypeDotJsLikeFunction(func(variadicArguments ...TypeDotAny) TypeDotAny {
+				"value": ternary((pretty == true), DataTypeJsLikeFunction(func(variadicArguments ...DataTypeAny) DataTypeAny {
 					return ("{\n" + strings.Repeat(indentation.(string), childIndentationLevel))
-				}), TypeDotJsLikeFunction(func(variadicArguments ...TypeDotAny) TypeDotAny {
+				}), DataTypeJsLikeFunction(func(variadicArguments ...DataTypeAny) DataTypeAny {
 					return "{ "
 				})),
 				"indentationLevel": childIndentationLevel,
@@ -342,99 +342,99 @@ func jsonStringify(variadicArguments ...TypeDotAny) TypeDotAny {
 	return result
 }
 
-func parseFloat(variadicArguments ...TypeDotAny) TypeDotAny {
+func parseFloat(variadicArguments ...DataTypeAny) DataTypeAny {
 	anything := variadicArguments[0]
 	switch anyGoType := anything.(type) {
-	case TypeDotJsLikeFloat:
+	case DataTypeJsLikeFloat:
 		return anyGoType
 	case complex128:
-		return TypeDotJsLikeFloat(real(anyGoType))
+		return DataTypeJsLikeFloat(real(anyGoType))
 	case complex64:
-		return TypeDotJsLikeFloat(real(complex128(anyGoType)))
+		return DataTypeJsLikeFloat(real(complex128(anyGoType)))
 	case float64:
-		return TypeDotJsLikeFloat(anyGoType)
+		return DataTypeJsLikeFloat(anyGoType)
 	case float32:
-		return TypeDotJsLikeFloat(anyGoType)
+		return DataTypeJsLikeFloat(anyGoType)
 	case int64:
-		return TypeDotJsLikeFloat(anyGoType)
+		return DataTypeJsLikeFloat(anyGoType)
 	case int32: // rune
-		return TypeDotJsLikeFloat(anyGoType)
+		return DataTypeJsLikeFloat(anyGoType)
 	case int16:
-		return TypeDotJsLikeFloat(anyGoType)
+		return DataTypeJsLikeFloat(anyGoType)
 	case int8:
-		return TypeDotJsLikeFloat(anyGoType)
+		return DataTypeJsLikeFloat(anyGoType)
 	case int:
-		return TypeDotJsLikeFloat(anyGoType)
+		return DataTypeJsLikeFloat(anyGoType)
 	case uint64:
-		return TypeDotJsLikeFloat(anyGoType)
+		return DataTypeJsLikeFloat(anyGoType)
 	case uint32:
-		return TypeDotJsLikeFloat(anyGoType)
+		return DataTypeJsLikeFloat(anyGoType)
 	case uint16:
-		return TypeDotJsLikeFloat(anyGoType)
+		return DataTypeJsLikeFloat(anyGoType)
 	case uint8: // byte
-		return TypeDotJsLikeFloat(anyGoType)
+		return DataTypeJsLikeFloat(anyGoType)
 	case uint:
-		return TypeDotJsLikeFloat(anyGoType)
+		return DataTypeJsLikeFloat(anyGoType)
 	default:
 		return errors.New("expecting float64-convertible Go value")
 	}
 }
 
-func parseInt(variadicArguments ...TypeDotAny) TypeDotAny {
+func parseInt(variadicArguments ...DataTypeAny) DataTypeAny {
 	anything := variadicArguments[0]
 	switch anyGoType := anything.(type) {
-	case TypeDotJsLikeInt:
+	case DataTypeJsLikeInt:
 		return anyGoType
 	case complex128:
-		return TypeDotJsLikeInt(real(anyGoType))
+		return DataTypeJsLikeInt(real(anyGoType))
 	case complex64:
-		return TypeDotJsLikeInt(real(complex128(anyGoType)))
+		return DataTypeJsLikeInt(real(complex128(anyGoType)))
 	case float64:
-		return TypeDotJsLikeInt(anyGoType)
+		return DataTypeJsLikeInt(anyGoType)
 	case float32:
-		return TypeDotJsLikeInt(anyGoType)
+		return DataTypeJsLikeInt(anyGoType)
 	case int64:
-		return TypeDotJsLikeInt(anyGoType)
+		return DataTypeJsLikeInt(anyGoType)
 	case int32: // rune
-		return TypeDotJsLikeInt(anyGoType)
+		return DataTypeJsLikeInt(anyGoType)
 	case int16:
-		return TypeDotJsLikeInt(anyGoType)
+		return DataTypeJsLikeInt(anyGoType)
 	case int8:
-		return TypeDotJsLikeInt(anyGoType)
+		return DataTypeJsLikeInt(anyGoType)
 	case int:
-		return TypeDotJsLikeInt(anyGoType)
+		return DataTypeJsLikeInt(anyGoType)
 	case uint64:
-		return TypeDotJsLikeInt(anyGoType)
+		return DataTypeJsLikeInt(anyGoType)
 	case uint32:
-		return TypeDotJsLikeInt(anyGoType)
+		return DataTypeJsLikeInt(anyGoType)
 	case uint16:
-		return TypeDotJsLikeInt(anyGoType)
+		return DataTypeJsLikeInt(anyGoType)
 	case uint8: // byte
-		return TypeDotJsLikeInt(anyGoType)
+		return DataTypeJsLikeInt(anyGoType)
 	case uint:
-		return TypeDotJsLikeInt(anyGoType)
+		return DataTypeJsLikeInt(anyGoType)
 	default:
 		return errors.New("expecting int-convertible Go value")
 	}
 }
 
 var Utils = struct {
-    Ternary func(...TypeDotAny) TypeDotAny
-	GetIsAnyItemInListMatchingCondition func(...TypeDotAny) TypeDotAny
-	GetIsJsLikeNull func(...TypeDotAny) TypeDotAny
-	GetIsJsLikeBoolean func(...TypeDotAny) TypeDotAny
-	GetIsJsLikeString func(...TypeDotAny) TypeDotAny
-	GetIsJsLikeInt func(...TypeDotAny) TypeDotAny
-	GetIsJsLikeFloat func(...TypeDotAny) TypeDotAny
-	GetIsPythonLikeDict func(...TypeDotAny) TypeDotAny
-	GetIsPythonLikeList func(...TypeDotAny) TypeDotAny
-	GetIsJsLikeFunction func(...TypeDotAny) TypeDotAny
-	GetType func(...TypeDotAny) TypeDotAny
-	GetStringValueOfPrimitive func(...TypeDotAny) TypeDotAny
-	CombineAllListItem func(...TypeDotAny) TypeDotAny
-	Pipe func(...TypeDotAny) TypeDotAny
-	ParseFloat func(...TypeDotAny) TypeDotAny
-	JsonStringify func(...TypeDotAny) TypeDotAny
+    Ternary func(...DataTypeAny) DataTypeAny
+	GetIsAnyItemInListMatchingCondition func(...DataTypeAny) DataTypeAny
+	GetIsJsLikeNull func(...DataTypeAny) DataTypeAny
+	GetIsJsLikeBoolean func(...DataTypeAny) DataTypeAny
+	GetIsJsLikeString func(...DataTypeAny) DataTypeAny
+	GetIsJsLikeInt func(...DataTypeAny) DataTypeAny
+	GetIsJsLikeFloat func(...DataTypeAny) DataTypeAny
+	GetIsPythonLikeDict func(...DataTypeAny) DataTypeAny
+	GetIsPythonLikeList func(...DataTypeAny) DataTypeAny
+	GetIsJsLikeFunction func(...DataTypeAny) DataTypeAny
+	GetType func(...DataTypeAny) DataTypeAny
+	GetStringValueOfPrimitive func(...DataTypeAny) DataTypeAny
+	CombineAllListItem func(...DataTypeAny) DataTypeAny
+	Pipe func(...DataTypeAny) DataTypeAny
+	ParseFloat func(...DataTypeAny) DataTypeAny
+	JsonStringify func(...DataTypeAny) DataTypeAny
 }{
     Ternary: ternary,
     GetIsAnyItemInListMatchingCondition: getIsAnyItemInListMatchingCondition,
