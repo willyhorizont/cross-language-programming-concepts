@@ -1,8 +1,10 @@
 [
     {
         "id": "javascript",
-        "name": "JavaScript",
-        "url": "https://nodejs.org/",
+        "names": ["JavaScript"],
+        "urls": [
+            "https://nodejs.org/"
+        ],
         "file_extension": ".js",
         "concept_definition": {
             "python-like-list": "Array",
@@ -21,8 +23,10 @@
     },
     {
         "id": "python",
-        "name": "Python",
-        "url": "https://www.python.org/",
+        "names": ["Python"],
+        "urls": [
+            "https://www.python.org/"
+        ],
         "file_extension": ".py",
         "concept_definition": {
             "python-like-list": "list",
@@ -43,8 +47,10 @@
     },
     {
         "id": "php",
-        "name": "PHP",
-        "url": "https://www.php.net/",
+        "names": ["PHP"],
+        "urls": [
+            "https://www.php.net/"
+        ],
         "file_extension": ".php",
         "concept_definition": {
             "python-like-list": "array",
@@ -65,8 +71,10 @@
     },
     {
         "id": "go",
-        "name": "Go",
-        "url": "https://go.dev/",
+        "names": ["Go"],
+        "urls": [
+            "https://go.dev/"
+        ],
         "file_extension": ".go",
         "concept_definition": {
             "python-like-list": "Slice",
@@ -87,8 +95,10 @@
     },
     {
         "id": "perl",
-        "name": "Perl",
-        "url": "https://www.perl.org/",
+        "names": ["Perl"],
+        "urls": [
+            "https://www.perl.org/"
+        ],
         "file_extension": ".pl",
         "concept_definition": {
             "python-like-list": "ARRAY",
@@ -109,8 +119,10 @@
     },
     {
         "id": "julia",
-        "name": "Julia",
-        "url": "https://julialang.org/",
+        "names": ["Julia"],
+        "urls": [
+            "https://julialang.org/"
+        ],
         "file_extension": ".jl",
         "concept_definition": {
             "python-like-list": "Vector{Any}",
@@ -131,8 +143,10 @@
     },
     {
         "id": "lua",
-        "name": "Lua",
-        "url": "https://www.lua.org/",
+        "names": ["Lua"],
+        "urls": [
+            "https://www.lua.org/"
+        ],
         "file_extension": ".lua",
         "concept_definition": {
             "python-like-list": "table",
@@ -153,8 +167,10 @@
     },
     {
         "id": "ruby",
-        "name": "Ruby",
-        "url": "https://www.ruby-lang.org/",
+        "names": ["Ruby"],
+        "urls": [
+            "https://www.ruby-lang.org/"
+        ],
         "file_extension": ".rb",
         "concept_definition": {
             "python-like-list": "Array",
@@ -175,8 +191,10 @@
     },
     {
         "id": "r",
-        "name": "R",
-        "url": "https://www.r-project.org/",
+        "names": ["R"],
+        "urls": [
+            "https://www.r-project.org/"
+        ],
         "file_extension": ".r",
         "concept_definition": {
             "python-like-list": "list",
@@ -200,8 +218,10 @@
     },
     {
         "id": "kotlin",
-        "name": "Kotlin",
-        "url": "https://kotlinlang.org/",
+        "names": ["Kotlin"],
+        "urls": [
+            "https://kotlinlang.org/"
+        ],
         "file_extension": ".kt",
         "concept_definition": {
             "python-like-list": "MutableList&lt;Any?&gt;",
@@ -226,8 +246,10 @@
     },
     {
         "id": "swift",
-        "name": "Swift",
-        "url": "https://www.swift.org/",
+        "names": ["Swift"],
+        "urls": [
+            "https://www.swift.org/"
+        ],
         "file_extension": ".swift",
         "concept_definition": {
             "python-like-list": "Array",
@@ -241,8 +263,10 @@
     },
     {
         "id": "dart",
-        "name": "Dart",
-        "url": "https://dart.dev/",
+        "names": ["Dart"],
+        "urls": [
+            "https://dart.dev/"
+        ],
         "file_extension": ".dart",
         "concept_definition": {
             "python-like-list": "List&lt;dynamic&gt;",
@@ -256,8 +280,10 @@
     },
     {
         "id": "visual-basic-dot-net",
-        "name": "Visual Basic .NET (VB.NET)",
-        "url": "https://learn.microsoft.com/en-us/dotnet/visual-basic/",
+        "names": ["Visual Basic .NET (VB.NET)"],
+        "urls": [
+            "https://learn.microsoft.com/en-us/dotnet/visual-basic/"
+        ],
         "file_extension": ".vb",
         "concept_definition": {
             "python-like-list": "List(Of Object)",
@@ -271,8 +297,10 @@
     },
     {
         "id": "c-sharp",
-        "name": "C#",
-        "url": "https://learn.microsoft.com/en-us/dotnet/csharp/",
+        "names": ["C#"],
+        "urls": [
+            "https://learn.microsoft.com/en-us/dotnet/csharp/"
+        ],
         "file_extension": ".cs",
         "concept_definition": {
             "python-like-list": "List&lt;dynamic&gt;",
@@ -285,26 +313,12 @@
         "docker": []
     },
     {
-        "id": "matlab",
-        "name": "MATLAB",
-        "url": "https://www.mathworks.com/products/matlab.html",
-        "file_extension": ".m",
-        "concept_definition": {
-            "python-like-list": "Cell Array",
-            "python-like-dict": "struct"
-        },
-        "vscode_extensions": [
-            "MathWorks.language-matlab"
+        "id": "matlab-or-octave",
+        "names": ["MATLAB", "Octave"],
+        "urls": [
+            "https://www.mathworks.com/products/matlab.html",
+            "https://octave.org/"
         ],
-        "vscode_extensions_archive": [
-            "gimly81.matlab"
-        ],
-        "docker": []
-    },
-    {
-        "id": "gnu-octave",
-        "name": "GNU Octave",
-        "url": "https://octave.org/",
         "file_extension": ".m",
         "concept_definition": {
             "python-like-list": "Cell Array",
@@ -320,8 +334,10 @@
     },
     {
         "id": "wolfram-language-script",
-        "name": "Wolfram Language Script",
-        "url": "https://www.wolfram.com/wolframscript/",
+        "names": ["Wolfram Language Script"],
+        "urls": [
+            "https://www.wolfram.com/wolframscript/"
+        ],
         "file_extension": ".wls",
         "concept_definition": {
             "python-like-list": "List",
@@ -337,8 +353,10 @@
     },
     {
         "id": "raku",
-        "name": "Raku",
-        "url": "https://raku.org/",
+        "names": ["Raku"],
+        "urls": [
+            "https://raku.org/"
+        ],
         "file_extension": ".raku",
         "concept_definition": {
             "python-like-list": "List",
@@ -352,8 +370,10 @@
     },
     {
         "id": "scala",
-        "name": "Scala",
-        "url": "https://www.scala-lang.org/",
+        "names": ["Scala"],
+        "urls": [
+            "https://www.scala-lang.org/"
+        ],
         "file_extension": ".scala",
         "concept_definition": {
             "python-like-list": "mutable.ArrayBuffer[Any]",
@@ -375,8 +395,10 @@
     },
     {
         "id": "java",
-        "name": "Java",
-        "url": "https://www.oracle.com/java/",
+        "names": ["Java"],
+        "urls": [
+            "https://www.oracle.com/java/"
+        ],
         "file_extension": ".java",
         "concept_definition": {
             "python-like-list": "ArrayList&lt;Object&gt;",
@@ -401,8 +423,10 @@
     },
     {
         "id": "nu",
-        "name": "Nu",
-        "url": "https://www.nushell.sh/",
+        "names": ["Nu"],
+        "urls": [
+            "https://www.nushell.sh/"
+        ],
         "file_extension": ".nu",
         "concept_definition": {
             "python-like-list": "List",
@@ -423,8 +447,10 @@
     },
     {
         "id": "elv",
-        "name": "Elv",
-        "url": "https://elv.sh/",
+        "names": ["Elv"],
+        "urls": [
+            "https://elv.sh/"
+        ],
         "file_extension": ".elv",
         "concept_definition": {
             "python-like-list": "List",
@@ -445,8 +471,10 @@
     },
     {
         "id": "vim9script",
-        "name": "Vim9script",
-        "url": "https://vimhelp.org/vim9.txt.html",
+        "names": ["Vim9script"],
+        "urls": [
+            "https://vimhelp.org/vim9.txt.html"
+        ],
         "file_extension": ".vim",
         "concept_definition": {
             "python-like-list": "List",
@@ -465,8 +493,10 @@
     },
     {
         "id": "rust",
-        "name": "Rust",
-        "url": "https://rust-lang.org/",
+        "names": ["Rust"],
+        "urls": [
+            "https://rust-lang.org/"
+        ],
         "file_extension": ".rs",
         "concept_definition": {
             "python-like-list": "Vec",
@@ -489,8 +519,10 @@
     },
     {
         "id": "nix",
-        "name": "Nix",
-        "url": "https://nixos.org/",
+        "names": ["Nix"],
+        "urls": [
+            "https://nixos.org/"
+        ],
         "file_extension": ".nix",
         "concept_definition": {
             "python-like-list": "List",
@@ -511,8 +543,10 @@
     },
     {
         "id": "tcl",
-        "name": "Tcl",
-        "url": "https://www.tcl-lang.org/",
+        "names": ["Tcl"],
+        "urls": [
+            "https://www.tcl-lang.org/"
+        ],
         "file_extension": ".tcl",
         "concept_definition": {
             "python-like-list": "list",
@@ -533,8 +567,10 @@
     },
     {
         "id": "gdscript",
-        "name": "GDScript",
-        "url": "https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html",
+        "names": ["GDScript"],
+        "urls": [
+            "https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html"
+        ],
         "file_extension": ".gd",
         "concept_definition": {
             "python-like-list": "Array",
@@ -559,8 +595,10 @@
     },
     {
         "id": "typst",
-        "name": "Typst",
-        "url": "https://typst.app/",
+        "names": ["Typst"],
+        "urls": [
+            "https://typst.app/"
+        ],
         "file_extension": ".typ",
         "concept_definition": {
             "python-like-list": "Array",
@@ -582,8 +620,10 @@
     },
     {
         "id": "powershell",
-        "name": "PowerShell",
-        "url": "https://github.com/powershell/powershell",
+        "names": ["PowerShell"],
+        "urls": [
+            "https://github.com/powershell/powershell"
+        ],
         "file_extension": ".ps1",
         "concept_definition": {
             "python-like-list": "Array",
