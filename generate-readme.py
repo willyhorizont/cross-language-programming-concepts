@@ -11,14 +11,14 @@ def generate_programming_concepts():
         concepts = json.load(file)
     get_concept_per_language_definition = lambda concept, language: "" if not (programming_concept := language["concept_definition"].get(concept["concept_name"])) else f" : {programming_concept}"
     get_concept_per_language_link = lambda concept, language: f"{base_url}{language['id']}/{concept['concept_name']}{language['file_extension']}"
-    get_concept_per_language = lambda concept: "\n".join([f"  {number}. [{'/'.join(language['names'])}]({get_concept_per_language_link(concept, language)}){get_concept_per_language_definition(concept, language)}  " for number, language in enumerate(languages, start=1)])
+    get_concept_per_language = lambda concept: "\n".join([f"  {number}. [{' / '.join(language['names'])}]({get_concept_per_language_link(concept, language)}){get_concept_per_language_definition(concept, language)}  " for number, language in enumerate(languages, start=1)])
     get_concept_title = lambda concept: f"{concept['concept_name']} {concept['concept_definition']}" if concept["concept_definition"] else f"{concept['concept_name']}"
     return "\n\n---\n\n".join([f"### {get_concept_title(concept)}  \n{get_concept_per_language(concept)}" for concept in concepts])
 
 
 def main():
     get_language_names = lambda language: " / ".join(list(map(lambda language_name: f"[{language_name}]({language['urls'][0]})", language['names'])))
-    get_language_urls = lambda language: " / ".join(list(map(lambda language_url: f"[{language_url}]({language_url})", language['urls'])))
+    get_language_urls = lambda language: " or ".join(list(map(lambda language_url: f"[{language_url}]({language_url})", language['urls'])))
     generate_languages = lambda: "\n".join([f"{number}. {get_language_names(language)} : {get_language_urls(language)}  " for number, language in enumerate(languages, start=1)])
     generated_readme = (f"""
 # cross-language-programming-concepts
