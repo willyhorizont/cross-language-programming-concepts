@@ -378,7 +378,7 @@
         ".tcl": "bash $workspaceRoot/languages/tcl/run.sh $dirWithoutTrailingSlash/$fileName",
         ".gd": "bash $workspaceRoot/languages/gdscript/run.sh $dirWithoutTrailingSlash/$fileName",
         ".typ": "bash $workspaceRoot/languages/typst/run.sh $dirWithoutTrailingSlash/$fileName",
-        ".sql": "bash $workspaceRoot/languages/mysql/run.sh $dirWithoutTrailingSlash/$fileName",
+        ".exs": "bash $workspaceRoot/languages/elixir/run.sh $dirWithoutTrailingSlash/$fileName",
 
         // ".mojo": "bash ./languages/mojo/run.sh $fileName",
         // ".rs": "bash ./languages/rust/run.sh $fileName",
@@ -404,17 +404,17 @@
         "raku": "cd $dir && raku $fileName",
         // "scala": "cd $dir && scala $fileName", // run .scala file using scala interpreter
         "scala": "bash $workspaceRoot/languages/scala/run.sh $dirWithoutTrailingSlash/$fileName",
+        "java": "bash $workspaceRoot/languages/java/run.sh $dirWithoutTrailingSlash/$fileName",
+        "gdscript": "bash $workspaceRoot/languages/gdscript/run.sh $dirWithoutTrailingSlash/$fileName",
+        "rust": "bash $workspaceRoot/languages/rust/run.sh $dirWithoutTrailingSlash/$fileName",
+        "powershell": "bash $workspaceRoot/languages/powershell/run.sh $dirWithoutTrailingSlash/$fileName",
+        "elixir": "bash $workspaceRoot/languages/elixir/run.sh $dirWithoutTrailingSlash/$fileName",
         "mojo": "bash $workspaceRoot/languages/mojo/run.sh $dirWithoutTrailingSlash/$fileName",
         "scala2": "cd $dir && scalac $fileName && scala $fileNameWithoutExt && del \"$dir*.class\"", // compile .scala file to .class and run the .class
         "scala3": "cd $dir && scalac $fileName && scala $fileNameWithoutExt && del \"$dir*.class\"  && del \"$dir*.tasty\"", // compile .scala file to .class and run the .class
         // "c": "gcc --version",
         "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt && rm -f \"$dir$fileNameWithoutExt\"",
         // "java": "cd $dir && javac $fileName && java $fileNameWithoutExt && del \"$dir*.class\"",
-        "java": "bash $workspaceRoot/languages/java/run.sh $dirWithoutTrailingSlash/$fileName",
-        "gdscript": "bash $workspaceRoot/languages/gdscript/run.sh $dirWithoutTrailingSlash/$fileName",
-        "rust": "bash $workspaceRoot/languages/rust/run.sh $dirWithoutTrailingSlash/$fileName",
-        "powershell": "bash $workspaceRoot/languages/powershell/run.sh $dirWithoutTrailingSlash/$fileName",
-        "elixir": "cd $dir && elixir $fileName",
         "perl6": "cd $dir && perl6 $fileName",
         "crystal": "cd $dir && crystal $fileName",
         "v": "cd $dir && v run $fileName",
@@ -494,6 +494,12 @@
         "editor.detectIndentation": false
     },
     "[gdscript]": {
+        "editor.wordWrap": "off",
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false
+    },
+    "[elixir]": {
         "editor.wordWrap": "off",
         "editor.tabSize": 4,
         "editor.insertSpaces": true,

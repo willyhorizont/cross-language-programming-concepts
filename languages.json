@@ -641,5 +641,29 @@
                 ]
             }
         ]
+    },
+    {
+        "id": "elixir",
+        "names": ["Elixir"],
+        "urls": [
+            "https://elixir-lang.org/"
+        ],
+        "file_extension": ".exs",
+        "concept_definition": {
+            "python-like-list": "List",
+            "python-like-dict": "Associative List"
+        },
+        "vscode_extensions": [
+            "JakeBecker.elixir-ls"
+        ],
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "elixir:1.20.0-otp-29",
+                "docker_images": [
+                    "elixir:1.20.0-otp-29"
+                ]
+            }
+        ]
     }
 ]

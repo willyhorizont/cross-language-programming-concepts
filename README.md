@@ -52,6 +52,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 26. [GDScript](https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html) : [https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html](https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html)  
 27. [Typst](https://typst.app/) : [https://typst.app/](https://typst.app/)  
 28. [PowerShell](https://github.com/powershell/powershell) : [https://github.com/powershell/powershell](https://github.com/powershell/powershell)  
+29. [Elixir](https://elixir-lang.org/) : [https://elixir-lang.org/](https://elixir-lang.org/)  
 
 ## Programming concepts  
 
@@ -84,6 +85,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/cross-language-features.gd)  
   27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/cross-language-features.typ)  
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/cross-language-features.ps1)  
+  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/cross-language-features.exs)  
 
 ---
 
@@ -116,6 +118,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/comments.gd)  
   27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/comments.typ)  
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/comments.ps1)  
+  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/comments.exs)  
 
 ---
 
@@ -148,6 +151,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/hello-world.gd)  
   27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/hello-world.typ)  
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/hello-world.ps1)  
+  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/hello-world.exs)  
 
 ---
 
@@ -180,6 +184,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/conditionals.gd)  
   27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/conditionals.typ)  
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/conditionals.ps1)  
+  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/conditionals.exs)  
 
 ---
 
@@ -212,6 +217,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/loops.gd)  
   27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/loops.typ)  
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/loops.ps1)  
+  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/loops.exs)  
 
 ---
 
@@ -244,6 +250,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/functions.gd)  
   27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/functions.typ)  
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/functions.ps1)  
+  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/functions.exs)  
 
 ---
 
@@ -276,6 +283,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/error-handling.gd)  
   27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/error-handling.typ)  
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/error-handling.ps1)  
+  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/error-handling.exs)  
 
 ---
 
@@ -308,6 +316,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/python-like-list.gd) : Array  
   27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/python-like-list.typ) : Array  
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/python-like-list.ps1) : Array  
+  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/python-like-list.exs) : List  
 
 ---
 
@@ -340,6 +349,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/python-like-dict.gd) : Dictionary  
   27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/python-like-dict.typ) : Dictionary  
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/python-like-dict.ps1) : HashTable  
+  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/python-like-dict.exs) : Associative List  
 
 ---
 
@@ -372,6 +382,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/loop-through-each-list-item.gd)  
   27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/loop-through-each-list-item.typ)  
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/loop-through-each-list-item.ps1)  
+  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/loop-through-each-list-item.exs)  
 
 ---
 
@@ -404,6 +415,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/get-is-any-item-in-list-matching-condition.gd)  
   27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/get-is-any-item-in-list-matching-condition.typ)  
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/get-is-any-item-in-list-matching-condition.ps1)  
+  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/get-is-any-item-in-list-matching-condition.exs)  
 
 ---
 
@@ -436,6 +448,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/get-is-all-item-in-list-matching-condition.gd)  
   27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/get-is-all-item-in-list-matching-condition.typ)  
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/get-is-all-item-in-list-matching-condition.ps1)  
+  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/get-is-all-item-in-list-matching-condition.exs)  
 
 ---
 
@@ -468,6 +481,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/get-first-list-item-matching-condition.gd)  
   27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/get-first-list-item-matching-condition.typ)  
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/get-first-list-item-matching-condition.ps1)  
+  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/get-first-list-item-matching-condition.exs)  
 
 ---
 
@@ -500,6 +514,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/get-index-of-list-item-matching-condition.gd)  
   27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/get-index-of-list-item-matching-condition.typ)  
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/get-index-of-list-item-matching-condition.ps1)  
+  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/get-index-of-list-item-matching-condition.exs)  
 
 ---
 
@@ -532,6 +547,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/get-all-list-item-matching-condition.gd)  
   27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/get-all-list-item-matching-condition.typ)  
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/get-all-list-item-matching-condition.ps1)  
+  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/get-all-list-item-matching-condition.exs)  
 
 ---
 
@@ -564,6 +580,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/transform-each-list-item.gd)  
   27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/transform-each-list-item.typ)  
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/transform-each-list-item.ps1)  
+  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/transform-each-list-item.exs)  
 
 ---
 
@@ -596,3 +613,4 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/combine-all-list-item.gd)  
   27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/combine-all-list-item.typ)  
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/combine-all-list-item.ps1)  
+  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/combine-all-list-item.exs)  
