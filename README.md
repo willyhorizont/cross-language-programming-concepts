@@ -38,7 +38,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 12. [Dart](https://dart.dev/) : [https://dart.dev/](https://dart.dev/)  
 13. [Visual Basic .NET (VB.NET)](https://learn.microsoft.com/en-us/dotnet/visual-basic/) : [https://learn.microsoft.com/en-us/dotnet/visual-basic/](https://learn.microsoft.com/en-us/dotnet/visual-basic/)  
 14. [C#](https://learn.microsoft.com/en-us/dotnet/csharp/) : [https://learn.microsoft.com/en-us/dotnet/csharp/](https://learn.microsoft.com/en-us/dotnet/csharp/)  
-15. [MATLAB](https://www.mathworks.com/products/matlab.html) / [Octave](https://www.mathworks.com/products/matlab.html) : [https://www.mathworks.com/products/matlab.html](https://www.mathworks.com/products/matlab.html) or [https://octave.org/](https://octave.org/)  
+15. [MATLAB](https://www.mathworks.com/products/matlab.html) / [Octave](https://octave.org/) : [https://www.mathworks.com/products/matlab.html](https://www.mathworks.com/products/matlab.html) or [https://octave.org/](https://octave.org/)  
 16. [Wolfram Language Script](https://www.wolfram.com/wolframscript/) : [https://www.wolfram.com/wolframscript/](https://www.wolfram.com/wolframscript/)  
 17. [Raku](https://raku.org/) : [https://raku.org/](https://raku.org/)  
 18. [Scala](https://www.scala-lang.org/) : [https://www.scala-lang.org/](https://www.scala-lang.org/)  

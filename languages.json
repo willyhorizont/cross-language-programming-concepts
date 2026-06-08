@@ -1,9 +1,11 @@
 [
     {
         "id": "javascript",
-        "names": ["JavaScript"],
-        "urls": [
-            "https://nodejs.org/"
+        "stack": [
+            { 
+                "name": "JavaScript",
+                "url": "https://nodejs.org/"
+            }
         ],
         "file_extension": ".js",
         "concept_definition": {
@@ -23,9 +25,11 @@
     },
     {
         "id": "python",
-        "names": ["Python"],
-        "urls": [
-            "https://www.python.org/"
+        "stack": [
+            { 
+                "name": "Python",
+                "url": "https://www.python.org/"
+            }
         ],
         "file_extension": ".py",
         "concept_definition": {
@@ -47,9 +51,11 @@
     },
     {
         "id": "php",
-        "names": ["PHP"],
-        "urls": [
-            "https://www.php.net/"
+        "stack": [
+            { 
+                "name": "PHP",
+                "url": "https://www.php.net/"
+            }
         ],
         "file_extension": ".php",
         "concept_definition": {
@@ -71,9 +77,11 @@
     },
     {
         "id": "go",
-        "names": ["Go"],
-        "urls": [
-            "https://go.dev/"
+        "stack": [
+            { 
+                "name": "Go",
+                "url": "https://go.dev/"
+            }
         ],
         "file_extension": ".go",
         "concept_definition": {
@@ -95,9 +103,11 @@
     },
     {
         "id": "perl",
-        "names": ["Perl"],
-        "urls": [
-            "https://www.perl.org/"
+        "stack": [
+            { 
+                "name": "Perl",
+                "url": "https://www.perl.org/"
+            }
         ],
         "file_extension": ".pl",
         "concept_definition": {
@@ -119,9 +129,11 @@
     },
     {
         "id": "julia",
-        "names": ["Julia"],
-        "urls": [
-            "https://julialang.org/"
+        "stack": [
+            { 
+                "name": "Julia",
+                "url": "https://julialang.org/"
+            }
         ],
         "file_extension": ".jl",
         "concept_definition": {
@@ -143,9 +155,11 @@
     },
     {
         "id": "lua",
-        "names": ["Lua"],
-        "urls": [
-            "https://www.lua.org/"
+        "stack": [
+            { 
+                "name": "Lua",
+                "url": "https://www.lua.org/"
+            }
         ],
         "file_extension": ".lua",
         "concept_definition": {
@@ -167,9 +181,11 @@
     },
     {
         "id": "ruby",
-        "names": ["Ruby"],
-        "urls": [
-            "https://www.ruby-lang.org/"
+        "stack": [
+            { 
+                "name": "Ruby",
+                "url": "https://www.ruby-lang.org/"
+            }
         ],
         "file_extension": ".rb",
         "concept_definition": {
@@ -191,9 +207,11 @@
     },
     {
         "id": "r",
-        "names": ["R"],
-        "urls": [
-            "https://www.r-project.org/"
+        "stack": [
+            { 
+                "name": "R",
+                "url": "https://www.r-project.org/"
+            }
         ],
         "file_extension": ".r",
         "concept_definition": {
@@ -218,9 +236,11 @@
     },
     {
         "id": "kotlin",
-        "names": ["Kotlin"],
-        "urls": [
-            "https://kotlinlang.org/"
+        "stack": [
+            { 
+                "name": "Kotlin",
+                "url": "https://kotlinlang.org/"
+            }
         ],
         "file_extension": ".kt",
         "concept_definition": {
@@ -246,9 +266,11 @@
     },
     {
         "id": "swift",
-        "names": ["Swift"],
-        "urls": [
-            "https://www.swift.org/"
+        "stack": [
+            { 
+                "name": "Swift",
+                "url": "https://www.swift.org/"
+            }
         ],
         "file_extension": ".swift",
         "concept_definition": {
@@ -263,9 +285,11 @@
     },
     {
         "id": "dart",
-        "names": ["Dart"],
-        "urls": [
-            "https://dart.dev/"
+        "stack": [
+            { 
+                "name": "Dart",
+                "url": "https://dart.dev/"
+            }
         ],
         "file_extension": ".dart",
         "concept_definition": {
@@ -280,9 +304,11 @@
     },
     {
         "id": "visual-basic-dot-net",
-        "names": ["Visual Basic .NET (VB.NET)"],
-        "urls": [
-            "https://learn.microsoft.com/en-us/dotnet/visual-basic/"
+        "stack": [
+            { 
+                "name": "Visual Basic .NET (VB.NET)",
+                "url": "https://learn.microsoft.com/en-us/dotnet/visual-basic/"
+            }
         ],
         "file_extension": ".vb",
         "concept_definition": {
@@ -297,9 +323,11 @@
     },
     {
         "id": "c-sharp",
-        "names": ["C#"],
-        "urls": [
-            "https://learn.microsoft.com/en-us/dotnet/csharp/"
+        "stack": [
+            { 
+                "name": "C#",
+                "url": "https://learn.microsoft.com/en-us/dotnet/csharp/"
+            }
         ],
         "file_extension": ".cs",
         "concept_definition": {
@@ -314,10 +342,15 @@
     },
     {
         "id": "matlab-or-octave",
-        "names": ["MATLAB", "Octave"],
-        "urls": [
-            "https://www.mathworks.com/products/matlab.html",
-            "https://octave.org/"
+        "stack": [
+            { 
+                "name": "MATLAB",
+                "url": "https://www.mathworks.com/products/matlab.html"
+            },
+            {
+                "name": "Octave",
+                "url": "https://octave.org/"
+            }
         ],
         "file_extension": ".m",
         "concept_definition": {
@@ -334,9 +367,11 @@
     },
     {
         "id": "wolfram-language-script",
-        "names": ["Wolfram Language Script"],
-        "urls": [
-            "https://www.wolfram.com/wolframscript/"
+        "stack": [
+            { 
+                "name": "Wolfram Language Script",
+                "url": "https://www.wolfram.com/wolframscript/"
+            }
         ],
         "file_extension": ".wls",
         "concept_definition": {
@@ -353,9 +388,11 @@
     },
     {
         "id": "raku",
-        "names": ["Raku"],
-        "urls": [
-            "https://raku.org/"
+        "stack": [
+            { 
+                "name": "Raku",
+                "url": "https://raku.org/"
+            }
         ],
         "file_extension": ".raku",
         "concept_definition": {
@@ -370,9 +407,11 @@
     },
     {
         "id": "scala",
-        "names": ["Scala"],
-        "urls": [
-            "https://www.scala-lang.org/"
+        "stack": [
+            { 
+                "name": "Scala",
+                "url": "https://www.scala-lang.org/"
+            }
         ],
         "file_extension": ".scala",
         "concept_definition": {
@@ -395,9 +434,11 @@
     },
     {
         "id": "java",
-        "names": ["Java"],
-        "urls": [
-            "https://www.oracle.com/java/"
+        "stack": [
+            { 
+                "name": "Java",
+                "url": "https://www.oracle.com/java/"
+            }
         ],
         "file_extension": ".java",
         "concept_definition": {
@@ -423,9 +464,11 @@
     },
     {
         "id": "nu",
-        "names": ["Nu"],
-        "urls": [
-            "https://www.nushell.sh/"
+        "stack": [
+            { 
+                "name": "Nu",
+                "url": "https://www.nushell.sh/"
+            }
         ],
         "file_extension": ".nu",
         "concept_definition": {
@@ -447,9 +490,11 @@
     },
     {
         "id": "elv",
-        "names": ["Elv"],
-        "urls": [
-            "https://elv.sh/"
+        "stack": [
+            { 
+                "name": "Elv",
+                "url": "https://elv.sh/"
+            }
         ],
         "file_extension": ".elv",
         "concept_definition": {
@@ -471,9 +516,11 @@
     },
     {
         "id": "vim9script",
-        "names": ["Vim9script"],
-        "urls": [
-            "https://vimhelp.org/vim9.txt.html"
+        "stack": [
+            { 
+                "name": "Vim9script",
+                "url": "https://vimhelp.org/vim9.txt.html"
+            }
         ],
         "file_extension": ".vim",
         "concept_definition": {
@@ -493,9 +540,11 @@
     },
     {
         "id": "rust",
-        "names": ["Rust"],
-        "urls": [
-            "https://rust-lang.org/"
+        "stack": [
+            { 
+                "name": "Rust",
+                "url": "https://rust-lang.org/"
+            }
         ],
         "file_extension": ".rs",
         "concept_definition": {
@@ -519,9 +568,11 @@
     },
     {
         "id": "nix",
-        "names": ["Nix"],
-        "urls": [
-            "https://nixos.org/"
+        "stack": [
+            { 
+                "name": "Nix",
+                "url": "https://nixos.org/"
+            }
         ],
         "file_extension": ".nix",
         "concept_definition": {
@@ -543,9 +594,11 @@
     },
     {
         "id": "tcl",
-        "names": ["Tcl"],
-        "urls": [
-            "https://www.tcl-lang.org/"
+        "stack": [
+            { 
+                "name": "Tcl",
+                "url": "https://www.tcl-lang.org/"
+            }
         ],
         "file_extension": ".tcl",
         "concept_definition": {
@@ -567,9 +620,11 @@
     },
     {
         "id": "gdscript",
-        "names": ["GDScript"],
-        "urls": [
-            "https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html"
+        "stack": [
+            { 
+                "name": "GDScript",
+                "url": "https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html"
+            }
         ],
         "file_extension": ".gd",
         "concept_definition": {
@@ -595,9 +650,11 @@
     },
     {
         "id": "typst",
-        "names": ["Typst"],
-        "urls": [
-            "https://typst.app/"
+        "stack": [
+            { 
+                "name": "Typst",
+                "url": "https://typst.app/"
+            }
         ],
         "file_extension": ".typ",
         "concept_definition": {
@@ -620,9 +677,11 @@
     },
     {
         "id": "powershell",
-        "names": ["PowerShell"],
-        "urls": [
-            "https://github.com/powershell/powershell"
+        "stack": [
+            { 
+                "name": "PowerShell",
+                "url": "https://github.com/powershell/powershell"
+            }
         ],
         "file_extension": ".ps1",
         "concept_definition": {
@@ -644,9 +703,11 @@
     },
     {
         "id": "elixir",
-        "names": ["Elixir"],
-        "urls": [
-            "https://elixir-lang.org/"
+        "stack": [
+            { 
+                "name": "Elixir",
+                "url": "https://elixir-lang.org/"
+            }
         ],
         "file_extension": ".exs",
         "concept_definition": {
@@ -668,9 +729,11 @@
     },
     {
         "id": "ocaml",
-        "names": ["OCaml"],
-        "urls": [
-            "https://ocaml.org/"
+        "stack": [
+            { 
+                "name": "OCaml",
+                "url": "https://ocaml.org/"
+            }
         ],
         "file_extension": ".ml",
         "concept_definition": {
