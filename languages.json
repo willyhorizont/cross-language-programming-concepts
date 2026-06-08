@@ -665,5 +665,29 @@
                 ]
             }
         ]
+    },
+    {
+        "id": "ocaml",
+        "names": ["OCaml"],
+        "urls": [
+            "https://ocaml.org/"
+        ],
+        "file_extension": ".ml",
+        "concept_definition": {
+            "python-like-list": "List",
+            "python-like-dict": "Association List"
+        },
+        "vscode_extensions": [
+            "ocamllabs.ocaml-platform"
+        ],
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "ocaml/opam:ubuntu-25.04-ocaml-5.4",
+                "docker_images": [
+                    "ocaml/opam:ubuntu-25.04-ocaml-5.4"
+                ]
+            }
+        ]
     }
 ]

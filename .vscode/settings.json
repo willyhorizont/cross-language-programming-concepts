@@ -379,6 +379,7 @@
         ".gd": "bash $workspaceRoot/languages/gdscript/run.sh $dirWithoutTrailingSlash/$fileName",
         ".typ": "bash $workspaceRoot/languages/typst/run.sh $dirWithoutTrailingSlash/$fileName",
         ".exs": "bash $workspaceRoot/languages/elixir/run.sh $dirWithoutTrailingSlash/$fileName",
+        ".ml": "bash $workspaceRoot/languages/ocaml/run.sh $dirWithoutTrailingSlash/$fileName",
 
         // ".mojo": "bash ./languages/mojo/run.sh $fileName",
         // ".rs": "bash ./languages/rust/run.sh $fileName",
@@ -409,6 +410,8 @@
         "rust": "bash $workspaceRoot/languages/rust/run.sh $dirWithoutTrailingSlash/$fileName",
         "powershell": "bash $workspaceRoot/languages/powershell/run.sh $dirWithoutTrailingSlash/$fileName",
         "elixir": "bash $workspaceRoot/languages/elixir/run.sh $dirWithoutTrailingSlash/$fileName",
+        "ocaml": "bash $workspaceRoot/languages/ocaml/run.sh $dirWithoutTrailingSlash/$fileName",
+
         "mojo": "bash $workspaceRoot/languages/mojo/run.sh $dirWithoutTrailingSlash/$fileName",
         "scala2": "cd $dir && scalac $fileName && scala $fileNameWithoutExt && del \"$dir*.class\"", // compile .scala file to .class and run the .class
         "scala3": "cd $dir && scalac $fileName && scala $fileNameWithoutExt && del \"$dir*.class\"  && del \"$dir*.tasty\"", // compile .scala file to .class and run the .class
@@ -427,7 +430,6 @@
         "fsharp": "fsi",
         "typescript": "ts-node",
         "coffeescript": "coffee",
-        "ocaml": "ocaml",
         "applescript": "osascript",
         "clojure": "lein exec",
         "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
@@ -500,6 +502,12 @@
         "editor.detectIndentation": false
     },
     "[elixir]": {
+        "editor.wordWrap": "off",
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false
+    },
+    "[ocaml]": {
         "editor.wordWrap": "off",
         "editor.tabSize": 4,
         "editor.insertSpaces": true,
