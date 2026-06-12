@@ -19,11 +19,11 @@ let () =
         Any (-123.789);
         Any [Any (OcamlInt 1); Any (OcamlInt 2); Any (OcamlInt 3)];
         Any [Any [Any "foo"; Any "bar"]];
-        Any (fun anything -> (
-            let ocaml_variadic_arguments = get_py_list_from_anything anything in
+        Any (fun any_variadic_arguments_py_list -> (
+            let ocaml_variadic_arguments = get_py_list_from_anything any_variadic_arguments_py_list in
             let ocaml_variadic_arguments_generator = Seq.to_dispenser (List.to_seq ocaml_variadic_arguments) in
-            let aa = get_next_item_of_ocaml_generator (ocaml_variadic_arguments_generator) in
-            let bb = get_next_item_of_ocaml_generator (ocaml_variadic_arguments_generator) in
+            let aa = get_next_item_of_ocaml_generator ocaml_variadic_arguments_generator in
+            let bb = get_next_item_of_ocaml_generator ocaml_variadic_arguments_generator in
             Any ((get_js_int_from_anything aa) * (get_js_int_from_anything bb))
         ))
     ] in
@@ -42,11 +42,11 @@ let () =
         [Any "some_js_float_negative"; Any (-123.789)];
         [Any "some_py_list"; Any [Any (OcamlInt 1); Any (OcamlInt 2); Any (OcamlInt 3)]];
         [Any "some_py_dict"; Any [Any [Any "foo"; Any "bar"]]];
-        [Any "some_js_function"; Any (fun anything -> (
-            let ocaml_variadic_arguments = get_py_list_from_anything anything in
+        [Any "some_js_function"; Any (fun any_variadic_arguments_py_list -> (
+            let ocaml_variadic_arguments = get_py_list_from_anything any_variadic_arguments_py_list in
             let ocaml_variadic_arguments_generator = Seq.to_dispenser (List.to_seq ocaml_variadic_arguments) in
-            let aa = get_next_item_of_ocaml_generator (ocaml_variadic_arguments_generator) in
-            let bb = get_next_item_of_ocaml_generator (ocaml_variadic_arguments_generator) in
+            let aa = get_next_item_of_ocaml_generator ocaml_variadic_arguments_generator in
+            let bb = get_next_item_of_ocaml_generator ocaml_variadic_arguments_generator in
             Any ((get_js_int_from_anything aa) * (get_js_int_from_anything bb))
         ))]
     ] in
@@ -56,4 +56,8 @@ let () =
     *)
     let () = do_nothing (some_py_list) in
     let () = do_nothing (some_py_dict) in
+    (* let () = do_nothing (json_stringify (Any [some_py_list; Any [
+        [Any "pretty"; Any (OcamlBool true)]
+    ]])) in
+    let () = do_nothing (json_stringify (Any [some_py_list])) in *)
     ()

@@ -66,5 +66,13 @@
     {
         "concept_name": "combine-all-list-item",
         "concept_definition": "(reduce / fold / aggregate)"
+    },
+    {
+        "concept_name": "list-remove-tail",
+        "concept_definition": "(pop)"
+    },
+    {
+        "concept_name": "list-insert-tail",
+        "concept_definition": "(push / append)"
     }
 ]
