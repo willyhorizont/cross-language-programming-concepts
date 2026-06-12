@@ -28,16 +28,25 @@ IMAGE=$("$ROOT_DIR/utils.sh" "get_docker_image" "$LANGUAGE_NAME" 2>/dev/null)
 
 SEPARATOR=$("$ROOT_DIR/utils.sh" "print_separator")
 
-if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
-    find "$ROOT_DIR/runtimes/$LANGUAGE_NAME" -name "*.java" -print0 | xargs -0 javac -d "$ROOT_DIR/runtimes/$LANGUAGE_NAME"
-    echo "IS_RUNTIME_INSTALLED=\"TRUE\"" > "$LANGUAGE_ENV_FILE"
-fi
-
 PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR="$ROOT_DIR/runtimes/java"
 TARGET_FILE_NAME_WITHOUT_EXTENSION="Main"
 PATH_TO_TARGET_FILE_WITH_EXTENSION="$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/$TARGET_FILE_NAME_WITHOUT_EXTENSION.$FILE_EXTENSION"
 
 cp -f "$PATH_TO_FILE_NAME_WITH_EXTENSION" "$PATH_TO_TARGET_FILE_WITH_EXTENSION"
+
+if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
+    COMMAND_INSTALL_RUNTIME="
+        find \"$ROOT_DIR/runtimes/$LANGUAGE_NAME\" -name \"*.java\" -print0 | xargs -0 javac -d \"$ROOT_DIR/runtimes/$LANGUAGE_NAME\"
+    "
+    docker run -i --rm \
+        --entrypoint bash \
+        -v "$ROOT_DIR:$ROOT_DIR" \
+        "$IMAGE" \
+        -c "
+            $COMMAND_INSTALL_RUNTIME
+        "
+    echo "IS_RUNTIME_INSTALLED=\"TRUE\"" > "$LANGUAGE_ENV_FILE"
+fi
 
 COMMAND_PRINT_VERSION="
 echo \">docker images\"
@@ -69,5 +78,5 @@ docker run -i --rm \
         cd \"$ROOT_DIR\"
     "
 
-rm -rf "$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/$TARGET_FILE_NAME_WITHOUT_EXTENSION.class"
-rm -rf "$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/$TARGET_FILE_NAME_WITHOUT_EXTENSION.java"
+rm -f "$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/$TARGET_FILE_NAME_WITHOUT_EXTENSION.class"
+rm -f "$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/$TARGET_FILE_NAME_WITHOUT_EXTENSION.java"

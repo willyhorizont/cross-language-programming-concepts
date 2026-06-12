@@ -1,122 +1,137 @@
-type any =
-    | Null
-    | Bool of bool
-    | String of string
-    | Int of int
-    | Float of float
-    | List of any list
-    | Dict of any list list
-    | Func of (any -> any)
+open Willyhorizont.Runtime
 
-let json_stringify ?(pretty = true) (anything : any) : string =
-    let rec stringify_cps (item : any) (depth : int) (k : string -> string) : string =
-        let indent d = if pretty then String.make (d * 4) ' ' else "" in
-        let newline = if pretty then "\n" else "" in
-        match item with
-            | Null -> k "Null"
-            | Bool any_bool -> k (string_of_bool any_bool)
-            | String any_string -> k ("\"" ^ any_string ^ "\"")
-            | Int any_int -> k (string_of_int any_int)
-            | Float any_float -> k (string_of_float any_float)
-            | List any_list ->
-                let rec loop_list (acc : string list) (remaining : any list) (k_list : string -> string) =
-                    match remaining with
-                    | [] -> 
-                        let current_indent = indent depth in
-                        let inner_indent = indent (depth + 1) in
-                        let joined = 
-                            if remaining = any_list && acc = [] then "[]"
-                            else
-                                "[" ^ newline ^ 
-                                (String.concat (";" ^ newline) (List.rev_map (fun s -> inner_indent ^ s) acc)) ^ 
-                                newline ^ current_indent ^ "]"
-                        in
-                        k_list joined
-                    | head :: tail ->
-                        stringify_cps head (depth + 1) (fun res ->
-                            loop_list (res :: acc) tail k_list
-                        )
-                in
-                loop_list [] any_list k
-            | Dict any_dict ->
-                let rec loop_dict (acc : string list) (remaining : any list list) (k_dict : string -> string) =
-                    match remaining with
-                    | [] -> 
-                        let current_indent = indent depth in
-                        let inner_indent = indent (depth + 1) in
-                        let joined = 
-                            if remaining = any_dict && acc = [] then "{}"
-                            else
-                                "{" ^ newline ^ 
-                                (String.concat ("," ^ newline) (List.rev_map (fun s -> inner_indent ^ s) acc)) ^ 
-                                newline ^ current_indent ^ "}"
-                        in
-                        k_dict joined
-                    | head :: tail ->
-                        stringify_cps (List head) (depth + 1) (fun res ->
-                            loop_dict (res :: acc) tail k_dict
-                        )
-                in
-                loop_dict [] any_dict k
-            | Func _ -> k "<function>"
-    in
-    stringify_cps anything 0 (fun x -> x)
 let () =
-    let say_hello = (fun (callback_function) -> (
-        print_endline "hello";
-        callback_function ()
-    ))
-    in
-    let () = say_hello (fun () -> (
-        print_endline "world"
-    ))
-    in
-    let some_python_like_list = [
-        Null;
-        Bool true;
-        Bool false;
-        String "foo";
-        Int 123;
-        Int (-123);
-        Float 123.789;
-        Float (-123.789);
-        List [Int 1; Int 2; Int 3];
-        Dict [[String "foo"; String "bar"]];
-        Func (fun variadic_arguments -> (
-            match variadic_arguments with 
-                | List [Int a; Int b] -> Int (a * b) 
-                | _ -> Null
-        ))
+    let my_python_like_list = Any [
+        Any ();
+        Any true;
+        Any false;
+        Any "foo";
+        Any (123);
+        Any (-123);
+        Any (123.789);
+        Any (-123.789);
     ]
     in
     let () = 
-        print_endline ("some_python_like_list: " ^ json_stringify (List some_python_like_list))
+        do_nothing (get_is_py_list my_python_like_list)
     in
     let () = 
-        print_endline ("some_python_like_list: " ^ json_stringify ~pretty:false (List some_python_like_list))
+        do_nothing (get_first_list_item_matching_condition my_python_like_list (fun anything -> (
+            match (parse_py_list anything) with
+            | [any_py_list_item; _; _] -> (
+                if (get_is_js_int any_py_list_item) then
+                    (any_py_list_item = Any (123))
+                else
+                    false
+            )
+            | _ -> failwith "Error: invalid arguments"
+        )))
     in
-    let some_python_like_dict = [
-        [String "some_null"; Null];
-        [String "some_boolean_true"; Bool true];
-        [String "some_boolean_false"; Bool false];
-        [String "some_string"; String "foo"];
-        [String "some_int_positive"; Int 123];
-        [String "some_int_negative"; Int (-123)];
-        [String "some_float_positive"; Float 123.789];
-        [String "some_float_negative"; Float (-123.789)];
-        [String "some_python_like_list"; List [Int 1; Int 2; Int 3]];
-        [String "some_python_like_dict"; Dict [[String "foo"; String "bar"]]];
-        [String "some_function"; Func (fun variadic_arguments -> (
-            match variadic_arguments with 
-                | List [Int a; Int b] -> Int (a * b) 
-                | _ -> Null
-        ))]
+    let my_py_dict = Any [
+        Any [Any "some_py_none"; Any ()];
+        Any [Any "some_py_boolean_true"; Any true];
+        Any [Any "some_py_boolean_false"; Any false];
+        Any [Any "some_js_string"; Any "foo"];
+        Any [Any "some_js_int_positive"; Any (123)];
+        Any [Any "some_js_int_negative"; Any (-123)];
+        Any [Any "some_js_float_positive"; Any (123.789)];
+        Any [Any "some_js_float_negative"; Any (-123.789)];
     ]
     in
     let () = 
-        print_endline ("some_python_like_dict: " ^ json_stringify (Dict some_python_like_dict))
+        do_nothing (get_is_py_dict my_py_dict)
+    in
+
+    let multiply_version_one = (fun anything -> (
+        match (parse_py_list anything) with
+        | [aa; bb] -> Any ((parse_js_int aa) * (parse_js_int bb))
+        | _ -> failwith "Error: invalid arguments"
+    ))
     in
     let () = 
-        print_endline ("some_python_like_dict: " ^ json_stringify ~pretty:false (Dict some_python_like_dict))
+        do_nothing (multiply_version_one (Any [Any 7; Any 5]))
     in
+
+    let multiply_version_two = (fun anything -> (
+        let ocaml_variadic_arguments = parse_py_list anything
+        in
+        if List.length ocaml_variadic_arguments = 2 then
+            let aa = List.nth ocaml_variadic_arguments 0
+            in
+            let bb = List.nth ocaml_variadic_arguments 1
+            in
+            Any ((parse_js_int aa) * (parse_js_int bb))
+        else
+            failwith "Error: invalid arguments"
+    ))
+    in
+    let () = 
+        do_nothing (multiply_version_two (Any [Any 7; Any 5]))
+    in
+
+    let multiply_version_three = (fun anything -> (
+        let ocaml_variadic_arguments = parse_py_list anything
+        in
+        (* if (not (List.length args_list = 2)) then *)
+        if List.length ocaml_variadic_arguments <> 2 then
+            failwith "Error: invalid arguments";
+        let aa = List.nth ocaml_variadic_arguments 0
+        in
+        let bb = List.nth ocaml_variadic_arguments 1
+        in
+        Any ((parse_js_int aa) * (parse_js_int bb))
+    ))
+    in
+    let () = 
+        do_nothing (multiply_version_three (Any [Any 7; Any 5]))
+    in
+
+    let multiply_version_three_point_five = (fun anything -> (
+        let ocaml_variadic_arguments = parse_py_list anything
+        in
+        let aa = List.nth ocaml_variadic_arguments 0
+        in
+        let bb = List.nth ocaml_variadic_arguments 1
+        in
+        Any ((parse_js_int aa) * (parse_js_int bb))
+    ))
+    in
+    let () = 
+        do_nothing (multiply_version_three_point_five (Any [Any 7; Any 5]))
+    in
+
+    let multiply_version_four = (fun anything -> (
+        let ocaml_variadic_arguments = parse_py_list anything
+        in
+        let ocaml_variadic_arguments_ref = ref ocaml_variadic_arguments
+        in
+        let aa = get_next_item_of_py_list_ref (ocaml_variadic_arguments_ref)
+        in
+        let bb = get_next_item_of_py_list_ref (ocaml_variadic_arguments_ref)
+        in
+        
+        Any ((parse_js_int aa) * (parse_js_int bb))
+    ))
+    in
+    let () = 
+        do_nothing (multiply_version_four (Any [Any 7; Any 5]))
+    in
+
+    let multiply_version_five = (fun anything -> (
+        let ocaml_variadic_arguments = parse_py_list anything
+        in
+        (*  Turn list into Sequence, then turn it to Dispenser (Generator) *)
+        let ocaml_variadic_arguments_generator = Seq.to_dispenser (List.to_seq ocaml_variadic_arguments)
+        in
+        let aa = get_next_item_of_generator (ocaml_variadic_arguments_generator)
+        in
+        let bb = get_next_item_of_generator (ocaml_variadic_arguments_generator)
+        in
+        Any ((parse_js_int aa) * (parse_js_int bb))
+    ))
+    in
+    let () = 
+        do_nothing (multiply_version_five (Any [Any 7; Any 5]))
+    in
+
     ()

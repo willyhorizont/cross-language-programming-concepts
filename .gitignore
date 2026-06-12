@@ -23,3 +23,7 @@ Main.java
 
 runtimes/typst/willyhorizont/output/typst/
 *.pdf
+
+runtimes/ocaml/runtime/willyhorizont.cmi
+runtimes/ocaml/runtime/willyhorizont.cmx
+runtimes/ocaml/runtime/willyhorizont.o
