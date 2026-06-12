@@ -21,6 +21,20 @@ module Runtime = struct
     let parse_py_dict = (fun anything -> ((Obj.magic (parse_ocaml_value anything)) : py_dict))
     let parse_js_function = (fun anything -> ((Obj.magic (parse_ocaml_value anything)) : js_function))
 
+    let get_next_item_of_py_list_ref = (fun (ocaml_py_list_ref) -> (
+        match !ocaml_py_list_ref with
+        | head :: tail -> 
+            ocaml_py_list_ref := tail; (* move pointer to next item *)
+            head
+        | [] -> failwith "Error: no next items"
+    ))
+
+    let get_next_item_of_generator = (fun (ocaml_generator) -> (
+        match ocaml_generator () with
+        | Some value -> value
+        | None -> failwith "Error: no next items"
+    ))
+
     let get_is_py_none = (fun anything -> ((not (Obj.is_block (parse_ocaml_value anything))) && ((parse_js_int anything) = 0)))
     let get_is_py_bool = (fun anything -> ((not (Obj.is_block (parse_ocaml_value anything))) && (fun v -> (v = 0 || v = 1)) (parse_js_int anything)))
 
@@ -85,7 +99,7 @@ module Runtime = struct
         else if (get_is_js_function anything) then
             "js_function"
         else
-            "ocaml_value"
+            "ocaml_type"
     ))
 
     exception Break
@@ -109,38 +123,35 @@ module Runtime = struct
         )
     ))
 
-    let get_next_item_of_py_list_ref = (fun (ocaml_py_list_ref) -> (
-        match !ocaml_py_list_ref with
-        | head :: tail -> 
-            ocaml_py_list_ref := tail; (* move pointer to next item *)
-            head
-        | [] -> failwith "Error: no next items"
-    ))
-
-    let get_next_item_of_generator = (fun (ocaml_generator) -> (
-        match ocaml_generator () with
-        | Some value -> value
-        | None -> failwith "Error: no next items"
+    let get_py_dict_property = (fun any_py_dict any_py_dict_key -> (
+        let item_found_ref = ref (Any ())
+        in
+        try
+            List.iter (fun any_py_dict_entry -> (
+                let any_ocaml_py_dict_entry = (parse_py_list any_py_dict_entry)
+                in
+                let ocaml_py_dict_entry_generator = Seq.to_dispenser (List.to_seq any_ocaml_py_dict_entry)
+                in
+                let any_ocaml_py_dict_key = get_next_item_of_generator (ocaml_py_dict_entry_generator)
+                in
+                if any_ocaml_py_dict_key = any_py_dict_key then begin
+                    let any_ocaml_py_dict_value = get_next_item_of_generator (ocaml_py_dict_entry_generator)
+                    in
+                    item_found_ref := any_ocaml_py_dict_value;
+                    raise Break
+                end
+            )) (parse_py_list any_py_dict);
+            Any ()
+        with Break -> (
+            !item_found_ref
+        )
     ))
 
     let do_nothing = (fun anything -> (() : unit))
 end
 
-    (* let get_py_list_variadic_arguments = (fun anything -> (
-        let ocaml_variadic_arguments = (Obj.magic anything)
-        in
-        if (get_is_py_list ocaml_variadic_arguments) then
-            ocaml_variadic_arguments
-        else
-            failwith "Error: can not parse argument to py_list"
-    )) *)
-
-    (* let get_py_list_variadic_arguments = (fun anything -> 
-        let unwrapped = (Obj.magic anything) in
-        Any unwrapped
-    ) *)
-
-    (* let get_py_dict_entry = (fun dict_item -> (
+    (*
+    let get_py_dict_entry = (fun dict_item -> (
         (* TODO *)
         let ocaml_dict_entry = (parse_ocaml_value dict_item)
         in
@@ -156,30 +167,6 @@ end
                     failwith "Error: can not get py_dict entry"
             else
                 failwith "Error: can not get py_dict entry"
-    ))
-
-    let get_py_dict_property = (fun any_dict any_key -> (
-        (* TODO *)
-        let target_key = parse_js_string (parse_ocaml_value any_key) in
-        match any_dict with
-        | Any nested_list ->
-            (* 2. Ekstrak key yang dicari menjadi string biasa *)
-            
-            (* 3. Fungsi rekursif untuk mencari pasangan [key; value] *)
-            let rec find_value list_data =
-                match list_data with
-                | [] -> failwith ("Key Error: " ^ target_key ^ " not found")
-                | entry :: tail ->
-                    match parse_py_list (parse_ocaml_value entry) with
-                    | [Any k; Any v] ->
-                        let current_key = parse_js_string (parse_ocaml_value k) in
-                        if current_key = target_key then 
-                            Any v (* Kembalikan dalam bentuk Any *)
-                        else 
-                            find_value tail
-                    | _ -> failwith "Error: Invalid dictionary entry format"
-            in
-            find_value nested_list
     ))
 
     (* TODO *)

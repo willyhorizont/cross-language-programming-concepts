@@ -1,7 +1,7 @@
 open Willyhorizont.Runtime
 
 let () =
-    let my_python_like_list = Any [
+    let my_py_list = Any [
         Any ();
         Any true;
         Any false;
@@ -13,10 +13,10 @@ let () =
     ]
     in
     let () = 
-        do_nothing (get_is_py_list my_python_like_list)
+        do_nothing (get_is_py_list my_py_list)
     in
     let () = 
-        do_nothing (get_first_list_item_matching_condition my_python_like_list (fun anything -> (
+        do_nothing (get_first_list_item_matching_condition my_py_list (fun anything -> (
             match (parse_py_list anything) with
             | [any_py_list_item; _; _] -> (
                 if (get_is_js_int any_py_list_item) then
@@ -40,6 +40,9 @@ let () =
     in
     let () = 
         do_nothing (get_is_py_dict my_py_dict)
+    in
+    let () = 
+        do_nothing (get_py_dict_property my_py_dict (Any "some_js_string"))
     in
 
     let multiply_version_one = (fun anything -> (

@@ -10,7 +10,7 @@ let () =
         print_endline "world"
     ))
     in
-    let some_python_like_list = [
+    let some_py_list = Any [
         Any ();
         Any true;
         Any false;
@@ -20,7 +20,7 @@ let () =
         Any (123.789);
         Any (-123.789);
         Any [Any 1; Any 2; Any 3];
-        Any [[Any "foo"; Any "bar"]];
+        Any [Any [Any "foo"; Any "bar"]];
         Any (fun anything -> (
             let ocaml_variadic_arguments = parse_py_list anything
             in
@@ -36,13 +36,13 @@ let () =
     in
     (*
     let () = 
-        print_endline ("some_python_like_list: " ^ json_stringify (PyList some_python_like_list))
+        print_endline ("some_py_list: " ^ json_stringify (PyList some_py_list))
     in
     let () = 
-        print_endline ("some_python_like_list: " ^ json_stringify ~pretty:false (PyList some_python_like_list))
+        print_endline ("some_py_list: " ^ json_stringify ~pretty:false (PyList some_py_list))
     in
     *)
-    let some_py_dict = [
+    let some_py_dict = Any [
         [Any "some_py_none"; Any ()];
         [Any "some_py_boolean_true"; Any true];
         [Any "some_py_boolean_false"; Any false];
@@ -52,7 +52,7 @@ let () =
         [Any "some_js_float_positive"; Any (123.789)];
         [Any "some_js_float_negative"; Any (-123.789)];
         [Any "some_py_list"; Any [Any 1; Any 2; Any 3]];
-        [Any "some_py_dict"; Any [[Any "foo"; Any "bar"]]];
+        [Any "some_py_dict"; Any [Any [Any "foo"; Any "bar"]]];
         [Any "some_js_function"; Any (fun anything -> (
             let ocaml_variadic_arguments = parse_py_list anything
             in
@@ -75,7 +75,7 @@ let () =
     in
     *)
     let () = 
-        do_nothing (some_python_like_list)
+        do_nothing (some_py_list)
     in
     let () = 
         do_nothing (some_py_dict)
