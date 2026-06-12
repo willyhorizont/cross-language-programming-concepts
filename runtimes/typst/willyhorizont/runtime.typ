@@ -2,6 +2,23 @@
 #let user-computer = sys.inputs.at("user-computer", default: "computer")
 #let user-pwd = sys.inputs.at("user-pwd", default: "~")
 #let file-name-with-extension = sys.inputs.at("file-name-with-extension", default: "unknown.typ")
+#let to-string(content) = {
+    if type(content) == str {
+        content
+    } else if type(content) == int or type(content) == float {
+        str(content)
+    } else if content.has("text") {
+        to-string(content.text)
+    } else if content.has("children") {
+        content.children.map(to-string).join("")
+    } else if content.has("body") {
+        to-string(content.body)
+    } else if content == [ ] {
+        " "
+    } else {
+        ""
+    }
+}
 #let print-prompt = () => {
     return [
         #show regex("."): (it) => [#it#sym.zws]
