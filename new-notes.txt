@@ -39,6 +39,7 @@ add:
 ~~ps1 / pwsh / powershell~~
 ~~typst~~
 https://nue.nu/
+gleam
 
 change Language Mode to:
 cuda-cpp

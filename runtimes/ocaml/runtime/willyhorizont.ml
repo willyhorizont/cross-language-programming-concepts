@@ -1,4 +1,19 @@
 module Runtime = struct
+    let get_next_item_of_ocaml_py_list_ref = (fun any_ocaml_py_list_ref -> (
+        match !any_ocaml_py_list_ref with
+        | head :: tail -> (
+            any_ocaml_py_list_ref := tail; (* move pointer to next item *)
+            head
+        )
+        | [] -> failwith "Error: No next items"
+    ))
+
+    let get_next_item_of_ocaml_generator = (fun any_ocaml_generator -> (
+        match any_ocaml_generator () with
+        | Some value -> value
+        | None -> failwith "Error: No next items"
+    ))
+
     type any = Any : 't -> any
 
     type py_none = unit
@@ -10,138 +25,115 @@ module Runtime = struct
     type py_dict = py_list list
     type js_function = any -> any
 
-    let parse_ocaml_value = (fun anything -> (Obj.field (Obj.magic anything) 0))
+    type ocaml_primitive =
+        | OcamlNone of py_none
+        | OcamlBool of py_bool
+        | OcamlInt of js_int
 
-    let parse_py_none = (fun anything -> ((Obj.magic (parse_ocaml_value anything)) : py_none))
-    let parse_py_bool = (fun anything -> ((Obj.magic (parse_ocaml_value anything)) : py_bool))
-    let parse_js_string = (fun anything -> ((Obj.magic (parse_ocaml_value anything)) : js_string))
-    let parse_js_int = (fun anything -> ((Obj.magic (parse_ocaml_value anything)) : js_int))
-    let parse_js_float = (fun anything -> ((Obj.magic (parse_ocaml_value anything)) : js_float))
-    let parse_py_list = (fun anything -> ((Obj.magic (parse_ocaml_value anything)) : py_list))
-    let parse_py_dict = (fun anything -> ((Obj.magic (parse_ocaml_value anything)) : py_dict))
-    let parse_js_function = (fun anything -> ((Obj.magic (parse_ocaml_value anything)) : js_function))
+    let get_ocaml_value_from_anything = (fun anything -> (Obj.field (Obj.magic anything) 0))
 
-    let get_next_item_of_py_list_ref = (fun (ocaml_py_list_ref) -> (
-        match !ocaml_py_list_ref with
-        | head :: tail -> 
-            ocaml_py_list_ref := tail; (* move pointer to next item *)
-            head
-        | [] -> failwith "Error: no next items"
-    ))
+    let get_ocaml_primitive_type_from_anything = (fun anything -> ((Obj.magic (get_ocaml_value_from_anything anything)) : ocaml_primitive))
 
-    let get_next_item_of_generator = (fun (ocaml_generator) -> (
-        match ocaml_generator () with
-        | Some value -> value
-        | None -> failwith "Error: no next items"
-    ))
+    let get_py_none_from_anything = (fun anything -> match get_ocaml_primitive_type_from_anything anything with OcamlNone v -> v | _ -> failwith "TypeError: Not py_none")
+    let get_py_bool_from_anything = (fun anything -> match get_ocaml_primitive_type_from_anything anything with OcamlBool v -> v | _ -> failwith "TypeError: Not py_bool")
+    let get_js_string_from_anything = (fun anything -> ((Obj.magic (get_ocaml_value_from_anything anything)) : js_string))
+    let get_js_int_from_anything = (fun anything -> match get_ocaml_primitive_type_from_anything anything with OcamlInt v -> v | _ -> failwith "TypeError: Not js_int")
+    let get_js_float_from_anything = (fun anything -> ((Obj.magic (get_ocaml_value_from_anything anything)) : js_float))
+    let get_py_list_from_anything = (fun anything -> ((Obj.magic (get_ocaml_value_from_anything anything)) : py_list))
+    let get_py_dict_from_anything = (fun anything -> ((Obj.magic (get_ocaml_value_from_anything anything)) : py_dict))
+    let get_js_function_from_anything = (fun anything -> ((Obj.magic (get_ocaml_value_from_anything anything)) : js_function))
 
-    let get_is_py_none = (fun anything -> ((not (Obj.is_block (parse_ocaml_value anything))) && ((parse_js_int anything) = 0)))
-    let get_is_py_bool = (fun anything -> ((not (Obj.is_block (parse_ocaml_value anything))) && (fun v -> (v = 0 || v = 1)) (parse_js_int anything)))
+    let get_py_none_from_ocaml_value = (fun (type a) (any_ocaml_value : a) -> (Obj.magic any_ocaml_value : py_none))
+    let get_py_bool_from_ocaml_value = (fun (type a) (any_ocaml_value : a) -> (Obj.magic any_ocaml_value : py_bool))
+    let get_js_string_from_ocaml_value = (fun (type a) (any_ocaml_value : a) -> (Obj.magic any_ocaml_value : js_string))
+    let get_js_int_from_ocaml_value = (fun (type a) (any_ocaml_value : a) -> (Obj.magic any_ocaml_value : js_int))
+    let get_js_float_from_ocaml_value = (fun (type a) (any_ocaml_value : a) -> (Obj.magic any_ocaml_value : js_float))
+    let get_py_list_from_ocaml_value = (fun (type a) (any_ocaml_value : a) -> (Obj.magic any_ocaml_value : py_list))
+    let get_py_dict_from_ocaml_value = (fun (type a) (any_ocaml_value : a) -> (Obj.magic any_ocaml_value : py_dict))
+    let get_js_function_from_ocaml_value = (fun (type a) (any_ocaml_value : a) -> (Obj.magic any_ocaml_value : js_function))
 
-    let get_is_js_string = (fun anything -> ((fun any_ocaml_value -> ((Obj.is_block any_ocaml_value) && ((Obj.tag any_ocaml_value) = Obj.string_tag))) (parse_ocaml_value anything)))
+    let get_is_py_none = (fun anything -> try match get_ocaml_primitive_type_from_anything anything with OcamlNone _ -> true | _ -> false with _ -> false)
+    let get_is_py_bool = (fun anything -> try match get_ocaml_primitive_type_from_anything anything with OcamlBool _ -> true | _ -> false with _ -> false)
 
-    let get_is_js_int = (fun anything -> (not (Obj.is_block (parse_ocaml_value anything))))
+    let get_is_js_string = (fun anything -> ((fun any_ocaml_value -> ((Obj.is_block any_ocaml_value) && ((Obj.tag any_ocaml_value) = Obj.string_tag))) (get_ocaml_value_from_anything anything)))
 
-    let get_is_js_float = (fun anything -> ((fun any_ocaml_value -> ((Obj.is_block any_ocaml_value) && ((Obj.tag any_ocaml_value) = Obj.double_tag))) (parse_ocaml_value anything)))
+    let get_is_js_int = (fun anything -> try match get_ocaml_primitive_type_from_anything anything with OcamlInt _ -> true | _ -> false with _ -> false)
 
-    let get_is_py_list = (fun anything -> ((fun any_ocaml_value -> ((Obj.is_block any_ocaml_value) && ((Obj.tag any_ocaml_value) = 0))) (parse_ocaml_value anything)))
+    let get_is_js_float = (fun anything -> ((fun any_ocaml_value -> ((Obj.is_block any_ocaml_value) && ((Obj.tag any_ocaml_value) = Obj.double_tag))) (get_ocaml_value_from_anything anything)))
+
+    let get_is_py_list = (fun anything -> ((fun any_ocaml_value -> ((Obj.is_block any_ocaml_value) && ((Obj.tag any_ocaml_value) = 0))) (get_ocaml_value_from_anything anything)))
+    let get_is_js_function = (fun anything -> ((fun any_ocaml_value -> ((Obj.is_block any_ocaml_value) && ((Obj.tag any_ocaml_value) = Obj.closure_tag))) (get_ocaml_value_from_anything anything)))
 
     let get_is_py_dict = (fun anything -> (
         if (get_is_py_list anything) then
-            let any_ocaml_py_list = (parse_py_dict anything)
-            in
-            if List.length any_ocaml_py_list = 0 then
-                false
-            else if List.length any_ocaml_py_list > 0 then
-                List.for_all (fun any_py_list_item -> (
-                    if (get_is_py_list any_py_list_item) then
-                        let any_ocaml_py_dict_entry = (parse_py_list any_py_list_item)
-                        in
-                        if ((List.length any_ocaml_py_dict_entry) = 0) then
-                            false
-                        else if ((List.length any_ocaml_py_dict_entry) > 0) then
-                            match any_ocaml_py_dict_entry with
-                            | [any_py_dict_key; any_py_dict_value] ->
-                                if (get_is_js_string any_py_dict_key) then
-                                    true
-                                else
-                                    false
-                            | _ -> 
-                                false
-                        else
-                            false
-                    else
-                        false
-                )) any_ocaml_py_list
-            else
-                false
-        else
-            false
+            let any_ocaml_py_dict = (get_py_dict_from_anything anything) in
+            if List.length any_ocaml_py_dict = 0 then false
+            else (
+                List.for_all (fun any_py_dict_item -> (
+                    if (get_is_py_list any_py_dict_item) then
+                        let any_ocaml_py_dict_entry = (get_py_list_from_anything any_py_dict_item) in
+                        match any_ocaml_py_dict_entry with
+                        | [any_py_dict_key; any_py_dict_value] -> (get_is_js_string any_py_dict_key)
+                        | _ -> false
+                    else false
+                )) any_ocaml_py_dict
+            )
+        else false
     ))
 
-    let get_is_js_function = (fun anything -> ((fun any_ocaml_value -> ((Obj.is_block any_ocaml_value) && ((Obj.tag any_ocaml_value) = Obj.closure_tag))) (parse_ocaml_value anything)))
-
     let get_type = (fun anything -> (
-        if (get_is_py_none anything) then
-            "py_none"
-        else if (get_is_py_bool anything) then
-            "py_bool"
-        else if (get_is_js_string anything) then
-            "js_string"
-        else if (get_is_js_int anything) then
-            "js_int"
-        else if (get_is_js_float anything) then
-            "js_float"
-        else if (get_is_py_list anything) then
-            "py_list"
-        else if (get_is_py_dict anything) then
-            "py_dict"
-        else if (get_is_js_function anything) then
-            "js_function"
-        else
-            "ocaml_type"
+        if (get_is_py_none anything) then "py_none"
+        else if (get_is_py_bool anything) then "py_bool"
+        else if (get_is_js_string anything) then "js_string"
+        else if (get_is_js_int anything) then "js_int"
+        else if (get_is_js_float anything) then "js_float"
+        else if (get_is_py_list anything) then "py_list"
+        else if (get_is_py_dict anything) then "py_dict"
+        else if (get_is_js_function anything) then "js_function"
+        else "ocaml_type"
     ))
 
     exception Break
 
-    let get_first_list_item_matching_condition = (fun any_py_list callback_function -> (
-        let item_found_ref = ref (Any ())
-        in
-        let any_py_list_item_index = ref (Any 0)
-        in
+    let get_first_list_item_matching_condition = (fun anything -> (
+        let ocaml_variadic_arguments = get_py_list_from_anything anything in
+        let ocaml_variadic_arguments_generator = Seq.to_dispenser (List.to_seq ocaml_variadic_arguments) in
+        let any_py_list = get_next_item_of_ocaml_generator (ocaml_variadic_arguments_generator) in
+        let callback_function = get_next_item_of_ocaml_generator (ocaml_variadic_arguments_generator) in
+        let item_found_ref = ref (Any (OcamlNone ())) in
+        let any_py_list_item_index_ref = ref (Any (OcamlInt 0)) in
         try
             List.iter (fun any_py_list_item -> (
-                if (callback_function (Any [any_py_list_item; !any_py_list_item_index; any_py_list])) then begin
+                if (get_py_bool_from_anything ((get_js_function_from_anything callback_function) (Any (get_py_list_from_ocaml_value [any_py_list_item; !any_py_list_item_index_ref; any_py_list])))) then begin
                     item_found_ref := any_py_list_item;
                     raise Break
                 end;
-                any_py_list_item_index := Any ((parse_js_int !any_py_list_item_index) + 1)
-            )) (parse_py_list any_py_list);
-            Any ()
+                any_py_list_item_index_ref := Any (OcamlInt ((get_js_int_from_anything !any_py_list_item_index_ref) + 1))
+            )) (get_py_list_from_anything any_py_list);
+            Any (OcamlNone ())
         with Break -> (
             !item_found_ref
         )
     ))
 
-    let get_py_dict_property = (fun any_py_dict any_py_dict_key -> (
-        let item_found_ref = ref (Any ())
-        in
+    let get_py_dict_property = (fun anything -> (
+        let ocaml_variadic_arguments = get_py_list_from_anything anything in
+        let ocaml_variadic_arguments_generator = Seq.to_dispenser (List.to_seq ocaml_variadic_arguments) in
+        let any_py_dict = get_next_item_of_ocaml_generator (ocaml_variadic_arguments_generator) in
+        let any_py_dict_key = get_next_item_of_ocaml_generator (ocaml_variadic_arguments_generator) in
+        let item_found_ref = ref (Any (OcamlNone ())) in
         try
             List.iter (fun any_py_dict_entry -> (
-                let any_ocaml_py_dict_entry = (parse_py_list any_py_dict_entry)
-                in
-                let ocaml_py_dict_entry_generator = Seq.to_dispenser (List.to_seq any_ocaml_py_dict_entry)
-                in
-                let any_ocaml_py_dict_key = get_next_item_of_generator (ocaml_py_dict_entry_generator)
-                in
-                if any_ocaml_py_dict_key = any_py_dict_key then begin
-                    let any_ocaml_py_dict_value = get_next_item_of_generator (ocaml_py_dict_entry_generator)
-                    in
+                let any_ocaml_py_dict_entry = (get_py_list_from_anything any_py_dict_entry) in
+                let ocaml_py_dict_entry_generator = Seq.to_dispenser (List.to_seq any_ocaml_py_dict_entry) in
+                let any_ocaml_py_dict_key = get_next_item_of_ocaml_generator (ocaml_py_dict_entry_generator) in
+                if (get_js_string_from_anything any_ocaml_py_dict_key) = (get_js_string_from_anything any_py_dict_key) then begin
+                    let any_ocaml_py_dict_value = get_next_item_of_ocaml_generator (ocaml_py_dict_entry_generator) in
                     item_found_ref := any_ocaml_py_dict_value;
                     raise Break
                 end
-            )) (parse_py_list any_py_dict);
-            Any ()
+            )) (get_py_dict_from_anything any_py_dict);
+            Any (OcamlNone ())
         with Break -> (
             !item_found_ref
         )
@@ -153,20 +145,20 @@ end
     (*
     let get_py_dict_entry = (fun dict_item -> (
         (* TODO *)
-        let ocaml_dict_entry = (parse_ocaml_value dict_item)
+        let ocaml_dict_entry = (get_ocaml_value_from_anything dict_item)
         in
         if (Obj.is_block ocaml_dict_entry) then
             if (Obj.tag ocaml_dict_entry = 0) then
-                match (parse_py_list ocaml_dict_entry) with
+                match (get_py_list_from_anything ocaml_dict_entry) with
                 | [Any key; Any value] ->
-                    if (get_is_js_string (parse_ocaml_value key)) then
+                    if (get_is_js_string (get_ocaml_value_from_anything key)) then
                         [Any key; Any value]
                     else
-                        failwith "Error: can not get py_dict entry"
+                        failwith "Error: Can not get py_dict entry"
                 | _ -> 
-                    failwith "Error: can not get py_dict entry"
+                    failwith "Error: Can not get py_dict entry"
             else
-                failwith "Error: can not get py_dict entry"
+                failwith "Error: Can not get py_dict entry"
     ))
 
     (* TODO *)
@@ -182,7 +174,7 @@ end
 
     let string_repeat = (fun any_js_string any_js_int -> (
         (* TODO *)
-        Any (String.concat "" (List.init parse_js_int (parse_ocaml_value any_js_int) (fun _ -> parse_js_string (parse_ocaml_value any_js_string))))
+        Any (String.concat "" (List.init get_js_int_from_anything (get_ocaml_value_from_anything any_js_int) (fun _ -> get_js_string_from_anything (get_ocaml_value_from_anything any_js_string))))
     ))
 
     (* TODO *)
@@ -190,7 +182,7 @@ end
     (* TODO *)
     let py_list_remove_tail = (fun list_ref -> (
         match List.rev list_ref with
-        | [] -> failwith "Error: list empty"
+        | [] -> failwith "Error: List empty"
         | list_tail :: rest_reversed ->
             let list_no_tail = List.rev rest_reversed in
             (list_no_tail, list_tail)
@@ -220,23 +212,23 @@ end
                 result_ref := !result_ref ^ "null"
                 
             else if current_value_type = "js_string" then
-                let s = parse_js_string list_tail.token_ocaml_value in
+                let s = get_js_string_from_anything list_tail.token_ocaml_value in
                 result_ref := !result_ref ^ "\"" ^ s ^ "\""
                 
             else if current_value_type = "js_int" then
-                let i = parse_js_int list_tail.token_ocaml_value in
+                let i = get_js_int_from_anything list_tail.token_ocaml_value in
                 result_ref := !result_ref ^ string_of_int i
                 
             else if current_value_type = "js_float" then
-                let f = parse_js_float list_tail.token_ocaml_value in
+                let f = get_js_float_from_anything list_tail.token_ocaml_value in
                 result_ref := !result_ref ^ string_of_float f
                 
             else if current_value_type = "py_bool" then
-                let b = parse_py_bool list_tail.token_ocaml_value in
+                let b = get_py_bool_from_anything list_tail.token_ocaml_value in
                 result_ref := !result_ref ^ string_of_bool b
                 
             else if current_value_type = "py_list" then
-                let l = parse_py_list list_tail.token_ocaml_value in
+                let l = get_py_list_from_anything list_tail.token_ocaml_value in
                 if l = [] then
                 result_ref := !result_ref ^ "[]"
                 else
@@ -250,7 +242,7 @@ end
                 
                 for i = len - 1 downto 0 do
                     let (Any list_item) = arr.(i) in
-                    token_stack_ref := py_list_insert_tail token_stack_ref { token_type = Value; token_ocaml_value = parse_ocaml_value list_item; token_string_value = ""; indentation_level = child_indentation_level };
+                    token_stack_ref := py_list_insert_tail token_stack_ref { token_type = Value; token_ocaml_value = get_ocaml_value_from_anything list_item; token_string_value = ""; indentation_level = child_indentation_level };
                     
                     if i > 0 then
                     let separator = if pretty then ",\n" ^ string_repeat indentation child_indentation_level else ", " in
@@ -261,7 +253,7 @@ end
                 token_stack_ref := py_list_insert_tail token_stack_ref { token_type = Raw; token_ocaml_value = (Obj.magic ()); token_string_value = open_val; indentation_level = child_indentation_level }
 
             else if current_value_type = "py_dict" then
-                let d = parse_py_dict list_tail.token_ocaml_value in
+                let d = get_py_dict_from_anything list_tail.token_ocaml_value in
                 if d = [] then
                 result_ref := !result_ref ^ "{}"
                 else
@@ -275,13 +267,13 @@ end
                 
                 for i = len - 1 downto 0 do
                     let (Any dict_item) = arr.(i) in
-                    let pair = parse_py_list (parse_ocaml_value dict_item) in
+                    let pair = get_py_list_from_anything (get_ocaml_value_from_anything dict_item) in
                     
                     match pair with
                     | [Any key_any; Any val_any] ->
-                        let key_str = parse_js_string (parse_ocaml_value key_any) in
+                        let key_str = get_js_string_from_anything (get_ocaml_value_from_anything key_any) in
                         
-                        token_stack_ref := py_list_insert_tail token_stack_ref { token_type = Value; token_ocaml_value = parse_ocaml_value val_any; token_string_value = ""; indentation_level = child_indentation_level };
+                        token_stack_ref := py_list_insert_tail token_stack_ref { token_type = Value; token_ocaml_value = get_ocaml_value_from_anything val_any; token_string_value = ""; indentation_level = child_indentation_level };
                         token_stack_ref := py_list_insert_tail token_stack_ref { token_type = Raw; token_ocaml_value = (Obj.magic ()); token_string_value = "\"" ^ key_str ^ "\": "; indentation_level = child_indentation_level };
                         
                         if i > 0 then
