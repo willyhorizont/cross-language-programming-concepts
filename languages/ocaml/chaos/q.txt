@@ -1,9 +1,0 @@
-1. jelaskan type any = Any : 'anything -> any
-
-1. jelaskan Obj.magic anything
-2. jelaskan Obj.is_block something
-3. jelaskan Obj.t
-4. apakah bisa? match (to_py_list(variadic_arguments)) with | [Any aa; Any bb] -> Any (to_js_int(aa) * to_js_int(bb)) | _ -> Any () dibuat helper function
-
-1. jelaskan Obj.tag something
-2. jelaskan Obj.string_tag dan Obj.double_tag apa ada lainnya?

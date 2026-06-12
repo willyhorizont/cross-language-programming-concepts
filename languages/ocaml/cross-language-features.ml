@@ -9,15 +9,15 @@ let () =
         print_endline "world"
     )) in
     let some_py_list = Any [
-        Any (OcamlNone ());
-        Any (OcamlBool true);
-        Any (OcamlBool false);
+        Any ();
+        Any true;
+        Any false;
         Any "foo";
-        Any (OcamlInt (123));
-        Any (OcamlInt (-123));
+        Any ((123));
+        Any (-123);
         Any (123.789);
         Any (-123.789);
-        Any [Any (OcamlInt 1); Any (OcamlInt 2); Any (OcamlInt 3)];
+        Any [Any 1; Any 2; Any 3];
         Any [Any [Any "foo"; Any "bar"]];
         Any (fun any_variadic_arguments_py_list -> (
             let ocaml_variadic_arguments = get_py_list_from_anything any_variadic_arguments_py_list in
@@ -32,15 +32,15 @@ let () =
     let () = print_endline ("some_py_list: " ^ json_stringify ~pretty:false (PyList some_py_list)) in
     *)
     let some_py_dict = Any [
-        [Any "some_py_none"; Any (OcamlNone ())];
-        [Any "some_py_boolean_true"; Any (OcamlBool true)];
-        [Any "some_py_boolean_false"; Any (OcamlBool false)];
+        [Any "some_py_none"; Any ()];
+        [Any "some_py_boolean_true"; Any true];
+        [Any "some_py_boolean_false"; Any false];
         [Any "some_js_string"; Any "foo"];
-        [Any "some_js_int_positive"; Any (OcamlInt (123))];
-        [Any "some_js_int_negative"; Any (OcamlInt (-123))];
+        [Any "some_js_int_positive"; Any ((123))];
+        [Any "some_js_int_negative"; Any (-123)];
         [Any "some_js_float_positive"; Any (123.789)];
         [Any "some_js_float_negative"; Any (-123.789)];
-        [Any "some_py_list"; Any [Any (OcamlInt 1); Any (OcamlInt 2); Any (OcamlInt 3)]];
+        [Any "some_py_list"; Any [Any 1; Any 2; Any 3]];
         [Any "some_py_dict"; Any [Any [Any "foo"; Any "bar"]]];
         [Any "some_js_function"; Any (fun any_variadic_arguments_py_list -> (
             let ocaml_variadic_arguments = get_py_list_from_anything any_variadic_arguments_py_list in
@@ -57,7 +57,7 @@ let () =
     let () = do_nothing (some_py_list) in
     let () = do_nothing (some_py_dict) in
     (* let () = do_nothing (json_stringify (Any [some_py_list; Any [
-        [Any "pretty"; Any (OcamlBool true)]
+        [Any "pretty"; Any true]
     ]])) in
     let () = do_nothing (json_stringify (Any [some_py_list])) in *)
     ()
