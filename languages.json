@@ -489,10 +489,10 @@
         ]
     },
     {
-        "id": "elv",
+        "id": "elvish",
         "stack": [
             { 
-                "name": "Elv",
+                "name": "Elvish",
                 "url": "https://elv.sh/"
             }
         ],

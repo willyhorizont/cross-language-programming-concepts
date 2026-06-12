@@ -372,7 +372,7 @@
         ".kt": "bash $workspaceRoot/languages/kotlin/run.sh $dirWithoutTrailingSlash/$fileName",
         ".scala": "bash $workspaceRoot/languages/scala/run.sh $dirWithoutTrailingSlash/$fileName",
         ".nu": "bash $workspaceRoot/languages/nu/run.sh $dirWithoutTrailingSlash/$fileName",
-        ".elv": "bash $workspaceRoot/languages/elv/run.sh $dirWithoutTrailingSlash/$fileName",
+        ".elv": "bash $workspaceRoot/languages/elvish/run.sh $dirWithoutTrailingSlash/$fileName",
         ".vim": "bash $workspaceRoot/languages/vim9script/run.sh $dirWithoutTrailingSlash/$fileName",
         ".nix": "bash $workspaceRoot/languages/nix/run.sh $dirWithoutTrailingSlash/$fileName",
         ".tcl": "bash $workspaceRoot/languages/tcl/run.sh $dirWithoutTrailingSlash/$fileName",
