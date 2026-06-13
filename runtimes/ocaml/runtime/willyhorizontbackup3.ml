@@ -161,12 +161,204 @@ module Runtime = struct
         )
     ))
 
-    let get_js_string_repeat_result = (fun any_variadic_arguments_py_list -> (
+    let string_repeat = (fun any_variadic_arguments_py_list -> (
         let ocaml_variadic_arguments = get_py_list_from_anything any_variadic_arguments_py_list in
         let ocaml_variadic_arguments_generator = Seq.to_dispenser (List.to_seq ocaml_variadic_arguments) in
         let any_js_string = get_next_item_of_ocaml_generator ocaml_variadic_arguments_generator in
         let any_js_int = get_next_item_of_ocaml_generator ocaml_variadic_arguments_generator in
         Any (String.concat "" (List.init (get_js_int_from_anything any_js_int) (fun _ -> (get_js_string_from_anything any_js_string))))
+    ))
+
+    let test_py_list_insert_tail = (fun () -> (
+        let indentation = string_repeat (Any [Any " "; Any 4]) in
+
+        let test_py_list = Any [
+            Any "Ocaml";
+            Any "is";
+            Any "fun";
+        ] in
+        let test_py_list_ref = ref (get_py_list_from_anything test_py_list) in
+        (* let any_ocaml_py_list = (get_py_list_from_anything test_py_list) in *)
+        (* let any_ocaml_py_list = !test_py_list_ref in *)
+
+        print_endline "[";
+        List.iteri (fun any_py_list_index any_py_list_item -> (
+            if any_py_list_index = (List.length !test_py_list_ref - 1) then
+                print_endline ((get_js_string_from_anything indentation) ^ "\"" ^ (get_js_string_from_anything any_py_list_item) ^ "\"")
+            else
+                print_endline ((get_js_string_from_anything indentation) ^ "\"" ^ (get_js_string_from_anything any_py_list_item) ^ "\"" ^ (get_js_string_from_anything (Any ",")))
+        )) !test_py_list_ref;
+        print_endline "]";
+
+        test_py_list_ref := py_list_insert_tail (Any [Any !test_py_list_ref; (Any "but...")]);
+
+        print_endline "[";
+        List.iteri (fun any_py_list_index any_py_list_item -> (
+            if any_py_list_index = (List.length !test_py_list_ref - 1) then
+                print_endline ((get_js_string_from_anything indentation) ^ "\"" ^ (get_js_string_from_anything any_py_list_item) ^ "\"")
+            else
+                print_endline ((get_js_string_from_anything indentation) ^ "\"" ^ (get_js_string_from_anything any_py_list_item) ^ "\"" ^ (get_js_string_from_anything (Any ",")))
+        )) !test_py_list_ref;
+        print_endline "]";
+
+        print_endline "test_py_list_insert_tail success";
+        ()
+    ))
+
+    let test_json_stringify = (fun any_variadic_arguments_py_list -> (
+        let ocaml_variadic_arguments = get_py_list_from_anything any_variadic_arguments_py_list in
+        let ocaml_variadic_arguments_generator = Seq.to_dispenser (List.to_seq ocaml_variadic_arguments) in
+        let anything = get_next_item_of_ocaml_generator ocaml_variadic_arguments_generator in
+        let optionional_argument_py_dict = get_next_item_of_ocaml_generator ocaml_variadic_arguments_generator in
+        let pretty_ref = ref (Any false) in
+        if not (get_is_py_none optionional_argument_py_dict) then begin
+            pretty_ref := Any (get_py_bool_from_anything (get_py_dict_property (Any (get_py_list_from_ocaml_value [optionional_argument_py_dict; Any "pretty"]))))
+        end;
+        let indentation = string_repeat (Any [Any " "; Any 4]) in
+        let token_stack = Any [
+            Any [
+                Any [Any "type"; Any "value"];
+                Any [Any "value"; anything];
+                Any [Any "indentation_level"; Any 0]
+            ]
+        ] in
+        let token_stack_ref = ref (get_py_list_from_anything token_stack) in
+        let result_ref = ref (Any "") in
+
+        print_endline ((get_js_string_from_anything (Any "pretty_ref: ")) ^ (string_of_bool (get_py_bool_from_anything !pretty_ref)));
+        print_endline ((get_js_string_from_anything (Any "List.length !token_stack_ref: ")) ^ (string_of_int (List.length !token_stack_ref)));
+
+        while List.length !token_stack_ref > 0 do
+            try
+                let (rest_py_list, current) = py_list_remove_tail (Any [Any !token_stack_ref]) in
+                token_stack_ref := rest_py_list;
+                let current_value = get_py_dict_property (Any (get_py_list_from_ocaml_value [current; Any "value"])) in
+                print_endline ((get_js_string_from_anything (Any "current type: ")) ^ (get_js_string_from_anything (get_py_dict_property (Any (get_py_list_from_ocaml_value [current; Any "type"])))));
+                if ((get_js_string_from_anything (get_py_dict_property (Any (get_py_list_from_ocaml_value [current; Any "type"])))) = "raw") then begin
+                    result_ref := Any ((get_js_string_from_anything !result_ref) ^ (get_js_string_from_anything current_value));
+                    raise Continue
+                end;
+                let current_indentation_level = get_py_dict_property (Any (get_py_list_from_ocaml_value [current; Any "indentation_level"])) in
+                print_endline ((get_js_string_from_anything (Any "current_indentation_level: ")) ^ (string_of_int (get_js_int_from_anything current_indentation_level)));
+                let current_value_type = get_type current_value in
+                print_endline ((get_js_string_from_anything (Any "current_value_type: ")) ^ (get_js_string_from_anything current_value_type));
+                if ((get_js_string_from_anything current_value_type) = "js_int") then begin
+                    result_ref := Any ((get_js_string_from_anything !result_ref) ^ (string_of_int (get_js_int_from_anything current_value)));
+                    raise Continue
+                end;
+                if ((get_js_string_from_anything current_value_type) = "py_bool") then begin
+                    result_ref := Any ((get_js_string_from_anything !result_ref) ^ (string_of_bool (get_py_bool_from_anything current_value)));
+                    raise Continue
+                end;
+                if ((get_js_string_from_anything current_value_type) = "py_none") then begin
+                    result_ref := Any ((get_js_string_from_anything !result_ref) ^ (string_of_int (get_js_int_from_anything (Any 0))));
+                    raise Continue
+                end;
+                if ((get_js_string_from_anything current_value_type) = "js_string") then begin
+                    result_ref := Any ((get_js_string_from_anything !result_ref) ^ (get_js_string_from_anything (Any "\"")) ^ (get_js_string_from_anything current_value) ^ (get_js_string_from_anything (Any "\"")));
+                    raise Continue
+                end;
+                if ((get_js_string_from_anything current_value_type) = "js_float") then begin
+                    result_ref := Any ((get_js_string_from_anything !result_ref) ^ (string_of_float (get_js_float_from_anything current_value)));
+                    raise Continue
+                end;
+                do_nothing current_value;
+                do_nothing indentation;
+                (* raise Continue *)
+                if ((get_js_string_from_anything current_value_type) = "py_list") then begin
+                    let current_value_py_list = get_py_list_from_anything current_value in
+                    if List.length current_value_py_list = 0 then begin
+                        result_ref := Any ((get_js_string_from_anything !result_ref) ^ (get_js_string_from_anything (Any "[]")));
+                        raise Continue
+                    end;
+                    let child_indentation_level = Any ((get_js_int_from_anything current_indentation_level) + 1) in
+                    token_stack_ref := py_list_insert_tail (Any [Any !token_stack_ref; (Any (get_py_dict_from_ocaml_value [
+                        Any [Any "type"; Any "raw"];
+                        Any [Any "value"; (if get_py_bool_from_anything !pretty_ref then (Any ((get_js_string_from_anything (Any "\n")) ^ (get_js_string_from_anything (string_repeat (Any [indentation; current_indentation_level]))) ^ (get_js_string_from_anything (Any "]")))) else (Any "]"))];
+                        Any [Any "indentation_level"; current_indentation_level]
+                    ]))]);
+                    for i = (List.length current_value_py_list - 1) downto 0 do
+                        token_stack_ref := py_list_insert_tail (Any [Any !token_stack_ref; (Any (get_py_dict_from_ocaml_value [
+                            Any [Any "type"; Any "value"];
+                            Any [Any "value"; (List.nth current_value_py_list i)];
+                            Any [Any "indentation_level"; child_indentation_level]
+                        ]))]);
+                        if i > 0 then begin
+                            token_stack_ref := py_list_insert_tail (Any [Any !token_stack_ref; (Any (get_py_dict_from_ocaml_value [
+                                Any [Any "type"; Any "raw"];
+                                Any [Any "value"; (if get_py_bool_from_anything !pretty_ref then (Any ((get_js_string_from_anything (Any ",\n")) ^ (get_js_string_from_anything (string_repeat (Any [indentation; child_indentation_level]))))) else (Any ", "))];
+                                Any [Any "indentation_level"; child_indentation_level]
+                            ]))]);
+                        end;
+                    done;
+                    token_stack_ref := py_list_insert_tail (Any [Any !token_stack_ref; (Any (get_py_dict_from_ocaml_value [
+                        Any [Any "type"; Any "raw"];
+                        Any [Any "value"; (if get_py_bool_from_anything !pretty_ref then (Any ((get_js_string_from_anything (Any "[\n")) ^ (get_js_string_from_anything (string_repeat (Any [indentation; child_indentation_level]))))) else (Any "["))];
+                        Any [Any "indentation_level"; current_indentation_level]
+                    ]))]);
+                    raise Continue
+                end;
+                if ((get_js_string_from_anything current_value_type) = "py_dict") then begin
+                    let current_value_py_dict_entries = get_py_dict_from_anything current_value in
+                    do_nothing current_value_py_dict_entries;
+                    if List.length current_value_py_dict_entries = 0 then begin
+                        result_ref := Any ((get_js_string_from_anything !result_ref) ^ (get_js_string_from_anything (Any "{}")));
+                        raise Continue
+                    end;
+                    let child_indentation_level = Any ((get_js_int_from_anything current_indentation_level) + 1) in
+                    do_nothing child_indentation_level;
+                    token_stack_ref := py_list_insert_tail (Any [Any !token_stack_ref; (Any (get_py_dict_from_ocaml_value [
+                        Any [Any "type"; Any "raw"];
+                        Any [Any "value"; (if get_py_bool_from_anything !pretty_ref then (Any ((get_js_string_from_anything (Any "\n")) ^ (get_js_string_from_anything (string_repeat (Any [indentation; current_indentation_level]))) ^ (get_js_string_from_anything (Any "}")))) else (Any "}"))];
+                        Any [Any "indentation_level"; current_indentation_level]
+                    ]))]);
+                    (* raise Continue *)
+                    print_endline ((get_js_string_from_anything (Any "List.length current_value_py_dict_entries: ")) ^ (string_of_int (List.length current_value_py_dict_entries)));
+                    for i = (List.length current_value_py_dict_entries - 1) downto 0 do
+                        let any_ocaml_py_dict_entry = (get_py_list_from_anything (List.nth current_value_py_dict_entries i)) in
+                        let ocaml_py_dict_entry_generator = Seq.to_dispenser (List.to_seq any_ocaml_py_dict_entry) in
+                        let any_ocaml_py_dict_key = get_next_item_of_ocaml_generator (ocaml_py_dict_entry_generator) in
+                        let any_ocaml_py_dict_value = get_next_item_of_ocaml_generator (ocaml_py_dict_entry_generator) in
+                        print_endline ((get_js_string_from_anything (Any "any_ocaml_py_dict_key: ")) ^ (get_js_string_from_anything any_ocaml_py_dict_key));
+                        token_stack_ref := py_list_insert_tail (Any [Any !token_stack_ref; (Any (get_py_dict_from_ocaml_value [
+                            Any [Any "type"; Any "value"];
+                            Any [Any "value"; any_ocaml_py_dict_value];
+                            Any [Any "indentation_level"; child_indentation_level]
+                        ]))]);
+                        token_stack_ref := py_list_insert_tail (Any [Any !token_stack_ref; (Any (get_py_dict_from_ocaml_value [
+                            Any [Any "type"; Any "raw"];
+                            Any [Any "value"; Any ((get_js_string_from_anything (Any "\"")) ^ (get_js_string_from_anything any_ocaml_py_dict_key) ^ (get_js_string_from_anything (Any "\": ")))];
+                            Any [Any "indentation_level"; child_indentation_level]
+                        ]))]);
+                        if i > 0 then begin
+                            token_stack_ref := py_list_insert_tail (Any [Any !token_stack_ref; (Any (get_py_dict_from_ocaml_value [
+                                Any [Any "type"; Any "raw"];
+                                Any [Any "value"; (if get_py_bool_from_anything !pretty_ref then (Any ((get_js_string_from_anything (Any ",\n")) ^ (get_js_string_from_anything (string_repeat (Any [indentation; child_indentation_level]))))) else (Any ", "))];
+                                Any [Any "indentation_level"; child_indentation_level]
+                            ]))]);
+                        end;
+                    done;
+                    token_stack_ref := py_list_insert_tail (Any [Any !token_stack_ref; (Any (get_py_dict_from_ocaml_value [
+                        Any [Any "type"; Any "raw"];
+                        Any [Any "value"; (if get_py_bool_from_anything !pretty_ref then (Any ((get_js_string_from_anything (Any "{\n")) ^ (get_js_string_from_anything (string_repeat (Any [indentation; child_indentation_level]))))) else (Any "{"))];
+                        Any [Any "indentation_level"; current_indentation_level]
+                    ]))]);
+                    raise Continue
+                end;
+                result_ref := Any ((get_js_string_from_anything !result_ref) ^ (get_js_string_from_anything (Any "\"")) ^ (get_js_string_from_anything current_value_type) ^ (get_js_string_from_anything (Any "\"")));
+                raise Continue
+            with Continue -> ()
+        done;
+        do_nothing token_stack_ref;
+        (* do_nothing !result_ref; *)
+        if (get_js_string_from_anything !result_ref) = "" then
+            print_endline ((get_js_string_from_anything (Any "!result_ref: ")) ^ (get_js_string_from_anything (Any "\"")) ^ (get_js_string_from_anything !result_ref) ^ (get_js_string_from_anything (Any "\"")));
+        if (get_js_string_from_anything !result_ref) <> "" then
+            print_endline ((get_js_string_from_anything (Any "!result_ref: ")) ^ (get_js_string_from_anything !result_ref));
+
+        print_endline "test_json_stringify success";
+        ()
+        (* !result_ref *)
     ))
 
     let json_stringify = (fun any_variadic_arguments_py_list -> (
@@ -178,7 +370,7 @@ module Runtime = struct
         if not (get_is_py_none optionional_argument_py_dict) then begin
             pretty_ref := Any (get_py_bool_from_anything (get_py_dict_property (Any (get_py_list_from_ocaml_value [optionional_argument_py_dict; Any "pretty"]))))
         end;
-        let indentation = get_js_string_repeat_result (Any [Any " "; Any 4]) in
+        let indentation = string_repeat (Any [Any " "; Any 4]) in
         let token_stack = Any [
             Any [
                 Any [Any "type"; Any "value"];
@@ -229,7 +421,7 @@ module Runtime = struct
                     let child_indentation_level = Any ((get_js_int_from_anything current_indentation_level) + 1) in
                     token_stack_ref := py_list_insert_tail (Any [Any !token_stack_ref; (Any (get_py_dict_from_ocaml_value [
                         Any [Any "type"; Any "raw"];
-                        Any [Any "value"; (if get_py_bool_from_anything !pretty_ref then (Any ((get_js_string_from_anything (Any "\n")) ^ (get_js_string_from_anything (get_js_string_repeat_result (Any [indentation; current_indentation_level]))) ^ (get_js_string_from_anything (Any "]")))) else (Any "]"))];
+                        Any [Any "value"; (if get_py_bool_from_anything !pretty_ref then (Any ((get_js_string_from_anything (Any "\n")) ^ (get_js_string_from_anything (string_repeat (Any [indentation; current_indentation_level]))) ^ (get_js_string_from_anything (Any "]")))) else (Any "]"))];
                         Any [Any "indentation_level"; current_indentation_level]
                     ]))]);
                     for i = (List.length current_value_py_list - 1) downto 0 do
@@ -241,14 +433,14 @@ module Runtime = struct
                         if i > 0 then begin
                             token_stack_ref := py_list_insert_tail (Any [Any !token_stack_ref; (Any (get_py_dict_from_ocaml_value [
                                 Any [Any "type"; Any "raw"];
-                                Any [Any "value"; (if get_py_bool_from_anything !pretty_ref then (Any ((get_js_string_from_anything (Any ",\n")) ^ (get_js_string_from_anything (get_js_string_repeat_result (Any [indentation; child_indentation_level]))))) else (Any ", "))];
+                                Any [Any "value"; (if get_py_bool_from_anything !pretty_ref then (Any ((get_js_string_from_anything (Any ",\n")) ^ (get_js_string_from_anything (string_repeat (Any [indentation; child_indentation_level]))))) else (Any ", "))];
                                 Any [Any "indentation_level"; child_indentation_level]
                             ]))]);
                         end;
                     done;
                     token_stack_ref := py_list_insert_tail (Any [Any !token_stack_ref; (Any (get_py_dict_from_ocaml_value [
                         Any [Any "type"; Any "raw"];
-                        Any [Any "value"; (if get_py_bool_from_anything !pretty_ref then (Any ((get_js_string_from_anything (Any "[\n")) ^ (get_js_string_from_anything (get_js_string_repeat_result (Any [indentation; child_indentation_level]))))) else (Any "["))];
+                        Any [Any "value"; (if get_py_bool_from_anything !pretty_ref then (Any ((get_js_string_from_anything (Any "[\n")) ^ (get_js_string_from_anything (string_repeat (Any [indentation; child_indentation_level]))))) else (Any "["))];
                         Any [Any "indentation_level"; current_indentation_level]
                     ]))]);
                     raise Continue
@@ -262,7 +454,7 @@ module Runtime = struct
                     let child_indentation_level = Any ((get_js_int_from_anything current_indentation_level) + 1) in
                     token_stack_ref := py_list_insert_tail (Any [Any !token_stack_ref; (Any (get_py_dict_from_ocaml_value [
                         Any [Any "type"; Any "raw"];
-                        Any [Any "value"; (if get_py_bool_from_anything !pretty_ref then (Any ((get_js_string_from_anything (Any "\n")) ^ (get_js_string_from_anything (get_js_string_repeat_result (Any [indentation; current_indentation_level]))) ^ (get_js_string_from_anything (Any "}")))) else (Any "}"))];
+                        Any [Any "value"; (if get_py_bool_from_anything !pretty_ref then (Any ((get_js_string_from_anything (Any "\n")) ^ (get_js_string_from_anything (string_repeat (Any [indentation; current_indentation_level]))) ^ (get_js_string_from_anything (Any "}")))) else (Any "}"))];
                         Any [Any "indentation_level"; current_indentation_level]
                     ]))]);
                     for i = (List.length current_value_py_dict_entries - 1) downto 0 do
@@ -283,14 +475,14 @@ module Runtime = struct
                         if i > 0 then begin
                             token_stack_ref := py_list_insert_tail (Any [Any !token_stack_ref; (Any (get_py_dict_from_ocaml_value [
                                 Any [Any "type"; Any "raw"];
-                                Any [Any "value"; (if get_py_bool_from_anything !pretty_ref then (Any ((get_js_string_from_anything (Any ",\n")) ^ (get_js_string_from_anything (get_js_string_repeat_result (Any [indentation; child_indentation_level]))))) else (Any ", "))];
+                                Any [Any "value"; (if get_py_bool_from_anything !pretty_ref then (Any ((get_js_string_from_anything (Any ",\n")) ^ (get_js_string_from_anything (string_repeat (Any [indentation; child_indentation_level]))))) else (Any ", "))];
                                 Any [Any "indentation_level"; child_indentation_level]
                             ]))]);
                         end;
                     done;
                     token_stack_ref := py_list_insert_tail (Any [Any !token_stack_ref; (Any (get_py_dict_from_ocaml_value [
                         Any [Any "type"; Any "raw"];
-                        Any [Any "value"; (if get_py_bool_from_anything !pretty_ref then (Any ((get_js_string_from_anything (Any "{\n")) ^ (get_js_string_from_anything (get_js_string_repeat_result (Any [indentation; child_indentation_level]))))) else (Any "{"))];
+                        Any [Any "value"; (if get_py_bool_from_anything !pretty_ref then (Any ((get_js_string_from_anything (Any "{\n")) ^ (get_js_string_from_anything (string_repeat (Any [indentation; child_indentation_level]))))) else (Any "{"))];
                         Any [Any "indentation_level"; current_indentation_level]
                     ]))]);
                     raise Continue
