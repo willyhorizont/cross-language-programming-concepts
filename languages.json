@@ -515,7 +515,7 @@
         ]
     },
     {
-        "id": "vim9script",
+        "id": "vim-nine-script",
         "stack": [
             { 
                 "name": "Vim9script",
