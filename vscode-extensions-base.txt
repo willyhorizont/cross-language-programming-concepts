@@ -5,11 +5,11 @@ adpyke.codesnap
 cardinal90.multi-cursor-case-preserve
 christian-kohler.path-intellisense
 ecmel.vscode-html-css
-evgeniypeshkov.syntax-highlighter
 formulahendry.code-runner
 pokey.parse-tree
 AllemandInstable.colorful-comments-refreshed
 tobermory.es6-string-html
+zjcompt.es6-string-javascript
 mechatroner.rainbow-csv
 naumovs.color-highlight
 oderwat.indent-rainbow

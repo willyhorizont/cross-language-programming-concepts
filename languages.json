@@ -1,6 +1,7 @@
 [
     {
         "id": "javascript",
+        "color": "#f1e05a",
         "stack": [
             { 
                 "name": "JavaScript",
@@ -25,6 +26,7 @@
     },
     {
         "id": "python",
+        "color": "#3572A5",
         "stack": [
             { 
                 "name": "Python",
@@ -51,6 +53,7 @@
     },
     {
         "id": "php",
+        "color": "#4F5D95",
         "stack": [
             { 
                 "name": "PHP",
@@ -77,6 +80,7 @@
     },
     {
         "id": "go",
+        "color": "#00ADD8",
         "stack": [
             { 
                 "name": "Go",
@@ -103,6 +107,7 @@
     },
     {
         "id": "perl",
+        "color": "#0298c3",
         "stack": [
             { 
                 "name": "Perl",
@@ -129,6 +134,7 @@
     },
     {
         "id": "julia",
+        "color": "#a270ba",
         "stack": [
             { 
                 "name": "Julia",
@@ -155,6 +161,7 @@
     },
     {
         "id": "lua",
+        "color": "#000080",
         "stack": [
             { 
                 "name": "Lua",
@@ -181,6 +188,7 @@
     },
     {
         "id": "ruby",
+        "color": "#701516",
         "stack": [
             { 
                 "name": "Ruby",
@@ -207,6 +215,7 @@
     },
     {
         "id": "r",
+        "color": "#198CE7",
         "stack": [
             { 
                 "name": "R",
@@ -236,6 +245,7 @@
     },
     {
         "id": "kotlin",
+        "color": "#A97BFF",
         "stack": [
             { 
                 "name": "Kotlin",
@@ -266,6 +276,7 @@
     },
     {
         "id": "swift",
+        "color": "#f15c44",
         "stack": [
             { 
                 "name": "Swift",
@@ -285,6 +296,7 @@
     },
     {
         "id": "dart",
+        "color": "#009089",
         "stack": [
             { 
                 "name": "Dart",
@@ -304,6 +316,7 @@
     },
     {
         "id": "visual-basic-dot-net",
+        "color": "#945db7",
         "stack": [
             { 
                 "name": "Visual Basic .NET (VB.NET)",
@@ -323,6 +336,7 @@
     },
     {
         "id": "c-sharp",
+        "color": "#178600",
         "stack": [
             { 
                 "name": "C#",
@@ -342,6 +356,7 @@
     },
     {
         "id": "matlab-or-octave",
+        "color": "#e16737",
         "stack": [
             { 
                 "name": "MATLAB",
@@ -367,6 +382,7 @@
     },
     {
         "id": "wolfram-language-script",
+        "color": "#ff4131",
         "stack": [
             { 
                 "name": "Wolfram Language Script",
@@ -388,6 +404,7 @@
     },
     {
         "id": "raku",
+        "color": "#357fff",
         "stack": [
             { 
                 "name": "Raku",
@@ -407,6 +424,7 @@
     },
     {
         "id": "scala",
+        "color": "#c22d40",
         "stack": [
             { 
                 "name": "Scala",
@@ -434,6 +452,7 @@
     },
     {
         "id": "java",
+        "color": "#b07219",
         "stack": [
             { 
                 "name": "Java",
@@ -464,6 +483,7 @@
     },
     {
         "id": "nu",
+        "color": "#c9df40",
         "stack": [
             { 
                 "name": "Nu",
@@ -490,6 +510,7 @@
     },
     {
         "id": "elvish",
+        "color": "#55BB55",
         "stack": [
             { 
                 "name": "Elvish",
@@ -516,6 +537,7 @@
     },
     {
         "id": "vim-nine-script",
+        "color": "#199f4b",
         "stack": [
             { 
                 "name": "Vim9script",
@@ -540,6 +562,7 @@
     },
     {
         "id": "rust",
+        "color": "#dea584",
         "stack": [
             { 
                 "name": "Rust",
@@ -568,6 +591,7 @@
     },
     {
         "id": "nix",
+        "color": "#7e7eff",
         "stack": [
             { 
                 "name": "Nix",
@@ -594,6 +618,7 @@
     },
     {
         "id": "tcl",
+        "color": "#e4cc98",
         "stack": [
             { 
                 "name": "Tcl",
@@ -620,6 +645,7 @@
     },
     {
         "id": "gdscript",
+        "color": "#355570",
         "stack": [
             { 
                 "name": "GDScript",
@@ -650,6 +676,7 @@
     },
     {
         "id": "typst",
+        "color": "#239dad",
         "stack": [
             { 
                 "name": "Typst",
@@ -677,6 +704,7 @@
     },
     {
         "id": "powershell",
+        "color": "#012456",
         "stack": [
             { 
                 "name": "PowerShell",
@@ -703,6 +731,7 @@
     },
     {
         "id": "elixir",
+        "color": "#6e4a7e",
         "stack": [
             { 
                 "name": "Elixir",
@@ -729,6 +758,7 @@
     },
     {
         "id": "ocaml",
+        "color": "#ef7a08",
         "stack": [
             { 
                 "name": "OCaml",
