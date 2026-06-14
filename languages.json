@@ -794,8 +794,8 @@
         ],
         "file_extension": ".erl",
         "concept_definition": {
-            "python-like-list": null,
-            "python-like-dict": null
+            "python-like-list": "list",
+            "python-like-dict": "associative list"
         },
         "vscode_extensions": [
             "pgourlain.erlang"

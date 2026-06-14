@@ -54,6 +54,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 28. [PowerShell](https://github.com/powershell/powershell) : [https://github.com/powershell/powershell](https://github.com/powershell/powershell)  
 29. [Elixir](https://elixir-lang.org/) : [https://elixir-lang.org/](https://elixir-lang.org/)  
 30. [OCaml](https://ocaml.org/) : [https://ocaml.org/](https://ocaml.org/)  
+31. [Erlang](https://www.erlang.org/) : [https://www.erlang.org/](https://www.erlang.org/)  
 
 ## Programming concepts  
 
@@ -88,6 +89,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/cross-language-features.ps1)  
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/cross-language-features.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/cross-language-features.ml)  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/cross-language-features.erl)  
 
 ---
 
@@ -122,6 +124,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/comments.ps1)  
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/comments.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/comments.ml)  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/comments.erl)  
 
 ---
 
@@ -156,6 +159,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/hello-world.ps1)  
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/hello-world.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/hello-world.ml)  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/hello-world.erl)  
 
 ---
 
@@ -190,6 +194,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/conditionals.ps1)  
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/conditionals.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/conditionals.ml)  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/conditionals.erl)  
 
 ---
 
@@ -224,6 +229,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/loops.ps1)  
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/loops.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/loops.ml)  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/loops.erl)  
 
 ---
 
@@ -258,6 +264,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/functions.ps1)  
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/functions.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/functions.ml)  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/functions.erl)  
 
 ---
 
@@ -292,6 +299,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/error-handling.ps1)  
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/error-handling.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/error-handling.ml)  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/error-handling.erl)  
 
 ---
 
@@ -326,6 +334,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/python-like-list.ps1) : Array  
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/python-like-list.exs) : List  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/python-like-list.ml) : List  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/python-like-list.erl) : list  
 
 ---
 
@@ -360,6 +369,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/python-like-dict.ps1) : HashTable  
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/python-like-dict.exs) : Associative List  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/python-like-dict.ml) : Association List  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/python-like-dict.erl) : associative list  
 
 ---
 
@@ -394,6 +404,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/loop-through-each-list-item.ps1)  
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/loop-through-each-list-item.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/loop-through-each-list-item.ml)  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/loop-through-each-list-item.erl)  
 
 ---
 
@@ -428,6 +439,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/get-is-any-item-in-list-matching-condition.ps1)  
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/get-is-any-item-in-list-matching-condition.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/get-is-any-item-in-list-matching-condition.ml)  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/get-is-any-item-in-list-matching-condition.erl)  
 
 ---
 
@@ -462,6 +474,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/get-is-all-item-in-list-matching-condition.ps1)  
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/get-is-all-item-in-list-matching-condition.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/get-is-all-item-in-list-matching-condition.ml)  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/get-is-all-item-in-list-matching-condition.erl)  
 
 ---
 
@@ -496,6 +509,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/get-first-list-item-matching-condition.ps1)  
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/get-first-list-item-matching-condition.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/get-first-list-item-matching-condition.ml)  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/get-first-list-item-matching-condition.erl)  
 
 ---
 
@@ -530,6 +544,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/get-index-of-list-item-matching-condition.ps1)  
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/get-index-of-list-item-matching-condition.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/get-index-of-list-item-matching-condition.ml)  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/get-index-of-list-item-matching-condition.erl)  
 
 ---
 
@@ -564,6 +579,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/get-all-list-item-matching-condition.ps1)  
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/get-all-list-item-matching-condition.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/get-all-list-item-matching-condition.ml)  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/get-all-list-item-matching-condition.erl)  
 
 ---
 
@@ -598,6 +614,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/transform-each-list-item.ps1)  
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/transform-each-list-item.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/transform-each-list-item.ml)  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/transform-each-list-item.erl)  
 
 ---
 
@@ -632,6 +649,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/combine-all-list-item.ps1)  
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/combine-all-list-item.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/combine-all-list-item.ml)  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/combine-all-list-item.erl)  
 
 ---
 
@@ -666,6 +684,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/list-remove-tail.ps1)  
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/list-remove-tail.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/list-remove-tail.ml)  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/list-remove-tail.erl)  
 
 ---
 
@@ -700,3 +719,4 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/list-insert-tail.ps1)  
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/list-insert-tail.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/list-insert-tail.ml)  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/list-insert-tail.erl)  

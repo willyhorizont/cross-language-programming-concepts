@@ -1,4 +1,4 @@
 git add .
-git commit -m "update run.sh, add erlang init"
-git tag -a v1.0.0 -m "update run.sh, add erlang init"
+git commit -m "update run.sh, add erlang init, forget gen readme"
+git tag -a v1.0.1 -m "update run.sh, add erlang init, forget gen readme"
 git push origin main --tags
