@@ -40,6 +40,11 @@ add:
 ~~typst~~
 https://nue.nu/
 gleam "#ffaff3"
+groovy
+f#
+clojure
+crystal
+zig
 
 change Language Mode to:
 cuda-cpp

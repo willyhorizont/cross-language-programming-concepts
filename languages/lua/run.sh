@@ -39,6 +39,7 @@ luarocks --version
 "
 
 COMMAND_RUN_LANGUAGE_CODE="
+cd \"$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR\"
 lua \"$FILE_NAME_WITH_EXTENSION\"
 "
 
@@ -51,9 +52,5 @@ docker run -i --rm \
 
         echo \"$SEPARATOR\"
 
-        cd \"$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR\"
-
         $COMMAND_RUN_LANGUAGE_CODE
-
-        cd \"$ROOT_DIR\"
     "

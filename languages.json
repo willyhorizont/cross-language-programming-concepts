@@ -442,7 +442,7 @@
         "vscode_extensions_archive": [],
         "docker": [
             {
-                "language_version_notes": "virtuslab/scala-cli:1.13.0 and virtuslab/scala-cli:1.14.0 == scala:3.8.3",
+                "language_version_notes": "(virtuslab/scala-cli:1.13.0 and virtuslab/scala-cli:1.14.0) == scala:3.8.3",
                 "docker_images": [
                     "virtuslab/scala-cli:1.13.0",
                     "virtuslab/scala-cli:1.14.0"
@@ -749,7 +749,7 @@
         "vscode_extensions_archive": [],
         "docker": [
             {
-                "language_version_notes": "elixir:1.20.0-otp-29",
+                "language_version_notes": "elixir:1.20.0 and erlang:29.0.1",
                 "docker_images": [
                     "elixir:1.20.0-otp-29"
                 ]
@@ -779,6 +779,33 @@
                 "language_version_notes": "ocaml/opam:ubuntu-25.04-ocaml-5.4",
                 "docker_images": [
                     "ocaml/opam:ubuntu-25.04-ocaml-5.4"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "erlang",
+        "color": "#B83998",
+        "stack": [
+            { 
+                "name": "Erlang",
+                "url": "https://www.erlang.org/"
+            }
+        ],
+        "file_extension": ".erl",
+        "concept_definition": {
+            "python-like-list": null,
+            "python-like-dict": null
+        },
+        "vscode_extensions": [
+            "pgourlain.erlang"
+        ],
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "erlang:29.0.2",
+                "docker_images": [
+                    "erlang:29.0.2"
                 ]
             }
         ]

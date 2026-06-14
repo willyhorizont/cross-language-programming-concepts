@@ -36,6 +36,7 @@ vim --version 2>/dev/null | head -n 2
 "
 
 COMMAND_RUN_LANGUAGE_CODE="
+cd \"$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR\"
 vim -e -s -c \"source $PATH_TO_FILE_NAME_WITH_EXTENSION\" -c \"echomsg ''\" -c \"verbose messages\" -c \"qa!\"
 "
 
@@ -48,9 +49,5 @@ docker run -i --rm \
 
         echo \"$SEPARATOR\"
 
-        cd \"$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR\"
-
         $COMMAND_RUN_LANGUAGE_CODE
-
-        cd \"$ROOT_DIR\"
     "

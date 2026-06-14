@@ -29,7 +29,7 @@ IMAGE=$("$ROOT_DIR/utils.sh" "get_docker_image" "$LANGUAGE_NAME" 2>/dev/null)
 SEPARATOR=$("$ROOT_DIR/utils.sh" "print_separator")
 
 if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
-    COMMAND_INSTALL_PACKAGE_MANAGER="npm install -g npm@11.13.0 --no-fund --no-audit --silent"
+    COMMAND_INSTALL_PACKAGE_MANAGER="npm install -g npm@latest --no-fund --no-audit --silent"
     COMMAND_INSTALL_RUNTIME="npm install github:willyhorizont/willyhorizont.github.io#1.0.0 --no-fund --no-audit --silent"
     echo ">$COMMAND_INSTALL_PACKAGE_MANAGER"
     echo ">$COMMAND_INSTALL_RUNTIME"
@@ -55,6 +55,7 @@ npm --version
 "
 
 COMMAND_RUN_LANGUAGE_CODE="
+cd \"$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR\"
 node \"$FILE_NAME_WITH_EXTENSION\"
 "
 
@@ -67,9 +68,5 @@ docker run -i --rm \
 
         echo \"$SEPARATOR\"
 
-        cd \"$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR\"
-
         $COMMAND_RUN_LANGUAGE_CODE
-
-        cd \"$ROOT_DIR\"
     "

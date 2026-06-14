@@ -28,26 +28,26 @@ IMAGE=$("$ROOT_DIR/utils.sh" "get_docker_image" "$LANGUAGE_NAME" 2>/dev/null)
 
 SEPARATOR=$("$ROOT_DIR/utils.sh" "print_separator")
 
+PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR="$ROOT_DIR/runtimes/$LANGUAGE_NAME/runtime"
+TARGET_FILE_NAME_WITHOUT_EXTENSION="main"
+PATH_TO_TARGET_FILE_WITH_EXTENSION="$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/$TARGET_FILE_NAME_WITHOUT_EXTENSION.$FILE_EXTENSION"
+
+mkdir -p "$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR"
+cp -f "$PATH_TO_FILE_NAME_WITH_EXTENSION" "$PATH_TO_TARGET_FILE_WITH_EXTENSION"
+
 COMMAND_PRINT_VERSION="
 echo \">docker images\"
 echo \"$IMAGE\"
-echo \">typst --version\"
-typst --version
-echo \">typst -V\"
-typst -V
+echo \">erl -noshell -eval 'io:format(\\\"~s~n\\\", [erlang:system_info(system_version)]), halt().'\"
+erl -noshell -eval 'io:format(\"~s~n\", [erlang:system_info(system_version)]), halt().'
+echo \">cat /usr/local/lib/erlang/releases/29/OTP_VERSION\"
+cat /usr/local/lib/erlang/releases/29/OTP_VERSION
 "
 
-mkdir -p \"$PATH_TO_OUTPUT_FILE_NAME_WITH_EXTENSION_DIR\"
-PATH_TO_OUTPUT_FILE_NAME_WITH_EXTENSION_DIR="$ROOT_DIR/runtimes/typst/willyhorizont/output/$LANGUAGE_NAME"
-PATH_TO_OUTPUT_FILE_NAME_WITH_EXTENSION="$PATH_TO_OUTPUT_FILE_NAME_WITH_EXTENSION_DIR/$FILE_NAME_WITHOUT_EXTENSION.pdf"
-USER_NAME="$(whoami)"
-USER_COMPUTER="$(hostname)"
-USER_PWD="$(pwd | sed "s|^$HOME|~|")"
-
 COMMAND_RUN_LANGUAGE_CODE="
-cd \"$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR\"
-typst compile --open --root \"$ROOT_DIR\" --input user-name=$USER_NAME --input user-computer=$USER_COMPUTER --input user-pwd=$USER_PWD --input file-name-with-extension=\"$FILE_NAME_WITH_EXTENSION\" \"$FILE_NAME_WITH_EXTENSION\" \"$PATH_TO_OUTPUT_FILE_NAME_WITH_EXTENSION\"
-echo \"if output not open automatically, open it here: \\\"$PATH_TO_OUTPUT_FILE_NAME_WITH_EXTENSION\\\"\"
+cd $PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR
+erlc $TARGET_FILE_NAME_WITHOUT_EXTENSION.$FILE_EXTENSION
+erl -noshell -s $TARGET_FILE_NAME_WITHOUT_EXTENSION $TARGET_FILE_NAME_WITHOUT_EXTENSION -s init stop
 "
 
 docker run -i --rm \
@@ -62,6 +62,6 @@ docker run -i --rm \
         $COMMAND_RUN_LANGUAGE_CODE
     "
 
-if [ -f "$PATH_TO_OUTPUT_FILE_NAME_WITH_EXTENSION" ]; then
-    code -r "$PATH_TO_OUTPUT_FILE_NAME_WITH_EXTENSION"
-fi
+rm -f "$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/$TARGET_FILE_NAME_WITHOUT_EXTENSION.$FILE_EXTENSION"
+rm -f "$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/$TARGET_FILE_NAME_WITHOUT_EXTENSION.beam"
+cd "$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR" && rm -f *.dump

@@ -27,9 +27,6 @@ some_python_like_list = [
     %{ "foo" => "bar" },
     fn (a, b) -> (a * b) end,
 ]
-# "some_python_like_list: #{some_python_like_list |> JSON.encode!()}" |> IO.puts()
-# "some_python_like_list: #{some_python_like_list |> List.to_string()}" |> IO.puts()
-# "some_python_like_list: #{some_python_like_list |> Enum.join()}" |> IO.puts()
 "some_python_like_list: #{some_python_like_list |> inspect()}" |> IO.puts()
 some_python_like_dict = [
     ["some_null", nil],

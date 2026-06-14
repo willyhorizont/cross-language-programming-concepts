@@ -47,6 +47,7 @@ php --version
 "
 
 COMMAND_RUN_LANGUAGE_CODE="
+cd \"$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR\"
 php \"$FILE_NAME_WITH_EXTENSION\"
 "
 
@@ -61,8 +62,6 @@ if [ ! -f \"$PATH_TO_PACKAGE_MANAGER\" ]; then
     php \"$PATH_TO_PACKAGE_MANAGER_SETUP\" --version=2.10.0 --install-dir=\"$ROOT_DIR\" --filename=composer
 
     php -r \"unlink('$PATH_TO_PACKAGE_MANAGER_SETUP');\"
-
-    cd \"$ROOT_DIR\"
 fi
 "
 
@@ -76,9 +75,5 @@ docker run -i --rm \
 
         echo \"$SEPARATOR\"
 
-        cd \"$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR\"
-
         $COMMAND_RUN_LANGUAGE_CODE
-
-        cd \"$ROOT_DIR\"
     "

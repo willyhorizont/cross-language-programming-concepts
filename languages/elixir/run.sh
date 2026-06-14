@@ -35,9 +35,14 @@ echo \">elixir --version\"
 elixir --version
 echo \">elixir -v\"
 elixir -v
+echo \">erl -noshell -eval 'io:format(\\\"~s~n\\\", [erlang:system_info(system_version)]), halt().'\"
+erl -noshell -eval 'io:format(\"~s~n\", [erlang:system_info(system_version)]), halt().'
+echo \">cat /usr/local/lib/erlang/releases/29/OTP_VERSION\"
+cat /usr/local/lib/erlang/releases/29/OTP_VERSION
 "
 
 COMMAND_RUN_LANGUAGE_CODE="
+cd \"$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR\"
 elixir \"$FILE_NAME_WITH_EXTENSION\"
 "
 
@@ -50,9 +55,5 @@ docker run -i --rm \
 
         echo \"$SEPARATOR\"
 
-        cd \"$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR\"
-
         $COMMAND_RUN_LANGUAGE_CODE
-
-        cd \"$ROOT_DIR\"
     "
