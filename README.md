@@ -55,6 +55,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 29. [Elixir](https://elixir-lang.org/) : [https://elixir-lang.org/](https://elixir-lang.org/)  
 30. [OCaml](https://ocaml.org/) : [https://ocaml.org/](https://ocaml.org/)  
 31. [Erlang](https://www.erlang.org/) : [https://www.erlang.org/](https://www.erlang.org/)  
+32. [Gleam](https://gleam.run/) : [https://gleam.run/](https://gleam.run/)  
 
 ## Programming concepts  
 
@@ -90,6 +91,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/cross-language-features.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/cross-language-features.ml)  
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/cross-language-features.erl)  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/cross-language-features.gleam)  
 
 ---
 
@@ -125,6 +127,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/comments.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/comments.ml)  
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/comments.erl)  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/comments.gleam)  
 
 ---
 
@@ -160,6 +163,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/hello-world.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/hello-world.ml)  
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/hello-world.erl)  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/hello-world.gleam)  
 
 ---
 
@@ -195,6 +199,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/conditionals.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/conditionals.ml)  
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/conditionals.erl)  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/conditionals.gleam)  
 
 ---
 
@@ -230,6 +235,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/loops.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/loops.ml)  
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/loops.erl)  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/loops.gleam)  
 
 ---
 
@@ -265,6 +271,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/functions.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/functions.ml)  
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/functions.erl)  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/functions.gleam)  
 
 ---
 
@@ -300,6 +307,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/error-handling.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/error-handling.ml)  
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/error-handling.erl)  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/error-handling.gleam)  
 
 ---
 
@@ -335,6 +343,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/python-like-list.exs) : List  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/python-like-list.ml) : List  
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/python-like-list.erl) : list  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/python-like-list.gleam) : List  
 
 ---
 
@@ -370,6 +379,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/python-like-dict.exs) : Associative List  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/python-like-dict.ml) : Association List  
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/python-like-dict.erl) : associative list  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/python-like-dict.gleam) : Associative List  
 
 ---
 
@@ -405,6 +415,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/loop-through-each-list-item.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/loop-through-each-list-item.ml)  
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/loop-through-each-list-item.erl)  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/loop-through-each-list-item.gleam)  
 
 ---
 
@@ -440,6 +451,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/get-is-any-item-in-list-matching-condition.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/get-is-any-item-in-list-matching-condition.ml)  
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/get-is-any-item-in-list-matching-condition.erl)  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/get-is-any-item-in-list-matching-condition.gleam)  
 
 ---
 
@@ -475,6 +487,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/get-is-all-item-in-list-matching-condition.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/get-is-all-item-in-list-matching-condition.ml)  
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/get-is-all-item-in-list-matching-condition.erl)  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/get-is-all-item-in-list-matching-condition.gleam)  
 
 ---
 
@@ -510,6 +523,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/get-first-list-item-matching-condition.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/get-first-list-item-matching-condition.ml)  
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/get-first-list-item-matching-condition.erl)  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/get-first-list-item-matching-condition.gleam)  
 
 ---
 
@@ -545,6 +559,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/get-index-of-list-item-matching-condition.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/get-index-of-list-item-matching-condition.ml)  
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/get-index-of-list-item-matching-condition.erl)  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/get-index-of-list-item-matching-condition.gleam)  
 
 ---
 
@@ -580,6 +595,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/get-all-list-item-matching-condition.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/get-all-list-item-matching-condition.ml)  
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/get-all-list-item-matching-condition.erl)  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/get-all-list-item-matching-condition.gleam)  
 
 ---
 
@@ -615,6 +631,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/transform-each-list-item.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/transform-each-list-item.ml)  
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/transform-each-list-item.erl)  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/transform-each-list-item.gleam)  
 
 ---
 
@@ -650,6 +667,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/combine-all-list-item.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/combine-all-list-item.ml)  
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/combine-all-list-item.erl)  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/combine-all-list-item.gleam)  
 
 ---
 
@@ -685,6 +703,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/list-remove-tail.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/list-remove-tail.ml)  
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/list-remove-tail.erl)  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/list-remove-tail.gleam)  
 
 ---
 
@@ -720,3 +739,4 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/list-insert-tail.exs)  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/list-insert-tail.ml)  
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/list-insert-tail.erl)  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/list-insert-tail.gleam)  

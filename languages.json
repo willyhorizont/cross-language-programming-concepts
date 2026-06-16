@@ -809,5 +809,32 @@
                 ]
             }
         ]
+    },
+    {
+        "id": "gleam",
+        "color": "#ffaff3",
+        "stack": [
+            { 
+                "name": "Gleam",
+                "url": "https://gleam.run/"
+            }
+        ],
+        "file_extension": ".gleam",
+        "concept_definition": {
+            "python-like-list": "List",
+            "python-like-dict": "Associative List"
+        },
+        "vscode_extensions": [
+            "Gleam.gleam"
+        ],
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "ghcr.io/gleam-lang/gleam:v1.17.0-erlang",
+                "docker_images": [
+                    "ghcr.io/gleam-lang/gleam:v1.17.0-erlang"
+                ]
+            }
+        ]
     }
 ]

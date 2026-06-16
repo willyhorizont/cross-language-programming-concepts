@@ -381,6 +381,7 @@
         ".exs": "bash $workspaceRoot/languages/elixir/run.sh $dirWithoutTrailingSlash/$fileName",
         ".ml": "bash $workspaceRoot/languages/ocaml/run.sh $dirWithoutTrailingSlash/$fileName",
         ".erl": "bash $workspaceRoot/languages/erlang/run.sh $dirWithoutTrailingSlash/$fileName",
+        ".gleam": "bash $workspaceRoot/languages/gleam/run.sh $dirWithoutTrailingSlash/$fileName",
 
         // ".mojo": "bash ./languages/mojo/run.sh $fileName",
         // ".rs": "bash ./languages/rust/run.sh $fileName",
@@ -413,6 +414,7 @@
         "elixir": "bash $workspaceRoot/languages/elixir/run.sh $dirWithoutTrailingSlash/$fileName",
         "ocaml": "bash $workspaceRoot/languages/ocaml/run.sh $dirWithoutTrailingSlash/$fileName",
         "erlang": "bash $workspaceRoot/languages/erlang/run.sh $dirWithoutTrailingSlash/$fileName",
+        "gleam": "bash $workspaceRoot/languages/gleam/run.sh $dirWithoutTrailingSlash/$fileName",
 
         "mojo": "bash $workspaceRoot/languages/mojo/run.sh $dirWithoutTrailingSlash/$fileName",
         "scala2": "cd $dir && scalac $fileName && scala $fileNameWithoutExt && del \"$dir*.class\"", // compile .scala file to .class and run the .class

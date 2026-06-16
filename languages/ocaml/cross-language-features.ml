@@ -1,6 +1,9 @@
 open Willyhorizont.Runtime
 
 let () =
+    (*
+    1. support function as value
+    *)
     let say_hello = Any (fun any_variadic_arguments_py_list -> (
         let ocaml_variadic_arguments = get_py_list_from_anything any_variadic_arguments_py_list in
         let ocaml_variadic_arguments_generator = Seq.to_dispenser (List.to_seq ocaml_variadic_arguments) in
@@ -15,6 +18,9 @@ let () =
         print_endline "world";
         Any ()
     ))])) in
+    (*
+    2. support dynamic-typed value, or has workaround
+    *)
     let some_py_list = Any [
         Any ();
         Any true;
