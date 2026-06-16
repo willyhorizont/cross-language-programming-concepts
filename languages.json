@@ -836,5 +836,32 @@
                 ]
             }
         ]
+    },
+    {
+        "id": "zig",
+        "color": "#ec915c",
+        "stack": [
+            { 
+                "name": "Zig",
+                "url": "https://ziglang.org/"
+            }
+        ],
+        "file_extension": ".zig",
+        "concept_definition": {
+            "python-like-list": "Slice",
+            "python-like-dict": "Association Slice"
+        },
+        "vscode_extensions": [
+            "ziglang.vscode-zig"
+        ],
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "willyhorizont/zig:0.16.0",
+                "docker_images": [
+                    "willyhorizont/zig:0.16.0"
+                ]
+            }
+        ]
     }
 ]

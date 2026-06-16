@@ -382,6 +382,7 @@
         ".ml": "bash $workspaceRoot/languages/ocaml/run.sh $dirWithoutTrailingSlash/$fileName",
         ".erl": "bash $workspaceRoot/languages/erlang/run.sh $dirWithoutTrailingSlash/$fileName",
         ".gleam": "bash $workspaceRoot/languages/gleam/run.sh $dirWithoutTrailingSlash/$fileName",
+        ".zig": "bash $workspaceRoot/languages/zig/run.sh $dirWithoutTrailingSlash/$fileName",
 
         // ".mojo": "bash ./languages/mojo/run.sh $fileName",
         // ".rs": "bash ./languages/rust/run.sh $fileName",
@@ -415,6 +416,7 @@
         "ocaml": "bash $workspaceRoot/languages/ocaml/run.sh $dirWithoutTrailingSlash/$fileName",
         "erlang": "bash $workspaceRoot/languages/erlang/run.sh $dirWithoutTrailingSlash/$fileName",
         "gleam": "bash $workspaceRoot/languages/gleam/run.sh $dirWithoutTrailingSlash/$fileName",
+        "zig": "bash $workspaceRoot/languages/zig/run.sh $dirWithoutTrailingSlash/$fileName",
 
         "mojo": "bash $workspaceRoot/languages/mojo/run.sh $dirWithoutTrailingSlash/$fileName",
         "scala2": "cd $dir && scalac $fileName && scala $fileNameWithoutExt && del \"$dir*.class\"", // compile .scala file to .class and run the .class
@@ -426,7 +428,6 @@
         "crystal": "cd $dir && crystal $fileName",
         "v": "cd $dir && v run $fileName",
         "odin": "cd $dir && odin run $fileName -file",
-        "zig": "zig run",
         "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "groovy": "groovy",

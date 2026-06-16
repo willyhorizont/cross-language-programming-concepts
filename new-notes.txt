@@ -44,7 +44,12 @@ groovy
 f#
 clojure
 crystal
-zig
+freebasic
+freepascal
+smalltalk = pharo, squeak, cuis smalltalk, dolphin smalltalk
+nim
+odin
+~zig~
 
 change Language Mode to:
 cuda-cpp
