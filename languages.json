@@ -319,7 +319,7 @@
         "color": "#945db7",
         "stack": [
             { 
-                "name": "Visual Basic .NET (VB.NET)",
+                "name": "VB.NET (Visual Basic dotNET)",
                 "url": "https://learn.microsoft.com/en-us/dotnet/visual-basic/"
             }
         ],
@@ -339,7 +339,7 @@
         "color": "#178600",
         "stack": [
             { 
-                "name": "C#",
+                "name": "C# (C-Sharp)",
                 "url": "https://learn.microsoft.com/en-us/dotnet/csharp/"
             }
         ],
@@ -536,11 +536,11 @@
         ]
     },
     {
-        "id": "vim-nine-script",
+        "id": "vim-script",
         "color": "#199f4b",
         "stack": [
             { 
-                "name": "Vim9script",
+                "name": "Vim Script",
                 "url": "https://vimhelp.org/vim9.txt.html"
             }
         ],
