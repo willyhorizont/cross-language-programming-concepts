@@ -863,5 +863,32 @@
                 ]
             }
         ]
+    },
+    {
+        "id": "nim",
+        "color": "#ffc200",
+        "stack": [
+            { 
+                "name": "Nim",
+                "url": "https://nim-lang.org/"
+            }
+        ],
+        "file_extension": ".nim",
+        "concept_definition": {
+            "python-like-list": "Sequence",
+            "python-like-dict": "Ordered Table"
+        },
+        "vscode_extensions": [
+            "NimLang.nimlang"
+        ],
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "nimlang/nim:2.2.10",
+                "docker_images": [
+                    "nimlang/nim:2.2.10"
+                ]
+            }
+        ]
     }
 ]

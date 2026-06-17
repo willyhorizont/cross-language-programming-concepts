@@ -1,4 +1,4 @@
 git add .
-git commit -m "remove zig and tcl chaos; update readme and languages.json, vscode settings; rename vim, vb, csharp"
-git tag -a v1.4.0 -m "remove zig and tcl chaos; update readme and languages.json, vscode settings; rename vim, vb, csharp"
+git commit -m "add nim init"
+git tag -a v1.5.0 -m "add nim init"
 git push origin main --tags

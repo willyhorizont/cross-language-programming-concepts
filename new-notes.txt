@@ -39,7 +39,7 @@ add:
 ~~ps1 / pwsh / powershell~~
 ~~typst~~
 https://nue.nu/
-gleam "#ffaff3"
+~gleam "#ffaff3"~
 groovy
 f#
 clojure
@@ -50,6 +50,9 @@ smalltalk = pharo, squeak, cuis smalltalk, dolphin smalltalk
 nim
 odin
 ~zig~
+
+todo:
+AnyType -> ~DynamicType~ CrossType [xlNone, xlBool, xlString, xlInt, xlFloat, xlList, xlDict, xlClosure] ext .xl (xl = cross language)
 
 change Language Mode to:
 cuda-cpp

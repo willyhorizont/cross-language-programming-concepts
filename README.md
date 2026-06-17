@@ -57,6 +57,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 31. [Erlang](https://www.erlang.org/) : [https://www.erlang.org/](https://www.erlang.org/)  
 32. [Gleam](https://gleam.run/) : [https://gleam.run/](https://gleam.run/)  
 33. [Zig](https://ziglang.org/) : [https://ziglang.org/](https://ziglang.org/)  
+34. [Nim](https://nim-lang.org/) : [https://nim-lang.org/](https://nim-lang.org/)  
 
 ## Programming concepts  
 
@@ -94,6 +95,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/cross-language-features.erl)  
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/cross-language-features.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/cross-language-features.zig)  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/cross-language-features.nim)  
 
 ---
 
@@ -131,6 +133,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/comments.erl)  
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/comments.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/comments.zig)  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/comments.nim)  
 
 ---
 
@@ -168,6 +171,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/hello-world.erl)  
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/hello-world.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/hello-world.zig)  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/hello-world.nim)  
 
 ---
 
@@ -205,6 +209,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/conditionals.erl)  
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/conditionals.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/conditionals.zig)  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/conditionals.nim)  
 
 ---
 
@@ -242,6 +247,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/loops.erl)  
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/loops.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/loops.zig)  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/loops.nim)  
 
 ---
 
@@ -279,6 +285,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/functions.erl)  
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/functions.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/functions.zig)  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/functions.nim)  
 
 ---
 
@@ -316,6 +323,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/error-handling.erl)  
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/error-handling.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/error-handling.zig)  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/error-handling.nim)  
 
 ---
 
@@ -353,6 +361,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/python-like-list.erl) : list  
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/python-like-list.gleam) : List  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/python-like-list.zig) : Slice  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/python-like-list.nim) : Sequence  
 
 ---
 
@@ -390,6 +399,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/python-like-dict.erl) : associative list  
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/python-like-dict.gleam) : Associative List  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/python-like-dict.zig) : Association Slice  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/python-like-dict.nim) : Ordered Table  
 
 ---
 
@@ -427,6 +437,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/loop-through-each-list-item.erl)  
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/loop-through-each-list-item.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/loop-through-each-list-item.zig)  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/loop-through-each-list-item.nim)  
 
 ---
 
@@ -464,6 +475,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/get-is-any-item-in-list-matching-condition.erl)  
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/get-is-any-item-in-list-matching-condition.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/get-is-any-item-in-list-matching-condition.zig)  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/get-is-any-item-in-list-matching-condition.nim)  
 
 ---
 
@@ -501,6 +513,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/get-is-all-item-in-list-matching-condition.erl)  
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/get-is-all-item-in-list-matching-condition.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/get-is-all-item-in-list-matching-condition.zig)  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/get-is-all-item-in-list-matching-condition.nim)  
 
 ---
 
@@ -538,6 +551,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/get-first-list-item-matching-condition.erl)  
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/get-first-list-item-matching-condition.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/get-first-list-item-matching-condition.zig)  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/get-first-list-item-matching-condition.nim)  
 
 ---
 
@@ -575,6 +589,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/get-index-of-list-item-matching-condition.erl)  
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/get-index-of-list-item-matching-condition.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/get-index-of-list-item-matching-condition.zig)  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/get-index-of-list-item-matching-condition.nim)  
 
 ---
 
@@ -612,6 +627,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/get-all-list-item-matching-condition.erl)  
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/get-all-list-item-matching-condition.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/get-all-list-item-matching-condition.zig)  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/get-all-list-item-matching-condition.nim)  
 
 ---
 
@@ -649,6 +665,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/transform-each-list-item.erl)  
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/transform-each-list-item.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/transform-each-list-item.zig)  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/transform-each-list-item.nim)  
 
 ---
 
@@ -686,6 +703,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/combine-all-list-item.erl)  
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/combine-all-list-item.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/combine-all-list-item.zig)  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/combine-all-list-item.nim)  
 
 ---
 
@@ -723,6 +741,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/list-remove-tail.erl)  
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/list-remove-tail.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/list-remove-tail.zig)  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/list-remove-tail.nim)  
 
 ---
 
@@ -760,3 +779,4 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/list-insert-tail.erl)  
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/list-insert-tail.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/list-insert-tail.zig)  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/list-insert-tail.nim)  
