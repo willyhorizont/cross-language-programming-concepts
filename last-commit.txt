@@ -1,4 +1,4 @@
 git add .
-git commit -m "add nim init"
-git tag -a v1.5.0 -m "add nim init"
+git commit -m "add odin init"
+git tag -a v1.6.0 -m "add odin init"
 git push origin main --tags

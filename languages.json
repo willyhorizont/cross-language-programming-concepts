@@ -890,5 +890,32 @@
                 ]
             }
         ]
+    },
+    {
+        "id": "odin",
+        "color": "#60AFFE",
+        "stack": [
+            { 
+                "name": "Odin",
+                "url": "https://odin-lang.org/"
+            }
+        ],
+        "file_extension": ".odin",
+        "concept_definition": {
+            "python-like-list": "Slice",
+            "python-like-dict": "Map"
+        },
+        "vscode_extensions": [
+            "DanielGavin.ols"
+        ],
+        "vscode_extensions_archive": [],
+        "docker": [
+            {
+                "language_version_notes": "willyhorizont/odin:dev-2026-06",
+                "docker_images": [
+                    "willyhorizont/odin:dev-2026-06"
+                ]
+            }
+        ]
     }
 ]

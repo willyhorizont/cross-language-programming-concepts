@@ -28,21 +28,34 @@ IMAGE=$("$ROOT_DIR/utils.sh" "get_docker_image" "$LANGUAGE_ID" 2>/dev/null)
 
 SEPARATOR=$("$ROOT_DIR/utils.sh" "print_separator")
 
+PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR="$ROOT_DIR/runtimes/$LANGUAGE_ID"
+TARGET_FILE_NAME_WITHOUT_EXTENSION="main"
+PATH_TO_TARGET_FILE_WITH_EXTENSION="$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/$TARGET_FILE_NAME_WITHOUT_EXTENSION.$FILE_EXTENSION"
+
+mkdir -p "$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR"
+cp -f "$PATH_TO_FILE_NAME_WITH_EXTENSION" "$PATH_TO_TARGET_FILE_WITH_EXTENSION"
+
 COMMAND_PRINT_VERSION="
 echo \">docker images\"
 echo \"$IMAGE\"
-echo \">scala-cli version\"
-scala-cli version
+echo \">odin version\"
+odin version
 "
 
-COMMAND_RUN_LANGUAGE_CODE="
-cd \"$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR\"
-scala-cli \"$FILE_NAME_WITH_EXTENSION\"
+COMMAND_COMPILE_AND_RUN_LANGUAGE_CODE="
+cd \"$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR\"
+odin run .
 "
+
+if ! docker image inspect "$IMAGE" > /dev/null 2>&1; then
+    docker build \
+        -t "$IMAGE" \
+        -f "$ROOT_DIR/docker/$LANGUAGE_ID/Dockerfile" \
+        "$ROOT_DIR"
+fi
 
 docker run -i --rm \
     --entrypoint bash \
-    -v scala-coursier-cache:/root/.cache/coursier \
     -v "$ROOT_DIR:$ROOT_DIR" \
     "$IMAGE" \
     -c "
@@ -50,5 +63,7 @@ docker run -i --rm \
 
         echo \"$SEPARATOR\"
 
-        $COMMAND_RUN_LANGUAGE_CODE
+        $COMMAND_COMPILE_AND_RUN_LANGUAGE_CODE
     "
+
+rm -f "$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/$TARGET_FILE_NAME_WITHOUT_EXTENSION.$FILE_EXTENSION"

@@ -11,41 +11,41 @@ const sayHello = (callbackFunction) => {
 sayHello(() => {
     console.log("wold");
 });
-const multiply = (a) => (b) => (a * b);
-const multiplyByTwo = multiply(2);
-console.log(`multiplyByTwo(10): ${multiplyByTwo(10)}`);
-const multiplyByEight = multiply(8);
-console.log(`multiplyByEight(4): ${multiplyByEight(4)}`);
-console.log(`multiplyByTwo(8): ${multiplyByTwo(8)}`);
+const createMultiplier = (aa) => (bb) => (aa * bb);
+const multiplyByTwo = createMultiplier(2);
+console.log(`multiply_by_two(10): ${multiplyByTwo(10)}`);
+const multiplyByEight = createMultiplier(8);
+console.log(`multiply_by_eight(4): ${multiplyByEight(4)}`);
+console.log(`multiply_by_two(8): ${multiplyByTwo(8)}`);
 
 /*
 2. support dynamic-typed value, or has workaround
 */
-const somePythonLikeList = [
+const xlList = [
     null,
     true,
     false,
     "foo",
-    123,
+    0,
     -123,
     123.789,
     -123.789,
     [1, 2, 3],
     { "foo": "bar" },
-    (a, b) => (a * b),
+    (aa, bb) => (aa * bb),
 ];
-console.log(`somePythonLikeList: ${jsonStringify(somePythonLikeList, { pretty: true })}`);
-const somePythonLikeDict = {
-    "some_null": null,
-    "some_boolean_true": true,
-    "some_boolean_false": false,
-    "some_string": "foo",
-    "some_int_positive": 123,
-    "some_int_negative": -123,
-    "some_float_positive": 123.789,
-    "some_float_negative": -123.789,
-    "some_python_like_list": [1, 2, 3],
-    "some_python_like_dict": { "foo": "bar" },
-    "some_function": (a, b) => (a * b),
+console.log(`xl_list: ${jsonStringify(xlList, { pretty: true })}`);
+const xlDict = {
+    "xl_none": null,
+    "xl_bool_true": true,
+    "xl_bool_false": false,
+    "xl_string": "foo",
+    "xl_int_positive": 0,
+    "xl_int_negative": -123,
+    "xl_float_positive": 123.789,
+    "xl_float_negative": -123.789,
+    "xl_list": [1, 2, 3],
+    "xl_dict": { "foo": "bar" },
+    "xl_closure": (aa, bb) => (aa * bb),
 };
-console.log(`somePythonLikeDict: ${jsonStringify(somePythonLikeDict, { pretty: true })}`);
+console.log(`xl_dict: ${jsonStringify(xlDict, { pretty: true })}`);

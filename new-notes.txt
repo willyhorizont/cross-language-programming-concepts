@@ -47,11 +47,12 @@ crystal
 freebasic
 freepascal
 smalltalk = pharo, squeak, cuis smalltalk, dolphin smalltalk
-nim
-odin
+~nim~
+~odin~
 ~zig~
 
 todo:
+change associative list to xl_dict, and add xl_dict_indexed
 AnyType -> ~DynamicType~ CrossType [xlNone, xlBool, xlString, xlInt, xlFloat, xlList, xlDict, xlClosure] ext .xl (xl = cross language)
 
 change Language Mode to:

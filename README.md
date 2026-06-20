@@ -58,6 +58,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 32. [Gleam](https://gleam.run/) : [https://gleam.run/](https://gleam.run/)  
 33. [Zig](https://ziglang.org/) : [https://ziglang.org/](https://ziglang.org/)  
 34. [Nim](https://nim-lang.org/) : [https://nim-lang.org/](https://nim-lang.org/)  
+35. [Odin](https://odin-lang.org/) : [https://odin-lang.org/](https://odin-lang.org/)  
 
 ## Programming concepts  
 
@@ -96,6 +97,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/cross-language-features.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/cross-language-features.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/cross-language-features.nim)  
+  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/cross-language-features.odin)  
 
 ---
 
@@ -134,6 +136,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/comments.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/comments.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/comments.nim)  
+  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/comments.odin)  
 
 ---
 
@@ -172,6 +175,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/hello-world.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/hello-world.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/hello-world.nim)  
+  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/hello-world.odin)  
 
 ---
 
@@ -210,6 +214,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/conditionals.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/conditionals.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/conditionals.nim)  
+  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/conditionals.odin)  
 
 ---
 
@@ -248,6 +253,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/loops.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/loops.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/loops.nim)  
+  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/loops.odin)  
 
 ---
 
@@ -286,6 +292,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/functions.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/functions.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/functions.nim)  
+  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/functions.odin)  
 
 ---
 
@@ -324,6 +331,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/error-handling.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/error-handling.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/error-handling.nim)  
+  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/error-handling.odin)  
 
 ---
 
@@ -362,6 +370,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/python-like-list.gleam) : List  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/python-like-list.zig) : Slice  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/python-like-list.nim) : Sequence  
+  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/python-like-list.odin) : Slice  
 
 ---
 
@@ -400,6 +409,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/python-like-dict.gleam) : Associative List  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/python-like-dict.zig) : Association Slice  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/python-like-dict.nim) : Ordered Table  
+  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/python-like-dict.odin) : Map  
 
 ---
 
@@ -438,6 +448,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/loop-through-each-list-item.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/loop-through-each-list-item.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/loop-through-each-list-item.nim)  
+  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/loop-through-each-list-item.odin)  
 
 ---
 
@@ -476,6 +487,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/get-is-any-item-in-list-matching-condition.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/get-is-any-item-in-list-matching-condition.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/get-is-any-item-in-list-matching-condition.nim)  
+  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/get-is-any-item-in-list-matching-condition.odin)  
 
 ---
 
@@ -514,6 +526,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/get-is-all-item-in-list-matching-condition.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/get-is-all-item-in-list-matching-condition.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/get-is-all-item-in-list-matching-condition.nim)  
+  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/get-is-all-item-in-list-matching-condition.odin)  
 
 ---
 
@@ -552,6 +565,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/get-first-list-item-matching-condition.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/get-first-list-item-matching-condition.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/get-first-list-item-matching-condition.nim)  
+  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/get-first-list-item-matching-condition.odin)  
 
 ---
 
@@ -590,6 +604,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/get-index-of-list-item-matching-condition.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/get-index-of-list-item-matching-condition.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/get-index-of-list-item-matching-condition.nim)  
+  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/get-index-of-list-item-matching-condition.odin)  
 
 ---
 
@@ -628,6 +643,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/get-all-list-item-matching-condition.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/get-all-list-item-matching-condition.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/get-all-list-item-matching-condition.nim)  
+  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/get-all-list-item-matching-condition.odin)  
 
 ---
 
@@ -666,6 +682,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/transform-each-list-item.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/transform-each-list-item.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/transform-each-list-item.nim)  
+  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/transform-each-list-item.odin)  
 
 ---
 
@@ -704,6 +721,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/combine-all-list-item.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/combine-all-list-item.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/combine-all-list-item.nim)  
+  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/combine-all-list-item.odin)  
 
 ---
 
@@ -742,6 +760,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/list-remove-tail.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/list-remove-tail.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/list-remove-tail.nim)  
+  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-remove-tail.odin)  
 
 ---
 
@@ -780,3 +799,4 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/list-insert-tail.gleam)  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/list-insert-tail.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/list-insert-tail.nim)  
+  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-insert-tail.odin)  
