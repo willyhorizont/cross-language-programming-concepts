@@ -30,7 +30,7 @@ SEPARATOR=$("$ROOT_DIR/utils.sh" "print_separator")
 
 if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
     COMMAND_INSTALL_PACKAGE_MANAGER="npm install -g npm@latest --no-fund --no-audit --silent"
-    COMMAND_INSTALL_RUNTIME="npm install github:willyhorizont/willyhorizont.github.io#1.0.0 --no-fund --no-audit --silent"
+    COMMAND_INSTALL_RUNTIME="npm install github:willyhorizont/willyhorizont.github.io#3.2.8 --no-fund --no-audit --silent"
     echo ">$COMMAND_INSTALL_PACKAGE_MANAGER"
     echo ">$COMMAND_INSTALL_RUNTIME"
 

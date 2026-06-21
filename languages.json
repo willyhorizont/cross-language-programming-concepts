@@ -1,11 +1,16 @@
 [
     {
-        "id": "javascript",
-        "color": "#f1e05a",
+        "id": "javascript-or-typescript",
         "stack": [
             { 
                 "name": "JavaScript",
-                "url": "https://nodejs.org/"
+                "url": "https://nodejs.org/",
+                "color": "#f1e05a"
+            },
+            { 
+                "name": "TypeScript",
+                "url": "https://www.typescriptlang.org/",
+                "color": "#3178c6"
             }
         ],
         "file_extension": ".js",
@@ -26,11 +31,11 @@
     },
     {
         "id": "python",
-        "color": "#3572A5",
         "stack": [
             { 
                 "name": "Python",
-                "url": "https://www.python.org/"
+                "url": "https://www.python.org/",
+                "color": "#3572A5"
             }
         ],
         "file_extension": ".py",
@@ -53,11 +58,11 @@
     },
     {
         "id": "php",
-        "color": "#4F5D95",
         "stack": [
             { 
                 "name": "PHP",
-                "url": "https://www.php.net/"
+                "url": "https://www.php.net/",
+                "color": "#4F5D95"
             }
         ],
         "file_extension": ".php",
@@ -80,11 +85,11 @@
     },
     {
         "id": "go",
-        "color": "#00ADD8",
         "stack": [
             { 
                 "name": "Go",
-                "url": "https://go.dev/"
+                "url": "https://go.dev/",
+                "color": "#00ADD8"
             }
         ],
         "file_extension": ".go",
@@ -107,11 +112,11 @@
     },
     {
         "id": "perl",
-        "color": "#0298c3",
         "stack": [
             { 
                 "name": "Perl",
-                "url": "https://www.perl.org/"
+                "url": "https://www.perl.org/",
+                "color": "#0298c3"
             }
         ],
         "file_extension": ".pl",
@@ -134,11 +139,11 @@
     },
     {
         "id": "julia",
-        "color": "#a270ba",
         "stack": [
             { 
                 "name": "Julia",
-                "url": "https://julialang.org/"
+                "url": "https://julialang.org/",
+                "color": "#a270ba"
             }
         ],
         "file_extension": ".jl",
@@ -161,11 +166,11 @@
     },
     {
         "id": "lua",
-        "color": "#000080",
         "stack": [
             { 
                 "name": "Lua",
-                "url": "https://www.lua.org/"
+                "url": "https://www.lua.org/",
+                "color": "#000080"
             }
         ],
         "file_extension": ".lua",
@@ -188,11 +193,11 @@
     },
     {
         "id": "ruby",
-        "color": "#701516",
         "stack": [
             { 
                 "name": "Ruby",
-                "url": "https://www.ruby-lang.org/"
+                "url": "https://www.ruby-lang.org/",
+                "color": "#701516"
             }
         ],
         "file_extension": ".rb",
@@ -215,11 +220,11 @@
     },
     {
         "id": "r",
-        "color": "#198CE7",
         "stack": [
             { 
                 "name": "R",
-                "url": "https://www.r-project.org/"
+                "url": "https://www.r-project.org/",
+                "color": "#198CE7"
             }
         ],
         "file_extension": ".r",
@@ -245,11 +250,11 @@
     },
     {
         "id": "kotlin",
-        "color": "#A97BFF",
         "stack": [
             { 
                 "name": "Kotlin",
-                "url": "https://kotlinlang.org/"
+                "url": "https://kotlinlang.org/",
+                "color": "#A97BFF"
             }
         ],
         "file_extension": ".kt",
@@ -276,11 +281,11 @@
     },
     {
         "id": "swift",
-        "color": "#f15c44",
         "stack": [
             { 
                 "name": "Swift",
-                "url": "https://www.swift.org/"
+                "url": "https://www.swift.org/",
+                "color": "#f15c44"
             }
         ],
         "file_extension": ".swift",
@@ -296,11 +301,11 @@
     },
     {
         "id": "dart",
-        "color": "#009089",
         "stack": [
             { 
                 "name": "Dart",
-                "url": "https://dart.dev/"
+                "url": "https://dart.dev/",
+                "color": "#009089"
             }
         ],
         "file_extension": ".dart",
@@ -316,11 +321,11 @@
     },
     {
         "id": "visual-basic-dot-net",
-        "color": "#945db7",
         "stack": [
             { 
                 "name": "VB.NET (Visual Basic dotNET)",
-                "url": "https://learn.microsoft.com/en-us/dotnet/visual-basic/"
+                "url": "https://learn.microsoft.com/en-us/dotnet/visual-basic/",
+                "color": "#945db7"
             }
         ],
         "file_extension": ".vb",
@@ -336,11 +341,11 @@
     },
     {
         "id": "c-sharp",
-        "color": "#178600",
         "stack": [
             { 
                 "name": "C# (C-Sharp)",
-                "url": "https://learn.microsoft.com/en-us/dotnet/csharp/"
+                "url": "https://learn.microsoft.com/en-us/dotnet/csharp/",
+                "color": "#178600"
             }
         ],
         "file_extension": ".cs",
@@ -356,15 +361,16 @@
     },
     {
         "id": "matlab-or-octave",
-        "color": "#e16737",
         "stack": [
             { 
                 "name": "MATLAB",
-                "url": "https://www.mathworks.com/products/matlab.html"
+                "url": "https://www.mathworks.com/products/matlab.html",
+                "color": "#e16737"
             },
             {
                 "name": "Octave",
-                "url": "https://octave.org/"
+                "url": "https://octave.org/",
+                "color": "#e16737"
             }
         ],
         "file_extension": ".m",
@@ -382,11 +388,11 @@
     },
     {
         "id": "wolfram-language-script",
-        "color": "#ff4131",
         "stack": [
             { 
                 "name": "Wolfram Language Script",
-                "url": "https://www.wolfram.com/wolframscript/"
+                "url": "https://www.wolfram.com/wolframscript/",
+                "color": "#ff4131"
             }
         ],
         "file_extension": ".wls",
@@ -404,11 +410,11 @@
     },
     {
         "id": "raku",
-        "color": "#357fff",
         "stack": [
             { 
                 "name": "Raku",
-                "url": "https://raku.org/"
+                "url": "https://raku.org/",
+                "color": "#357fff"
             }
         ],
         "file_extension": ".raku",
@@ -424,11 +430,11 @@
     },
     {
         "id": "scala",
-        "color": "#c22d40",
         "stack": [
             { 
                 "name": "Scala",
-                "url": "https://www.scala-lang.org/"
+                "url": "https://www.scala-lang.org/",
+                "color": "#c22d40"
             }
         ],
         "file_extension": ".scala",
@@ -452,11 +458,11 @@
     },
     {
         "id": "java",
-        "color": "#b07219",
         "stack": [
             { 
                 "name": "Java",
-                "url": "https://www.oracle.com/java/"
+                "url": "https://www.oracle.com/java/",
+                "color": "#b07219"
             }
         ],
         "file_extension": ".java",
@@ -483,11 +489,11 @@
     },
     {
         "id": "nu",
-        "color": "#c9df40",
         "stack": [
             { 
                 "name": "Nu",
-                "url": "https://www.nushell.sh/"
+                "url": "https://www.nushell.sh/",
+                "color": "#c9df40"
             }
         ],
         "file_extension": ".nu",
@@ -510,11 +516,11 @@
     },
     {
         "id": "elvish",
-        "color": "#55BB55",
         "stack": [
             { 
                 "name": "Elvish",
-                "url": "https://elv.sh/"
+                "url": "https://elv.sh/",
+                "color": "#55BB55"
             }
         ],
         "file_extension": ".elv",
@@ -537,11 +543,11 @@
     },
     {
         "id": "vim-script",
-        "color": "#199f4b",
         "stack": [
             { 
                 "name": "Vim Script",
-                "url": "https://vimhelp.org/vim9.txt.html"
+                "url": "https://vimhelp.org/vim9.txt.html",
+                "color": "#199f4b"
             }
         ],
         "file_extension": ".vim",
@@ -562,11 +568,11 @@
     },
     {
         "id": "rust",
-        "color": "#dea584",
         "stack": [
             { 
                 "name": "Rust",
-                "url": "https://rust-lang.org/"
+                "url": "https://rust-lang.org/",
+                "color": "#dea584"
             }
         ],
         "file_extension": ".rs",
@@ -591,11 +597,11 @@
     },
     {
         "id": "nix",
-        "color": "#7e7eff",
         "stack": [
             { 
                 "name": "Nix",
-                "url": "https://nixos.org/"
+                "url": "https://nixos.org/",
+                "color": "#7e7eff"
             }
         ],
         "file_extension": ".nix",
@@ -618,11 +624,11 @@
     },
     {
         "id": "tcl",
-        "color": "#e4cc98",
         "stack": [
             { 
                 "name": "Tcl",
-                "url": "https://www.tcl-lang.org/"
+                "url": "https://www.tcl-lang.org/",
+                "color": "#e4cc98"
             }
         ],
         "file_extension": ".tcl",
@@ -645,11 +651,11 @@
     },
     {
         "id": "gdscript",
-        "color": "#355570",
         "stack": [
             { 
                 "name": "GDScript",
-                "url": "https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html"
+                "url": "https://docs.godotengine.org/en/4.6/tutorials/scripting/gdscript/gdscript_basics.html",
+                "color": "#355570"
             }
         ],
         "file_extension": ".gd",
@@ -676,11 +682,11 @@
     },
     {
         "id": "typst",
-        "color": "#239dad",
         "stack": [
             { 
                 "name": "Typst",
-                "url": "https://typst.app/"
+                "url": "https://typst.app/",
+                "color": "#239dad"
             }
         ],
         "file_extension": ".typ",
@@ -704,11 +710,11 @@
     },
     {
         "id": "powershell",
-        "color": "#012456",
         "stack": [
             { 
                 "name": "PowerShell",
-                "url": "https://github.com/powershell/powershell"
+                "url": "https://github.com/powershell/powershell",
+                "color": "#012456"
             }
         ],
         "file_extension": ".ps1",
@@ -731,11 +737,11 @@
     },
     {
         "id": "elixir",
-        "color": "#6e4a7e",
         "stack": [
             { 
                 "name": "Elixir",
-                "url": "https://elixir-lang.org/"
+                "url": "https://elixir-lang.org/",
+                "color": "#6e4a7e"
             }
         ],
         "file_extension": ".exs",
@@ -758,11 +764,11 @@
     },
     {
         "id": "ocaml",
-        "color": "#ef7a08",
         "stack": [
             { 
                 "name": "OCaml",
-                "url": "https://ocaml.org/"
+                "url": "https://ocaml.org/",
+                "color": "#ef7a08"
             }
         ],
         "file_extension": ".ml",
@@ -785,11 +791,11 @@
     },
     {
         "id": "erlang",
-        "color": "#B83998",
         "stack": [
             { 
                 "name": "Erlang",
-                "url": "https://www.erlang.org/"
+                "url": "https://www.erlang.org/",
+                "color": "#B83998"
             }
         ],
         "file_extension": ".erl",
@@ -812,11 +818,11 @@
     },
     {
         "id": "gleam",
-        "color": "#ffaff3",
         "stack": [
             { 
                 "name": "Gleam",
-                "url": "https://gleam.run/"
+                "url": "https://gleam.run/",
+                "color": "#ffaff3"
             }
         ],
         "file_extension": ".gleam",
@@ -839,11 +845,11 @@
     },
     {
         "id": "zig",
-        "color": "#ec915c",
         "stack": [
             { 
                 "name": "Zig",
-                "url": "https://ziglang.org/"
+                "url": "https://ziglang.org/",
+                "color": "#ec915c"
             }
         ],
         "file_extension": ".zig",
@@ -866,11 +872,11 @@
     },
     {
         "id": "nim",
-        "color": "#ffc200",
         "stack": [
             { 
                 "name": "Nim",
-                "url": "https://nim-lang.org/"
+                "url": "https://nim-lang.org/",
+                "color": "#ffc200"
             }
         ],
         "file_extension": ".nim",
@@ -893,11 +899,11 @@
     },
     {
         "id": "odin",
-        "color": "#60AFFE",
         "stack": [
             { 
                 "name": "Odin",
-                "url": "https://odin-lang.org/"
+                "url": "https://odin-lang.org/",
+                "color": "#60AFFE"
             }
         ],
         "file_extension": ".odin",

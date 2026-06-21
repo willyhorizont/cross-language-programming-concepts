@@ -1,5 +1,8 @@
 {
-  "dependencies": {
-    "willyhorizont.github.io": "github:willyhorizont/willyhorizont.github.io#1.0.0"
-  }
+    "name": "cross-language-programming-concepts",
+    "version": "1.7.0",
+    "description": "cross-language-programming-concepts",
+    "files": [
+        "runtimes"
+    ]
 }

@@ -1,4 +1,4 @@
 git add .
-git commit -m "add odin init"
-git tag -a v1.6.0 -m "add odin init"
+git commit -m "update languages.json"
+git tag -a v1.7.0 -m "update languages.json"
 git push origin main --tags

@@ -24,7 +24,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 ---
 
 ## Languages  
-1. [JavaScript](https://nodejs.org/) : [https://nodejs.org/](https://nodejs.org/)  
+1. [JavaScript](https://nodejs.org/) / [TypeScript](https://www.typescriptlang.org/) : [https://nodejs.org/](https://nodejs.org/) or [https://www.typescriptlang.org/](https://www.typescriptlang.org/)  
 2. [Python](https://www.python.org/) : [https://www.python.org/](https://www.python.org/)  
 3. [PHP](https://www.php.net/) : [https://www.php.net/](https://www.php.net/)  
 4. [Go](https://go.dev/) : [https://go.dev/](https://go.dev/)  
@@ -63,7 +63,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 ## Programming concepts  
 
 ### cross-language-features  
-  1. [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/cross-language-features.js)  
+  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/cross-language-features.js)  
   2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/cross-language-features.py)  
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/cross-language-features.php)  
   4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/cross-language-features.go)  
@@ -102,7 +102,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 ---
 
 ### comments  
-  1. [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/comments.js)  
+  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/comments.js)  
   2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/comments.py)  
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/comments.php)  
   4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/comments.go)  
@@ -141,7 +141,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 ---
 
 ### hello-world  
-  1. [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/hello-world.js)  
+  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/hello-world.js)  
   2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/hello-world.py)  
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/hello-world.php)  
   4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/hello-world.go)  
@@ -180,7 +180,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 ---
 
 ### conditionals  
-  1. [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/conditionals.js)  
+  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/conditionals.js)  
   2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/conditionals.py)  
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/conditionals.php)  
   4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/conditionals.go)  
@@ -219,7 +219,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 ---
 
 ### loops  
-  1. [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/loops.js)  
+  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/loops.js)  
   2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/loops.py)  
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/loops.php)  
   4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/loops.go)  
@@ -258,7 +258,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 ---
 
 ### functions  
-  1. [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/functions.js)  
+  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/functions.js)  
   2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/functions.py)  
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/functions.php)  
   4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/functions.go)  
@@ -297,7 +297,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 ---
 
 ### error-handling  
-  1. [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/error-handling.js)  
+  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/error-handling.js)  
   2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/error-handling.py)  
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/error-handling.php)  
   4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/error-handling.go)  
@@ -336,7 +336,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 ---
 
 ### python-like-list  
-  1. [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/python-like-list.js) : Array  
+  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/python-like-list.js) : Array  
   2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/python-like-list.py) : list  
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/python-like-list.php) : array  
   4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/python-like-list.go) : Slice  
@@ -375,7 +375,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 ---
 
 ### python-like-dict  
-  1. [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/python-like-dict.js) : Object  
+  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/python-like-dict.js) : Object  
   2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/python-like-dict.py) : Dict  
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/python-like-dict.php) : associative array  
   4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/python-like-dict.go) : map[string]interface{}  
@@ -414,7 +414,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 ---
 
 ### loop-through-each-list-item (forEach)  
-  1. [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/loop-through-each-list-item.js)  
+  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/loop-through-each-list-item.js)  
   2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/loop-through-each-list-item.py)  
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/loop-through-each-list-item.php)  
   4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/loop-through-each-list-item.go)  
@@ -453,7 +453,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 ---
 
 ### get-is-any-item-in-list-matching-condition (some / any / exists / contains / includes)  
-  1. [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/get-is-any-item-in-list-matching-condition.js)  
+  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/get-is-any-item-in-list-matching-condition.js)  
   2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/get-is-any-item-in-list-matching-condition.py)  
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/get-is-any-item-in-list-matching-condition.php)  
   4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/get-is-any-item-in-list-matching-condition.go)  
@@ -492,7 +492,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 ---
 
 ### get-is-all-item-in-list-matching-condition (every / all)  
-  1. [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/get-is-all-item-in-list-matching-condition.js)  
+  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/get-is-all-item-in-list-matching-condition.js)  
   2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/get-is-all-item-in-list-matching-condition.py)  
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/get-is-all-item-in-list-matching-condition.php)  
   4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/get-is-all-item-in-list-matching-condition.go)  
@@ -531,7 +531,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 ---
 
 ### get-first-list-item-matching-condition (find)  
-  1. [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/get-first-list-item-matching-condition.js)  
+  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/get-first-list-item-matching-condition.js)  
   2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/get-first-list-item-matching-condition.py)  
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/get-first-list-item-matching-condition.php)  
   4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/get-first-list-item-matching-condition.go)  
@@ -570,7 +570,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 ---
 
 ### get-index-of-list-item-matching-condition (findIndex)  
-  1. [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/get-index-of-list-item-matching-condition.js)  
+  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/get-index-of-list-item-matching-condition.js)  
   2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/get-index-of-list-item-matching-condition.py)  
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/get-index-of-list-item-matching-condition.php)  
   4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/get-index-of-list-item-matching-condition.go)  
@@ -609,7 +609,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 ---
 
 ### get-all-list-item-matching-condition (filter / grep)  
-  1. [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/get-all-list-item-matching-condition.js)  
+  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/get-all-list-item-matching-condition.js)  
   2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/get-all-list-item-matching-condition.py)  
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/get-all-list-item-matching-condition.php)  
   4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/get-all-list-item-matching-condition.go)  
@@ -648,7 +648,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 ---
 
 ### transform-each-list-item (map / apply)  
-  1. [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/transform-each-list-item.js)  
+  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/transform-each-list-item.js)  
   2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/transform-each-list-item.py)  
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/transform-each-list-item.php)  
   4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/transform-each-list-item.go)  
@@ -687,7 +687,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 ---
 
 ### combine-all-list-item (reduce / fold / aggregate)  
-  1. [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/combine-all-list-item.js)  
+  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/combine-all-list-item.js)  
   2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/combine-all-list-item.py)  
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/combine-all-list-item.php)  
   4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/combine-all-list-item.go)  
@@ -726,7 +726,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 ---
 
 ### list-remove-tail (pop)  
-  1. [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/list-remove-tail.js)  
+  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/list-remove-tail.js)  
   2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/list-remove-tail.py)  
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/list-remove-tail.php)  
   4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/list-remove-tail.go)  
@@ -765,7 +765,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 ---
 
 ### list-insert-tail (push / append)  
-  1. [JavaScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript/list-insert-tail.js)  
+  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/list-insert-tail.js)  
   2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/list-insert-tail.py)  
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/list-insert-tail.php)  
   4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/list-insert-tail.go)  

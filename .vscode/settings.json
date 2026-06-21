@@ -391,7 +391,7 @@
     },
     "code-runner.executorMap": {
         "shellscript": "bash $fullFileName",
-        "javascript": "bash $workspaceRoot/languages/javascript/run.sh $dirWithoutTrailingSlash/$fileName",
+        "javascript": "bash $workspaceRoot/languages/javascript-or-typescript/run.sh $dirWithoutTrailingSlash/$fileName",
         "python": "bash $workspaceRoot/languages/python/run.sh $dirWithoutTrailingSlash/$fileName",
         "php": "bash $workspaceRoot/languages/php/run.sh $dirWithoutTrailingSlash/$fileName",
         "go": "bash $workspaceRoot/languages/go/run.sh $dirWithoutTrailingSlash/$fileName",

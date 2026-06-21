@@ -36,20 +36,27 @@ https://weberdominik.com/blog/vscode-vertical-tabs/
 ext:vim
 
 add:
+https://nue.nu/
 ~~ps1 / pwsh / powershell~~
 ~~typst~~
-https://nue.nu/
 ~gleam "#ffaff3"~
+~freebasic~ failed
+~freepascal~ failed
+~smalltalk = pharo, squeak, cuis smalltalk, ~dolphin smalltalk~~ failed
+~nim~
+~odin~
+~zig~
+~actionscript~ failed
+~Objective-C~ failed need xcode
+coffeescript
+typescript
 groovy
 f#
 clojure
 crystal
-freebasic
-freepascal
-smalltalk = pharo, squeak, cuis smalltalk, dolphin smalltalk
-~nim~
-~odin~
-~zig~
+lo
+pike
+falcon
 
 todo:
 change associative list to xl_dict, and add xl_dict_indexed
