@@ -37,7 +37,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 11. [Swift](https://www.swift.org/) : [https://www.swift.org/](https://www.swift.org/)  
 12. [Dart](https://dart.dev/) : [https://dart.dev/](https://dart.dev/)  
 13. [VB.NET (Visual Basic dotNET)](https://learn.microsoft.com/en-us/dotnet/visual-basic/) : [https://learn.microsoft.com/en-us/dotnet/visual-basic/](https://learn.microsoft.com/en-us/dotnet/visual-basic/)  
-14. [C# (C-Sharp)](https://learn.microsoft.com/en-us/dotnet/csharp/) : [https://learn.microsoft.com/en-us/dotnet/csharp/](https://learn.microsoft.com/en-us/dotnet/csharp/)  
+14. [C# (C Sharp)](https://learn.microsoft.com/en-us/dotnet/csharp/) : [https://learn.microsoft.com/en-us/dotnet/csharp/](https://learn.microsoft.com/en-us/dotnet/csharp/)  
 15. [MATLAB](https://www.mathworks.com/products/matlab.html) / [Octave](https://octave.org/) : [https://www.mathworks.com/products/matlab.html](https://www.mathworks.com/products/matlab.html) or [https://octave.org/](https://octave.org/)  
 16. [Wolfram Language Script](https://www.wolfram.com/wolframscript/) : [https://www.wolfram.com/wolframscript/](https://www.wolfram.com/wolframscript/)  
 17. [Raku](https://raku.org/) : [https://raku.org/](https://raku.org/)  
@@ -59,7 +59,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 33. [Zig](https://ziglang.org/) : [https://ziglang.org/](https://ziglang.org/)  
 34. [Nim](https://nim-lang.org/) : [https://nim-lang.org/](https://nim-lang.org/)  
 35. [Odin](https://odin-lang.org/) : [https://odin-lang.org/](https://odin-lang.org/)  
-36. [C++ (C-Plus-Plus)](https://isocpp.org/) : [https://isocpp.org/](https://isocpp.org/)  
+36. [C++ (C Plus Plus)](https://isocpp.org/) : [https://isocpp.org/](https://isocpp.org/)  
 
 ## Programming concepts  
 
@@ -77,7 +77,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/cross-language-features.swift)  
   12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/cross-language-features.dart)  
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/cross-language-features.vb)  
-  14. [C# (C-Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/cross-language-features.cs)  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/cross-language-features.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/cross-language-features.m)  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/cross-language-features.wls)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/cross-language-features.raku)  
@@ -99,7 +99,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/cross-language-features.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/cross-language-features.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/cross-language-features.odin)  
-  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/cross-language-features.cpp)  
+  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/cross-language-features.cpp)  
 
 ---
 
@@ -117,7 +117,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/comments.swift)  
   12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/comments.dart)  
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/comments.vb)  
-  14. [C# (C-Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/comments.cs)  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/comments.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/comments.m)  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/comments.wls)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/comments.raku)  
@@ -139,7 +139,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/comments.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/comments.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/comments.odin)  
-  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/comments.cpp)  
+  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/comments.cpp)  
 
 ---
 
@@ -157,7 +157,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/hello-world.swift)  
   12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/hello-world.dart)  
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/hello-world.vb)  
-  14. [C# (C-Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/hello-world.cs)  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/hello-world.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/hello-world.m)  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/hello-world.wls)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/hello-world.raku)  
@@ -179,7 +179,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/hello-world.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/hello-world.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/hello-world.odin)  
-  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/hello-world.cpp)  
+  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/hello-world.cpp)  
 
 ---
 
@@ -197,7 +197,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/conditionals.swift)  
   12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/conditionals.dart)  
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/conditionals.vb)  
-  14. [C# (C-Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/conditionals.cs)  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/conditionals.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/conditionals.m)  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/conditionals.wls)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/conditionals.raku)  
@@ -219,7 +219,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/conditionals.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/conditionals.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/conditionals.odin)  
-  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/conditionals.cpp)  
+  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/conditionals.cpp)  
 
 ---
 
@@ -237,7 +237,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/loops.swift)  
   12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/loops.dart)  
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/loops.vb)  
-  14. [C# (C-Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/loops.cs)  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/loops.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/loops.m)  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/loops.wls)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/loops.raku)  
@@ -259,7 +259,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/loops.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/loops.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/loops.odin)  
-  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/loops.cpp)  
+  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/loops.cpp)  
 
 ---
 
@@ -277,7 +277,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/functions.swift)  
   12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/functions.dart)  
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/functions.vb)  
-  14. [C# (C-Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/functions.cs)  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/functions.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/functions.m)  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/functions.wls)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/functions.raku)  
@@ -299,7 +299,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/functions.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/functions.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/functions.odin)  
-  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/functions.cpp)  
+  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/functions.cpp)  
 
 ---
 
@@ -317,7 +317,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/error-handling.swift)  
   12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/error-handling.dart)  
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/error-handling.vb)  
-  14. [C# (C-Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/error-handling.cs)  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/error-handling.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/error-handling.m)  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/error-handling.wls)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/error-handling.raku)  
@@ -339,7 +339,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/error-handling.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/error-handling.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/error-handling.odin)  
-  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/error-handling.cpp)  
+  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/error-handling.cpp)  
 
 ---
 
@@ -357,7 +357,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/python-like-list.swift) : Array  
   12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/python-like-list.dart) : List&lt;dynamic&gt;  
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/python-like-list.vb) : List(Of Object)  
-  14. [C# (C-Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/python-like-list.cs) : List&lt;dynamic&gt;  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/python-like-list.cs) : List&lt;dynamic&gt;  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/python-like-list.m) : Cell Array  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/python-like-list.wls) : List  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/python-like-list.raku) : List  
@@ -379,7 +379,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/python-like-list.zig) : Slice  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/python-like-list.nim) : Sequence  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/python-like-list.odin) : Slice  
-  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/python-like-list.cpp) : Vector  
+  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/python-like-list.cpp) : Vector  
 
 ---
 
@@ -397,7 +397,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/python-like-dict.swift) : OrderedDictionary&lt;String, Any?&gt;  
   12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/python-like-dict.dart) : Map&lt;String, dynamic&gt;  
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/python-like-dict.vb) : Dictionary(Of String, Object)  
-  14. [C# (C-Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/python-like-dict.cs) : Dictionary&lt;string, dynamic&gt;  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/python-like-dict.cs) : Dictionary&lt;string, dynamic&gt;  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/python-like-dict.m) : struct  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/python-like-dict.wls) : Association  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/python-like-dict.raku) : HASH  
@@ -419,7 +419,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/python-like-dict.zig) : Association Slice  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/python-like-dict.nim) : Ordered Table  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/python-like-dict.odin) : Map  
-  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/python-like-dict.cpp) : Unordered Map  
+  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/python-like-dict.cpp) : Unordered Map  
 
 ---
 
@@ -437,7 +437,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/loop-through-each-list-item.swift)  
   12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/loop-through-each-list-item.dart)  
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/loop-through-each-list-item.vb)  
-  14. [C# (C-Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/loop-through-each-list-item.cs)  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/loop-through-each-list-item.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/loop-through-each-list-item.m)  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/loop-through-each-list-item.wls)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/loop-through-each-list-item.raku)  
@@ -459,7 +459,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/loop-through-each-list-item.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/loop-through-each-list-item.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/loop-through-each-list-item.odin)  
-  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/loop-through-each-list-item.cpp)  
+  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/loop-through-each-list-item.cpp)  
 
 ---
 
@@ -477,7 +477,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/get-is-any-item-in-list-matching-condition.swift)  
   12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/get-is-any-item-in-list-matching-condition.dart)  
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/get-is-any-item-in-list-matching-condition.vb)  
-  14. [C# (C-Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/get-is-any-item-in-list-matching-condition.cs)  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/get-is-any-item-in-list-matching-condition.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/get-is-any-item-in-list-matching-condition.m)  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/get-is-any-item-in-list-matching-condition.wls)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/get-is-any-item-in-list-matching-condition.raku)  
@@ -499,7 +499,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/get-is-any-item-in-list-matching-condition.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/get-is-any-item-in-list-matching-condition.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/get-is-any-item-in-list-matching-condition.odin)  
-  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-is-any-item-in-list-matching-condition.cpp)  
+  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-is-any-item-in-list-matching-condition.cpp)  
 
 ---
 
@@ -517,7 +517,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/get-is-all-item-in-list-matching-condition.swift)  
   12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/get-is-all-item-in-list-matching-condition.dart)  
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/get-is-all-item-in-list-matching-condition.vb)  
-  14. [C# (C-Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/get-is-all-item-in-list-matching-condition.cs)  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/get-is-all-item-in-list-matching-condition.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/get-is-all-item-in-list-matching-condition.m)  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/get-is-all-item-in-list-matching-condition.wls)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/get-is-all-item-in-list-matching-condition.raku)  
@@ -539,7 +539,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/get-is-all-item-in-list-matching-condition.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/get-is-all-item-in-list-matching-condition.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/get-is-all-item-in-list-matching-condition.odin)  
-  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-is-all-item-in-list-matching-condition.cpp)  
+  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-is-all-item-in-list-matching-condition.cpp)  
 
 ---
 
@@ -557,7 +557,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/get-first-list-item-matching-condition.swift)  
   12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/get-first-list-item-matching-condition.dart)  
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/get-first-list-item-matching-condition.vb)  
-  14. [C# (C-Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/get-first-list-item-matching-condition.cs)  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/get-first-list-item-matching-condition.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/get-first-list-item-matching-condition.m)  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/get-first-list-item-matching-condition.wls)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/get-first-list-item-matching-condition.raku)  
@@ -579,7 +579,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/get-first-list-item-matching-condition.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/get-first-list-item-matching-condition.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/get-first-list-item-matching-condition.odin)  
-  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-first-list-item-matching-condition.cpp)  
+  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-first-list-item-matching-condition.cpp)  
 
 ---
 
@@ -597,7 +597,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/get-index-of-list-item-matching-condition.swift)  
   12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/get-index-of-list-item-matching-condition.dart)  
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/get-index-of-list-item-matching-condition.vb)  
-  14. [C# (C-Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/get-index-of-list-item-matching-condition.cs)  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/get-index-of-list-item-matching-condition.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/get-index-of-list-item-matching-condition.m)  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/get-index-of-list-item-matching-condition.wls)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/get-index-of-list-item-matching-condition.raku)  
@@ -619,7 +619,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/get-index-of-list-item-matching-condition.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/get-index-of-list-item-matching-condition.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/get-index-of-list-item-matching-condition.odin)  
-  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-index-of-list-item-matching-condition.cpp)  
+  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-index-of-list-item-matching-condition.cpp)  
 
 ---
 
@@ -637,7 +637,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/get-all-list-item-matching-condition.swift)  
   12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/get-all-list-item-matching-condition.dart)  
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/get-all-list-item-matching-condition.vb)  
-  14. [C# (C-Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/get-all-list-item-matching-condition.cs)  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/get-all-list-item-matching-condition.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/get-all-list-item-matching-condition.m)  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/get-all-list-item-matching-condition.wls)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/get-all-list-item-matching-condition.raku)  
@@ -659,7 +659,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/get-all-list-item-matching-condition.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/get-all-list-item-matching-condition.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/get-all-list-item-matching-condition.odin)  
-  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-all-list-item-matching-condition.cpp)  
+  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-all-list-item-matching-condition.cpp)  
 
 ---
 
@@ -677,7 +677,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/transform-each-list-item.swift)  
   12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/transform-each-list-item.dart)  
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/transform-each-list-item.vb)  
-  14. [C# (C-Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/transform-each-list-item.cs)  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/transform-each-list-item.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/transform-each-list-item.m)  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/transform-each-list-item.wls)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/transform-each-list-item.raku)  
@@ -699,7 +699,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/transform-each-list-item.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/transform-each-list-item.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/transform-each-list-item.odin)  
-  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/transform-each-list-item.cpp)  
+  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/transform-each-list-item.cpp)  
 
 ---
 
@@ -717,7 +717,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/combine-all-list-item.swift)  
   12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/combine-all-list-item.dart)  
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/combine-all-list-item.vb)  
-  14. [C# (C-Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/combine-all-list-item.cs)  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/combine-all-list-item.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/combine-all-list-item.m)  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/combine-all-list-item.wls)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/combine-all-list-item.raku)  
@@ -739,7 +739,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/combine-all-list-item.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/combine-all-list-item.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/combine-all-list-item.odin)  
-  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/combine-all-list-item.cpp)  
+  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/combine-all-list-item.cpp)  
 
 ---
 
@@ -757,7 +757,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/list-remove-tail.swift)  
   12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/list-remove-tail.dart)  
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list-remove-tail.vb)  
-  14. [C# (C-Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-remove-tail.cs)  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-remove-tail.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list-remove-tail.m)  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/list-remove-tail.wls)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list-remove-tail.raku)  
@@ -779,7 +779,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/list-remove-tail.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/list-remove-tail.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-remove-tail.odin)  
-  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-remove-tail.cpp)  
+  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-remove-tail.cpp)  
 
 ---
 
@@ -797,7 +797,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/list-insert-tail.swift)  
   12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/list-insert-tail.dart)  
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list-insert-tail.vb)  
-  14. [C# (C-Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-insert-tail.cs)  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-insert-tail.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list-insert-tail.m)  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/list-insert-tail.wls)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list-insert-tail.raku)  
@@ -819,4 +819,4 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/list-insert-tail.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/list-insert-tail.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-insert-tail.odin)  
-  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-insert-tail.cpp)  
+  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-insert-tail.cpp)  

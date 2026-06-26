@@ -365,7 +365,7 @@
         "id": "c-sharp",
         "stack": [
             { 
-                "name": "C# (C-Sharp)",
+                "name": "C# (C Sharp)",
                 "url": "https://learn.microsoft.com/en-us/dotnet/csharp/",
                 "color": "#178600"
             }
@@ -984,7 +984,7 @@
         "id": "c-plus-plus",
         "stack": [
             { 
-                "name": "C++ (C-Plus-Plus)",
+                "name": "C++ (C Plus Plus)",
                 "url": "https://isocpp.org/",
                 "color": "#f34b7d"
             }
