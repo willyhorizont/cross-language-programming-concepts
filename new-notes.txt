@@ -50,6 +50,12 @@ https://nue.nu/
 ~Objective-C~ failed need xcode
 coffeescript
 typescript
+c3
+c
+c++
+v
+d
+vala
 groovy
 f#
 clojure
@@ -75,3 +81,15 @@ todo:
 install ext locally
 
 tail call recursive via Continuation-Passing Style (CPS)
+
+aku mau ada type (aku beri nama CrossType) untuk menyimpan ini semua:
+XlNone (seperti nil / null / None)
+XlBool
+XlString
+XlInt : int paling besar di bahasa target, misal pake int64 kalau di bahasa target int64 adalah yang paling besar, jangan int8
+XlFloat : float paling besar di bahasa target, misal pake float64 kalau di bahasa target float64 adalah yang paling besar, jangan float8
+XlList : list dengan length dinamis dan isi heterogen (CrossType)
+XlDict : dict/map berisi pasangan2 string dan CrossType
+XlDictIndexed : dict/map berisi pasangan2 string dan CrossType tapi preserve insertion orders
+XlClosure : closure function anonymous argumentnya varargs, parameternya getNextArguments dan outputnya CrossType
+Xl adalah kepanjangan dari CrossLanguages, Xl bisa juga karena tiap type memakai ukuran paling besar misal int64 dan float 64, xl juga nama repoku atau nama runtime atau nama bahasa pemrogramanku

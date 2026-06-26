@@ -28,35 +28,16 @@ IMAGE=$("$ROOT_DIR/utils.sh" "get_docker_image" "$LANGUAGE_ID" 2>/dev/null)
 
 SEPARATOR=$("$ROOT_DIR/utils.sh" "print_separator")
 
-if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
-    COMMAND_INSTALL_PACKAGE_MANAGER="npm install -g npm@latest --no-fund --no-audit --silent"
-    COMMAND_INSTALL_RUNTIME="cd $ROOT_DIR && npm install github:willyhorizont/willyhorizont.github.io#v3.2.8 --no-fund --no-audit --silent"
-    echo ">$COMMAND_INSTALL_PACKAGE_MANAGER"
-    echo ">$COMMAND_INSTALL_RUNTIME"
-
-    docker run -i --rm \
-        --entrypoint bash \
-        -v "$ROOT_DIR:$ROOT_DIR" \
-        "$IMAGE" \
-        -c "
-            $COMMAND_INSTALL_PACKAGE_MANAGER
-            $COMMAND_INSTALL_RUNTIME
-        "
-    echo "IS_RUNTIME_INSTALLED=\"TRUE\"" > "$LANGUAGE_ENV_FILE"
-fi
-
 COMMAND_PRINT_VERSION="
 echo \">docker images\"
 echo \"$IMAGE\"
-echo \">node --version\"
-node --version
-echo \">npm --version\"
-npm --version
+echo \">g++ -std=c++23 \"$FILE_NAME_WITH_EXTENSION\" -o \"$FILE_NAME_WITHOUT_EXTENSION\"\"
 "
 
 COMMAND_RUN_LANGUAGE_CODE="
 cd \"$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR\"
-node \"$FILE_NAME_WITH_EXTENSION\"
+g++ -std=c++23 \"$FILE_NAME_WITH_EXTENSION\" -o \"$FILE_NAME_WITHOUT_EXTENSION\"
+./$FILE_NAME_WITHOUT_EXTENSION
 "
 
 docker run -i --rm \
@@ -70,3 +51,5 @@ docker run -i --rm \
 
         $COMMAND_RUN_LANGUAGE_CODE
     "
+
+rm -f "$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR/$FILE_NAME_WITHOUT_EXTENSION"

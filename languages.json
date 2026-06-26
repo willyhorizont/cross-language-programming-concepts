@@ -19,7 +19,9 @@
             "python-like-dict": "Object"
         },
         "vscode_extensions": [],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "node:26.1.0",
@@ -46,7 +48,9 @@
         "vscode_extensions": [
             "ms-python.vscode-pylance"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "python:3.14.5",
@@ -73,7 +77,9 @@
         "vscode_extensions": [
             "bmewburn.vscode-intelephense-client"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "php:8.5.6-cli",
@@ -100,7 +106,9 @@
         "vscode_extensions": [
             "golang.go"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "golang:1.26.3",
@@ -127,7 +135,9 @@
         "vscode_extensions": [
             "bscan.perlnavigator"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "perl:5.42.2",
@@ -154,7 +164,9 @@
         "vscode_extensions": [
             "julialang.language-julia"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "julia:1.12.6",
@@ -181,7 +193,9 @@
         "vscode_extensions": [
             "sumneko.lua"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "nickblah/lua:5.5.0-luarocks",
@@ -208,7 +222,9 @@
         "vscode_extensions": [
             "Shopify.ruby-lsp"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "ruby:4.0.5",
@@ -296,7 +312,9 @@
         "vscode_extensions": [
             "swiftlang.swift-vscode"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": []
     },
     {
@@ -316,7 +334,9 @@
         "vscode_extensions": [
             "dart-code.dart-code"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": []
     },
     {
@@ -336,7 +356,9 @@
         "vscode_extensions": [
             "dnakode.vbnet-language-support"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": []
     },
     {
@@ -356,7 +378,9 @@
         "vscode_extensions": [
             "ms-dotnettools.csharp"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": []
     },
     {
@@ -425,7 +449,9 @@
         "vscode_extensions": [
             "bscan.raku-navigator"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": []
     },
     {
@@ -445,7 +471,9 @@
         "vscode_extensions": [
             "scala-lang.scala"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "(virtuslab/scala-cli:1.13.0 and virtuslab/scala-cli:1.14.0) == scala:3.8.3",
@@ -504,7 +532,9 @@
         "vscode_extensions": [
             "TheNuProjectContributors.vscode-nushell-lang"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "ghcr.io/nushell/nushell:0.113.0-bookworm",
@@ -531,7 +561,9 @@
         "vscode_extensions": [
             "elves.elvish"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "ghcr.io/elves/elvish:v0.21.0",
@@ -556,7 +588,9 @@
             "python-like-dict": "Dictionary"
         },
         "vscode_extensions": [],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "thinca/vim:v9.2.0555-basic-ubuntu",
@@ -612,7 +646,9 @@
         "vscode_extensions": [
             "jnoortheen.nix-ide"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "nixos/nix:2.34.7",
@@ -639,7 +675,9 @@
         "vscode_extensions": [
             "bitwisecook.tcl-lsp"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "siqsuruq/tcl:9.0.3-debian",
@@ -698,7 +736,9 @@
             "myriad-dreamin.tinymist",
             "mathematic.vscode-pdf"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "123marvin123/typst:0.14.2",
@@ -725,7 +765,9 @@
         "vscode_extensions": [
             "ms-vscode.PowerShell"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "heywoodlh/powershell:7.6.2",
@@ -752,7 +794,9 @@
         "vscode_extensions": [
             "JakeBecker.elixir-ls"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "elixir:1.20.0 and erlang:29.0.1",
@@ -779,7 +823,9 @@
         "vscode_extensions": [
             "ocamllabs.ocaml-platform"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "ocaml/opam:ubuntu-25.04-ocaml-5.4",
@@ -806,7 +852,9 @@
         "vscode_extensions": [
             "pgourlain.erlang"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "erlang:29.0.2",
@@ -833,7 +881,9 @@
         "vscode_extensions": [
             "Gleam.gleam"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "ghcr.io/gleam-lang/gleam:v1.17.0-erlang",
@@ -860,7 +910,9 @@
         "vscode_extensions": [
             "ziglang.vscode-zig"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "willyhorizont/zig:0.16.0",
@@ -887,7 +939,9 @@
         "vscode_extensions": [
             "NimLang.nimlang"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "nimlang/nim:2.2.10",
@@ -914,12 +968,43 @@
         "vscode_extensions": [
             "DanielGavin.ols"
         ],
-        "vscode_extensions_archive": [],
+        "vscode_extensions_archive": [
+            
+        ],
         "docker": [
             {
                 "language_version_notes": "willyhorizont/odin:dev-2026-06",
                 "docker_images": [
                     "willyhorizont/odin:dev-2026-06"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "c-plus-plus",
+        "stack": [
+            { 
+                "name": "C++ (C-Plus-Plus)",
+                "url": "https://isocpp.org/",
+                "color": "#f34b7d"
+            }
+        ],
+        "file_extension": ".cpp",
+        "concept_definition": {
+            "python-like-list": "Vector",
+            "python-like-dict": "Unordered Map"
+        },
+        "vscode_extensions": [
+            "jeff-hykin.better-cpp-syntax"
+        ],
+        "vscode_extensions_archive": [
+            "ms-vscode.cpptools"
+        ],
+        "docker": [
+            {
+                "language_version_notes": "gcc:16.1.0-trixie",
+                "docker_images": [
+                    "gcc:16.1.0-trixie"
                 ]
             }
         ]

@@ -2,7 +2,7 @@ const WillyHorizont = require("willyhorizont.github.io");
 const { jsonStringify } = WillyHorizont.Utils;
 
 /*
-1. support function as value
+1. support closure as value
 */
 const sayHello = (callbackFunction) => {
     console.log("hello");

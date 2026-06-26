@@ -59,6 +59,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 33. [Zig](https://ziglang.org/) : [https://ziglang.org/](https://ziglang.org/)  
 34. [Nim](https://nim-lang.org/) : [https://nim-lang.org/](https://nim-lang.org/)  
 35. [Odin](https://odin-lang.org/) : [https://odin-lang.org/](https://odin-lang.org/)  
+36. [C++ (C-Plus-Plus)](https://isocpp.org/) : [https://isocpp.org/](https://isocpp.org/)  
 
 ## Programming concepts  
 
@@ -98,6 +99,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/cross-language-features.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/cross-language-features.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/cross-language-features.odin)  
+  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/cross-language-features.cpp)  
 
 ---
 
@@ -137,6 +139,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/comments.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/comments.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/comments.odin)  
+  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/comments.cpp)  
 
 ---
 
@@ -176,6 +179,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/hello-world.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/hello-world.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/hello-world.odin)  
+  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/hello-world.cpp)  
 
 ---
 
@@ -215,6 +219,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/conditionals.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/conditionals.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/conditionals.odin)  
+  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/conditionals.cpp)  
 
 ---
 
@@ -254,6 +259,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/loops.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/loops.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/loops.odin)  
+  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/loops.cpp)  
 
 ---
 
@@ -293,6 +299,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/functions.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/functions.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/functions.odin)  
+  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/functions.cpp)  
 
 ---
 
@@ -332,6 +339,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/error-handling.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/error-handling.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/error-handling.odin)  
+  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/error-handling.cpp)  
 
 ---
 
@@ -371,6 +379,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/python-like-list.zig) : Slice  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/python-like-list.nim) : Sequence  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/python-like-list.odin) : Slice  
+  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/python-like-list.cpp) : Vector  
 
 ---
 
@@ -410,6 +419,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/python-like-dict.zig) : Association Slice  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/python-like-dict.nim) : Ordered Table  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/python-like-dict.odin) : Map  
+  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/python-like-dict.cpp) : Unordered Map  
 
 ---
 
@@ -449,6 +459,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/loop-through-each-list-item.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/loop-through-each-list-item.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/loop-through-each-list-item.odin)  
+  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/loop-through-each-list-item.cpp)  
 
 ---
 
@@ -488,6 +499,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/get-is-any-item-in-list-matching-condition.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/get-is-any-item-in-list-matching-condition.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/get-is-any-item-in-list-matching-condition.odin)  
+  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-is-any-item-in-list-matching-condition.cpp)  
 
 ---
 
@@ -527,6 +539,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/get-is-all-item-in-list-matching-condition.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/get-is-all-item-in-list-matching-condition.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/get-is-all-item-in-list-matching-condition.odin)  
+  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-is-all-item-in-list-matching-condition.cpp)  
 
 ---
 
@@ -566,6 +579,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/get-first-list-item-matching-condition.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/get-first-list-item-matching-condition.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/get-first-list-item-matching-condition.odin)  
+  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-first-list-item-matching-condition.cpp)  
 
 ---
 
@@ -605,6 +619,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/get-index-of-list-item-matching-condition.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/get-index-of-list-item-matching-condition.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/get-index-of-list-item-matching-condition.odin)  
+  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-index-of-list-item-matching-condition.cpp)  
 
 ---
 
@@ -644,6 +659,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/get-all-list-item-matching-condition.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/get-all-list-item-matching-condition.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/get-all-list-item-matching-condition.odin)  
+  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-all-list-item-matching-condition.cpp)  
 
 ---
 
@@ -683,6 +699,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/transform-each-list-item.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/transform-each-list-item.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/transform-each-list-item.odin)  
+  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/transform-each-list-item.cpp)  
 
 ---
 
@@ -722,6 +739,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/combine-all-list-item.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/combine-all-list-item.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/combine-all-list-item.odin)  
+  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/combine-all-list-item.cpp)  
 
 ---
 
@@ -761,6 +779,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/list-remove-tail.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/list-remove-tail.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-remove-tail.odin)  
+  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-remove-tail.cpp)  
 
 ---
 
@@ -800,3 +819,4 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/list-insert-tail.zig)  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/list-insert-tail.nim)  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-insert-tail.odin)  
+  36. [C++ (C-Plus-Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-insert-tail.cpp)  

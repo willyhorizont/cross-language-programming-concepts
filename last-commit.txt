@@ -1,5 +1,5 @@
 git add .
-git commit -m "update languages.json"
-git tag -a v1.9.0 -m "update languages.json"
+git commit -m "add c++ init"
+git tag -a 2.0.0 -m "add c++ init"
 git push origin main
 git push origin --tags

@@ -4,5 +4,8 @@
     "description": "cross-language-programming-concepts",
     "files": [
         "runtimes"
-    ]
+    ],
+    "dependencies": {
+        "willyhorizont.github.io": "github:willyhorizont/willyhorizont.github.io#v3.2.8"
+    }
 }
