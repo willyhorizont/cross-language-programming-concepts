@@ -1002,7 +1002,7 @@
         ],
         "docker": [
             {
-                "language_version_notes": "gcc:16.1.0-trixie",
+                "language_version_notes": "gcc:16.1.0-trixie and c++23",
                 "docker_images": [
                     "gcc:16.1.0-trixie"
                 ]

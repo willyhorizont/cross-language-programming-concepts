@@ -1,5 +1,5 @@
 git add .
-git commit -m "small update languages.json and README.md"
-git tag -a 2.0.1 -m "small update languages.json and README.md"
+git commit -m "update cpp"
+git tag -a 2.1.0 -m "update cpp"
 git push origin main
 git push origin --tags
