@@ -1,5 +1,5 @@
 git add .
-git commit -m "update cpp"
-git tag -a 2.1.0 -m "update cpp"
+git commit -m "add objective-c init"
+git tag -a 2.1.1 -m "add objective-c init"
 git push origin main
 git push origin --tags

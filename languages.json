@@ -1008,5 +1008,34 @@
                 ]
             }
         ]
+    },
+    {
+        "id": "objective-c",
+        "stack": [
+            { 
+                "name": "Objective C",
+                "url": "https://developer.apple.com/documentation/objectivec",
+                "color": "#438eff"
+            }
+        ],
+        "file_extension": ".m",
+        "concept_definition": {
+            "python-like-list": "Array",
+            "python-like-dict": "Dictionary"
+        },
+        "vscode_extensions": [
+            "jeff-hykin.better-objc-syntax"
+        ],
+        "vscode_extensions_archive": [
+
+        ],
+        "docker": [
+            {
+                "language_version_notes": "pascalecu/clang-objc2-gnustep:clang22-ubuntu26.04",
+                "docker_images": [
+                    "pascalecu/clang-objc2-gnustep:clang22-ubuntu26.04"
+                ]
+            }
+        ]
     }
 ]
