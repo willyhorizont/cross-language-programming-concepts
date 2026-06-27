@@ -13,46 +13,60 @@ typedef NS_ENUM(NSInteger, CrossTypeKind) {
 };
 
 @class CrossType;
+@class XlDictIndexed;
+@class XlClosureVarArgs;
+@class JsonStringifyToken;
+
+int64_t toXlInt(CrossType * obj);
+double toXlFloat(CrossType * obj);
+CrossType * toXlList(NSArray<CrossType *> * args);
+CrossType * toXlDict(NSDictionary<NSString *, CrossType *> * dict, ...);
+NSString * stringRepeat(NSString * s, NSUInteger n);
+NSString * jsonStringify(NSArray *args);
 
 @interface XlClosureVarArgs : NSObject
-@property (nonatomic, strong, readonly) NSArray<CrossType * > * varargs;
+@property (nonatomic, strong, readonly) NSArray<CrossType *> * varargs;
 @property (nonatomic, assign, readonly) NSUInteger index;
-- (instancetype)initWithArgs:(NSArray<CrossType * > *)args;
+- (instancetype)initWithXlClosureVarArgs:(NSArray<CrossType *> *)args;
 - (CrossType *)getNextArguments;
 @end
 
 typedef CrossType * (^XlClosure)(XlClosureVarArgs * varargs);
 
 @interface XlDictIndexed : NSObject
-@property (nonatomic, strong, readonly) NSMutableArray<NSString * > * keys;
-@property (nonatomic, strong, readonly) NSMutableDictionary<NSString *, CrossType * > * map;
+@property (nonatomic, strong, readonly) NSMutableArray<NSString *> * keys;
+@property (nonatomic, strong, readonly) NSMutableDictionary<NSString *, CrossType *> * map;
 - (void)insertKey:(NSString *)key value:(CrossType *)value;
 @end
 
 @interface CrossType : NSObject
 @property (nonatomic, assign, readonly) CrossTypeKind kind;
 @property (nonatomic, strong, readonly) id rawValue;
-
 - (instancetype)initWithXlNone;
-- (instancetype)initWithBool:(BOOL)v;
-- (instancetype)initWithInt:(int64_t)v;
-- (instancetype)initWithFloat:(double)v;
-- (instancetype)initWithString:(NSString *)v;
-- (instancetype)initWithList:(NSArray<CrossType * > *)v;
-- (instancetype)initWithDict:(NSDictionary<NSString *, CrossType * > *)v;
-- (instancetype)initWithDictIndexed:(XlDictIndexed *)v;
-- (instancetype)initWithClosure:(XlClosure)v;
-
-- (CrossType *)call:(NSArray<CrossType * > *)args;
+- (instancetype)initWithXlBool:(BOOL)v;
+- (instancetype)initWithXlInt:(int64_t)v;
+- (instancetype)initWithXlFloat:(double)v;
+- (instancetype)initWithXlString:(NSString *)v;
+- (instancetype)initWithXlList:(NSArray<CrossType *> *)v;
+- (instancetype)initWithXlDict:(NSDictionary<NSString *, CrossType *> *)v;
+- (instancetype)initWithXlDictIndexed:(XlDictIndexed *)v;
+- (instancetype)initWithXlClosure:(XlClosure)v;
+- (CrossType *)call:(NSArray<CrossType *> *)args;
 @end
 
-@implementation XlClosureVarArgs {
-    NSUInteger _index;
-}
-- (instancetype)initWithArgs:(NSArray<CrossType * > *)args {
+@interface JsonStringifyToken : NSObject
+@property (nonatomic, strong) NSString * type; // @"reference" or @"primitive"
+@property (nonatomic, strong) CrossType * crossTypeValue;
+@property (nonatomic, strong) NSString * primitiveValue;
+@property (nonatomic, assign) NSUInteger indentationLevel;
+@end
+
+@implementation XlClosureVarArgs
+- (instancetype)initWithXlClosureVarArgs:(NSArray<CrossType *> *)args {
     self = [super init];
     if (self) {
-        _varargs = args; _index = 0;
+        _varargs = args;
+        _index = 0;
     }
     return self;
 }
@@ -90,66 +104,66 @@ typedef CrossType * (^XlClosure)(XlClosureVarArgs * varargs);
     }
     return self;
 }
-- (instancetype)initWithBool:(BOOL)v {
+- (instancetype)initWithXlBool:(BOOL)v {
     self = [super init];
     if (self) {
         _kind = XlKindBool; _rawValue = @(v);
     }
     return self;
 }
-- (instancetype)initWithInt:(int64_t)v {
+- (instancetype)initWithXlInt:(int64_t)v {
     self = [super init];
     if (self) {
         _kind = XlKindInt; _rawValue = @(v);
     }
     return self;
 }
-- (instancetype)initWithFloat:(double)v {
+- (instancetype)initWithXlFloat:(double)v {
     self = [super init];
     if (self) {
         _kind = XlKindFloat; _rawValue = @(v);
     }
     return self;
 }
-- (instancetype)initWithString:(NSString *)v {
+- (instancetype)initWithXlString:(NSString *)v {
     self = [super init];
     if (self) {
         _kind = XlKindString; _rawValue = [v copy];
     }
     return self;
 }
-- (instancetype)initWithList:(NSArray<CrossType * > *)v {
+- (instancetype)initWithXlList:(NSArray<CrossType *> *)v {
     self = [super init];
     if (self) {
         _kind = XlKindList; _rawValue = [v copy];
     }
     return self;
 }
-- (instancetype)initWithDict:(NSDictionary<NSString *, CrossType * > *)v {
+- (instancetype)initWithXlDict:(NSDictionary<NSString *, CrossType *> *)v {
     self = [super init];
     if (self) {
         _kind = XlKindDict; _rawValue = [v copy];
     }
     return self;
 }
-- (instancetype)initWithDictIndexed:(XlDictIndexed *)v {
+- (instancetype)initWithXlDictIndexed:(XlDictIndexed *)v {
     self = [super init];
     if (self) {
         _kind = XlKindDictIndexed; _rawValue = v;
     }
     return self;
 }
-- (instancetype)initWithClosure:(XlClosure)v {
+- (instancetype)initWithXlClosure:(XlClosure)v {
     self = [super init];
     if (self) {
         _kind = XlKindClosure; _rawValue = [v copy];
     }
     return self;
 }
-- (CrossType *)call:(NSArray<CrossType * > *)args {
+- (CrossType *)call:(NSArray<CrossType *> *)args {
     if (self.kind == XlKindClosure) {
         XlClosure closureBlock = (XlClosure)self.rawValue;
-        XlClosureVarArgs * tracker = [[XlClosureVarArgs alloc] initWithArgs:args];
+        XlClosureVarArgs * tracker = [[XlClosureVarArgs alloc] initWithXlClosureVarArgs:args];
         return closureBlock(tracker);
     }
     @throw [NSException exceptionWithName:@"XlRuntimeError" reason:@"Error: Expected XlClosure." userInfo:nil];
@@ -179,33 +193,51 @@ int64_t toXlInt(CrossType * obj) {
     return [obj.rawValue longLongValue];
 }
 
-CrossType * toXlList(NSArray<CrossType * > * args) {
-    return [[CrossType alloc] initWithList:args];
-}
-
-CrossType * toXlDict(NSDictionary<NSString *, CrossType * > * dict) {
-    return [[CrossType alloc] initWithDict:dict];
-}
-
-CrossType * toXlDictIndexed(NSArray<NSString * > * keys, NSArray<CrossType * > * values) {
-    XlDictIndexed * indexed = [XlDictIndexed new];
-    NSUInteger count = MIN(keys.count, values.count);
-    for (NSUInteger i = 0; i < count; i += 1) {
-        [indexed insertKey:keys[i] value:values[i]];
+double toXlFloat(CrossType * obj) {
+    if (!obj || obj.kind == XlKindNone) {
+        @throw [NSException exceptionWithName:@"CrossTypeError" reason:@"Error: Expected XlFloat." userInfo:nil];
     }
-    return [[CrossType alloc] initWithDictIndexed:indexed];
+    if (obj.kind != XlKindFloat) {
+        @throw [NSException exceptionWithName:@"CrossTypeError" reason:@"Error: Expected XlFloat." userInfo:nil];
+    }
+    return [obj.rawValue doubleValue];
+}
+
+CrossType * toXlList(NSArray<CrossType *> * args) {
+    return [[CrossType alloc] initWithXlList:args];
+}
+
+CrossType * toXlDict(NSDictionary<NSString *, CrossType *> * dict, ...) {
+    if (!dict) {
+        return [[CrossType alloc] initWithXlNone];
+    }
+
+    va_list args;
+    va_start(args, dict);
+    
+    NSArray<NSString *> *keysOrder = va_arg(args, NSArray<NSString *> *);
+    va_end(args);
+
+    if (keysOrder && [keysOrder isKindOfClass:[NSArray class]]) {
+        XlDictIndexed *indexed = [XlDictIndexed new];
+        
+        for (NSUInteger i = 0; i < keysOrder.count; i += 1) {
+            NSString *key = keysOrder[i];
+            CrossType *value = [dict objectForKey:key];
+            
+            if (value) {
+                [indexed insertKey:key value:value];
+            }
+        }
+        return [[CrossType alloc] initWithXlDictIndexed:indexed];
+    }
+
+    return [[CrossType alloc] initWithXlDict:dict];
 }
 
 NSString * stringRepeat(NSString * s, NSUInteger n) {
     return [@"" stringByPaddingToLength:(s.length * n) withString:s startingAtIndex:0];
 }
-
-@interface JsonStringifyToken : NSObject
-@property (nonatomic, strong) NSString * type; // @"reference" or @"primitive"
-@property (nonatomic, strong) CrossType * crossTypeValue;
-@property (nonatomic, strong) NSString * primitiveValue;
-@property (nonatomic, assign) NSUInteger indentationLevel;
-@end
 
 @implementation JsonStringifyToken
 @end
@@ -230,7 +262,7 @@ NSString * jsonStringify(NSArray *args) {
     }
 
     NSString * indentation = @"    ";
-    NSMutableArray<JsonStringifyToken * > * tokenStack = [[NSMutableArray alloc] init];
+    NSMutableArray<JsonStringifyToken *> * tokenStack = [[NSMutableArray alloc] init];
     
     JsonStringifyToken * rootToken = [[JsonStringifyToken alloc] init];
     rootToken.type = @"reference";
@@ -274,7 +306,7 @@ NSString * jsonStringify(NSArray *args) {
         }
         
         if (currentCrossObj.kind == XlKindList) {
-            NSArray<CrossType * > * xlListRef = (NSArray<CrossType * > *)currentCrossObj.rawValue;
+            NSArray<CrossType *> * xlListRef = (NSArray<CrossType *> *)currentCrossObj.rawValue;
             if (xlListRef.count == 0) {
                 [result appendString:@"[]"];
                 continue;
@@ -367,7 +399,7 @@ NSString * jsonStringify(NSArray *args) {
         }
         
         if (currentCrossObj.kind == XlKindDict) {
-            NSDictionary<NSString *, CrossType * > * xlDictRef = (NSDictionary<NSString *, CrossType * > *)currentCrossObj.rawValue;
+            NSDictionary<NSString *, CrossType *> * xlDictRef = (NSDictionary<NSString *, CrossType *> *)currentCrossObj.rawValue;
             if (xlDictRef.count == 0) {
                 [result appendString:@"{}"];
                 continue;
@@ -382,7 +414,7 @@ NSString * jsonStringify(NSArray *args) {
             closeToken.indentationLevel = currentIndentationLevel;
             [tokenStack addObject:closeToken];
             
-            NSArray<NSString * > * allKeys = [xlDictRef allKeys];
+            NSArray<NSString *> * allKeys = [xlDictRef allKeys];
             
             for (NSInteger i = (NSInteger)allKeys.count - 1; i >= 0; i -= 1) {
                 NSString * key = allKeys[i];

@@ -39,20 +39,20 @@ add:
 https://nue.nu/
 ~~ps1 / pwsh / powershell~~
 ~~typst~~
-~gleam "#ffaff3"~
-~freebasic~ failed
-~freepascal~ failed
-~smalltalk = pharo, squeak, cuis smalltalk, ~dolphin smalltalk~~ failed
-~nim~
-~odin~
-~zig~
-~actionscript~ failed
-~Objective-C~ failed need xcode
+~~gleam~~
+~~nim~~
+~~odin~~
+~~zig~~
+~~c++~~
+~~Objective-C~~
+~~smalltalk = pharo, squeak, cuis smalltalk, ~dolphin smalltalk~~ failed, can not setup
+~~actionscript~~ failed, can not setup
+~~freebasic~~ canceled, no closure as value
+~~freepascal~~ canceled, no closure as value
+~~c~~ canceled, no closure as value
 coffeescript
 typescript
 c3
-c
-c++
 v
 d
 vala
