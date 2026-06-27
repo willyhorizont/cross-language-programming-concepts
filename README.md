@@ -60,7 +60,8 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 34. [Nim](https://nim-lang.org/) : [https://nim-lang.org/](https://nim-lang.org/)  
 35. [Odin](https://odin-lang.org/) : [https://odin-lang.org/](https://odin-lang.org/)  
 36. [C++ (C Plus Plus)](https://isocpp.org/) : [https://isocpp.org/](https://isocpp.org/)  
-37. [Objective C](https://developer.apple.com/documentation/objectivec) : [https://developer.apple.com/documentation/objectivec](https://developer.apple.com/documentation/objectivec)  
+37. [Objective C](https://developer.apple.com/documentation/objectivec/) : [https://developer.apple.com/documentation/objectivec/](https://developer.apple.com/documentation/objectivec/)  
+38. [Pharo (Smalltalk dialect)](https://pharo.org/) : [https://pharo.org/](https://pharo.org/)  
 
 ## Programming concepts  
 
@@ -102,6 +103,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/cross-language-features.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/cross-language-features.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/cross-language-features.m)  
+  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/cross-language-features.st)  
 
 ---
 
@@ -143,6 +145,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/comments.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/comments.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/comments.m)  
+  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/comments.st)  
 
 ---
 
@@ -184,6 +187,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/hello-world.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/hello-world.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/hello-world.m)  
+  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/hello-world.st)  
 
 ---
 
@@ -225,6 +229,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/conditionals.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/conditionals.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/conditionals.m)  
+  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/conditionals.st)  
 
 ---
 
@@ -266,6 +271,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/loops.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/loops.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/loops.m)  
+  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/loops.st)  
 
 ---
 
@@ -307,6 +313,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/functions.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/functions.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/functions.m)  
+  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/functions.st)  
 
 ---
 
@@ -348,6 +355,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/error-handling.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/error-handling.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/error-handling.m)  
+  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/error-handling.st)  
 
 ---
 
@@ -389,6 +397,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/python-like-list.odin) : Slice  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/python-like-list.cpp) : Vector  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/python-like-list.m) : Array  
+  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/python-like-list.st) : OrderedCollection  
 
 ---
 
@@ -430,6 +439,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/python-like-dict.odin) : Map  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/python-like-dict.cpp) : Unordered Map  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/python-like-dict.m) : Dictionary  
+  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/python-like-dict.st) : OrderedDictionary  
 
 ---
 
@@ -471,6 +481,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/loop-through-each-list-item.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/loop-through-each-list-item.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/loop-through-each-list-item.m)  
+  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/loop-through-each-list-item.st)  
 
 ---
 
@@ -512,6 +523,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/get-is-any-item-in-list-matching-condition.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-is-any-item-in-list-matching-condition.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/get-is-any-item-in-list-matching-condition.m)  
+  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/get-is-any-item-in-list-matching-condition.st)  
 
 ---
 
@@ -553,6 +565,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/get-is-all-item-in-list-matching-condition.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-is-all-item-in-list-matching-condition.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/get-is-all-item-in-list-matching-condition.m)  
+  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/get-is-all-item-in-list-matching-condition.st)  
 
 ---
 
@@ -594,6 +607,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/get-first-list-item-matching-condition.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-first-list-item-matching-condition.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/get-first-list-item-matching-condition.m)  
+  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/get-first-list-item-matching-condition.st)  
 
 ---
 
@@ -635,6 +649,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/get-index-of-list-item-matching-condition.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-index-of-list-item-matching-condition.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/get-index-of-list-item-matching-condition.m)  
+  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/get-index-of-list-item-matching-condition.st)  
 
 ---
 
@@ -676,6 +691,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/get-all-list-item-matching-condition.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-all-list-item-matching-condition.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/get-all-list-item-matching-condition.m)  
+  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/get-all-list-item-matching-condition.st)  
 
 ---
 
@@ -717,6 +733,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/transform-each-list-item.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/transform-each-list-item.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/transform-each-list-item.m)  
+  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/transform-each-list-item.st)  
 
 ---
 
@@ -758,6 +775,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/combine-all-list-item.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/combine-all-list-item.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/combine-all-list-item.m)  
+  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/combine-all-list-item.st)  
 
 ---
 
@@ -799,6 +817,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-remove-tail.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-remove-tail.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-remove-tail.m)  
+  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/list-remove-tail.st)  
 
 ---
 
@@ -840,3 +859,4 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-insert-tail.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-insert-tail.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-insert-tail.m)  
+  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/list-insert-tail.st)  

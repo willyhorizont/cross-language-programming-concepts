@@ -386,6 +386,7 @@
         ".nim": "bash $workspaceRoot/languages/nim/run.sh $dirWithoutTrailingSlash/$fileName",
         ".odin": "bash $workspaceRoot/languages/odin/run.sh $dirWithoutTrailingSlash/$fileName",
         ".cpp": "bash $workspaceRoot/languages/c-plus-plus/run.sh $dirWithoutTrailingSlash/$fileName",
+        ".st": "bash $workspaceRoot/languages/smalltalk-dialect-pharo/run.sh $dirWithoutTrailingSlash/$fileName",
 
         // ".mojo": "bash ./languages/mojo/run.sh $fileName",
         // ".rs": "bash ./languages/rust/run.sh $fileName",
@@ -424,6 +425,7 @@
         "odin": "bash $workspaceRoot/languages/odin/run.sh $dirWithoutTrailingSlash/$fileName",
         "cpp": "bash $workspaceRoot/languages/c-plus-plus/run.sh $dirWithoutTrailingSlash/$fileName",
         "objective-c": "bash $workspaceRoot/languages/objective-c/run.sh $dirWithoutTrailingSlash/$fileName",
+        "smalltalk": "bash $workspaceRoot/languages/smalltalk-dialect-pharo/run.sh $dirWithoutTrailingSlash/$fileName",
 
         "mojo": "bash $workspaceRoot/languages/mojo/run.sh $dirWithoutTrailingSlash/$fileName",
         "scala2": "cd $dir && scalac $fileName && scala $fileNameWithoutExt && del \"$dir*.class\"", // compile .scala file to .class and run the .class

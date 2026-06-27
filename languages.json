@@ -1014,7 +1014,7 @@
         "stack": [
             { 
                 "name": "Objective C",
-                "url": "https://developer.apple.com/documentation/objectivec",
+                "url": "https://developer.apple.com/documentation/objectivec/",
                 "color": "#438eff"
             }
         ],
@@ -1034,6 +1034,37 @@
                 "language_version_notes": "pascalecu/clang-objc2-gnustep:clang22-ubuntu26.04",
                 "docker_images": [
                     "pascalecu/clang-objc2-gnustep:clang22-ubuntu26.04"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "smalltalk-dialect-pharo",
+        "stack": [
+            { 
+                "name": "Pharo (Smalltalk dialect)",
+                "url": "https://pharo.org/",
+                "color": "#596706"
+            }
+        ],
+        "file_extension": ".st",
+        "concept_definition": {
+            "python-like-list": "OrderedCollection",
+            "python-like-dict": "OrderedDictionary"
+        },
+        "vscode_extensions": [
+            "PleasedSkin.smalltalk"
+        ],
+        "vscode_extensions_archive": [
+            "badetitou.pharo-language-server",
+            "badetitou.pharo-highlighter",
+            "leocamello.vscode-smalltalk"
+        ],
+        "docker": [
+            {
+                "language_version_notes": "willyhorizont/pharo:13.1.0",
+                "docker_images": [
+                    "willyhorizont/pharo:13.1.0"
                 ]
             }
         ]

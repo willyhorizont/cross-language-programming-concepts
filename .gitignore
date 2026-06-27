@@ -27,3 +27,5 @@ runtimes/typst/willyhorizont/output/typst/
 runtimes/ocaml/runtime/willyhorizont.cmi
 runtimes/ocaml/runtime/willyhorizont.cmx
 runtimes/ocaml/runtime/willyhorizont.o
+
+runtimes/gleam/
