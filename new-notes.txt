@@ -45,11 +45,11 @@ https://nue.nu/
 ~~zig~~
 ~~c++~~
 ~~Objective-C~~
-~~smalltalk = pharo, squeak, cuis smalltalk, ~dolphin smalltalk~~ failed, can not setup
-~~actionscript~~ failed, can not setup
-~~freebasic~~ canceled, no closure as value
-~~freepascal~~ canceled, no closure as value
-~~c~~ canceled, no closure as value
+~~smalltalk = pharo, squeak, cuis smalltalk, ~dolphin smalltalk~~
+~~actionscript~~
+~~freebasic~~ tried, canceled, no closure as value
+~~freepascal~~ tried, canceled, no closure as value
+~~c~~ tried, canceled, no closure as value
 coffeescript
 typescript
 c3
@@ -82,6 +82,7 @@ install ext locally
 
 tail call recursive via Continuation-Passing Style (CPS)
 
+Polyfil
 aku mau ada type (aku beri nama CrossType) untuk menyimpan ini semua:
 XlNone (seperti nil / null / None)
 XlBool

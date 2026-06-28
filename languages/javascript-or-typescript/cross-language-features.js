@@ -34,6 +34,7 @@ const xlList = [
     { "foo": "bar" },
     (aa, bb) => (aa * bb),
 ];
+console.log(`xl_list: ${jsonStringify(xlList)}`);
 console.log(`xl_list: ${jsonStringify(xlList, { pretty: true })}`);
 const xlDict = {
     "xl_none": null,
@@ -48,4 +49,5 @@ const xlDict = {
     "xl_dict": { "foo": "bar" },
     "xl_closure": (aa, bb) => (aa * bb),
 };
+console.log(`xl_dict: ${jsonStringify(xlDict)}`);
 console.log(`xl_dict: ${jsonStringify(xlDict, { pretty: true })}`);

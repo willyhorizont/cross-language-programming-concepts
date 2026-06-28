@@ -28,4 +28,10 @@ runtimes/ocaml/runtime/willyhorizont.cmi
 runtimes/ocaml/runtime/willyhorizont.cmx
 runtimes/ocaml/runtime/willyhorizont.o
 
+runtimes/odin/main.odin
 runtimes/gleam/
+
+*.zip
+*.swf
+runtimes/actionscript/output/
+runtimes/actionscript/Program.as

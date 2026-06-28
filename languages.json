@@ -500,8 +500,7 @@
         },
         "vscode_extensions": [
             "redhat.java",
-            "Oracle.oracle-java",
-            ""
+            "Oracle.oracle-java"
         ],
         "vscode_extensions_archive": [
             "georgewfraser.vscode-javac"
@@ -1065,6 +1064,35 @@
                 "language_version_notes": "willyhorizont/pharo:13.1.0",
                 "docker_images": [
                     "willyhorizont/pharo:13.1.0"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "actionscript",
+        "stack": [
+            { 
+                "name": "ActionScript",
+                "url": "https://airsdk.dev/reference/actionscript/3.0/",
+                "color": "#882B0F"
+            }
+        ],
+        "file_extension": ".as",
+        "concept_definition": {
+            "python-like-list": "Array",
+            "python-like-dict": "Object"
+        },
+        "vscode_extensions": [
+            "bowlerhatllc.vscode-as3mxml"
+        ],
+        "vscode_extensions_archive": [
+            "RobinMiau.ruffle"
+        ],
+        "docker": [
+            {
+                "language_version_notes": "debian:bookworm-slim and openjdk:17 and actionscript:3.0 and apache.org/apache-flex-sdk:4.16.1 and nexussays/playerglobal.swc:27.0",
+                "docker_images": [
+                    "willyhorizont/actionscript:3.0"
                 ]
             }
         ]

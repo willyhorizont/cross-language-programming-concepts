@@ -62,6 +62,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 36. [C++ (C Plus Plus)](https://isocpp.org/) : [https://isocpp.org/](https://isocpp.org/)  
 37. [Objective C](https://developer.apple.com/documentation/objectivec/) : [https://developer.apple.com/documentation/objectivec/](https://developer.apple.com/documentation/objectivec/)  
 38. [Pharo (Smalltalk dialect)](https://pharo.org/) : [https://pharo.org/](https://pharo.org/)  
+39. [ActionScript](https://airsdk.dev/reference/actionscript/3.0/) : [https://airsdk.dev/reference/actionscript/3.0/](https://airsdk.dev/reference/actionscript/3.0/)  
 
 ## Programming concepts  
 
@@ -104,6 +105,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/cross-language-features.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/cross-language-features.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/cross-language-features.st)  
+  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/cross-language-features.as)  
 
 ---
 
@@ -146,6 +148,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/comments.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/comments.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/comments.st)  
+  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/comments.as)  
 
 ---
 
@@ -188,6 +191,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/hello-world.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/hello-world.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/hello-world.st)  
+  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/hello-world.as)  
 
 ---
 
@@ -230,6 +234,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/conditionals.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/conditionals.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/conditionals.st)  
+  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/conditionals.as)  
 
 ---
 
@@ -272,6 +277,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/loops.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/loops.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/loops.st)  
+  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/loops.as)  
 
 ---
 
@@ -314,6 +320,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/functions.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/functions.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/functions.st)  
+  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/functions.as)  
 
 ---
 
@@ -356,6 +363,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/error-handling.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/error-handling.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/error-handling.st)  
+  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/error-handling.as)  
 
 ---
 
@@ -398,6 +406,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/python-like-list.cpp) : Vector  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/python-like-list.m) : Array  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/python-like-list.st) : OrderedCollection  
+  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/python-like-list.as) : Array  
 
 ---
 
@@ -440,6 +449,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/python-like-dict.cpp) : Unordered Map  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/python-like-dict.m) : Dictionary  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/python-like-dict.st) : OrderedDictionary  
+  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/python-like-dict.as) : Object  
 
 ---
 
@@ -482,6 +492,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/loop-through-each-list-item.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/loop-through-each-list-item.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/loop-through-each-list-item.st)  
+  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/loop-through-each-list-item.as)  
 
 ---
 
@@ -524,6 +535,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-is-any-item-in-list-matching-condition.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/get-is-any-item-in-list-matching-condition.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/get-is-any-item-in-list-matching-condition.st)  
+  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/get-is-any-item-in-list-matching-condition.as)  
 
 ---
 
@@ -566,6 +578,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-is-all-item-in-list-matching-condition.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/get-is-all-item-in-list-matching-condition.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/get-is-all-item-in-list-matching-condition.st)  
+  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/get-is-all-item-in-list-matching-condition.as)  
 
 ---
 
@@ -608,6 +621,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-first-list-item-matching-condition.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/get-first-list-item-matching-condition.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/get-first-list-item-matching-condition.st)  
+  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/get-first-list-item-matching-condition.as)  
 
 ---
 
@@ -650,6 +664,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-index-of-list-item-matching-condition.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/get-index-of-list-item-matching-condition.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/get-index-of-list-item-matching-condition.st)  
+  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/get-index-of-list-item-matching-condition.as)  
 
 ---
 
@@ -692,6 +707,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/get-all-list-item-matching-condition.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/get-all-list-item-matching-condition.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/get-all-list-item-matching-condition.st)  
+  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/get-all-list-item-matching-condition.as)  
 
 ---
 
@@ -734,6 +750,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/transform-each-list-item.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/transform-each-list-item.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/transform-each-list-item.st)  
+  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/transform-each-list-item.as)  
 
 ---
 
@@ -776,6 +793,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/combine-all-list-item.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/combine-all-list-item.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/combine-all-list-item.st)  
+  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/combine-all-list-item.as)  
 
 ---
 
@@ -818,6 +836,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-remove-tail.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-remove-tail.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/list-remove-tail.st)  
+  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-remove-tail.as)  
 
 ---
 
@@ -860,3 +879,4 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-insert-tail.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-insert-tail.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/list-insert-tail.st)  
+  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-insert-tail.as)  
