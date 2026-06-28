@@ -50,6 +50,9 @@ https://nue.nu/
 ~~freebasic~~ tried, canceled, no closure as value
 ~~freepascal~~ tried, canceled, no closure as value
 ~~c~~ tried, canceled, no closure as value
+https://nekovm.org/
+MTASC 1.15 or Flash Player 8 or SWF v8
+Haxe
 coffeescript
 typescript
 c3

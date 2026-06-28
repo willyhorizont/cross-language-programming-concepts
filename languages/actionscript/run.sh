@@ -62,6 +62,10 @@ C2="cp -f \"$PTFNX\" \"$PTIFX\""
 C3="mxmlc \"$PTRFX\" -output \"$PTOFXD/$FN.swf\""
 CCRLC="
 mxmlc -source-path+=\"$PTRD\" -default-size 800 450 -compiler.define=CONFIG::SCREEN_WIDTH,\"'${SW}'\" -compiler.define=CONFIG::SCREEN_HEIGHT,\"'${SH}'\" -compiler.define=CONFIG::USER_NAME,\"'${UN}'\" -compiler.define=CONFIG::USER_COMPUTER,\"'${UC}'\" -compiler.define=CONFIG::USER_PWD,\"'${UD}'\" -compiler.define=CONFIG::COMMAND_1,\"'${C1}'\" -compiler.define=CONFIG::COMMAND_2,\"'${C2}'\" -compiler.define=CONFIG::COMMAND_3,\"'${C3}'\" \"$PTRFX\" -output \"$PTOFXD/$FN.swf\"
+echo \">SWF version:\"
+java -jar /apache-flex-sdk/lib/swfdump.jar \"$PTOFXD/$FN.swf\" | grep \"version=\"
+echo \">Flash Player version:\"
+grep \"<target-player>\" /apache-flex-sdk/frameworks/flex-config.xml
 "
 
 if ! docker image inspect "$IMG" > /dev/null 2>&1; then
