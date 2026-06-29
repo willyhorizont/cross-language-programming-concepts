@@ -1,6 +1,5 @@
 {
     "extensions.ignoreRecommendations": true,
-    "julia.juliaup.install.hint": false,
     // 1. turn off VS Code IntelliSense
     "editor.suggestOnTriggerCharacters": false,
     "editor.quickSuggestions": {
@@ -26,8 +25,6 @@
 
     "python.languageServer": "None",
     "python.analysis.diagnosticMode": "openFilesOnly",
-
-    "kotlin.languageServer.enabled": false,
 
     "editor.semanticHighlighting.enabled": true,
 
@@ -428,6 +425,7 @@
         "objective-c": "bash $workspaceRoot/languages/objective-c/run.sh $dirWithoutTrailingSlash/$fileName",
         "smalltalk": "bash $workspaceRoot/languages/smalltalk-dialect-pharo/run.sh $dirWithoutTrailingSlash/$fileName",
         "actionscript": "bash $workspaceRoot/languages/actionscript/run.sh $dirWithoutTrailingSlash/$fileName",
+        "groovy": "bash $workspaceRoot/languages/groovy/run.sh $dirWithoutTrailingSlash/$fileName",
 
         "mojo": "bash $workspaceRoot/languages/mojo/run.sh $dirWithoutTrailingSlash/$fileName",
         "scala2": "cd $dir && scalac $fileName && scala $fileNameWithoutExt && del \"$dir*.class\"", // compile .scala file to .class and run the .class
@@ -441,7 +439,6 @@
         // "odin": "cd $dir && odin run $fileName -file",
         // "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         // "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "groovy": "groovy",
         "bat": "cmd /c",
         "fsharp": "fsi",
         "typescript": "ts-node",
@@ -541,4 +538,33 @@
         "editor.insertSpaces": true,
         "editor.detectIndentation": false
     },
+    "liveServer.settings.donotVerifyTags": true,
+    "lldb.suppressUpdateNotifications": true,
+    "liveServer.settings.CustomBrowser": "chrome",
+    "editor.selectionClipboard": false,
+    "diffEditor.maxComputationTime": 0,
+    "diffEditor.experimental.showMoves": true,
+    "diffEditor.renderSideBySide": true,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "application.shellEnvironmentResolutionTimeout": 100,
+    "chat.disableAIFeatures": true,
+    "tclLsp.features.signatureHelp": false,
+    "tclLsp.features.inlayHints": null,
+    "tclLsp.formatting.spaceBetweenBraces": false,
+    "tclLsp.ai.enabled": false,
+    "window.newWindowProfile": "Default",
+    "julia.juliaup.install.hint": false,
+    "[plaintext]": {
+        "editor.unicodeHighlight.ambiguousCharacters": false,
+        "editor.unicodeHighlight.invisibleCharacters": false
+    },
+    "kotlin.languageServer.enabled": false,
+    "kotlin.debugAdapter.enabled": false,
+    "window.titleSeparator": " | ",
+    "zig.zls.enabled": "off",
+    "groovyLint.enable": false,
+    "groovyLint.fix.enable": false,
+    "groovyLint.format.enable": false,
+    "groovyLint.format.useDocumentIndentSize": false,
+    "groovyLint.lint.trigger": "user"
 }

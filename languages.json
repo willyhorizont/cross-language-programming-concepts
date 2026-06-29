@@ -1096,5 +1096,34 @@
                 ]
             }
         ]
+    },
+    {
+        "id": "groovy",
+        "stack": [
+            { 
+                "name": "Groovy",
+                "url": "https://groovy-lang.org/",
+                "color": "#4298b8"
+            }
+        ],
+        "file_extension": ".groovy",
+        "concept_definition": {
+            "python-like-list": "List",
+            "python-like-dict": "Map"
+        },
+        "vscode_extensions": [
+            "NicolasVuillamy.vscode-groovy-lint"
+        ],
+        "vscode_extensions_archive": [
+            
+        ],
+        "docker": [
+            {
+                "language_version_notes": "groovy:5.0.6-jdk21-noble",
+                "docker_images": [
+                    "groovy:5.0.6-jdk21-noble"
+                ]
+            }
+        ]
     }
 ]

@@ -63,6 +63,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 37. [Objective C](https://developer.apple.com/documentation/objectivec/) : [https://developer.apple.com/documentation/objectivec/](https://developer.apple.com/documentation/objectivec/)  
 38. [Pharo (Smalltalk dialect)](https://pharo.org/) : [https://pharo.org/](https://pharo.org/)  
 39. [ActionScript](https://flex.apache.org/) : [https://flex.apache.org/](https://flex.apache.org/)  
+40. [Groovy](https://groovy-lang.org/) : [https://groovy-lang.org/](https://groovy-lang.org/)  
 
 ![GitHub Programming Languages Card](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/github-programming-languages-card.png)  
 
@@ -108,6 +109,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/cross-language-features.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/cross-language-features.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/cross-language-features.as)  
+  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/cross-language-features.groovy)  
 
 ---
 
@@ -151,6 +153,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/comments.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/comments.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/comments.as)  
+  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/comments.groovy)  
 
 ---
 
@@ -194,6 +197,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/hello-world.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/hello-world.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/hello-world.as)  
+  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/hello-world.groovy)  
 
 ---
 
@@ -237,6 +241,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/conditionals.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/conditionals.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/conditionals.as)  
+  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/conditionals.groovy)  
 
 ---
 
@@ -280,6 +285,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/loops.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/loops.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/loops.as)  
+  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/loops.groovy)  
 
 ---
 
@@ -323,6 +329,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/functions.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/functions.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/functions.as)  
+  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/functions.groovy)  
 
 ---
 
@@ -366,6 +373,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/error-handling.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/error-handling.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/error-handling.as)  
+  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/error-handling.groovy)  
 
 ---
 
@@ -409,6 +417,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/python-like-list.m) : Array  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/python-like-list.st) : OrderedCollection  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/python-like-list.as) : Array  
+  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/python-like-list.groovy) : List  
 
 ---
 
@@ -452,6 +461,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/python-like-dict.m) : Dictionary  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/python-like-dict.st) : OrderedDictionary  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/python-like-dict.as) : Object  
+  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/python-like-dict.groovy) : Map  
 
 ---
 
@@ -495,6 +505,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/loop-through-each-list-item.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/loop-through-each-list-item.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/loop-through-each-list-item.as)  
+  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/loop-through-each-list-item.groovy)  
 
 ---
 
@@ -538,6 +549,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/get-is-any-item-in-list-matching-condition.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/get-is-any-item-in-list-matching-condition.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/get-is-any-item-in-list-matching-condition.as)  
+  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/get-is-any-item-in-list-matching-condition.groovy)  
 
 ---
 
@@ -581,6 +593,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/get-is-all-item-in-list-matching-condition.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/get-is-all-item-in-list-matching-condition.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/get-is-all-item-in-list-matching-condition.as)  
+  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/get-is-all-item-in-list-matching-condition.groovy)  
 
 ---
 
@@ -624,6 +637,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/get-first-list-item-matching-condition.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/get-first-list-item-matching-condition.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/get-first-list-item-matching-condition.as)  
+  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/get-first-list-item-matching-condition.groovy)  
 
 ---
 
@@ -667,6 +681,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/get-index-of-list-item-matching-condition.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/get-index-of-list-item-matching-condition.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/get-index-of-list-item-matching-condition.as)  
+  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/get-index-of-list-item-matching-condition.groovy)  
 
 ---
 
@@ -710,6 +725,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/get-all-list-item-matching-condition.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/get-all-list-item-matching-condition.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/get-all-list-item-matching-condition.as)  
+  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/get-all-list-item-matching-condition.groovy)  
 
 ---
 
@@ -753,6 +769,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/transform-each-list-item.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/transform-each-list-item.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/transform-each-list-item.as)  
+  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/transform-each-list-item.groovy)  
 
 ---
 
@@ -796,6 +813,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/combine-all-list-item.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/combine-all-list-item.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/combine-all-list-item.as)  
+  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/combine-all-list-item.groovy)  
 
 ---
 
@@ -839,6 +857,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-remove-tail.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/list-remove-tail.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-remove-tail.as)  
+  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-remove-tail.groovy)  
 
 ---
 
@@ -882,3 +901,4 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-insert-tail.m)  
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/list-insert-tail.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-insert-tail.as)  
+  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-insert-tail.groovy)  

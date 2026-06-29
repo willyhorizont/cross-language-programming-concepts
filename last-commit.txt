@@ -1,5 +1,5 @@
 git add .
-git commit -m "version 2.4.4: update readme.md;"
-git tag -a 2.4.4 -m "version 2.4.4: update readme.md;"
+git commit -m "version 2.5.4: add groovy init;"
+git tag -a 2.5.4 -m "version 2.5.4: add groovy init;"
 git push origin main -f
 git push origin --tags -f
