@@ -62,7 +62,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 36. [C++ (C Plus Plus)](https://isocpp.org/) : [https://isocpp.org/](https://isocpp.org/)  
 37. [Objective C](https://developer.apple.com/documentation/objectivec/) : [https://developer.apple.com/documentation/objectivec/](https://developer.apple.com/documentation/objectivec/)  
 38. [Pharo (Smalltalk dialect)](https://pharo.org/) : [https://pharo.org/](https://pharo.org/)  
-39. [ActionScript](https://airsdk.dev/reference/actionscript/3.0/) : [https://airsdk.dev/reference/actionscript/3.0/](https://airsdk.dev/reference/actionscript/3.0/)  
+39. [ActionScript](https://flex.apache.org/) : [https://flex.apache.org/](https://flex.apache.org/)  
 
 ![GitHub Programming Languages Card](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/github-programming-languages-card.png)  
 
