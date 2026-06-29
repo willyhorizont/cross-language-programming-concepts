@@ -49,6 +49,8 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 ## Languages  
 {generate_languages()}
 
+![GitHub Programming Languages Card](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/github-programming-languages-card.png)  
+
 ## Programming concepts  
 
 {generate_programming_concepts()}

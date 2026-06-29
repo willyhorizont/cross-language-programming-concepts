@@ -1,5 +1,5 @@
 git add .
-git commit -m "version 2.4.1: small update in actionscript"
-git tag -a 2.4.1 -m "version 2.4.1: small update in actionscript"
+git commit -m "version 2.4.2: add github-programming-languages-card.png; update new-notes.txt"
+git tag -a 2.4.2 -m "version 2.4.2: add github-programming-languages-card.png; update new-notes.txt"
 git push origin main -f
 git push origin --tags -f
