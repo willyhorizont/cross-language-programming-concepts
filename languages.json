@@ -1073,7 +1073,7 @@
         "stack": [
             { 
                 "name": "ActionScript",
-                "url": "https://airsdk.dev/reference/actionscript/3.0/",
+                "url": "https://flex.apache.org/",
                 "color": "#882B0F"
             }
         ],
@@ -1090,7 +1090,7 @@
         ],
         "docker": [
             {
-                "language_version_notes": "debian:bookworm-slim and openjdk:17 and actionscript:3.0 and apache.org/apache-flex-sdk:4.16.1 and nexussays/playerglobal.swc:27.0",
+                "language_version_notes": "debian:bookworm + [jdk:1.7 and apache.org/apache-flex-sdk:4.16.1 and nexussays/playerglobal.swc:27.0] -> actionscript:3.0 -> [SWF:38 in FlashPlayer:27]",
                 "docker_images": [
                     "willyhorizont/actionscript:3.0"
                 ]

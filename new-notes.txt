@@ -51,11 +51,10 @@ https://nue.nu/
 ~~freepascal~~ tried, canceled, no closure as value, FPC >= 3.3.x still not stable, even using paid software Embarcadero Delphi >= 2009, the syntax is still "unique"
 ~~c~~ tried, canceled, no closure as value, already have C++ tho...
 https://nekovm.org/
-MTASC 1.15 or Flash Player 8 or SWF v8
-AS3 via harman/airsdk manager adl (Air Debug Launcher) Win/Mac GUI only, no linux no CLI docker especially free, because need X11/GTK3 Display Server
 Haxe
 coffeescript
 typescript
+Bosque
 c3
 v
 d

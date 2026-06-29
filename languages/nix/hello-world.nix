@@ -1,22 +1,11 @@
 let
-    do = variadicArguments:
-        builtins.foldl'
-        (accumulator: currentValue:
-        let
-            result = currentValue accumulator;
-        in
-            builtins.deepSeq result result
-        )
-        { }
-        variadicArguments;
+    runtime = import ../../runtimes/nix/willyhorizont/runtime.nix { };
 in
-do [
+runtime.do [
     (state:
-    let
-        newState = state // {
-        };
-    in
-        builtins.trace "hello, world"
-        newState
+        let
+        in
+            builtins.trace "hello, world"
+            state
     )
 ]
