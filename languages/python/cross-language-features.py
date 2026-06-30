@@ -29,7 +29,7 @@ xl_list = [
 ]
 print(f"xl_list: {json_stringify(xl_list)}")
 print(f"xl_list: {json_stringify(xl_list, {"pretty":True})}")
-xlDict = {
+xl_dict = {
     "xl_none": None,
     "xl_bool_true": True,
     "xl_bool_false": False,
@@ -42,5 +42,5 @@ xlDict = {
     "xl_dict": {"foo":"bar"},
     "xl_closure": lambda aa, bb: (aa * bb),
 }
-print(f"xl_dict: {json_stringify(xlDict)}")
-print(f"xl_dict: {json_stringify(xlDict, {"pretty":True})}")
+print(f"xl_dict: {json_stringify(xl_dict)}")
+print(f"xl_dict: {json_stringify(xl_dict, {"pretty":True})}")

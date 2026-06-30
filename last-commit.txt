@@ -1,5 +1,5 @@
 git add .
-git commit -m "version 2.5.6: abbreviate run.sh vars;"
-git tag -a 2.5.6 -m "version 2.5.6: abbreviate run.sh vars;"
+git commit -m "version 2.5.7: update php init;"
+git tag -a 2.5.7 -m "version 2.5.7: update php init;"
 git push origin main -f
 git push origin --tags -f

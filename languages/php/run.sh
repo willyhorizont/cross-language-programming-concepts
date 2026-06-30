@@ -47,8 +47,7 @@ php --version
 "
 
 CRLC="
-cd \"$PTFNXD\"
-php \"$FNX\"
+php \"$PTFNX\"
 "
 
 CIPM="
