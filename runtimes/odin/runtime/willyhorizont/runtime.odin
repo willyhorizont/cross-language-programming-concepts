@@ -83,7 +83,7 @@ to_odin_string :: proc(any_xl_value: CrossType) -> XlString {
 	case XlFloat:
 		return fmt.tprintf("%f", xl_value)
 	case XlClosure:
-		return "\"[object CrossLanguageClosure]\""
+		return "\"[object Function]\""
 	case XlList:
 		return xl_json_stringify(xl_value)
 	case XlDict:

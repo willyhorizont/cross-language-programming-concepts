@@ -1,0 +1,29 @@
+{
+    "id": "clojure",
+    "stack": [
+        { 
+            "name": "Clojure",
+            "url": "https://clojure.org/",
+            "color": "#db5855"
+        }
+    ],
+    "file_extension": ".clj",
+    "concept_definition": {
+        "python-like-list": "TODO",
+        "python-like-dict": "TODO"
+    },
+    "vscode_extensions": [
+        "betterthantomorrow.calva"
+    ],
+    "vscode_extensions_archive": [
+        
+    ],
+    "docker": [
+        {
+            "language_version_notes": "temurin-25-tools-deps-1.12.5.1654-trixie",
+            "docker_images": [
+                "temurin-25-tools-deps-1.12.5.1654-trixie"
+            ]
+        }
+    ]
+}

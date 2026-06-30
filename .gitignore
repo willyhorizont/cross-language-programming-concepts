@@ -35,3 +35,6 @@ runtimes/gleam/
 *.swf
 runtimes/actionscript/output/
 runtimes/actionscript/Program.as
+
+__init__.py
+__pycache__/

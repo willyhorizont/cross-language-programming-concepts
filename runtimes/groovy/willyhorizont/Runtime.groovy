@@ -15,7 +15,7 @@ class Runtime {
             def d = c["data"]
 
             if (d instanceof Closure) {
-                h[ky] = "[object XlClosure]"
+                h[ky] = "[object Function]"
             } else if (d instanceof List) {
                 def nL = []
                 h[ky] = nL

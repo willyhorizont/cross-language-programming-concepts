@@ -221,7 +221,7 @@ package runtime.willyhorizont {
                 p = Boolean(o["pretty"]);
             }
             var rT:String = getType(r);
-            if (rT === "[object XlClosure]") return "\"[object XlClosure]\"";
+            if (rT === "[object XlClosure]") return "\"[object Function]\"";
             if (rT === "[object XlNone]") return "null";
             if (rT === "[object XlBool]") return r ? "true" : "false";
             if (rT === "[object XlString]") return "\"" + r + "\"";
@@ -267,7 +267,7 @@ package runtime.willyhorizont {
                                 sT.push({ id: childId, data: el, type: elT, step: 0, childrenIds: [], keys: [], depth: cD + 1 });
                             } else {
                                 var pS:String = "";
-                                if (elT === "[object XlClosure]") pS = "\"[object XlClosure]\"";
+                                if (elT === "[object XlClosure]") pS = "\"[object Function]\"";
                                 else if (elT === "[object XlNone]") pS = "null";
                                 else if (elT === "[object XlBool]") pS = el ? "true" : "false";
                                 else if (elT === "[object XlString]") pS = "\"" + el + "\"";
@@ -313,7 +313,7 @@ package runtime.willyhorizont {
                                 sT.push({ id: dCdId, data: dV, type: dvT, step: 0, childrenIds: [], keys: [], depth: cD + 1 });
                             } else {
                                 var dPrmStr:String = "";
-                                if (dvT === "[object XlClosure]") dPrmStr = "\"[object XlClosure]\"";
+                                if (dvT === "[object XlClosure]") dPrmStr = "\"[object Function]\"";
                                 else if (dvT === "[object XlNone]") dPrmStr = "null";
                                 else if (dvT === "[object XlBool]") dPrmStr = dV ? "true" : "false";
                                 else if (dvT === "[object XlString]") dPrmStr = "\"" + dV + "\"";

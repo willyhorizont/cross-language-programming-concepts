@@ -59,7 +59,7 @@ c3
 v
 d
 vala
-groovy
+~~groovy~~
 f#
 clojure
 crystal

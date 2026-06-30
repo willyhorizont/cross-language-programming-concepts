@@ -6,50 +6,77 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-PATH_TO_FILE_NAME_WITH_EXTENSION="$1"
-PATH_TO_FILE_NAME_WITH_EXTENSION_DIR="$(dirname "$PATH_TO_FILE_NAME_WITH_EXTENSION")"
-FILE_NAME_WITH_EXTENSION="$(basename "$PATH_TO_FILE_NAME_WITH_EXTENSION")"
-FILE_NAME_WITHOUT_EXTENSION="${FILE_NAME_WITH_EXTENSION%.*}"
-FILE_EXTENSION="${FILE_NAME_WITH_EXTENSION##*.}"
+PTFNX="$1"
+PTFNXD="$(dirname "$PTFNX")"
+FNX="$(basename "$PTFNX")"
+FN="${FNX%.*}"
+X="${FNX##*.}"
 
-SCRIPT_DIR="$(dirname "$(realpath "$0")")"
-LANGUAGE_ID="$(basename "$SCRIPT_DIR")"
-ROOT_DIR="$(realpath "$SCRIPT_DIR/../..")"
+SD="$(dirname "$(realpath "$0")")"
+LID="$(basename "$SD")"
+RD="$(realpath "$SD/../..")"
 
-LANGUAGE_ENV_FILE="$ROOT_DIR/.env.$LANGUAGE_ID"
+RN="$(basename "$RD")"
 
-if [ -f "$LANGUAGE_ENV_FILE" ]; then
-    source "$LANGUAGE_ENV_FILE"
+LEF="$RD/.env.$LID"
+
+if [ -f "$LEF" ]; then
+    source "$LEF"
 fi
 
-"$ROOT_DIR/utils.sh" "setup_language_specific_vscode_extensions" "$LANGUAGE_ID" 2>/dev/null
+"$RD/utils.sh" "setup_language_specific_vscode_extensions" "$LID" 2>/dev/null
 
-IMAGE=$("$ROOT_DIR/utils.sh" "get_docker_image" "$LANGUAGE_ID" 2>/dev/null)
+IMG=$("$RD/utils.sh" "get_docker_image" "$LID" 2>/dev/null)
 
-SEPARATOR=$("$ROOT_DIR/utils.sh" "print_separator")
+L=$("$RD/utils.sh" "print_separator")
 
-COMMAND_PRINT_VERSION="
+CPV="
 echo \">docker images\"
-echo \"$IMAGE\"
+echo \"$IMG\"
 echo \">python --version\"
 python --version
 echo \">pip --version\"
 pip --version
 "
 
-COMMAND_RUN_LANGUAGE_CODE="
-cd \"$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR\"
-python \"$FILE_NAME_WITH_EXTENSION\"
+CRLC="
+cd \"$PTFNXD\"
+python \"$FNX\"
 "
+
+if [[ "$RN" = "cross-language-programming-concepts" && "$FNX" != "generate-readme.py" ]]; then
+    touch "$RD/languages/$LID/__init__.py"
+    touch "$RD/languages/__init__.py"
+    touch "$RD/runtimes/__init__.py"
+    touch "$RD/runtimes/$LID/__init__.py"
+    touch "$RD/runtimes/$LID/willyhorizont/__init__.py"
+    CRLC="
+            cd \"$RD\"
+            python -m languages.python.$FN
+        "
+fi
 
 docker run -i --rm \
     --entrypoint bash \
-    -v "$ROOT_DIR:$ROOT_DIR" \
-    "$IMAGE" \
+    -v "$RD:$RD" \
+    "$IMG" \
     -c "
-        $COMMAND_PRINT_VERSION
+        $CPV
 
-        echo \"$SEPARATOR\"
+        echo \"$L\"
 
-        $COMMAND_RUN_LANGUAGE_CODE
+        $CRLC
     "
+
+if [[ "$RN" = "cross-language-programming-concepts" && "$FNX" != "generate-readme.py" ]]; then
+    sudo rm -f "$RD/languages/$LID/__init__.py"
+    sudo rm -f "$RD/languages/__init__.py"
+    sudo rm -f "$RD/runtimes/__init__.py"
+    sudo rm -f "$RD/runtimes/$LID/__init__.py"
+    sudo rm -f "$RD/runtimes/$LID/willyhorizont/__init__.py"
+    sudo rm -rf "$RD/languages/$LID/__pycache__"
+    sudo rm -rf "$RD/languages/__pycache__"
+    sudo rm -rf "$RD/runtimes/__pycache__"
+    sudo rm -rf "$RD/runtimes/$LID/__pycache__"
+    sudo rm -rf "$RD/runtimes/$LID/willyhorizont/__pycache__"
+fi
