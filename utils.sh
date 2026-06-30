@@ -1,8 +1,8 @@
 #!/bin/bash
 
-SCRIPT_DIR=$(dirname "$(realpath "$0")")
-ROOT_DIR=$(realpath "$SCRIPT_DIR")
-PATH_TO_DOT_ENV_FILE="$ROOT_DIR/.env"
+SD=$(dirname "$(realpath "$0")")
+RD=$(realpath "$SD")
+PATH_TO_DOT_ENV_FILE="$RD/.env"
 [ -f $PATH_TO_DOT_ENV_FILE ] && source $PATH_TO_DOT_ENV_FILE
 
 get_docker_image() {
@@ -19,7 +19,7 @@ get_docker_image() {
         | .[-1]
         | .["docker_images"]
         | .[-1]
-    ' "$SCRIPT_DIR/languages.json")
+    ' "$SD/languages.json")
     echo "$docker_image"
 }
 
@@ -38,7 +38,7 @@ setup_language_specific_vscode_extensions() {
         echo "jq not installed. installing jq..."
         sudo apt update && sudo apt install -y jq
     fi
-    mapfile -t vscode_extensions_for_target_lang < <(jq -r --arg target "$target_lang" '.[] | select(.["id"] == $target) | .["vscode_extensions"] | .[]' "$ROOT_DIR/languages.json" 2>/dev/null)
+    mapfile -t vscode_extensions_for_target_lang < <(jq -r --arg target "$target_lang" '.[] | select(.["id"] == $target) | .["vscode_extensions"] | .[]' "$RD/languages.json" 2>/dev/null)
 
     if [ ${#vscode_extensions_for_target_lang[@]} -eq 0 ]; then
         echo "[language-specific-extensions] vscode extensions for \"$target_lang\" is not available"
@@ -47,11 +47,11 @@ setup_language_specific_vscode_extensions() {
     echo "[language-specific-extensions] found vscode extensions for \"$target_lang\""
 
     declare -a just_installed_extensions=()
-    local path_to_vscode_extensions_base="$ROOT_DIR/vscode-extensions-base.txt"
+    local path_to_vscode_extensions_base="$RD/vscode-extensions-base.txt"
     mapfile -t base_extensions < $path_to_vscode_extensions_base
     mapfile -t just_installed_extensions < $path_to_vscode_extensions_base
 
-    local path_to_list_of_current_installed_extensions="$ROOT_DIR/vscode-extensions-current.txt"
+    local path_to_list_of_current_installed_extensions="$RD/vscode-extensions-current.txt"
     code --list-extensions 2>/dev/null | grep -v -E "(stdin|Usage|Options)" > "$path_to_list_of_current_installed_extensions"
 
     for base_ext in "${base_extensions[@]}"; do

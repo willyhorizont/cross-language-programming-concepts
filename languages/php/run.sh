@@ -6,74 +6,74 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-PATH_TO_FILE_NAME_WITH_EXTENSION="$1"
-PATH_TO_FILE_NAME_WITH_EXTENSION_DIR="$(dirname "$PATH_TO_FILE_NAME_WITH_EXTENSION")"
-FILE_NAME_WITH_EXTENSION="$(basename "$PATH_TO_FILE_NAME_WITH_EXTENSION")"
-FILE_NAME_WITHOUT_EXTENSION="${FILE_NAME_WITH_EXTENSION%.*}"
-FILE_EXTENSION="${FILE_NAME_WITH_EXTENSION##*.}"
+PTFNX="$1"
+PTFNXD="$(dirname "$PTFNX")"
+FNX="$(basename "$PTFNX")"
+FN="${FNX%.*}"
+X="${FNX##*.}"
 
-SCRIPT_DIR="$(dirname "$(realpath "$0")")"
-LANGUAGE_ID="$(basename "$SCRIPT_DIR")"
-ROOT_DIR="$(realpath "$SCRIPT_DIR/../..")"
+SD="$(dirname "$(realpath "$0")")"
+LID="$(basename "$SD")"
+RD="$(realpath "$SD/../..")"
 
-LANGUAGE_ENV_FILE="$ROOT_DIR/.env.$LANGUAGE_ID"
+LEF="$RD/.env.$LID"
 
-if [ -f "$LANGUAGE_ENV_FILE" ]; then
-    source "$LANGUAGE_ENV_FILE"
+if [ -f "$LEF" ]; then
+    source "$LEF"
 fi
 
-"$ROOT_DIR/utils.sh" "setup_language_specific_vscode_extensions" "$LANGUAGE_ID" 2>/dev/null
+"$RD/utils.sh" "setup_language_specific_vscode_extensions" "$LID" 2>/dev/null
 
-IMAGE=$("$ROOT_DIR/utils.sh" "get_docker_image" "$LANGUAGE_ID" 2>/dev/null)
+IMG=$("$RD/utils.sh" "get_docker_image" "$LID" 2>/dev/null)
 
-SEPARATOR=$("$ROOT_DIR/utils.sh" "print_separator")
+L=$("$RD/utils.sh" "print_separator")
 
-PATH_TO_PACKAGE_MANAGER="$ROOT_DIR/composer"
-PATH_TO_PACKAGE_MANAGER_SETUP="$ROOT_DIR/composer-setup.php"
+PATH_TO_PACKAGE_MANAGER="$RD/composer"
+PATH_TO_PACKAGE_MANAGER_SETUP="$RD/composer-setup.php"
 
 COMMAND_CHECK_PACKAGE_MANAGER_VERSION="
 echo \">composer --version\"
 \"$PATH_TO_PACKAGE_MANAGER\" --version
 "
 
-COMMAND_PRINT_VERSION="
+CPV="
 if [ -f \"$PATH_TO_PACKAGE_MANAGER\" ]; then
     $COMMAND_CHECK_PACKAGE_MANAGER_VERSION
 fi
 echo \">docker images\"
-echo \"$IMAGE\"
+echo \"$IMG\"
 echo \">php --version\"
 php --version
 "
 
-COMMAND_RUN_LANGUAGE_CODE="
-cd \"$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR\"
-php \"$FILE_NAME_WITH_EXTENSION\"
+CRLC="
+cd \"$PTFNXD\"
+php \"$FNX\"
 "
 
-COMMAND_INSTALL_PACKAGE_MANAGER="
+CIPM="
 if [ ! -f \"$PATH_TO_PACKAGE_MANAGER\" ]; then
-    cd \"$PATH_TO_FILE_NAME_WITH_EXTENSION_DIR\"
+    cd \"$PTFNXD\"
 
     php -r \"copy('https://getcomposer.org/installer', '$PATH_TO_PACKAGE_MANAGER_SETUP');\"
 
     php -r \"if (hash_file('sha384', '$PATH_TO_PACKAGE_MANAGER_SETUP') === 'c8b085408188070d5f52bcfe4ecfbee5f727afa458b2573b8eaaf77b3419b0bf2768dc67c86944da1544f06fa544fd47') { echo 'Installer verified'.PHP_EOL; } else { echo 'Installer corrupt'.PHP_EOL; unlink('$PATH_TO_PACKAGE_MANAGER_SETUP'); exit(1); }\"
 
-    php \"$PATH_TO_PACKAGE_MANAGER_SETUP\" --version=2.10.0 --install-dir=\"$ROOT_DIR\" --filename=composer
+    php \"$PATH_TO_PACKAGE_MANAGER_SETUP\" --version=2.10.0 --install-dir=\"$RD\" --filename=composer
 
     php -r \"unlink('$PATH_TO_PACKAGE_MANAGER_SETUP');\"
 fi
 "
 
 docker run -i --rm \
-    -v "$ROOT_DIR:$ROOT_DIR" \
-    "$IMAGE" \
+    -v "$RD:$RD" \
+    "$IMG" \
     bash -c "
-        $COMMAND_INSTALL_PACKAGE_MANAGER
+        $CIPM
 
-        $COMMAND_PRINT_VERSION
+        $CPV
 
-        echo \"$SEPARATOR\"
+        echo \"$L\"
 
-        $COMMAND_RUN_LANGUAGE_CODE
+        $CRLC
     "

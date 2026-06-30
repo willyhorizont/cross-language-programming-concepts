@@ -6,59 +6,59 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-PATH_TO_FILE_NAME_WITH_EXTENSION="$1"
-PATH_TO_FILE_NAME_WITH_EXTENSION_DIR="$(dirname "$PATH_TO_FILE_NAME_WITH_EXTENSION")"
-FILE_NAME_WITH_EXTENSION="$(basename "$PATH_TO_FILE_NAME_WITH_EXTENSION")"
-FILE_NAME_WITHOUT_EXTENSION="${FILE_NAME_WITH_EXTENSION%.*}"
-FILE_EXTENSION="${FILE_NAME_WITH_EXTENSION##*.}"
+PTFNX="$1"
+PTFNXD="$(dirname "$PTFNX")"
+FNX="$(basename "$PTFNX")"
+FN="${FNX%.*}"
+X="${FNX##*.}"
 
-SCRIPT_DIR="$(dirname "$(realpath "$0")")"
-LANGUAGE_ID="$(basename "$SCRIPT_DIR")"
-ROOT_DIR="$(realpath "$SCRIPT_DIR/../..")"
+SD="$(dirname "$(realpath "$0")")"
+LID="$(basename "$SD")"
+RD="$(realpath "$SD/../..")"
 
-LANGUAGE_ENV_FILE="$ROOT_DIR/.env.$LANGUAGE_ID"
+LEF="$RD/.env.$LID"
 
-if [ -f "$LANGUAGE_ENV_FILE" ]; then
-    source "$LANGUAGE_ENV_FILE"
+if [ -f "$LEF" ]; then
+    source "$LEF"
 fi
 
-"$ROOT_DIR/utils.sh" "setup_language_specific_vscode_extensions" "$LANGUAGE_ID" 2>/dev/null
+"$RD/utils.sh" "setup_language_specific_vscode_extensions" "$LID" 2>/dev/null
 
-IMAGE=$("$ROOT_DIR/utils.sh" "get_docker_image" "$LANGUAGE_ID" 2>/dev/null)
+IMG=$("$RD/utils.sh" "get_docker_image" "$LID" 2>/dev/null)
 
-SEPARATOR=$("$ROOT_DIR/utils.sh" "print_separator")
+L=$("$RD/utils.sh" "print_separator")
 
-PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR="$ROOT_DIR/runtimes/$LANGUAGE_ID"
+PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR="$RD/runtimes/$LID"
 TARGET_FILE_NAME_WITHOUT_EXTENSION="main"
-PATH_TO_TARGET_FILE_WITH_EXTENSION="$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/$TARGET_FILE_NAME_WITHOUT_EXTENSION.$FILE_EXTENSION"
+PATH_TO_TARGET_FILE_WITH_EXTENSION="$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/$TARGET_FILE_NAME_WITHOUT_EXTENSION.$X"
 
 mkdir -p "$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR"
-cp -f "$PATH_TO_FILE_NAME_WITH_EXTENSION" "$PATH_TO_TARGET_FILE_WITH_EXTENSION"
+cp -f "$PTFNX" "$PATH_TO_TARGET_FILE_WITH_EXTENSION"
 
-COMMAND_PRINT_VERSION="
+CPV="
 echo \">docker images\"
-echo \"$IMAGE\"
+echo \"$IMG\"
 echo \">nim --version\"
 nim --version
 echo \">nim -v\"
 nim -v
 "
 
-COMMAND_RUN_LANGUAGE_CODE="
+CRLC="
 cd \"$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR\"
-nim c -r --hints:off \"$TARGET_FILE_NAME_WITHOUT_EXTENSION.$FILE_EXTENSION\"
+nim c -r --hints:off \"$TARGET_FILE_NAME_WITHOUT_EXTENSION.$X\"
 "
 
 docker run -i --rm \
     --entrypoint bash \
-    -v "$ROOT_DIR:$ROOT_DIR" \
-    "$IMAGE" \
+    -v "$RD:$RD" \
+    "$IMG" \
     -c "
-        $COMMAND_PRINT_VERSION
+        $CPV
 
-        echo \"$SEPARATOR\"
+        echo \"$L\"
 
-        $COMMAND_RUN_LANGUAGE_CODE
+        $CRLC
     "
 
 rm -f "$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/$TARGET_FILE_NAME_WITHOUT_EXTENSION.nim"
