@@ -18,10 +18,8 @@ def get_type(a):
     return str(type(a))
 
 
-def json_stringify(a, o=None):
-    if o is None:
-        o = {}
-    p = o.get("pretty", False)
+def json_stringify(a, pretty=False):
+    p = pretty
     t = " " * 4
     s = [{"t": "v", "v": a, "d": 0}]
     r = ""

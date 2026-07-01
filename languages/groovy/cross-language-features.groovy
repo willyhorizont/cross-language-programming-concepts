@@ -1,7 +1,7 @@
 import runtimes.groovy.willyhorizont.Runtime
 
 /*
-1. support closure as value
+1. support closure as value, or has workaround
 */
 def sayHello = { callbackFunction ->
     println("hello")

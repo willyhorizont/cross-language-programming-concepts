@@ -566,5 +566,7 @@
     "groovyLint.fix.enable": false,
     "groovyLint.format.enable": false,
     "groovyLint.format.useDocumentIndentSize": false,
-    "groovyLint.lint.trigger": "user"
+    "groovyLint.lint.trigger": "user",
+    "perlnavigator.perlCompileEnabled": false,
+    "julia.promptToInstall": false
 }

@@ -5,7 +5,7 @@ package {
     public class Program extends Sprite {
         public static function run():void {
             /*
-            1. support closure as value
+            1. support closure as value, or has workaround
             */
             var sayHello:* = function(callbackFunction:*):* {
                 Runtime.print("hello");

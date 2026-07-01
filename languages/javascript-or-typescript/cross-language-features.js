@@ -1,5 +1,4 @@
-const WillyHorizont = require("willyhorizont.github.io");
-const { jsonStringify } = WillyHorizont.Utils;
+const Xl = require("../../runtimes/javascript-or-typescript/willyhorizont/runtime.js");
 
 /*
 1. support closure as value, or has workaround
@@ -34,8 +33,8 @@ const xlList = [
     { "foo": "bar" },
     (aa, bb) => (aa * bb),
 ];
-console.log(`xl_list: ${jsonStringify(xlList)}`);
-console.log(`xl_list: ${jsonStringify(xlList, { pretty: true })}`);
+console.log(`xl_list: ${Xl.jsonStringify(xlList)}`);
+console.log(`xl_list: ${Xl.jsonStringify(xlList, { pretty: true })}`);
 const xlDict = {
     "xl_none": null,
     "xl_bool_true": true,
@@ -49,5 +48,5 @@ const xlDict = {
     "xl_dict": { "foo": "bar" },
     "xl_closure": (aa, bb) => (aa * bb),
 };
-console.log(`xl_dict: ${jsonStringify(xlDict)}`);
-console.log(`xl_dict: ${jsonStringify(xlDict, { pretty: true })}`);
+console.log(`xl_dict: ${Xl.jsonStringify(xlDict)}`);
+console.log(`xl_dict: ${Xl.jsonStringify(xlDict, { pretty: true })}`);

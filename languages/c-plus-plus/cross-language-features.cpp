@@ -2,7 +2,7 @@
 
 int main(int argc, char* argv[]) {
     /*
-    1. support closure as value
+    1. support closure as value, or has workaround
     */
     xl::CrossType say_hello = xl::XlClosure([](xl::XlClosureVarArgs& varargs) -> xl::CrossType {
         xl::CrossType callback_function = varargs.getNextArguments();

@@ -4,7 +4,7 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         /*
-        1. support closure as value
+        1. support closure as value, or has workaround
         */
         CrossType * sayHello = [[CrossType alloc] initWithXlClosure:^CrossType * (XlClosureVarArgs * varargs) {
             CrossType * callbackFunction = [varargs getNextArguments];

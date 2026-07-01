@@ -2,7 +2,7 @@
 xl := Smalltalk at: #WillyHorizontRuntime.
 
 "
-1. support closure as value
+1. support closure as value, or has workaround
 "
 Smalltalk at: #sayHello put: [ :callbackFunction |
     Stdio stdout nextPutAll: 'hello'; lf.
