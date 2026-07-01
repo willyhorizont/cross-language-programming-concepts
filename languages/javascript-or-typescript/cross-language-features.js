@@ -38,8 +38,8 @@ console.log(`xl_list: ${jsonStringify(xlList)}`);
 console.log(`xl_list: ${jsonStringify(xlList, { pretty: true })}`);
 const xlDict = {
     "xl_none": null,
-    "xl_boolean_true": true,
-    "xl_boolean_false": false,
+    "xl_bool_true": true,
+    "xl_bool_false": false,
     "xl_string": "foo",
     "xl_int_positive": 0,
     "xl_int_negative": -123,

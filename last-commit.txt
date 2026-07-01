@@ -1,5 +1,5 @@
 git add .
-git commit -m "version 2.5.9: update github-programming-languages-card.png;"
-git tag -a 2.5.9 -m "version 2.5.9: update github-programming-languages-card.png;"
+git commit -m "version 2.5.10: add perl runtime init;"
+git tag -a 2.5.10 -m "version 2.5.10: add perl runtime init;"
 git push origin main -f
 git push origin --tags -f

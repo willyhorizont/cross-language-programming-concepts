@@ -36,8 +36,7 @@ perl -v
 "
 
 CRLC="
-cd \"$PTFNXD\"
-perl \"$FNX\"
+perl \"$PTFNX\"
 "
 
 docker run -i --rm \
