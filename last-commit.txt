@@ -1,5 +1,5 @@
 git add .
-git commit -m "version 2.5.7: update php init;"
-git tag -a 2.5.7 -m "version 2.5.7: update php init;"
+git commit -m "version 2.5.8: update go runtime;"
+git tag -a 2.5.8 -m "version 2.5.8: update go runtime;"
 git push origin main -f
 git push origin --tags -f

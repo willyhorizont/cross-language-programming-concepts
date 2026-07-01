@@ -1,64 +1,77 @@
 package main
 
 import (
-    "fmt"
-    "cross-language-programming-concepts/runtimes/go/willyhorizont"
+	xl "cross-language-programming-concepts/runtimes/go/willyhorizont/runtime"
 )
 
 func main() {
-	sayHello := willyhorizont.DataTypeJsLikeFunction(func(variadicArguments ...willyhorizont.DataTypeAny) willyhorizont.DataTypeAny {
-		callbackFunction := variadicArguments[0]
-        fmt.Println("hello")
-        (callbackFunction.(willyhorizont.DataTypeJsLikeFunction))()
+	/*
+	1. support closure as value, or has workaround
+	*/
+	sayHello := func(va ...interface{}) interface{} {
+		itr := xl.MakeIterator(va)
+		callbackFunction := itr.Next()
+		xl.Println("hello")
+		xl.ToCallable(callbackFunction).Call()
 		return nil
-    })
-    sayHello(willyhorizont.DataTypeJsLikeFunction(func(variadicArguments ...willyhorizont.DataTypeAny) willyhorizont.DataTypeAny {
-		fmt.Println("wold")
+	}
+	sayHello(func(va ...interface{}) interface{} {
+		xl.Println("world")
 		return nil
-    }))
-	var multiply willyhorizont.DataTypeAny = willyhorizont.DataTypeJsLikeFunction(func(variadicArguments ...willyhorizont.DataTypeAny) willyhorizont.DataTypeAny {
-		a := variadicArguments[0]
-		return (willyhorizont.DataTypeJsLikeFunction(func(variadicArguments ...willyhorizont.DataTypeAny) willyhorizont.DataTypeAny {
-			b := variadicArguments[0]
-			return (willyhorizont.Utils.ParseFloat(willyhorizont.Utils.ParseFloat(a).(willyhorizont.DataTypeJsLikeFloat) * willyhorizont.Utils.ParseFloat(b).(willyhorizont.DataTypeJsLikeFloat)).(willyhorizont.DataTypeJsLikeFloat))
-		}))
 	})
-	multiplyByTwo := multiply.(willyhorizont.DataTypeJsLikeFunction)(2)
-	fmt.Println("multiplyByTwo(10):", multiplyByTwo.(willyhorizont.DataTypeJsLikeFunction)(10))
+	createMultiplier := func(va ...interface{}) interface{} {
+		itr := xl.MakeIterator(va)
+		aa := itr.Next()
+		return func(va ...interface{}) interface{} {
+			itr := xl.MakeIterator(va)
+			bb := itr.Next()
+			return xl.ToInt(aa) * xl.ToInt(bb)
+		}
+	}
+	multiplyByTwo := createMultiplier(2)
+	xl.Println("multiply_by_two(10): ", xl.ToCallable(multiplyByTwo).Call(10))
 
-	somePythonLikeList := willyhorizont.DataTypePythonLikeList{
+	/*
+	2. support dynamic-typed value, or has workaround
+	*/
+	xlList := xl.XlList{
 		nil,
 		true,
 		false,
 		"foo",
-		123,
+		0,
 		-123,
 		123.789,
 		-123.789,
-		willyhorizont.DataTypePythonLikeList{1, 2, 3},
-		willyhorizont.DataTypePythonLikeDict{"foo": "bar"},
-		willyhorizont.DataTypeJsLikeFunction(func(variadicArguments ...willyhorizont.DataTypeAny) willyhorizont.DataTypeAny {
-			a, b := variadicArguments[0], variadicArguments[1]
-			return (willyhorizont.Utils.ParseFloat(willyhorizont.Utils.ParseFloat(a).(willyhorizont.DataTypeJsLikeFloat) * willyhorizont.Utils.ParseFloat(b).(willyhorizont.DataTypeJsLikeFloat)).(willyhorizont.DataTypeJsLikeFloat))
-		}),
+		xl.XlList{1, 2, 3},
+		xl.XlDict{"foo": "bar"},
+		func(va ...interface{}) interface{} {
+			itr := xl.MakeIterator(va)
+			aa := itr.Next()
+			bb := itr.Next()
+			return xl.ToInt(aa) * xl.ToInt(bb)
+		},
 	}
-	fmt.Println("somePythonLikeList:", willyhorizont.Utils.JsonStringify(somePythonLikeList, willyhorizont.DataTypePythonLikeDict{"pretty": true}))
-
-	somePythonLikeDict := willyhorizont.DataTypePythonLikeDict{
-		"some_null": nil,
-		"some_boolean_true": true,
-		"some_boolean_false": false,
-		"some_string": "foo",
-		"some_int_positive": 123,
-		"some_int_negative": -123,
-		"some_float_positive": 123.789,
-		"some_float_negative": -123.789,
-		"some_python_like_list": willyhorizont.DataTypePythonLikeList{1, 2, 3},
-		"some_python_like_dict": willyhorizont.DataTypePythonLikeDict{"foo": "bar"},
-		"some_function": willyhorizont.DataTypeJsLikeFunction(func(variadicArguments ...willyhorizont.DataTypeAny) willyhorizont.DataTypeAny {
-			a, b := variadicArguments[0], variadicArguments[1]
-			return (willyhorizont.Utils.ParseFloat(willyhorizont.Utils.ParseFloat(a).(willyhorizont.DataTypeJsLikeFloat) * willyhorizont.Utils.ParseFloat(b).(willyhorizont.DataTypeJsLikeFloat)).(willyhorizont.DataTypeJsLikeFloat))
-		}),
+	xl.Println(xl.JsonStringify(xlList))
+	xl.Println(xl.JsonStringify(xlList, xl.XlDict{"pretty": true}))
+	xlDict := xl.XlDict{
+		"xl_none": nil,
+		"xl_bool_true": true,
+		"xl_bool_false": false,
+		"xl_string": "foo",
+		"xl_int_positive": 0,
+		"xl_int_negative": -123,
+		"xl_float_positive": 123.789,
+		"xl_float_negative": -123.789,
+		"xl_list": xl.XlList{1, 2, 3},
+		"xl_dict": xl.XlDict{"foo": "bar"},
+		"xl_closure": func(va ...interface{}) interface{} {
+			itr := xl.MakeIterator(va)
+			aa := itr.Next()
+			bb := itr.Next()
+			return xl.ToInt(aa) * xl.ToInt(bb)
+		},
 	}
-	fmt.Println("somePythonLikeDict:", willyhorizont.Utils.JsonStringify(somePythonLikeDict, willyhorizont.DataTypePythonLikeDict{"pretty": true}))
+	xl.Println(xl.JsonStringify(xlDict))
+	xl.Println(xl.JsonStringify(xlDict, xl.XlDict{"pretty": true}))
 }
