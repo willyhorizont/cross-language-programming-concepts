@@ -69,18 +69,19 @@ grep \"<target-player>\" /apache-flex-sdk/frameworks/flex-config.xml
 "
 
 CRO="
-TMP_DIR=\"$RD/temp-downloads\"
+TD=\"$RD/temp-downloads\"
+sudo apt update && sudo apt install wget x11-apps libgtk2.0-0:amd64 libnss3 libnss3-tools -y
 
 if [ ! -f /usr/local/bin/flashplayer ]; then
     echo \"Installing Adobe Flash Player dependencies...\"
     sudo apt update && sudo apt install libvdpau-va-gl1 -y
     echo \"Downloading and installing Adobe Flash Player...\"
-    mkdir -p \"\$TMP_DIR\"
-    wget -q -P \"\$TMP_DIR\" https://fpdownload.macromedia.com/pub/flashplayer/updaters/32/flash_player_sa_linux_debug.x86_64.tar.gz
-    tar -xzf \"\$TMP_DIR/flash_player_sa_linux_debug.x86_64.tar.gz\" -C \"\$TMP_DIR\"
-    sudo mv \"\$TMP_DIR/flashplayerdebugger\" /usr/local/bin/flashplayer
+    mkdir -p \"\$TD\"
+    wget -q -P \"\$TD\" https://fpdownload.macromedia.com/pub/flashplayer/updaters/32/flash_player_sa_linux_debug.x86_64.tar.gz
+    tar -xzf \"\$TD/flash_player_sa_linux_debug.x86_64.tar.gz\" -C \"\$TD\"
+    sudo mv \"\$TD/flashplayerdebugger\" /usr/local/bin/flashplayer
     sudo chmod +x /usr/local/bin/flashplayer
-    rm -rf \"\$TMP_DIR\"
+    rm -rf \"\$TD\"
 fi
 
 if [ -f \"$PTOFXD/$FN.swf\" ]; then
@@ -93,12 +94,12 @@ if [ -f \"$PTOFXD/$FN.swf\" ]; then
         echo \"Adobe Flash Player not opening or failed to download...\"
         if ! command -v ruffle &> /dev/null; then
             echo \"Downloading and installing Ruffle...\"
-            mkdir -p \"\$TMP_DIR\"
-            wget -q -P \"\$TMP_DIR\" https://github.com/ruffle-rs/ruffle/releases/download/v0.3.0/ruffle-0.3.0-linux-x86_64.tar.gz
-            tar -xzf \"\$TMP_DIR/ruffle-0.3.0-linux-x86_64.tar.gz\" -C \"\$TMP_DIR\"
-            sudo mv \"\$TMP_DIR/ruffle\" /usr/local/bin/ruffle
+            mkdir -p \"\$TD\"
+            wget -q -P \"\$TD\" https://github.com/ruffle-rs/ruffle/releases/download/v0.3.0/ruffle-0.3.0-linux-x86_64.tar.gz
+            tar -xzf \"\$TD/ruffle-0.3.0-linux-x86_64.tar.gz\" -C \"\$TD\"
+            sudo mv \"\$TD/ruffle\" /usr/local/bin/ruffle
             sudo chmod +x /usr/local/bin/ruffle
-            rm -rf \"\$TMP_DIR\"
+            rm -rf \"\$TD\"
         fi
 
         echo \"opening using Ruffle...\"

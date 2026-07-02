@@ -37,8 +37,8 @@ echo \">typst -V\"
 typst -V
 "
 
-mkdir -p \"$PTOFNXD\"
 PTOFNXD="$RD/runtimes/typst/willyhorizont/output/$LID"
+mkdir -p "$PTOFNXD"
 PTOFNX="$PTOFNXD/$FN.pdf"
 UN="$(whoami)"
 UC="$(hostname)"
