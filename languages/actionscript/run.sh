@@ -52,8 +52,8 @@ echo \"$IMG\"
 echo \">mxmlc -version\"
 mxmlc -version
 "
-SW=$(xrandr | grep '*' | awk '{print $1}' | cut -d'x' -f1)
-SH=$(xrandr | grep '*' | awk '{print $1}' | cut -d'x' -f2)
+SW=1280
+SH=720
 UN="$(whoami)"
 UC="$(hostname)"
 UD="$(pwd | sed "s|^$HOME|~|")"
