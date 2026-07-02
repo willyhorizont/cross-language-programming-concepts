@@ -1,5 +1,5 @@
 git add .
-git commit -m "version 2.5.11: add julia runtime init;"
-git tag -a 2.5.11 -m "version 2.5.11: add julia runtime init;"
+git commit -m "version 2.5.12: update actionscript/run.sh and typst/run.sh;"
+git tag -a 2.5.12 -m "version 2.5.12: update actionscript/run.sh and typst/run.sh;"
 git push origin main -f
 git push origin --tags -f

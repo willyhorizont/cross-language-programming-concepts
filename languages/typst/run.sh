@@ -37,17 +37,17 @@ echo \">typst -V\"
 typst -V
 "
 
-mkdir -p \"$PATH_TO_OUTPUT_FILE_NAME_WITH_EXTENSION_DIR\"
-PATH_TO_OUTPUT_FILE_NAME_WITH_EXTENSION_DIR="$RD/runtimes/typst/willyhorizont/output/$LID"
-PATH_TO_OUTPUT_FILE_NAME_WITH_EXTENSION="$PATH_TO_OUTPUT_FILE_NAME_WITH_EXTENSION_DIR/$FN.pdf"
-USER_NAME="$(whoami)"
-USER_COMPUTER="$(hostname)"
-USER_PWD="$(pwd | sed "s|^$HOME|~|")"
+mkdir -p \"$PTOFNXD\"
+PTOFNXD="$RD/runtimes/typst/willyhorizont/output/$LID"
+PTOFNX="$PTOFNXD/$FN.pdf"
+UN="$(whoami)"
+UC="$(hostname)"
+UPWD="$(pwd | sed "s|^$HOME|~|")"
 
 CRLC="
 cd \"$PTFNXD\"
-typst compile --open --root \"$RD\" --input user-name=$USER_NAME --input user-computer=$USER_COMPUTER --input user-pwd=$USER_PWD --input file-name-with-extension=\"$FNX\" \"$FNX\" \"$PATH_TO_OUTPUT_FILE_NAME_WITH_EXTENSION\"
-echo \"if output not open automatically, open it here: \\\"$PATH_TO_OUTPUT_FILE_NAME_WITH_EXTENSION\\\"\"
+typst compile --open --root \"$RD\" --input user-name=$UN --input user-computer=$UC --input user-pwd=$UPWD --input file-name-with-extension=\"$FNX\" \"$FNX\" \"$PTOFNX\"
+echo \"if output not open automatically, open it here: \\\"$PTOFNX\\\"\"
 "
 
 docker run -i --rm \
@@ -62,6 +62,6 @@ docker run -i --rm \
         $CRLC
     "
 
-if [ -f "$PATH_TO_OUTPUT_FILE_NAME_WITH_EXTENSION" ]; then
-    code -r "$PATH_TO_OUTPUT_FILE_NAME_WITH_EXTENSION"
+if [ -f "$PTOFNX" ]; then
+    code -r "$PTOFNX"
 fi
