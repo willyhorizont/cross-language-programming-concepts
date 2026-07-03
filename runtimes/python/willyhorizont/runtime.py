@@ -85,10 +85,10 @@ def json_stringify(a, pretty=False):
                 "d": cur_t
             })
             for i in range(len(de) - 1, -1, -1):
-                dk, dict_value = de[i]
+                dk, dv = de[i]
                 s.append({
                     "t": "v",
-                    "v": dict_value,
+                    "v": dv,
                     "d": child_t
                 })
                 s.append({
@@ -111,3 +111,95 @@ def json_stringify(a, pretty=False):
         r += f"\"{type(v).__name__}\""
     return r
 
+
+json_stringify_a = lambda a, pretty=False: [
+    (p := pretty),
+    (t := " " * 4),
+    (s := [{"t": "v", "v": a, "d": 0}]),
+    (r := ""),
+    [
+        (
+            (r := r + c["v"]) if c["t"] == "r"
+            else (
+                (v := c["v"]),
+                (cur_t := c["d"]),
+                (
+                    (r := r + "null") if v is None
+                    else (r := r + ("true" if v else "false")) if isinstance(v, bool)
+                    else (r := r + f"\"{v}\"") if isinstance(v, str)
+                    else (r := r + str(v)) if isinstance(v, (int, float))
+                    else (r := r + "\"[object Function]\"") if callable(v)
+                    else (
+                        (r := r + "[]") if len(v) == 0
+                        else (
+                            (child_t := cur_t + 1),
+                            s.append({
+                                "t": "r",
+                                "v": f"\n{t * cur_t}]" if p else "]",
+                                "d": cur_t
+                            }),
+                            [
+                                (
+                                    s.append({
+                                        "t": "v",
+                                        "v": v[i],
+                                        "d": child_t
+                                    }),
+                                    s.append({
+                                        "t": "r",
+                                        "v": f",\n{t * child_t}" if p else ",",
+                                        "d": child_t
+                                    }) if i > 0 else None
+                                ) for i in range(len(v) - 1, -1, -1)
+                            ],
+                            s.append({
+                                "t": "r",
+                                "v": f"[\n{t * child_t}" if p else "[",
+                                "d": child_t
+                            })
+                        )
+                    ) if isinstance(v, list)
+                    else (
+                        (r := r + "{}") if len(de := list(v.items())) == 0
+                        else (
+                            (child_t := cur_t + 1),
+                            s.append({
+                                "t": "r",
+                                "v": "\n" + t * cur_t + "}" if p else "}",
+                                "d": cur_t
+                            }),
+                            [
+                                (lambda dk, dv: (
+                                    s.append({
+                                        "t": "v",
+                                        "v": dv,
+                                        "d": child_t
+                                    }),
+                                    s.append({
+                                        "t": "r",
+                                        "v": f"\"{dk}\": " if p else f"\"{dk}\":",
+                                        "d": child_t
+                                    }),
+                                    s.append({
+                                        "t": "r",
+                                        "v": f",\n{t * child_t}" if p else ",",
+                                        "d": child_t
+                                    }) if i > 0 else None
+                                ))(de[i][0], de[i][1]) for i in range(len(de) - 1, -1, -1)
+                            ],
+                            s.append({
+                                "t": "r",
+                                "v": f"{{\n{t * child_t}" if p else "{",
+                                "d": child_t
+                            })
+                        )
+                    ) if isinstance(v, dict)
+                    else (r := r + f"\"{type(v).__name__}\"")
+                )
+            )
+        )
+        for _ in (iter(lambda: len(s) > 0, False) if len(s) > 0 else [])
+        if (c := s.pop()) or True
+    ],
+    r
+][-1]

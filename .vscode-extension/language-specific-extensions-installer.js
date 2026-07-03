@@ -6,13 +6,13 @@ const lJ = require(path.join(__dirname, "languages.json"));
 const p = require(path.join(__dirname, "package.json"));
 
 const lExtDict = lJ.reduce((cur, l) => {
-    const fX = l["file_extension"].toLowerCase();
+    const cfX = l["file_extension"].toLowerCase();
     const lExts = l["vscode_extensions"].map((lExt) => lExt.toLowerCase());
-    if (cur[fX]) {
-        cur[fX] = [...cur[fX], ...lExts];
+    if (cur[cfX]) {
+        cur[cfX] = [...cur[cfX], ...lExts];
         return cur;
     }
-    cur[fX] = lExts;
+    cur[cfX] = lExts;
     return cur;
 }, {});
 
@@ -30,44 +30,52 @@ const runCommand = (cmd) => {
 
 module.exports = { activate: (context) => {
     (async () => {
-        vscode.window.showInformationMessage(`Installing base extensions...`);
         for (const bExt of bExts) {
             if (!vscode.extensions.getExtension(bExt)) {
                 await runCommand(`code --install-extension ${bExt} --force`);
-                vscode.window.showInformationMessage(`Extension ${bExt} just installed.`);
+                vscode.window.showInformationMessage(`Extension ${bExt} installed.`);
             }
         }
-        vscode.window.showInformationMessage(`Base extensions just installed.`);
     })();
+
+    let lfXs = []; 
 
     let dsp = vscode.window.onDidChangeActiveTextEditor(async (edt) => {
         if (!edt) return;
 
-        const fNm = edt.document.fileName;
-        const fX = path.extname(fNm).toLowerCase();
-        const lExts = lExtDict?.[fX];
+        const cfNm = edt.document.fileName;
+        const cfX = path.extname(cfNm).toLowerCase();
+        const clExts = lExtDict?.[cfX] || [];
 
-        if (lExts) {
-            vscode.window.showInformationMessage(`Uninstalling other extensions...`);
-            for (const el of vscode.extensions.all) {
-                if (el?.packageJSON?.isBuiltin) continue;
-                const insExt = el.id.toLowerCase();
-
-                if (insExt === `undefined_publisher.${p.name}`) continue;
-                if (bExts.some((bExt) => insExt === bExt)) continue;
-                if (lExts.some((lExt) => insExt === lExt)) continue;
-
-                await runCommand(`code --uninstall-extension ${insExt} --force`);
+        if (clExts.length > 0) {
+            if (lfXs.includes(cfX)) {
+                lfXs = lfXs.filter((lfX) => lfX !== cfX);
             }
-            vscode.window.showInformationMessage(`Other extensions just uninstalled.`);
+            lfXs.push(cfX);
 
-            vscode.window.showInformationMessage(`Installing extensions for "${fX}" files...`);
-            for (const lExt of lExts) {
-                if (!vscode.extensions.getExtension(lExt)) {
-                    await runCommand(`code --install-extension ${lExt} --force`);
+            if (lfXs.length > 2) {
+                const ofX = lfXs.shift();
+                const olExts = lExtDict?.[ofX] || [];
+
+                if (olExts.length > 0) {
+                    for (const oExt of olExts) {
+                        const insExt = oExt.toLowerCase();
+
+                        if (bExts.includes(insExt)) continue;
+                        if (lfXs.some((lfX) => lExtDict?.[lfX]?.map((lExt) => lExt.toLowerCase()).includes(insExt))) continue;
+
+                        await runCommand(`code --uninstall-extension ${insExt} --force`);
+                        vscode.window.showInformationMessage(`Extension ${insExt} uninstalled.`);
+                    }
                 }
             }
-            vscode.window.showInformationMessage(`Extensions for "${fX}" files just installed.`);
+
+            for (const clExt of clExts) {
+                if (!vscode.extensions.getExtension(clExt)) {
+                    await runCommand(`code --install-extension ${clExt} --force`);
+                    vscode.window.showInformationMessage(`Extension ${clExt} installed.`);
+                }
+            }
             return;
         }
     });

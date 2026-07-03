@@ -1,7 +1,7 @@
 {
     "name": "language-specific-extensions-installer",
     "displayName": "Language Specific Extensions Installer",
-    "version": "0.0.45",
+    "version": "0.0.48",
     "engines": {
         "vscode": "^1.60.0"
     },

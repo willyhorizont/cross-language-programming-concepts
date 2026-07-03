@@ -568,5 +568,6 @@
     "groovyLint.format.useDocumentIndentSize": false,
     "groovyLint.lint.trigger": "user",
     "perlnavigator.perlCompileEnabled": false,
-    "julia.promptToInstall": false
+    "julia.promptToInstall": false,
+    "julia.executablePath": "julia"
 }

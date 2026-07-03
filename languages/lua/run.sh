@@ -40,8 +40,8 @@ luarocks --version
 "
 
 CRLC="
-cd \"$PTFNXD\"
-lua \"$FNX\"
+cd \"$RD\"
+lua \"$PTFNX\"
 "
 
 docker run -i --rm \

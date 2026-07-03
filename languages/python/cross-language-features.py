@@ -1,10 +1,10 @@
 from runtimes.python.willyhorizont.runtime import json_stringify
 
 # 1. support closure as value, or has workaround
-say_hello = lambda callback_function: list([
+say_hello = lambda callback_function: [
     print("hello"),
     callback_function(),
-])[-1]
+][-1]
 say_hello(lambda: print("wold"))
 create_multiplier = lambda aa: lambda bb: (aa * bb)
 multiply_by_two = create_multiplier(2)
