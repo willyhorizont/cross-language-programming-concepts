@@ -1,5 +1,5 @@
 git add .
-git commit -m "version 2.5.14: update actionscript/run.sh; fix typst/run.sh;"
-git tag -a 2.5.14 -m "version 2.5.14: update actionscript/run.sh; fix typst/run.sh;"
+git commit -m "version 2.5.15: update readme-generator.py; update javascript-or-typescript/run.sh; fix actionscript/run.sh; fix ocaml/run.sh;"
+git tag -a 2.5.15 -m "version 2.5.15: update readme-generator.py; update javascript-or-typescript/run.sh; fix actionscript/run.sh; fix ocaml/run.sh;"
 git push origin main -f
 git push origin --tags -f

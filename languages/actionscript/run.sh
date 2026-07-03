@@ -70,7 +70,7 @@ grep \"<target-player>\" /apache-flex-sdk/frameworks/flex-config.xml
 
 CRO="
 TD=\"$RD/temp-downloads\"
-sudo apt update && sudo apt install wget x11-apps libgtk2.0-0:amd64 libnss3 libnss3-tools -y
+sudo apt update && sudo apt install wget x11-apps libgtk2.0-0t64:amd64 libnss3 -y
 
 if [ ! -f /usr/local/bin/flashplayer ]; then
     echo \"Installing Adobe Flash Player dependencies...\"

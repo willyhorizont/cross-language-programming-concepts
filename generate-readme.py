@@ -27,14 +27,16 @@ Cross-language implementations of common programming concepts, data structures, 
 
 ## Requirements
 
+- [Visual Studio Code](https://code.visualstudio.com/) + [Code Runner VSCode Extension](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
+
+### Linux
+- [Git](https://git-scm.com/install/linux)
 - [Docker Engine](https://docs.docker.com/engine/install/)
-- [Git](https://git-scm.com/)
 
----
-## Recommended environment
-
-- [GNU/Linux or GNU+Linux](https://linuxmint.com/download_lmde.php)
-- [Visual Studio Code](https://code.visualstudio.com/) + [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
+### Windows
+- [WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
+- [Git](https://git-scm.com/install/windows)
+- [Docker Dekstop](https://docs.docker.com/desktop/setup/install/windows-install/)
 
 ---
 
@@ -46,12 +48,13 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 
 ---
 
-## Languages  
+## Languages
+
 {generate_languages()}
 
 ![GitHub Programming Languages Card](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/github-programming-languages-card.png)  
 
-## Programming concepts  
+## Programming concepts
 
 {generate_programming_concepts()}
 

@@ -55,7 +55,7 @@ main :: proc() {
     free(multiply_by_two.state)
     free(multiply_by_eight.state)
 
-    /* 
+    /*
     2. support dynamic-typed value, or has workaround
     */
     xl_list := xl.XlList{

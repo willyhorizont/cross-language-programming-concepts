@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../../runtimes/php/willyhorizont/runtime.php';
 use Runtimes\Php\WillyHorizont\Runtime;
 
-/* 
+/*
 1. support closure as value, or has workaround
 */
 $say_hello = function ($callback_function) {
@@ -19,7 +19,7 @@ $multiply_by_eight = $create_multiplier(8);
 echo "multiply_by_eight(4): " . $multiply_by_eight(4) . PHP_EOL;
 echo "multiply_by_two(8): " . $multiply_by_two(8) . PHP_EOL;
 
-/* 
+/*
 2. support dynamic-typed value, or has workaround
 */
 $xl_list = [

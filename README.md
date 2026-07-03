@@ -4,14 +4,16 @@ Cross-language implementations of common programming concepts, data structures, 
 
 ## Requirements
 
+- [Visual Studio Code](https://code.visualstudio.com/) + [Code Runner VSCode Extension](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
+
+### Linux
+- [Git](https://git-scm.com/install/linux)
 - [Docker Engine](https://docs.docker.com/engine/install/)
-- [Git](https://git-scm.com/)
 
----
-## Recommended environment
-
-- [GNU/Linux or GNU+Linux](https://linuxmint.com/download_lmde.php)
-- [Visual Studio Code](https://code.visualstudio.com/) + [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
+### Windows
+- [WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
+- [Git](https://git-scm.com/install/windows)
+- [Docker Dekstop](https://docs.docker.com/desktop/setup/install/windows-install/)
 
 ---
 
@@ -23,7 +25,8 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 
 ---
 
-## Languages  
+## Languages
+
 1. [JavaScript](https://nodejs.org/) / [TypeScript](https://www.typescriptlang.org/) : [https://nodejs.org/](https://nodejs.org/) or [https://www.typescriptlang.org/](https://www.typescriptlang.org/)  
 2. [Python](https://www.python.org/) : [https://www.python.org/](https://www.python.org/)  
 3. [PHP](https://www.php.net/) : [https://www.php.net/](https://www.php.net/)  
@@ -67,7 +70,7 @@ bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-exte
 
 ![GitHub Programming Languages Card](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/github-programming-languages-card.png)  
 
-## Programming concepts  
+## Programming concepts
 
 ### cross-language-features  
   1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/cross-language-features.js)  

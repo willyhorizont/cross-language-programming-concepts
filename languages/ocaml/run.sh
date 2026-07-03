@@ -37,6 +37,7 @@ cp -f "$PTFNX" "$PATH_TO_TARGET_FILE_WITH_EXTENSION"
 
 if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
     CIR="
+        eval \$(opam env)
         ocamlopt -c \"$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/willyhorizont.ml\"
     "
     docker run -i --rm \

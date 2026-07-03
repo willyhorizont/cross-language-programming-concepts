@@ -30,9 +30,9 @@ L=$("$RD/utils.sh" "print_separator")
 
 if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
     CIPM="npm install -g npm@latest --no-fund --no-audit --silent"
-    CIR="cd $RD && npm install github:willyhorizont/willyhorizont.github.io#2.1.1 --no-fund --no-audit --silent"
+    # CIR="cd $RD && npm install github:willyhorizont/willyhorizont.github.io#2.1.1 --no-fund --no-audit --silent"
     echo ">$CIPM"
-    echo ">$CIR"
+    # echo ">$CIR"
 
     docker run -i --rm \
         --entrypoint bash \
@@ -40,7 +40,6 @@ if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
         "$IMG" \
         -c "
             $CIPM
-            $CIR
         "
     echo "IS_RUNTIME_INSTALLED=\"TRUE\"" > "$LEF"
 fi
