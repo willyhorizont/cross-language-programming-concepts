@@ -22,13 +22,14 @@ if [ -f "$LEF" ]; then
     source "$LEF"
 fi
 
-"$RD/utils.sh" "setup_language_specific_vscode_extensions" "$LID" 2>/dev/null
+# "$RD/utils.sh" "setup_language_specific_vscode_extensions" "$LID" 2>/dev/null
+code --install-extension "$RD/language-specific-extensions-installer.vsix"
 
 IMG=$("$RD/utils.sh" "get_docker_image" "$LID" 2>/dev/null)
 
 L=$("$RD/utils.sh" "print_separator")
 
-PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR="$RD/runtimes/$LID/runtime"
+PTTFNXD="$RD/runtimes/$LID/runtime"
 
 CPV="
 echo \">docker images\"
@@ -41,8 +42,8 @@ echo \">./pharo Pharo.image eval \"SystemVersion current version\"\"
 ./pharo Pharo.image eval \"SystemVersion current version\"
 "
 
-COMMAND_COMPILE_AND_RUN_LANGUAGE_CODE="
-./pharo Pharo.image st --quit \"$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/willyhorizont/runtime.st\" \"$PTFNX\"
+CCRLC="
+./pharo Pharo.image st --quit \"$PTTFNXD/willyhorizont/runtime.st\" \"$PTFNX\"
 "
 
 if ! docker image inspect "$IMG" > /dev/null 2>&1; then
@@ -61,5 +62,5 @@ docker run -i --rm \
 
         echo \"$L\"
 
-        $COMMAND_COMPILE_AND_RUN_LANGUAGE_CODE
+        $CCRLC
     "

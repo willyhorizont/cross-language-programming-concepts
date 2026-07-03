@@ -22,18 +22,19 @@ if [ -f "$LEF" ]; then
     source "$LEF"
 fi
 
-"$RD/utils.sh" "setup_language_specific_vscode_extensions" "$LID" 2>/dev/null
+# "$RD/utils.sh" "setup_language_specific_vscode_extensions" "$LID" 2>/dev/null
+code --install-extension "$RD/language-specific-extensions-installer.vsix"
 
 IMG=$("$RD/utils.sh" "get_docker_image" "$LID" 2>/dev/null)
 
 L=$("$RD/utils.sh" "print_separator")
 
-PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR="$RD/runtimes/java"
-TARGET_FILE_NAME_WITHOUT_EXTENSION="Main"
-PATH_TO_TARGET_FILE_WITH_EXTENSION="$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/$TARGET_FILE_NAME_WITHOUT_EXTENSION.$X"
+PTTFNXD="$RD/runtimes/java"
+TFN="Main"
+PTTFNX="$PTTFNXD/$TFN.$X"
 
-mkdir -p "$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR"
-cp -f "$PTFNX" "$PATH_TO_TARGET_FILE_WITH_EXTENSION"
+mkdir -p "$PTTFNXD"
+cp -f "$PTFNX" "$PTTFNX"
 
 if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
     CIR="
@@ -59,8 +60,8 @@ javac -version
 "
 
 CRLC="
-javac -cp \"$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR\" -d \"$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR\" \"$PATH_TO_TARGET_FILE_WITH_EXTENSION\"
-java -cp \"$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR\" \"$TARGET_FILE_NAME_WITHOUT_EXTENSION\"
+javac -cp \"$PTTFNXD\" -d \"$PTTFNXD\" \"$PTTFNX\"
+java -cp \"$PTTFNXD\" \"$TFN\"
 "
 
 docker run -i --rm \
@@ -75,5 +76,5 @@ docker run -i --rm \
         $CRLC
     "
 
-rm -f "$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/$TARGET_FILE_NAME_WITHOUT_EXTENSION.class"
-rm -f "$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/$TARGET_FILE_NAME_WITHOUT_EXTENSION.java"
+rm -f "$PTTFNXD/$TFN.class"
+rm -f "$PTTFNXD/$TFN.java"

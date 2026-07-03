@@ -22,7 +22,8 @@ if [ -f "$LEF" ]; then
     source "$LEF"
 fi
 
-"$RD/utils.sh" "setup_language_specific_vscode_extensions" "$LID" 2>/dev/null
+# "$RD/utils.sh" "setup_language_specific_vscode_extensions" "$LID" 2>/dev/null
+code --install-extension "$RD/language-specific-extensions-installer.vsix"
 
 IMG=$("$RD/utils.sh" "get_docker_image" "$LID" 2>/dev/null)
 
@@ -37,12 +38,10 @@ echo \">kotlin -version\"
 kotlin -version
 "
 
-COMMAND_RUN_LANGUAGE_CODE_VERSION_ONE="kotlin"
-COMMAND_RUN_LANGUAGE_CODE_VERSION_TWO="java -jar"
 CRLC="
 cd \"$PTFNXD\"
 kotlinc \"$FNX\" -include-runtime -d \"$FN.jar\"
-\"$COMMAND_RUN_LANGUAGE_CODE_VERSION_ONE\" \"$FN.jar\"
+kotlin \"$FN.jar\"
 "
 
 docker run -i --rm \

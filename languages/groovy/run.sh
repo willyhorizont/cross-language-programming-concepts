@@ -22,7 +22,8 @@ if [ -f "$LEV" ]; then
     source "$LEV"
 fi
 
-"$RD/utils.sh" "setup_language_specific_vscode_extensions" "$LID" 2>/dev/null
+# "$RD/utils.sh" "setup_language_specific_vscode_extensions" "$LID" 2>/dev/null
+code --install-extension "$RD/language-specific-extensions-installer.vsix"
 
 IMG=$("$RD/utils.sh" "get_docker_image" "$LID" 2>/dev/null)
 

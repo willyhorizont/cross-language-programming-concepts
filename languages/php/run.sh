@@ -22,23 +22,24 @@ if [ -f "$LEF" ]; then
     source "$LEF"
 fi
 
-"$RD/utils.sh" "setup_language_specific_vscode_extensions" "$LID" 2>/dev/null
+# "$RD/utils.sh" "setup_language_specific_vscode_extensions" "$LID" 2>/dev/null
+code --install-extension "$RD/language-specific-extensions-installer.vsix"
 
 IMG=$("$RD/utils.sh" "get_docker_image" "$LID" 2>/dev/null)
 
 L=$("$RD/utils.sh" "print_separator")
 
-PATH_TO_PACKAGE_MANAGER="$RD/composer"
-PATH_TO_PACKAGE_MANAGER_SETUP="$RD/composer-setup.php"
+PTPM="$RD/composer"
+PTPMS="$RD/composer-setup.php"
 
-COMMAND_CHECK_PACKAGE_MANAGER_VERSION="
+CCPMV="
 echo \">composer --version\"
-\"$PATH_TO_PACKAGE_MANAGER\" --version
+\"$PTPM\" --version
 "
 
 CPV="
-if [ -f \"$PATH_TO_PACKAGE_MANAGER\" ]; then
-    $COMMAND_CHECK_PACKAGE_MANAGER_VERSION
+if [ -f \"$PTPM\" ]; then
+    $CCPMV
 fi
 echo \">docker images\"
 echo \"$IMG\"
@@ -51,16 +52,16 @@ php \"$PTFNX\"
 "
 
 CIPM="
-if [ ! -f \"$PATH_TO_PACKAGE_MANAGER\" ]; then
+if [ ! -f \"$PTPM\" ]; then
     cd \"$PTFNXD\"
 
-    php -r \"copy('https://getcomposer.org/installer', '$PATH_TO_PACKAGE_MANAGER_SETUP');\"
+    php -r \"copy('https://getcomposer.org/installer', '$PTPMS');\"
 
-    php -r \"if (hash_file('sha384', '$PATH_TO_PACKAGE_MANAGER_SETUP') === 'c8b085408188070d5f52bcfe4ecfbee5f727afa458b2573b8eaaf77b3419b0bf2768dc67c86944da1544f06fa544fd47') { echo 'Installer verified'.PHP_EOL; } else { echo 'Installer corrupt'.PHP_EOL; unlink('$PATH_TO_PACKAGE_MANAGER_SETUP'); exit(1); }\"
+    php -r \"if (hash_file('sha384', '$PTPMS') === 'c8b085408188070d5f52bcfe4ecfbee5f727afa458b2573b8eaaf77b3419b0bf2768dc67c86944da1544f06fa544fd47') { echo 'Installer verified'.PHP_EOL; } else { echo 'Installer corrupt'.PHP_EOL; unlink('$PTPMS'); exit(1); }\"
 
-    php \"$PATH_TO_PACKAGE_MANAGER_SETUP\" --version=2.10.0 --install-dir=\"$RD\" --filename=composer
+    php \"$PTPMS\" --version=2.10.0 --install-dir=\"$RD\" --filename=composer
 
-    php -r \"unlink('$PATH_TO_PACKAGE_MANAGER_SETUP');\"
+    php -r \"unlink('$PTPMS');\"
 fi
 "
 

@@ -22,20 +22,21 @@ if [ -f "$LEF" ]; then
     source "$LEF"
 fi
 
-"$RD/utils.sh" "setup_language_specific_vscode_extensions" "$LID" 2>/dev/null
+# "$RD/utils.sh" "setup_language_specific_vscode_extensions" "$LID" 2>/dev/null
+code --install-extension "$RD/language-specific-extensions-installer.vsix"
 
 IMG=$("$RD/utils.sh" "get_docker_image" "$LID" 2>/dev/null)
 
 L=$("$RD/utils.sh" "print_separator")
 
-PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR="$RD/runtimes/$LID"
-TARGET_FILE_NAME_WITHOUT_EXTENSION="main"
-PATH_TO_TARGET_FILE_WITH_EXTENSION="$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/$TARGET_FILE_NAME_WITHOUT_EXTENSION/src/$TARGET_FILE_NAME_WITHOUT_EXTENSION.$X"
+PTTFNXD="$RD/runtimes/$LID"
+TFN="main"
+PTTFNX="$PTTFNXD/$TFN/src/$TFN.$X"
 
 if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
     CIR="
-        cd $PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR
-        gleam new $TARGET_FILE_NAME_WITHOUT_EXTENSION
+        cd $PTTFNXD
+        gleam new $TFN
     "
     docker run -i --rm \
         --entrypoint bash \
@@ -47,8 +48,8 @@ if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
     echo "IS_RUNTIME_INSTALLED=\"TRUE\"" > "$LEF"
 fi
 
-mkdir -p "$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR"
-sudo cp -f "$PTFNX" "$PATH_TO_TARGET_FILE_WITH_EXTENSION"
+mkdir -p "$PTTFNXD"
+sudo cp -f "$PTFNX" "$PTTFNX"
 
 CPV="
 echo \">docker images\"
@@ -62,7 +63,7 @@ cat /usr/local/lib/erlang/releases/29/OTP_VERSION
 "
 
 CRLC="
-cd \"$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/$TARGET_FILE_NAME_WITHOUT_EXTENSION\"
+cd \"$PTTFNXD/$TFN\"
 gleam run
 "
 

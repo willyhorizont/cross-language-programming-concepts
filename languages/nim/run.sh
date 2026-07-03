@@ -22,18 +22,19 @@ if [ -f "$LEF" ]; then
     source "$LEF"
 fi
 
-"$RD/utils.sh" "setup_language_specific_vscode_extensions" "$LID" 2>/dev/null
+# "$RD/utils.sh" "setup_language_specific_vscode_extensions" "$LID" 2>/dev/null
+code --install-extension "$RD/language-specific-extensions-installer.vsix"
 
 IMG=$("$RD/utils.sh" "get_docker_image" "$LID" 2>/dev/null)
 
 L=$("$RD/utils.sh" "print_separator")
 
-PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR="$RD/runtimes/$LID"
-TARGET_FILE_NAME_WITHOUT_EXTENSION="main"
-PATH_TO_TARGET_FILE_WITH_EXTENSION="$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/$TARGET_FILE_NAME_WITHOUT_EXTENSION.$X"
+PTTFNXD="$RD/runtimes/$LID"
+TFN="main"
+PTTFNX="$PTTFNXD/$TFN.$X"
 
-mkdir -p "$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR"
-cp -f "$PTFNX" "$PATH_TO_TARGET_FILE_WITH_EXTENSION"
+mkdir -p "$PTTFNXD"
+cp -f "$PTFNX" "$PTTFNX"
 
 CPV="
 echo \">docker images\"
@@ -45,8 +46,8 @@ nim -v
 "
 
 CRLC="
-cd \"$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR\"
-nim c -r --hints:off \"$TARGET_FILE_NAME_WITHOUT_EXTENSION.$X\"
+cd \"$PTTFNXD\"
+nim c -r --hints:off \"$TFN.$X\"
 "
 
 docker run -i --rm \
@@ -61,5 +62,5 @@ docker run -i --rm \
         $CRLC
     "
 
-rm -f "$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/$TARGET_FILE_NAME_WITHOUT_EXTENSION.nim"
-rm -f "$PATH_TO_TARGET_FILE_WITH_EXTENSION_DIR/$TARGET_FILE_NAME_WITHOUT_EXTENSION"
+rm -f "$PTTFNXD/$TFN.nim"
+rm -f "$PTTFNXD/$TFN"
