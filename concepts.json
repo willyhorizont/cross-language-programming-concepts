@@ -1,78 +1,97 @@
 [
     {
-        "concept_name": "cross-language-features",
+        "id": "cross-language-features",
+        "name": "Cross Language Features",
         "concept_definition": null
     },
     {
-        "concept_name": "comments",
+        "id": "comments",
+        "name": "Comments",
         "concept_definition": null
     },
     {
-        "concept_name": "hello-world",
+        "id": "hello-world",
+        "name": "Hello World",
         "concept_definition": null
     },
     {
-        "concept_name": "conditionals",
+        "id": "conditionals",
+        "name": "Conditionals",
         "concept_definition": null
     },
     {
-        "concept_name": "loops",
+        "id": "loops",
+        "name": "Loops",
         "concept_definition": null
     },
     {
-        "concept_name": "functions",
+        "id": "functions-and-closure",
+        "name": "Functions and Closure",
         "concept_definition": null
     },
     {
-        "concept_name": "error-handling",
+        "id": "error-handling",
+        "name": "Error Handling",
         "concept_definition": null
     },
     {
-        "concept_name": "python-like-list",
+        "id": "list",
+        "name": "List",
         "concept_definition": null
     },
     {
-        "concept_name": "python-like-dict",
+        "id": "dict",
+        "name": "Dict",
         "concept_definition": null
     },
     {
-        "concept_name": "loop-through-each-list-item",
-        "concept_definition": "(forEach)"
+        "id": "list-for-each",
+        "name": "forEach",
+        "concept_definition": "(Loop Through Each List Item)"
     },
     {
-        "concept_name": "get-is-any-item-in-list-matching-condition",
-        "concept_definition": "(some / any / exists / contains / includes)"
+        "id": "list-any-match",
+        "name": "[some / any / exists / contains / includes]",
+        "concept_definition": "(Get is Any Item in List Matching Condition)"
     },
     {
-        "concept_name": "get-is-all-item-in-list-matching-condition",
-        "concept_definition": "(every / all)"
+        "id": "list-all-match",
+        "name": "[every / all]",
+        "concept_definition": "(Get is All Item in List Matching Condition)"
     },
     {
-        "concept_name": "get-first-list-item-matching-condition",
-        "concept_definition": "(find)"
+        "id": "list-find",
+        "name": "[find]",
+        "concept_definition": "(Get First List Item Matching Condition)"
     },
     {
-        "concept_name": "get-index-of-list-item-matching-condition",
-        "concept_definition": "(findIndex)"
+        "id": "list-find-index",
+        "name": "[findIndex]",
+        "concept_definition": "(Get Index of List Item Matching Condition)"
     },
     {
-        "concept_name": "get-all-list-item-matching-condition",
-        "concept_definition": "(filter / grep)"
+        "id": "list-filter",
+        "name": "[filter / grep]",
+        "concept_definition": "(Get All List Item Matching Condition)"
     },
     {
-        "concept_name": "transform-each-list-item",
-        "concept_definition": "(map / apply)"
+        "id": "list-map",
+        "name": "[map / apply]",
+        "concept_definition": "(Transform Each List Item)"
     },
     {
-        "concept_name": "combine-all-list-item",
-        "concept_definition": "(reduce / fold / aggregate)"
+        "id": "list-reduce",
+        "name": "[reduce / fold / aggregate]",
+        "concept_definition": "(Combine All List Item)"
     },
     {
-        "concept_name": "list-remove-tail",
-        "concept_definition": "(pop)"
+        "id": "list-pop-tail",
+        "name": "[pop]",
+        "concept_definition": "(List Pop Tail)"
     },
     {
-        "concept_name": "list-insert-tail",
-        "concept_definition": "(push / append)"
+        "id": "list-append-to-tail",
+        "name": "[push / append]",
+        "concept_definition": "(List Append to Tail)"
     }
 ]

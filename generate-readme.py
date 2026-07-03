@@ -9,10 +9,10 @@ base_url = "https://github.com/willyhorizont/cross-language-programming-concepts
 def generate_programming_concepts():
     with open("concepts.json", "r", encoding="utf-8") as file:
         concepts = json.load(file)
-    get_concept_per_language_definition = lambda concept, language: "" if not (programming_concept := language["concept_definition"].get(concept["concept_name"])) else f" : {programming_concept}"
-    get_concept_per_language_link = lambda concept, language: f"{base_url}{language['id']}/{concept['concept_name']}{language['file_extension']}"
+    get_concept_per_language_definition = lambda concept, language: "" if not (programming_concept := language["concept_definition"].get(concept["id"])) else f" : {programming_concept}"
+    get_concept_per_language_link = lambda concept, language: f"{base_url}{language['id']}/{concept['id']}{language['file_extension']}"
     get_concept_per_language = lambda concept: "\n".join([f"  {number}. [{' / '.join(list(map(lambda stack: stack['name'], language['stack'])))}]({get_concept_per_language_link(concept, language)}){get_concept_per_language_definition(concept, language)}  " for number, language in enumerate(languages, start=1)])
-    get_concept_title = lambda concept: f"{concept['concept_name']} {concept['concept_definition']}" if concept["concept_definition"] else f"{concept['concept_name']}"
+    get_concept_title = lambda concept: f"{concept['name']} {concept['concept_definition']}" if concept["concept_definition"] else f"{concept['name']}"
     return "\n\n---\n\n".join([f"### {get_concept_title(concept)}  \n{get_concept_per_language(concept)}" for concept in concepts])
 
 
@@ -37,14 +37,6 @@ Cross-language implementations of common programming concepts, data structures, 
 - [WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
 - [Git](https://git-scm.com/install/windows)
 - [Docker Dekstop](https://docs.docker.com/desktop/setup/install/windows-install/)
-
----
-
-## Run
-
-```bash
-bash ./languages/<language>/run.sh ./languages/<language>/<file-name>.<file-extension>
-```
 
 ---
 

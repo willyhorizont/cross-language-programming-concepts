@@ -15,8 +15,8 @@
         ],
         "file_extension": ".js",
         "concept_definition": {
-            "python-like-list": "Array",
-            "python-like-dict": "Object"
+            "list": "Array",
+            "dict": "Object"
         },
         "vscode_extensions": [],
         "vscode_extensions_archive": [
@@ -42,8 +42,8 @@
         ],
         "file_extension": ".py",
         "concept_definition": {
-            "python-like-list": "list",
-            "python-like-dict": "Dict"
+            "list": "list",
+            "dict": "Dict"
         },
         "vscode_extensions": [
             "ms-python.vscode-pylance"
@@ -71,8 +71,8 @@
         ],
         "file_extension": ".php",
         "concept_definition": {
-            "python-like-list": "array",
-            "python-like-dict": "associative array"
+            "list": "array",
+            "dict": "associative array"
         },
         "vscode_extensions": [
             "bmewburn.vscode-intelephense-client"
@@ -100,8 +100,8 @@
         ],
         "file_extension": ".go",
         "concept_definition": {
-            "python-like-list": "Slice",
-            "python-like-dict": "map[string]interface{}"
+            "list": "Slice",
+            "dict": "map[string]interface{}"
         },
         "vscode_extensions": [
             "golang.go"
@@ -129,8 +129,8 @@
         ],
         "file_extension": ".pl",
         "concept_definition": {
-            "python-like-list": "ARRAY",
-            "python-like-dict": "HASH"
+            "list": "ARRAY",
+            "dict": "HASH"
         },
         "vscode_extensions": [
             "bscan.perlnavigator"
@@ -158,8 +158,8 @@
         ],
         "file_extension": ".jl",
         "concept_definition": {
-            "python-like-list": "Vector{Any}",
-            "python-like-dict": "Dict{String, Any}"
+            "list": "Vector{Any}",
+            "dict": "Dict{String, Any}"
         },
         "vscode_extensions": [
             "julialang.language-julia"
@@ -187,8 +187,8 @@
         ],
         "file_extension": ".lua",
         "concept_definition": {
-            "python-like-list": "table",
-            "python-like-dict": "hash table"
+            "list": "table",
+            "dict": "hash table"
         },
         "vscode_extensions": [
             "sumneko.lua"
@@ -216,8 +216,8 @@
         ],
         "file_extension": ".rb",
         "concept_definition": {
-            "python-like-list": "Array",
-            "python-like-dict": "Hash"
+            "list": "Array",
+            "dict": "Hash"
         },
         "vscode_extensions": [
             "Shopify.ruby-lsp"
@@ -245,8 +245,8 @@
         ],
         "file_extension": ".r",
         "concept_definition": {
-            "python-like-list": "list",
-            "python-like-dict": "associative list"
+            "list": "list",
+            "dict": "associative list"
         },
         "vscode_extensions": [
             "reditorsupport.r",
@@ -275,8 +275,8 @@
         ],
         "file_extension": ".kt",
         "concept_definition": {
-            "python-like-list": "MutableList&lt;Any?&gt;",
-            "python-like-dict": "MutableMap&lt;String, Any?&gt;"
+            "list": "MutableList&lt;Any?&gt;",
+            "dict": "MutableMap&lt;String, Any?&gt;"
         },
         "vscode_extensions": [
             "JetBrains.kotlin-server",
@@ -306,8 +306,8 @@
         ],
         "file_extension": ".swift",
         "concept_definition": {
-            "python-like-list": "Array",
-            "python-like-dict": "OrderedDictionary&lt;String, Any?&gt;"
+            "list": "Array",
+            "dict": "OrderedDictionary&lt;String, Any?&gt;"
         },
         "vscode_extensions": [
             "swiftlang.swift-vscode"
@@ -328,8 +328,8 @@
         ],
         "file_extension": ".dart",
         "concept_definition": {
-            "python-like-list": "List&lt;dynamic&gt;",
-            "python-like-dict": "Map&lt;String, dynamic&gt;"
+            "list": "List&lt;dynamic&gt;",
+            "dict": "Map&lt;String, dynamic&gt;"
         },
         "vscode_extensions": [
             "dart-code.dart-code"
@@ -350,8 +350,8 @@
         ],
         "file_extension": ".vb",
         "concept_definition": {
-            "python-like-list": "List(Of Object)",
-            "python-like-dict": "Dictionary(Of String, Object)"
+            "list": "List(Of Object)",
+            "dict": "Dictionary(Of String, Object)"
         },
         "vscode_extensions": [
             "dnakode.vbnet-language-support"
@@ -372,8 +372,8 @@
         ],
         "file_extension": ".cs",
         "concept_definition": {
-            "python-like-list": "List&lt;dynamic&gt;",
-            "python-like-dict": "Dictionary&lt;string, dynamic&gt;"
+            "list": "List&lt;dynamic&gt;",
+            "dict": "Dictionary&lt;string, dynamic&gt;"
         },
         "vscode_extensions": [
             "ms-dotnettools.csharp"
@@ -399,8 +399,8 @@
         ],
         "file_extension": ".m",
         "concept_definition": {
-            "python-like-list": "Cell Array",
-            "python-like-dict": "struct"
+            "list": "Cell Array",
+            "dict": "struct"
         },
         "vscode_extensions": [
             "MathWorks.language-matlab"
@@ -421,8 +421,8 @@
         ],
         "file_extension": ".wls",
         "concept_definition": {
-            "python-like-list": "List",
-            "python-like-dict": "Association"
+            "list": "List",
+            "dict": "Association"
         },
         "vscode_extensions": [
             "WolframResearch.wolfram"
@@ -443,8 +443,8 @@
         ],
         "file_extension": ".raku",
         "concept_definition": {
-            "python-like-list": "List",
-            "python-like-dict": "HASH"
+            "list": "List",
+            "dict": "HASH"
         },
         "vscode_extensions": [
             "bscan.raku-navigator"
@@ -465,8 +465,8 @@
         ],
         "file_extension": ".scala",
         "concept_definition": {
-            "python-like-list": "mutable.ArrayBuffer[Any]",
-            "python-like-dict": "mutable.Map[String, Any]"
+            "list": "mutable.ArrayBuffer[Any]",
+            "dict": "mutable.Map[String, Any]"
         },
         "vscode_extensions": [
             "scala-lang.scala"
@@ -495,8 +495,8 @@
         ],
         "file_extension": ".java",
         "concept_definition": {
-            "python-like-list": "ArrayList&lt;Object&gt;",
-            "python-like-dict": "HashMap&lt;String, Object&gt;"
+            "list": "ArrayList&lt;Object&gt;",
+            "dict": "HashMap&lt;String, Object&gt;"
         },
         "vscode_extensions": [
             "redhat.java",
@@ -525,8 +525,8 @@
         ],
         "file_extension": ".nu",
         "concept_definition": {
-            "python-like-list": "List",
-            "python-like-dict": "Record"
+            "list": "List",
+            "dict": "Record"
         },
         "vscode_extensions": [
             "TheNuProjectContributors.vscode-nushell-lang"
@@ -554,8 +554,8 @@
         ],
         "file_extension": ".elv",
         "concept_definition": {
-            "python-like-list": "List",
-            "python-like-dict": "Map"
+            "list": "List",
+            "dict": "Map"
         },
         "vscode_extensions": [
             "elves.elvish"
@@ -583,8 +583,8 @@
         ],
         "file_extension": ".vim",
         "concept_definition": {
-            "python-like-list": "List",
-            "python-like-dict": "Dictionary"
+            "list": "List",
+            "dict": "Dictionary"
         },
         "vscode_extensions": [],
         "vscode_extensions_archive": [
@@ -610,8 +610,8 @@
         ],
         "file_extension": ".rs",
         "concept_definition": {
-            "python-like-list": "Vec",
-            "python-like-dict": "Map"
+            "list": "Vec",
+            "dict": "Map"
         },
         "vscode_extensions": [
             "rust-lang.rust-analyzer"
@@ -639,8 +639,8 @@
         ],
         "file_extension": ".nix",
         "concept_definition": {
-            "python-like-list": "List",
-            "python-like-dict": "Attribute Set"
+            "list": "List",
+            "dict": "Attribute Set"
         },
         "vscode_extensions": [
             "jnoortheen.nix-ide"
@@ -668,8 +668,8 @@
         ],
         "file_extension": ".tcl",
         "concept_definition": {
-            "python-like-list": "list",
-            "python-like-dict": "dict"
+            "list": "list",
+            "dict": "dict"
         },
         "vscode_extensions": [
             "bitwisecook.tcl-lsp"
@@ -697,8 +697,8 @@
         ],
         "file_extension": ".gd",
         "concept_definition": {
-            "python-like-list": "Array",
-            "python-like-dict": "Dictionary"
+            "list": "Array",
+            "dict": "Dictionary"
         },
         "vscode_extensions": [
             "geequlim.godot-tools",
@@ -728,8 +728,8 @@
         ],
         "file_extension": ".typ",
         "concept_definition": {
-            "python-like-list": "Array",
-            "python-like-dict": "Dictionary"
+            "list": "Array",
+            "dict": "Dictionary"
         },
         "vscode_extensions": [
             "myriad-dreamin.tinymist",
@@ -758,8 +758,8 @@
         ],
         "file_extension": ".ps1",
         "concept_definition": {
-            "python-like-list": "Array",
-            "python-like-dict": "HashTable"
+            "list": "Array",
+            "dict": "HashTable"
         },
         "vscode_extensions": [
             "ms-vscode.PowerShell"
@@ -787,8 +787,8 @@
         ],
         "file_extension": ".exs",
         "concept_definition": {
-            "python-like-list": "List",
-            "python-like-dict": "Associative List"
+            "list": "List",
+            "dict": "Associative List"
         },
         "vscode_extensions": [
             "JakeBecker.elixir-ls"
@@ -816,8 +816,8 @@
         ],
         "file_extension": ".ml",
         "concept_definition": {
-            "python-like-list": "List",
-            "python-like-dict": "Association List"
+            "list": "List",
+            "dict": "Association List"
         },
         "vscode_extensions": [
             "ocamllabs.ocaml-platform"
@@ -845,8 +845,8 @@
         ],
         "file_extension": ".erl",
         "concept_definition": {
-            "python-like-list": "list",
-            "python-like-dict": "associative list"
+            "list": "list",
+            "dict": "associative list"
         },
         "vscode_extensions": [
             "pgourlain.erlang"
@@ -874,8 +874,8 @@
         ],
         "file_extension": ".gleam",
         "concept_definition": {
-            "python-like-list": "List",
-            "python-like-dict": "Associative List"
+            "list": "List",
+            "dict": "Associative List"
         },
         "vscode_extensions": [
             "Gleam.gleam"
@@ -903,8 +903,8 @@
         ],
         "file_extension": ".zig",
         "concept_definition": {
-            "python-like-list": "Slice",
-            "python-like-dict": "Association Slice"
+            "list": "Slice",
+            "dict": "Association Slice"
         },
         "vscode_extensions": [
             "ziglang.vscode-zig"
@@ -932,8 +932,8 @@
         ],
         "file_extension": ".nim",
         "concept_definition": {
-            "python-like-list": "Sequence",
-            "python-like-dict": "Ordered Table"
+            "list": "Sequence",
+            "dict": "Ordered Table"
         },
         "vscode_extensions": [
             "NimLang.nimlang"
@@ -961,8 +961,8 @@
         ],
         "file_extension": ".odin",
         "concept_definition": {
-            "python-like-list": "Slice",
-            "python-like-dict": "Map"
+            "list": "Slice",
+            "dict": "Map"
         },
         "vscode_extensions": [
             "DanielGavin.ols"
@@ -990,8 +990,8 @@
         ],
         "file_extension": ".cpp",
         "concept_definition": {
-            "python-like-list": "Vector",
-            "python-like-dict": "Unordered Map"
+            "list": "Vector",
+            "dict": "Unordered Map"
         },
         "vscode_extensions": [
             "jeff-hykin.better-cpp-syntax"
@@ -1019,8 +1019,8 @@
         ],
         "file_extension": ".m",
         "concept_definition": {
-            "python-like-list": "Array",
-            "python-like-dict": "Dictionary"
+            "list": "Array",
+            "dict": "Dictionary"
         },
         "vscode_extensions": [
             "jeff-hykin.better-objc-syntax"
@@ -1048,8 +1048,8 @@
         ],
         "file_extension": ".st",
         "concept_definition": {
-            "python-like-list": "OrderedCollection",
-            "python-like-dict": "OrderedDictionary"
+            "list": "OrderedCollection",
+            "dict": "OrderedDictionary"
         },
         "vscode_extensions": [
             "PleasedSkin.smalltalk"
@@ -1079,8 +1079,8 @@
         ],
         "file_extension": ".as",
         "concept_definition": {
-            "python-like-list": "Array",
-            "python-like-dict": "Object"
+            "list": "Array",
+            "dict": "Object"
         },
         "vscode_extensions": [
             "bowlerhatllc.vscode-as3mxml"
@@ -1108,8 +1108,8 @@
         ],
         "file_extension": ".groovy",
         "concept_definition": {
-            "python-like-list": "List",
-            "python-like-dict": "Map"
+            "list": "List",
+            "dict": "Map"
         },
         "vscode_extensions": [
             "NicolasVuillamy.vscode-groovy-lint"

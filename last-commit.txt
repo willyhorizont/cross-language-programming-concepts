@@ -1,5 +1,5 @@
 git add .
-git commit -m "version 2.6.0: create language-specific-extensions-installer vscode extension; update run.sh;"
-git tag -a 2.6.0 -m "version 2.6.0: create language-specific-extensions-installer vscode extension; update run.sh;"
+git commit -m "version 2.6.1: update generate-readme.py readme.md, language.json, concepts.json;"
+git tag -a 2.6.1 -m "version 2.6.1: update generate-readme.py readme.md, language.json, concepts.json;"
 git push origin main -f
 git push origin --tags -f
