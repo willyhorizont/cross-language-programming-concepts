@@ -1,8 +1,11 @@
 #!/bin/bash
+export PYTHONDONTWRITEBYTECODE=1
 
+SD="$(dirname "$(realpath "$0")")"
+LID="$(basename "$SD")"
 if [ -z "$1" ]; then
     echo "usage:"
-    echo "run.sh <path-to-filename-with-extension>"
+    echo "\"$SD/run.sh\" path/to/*.$LID"
     exit 1
 fi
 
@@ -12,15 +15,13 @@ FNX="$(basename "$PTFNX")"
 FN="${FNX%.*}"
 X="${FNX##*.}"
 
-SD="$(dirname "$(realpath "$0")")"
-LID="$(basename "$SD")"
 RD="$(realpath "$SD/../..")"
 RN="$(basename "$RD")"
 
 PTRFNX="$RD/runtimes/python/willyhorizont/runtime.py"
 if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
     echo "usage:"
-    echo "run.sh <path-to-filename-with-extension>"
+    echo "\"$SD/run.sh\" path/to/*.$LID"
     exit 1
 fi
 
@@ -75,7 +76,9 @@ docker run -i --rm \
         $CRLC
     "
 
+
 if [[ "$RN" = "cross-language-programming-concepts" && "$FNX" != "generate-readme.py" ]]; then
+    # sudo chown -R $USER: "$RD"
     sudo rm -f "$RD/languages/$LID/__init__.py"
     sudo rm -f "$RD/languages/__init__.py"
     sudo rm -f "$RD/runtimes/__init__.py"
@@ -86,4 +89,18 @@ if [[ "$RN" = "cross-language-programming-concepts" && "$FNX" != "generate-readm
     sudo rm -rf "$RD/runtimes/__pycache__"
     sudo rm -rf "$RD/runtimes/$LID/__pycache__"
     sudo rm -rf "$RD/runtimes/$LID/willyhorizont/__pycache__"
+
+    # python3 -m compileall -q --purge "$RD" 2>/dev/null
+
+    echo "sudo chown -R \$USER: \"$RD\""
+    echo "sudo rm -f \"$RD/languages/$LID/__init__.py\""
+    echo "sudo rm -f \"$RD/languages/__init__.py\""
+    echo "sudo rm -f \"$RD/runtimes/__init__.py\""
+    echo "sudo rm -f \"$RD/runtimes/$LID/__init__.py\""
+    echo "sudo rm -f \"$RD/runtimes/$LID/willyhorizont/__init__.py\""
+    echo "sudo rm -rf \"$RD/languages/$LID/__pycache__\""
+    echo "sudo rm -rf \"$RD/languages/__pycache__\""
+    echo "sudo rm -rf \"$RD/runtimes/__pycache__\""
+    echo "sudo rm -rf \"$RD/runtimes/$LID/__pycache__\""
+    echo "sudo rm -rf \"$RD/runtimes/$LID/willyhorizont/__pycache__\""
 fi

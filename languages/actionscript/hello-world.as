@@ -1,10 +1,10 @@
 package {
     import flash.display.Sprite;
-    import runtime.willyhorizont.Xl;
+    import runtime.willyhorizont.Terminal;
 
     public class Program extends Sprite {
         public static function run():void {
-            Xl.print("hello, world");
+            Terminal.print("hello, world");
         }
     }
 }

@@ -3,29 +3,29 @@ package runtime
 import (
 	"fmt"
 	rt "reflect"
-	"strings"
+	str "strings"
 )
 
-type XlList []interface{}
-type XlDict map[string]interface{}
-type XlClosure func(va ...interface{}) interface{}
-type XlCallable struct {
-	Underlying XlClosure
+type List []interface{}
+type Dict map[string]interface{}
+type Closure func(va ...interface{}) interface{}
+type Callable struct {
+	Underlying Closure
 }
 
-type XlIterator struct {
+type Iterator struct {
 	Iterable []interface{}
 	Index int
 }
 
-func Iter(iterable []interface{}) *XlIterator {
-	return &XlIterator{
+func Iter(iterable []interface{}) *Iterator {
+	return &Iterator{
 		Iterable: iterable,
 		Index:    0,
 	}
 }
 
-func (itr *XlIterator) Next() interface{} {
+func (itr *Iterator) Next() interface{} {
 	if itr.Index < len(itr.Iterable) {
 		v := itr.Iterable[itr.Index]
 		itr.Index += 1
@@ -43,12 +43,12 @@ func Println(va ...interface{}) {
 
 func ToInt(a interface{}) int64 {
 	if a == nil {
-		panic("Runtime Error: Can't do ToInt.")
+		panic("XlRuntimeError: Can't do ToInt.")
 	}
 	rv := rt.ValueOf(a)
 	if rv.Kind() == rt.Ptr {
 		if rv.IsNil() {
-			panic("Runtime Error: Can't do ToInt.")
+			panic("XlRuntimeError: Can't do ToInt.")
 		}
 		rv = rv.Elem()
 	}
@@ -60,18 +60,18 @@ func ToInt(a interface{}) int64 {
 	case rt.Float32, rt.Float64:
 		return int64(rv.Float())
 	default:
-		panic("Runtime Error: Can't do ToInt.")
+		panic("XlRuntimeError: Can't do ToInt.")
 	}
 }
 
 func ToFloat(a interface{}) float64 {
 	if a == nil {
-		panic("Runtime Error: Can't do ToFloat.")
+		panic("XlRuntimeError: Can't do ToFloat.")
 	}
 	rv := rt.ValueOf(a)
 	if rv.Kind() == rt.Ptr {
 		if rv.IsNil() {
-			panic("Runtime Error: Can't do ToFloat.")
+			panic("XlRuntimeError: Can't do ToFloat.")
 		}
 		rv = rv.Elem()
 	}
@@ -83,18 +83,18 @@ func ToFloat(a interface{}) float64 {
 	case rt.Float32, rt.Float64:
 		return rv.Float()
 	default:
-		panic("Runtime Error: Can't do ToFloat.")
+		panic("XlRuntimeError: Can't do ToFloat.")
 	}
 }
 
 func ToBool(a interface{}) bool {
 	if a == nil {
-		panic("Runtime Error: Can't do ToBool.")
+		panic("XlRuntimeError: Can't do ToBool.")
 	}
 	rv := rt.ValueOf(a)
 	if rv.Kind() == rt.Ptr {
 		if rv.IsNil() {
-			panic("Runtime Error: Can't do ToBool.")
+			panic("XlRuntimeError: Can't do ToBool.")
 		}
 		rv = rv.Elem()
 	}
@@ -102,46 +102,46 @@ func ToBool(a interface{}) bool {
 	case rt.Bool:
 		return rv.Bool()
 	default:
-		panic("Runtime Error: Can't do ToBool.")
+		panic("XlRuntimeError: Can't do ToBool.")
 	}
 }
 
-func (c XlCallable) Call(va ...interface{}) interface{} {
+func (c Callable) Call(va ...interface{}) interface{} {
 	if c.Underlying == nil {
-		panic("Runtime Error: Can't do Call.")
+		panic("XlRuntimeError: Can't do Call.")
 	}
 	return c.Underlying(va...)
 }
 
-func ToClosure(a interface{}) XlCallable {
+func ToClosure(a interface{}) Callable {
 	if a == nil {
-		panic("Runtime Error: Can't do ToClosure.")
+		panic("XlRuntimeError: Can't do ToClosure.")
 	}
-	if exst, ok := a.(XlCallable); ok {
+	if exst, ok := a.(Callable); ok {
 		return exst
 	}
-	if c, ok := a.(XlClosure); ok {
-		return XlCallable{Underlying: c}
+	if c, ok := a.(Closure); ok {
+		return Callable{Underlying: c}
 	}
 	if rC, ok := a.(func(...interface{}) interface{}); ok {
-		return XlCallable{Underlying: XlClosure(rC)}
+		return Callable{Underlying: Closure(rC)}
 	}
 	rv := rt.ValueOf(a)
 	if rv.Kind() != rt.Func {
-		panic("Runtime Error: Can't do ToClosure")
+		panic("XlRuntimeError: Can't do ToClosure")
 	}
 	cls := func(va ...interface{}) interface{} {
-		args := make([]rt.Value, len(va))
+		a := make([]rt.Value, len(va))
 		for i, arg := range va {
-			args[i] = rt.ValueOf(arg)
+			a[i] = rt.ValueOf(arg)
 		}
-		nC := rv.Call(args)
+		nC := rv.Call(a)
 		if len(nC) == 0 {
 			return nil
 		}
 		return nC[0].Interface()
 	}
-	return XlCallable{Underlying: cls}
+	return Callable{Underlying: cls}
 }
 
 func JsonStringify(va ...interface{}) string {
@@ -155,32 +155,26 @@ func JsonStringify(va ...interface{}) string {
 	if oC != nil {
 		oD := rt.ValueOf(oC)
 		if oD.Kind() == rt.Map {
-			for _, k := range oD.MapKeys() {
-				if k.Kind() == rt.String && k.String() == "pretty" {
-					p = ToBool(oD.MapIndex(k).Interface())
+			for _, dK := range oD.MapKeys() {
+				if dK.Kind() == rt.String && dK.String() == "pretty" {
+					p = ToBool(oD.MapIndex(dK).Interface())
 				}
 			}
 		}
 	}
 	t := "    "
-	type sDi struct {
-		T string
-		Rv interface{}
-		Pv string
-		D int
-	}
-	s := []sDi{{T: "v", Rv: a, D: 0}}
-	var r strings.Builder
+	s := List{Dict{ "t": "v", "v": a, "d": 0 }}
+	var r str.Builder
 	for len(s) > 0 {
 		n := len(s) - 1
-		c := s[n]
+		c := s[n].(Dict)
 		s = s[:n]
-		if c.T == "r" {
-			r.WriteString(c.Pv)
+		if c["t"].(string) == "r" {
+			r.WriteString(c["v"].(string))
 			continue
 		}
-		v := c.Rv
-		curD := c.D
+		v := c["v"]
+		curD := c["d"].(int)
 		if v == nil {
 			r.WriteString("null")
 			continue
@@ -207,63 +201,99 @@ func JsonStringify(va ...interface{}) string {
 				r.WriteString("[]")
 				continue
 			}
-			chiD := curD + 1
-			clsVal := "]"
+			chldD := curD + 1
+			vBc := "]"
 			if p {
-				clsVal = "\n" + strings.Repeat(t, curD) + "]"
+				vBc = "\n" + str.Repeat(t, curD) + "]"
 			}
-			s = append(s, sDi{T: "r", Pv: clsVal})
-			for i := lD - 1; i >= 0; i-- {
-				s = append(s, sDi{T: "v", Rv: rv.Index(i).Interface(), D: chiD})
+			s = append(s, Dict{
+				"t": "r",
+				"v": vBc,
+				"d": curD,
+			})
+			for i := lD - 1; i >= 0; i -= 1 {
+				s = append(s, Dict{
+					"t": "v",
+					"v": rv.Index(i).Interface(),
+					"d": chldD,
+				})
 				if i > 0 {
-					sepVal := ","
+					vSep := ","
 					if p {
-						sepVal = ",\n" + strings.Repeat(t, chiD)
+						vSep = ",\n" + str.Repeat(t, chldD)
 					}
-					s = append(s, sDi{T: "r", Pv: sepVal})
+					s = append(s, Dict{
+						"t": "r",
+						"v": vSep,
+						"d": chldD,
+					})
 				}
 			}
-			opVal := "["
+			vBo := "["
 			if p {
-				opVal = "[\n" + strings.Repeat(t, chiD)
+				vBo = "[\n" + str.Repeat(t, chldD)
 			}
-			s = append(s, sDi{T: "r", Pv: opVal})
+			s = append(s, Dict{
+				"t": "r",
+				"v": vBo,
+				"d": chldD,
+			})
 		case rt.Map:
-			keys := rv.MapKeys()
-			if len(keys) == 0 {
+			dKl := rv.MapKeys()
+			if len(dKl) == 0 {
 				r.WriteString("{}")
 				continue
 			}
-			chiD := curD + 1
-			clsVal := "}"
+			chldD := curD + 1
+			vBc := "}"
 			if p {
-				clsVal = "\n" + strings.Repeat(t, curD) + "}"
+				vBc = "\n" + str.Repeat(t, curD) + "}"
 			}
-			s = append(s, sDi{T: "r", Pv: clsVal})
-			for i := len(keys) - 1; i >= 0; i-- {
-				k := keys[i]
-				dVal := rv.MapIndex(k).Interface()
-				s = append(s, sDi{T: "v", Rv: dVal, D: chiD})
-				kvSep := ":"
+			s = append(s, Dict{
+				"t": "r",
+				"v": vBc,
+				"d": curD,
+			})
+			for i := len(dKl) - 1; i >= 0; i -= 1 {
+				dK := dKl[i]
+				dV := rv.MapIndex(dK).Interface()
+				s = append(s, Dict{
+					"t": "v",
+					"v": dV,
+					"d": chldD,
+				})
+				vSep := ":"
 				if p {
-					kvSep = ": "
+					vSep = ": "
 				}
-				s = append(s, sDi{T: "r", Pv: "\"" + k.String() + "\"" + kvSep})
+				s = append(s, Dict{
+					"t": "r",
+					"v": "\"" + dK.String() + "\"" + vSep,
+					"d": chldD,
+				})
 				if i > 0 {
-					sepVal := ","
+					vSep := ","
 					if p {
-						sepVal = ",\n" + strings.Repeat(t, chiD)
+						vSep = ",\n" + str.Repeat(t, chldD)
 					}
-					s = append(s, sDi{T: "r", Pv: sepVal})
+					s = append(s, Dict{
+						"t": "r",
+						"v": vSep,
+						"d": chldD,
+					})
 				}
 			}
-			opVal := "{"
+			vBo := "{"
 			if p {
-				opVal = "{\n" + strings.Repeat(t, chiD)
+				vBo = "{\n" + str.Repeat(t, chldD)
 			}
-			s = append(s, sDi{T: "r", Pv: opVal})
+			s = append(s, Dict{
+				"t": "r",
+				"v": vBo,
+				"d": chldD,
+			})
 		default:
-			r.WriteString("\"" + rt.TypeOf(v).Name() + "\"")
+			r.WriteString("\"" + rt.TypeOf(v).String() + "\"")
 		}
 	}
 	return r.String()

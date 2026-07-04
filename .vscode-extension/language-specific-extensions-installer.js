@@ -5,6 +5,11 @@ const fs = require("fs");
 const lJ = require(path.join(__dirname, "languages.json"));
 const p = require(path.join(__dirname, "package.json"));
 
+const extsIgnore = [
+    ".txt",
+    ".sh",
+];
+
 const lExtDict = lJ.reduce((cur, l) => {
     const cfX = l["file_extension"].toLowerCase();
     const lExts = l["vscode_extensions"].map((lExt) => lExt.toLowerCase());
@@ -45,6 +50,7 @@ module.exports = { activate: (context) => {
 
         const cfNm = edt.document.fileName;
         const cfX = path.extname(cfNm).toLowerCase();
+        if (extsIgnore.includes(cfX)) return;
         const clExts = lExtDict?.[cfX] || [];
 
         if (clExts.length > 0) {

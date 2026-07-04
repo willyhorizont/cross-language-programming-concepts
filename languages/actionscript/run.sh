@@ -1,8 +1,10 @@
 #!/bin/bash
 
+SD="$(dirname "$(realpath "$0")")"
+LID="$(basename "$SD")"
 if [ -z "$1" ]; then
     echo "usage:"
-    echo "run.sh <path-to-filename-with-extension>"
+    echo "\"$SD/run.sh\" path/to/*.$LID"
     exit 1
 fi
 
@@ -12,15 +14,19 @@ FNX="$(basename "$PTFNX")"
 FN="${FNX%.*}"
 X="${FNX##*.}"
 
-SD="$(dirname "$(realpath "$0")")"
-LID="$(basename "$SD")"
 RD="$(realpath "$SD/../..")"
 RN="$(basename "$RD")"
 
 PTRFNX="$RD/runtimes/actionscript/runtime/willyhorizont/Xl.as"
 if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
     echo "usage:"
-    echo "run.sh <path-to-filename-with-extension>"
+    echo "\"$SD/run.sh\" path/to/*.$LID"
+    exit 1
+fi
+PTTFNX="$RD/runtimes/actionscript/runtime/willyhorizont/Terminal.as"
+if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTTFNX" 2>/dev/null)" ]; then
+    echo "usage:"
+    echo "\"$SD/run.sh\" path/to/*.$LID"
     exit 1
 fi
 
@@ -30,6 +36,7 @@ if [ -f "$LEF" ]; then
     source "$LEF"
 fi
 
+# "$RD/utils.sh" --setup-lang-specific-vscode-extensions $LID 2>/dev/null
 code --install-extension "$RD/language-specific-extensions-installer.vsix" &> /dev/null
 
 IMG=$("$RD/utils.sh" --get-docker-image $LID 2>/dev/null)
@@ -82,11 +89,11 @@ fi
 
 PTRD="$RD/runtimes/$LID"
 PTOFXD="$PTRD/output"
-IFN="Program"
-PTIFX="$PTRD/$IFN.$X"
+CFN="Program"
+PTCFX="$PTRD/$CFN.$X"
 
 mkdir -p "$PTOFXD"
-cp -f "$PTFNX" "$PTIFX"
+cp -f "$PTFNX" "$PTCFX"
 
 CPV="
 echo \">docker images\"
@@ -95,17 +102,17 @@ echo \">mxmlc -version\"
 mxmlc -version
 "
 
-SW=1280
-SH=720
+SW=800
+SH=450
 UN="$(whoami)"
 UC="$(hostname)"
 UD="$(pwd | sed "s|^$HOME|~|")"
 C1="mkdir -p \"$PTOFXD\""
-C2="cp -f \"$PTFNX\" \"$PTIFX\""
-C3="mxmlc \"$PTRFX\" -output \"$PTOFXD/$FN.swf\""
+C2="cp -f \"$PTFNX\" \"$PTCFX\""
+C3="mxmlc \"$PTRFNX\" -output \"$PTOFXD/$FN.swf\""
 
 CCLC="
-mxmlc -source-path+=\"$PTRD\" -default-size 800 450 -compiler.define=CONFIG::SCREEN_WIDTH,\"'${SW}'\" -compiler.define=CONFIG::SCREEN_HEIGHT,\"'${SH}'\" -compiler.define=CONFIG::USER_NAME,\"'${UN}'\" -compiler.define=CONFIG::USER_COMPUTER,\"'${UC}'\" -compiler.define=CONFIG::USER_PWD,\"'${UD}'\" -compiler.define=CONFIG::COMMAND_1,\"'${C1}'\" -compiler.define=CONFIG::COMMAND_2,\"'${C2}'\" -compiler.define=CONFIG::COMMAND_3,\"'${C3}'\" \"$PTRFX\" -output \"$PTOFXD/$FN.swf\"
+mxmlc -source-path+=\"$PTRD\" -default-size 800 450 -compiler.define=CONFIG::SCREEN_WIDTH,\"'${SW}'\" -compiler.define=CONFIG::SCREEN_HEIGHT,\"'${SH}'\" -compiler.define=CONFIG::USER_NAME,\"'${UN}'\" -compiler.define=CONFIG::USER_COMPUTER,\"'${UC}'\" -compiler.define=CONFIG::USER_PWD,\"'${UD}'\" -compiler.define=CONFIG::COMMAND_1,\"'${C1}'\" -compiler.define=CONFIG::COMMAND_2,\"'${C2}'\" -compiler.define=CONFIG::COMMAND_3,\"'${C3}'\" \"$PTRFNX\" -output \"$PTOFXD/$FN.swf\"
 echo \">SWF version:\"
 java -jar /apache-flex-sdk/lib/swfdump.jar \"$PTOFXD/$FN.swf\" | grep \"version=\"
 echo \">Flash Player version:\"
@@ -122,7 +129,7 @@ docker run -i --rm \
         $CCLC
     "
 
-rm -f "$PTIFX"
+rm -f "$PTCFX"
 
 echo "$L"
 

@@ -1,5 +1,5 @@
 git add .
-git commit -m "version 2.6.4: rewrite objective-c runtime; update all run.sh;"
-git tag -a 2.6.4 -m "version 2.6.4: rewrite objective-c runtime; update all run.sh;"
+git commit -m "version 2.6.5: update go runtime; update actionscript runtime;"
+git tag -a 2.6.5 -m "version 2.6.5: update go runtime; update actionscript runtime;"
 git push origin main -f
 git push origin --tags -f

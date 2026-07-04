@@ -25,7 +25,7 @@
                 continue;
             }
             const v = c["v"];
-            const cur_t = c["d"];
+            const curD = c["d"];
             if (v === null || v === undefined) {
                 r += "null";
                 continue;
@@ -51,69 +51,69 @@
                     r += "[]";
                     continue;
                 }
-                const child_t = cur_t + 1;
+                const childD = curD + 1;
                 s.push({
                     "t": "r",
-                    "v": p ? "\n" + String(t.repeat(cur_t)) + "]" : "]",
-                    "d": cur_t
+                    "v": p ? "\n" + String(t.repeat(curD)) + "]" : "]",
+                    "d": curD
                 });
                 for (let i = v.length - 1; i >= 0; i -= 1) {
                     s.push({
                         "t": "v",
                         "v": v[i],
-                        "d": child_t
+                        "d": childD
                     });
                     if (i > 0) {
                         s.push({
                             "t": "r",
-                            "v": p ? ",\n" + String(t.repeat(child_t)) : ",",
-                            "d": child_t
+                            "v": p ? ",\n" + String(t.repeat(childD)) : ",",
+                            "d": childD
                         });
                     }
                 }
                 s.push({
                     "t": "r",
-                    "v": p ? "[\n" + String(t.repeat(child_t)) : "[",
-                    "d": child_t
+                    "v": p ? "[\n" + String(t.repeat(childD)) : "[",
+                    "d": childD
                 });
                 continue;
             }
             if (typeof v === "object") {
-                const de = Object.entries(v);
-                if (de.length === 0) {
+                const dL = Object.entries(v);
+                if (dL.length === 0) {
                     r += "{}";
                     continue;
                 }
-                const child_t = cur_t + 1;
+                const childD = curD + 1;
                 s.push({
                     "t": "r",
-                    "v": p ? "\n" + String(t.repeat(cur_t)) + "}" : "}",
-                    "d": cur_t
+                    "v": p ? "\n" + String(t.repeat(curD)) + "}" : "}",
+                    "d": curD
                 });
-                for (let i = de.length - 1; i >= 0; i -= 1) {
-                    const [dk, dictValue] = de[i];
+                for (let i = dL.length - 1; i >= 0; i -= 1) {
+                    const [dk, dV] = dL[i];
                     s.push({
                         "t": "v",
-                        "v": dictValue,
-                        "d": child_t
+                        "v": dV,
+                        "d": childD
                     });
                     s.push({
                         "t": "r",
                         "v": p ? "\"" + String(dk) + "\": " : "\"" + String(dk) + "\":",
-                        "d": child_t
+                        "d": childD
                     });
                     if (i > 0) {
                         s.push({
                             "t": "r",
-                            "v": p ? ",\n" + String(t.repeat(child_t)) : ",",
-                            "d": child_t
+                            "v": p ? ",\n" + String(t.repeat(childD)) : ",",
+                            "d": childD
                         });
                     }
                 }
                 s.push({
                     "t": "r",
-                    "v": p ? "{\n" + String(t.repeat(child_t)) : "{",
-                    "d": child_t
+                    "v": p ? "{\n" + String(t.repeat(childD)) : "{",
+                    "d": childD
                 });
                 continue;
             }

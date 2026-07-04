@@ -29,7 +29,7 @@ def json_stringify(a, pretty=False):
             r+= c["v"]
             continue
         v = c["v"]
-        cur_t = c["d"]
+        cur_d = c["d"]
         if v is None:
             r += "null"
             continue
@@ -49,63 +49,63 @@ def json_stringify(a, pretty=False):
             if len(v) == 0:
                 r += "[]"
                 continue
-            child_t = cur_t + 1
+            child_d = cur_d + 1
             s.append({
                 "t": "r",
-                "v": f"\n{t * cur_t}]" if p else "]",
-                "d": cur_t
+                "v": f"\n{t * cur_d}]" if p else "]",
+                "d": cur_d
             })
             for i in range(len(v) - 1, -1, -1):
                 s.append({
                     "t": "v",
                     "v": v[i],
-                    "d": child_t
+                    "d": child_d
                 })
                 if i > 0:
                     s.append({
                         "t": "r",
-                        "v": f",\n{t * child_t}" if p else ",",
-                        "d": child_t
+                        "v": f",\n{t * child_d}" if p else ",",
+                        "d": child_d
                     })
             s.append({
                 "t": "r",
-                "v": f"[\n{t * child_t}" if p else "[",
-                "d": child_t
+                "v": f"[\n{t * child_d}" if p else "[",
+                "d": child_d
             })
             continue
         if isinstance(v, dict):
-            de = list(v.items())
-            if len(de) == 0:
+            dpl = list(v.items())
+            if len(dpl) == 0:
                 r += "{}"
                 continue
-            child_t = cur_t + 1
+            child_d = cur_d + 1
             s.append({
                 "t": "r",
-                "v": "\n" + t * cur_t + "}" if p else "}",
-                "d": cur_t
+                "v": "\n" + t * cur_d + "}" if p else "}",
+                "d": cur_d
             })
-            for i in range(len(de) - 1, -1, -1):
-                dk, dv = de[i]
+            for i in range(len(dpl) - 1, -1, -1):
+                dk, dv = dpl[i]
                 s.append({
                     "t": "v",
                     "v": dv,
-                    "d": child_t
+                    "d": child_d
                 })
                 s.append({
                     "t": "r",
                     "v": f"\"{dk}\": " if p else f"\"{dk}\":",
-                    "d": child_t
+                    "d": child_d
                 })
                 if i > 0:
                     s.append({
                         "t": "r",
-                        "v": f",\n{t * child_t}" if p else ",",
-                        "d": child_t
+                        "v": f",\n{t * child_d}" if p else ",",
+                        "d": child_d
                     })
             s.append({
                 "t": "r",
-                "v": f"{{\n{t * child_t}" if p else "{",
-                "d": child_t
+                "v": f"{{\n{t * child_d}" if p else "{",
+                "d": child_d
             })
             continue
         r += f"\"{type(v).__name__}\""
@@ -122,7 +122,7 @@ json_stringify_a = lambda a, pretty=False: [
             (r := r + c["v"]) if c["t"] == "r"
             else (
                 (v := c["v"]),
-                (cur_t := c["d"]),
+                (cur_d := c["d"]),
                 (
                     (r := r + "null") if v is None
                     else (r := r + ("true" if v else "false")) if isinstance(v, bool)
@@ -132,65 +132,65 @@ json_stringify_a = lambda a, pretty=False: [
                     else (
                         (r := r + "[]") if len(v) == 0
                         else (
-                            (child_t := cur_t + 1),
+                            (child_d := cur_d + 1),
                             s.append({
                                 "t": "r",
-                                "v": f"\n{t * cur_t}]" if p else "]",
-                                "d": cur_t
+                                "v": f"\n{t * cur_d}]" if p else "]",
+                                "d": cur_d
                             }),
                             [
                                 (
                                     s.append({
                                         "t": "v",
                                         "v": v[i],
-                                        "d": child_t
+                                        "d": child_d
                                     }),
                                     s.append({
                                         "t": "r",
-                                        "v": f",\n{t * child_t}" if p else ",",
-                                        "d": child_t
+                                        "v": f",\n{t * child_d}" if p else ",",
+                                        "d": child_d
                                     }) if i > 0 else None
                                 ) for i in range(len(v) - 1, -1, -1)
                             ],
                             s.append({
                                 "t": "r",
-                                "v": f"[\n{t * child_t}" if p else "[",
-                                "d": child_t
+                                "v": f"[\n{t * child_d}" if p else "[",
+                                "d": child_d
                             })
                         )
                     ) if isinstance(v, list)
                     else (
-                        (r := r + "{}") if len(de := list(v.items())) == 0
+                        (r := r + "{}") if len(dpl := list(v.items())) == 0
                         else (
-                            (child_t := cur_t + 1),
+                            (child_d := cur_d + 1),
                             s.append({
                                 "t": "r",
-                                "v": "\n" + t * cur_t + "}" if p else "}",
-                                "d": cur_t
+                                "v": "\n" + t * cur_d + "}" if p else "}",
+                                "d": cur_d
                             }),
                             [
                                 (lambda dk, dv: (
                                     s.append({
                                         "t": "v",
                                         "v": dv,
-                                        "d": child_t
+                                        "d": child_d
                                     }),
                                     s.append({
                                         "t": "r",
                                         "v": f"\"{dk}\": " if p else f"\"{dk}\":",
-                                        "d": child_t
+                                        "d": child_d
                                     }),
                                     s.append({
                                         "t": "r",
-                                        "v": f",\n{t * child_t}" if p else ",",
-                                        "d": child_t
+                                        "v": f",\n{t * child_d}" if p else ",",
+                                        "d": child_d
                                     }) if i > 0 else None
-                                ))(de[i][0], de[i][1]) for i in range(len(de) - 1, -1, -1)
+                                ))(dpl[i][0], dpl[i][1]) for i in range(len(dpl) - 1, -1, -1)
                             ],
                             s.append({
                                 "t": "r",
-                                "v": f"{{\n{t * child_t}" if p else "{",
-                                "d": child_t
+                                "v": f"{{\n{t * child_d}" if p else "{",
+                                "d": child_d
                             })
                         )
                     ) if isinstance(v, dict)

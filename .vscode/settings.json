@@ -570,5 +570,6 @@
     "perlnavigator.perlCompileEnabled": false,
     "julia.juliaup.customDepot": false,
     "julia.promptToInstall": false,
-    "julia.executablePath": "/usr/local/julia/bin/julia"
+    "julia.executablePath": "/usr/local/julia/bin/julia",
+    "workbench.notifications.position": "bottom-left"
 }

@@ -73,6 +73,6 @@
             fill: rgb("#00e287"),
             size: 10pt,
         )
-        #print-prompt()#print-command([typst compile #file-name-with-extension])#{"\n"}#text(fill: rgb("#ddd"))[#new-document]
+        #print-prompt()#print-command([typst compile #file-name-with-extension])#{"\n"}#text(fill: rgb("#ddd"))[#new-document|]
     ]
 }

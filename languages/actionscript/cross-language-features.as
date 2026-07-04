@@ -1,5 +1,6 @@
 package {
     import flash.display.Sprite;
+    import runtime.willyhorizont.Terminal;
     import runtime.willyhorizont.Xl;
 
     public class Program extends Sprite {
@@ -8,11 +9,11 @@ package {
             1. support closure as value, or has workaround
             */
             var sayHello:* = function(callbackFunction:*):* {
-                Xl.print("hello");
+                Terminal.print("hello");
                 callbackFunction();
             };
             sayHello(function():* {
-                Xl.print("world");
+                Terminal.print("world");
             });
             var createMultiplier:* = function(aa:*):* {
                 return function(bb:*):* {
@@ -20,10 +21,10 @@ package {
                 };
             };
             var multiplyByTwo:* = createMultiplier(2);
-            Xl.print("multiply_by_two(10): " + String(multiplyByTwo(10)));
+            Terminal.print("multiply_by_two(10): " + String(multiplyByTwo(10)));
             var multiplyByEight:* = createMultiplier(8);
-            Xl.print("multiply_by_eight(4): " + String(multiplyByEight(4)));
-            Xl.print("multiply_by_two(8): " + String(multiplyByTwo(8)));
+            Terminal.print("multiply_by_eight(4): " + String(multiplyByEight(4)));
+            Terminal.print("multiply_by_two(8): " + String(multiplyByTwo(8)));
 
             /*
             2. support dynamic-typed value, or has workaround
@@ -43,8 +44,8 @@ package {
                     return aa * bb;
                 }
             ];
-            Xl.print("xl_list: " + Xl.jsonStringify(xlList));
-            Xl.print("xl_list: " + Xl.jsonStringify(xlList, { "pretty": true }));
+            Terminal.print("xl_list: " + Xl.jsonStringify(xlList));
+            Terminal.print("xl_list: " + Xl.jsonStringify(xlList, { "pretty": true }));
             var xlDict:* = {
                 "xl_none": null,
                 "xl_bool_true": true,
@@ -60,8 +61,8 @@ package {
                     return aa * bb;
                 }
             };
-            Xl.print("xl_dict: " + Xl.jsonStringify(xlDict));
-            Xl.print("xl_dict: " + Xl.jsonStringify(xlDict, { "pretty": true }));
+            Terminal.print("xl_dict: " + Xl.jsonStringify(xlDict));
+            Terminal.print("xl_dict: " + Xl.jsonStringify(xlDict, { "pretty": true }));
         }
     }
 }

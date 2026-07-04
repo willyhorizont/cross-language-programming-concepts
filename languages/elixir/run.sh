@@ -1,8 +1,10 @@
 #!/bin/bash
 
+SD="$(dirname "$(realpath "$0")")"
+LID="$(basename "$SD")"
 if [ -z "$1" ]; then
     echo "usage:"
-    echo "run.sh <path-to-filename-with-extension>"
+    echo "\"$SD/run.sh\" path/to/*.$LID"
     exit 1
 fi
 
@@ -12,8 +14,6 @@ FNX="$(basename "$PTFNX")"
 FN="${FNX%.*}"
 X="${FNX##*.}"
 
-SD="$(dirname "$(realpath "$0")")"
-LID="$(basename "$SD")"
 RD="$(realpath "$SD/../..")"
 RN="$(basename "$RD")"
 
