@@ -9,14 +9,14 @@ Smalltalk at: #WillyHorizontRuntime put: Dictionary new.
 ].
 
 (Smalltalk at: #WillyHorizontRuntime) at: #getType put: [ :a |
-    a ifNil: [ 'XlNone' ] ifNotNil: [
-        (a isKindOf: BlockClosure) ifTrue: [ 'XlClosure' ] ifFalse: [
-            ((a isKindOf: OrderedDictionary) or: (a isKindOf: Dictionary)) ifTrue: [ 'XlDict' ] ifFalse: [
-                (a isArray or: [ a isCollection and: [ a isString not ] ]) ifTrue: [ 'XlList' ] ifFalse: [
-                    a isString ifTrue: [ 'XlString' ] ifFalse: [
-                        (a isKindOf: Boolean) ifTrue: [ 'XlBool' ] ifFalse: [
-                            a isInteger ifTrue: [ 'XlInt' ] ifFalse: [
-                                a isFloat ifTrue: [ 'XlFloat' ] ifFalse: [
+    a ifNil: [ '[object XlNone]' ] ifNotNil: [
+        (a isKindOf: BlockClosure) ifTrue: [ '[object XlClosure]' ] ifFalse: [
+            ((a isKindOf: OrderedDictionary) or: (a isKindOf: Dictionary)) ifTrue: [ '[object XlDict]' ] ifFalse: [
+                (a isArray or: [ a isCollection and: [ a isString not ] ]) ifTrue: [ '[object XlList]' ] ifFalse: [
+                    a isString ifTrue: [ '[object XlString]' ] ifFalse: [
+                        (a isKindOf: Boolean) ifTrue: [ '[object XlBool]' ] ifFalse: [
+                            a isInteger ifTrue: [ '[object XlInt]' ] ifFalse: [
+                                a isFloat ifTrue: [ '[object XlFloat]' ] ifFalse: [
                                     a printString
                                 ]
                             ]
@@ -29,13 +29,10 @@ Smalltalk at: #WillyHorizontRuntime put: Dictionary new.
 ].
 
 (Smalltalk at: #WillyHorizontRuntime) at: #jsonStringify put: [ :va |
-    | xl itr a opt p t s r c cT cV curD curVt childD dpL k v |
-
+    | xl itr a opt p t s r c v curD curT childD dL dK dV |
     xl := Smalltalk at: #WillyHorizontRuntime.
-
-    ((xl at: #getType) value: va) = 'XlList' ifTrue: [
+    ((xl at: #getType) value: va) = '[object XlList]' ifTrue: [
         itr := (xl at: #iter) value: va.
-
         a := itr next.
         a ifNil: [
             a := va.
@@ -44,7 +41,7 @@ Smalltalk at: #WillyHorizontRuntime put: Dictionary new.
             opt ifNil: [
                 p := false.
             ] ifNotNil: [
-                p := opt at: 'p'.
+                p := opt at: 'pretty'.
             ].
         ].
     ] ifFalse: [
@@ -52,47 +49,39 @@ Smalltalk at: #WillyHorizontRuntime put: Dictionary new.
         p := false.
     ].
     t := '    '.
-    r := ''.
-
     s := OrderedCollection new.
     s add: (Dictionary new
         at: 't' put: 'v';
         at: 'v' put: a;
         at: 'd' put: 0;
-        yourself).
-
+    yourself).
+    r := ''.
     [ s isEmpty ] whileFalse: [
         c := s removeLast.
-        cT := c at: 't'.
-        cV := c at: 'v'.
-        curD := c at: 'd'.
-
-        cT = 'r' ifTrue: [
-            r := r , cV.
+        (c at: 't') = 'r' ifTrue: [
+            r := r , (c at: 'v').
         ] ifFalse: [
-            curVt := (xl at: #getType) value: cV.
-
-            curVt = 'XlNone' ifTrue: [ r := r , 'null' ].
-            curVt = 'XlBool' ifTrue: [ r := r , (cV ifTrue: ['true'] ifFalse: ['false']) ].
-            curVt = 'XlString' ifTrue: [ r := r , '"' , cV asString , '"' ].
-            (curVt = 'XlInt' or: [ curVt = 'XlFloat' ]) ifTrue: [ r := r , cV asString ].
-
-            curVt = 'XlList' ifTrue: [
-                cV isEmpty ifTrue: [
+            v := c at: 'v'.
+            curT := (xl at: #getType) value: v.
+            curD := c at: 'd'.
+            curT = '[object XlNone]' ifTrue: [ r := r , 'null' ].
+            curT = '[object XlBool]' ifTrue: [ r := r , (v ifTrue: ['true'] ifFalse: ['false']) ].
+            curT = '[object XlString]' ifTrue: [ r := r , '"' , v asString , '"' ].
+            (curT = '[object XlInt]' or: [ curT = '[object XlFloat]' ]) ifTrue: [ r := r , v asString ].
+            curT = '[object XlList]' ifTrue: [
+                v isEmpty ifTrue: [
                     r := r , '[]'
                 ] ifFalse: [
                     childD := curD + 1.
-
                     s add: (Dictionary new
                         at: 't' put: 'r';
                         at: 'v' put: (p ifTrue: [ String lf , (t repeat: curD) , ']' ] ifFalse: [ ']' ]);
                         at: 'd' put: curD;
                         yourself).
-
-                    cV size to: 1 by: -1 do: [ :i |
+                    v size to: 1 by: -1 do: [ :i |
                         s add: (Dictionary new
                             at: 't' put: 'v';
-                            at: 'v' put: (cV at: i);
+                            at: 'v' put: (v at: i);
                             at: 'd' put: childD;
                             yourself).
 
@@ -104,7 +93,6 @@ Smalltalk at: #WillyHorizontRuntime put: Dictionary new.
                                 yourself).
                         ].
                     ].
-
                     s add: (Dictionary new
                         at: 't' put: 'r';
                         at: 'v' put: (p ifTrue: [ '[' , String lf , (t repeat: childD) ] ifFalse: [ '[' ]);
@@ -112,36 +100,30 @@ Smalltalk at: #WillyHorizontRuntime put: Dictionary new.
                         yourself).
                 ].
             ].
-
-            curVt = 'XlDict' ifTrue: [
-                cV isEmpty ifTrue: [
+            curT = '[object XlDict]' ifTrue: [
+                v isEmpty ifTrue: [
                     r := r , '{}'
                 ] ifFalse: [
                     childD := curD + 1.
-                    dpL := cV associations asArray.
-
+                    dL := v associations asArray.
                     s add: (Dictionary new
                         at: 't' put: 'r';
                         at: 'v' put: (p ifTrue: [ String lf , (t repeat: curD) , '}' ] ifFalse: [ ' }' ]);
                         at: 'd' put: curD;
                         yourself).
-
-                    dpL size to: 1 by: -1 do: [ :i |
-                        k := (dpL at: i) key.
-                        v := (dpL at: i) value.
-
+                    dL size to: 1 by: -1 do: [ :i |
+                        dK := (dL at: i) key.
+                        dV := (dL at: i) value.
                         s add: (Dictionary new
                             at: 't' put: 'v';
-                            at: 'v' put: v;
+                            at: 'v' put: dV;
                             at: 'd' put: childD;
                             yourself).
-
                         s add: (Dictionary new
                             at: 't' put: 'r';
-                            at: 'v' put: '"' , k asString , '": ';
+                            at: 'v' put: '"' , dK asString , '": ';
                             at: 'd' put: childD;
                             yourself).
-
                         i > 1 ifTrue: [
                             s add: (Dictionary new
                                 at: 't' put: 'r';
@@ -150,7 +132,6 @@ Smalltalk at: #WillyHorizontRuntime put: Dictionary new.
                                 yourself).
                         ].
                     ].
-
                     s add: (Dictionary new
                         at: 't' put: 'r';
                         at: 'v' put: (p ifTrue: [ '{' , String lf , (t repeat: childD) ] ifFalse: [ '{ ' ]);
@@ -158,13 +139,11 @@ Smalltalk at: #WillyHorizontRuntime put: Dictionary new.
                         yourself).
                 ].
             ].
-
-            curVt = 'XlClosure' ifTrue: [
+            curT = '[object XlClosure]' ifTrue: [
                 r := r , '"' , '[object Function]' , '"'
             ].
-
-            ((curVt = 'XlNone' or: [ curVt = 'XlBool' or: [ curVt = 'XlString' or: [ curVt = 'XlInt' or: [ curVt = 'XlFloat' or: [ curVt = 'XlList' or: [ curVt = 'XlDict' or: [ curVt = 'XlClosure' ] ] ] ] ] ] ])) ifFalse: [
-                r := r , '"' , curVt , '"'.
+            ((curT = '[object XlNone]' or: [ curT = '[object XlBool]' or: [ curT = '[object XlString]' or: [ curT = '[object XlInt]' or: [ curT = '[object XlFloat]' or: [ curT = '[object XlList]' or: [ curT = '[object XlDict]' or: [ curT = '[object XlClosure]' ] ] ] ] ] ] ])) ifFalse: [
+                r := r , '"[object ["Smalltalk \"' , curT , '\"]"'.
             ].
         ].
     ].

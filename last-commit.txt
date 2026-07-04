@@ -1,5 +1,5 @@
 git add .
-git commit -m "version 2.6.6: update python run.sh;"
-git tag -a 2.6.6 -m "version 2.6.6: update python run.sh;"
+git commit -m "version 2.6.7: update pharo/smalltalk runtime;"
+git tag -a 2.6.7 -m "version 2.6.7: update pharo/smalltalk runtime;"
 git push origin main -f
 git push origin --tags -f
