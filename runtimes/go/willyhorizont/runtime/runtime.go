@@ -113,9 +113,9 @@ func (c XlCallable) Call(va ...interface{}) interface{} {
 	return c.Underlying(va...)
 }
 
-func ToCallable(a interface{}) XlCallable {
+func ToClosure(a interface{}) XlCallable {
 	if a == nil {
-		panic("Runtime Error: Can't do ToCallable.")
+		panic("Runtime Error: Can't do ToClosure.")
 	}
 	if exst, ok := a.(XlCallable); ok {
 		return exst
@@ -128,7 +128,7 @@ func ToCallable(a interface{}) XlCallable {
 	}
 	rv := rt.ValueOf(a)
 	if rv.Kind() != rt.Func {
-		panic("Runtime Error: Can't do ToCallable")
+		panic("Runtime Error: Can't do ToClosure")
 	}
 	cls := func(va ...interface{}) interface{} {
 		args := make([]rt.Value, len(va))

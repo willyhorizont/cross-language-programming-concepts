@@ -2,7 +2,7 @@
 
 namespace Runtimes\Php\WillyHorizont;
 
-class Runtime {
+class Xl {
     public static function json_stringify($a, $p = false) {
         $t = str_repeat(" ", 4);
         $s = [["t" => "v", "v" => $a, "d" => 0]];

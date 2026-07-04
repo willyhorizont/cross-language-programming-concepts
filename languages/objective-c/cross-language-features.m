@@ -6,88 +6,88 @@ int main(int argc, const char * argv[]) {
         /*
         1. support closure as value, or has workaround
         */
-        CrossType * sayHello = [[CrossType alloc] initWithXlClosure:^CrossType * (XlClosureVarArgs * varargs) {
-            CrossType * callbackFunction = [varargs getNextArguments];
+        CrossType * sayHello = [[CrossType alloc] initXlClosure:^CrossType * (XlClosureVarArgs * va) {
+            CrossType * callbackFunction = [va getNextArguments];
             NSLog(@"hello");
-            [callbackFunction call:@[[[CrossType alloc] initWithXlNone]]];
-            return [[CrossType alloc] initWithXlNone];
+            [callbackFunction call:@[[[CrossType alloc] initXlNone]]];
+            return [[CrossType alloc] initXlNone];
         }];
         [sayHello call:@[
-            [[CrossType alloc] initWithXlClosure:^CrossType * (XlClosureVarArgs * varargs) {
+            [[CrossType alloc] initXlClosure:^CrossType * (XlClosureVarArgs * va) {
                 NSLog(@"world");
-                return [[CrossType alloc] initWithXlNone];
+                return [[CrossType alloc] initXlNone];
             }],
         ]];
-        CrossType * createMultiplier = [[CrossType alloc] initWithXlClosure:^CrossType * (XlClosureVarArgs * varargs) {
-            CrossType * aa = [varargs getNextArguments];
-            __block CrossType * aaInner = aa;
-            return [[CrossType alloc] initWithXlClosure:^CrossType * (XlClosureVarArgs * varargsInner) {
+        CrossType * createMultiplier = [[CrossType alloc] initXlClosure:^CrossType * (XlClosureVarArgs * va) {
+            CrossType * aa1 = [va getNextArguments];
+            __block CrossType * aa = aa1;
+            return [[CrossType alloc] initXlClosure:^CrossType * (XlClosureVarArgs * varargsInner) {
                 CrossType * bb = [varargsInner getNextArguments];
-                return [[CrossType alloc] initWithXlInt:toXlInt(aaInner) * toXlInt(bb)];
+                return [[CrossType alloc] initXlInt:(toXlInt(aa) * toXlInt(bb))];
             }];
         }];
-        CrossType * multiplyByTwo = [createMultiplier call:@[[[CrossType alloc] initWithXlInt:2]]];
-        NSLog(@"multiply_by_two(10): %@", [multiplyByTwo call:@[[[CrossType alloc] initWithXlInt:10]]]);
-        CrossType * multiplyByEight = [createMultiplier call:@[[[CrossType alloc] initWithXlInt:8]]];
-        NSLog(@"multiply_by_eight(4): %@", [multiplyByTwo call:@[[[CrossType alloc] initWithXlInt:4]]]);
-        NSLog(@"multiply_by_two(8): %@", [multiplyByTwo call:@[[[CrossType alloc] initWithXlInt:8]]]);
+        CrossType * multiplyByTwo = [createMultiplier call:@[[[CrossType alloc] initXlInt:2]]];
+        NSLog(@"multiply_by_two(10): %@", [multiplyByTwo call:@[[[CrossType alloc] initXlInt:10]]]);
+        CrossType * multiplyByEight = [createMultiplier call:@[[[CrossType alloc] initXlInt:8]]];
+        NSLog(@"multiply_by_eight(4): %@", [multiplyByTwo call:@[[[CrossType alloc] initXlInt:4]]]);
+        NSLog(@"multiply_by_two(8): %@", [multiplyByTwo call:@[[[CrossType alloc] initXlInt:8]]]);
 
         /*
         2. support dynamic-typed value, or has workaround
         */
-        CrossType * xlList = toXlList(@[
-            [[CrossType alloc] initWithXlNone],
-            [[CrossType alloc] initWithXlBool:YES],
-            [[CrossType alloc] initWithXlBool:NO],
-            [[CrossType alloc] initWithXlString:@"foo"],
-            [[CrossType alloc] initWithXlInt:0],
-            [[CrossType alloc] initWithXlInt:-123],
-            [[CrossType alloc] initWithXlFloat:123.789],
-            [[CrossType alloc] initWithXlFloat:-123.789],
-            toXlList(@[[[CrossType alloc] initWithXlInt:1], [[CrossType alloc] initWithXlInt:2], [[CrossType alloc] initWithXlInt:3]]),
-            toXlDict(@{ @"foo" : [[CrossType alloc] initWithXlString:@"bar"] }),
-            [[CrossType alloc] initWithXlClosure:^CrossType * (XlClosureVarArgs * varargs) {
-                CrossType * aa = [varargs getNextArguments];
-                CrossType * bb = [varargs getNextArguments];
-                return [[CrossType alloc] initWithXlInt:toXlInt(aa) * toXlInt(bb)];
+        CrossType * xlList = initXlList(@[
+            [[CrossType alloc] initXlNone],
+            [[CrossType alloc] initXlBool:YES],
+            [[CrossType alloc] initXlBool:NO],
+            [[CrossType alloc] initXlString:@"foo"],
+            [[CrossType alloc] initXlInt:0],
+            [[CrossType alloc] initXlInt:-123],
+            [[CrossType alloc] initXlFloat:123.789],
+            [[CrossType alloc] initXlFloat:-123.789],
+            initXlList(@[[[CrossType alloc] initXlInt:1], [[CrossType alloc] initXlInt:2], [[CrossType alloc] initXlInt:3]]),
+            initXlDict(@{ @"foo" : [[CrossType alloc] initXlString:@"bar"] }),
+            [[CrossType alloc] initXlClosure:^CrossType * (XlClosureVarArgs * va) {
+                CrossType * aa = [va getNextArguments];
+                CrossType * bb = [va getNextArguments];
+                return [[CrossType alloc] initXlInt:(toXlInt(aa) * toXlInt(bb))];
             }],
         ]);
         NSLog(@"xl_list: %@", jsonStringify(@[xlList]));
-        NSLog(@"xl_list: %@", jsonStringify(@[xlList, toXlDict(@{ @"pretty" : [[CrossType alloc] initWithXlBool:YES] })]));
-        CrossType * xlDict = toXlDict(@{
-            @"xl_none" : [[CrossType alloc] initWithXlNone],
-            @"xl_bool_true" : [[CrossType alloc] initWithXlBool:YES],
-            @"xl_bool_false" : [[CrossType alloc] initWithXlBool:NO],
-            @"xl_string" : [[CrossType alloc] initWithXlString:@"foo"],
-            @"xl_int_positive" : [[CrossType alloc] initWithXlInt:0],
-            @"xl_int_negative" : [[CrossType alloc] initWithXlInt:-123],
-            @"xl_float_positive" : [[CrossType alloc] initWithXlFloat:123.789],
-            @"xl_float_negative" : [[CrossType alloc] initWithXlFloat:-123.789],
-            @"xl_list" : toXlList(@[[[CrossType alloc] initWithXlInt:1], [[CrossType alloc] initWithXlInt:2], [[CrossType alloc] initWithXlInt:3]]),
-            @"xl_dict" : toXlDict(@{ @"foo" : [[CrossType alloc] initWithXlString:@"bar"] }),
-            @"xl_closure" : [[CrossType alloc] initWithXlClosure:^CrossType * (XlClosureVarArgs * varargs) {
-                CrossType * aa = [varargs getNextArguments];
-                CrossType * bb = [varargs getNextArguments];
-                return [[CrossType alloc] initWithXlInt:toXlInt(aa) * toXlInt(bb)];
+        NSLog(@"xl_list: %@", jsonStringify(@[xlList, initXlDict(@{ @"pretty" : [[CrossType alloc] initXlBool:YES] })]));
+        CrossType * xlDict = initXlDict(@{
+            @"xl_none" : [[CrossType alloc] initXlNone],
+            @"xl_bool_true" : [[CrossType alloc] initXlBool:YES],
+            @"xl_bool_false" : [[CrossType alloc] initXlBool:NO],
+            @"xl_string" : [[CrossType alloc] initXlString:@"foo"],
+            @"xl_int_positive" : [[CrossType alloc] initXlInt:0],
+            @"xl_int_negative" : [[CrossType alloc] initXlInt:-123],
+            @"xl_float_positive" : [[CrossType alloc] initXlFloat:123.789],
+            @"xl_float_negative" : [[CrossType alloc] initXlFloat:-123.789],
+            @"xl_list" : initXlList(@[[[CrossType alloc] initXlInt:1], [[CrossType alloc] initXlInt:2], [[CrossType alloc] initXlInt:3]]),
+            @"xl_dict" : initXlDict(@{ @"foo" : [[CrossType alloc] initXlString:@"bar"] }),
+            @"xl_closure" : [[CrossType alloc] initXlClosure:^CrossType * (XlClosureVarArgs * va) {
+                CrossType * aa = [va getNextArguments];
+                CrossType * bb = [va getNextArguments];
+                return [[CrossType alloc] initXlInt:(toXlInt(aa) * toXlInt(bb))];
             }],
         });
         NSLog(@"xl_dict: %@", jsonStringify(@[xlDict]));
-        NSLog(@"xl_dict: %@", jsonStringify(@[xlDict, toXlDict(@{ @"pretty" : [[CrossType alloc] initWithXlBool:YES] })]));
-        CrossType * xlDictIndexed = toXlDict(@{
-            @"xl_none" : [[CrossType alloc] initWithXlNone],
-            @"xl_bool_true" : [[CrossType alloc] initWithXlBool:YES],
-            @"xl_bool_false" : [[CrossType alloc] initWithXlBool:NO],
-            @"xl_string" : [[CrossType alloc] initWithXlString:@"foo"],
-            @"xl_int_positive" : [[CrossType alloc] initWithXlInt:0],
-            @"xl_int_negative" : [[CrossType alloc] initWithXlInt:-123],
-            @"xl_float_positive" : [[CrossType alloc] initWithXlFloat:123.789],
-            @"xl_float_negative" : [[CrossType alloc] initWithXlFloat:-123.789],
-            @"xl_list" : toXlList(@[[[CrossType alloc] initWithXlInt:1], [[CrossType alloc] initWithXlInt:2], [[CrossType alloc] initWithXlInt:3]]),
-            @"xl_dict" : toXlDict(@{ @"foo" : [[CrossType alloc] initWithXlString:@"bar"] }),
-            @"xl_closure" : [[CrossType alloc] initWithXlClosure:^CrossType * (XlClosureVarArgs * varargs) {
-                CrossType * aa = [varargs getNextArguments];
-                CrossType * bb = [varargs getNextArguments];
-                return [[CrossType alloc] initWithXlInt:toXlInt(aa) * toXlInt(bb)];
+        NSLog(@"xl_dict: %@", jsonStringify(@[xlDict, initXlDict(@{ @"pretty" : [[CrossType alloc] initXlBool:YES] })]));
+        CrossType * xlDictIndexed = initXlDict(@{
+            @"xl_none" : [[CrossType alloc] initXlNone],
+            @"xl_bool_true" : [[CrossType alloc] initXlBool:YES],
+            @"xl_bool_false" : [[CrossType alloc] initXlBool:NO],
+            @"xl_string" : [[CrossType alloc] initXlString:@"foo"],
+            @"xl_int_positive" : [[CrossType alloc] initXlInt:0],
+            @"xl_int_negative" : [[CrossType alloc] initXlInt:-123],
+            @"xl_float_positive" : [[CrossType alloc] initXlFloat:123.789],
+            @"xl_float_negative" : [[CrossType alloc] initXlFloat:-123.789],
+            @"xl_list" : initXlList(@[[[CrossType alloc] initXlInt:1], [[CrossType alloc] initXlInt:2], [[CrossType alloc] initXlInt:3]]),
+            @"xl_dict" : initXlDict(@{ @"foo" : [[CrossType alloc] initXlString:@"bar"] }),
+            @"xl_closure" : [[CrossType alloc] initXlClosure:^CrossType * (XlClosureVarArgs * va) {
+                CrossType * aa = [va getNextArguments];
+                CrossType * bb = [va getNextArguments];
+                return [[CrossType alloc] initXlInt:(toXlInt(aa) * toXlInt(bb))];
             }],
         }, @[
             @"xl_none",
@@ -103,7 +103,7 @@ int main(int argc, const char * argv[]) {
             @"xl_closure",
         ]);
         NSLog(@"xl_dict_indexed: %@", jsonStringify(@[xlDictIndexed]));
-        NSLog(@"xl_dict_indexed: %@", jsonStringify(@[xlDictIndexed, toXlDict(@{ @"pretty" : [[CrossType alloc] initWithXlBool:YES] })]));
+        NSLog(@"xl_dict_indexed: %@", jsonStringify(@[xlDictIndexed, initXlDict(@{ @"pretty" : [[CrossType alloc] initXlBool:YES] })]));
     }
 
     return 0;

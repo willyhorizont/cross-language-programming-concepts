@@ -1,11 +1,13 @@
-from runtimes.python.willyhorizont.runtime import json_stringify
+from runtimes.python.willyhorizont import runtime as xl
 
 # 1. support closure as value, or has workaround
 say_hello = lambda callback_function: [
     print("hello"),
     callback_function(),
 ][-1]
-say_hello(lambda: print("wold"))
+say_hello(lambda: [
+    print("wold"),
+][-1])
 create_multiplier = lambda aa: lambda bb: (aa * bb)
 multiply_by_two = create_multiplier(2)
 print(f"multiply_by_two(10): {multiply_by_two(10)}")
@@ -27,8 +29,8 @@ xl_list = [
     {"foo":"bar"},
     lambda aa, bb: (aa * bb),
 ]
-print(f"xl_list: {json_stringify(xl_list)}")
-print(f"xl_list: {json_stringify(xl_list, pretty=True)}")
+print(f"xl_list: {xl.json_stringify(xl_list)}")
+print(f"xl_list: {xl.json_stringify(xl_list, pretty=True)}")
 xl_dict = {
     "xl_none": None,
     "xl_bool_true": True,
@@ -42,5 +44,5 @@ xl_dict = {
     "xl_dict": {"foo":"bar"},
     "xl_closure": lambda aa, bb: (aa * bb),
 }
-print(f"xl_dict: {json_stringify(xl_dict)}")
-print(f"xl_dict: {json_stringify(xl_dict, pretty=True)}")
+print(f"xl_dict: {xl.json_stringify(xl_dict)}")
+print(f"xl_dict: {xl.json_stringify(xl_dict, pretty=True)}")

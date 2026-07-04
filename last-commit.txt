@@ -1,5 +1,5 @@
 git add .
-git commit -m "version 2.6.2: update language-specific-extensions-installer.js, add 2 slot active langs; add lua runtime init;"
-git tag -a 2.6.2 -m "version 2.6.2: update language-specific-extensions-installer.js, add 2 slot active langs; add lua runtime init;"
+git commit -m "version 2.6.3: update utils.sh; update all run.sh, update actionscript run.sh; update objective-c; add more ruby init;"
+git tag -a 2.6.2 -m "version 2.6.3: update utils.sh; update all run.sh, update actionscript run.sh; update objective-c; add more ruby init;"
 git push origin main -f
 git push origin --tags -f

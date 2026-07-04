@@ -2,16 +2,16 @@
 
 SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD")
-PATH_TO_DOT_ENV_FILE="$RD/.env"
-[ -f $PATH_TO_DOT_ENV_FILE ] && source $PATH_TO_DOT_ENV_FILE
+PTEF="$RD/.env"
+[ -f $PTEF ] && source $PTEF
 
 get_docker_image() {
     if [ -z "$1" ]; then
         echo "expected <language-id>"
         exit 1
     fi
-    local -r language_id="${1}"
-    local -r docker_image=$(jq -r --arg lang "$language_id" '
+    local -r LID="${1}"
+    local -r IMG=$(jq -r --arg lang "$LID" '
         .[]
 
         | select(.["id"] == $lang)
@@ -20,7 +20,7 @@ get_docker_image() {
         | .["docker_images"]
         | .[-1]
     ' "$SD/languages.json")
-    echo "$docker_image"
+    echo "$IMG"
 }
 
 setup_language_specific_vscode_extensions() {
@@ -28,9 +28,9 @@ setup_language_specific_vscode_extensions() {
         echo "expected <language-id>"
         exit 1
     fi
-    local -r target_lang="${1}"
-    if [ "$CURRENT_ACTIVE_LANGUAGE" == "$target_lang" ]; then
-        echo "[language-specific-extensions] vscode extensions for \"$target_lang\" is active"
+    local -r tl="${1}"
+    if [ "$CAL" == "$tl" ]; then
+        echo "[language-specific-extensions] vscode extensions for \"$tl\" is active"
         return 0
     fi
 
@@ -38,65 +38,65 @@ setup_language_specific_vscode_extensions() {
         echo "jq not installed. installing jq..."
         sudo apt update && sudo apt install -y jq
     fi
-    mapfile -t vscode_extensions_for_target_lang < <(jq -r --arg target "$target_lang" '.[] | select(.["id"] == $target) | .["vscode_extensions"] | .[]' "$RD/languages.json" 2>/dev/null)
+    mapfile -t veftl < <(jq -r --arg target "$tl" '.[] | select(.["id"] == $target) | .["vscode_extensions"] | .[]' "$RD/languages.json" 2>/dev/null)
 
-    if [ ${#vscode_extensions_for_target_lang[@]} -eq 0 ]; then
-        echo "[language-specific-extensions] vscode extensions for \"$target_lang\" is not available"
+    if [ ${#veftl[@]} -eq 0 ]; then
+        echo "[language-specific-extensions] vscode extensions for \"$tl\" is not available"
         return 0
     fi
-    echo "[language-specific-extensions] found vscode extensions for \"$target_lang\""
+    echo "[language-specific-extensions] found vscode extensions for \"$tl\""
 
-    declare -a just_installed_extensions=()
-    local path_to_vscode_extensions_base="$RD/vscode-extensions-base.txt"
-    mapfile -t base_extensions < $path_to_vscode_extensions_base
-    mapfile -t just_installed_extensions < $path_to_vscode_extensions_base
+    declare -a jinst_ext=()
+    local ptvscextb="$RD/vscode-extensions-base.txt"
+    mapfile -t base_extensions < $ptvscextb
+    mapfile -t jinst_ext < $ptvscextb
 
-    local path_to_list_of_current_installed_extensions="$RD/vscode-extensions-current.txt"
-    code --list-extensions 2>/dev/null | grep -v -E "(stdin|Usage|Options)" > "$path_to_list_of_current_installed_extensions"
+    local ptlo_cinst_ext="$RD/vscode-extensions-current.txt"
+    code --list-extensions 2>/dev/null | grep -v -E "(stdin|Usage|Options)" > "$ptlo_cinst_ext"
 
-    for base_ext in "${base_extensions[@]}"; do
-        if grep -qix "$base_ext" "$path_to_list_of_current_installed_extensions"; then
+    for b_ext in "${base_extensions[@]}"; do
+        if grep -qix "$b_ext" "$ptlo_cinst_ext"; then
             continue
         fi
-        code --install-extension "$base_ext" --force
-        just_installed_extensions+=( "$base_ext" )
+        code --install-extension "$b_ext" --force
+        jinst_ext+=( "$b_ext" )
     done
 
-    for ext_for_target_lang in "${vscode_extensions_for_target_lang[@]}"; do
-        if grep -qix "$ext_for_target_lang" "$path_to_list_of_current_installed_extensions"; then
+    for ext_ftl in "${veftl[@]}"; do
+        if grep -qix "$ext_ftl" "$ptlo_cinst_ext"; then
             continue
         fi
-        code --install-extension "$ext_for_target_lang" --force
-        just_installed_extensions+=( "$ext_for_target_lang" )
+        code --install-extension "$ext_ftl" --force
+        jinst_ext+=( "$ext_ftl" )
     done
 
     while read -r installed_ext; do
         [ -z "$installed_ext" ] && continue
 
-        local installed_ext_lower="${installed_ext,,}"
+        local inst_ext_l="${installed_ext,,}"
 
-        local should_keep=false
+        local sk=false
 
-        if grep -qix "$installed_ext_lower" "$path_to_vscode_extensions_base"; then
+        if grep -qix "$inst_ext_l" "$ptvscextb"; then
             continue
         fi
 
-        for ext_for_target_lang in ${vscode_extensions_for_target_lang}; do
-            if [ "$installed_ext_lower" == "${ext_for_target_lang,,}" ]; then
-                should_keep=true
+        for ext_ftl in ${veftl}; do
+            if [ "$inst_ext_l" == "${ext_ftl,,}" ]; then
+                sk=true
                 break
             fi
         done
 
-        if ! $should_keep; then
+        if ! $sk; then
             code --uninstall-extension "$installed_ext"
             continue
         fi
-    done < $path_to_list_of_current_installed_extensions
+    done < $ptlo_cinst_ext
 
-    echo "CURRENT_ACTIVE_LANGUAGE=$target_lang" > $PATH_TO_DOT_ENV_FILE
-    printf "%s\n" "${just_installed_extensions[@]}" > "$path_to_list_of_current_installed_extensions"
-    echo "[language-specific-extensions] vscode extensions for \"$target_lang\" is active"
+    echo "CAL=$tl" > $PTEF
+    printf "%s\n" "${jinst_ext[@]}" > "$ptlo_cinst_ext"
+    echo "[language-specific-extensions] vscode extensions for \"$tl\" is active"
 }
 
 print_separator() {
@@ -104,29 +104,32 @@ print_separator() {
 }
 
 check_path() {
-    declare -r some_path="$1"
+    declare -r p="$1"
 
-    if [ -d "$some_path" ]; then
-        echo "$some_path is DIREKTORY"
-    elif [ -f "$some_path" ]; then
-        echo "$some_path is FILE"
+    if [ -d "$p" ]; then
+        echo "$p is DIRECTORY"
+    elif [ -f "$p" ]; then
+        echo "$p is FILE"
     else
-        echo "$some_path not found"
+        echo "$p not found"
     fi
 }
 
-if [ "$1" == "print_separator" ]; then
-    print_separator
-fi
-
-if [ "$1" == "check_path" ]; then
-    check_path "$2"
-fi
-
-if [ "$1" == "get_docker_image" ]; then
-    get_docker_image "$2"
-fi
-
-if [ "$1" == "setup_language_specific_vscode_extensions" ]; then
-    setup_language_specific_vscode_extensions "$2"
-fi
+case "$1" in
+    --print-sep)
+        print_separator
+        ;;
+    --check-path)
+        check_path "$2"
+        ;;
+    --get-docker-image)
+        get_docker_image "$2"
+        ;;
+    --setup-lang-specific-vscode-extensions)
+        setup_language_specific_vscode_extensions "$2"
+        ;;
+    *)
+        echo "Usage: $0 {--check-path} {--get-docker-image} {--setup-lang-specific-vscode-extensions} {--print-sep}"
+        exit 1
+        ;;
+esac

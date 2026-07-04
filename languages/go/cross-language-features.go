@@ -12,7 +12,7 @@ func main() {
 		itr := xl.MakeIterator(va)
 		callbackFunction := itr.Next()
 		xl.Println("hello")
-		xl.ToCallable(callbackFunction).Call()
+		xl.ToClosure(callbackFunction).Call()
 		return nil
 	}
 	sayHello(func(va ...interface{}) interface{} {
@@ -29,7 +29,7 @@ func main() {
 		}
 	}
 	multiplyByTwo := createMultiplier(2)
-	xl.Println("multiply_by_two(10): ", xl.ToCallable(multiplyByTwo).Call(10))
+	xl.Println("multiply_by_two(10): ", xl.ToClosure(multiplyByTwo).Call(10))
 
 	/*
 	2. support dynamic-typed value, or has workaround

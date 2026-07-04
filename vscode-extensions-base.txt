@@ -13,6 +13,7 @@ zjcompt.es6-string-javascript
 mechatroner.rainbow-csv
 naumovs.color-highlight
 oderwat.indent-rainbow
+jduponchelle.rainbow-end
 ritwickdey.liveserver
 yzhang.markdown-all-in-one
 zignd.html-css-class-completion

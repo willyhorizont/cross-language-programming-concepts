@@ -13,7 +13,7 @@ package runtime.willyhorizont {
 
     [SWF(backgroundColor="0x121212")]
 
-    public class Runtime extends Sprite {
+    public class Xl extends Sprite {
         private var bg:Sprite;
         private var f:TextFormat;
 
@@ -28,7 +28,7 @@ package runtime.willyhorizont {
         private var tP:String = N + "@" + PC + ":" + D + "$ ";
         public static var rTx:String = "";
 
-        public function Runtime() {
+        public function Xl() {
             if (stage) {
                 init();
             } else {

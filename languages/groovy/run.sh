@@ -22,12 +22,12 @@ if [ -f "$LEV" ]; then
     source "$LEV"
 fi
 
-# "$RD/utils.sh" "setup_language_specific_vscode_extensions" "$LID" 2>/dev/null
-code --install-extension "$RD/language-specific-extensions-installer.vsix"
+# "$RD/utils.sh" --setup-lang-specific-vscode-extensions $LID 2>/dev/null
+code --install-extension "$RD/language-specific-extensions-installer.vsix" &> /dev/null
 
-IMG=$("$RD/utils.sh" "get_docker_image" "$LID" 2>/dev/null)
+IMG=$("$RD/utils.sh" --get-docker-image $LID 2>/dev/null)
 
-L=$("$RD/utils.sh" "print_separator")
+L=$("$RD/utils.sh" --print-sep)
 
 if [ "$IS_INIT" != "TRUE" ]; then
     echo "IS_INIT=\"TRUE\"" > "$LEV"

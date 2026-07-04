@@ -1,6 +1,6 @@
 package {
     import flash.display.Sprite;
-    import runtime.willyhorizont.Runtime;
+    import runtime.willyhorizont.Xl;
 
     public class Program extends Sprite {
         public static function run():void {
@@ -8,11 +8,11 @@ package {
             1. support closure as value, or has workaround
             */
             var sayHello:* = function(callbackFunction:*):* {
-                Runtime.print("hello");
+                Xl.print("hello");
                 callbackFunction();
             };
             sayHello(function():* {
-                Runtime.print("world");
+                Xl.print("world");
             });
             var createMultiplier:* = function(aa:*):* {
                 return function(bb:*):* {
@@ -20,10 +20,10 @@ package {
                 };
             };
             var multiplyByTwo:* = createMultiplier(2);
-            Runtime.print("multiply_by_two(10): " + String(multiplyByTwo(10)));
+            Xl.print("multiply_by_two(10): " + String(multiplyByTwo(10)));
             var multiplyByEight:* = createMultiplier(8);
-            Runtime.print("multiply_by_eight(4): " + String(multiplyByEight(4)));
-            Runtime.print("multiply_by_two(8): " + String(multiplyByTwo(8)));
+            Xl.print("multiply_by_eight(4): " + String(multiplyByEight(4)));
+            Xl.print("multiply_by_two(8): " + String(multiplyByTwo(8)));
 
             /*
             2. support dynamic-typed value, or has workaround
@@ -43,8 +43,8 @@ package {
                     return aa * bb;
                 }
             ];
-            Runtime.print("xl_list: " + Runtime.jsonStringify(xlList));
-            Runtime.print("xl_list: " + Runtime.jsonStringify(xlList, { "pretty": true }));
+            Xl.print("xl_list: " + Xl.jsonStringify(xlList));
+            Xl.print("xl_list: " + Xl.jsonStringify(xlList, { "pretty": true }));
             var xlDict:* = {
                 "xl_none": null,
                 "xl_bool_true": true,
@@ -60,8 +60,8 @@ package {
                     return aa * bb;
                 }
             };
-            Runtime.print("xl_dict: " + Runtime.jsonStringify(xlDict));
-            Runtime.print("xl_dict: " + Runtime.jsonStringify(xlDict, { "pretty": true }));
+            Xl.print("xl_dict: " + Xl.jsonStringify(xlDict));
+            Xl.print("xl_dict: " + Xl.jsonStringify(xlDict, { "pretty": true }));
         }
     }
 }

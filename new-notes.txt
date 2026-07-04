@@ -50,6 +50,7 @@ https://nue.nu/
 ~~freebasic~~ tried, canceled, no closure as value, already have Ms. tho...
 ~~freepascal~~ tried, canceled, no closure as value, FPC >= 3.3.x still not stable, even using paid software Embarcadero Delphi >= 2009, the syntax is still "unique"
 ~~c~~ tried, canceled, no closure as value, already have C++ tho...
+~~groovy~~
 https://nekovm.org/
 Haxe
 coffeescript
@@ -59,13 +60,15 @@ c3
 v
 d
 vala
-~~groovy~~
+hare
 f#
 clojure
 crystal
 lo
 pike
 falcon
+
+docker run --rm -i $(./utils.sh --get-docker-image julia) which julia
 
 todo:
 change associative list to xl_dict, and add xl_dict_indexed

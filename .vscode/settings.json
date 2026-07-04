@@ -568,6 +568,7 @@
     "groovyLint.format.useDocumentIndentSize": false,
     "groovyLint.lint.trigger": "user",
     "perlnavigator.perlCompileEnabled": false,
+    "julia.juliaup.customDepot": false,
     "julia.promptToInstall": false,
-    "julia.executablePath": "julia"
+    "julia.executablePath": "/usr/local/julia/bin/julia"
 }
