@@ -18,7 +18,7 @@ type XlIterator struct {
 	Index int
 }
 
-func MakeIterator(iterable []interface{}) *XlIterator {
+func Iter(iterable []interface{}) *XlIterator {
 	return &XlIterator{
 		Iterable: iterable,
 		Index:    0,
@@ -145,7 +145,7 @@ func ToClosure(a interface{}) XlCallable {
 }
 
 func JsonStringify(va ...interface{}) string {
-	itr := MakeIterator(va)
+	itr := Iter(va)
 	a := itr.Next()
 	if a == nil {
 		return "null"

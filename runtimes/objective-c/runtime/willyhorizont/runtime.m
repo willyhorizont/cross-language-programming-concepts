@@ -1,460 +1,485 @@
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, CrossTypeKind) {
-    XlKindNone,
-    XlKindBool,
-    XlKindInt,
-    XlKindFloat,
-    XlKindString,
-    XlKindList,
-    XlKindDict,
-    XlKindDictIndexed,
-    XlKindClosure
+NS_ASSUME_NONNULL_BEGIN
+
+typedef NS_ENUM(NSInteger, XlType) {
+    XlNone,
+    XlBool,
+    XlInt,
+    XlFloat,
+    XlString,
+    XlList,
+    XlDict,
+    XlDictIndexed,
+    XlClosure,
+    XlIterator
 };
 
-@class CrossType;
-@class XlDictIndexed;
-@class XlClosureVarArgs;
-@class JsonSfyTok;
+@class XL;
+@class DictIndexed;
 
-int64_t toXlInt(CrossType * a);
-double toXlFloat(CrossType * a);
-CrossType * initXlList(NSArray<CrossType *> * a);
-CrossType * initXlDict(NSDictionary<NSString *, CrossType *> * d, ...);
-NSString * stringRepeat(NSString * s, NSUInteger n);
-NSString * jsonStringify(NSArray *a);
+typedef XL * _Nonnull (^Closure)(XL * va);
 
-@interface XlClosureVarArgs : NSObject
-@property (nonatomic, strong, readonly) NSArray<CrossType *> * va;
-@property (nonatomic, assign, readonly) NSUInteger i;
-- (instancetype)initWithXlClosureVarArgs:(NSArray<CrossType *> *)a;
-- (CrossType *)getNextArguments;
+@interface Iterator : NSObject
+@property (nonatomic, strong, readonly) NSArray<XL *> * array;
+@property (nonatomic, assign) NSUInteger index;
+- (instancetype)initAsList:(NSArray<XL *> *)array;
+- (XL *)next;
 @end
 
-typedef CrossType * (^XlClosure)(XlClosureVarArgs * va);
-
-@interface XlDictIndexed : NSObject
+@interface DictIndexed : NSObject
 @property (nonatomic, strong, readonly) NSMutableArray<NSString *> * keys;
-@property (nonatomic, strong, readonly) NSMutableDictionary<NSString *, CrossType *> * map;
-- (void)insertKey:(NSString *)key value:(CrossType *)value;
+@property (nonatomic, strong, readonly) NSMutableDictionary<NSString *, XL *> * dict;
+- (void)insertKey:(NSString *)key value:(XL *)value;
 @end
 
-@interface CrossType : NSObject
-@property (nonatomic, assign, readonly) CrossTypeKind kind;
-@property (nonatomic, strong, readonly) id rawValue;
-- (instancetype)initXlNone;
-- (instancetype)initXlBool:(BOOL)v;
-- (instancetype)initXlInt:(int64_t)v;
-- (instancetype)initXlFloat:(double)v;
-- (instancetype)initXlString:(NSString *)v;
-- (instancetype)initXlClosure:(XlClosure)v;
-- (instancetype)initWithXlList:(NSArray<CrossType *> *)v;
-- (instancetype)initWithXlDict:(NSDictionary<NSString *, CrossType *> *)v;
-- (instancetype)initWithXlDictIndexed:(XlDictIndexed *)v;
-- (CrossType *)call:(NSArray<CrossType *> *)a;
+@interface XL : NSObject
+@property (nonatomic, assign, readonly) XlType type;
+@property (nonatomic, strong, readonly) id nativeValue;
+- (instancetype)initNone;
+- (instancetype)initBool:(BOOL)v;
+- (instancetype)initInt:(int64_t)v;
+- (instancetype)initFloat:(double)v;
+- (instancetype)initString:(NSString *)v;
+- (instancetype)initClosure:(Closure)v;
+- (XL *)call:(NSArray<XL *> *)a;
+- (XL *)next;
 @end
 
-@interface JsonSfyTok : NSObject
-@property (nonatomic, strong) NSString * t; // @"ref" or @"raw"
-@property (nonatomic, strong) CrossType * v;
-@property (nonatomic, strong) NSString * rv;
-@property (nonatomic, assign) NSUInteger d;
+@interface XlNamespace : NSObject
+- (Class)XL;
+- (Class)DictIndexed;
+
+- (XL * (^)(void))initNone;
+- (XL * (^)(BOOL))initBool;
+- (XL * (^)(int64_t))initInt;
+- (XL * (^)(double))initFloat;
+- (XL * (^)(NSString *))initString;
+- (XL * (^)(Closure))initClosure;
+- (XL * (^)(NSArray<XL *> * a))initList;
+- (XL * (^)(NSDictionary<NSString *, XL *> *, ...))initDict;
+- (XL * (^)(XL * a))iter;
+- (int64_t (^)(XL *))toXlInt;
+- (double (^)(XL *))toXlFloat;
+- (NSString * (^)(XL * _Nullable a, id _Nullable o))jsonStringify;
 @end
 
-@implementation XlClosureVarArgs
-- (instancetype)initWithXlClosureVarArgs:(NSArray<CrossType *> *)a {
+extern XlNamespace * xl;
+
+@implementation Iterator
+- (instancetype)initAsList:(NSArray<XL *> *)array {
     self = [super init];
-    if (self) {
-        _va = a;
-        _i = 0;
-    }
+    if (self) { _array = array; _index = 0; }
     return self;
 }
-- (CrossType *)getNextArguments {
-    if (_i < self.va.count) {
-        CrossType * arg = self.va[_i];
-        _i += 1;
+- (XL *)next {
+    if (_index < self.array.count) {
+        XL * arg = self.array[_index];
+        _index += 1;
         return arg;
     }
-    return [[CrossType alloc] initXlNone];
+    return [[XL alloc] initNone];
 }
 @end
 
-@implementation XlDictIndexed
+@implementation DictIndexed
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _keys = [NSMutableArray new]; _map = [NSMutableDictionary new];
+        _keys = [NSMutableArray new];
+        _dict = [NSMutableDictionary new];
     }
     return self;
 }
-- (void)insertKey:(NSString *)key value:(CrossType *)value {
-    if (![self.map objectForKey:key]) {
+- (void)insertKey:(NSString *)key value:(XL *)value {
+    if (![self.dict objectForKey:key]) {
         [self.keys addObject:key];
     }
-    [self.map setObject:value forKey:key];
+    [self.dict setObject:value forKey:key];
 }
 @end
 
-@implementation CrossType
-- (instancetype)initXlNone {
+@interface XL ()
+- (instancetype)initAsList:(NSArray<XL *> *)v;
+- (instancetype)initAsDict:(NSDictionary<NSString *, XL *> *)v;
+- (instancetype)initAsDictIndexed:(DictIndexed *)v;
+- (instancetype)initAsIterator:(Iterator *)v;
+@end
+
+@implementation XL
+- (instancetype)initNone {
     self = [super init];
     if (self) {
-        _kind = XlKindNone; _rawValue = [NSNull null];
+        _type = XlNone;
+        _nativeValue = [NSNull null];
     }
     return self;
 }
-- (instancetype)initXlBool:(BOOL)v {
+- (instancetype)initBool:(BOOL)v {
     self = [super init];
     if (self) {
-        _kind = XlKindBool; _rawValue = @(v);
+        _type = XlBool;
+        _nativeValue = @(v);
     }
     return self;
 }
-- (instancetype)initXlInt:(int64_t)v {
+- (instancetype)initInt:(int64_t)v {
     self = [super init];
     if (self) {
-        _kind = XlKindInt; _rawValue = @(v);
+        _type = XlInt;
+        _nativeValue = @(v);
     }
     return self;
 }
-- (instancetype)initXlFloat:(double)v {
+- (instancetype)initFloat:(double)v {
     self = [super init];
     if (self) {
-        _kind = XlKindFloat; _rawValue = @(v);
+        _type = XlFloat;
+        _nativeValue = @(v);
     }
     return self;
 }
-- (instancetype)initXlString:(NSString *)v {
+- (instancetype)initString:(NSString *)v {
     self = [super init];
     if (self) {
-        _kind = XlKindString; _rawValue = [v copy];
+        _type = XlString;
+        _nativeValue = [v copy];
     }
     return self;
 }
-- (instancetype)initXlClosure:(XlClosure)v {
+- (instancetype)initAsList:(NSArray<XL *> *)v {
     self = [super init];
     if (self) {
-        _kind = XlKindClosure; _rawValue = [v copy];
+        _type = XlList;
+        _nativeValue = [v copy];
     }
     return self;
 }
-- (CrossType *)call:(NSArray<CrossType *> *)a {
-    if (self.kind == XlKindClosure) {
-        XlClosure cB = (XlClosure)self.rawValue;
-        XlClosureVarArgs * va = [[XlClosureVarArgs alloc] initWithXlClosureVarArgs:a];
-        return cB(va);
-    }
-    @throw [NSException exceptionWithName:@"XlRuntimeError" reason:@"Error: Expected XlClosure." userInfo:nil];
-}
-- (instancetype)initWithXlList:(NSArray<CrossType *> *)v {
+- (instancetype)initAsDict:(NSDictionary<NSString *, XL *> *)v {
     self = [super init];
     if (self) {
-        _kind = XlKindList; _rawValue = [v copy];
+        _type = XlDict;
+        _nativeValue = [v copy];
     }
     return self;
 }
-- (instancetype)initWithXlDict:(NSDictionary<NSString *, CrossType *> *)v {
+- (instancetype)initAsDictIndexed:(DictIndexed *)v {
     self = [super init];
     if (self) {
-        _kind = XlKindDict; _rawValue = [v copy];
+        _type = XlDictIndexed;
+        _nativeValue = v;
     }
     return self;
 }
-- (instancetype)initWithXlDictIndexed:(XlDictIndexed *)v {
+- (instancetype)initClosure:(Closure)v {
     self = [super init];
     if (self) {
-        _kind = XlKindDictIndexed; _rawValue = v;
+        _type = XlClosure;
+        _nativeValue = [v copy];
     }
     return self;
+}
+- (XL *)call:(NSArray<XL *> *)a {
+    if (self.type == XlClosure) {
+        Closure cB = (Closure)self.nativeValue;
+        Iterator *l = [[Iterator alloc] initAsList:a];
+        XL *el = [[XL alloc] initAsIterator:l];
+        return cB(el);
+    }
+    @throw [NSException exceptionWithName:@"XlRuntimeError" reason:@"Error: Expected Closure." userInfo:nil];
+}
+- (instancetype)initAsIterator:(Iterator *)v {
+    self = [super init];
+    if (self) {
+        _type = XlIterator;
+        _nativeValue = v;
+    }
+    return self;
+}
+- (XL *)next {
+    if (self.type == XlIterator) {
+        Iterator *internalItr = (Iterator *)self.nativeValue;
+        return [internalItr next];
+    }
+    @throw [NSException exceptionWithName:@"XlRuntimeError" reason:@"Error: Expected XlIterator." userInfo:nil];
 }
 - (NSString *)description {
-    switch (self.kind) {
-        case XlKindNone: return @"None";
-        case XlKindBool: return [self.rawValue boolValue] ? @"True" : @"False";
-        case XlKindInt: return [NSString stringWithFormat:@"%@", self.rawValue];
-        case XlKindFloat: return [NSString stringWithFormat:@"%@", self.rawValue];
-        case XlKindString: return (NSString *)self.rawValue;
-        case XlKindList: return [NSString stringWithFormat:@"List count: %lu", (unsigned long)[self.rawValue count]];
-        case XlKindDict: return [NSString stringWithFormat:@"Dict size: %lu", (unsigned long)[self.rawValue count]];
-        case XlKindDictIndexed: return [NSString stringWithFormat:@"IndexedDict size: %lu", (unsigned long)[[(XlDictIndexed *)self.rawValue map] count]];
-        case XlKindClosure: return @"Closure Block";
+    switch (self.type) {
+        case XlNone: return @"null";
+        case XlBool: return [self.nativeValue boolValue] ? @"true" : @"false";
+        case XlInt: return [NSString stringWithFormat:@"%@", self.nativeValue];
+        case XlFloat: return [NSString stringWithFormat:@"%@", self.nativeValue];
+        case XlString: return (NSString *)self.nativeValue;
+        case XlList: return [NSString stringWithFormat:@"length: %lu", (unsigned long)[self.nativeValue count]];
+        case XlDict: return [NSString stringWithFormat:@"length: %lu", (unsigned long)[self.nativeValue count]];
+        case XlDictIndexed: return [NSString stringWithFormat:@"length: %lu", (unsigned long)[[(DictIndexed *)self.nativeValue dict] count]];
+        case XlClosure: return @"[object Function]";
+        case XlIterator: return @"[object Function]";
     }
 }
 @end
 
-int64_t toXlInt(CrossType * a) {
-    if (!a || a.kind == XlKindNone) {
-        @throw [NSException exceptionWithName:@"CrossTypeError" reason:@"Error: Expected XlInt." userInfo:nil];
-    }
-    if (a.kind != XlKindInt) {
-        @throw [NSException exceptionWithName:@"CrossTypeError" reason:@"Error: Expected XlInt." userInfo:nil];
-    }
-    return [a.rawValue longLongValue];
+@implementation XlNamespace
+- (Class)XL {
+    return [XL class];
+}
+- (Class)DictIndexed {
+    return [DictIndexed class];
 }
 
-double toXlFloat(CrossType * a) {
-    if (!a || a.kind == XlKindNone) {
-        @throw [NSException exceptionWithName:@"CrossTypeError" reason:@"Error: Expected XlFloat." userInfo:nil];
-    }
-    if (a.kind != XlKindFloat) {
-        @throw [NSException exceptionWithName:@"CrossTypeError" reason:@"Error: Expected XlFloat." userInfo:nil];
-    }
-    return [a.rawValue doubleValue];
+- (XL * (^)(void))initNone {
+    return ^{
+        return [[XL alloc] initNone];
+    };
 }
-
-CrossType * initXlList(NSArray<CrossType *> * a) {
-    return [[CrossType alloc] initWithXlList:a];
+- (XL * (^)(BOOL))initBool {
+    return ^(BOOL v) {
+        return [[XL alloc] initBool:v];
+    };
 }
-
-CrossType * initXlDict(NSDictionary<NSString *, CrossType *> * d, ...) {
-    if (!d) {
-        return [[CrossType alloc] initXlNone];
-    }
-
-    va_list a;
-    va_start(a, d);
-    
-    NSArray<NSString *> *kO = va_arg(a, NSArray<NSString *> *);
-    va_end(a);
-
-    if (kO && [kO isKindOfClass:[NSArray class]]) {
-        XlDictIndexed *dI = [XlDictIndexed new];
+- (XL * (^)(int64_t))initInt {
+    return ^(int64_t v) {
+        return [[XL alloc] initInt:v];
+    };
+}
+- (XL * (^)(double))initFloat {
+    return ^(double v) {
+        return [[XL alloc] initFloat:v];
+    };
+}
+- (XL * (^)(NSString *))initString {
+    return ^(NSString *v) {
+        return [[XL alloc] initString:v];
+    };
+}
+- (XL * (^)(Closure))initClosure {
+    return ^(Closure v) {
+        return [[XL alloc] initClosure:v];
+    };
+}
+- (XL * (^)(NSArray<XL *> *))initList {
+    return ^(NSArray<XL *> *a) { 
+        return [[XL alloc] initAsList:a];
+    };
+}
+- (XL * (^)(NSDictionary<NSString *, XL *> *, ...))initDict {
+    return ^(NSDictionary<NSString *, XL *> *d, ...) {
+        if (!d) return [[XL alloc] initNone];
         
-        for (NSUInteger i = 0; i < kO.count; i += 1) {
-            NSString *key = kO[i];
-            CrossType *value = [d objectForKey:key];
-            
-            if (value) {
-                [dI insertKey:key value:value];
+        va_list a;
+        va_start(a, d);
+
+        id fA = va_arg(a, id);
+
+        if (fA && [fA isKindOfClass:[NSArray class]]) {
+            NSArray<NSString *> *kO = (NSArray<NSString *> *)fA;
+            DictIndexed *dI = [DictIndexed new];
+            for (NSUInteger i = 0; i < kO.count; i += 1) {
+                NSString *key = kO[i];
+                XL *value = [d objectForKey:key];
+                if (value) [dI insertKey:key value:value];
+            }
+            va_end(a);
+            return [[XL alloc] initAsDictIndexed:dI];
+        }
+
+        va_end(a);
+        return [[XL alloc] initAsDict:d];
+    };
+}
+
+- (int64_t (^)(XL *))toXlInt {
+    return ^(XL *a) {
+        if (!a || a.type != XlInt) {
+            @throw [NSException exceptionWithName:@"XlError" reason:@"Error: Expected XlInt." userInfo:nil];
+        }
+        return (int64_t)[a.nativeValue longLongValue];
+    };
+}
+
+- (double (^)(XL *))toXlFloat {
+    return ^(XL *a) {
+        if (!a || a.type != XlFloat) {
+            @throw [NSException exceptionWithName:@"XlError" reason:@"Error: Expected XlFloat." userInfo:nil];
+        }
+        return [a.nativeValue doubleValue];
+    };
+}
+
+- (XL * (^)(XL *))iter {
+    return ^(XL * a) {
+        NSArray<XL *> *l = @[];
+        if (a && a.type == XlList) {
+            l = (NSArray<XL *> *)a.nativeValue;
+        }
+        Iterator *o = [[Iterator alloc] initAsList:l];
+        return [[XL alloc] initAsIterator:o];
+    };
+}
+
+- (NSString * (^)(XL * _Nullable, id _Nullable))jsonStringify {
+    return ^(XL * _Nullable a, id _Nullable oP) {
+        XL *frstA = a ? a : [[XL alloc] initNone];
+        BOOL p = NO;
+        if (oP && [oP isKindOfClass:[XL class]]) {
+            XL *o = (XL *)oP;
+            if (o.type == XlDict || o.type == XlDictIndexed) {
+                NSDictionary<NSString *, XL *> *oD;
+                if (o.type == XlDictIndexed) {
+                    DictIndexed *dI = (DictIndexed *)o.nativeValue;
+                    oD = dI.dict;
+                } else {
+                    oD = (NSDictionary<NSString *, XL *> *)o.nativeValue;
+                }
+                XL *pV = oD[@"pretty"];
+                if (pV && pV.type == XlBool) {
+                    p = [pV.nativeValue boolValue];
+                }
             }
         }
-        return [[CrossType alloc] initWithXlDictIndexed:dI];
-    }
-
-    return [[CrossType alloc] initWithXlDict:d];
+        NSString *t = @"    ";
+        NSMutableArray<NSDictionary *> *s = [NSMutableArray new];
+        [s addObject:@{@"t": @"v", @"v": frstA, @"d": @0}];
+        NSMutableString *r = [NSMutableString stringWithString:@""];
+        while (s.count > 0) {
+            NSDictionary *c = s.lastObject;
+            [s removeLastObject];
+            NSString *tT = c[@"t"];
+            if ([tT isEqualToString:@"r"]) {
+                [r appendString:c[@"v"]];
+                continue;
+            }
+            XL *v = c[@"v"];
+            NSUInteger curT = [c[@"d"] unsignedIntegerValue];
+            if (v.type == XlNone) {
+                [r appendString:@"null"];
+                continue;
+            }
+            if (v.type == XlBool) {
+                [r appendString:[v.nativeValue boolValue] ? @"true" : @"false"];
+                continue;
+            }
+            if (v.type == XlString) {
+                [r appendFormat:@"\"%@\"", v.nativeValue];
+                continue;
+            }
+            if (v.type == XlInt || v.type == XlFloat) {
+                [r appendFormat:@"%@", v.nativeValue];
+                continue;
+            }
+            if (v.type == XlClosure) {
+                [r appendString:@"\"[object Function]\""];
+                continue;
+            }
+            if (v.type == XlList) {
+                NSArray<XL *> *l = (NSArray<XL *> *)v.nativeValue;
+                if (l.count == 0) {
+                    [r appendString:@"[]"];
+                    continue;
+                }
+                NSUInteger childT = curT + 1;
+                NSString *closeStr = p ? [NSString stringWithFormat:@"\n%@]", [@"" stringByPaddingToLength:(t.length * curT) withString:t startingAtIndex:0]] : @"]";
+                [s addObject:@{
+                    @"t": @"r",
+                    @"v": closeStr,
+                    @"d": @(curT)
+                }];
+                for (NSInteger i = (NSInteger)l.count - 1; i >= 0; i -= 1) {
+                    [s addObject:@{
+                        @"t": @"v",
+                        @"v": l[i],
+                        @"d": @(childT)
+                    }];
+                    if (i > 0) {
+                        NSString *commaStr = p ? [NSString stringWithFormat:@",\n%@", [@"" stringByPaddingToLength:(t.length * childT) withString:t startingAtIndex:0]] : @",";
+                        [s addObject:@{
+                            @"t": @"r",
+                            @"v": commaStr,
+                            @"d": @(childT)
+                        }];
+                    }
+                }
+                NSString *openStr = p ? [NSString stringWithFormat:@"[\n%@", [@"" stringByPaddingToLength:(t.length * childT) withString:t startingAtIndex:0]] : @"[";
+                [s addObject:@{
+                    @"t": @"r",
+                    @"v": openStr,
+                    @"d": @(childT)
+                }];
+                continue;
+            }
+            if (v.type == XlDict || v.type == XlDictIndexed) {
+                NSArray<NSString *> *keys;
+                NSDictionary<NSString *, XL *> *dict;
+                if (v.type == XlDictIndexed) {
+                    DictIndexed *dI = (DictIndexed *)v.nativeValue;
+                    keys = dI.keys;
+                    dict = dI.dict;
+                } else {
+                    NSDictionary<NSString *, XL *> *d = (NSDictionary<NSString *, XL *> *)v.nativeValue;
+                    keys = [d allKeys];
+                    dict = d;
+                }
+                if (keys.count == 0) {
+                    [r appendString:@"{}"];
+                    continue;
+                }
+                NSUInteger childT = curT + 1;
+                NSString *closeStr = p ? [NSString stringWithFormat:@"\n%@}", [@"" stringByPaddingToLength:(t.length * curT) withString:t startingAtIndex:0]] : @"}";
+                [s addObject:@{
+                    @"t": @"r",
+                    @"v": closeStr,
+                    @"d": @(curT)
+                }];
+                for (NSInteger i = (NSInteger)keys.count - 1; i >= 0; i -= 1) {
+                    NSString *dk = keys[i];
+                    XL *dv = dict[dk];
+                    if (dv) {
+                        [s addObject:@{
+                            @"t": @"v",
+                            @"v": dv,
+                            @"d": @(childT)
+                        }];
+                    } else {
+                        [s addObject:@{
+                            @"t": @"v",
+                            @"v": [[XL alloc] initNone],
+                            @"d": @(childT)
+                        }];
+                    }
+                    NSString *keyStr = p ? [NSString stringWithFormat:@"\"%@\": ", dk] : [NSString stringWithFormat:@"\"%@\":", dk];
+                    [s addObject:@{
+                        @"t": @"r",
+                        @"v": keyStr,
+                        @"d": @(childT)
+                    }];
+                    if (i > 0) {
+                        NSString *commaStr = p ? [NSString stringWithFormat:@",\n%@", [@"" stringByPaddingToLength:(t.length * childT) withString:t startingAtIndex:0]] : @",";
+                        [s addObject:@{
+                            @"t": @"r",
+                            @"v": commaStr,
+                            @"d": @(childT)
+                        }];
+                    }
+                }
+                NSString *openStr = p ? [NSString stringWithFormat:@"{\n%@", [@"" stringByPaddingToLength:(t.length * childT) withString:t startingAtIndex:0]] : @"{";
+                [s addObject:@{
+                    @"t": @"r",
+                    @"v": openStr,
+                    @"d": @(childT)
+                }];
+                continue;
+            }
+            [r appendString:@"\"[object Object]\""];
+        }
+        return [r copy];
+    };
 }
 
-NSString * stringRepeat(NSString * s, NSUInteger n) {
-    return [@"" stringByPaddingToLength:(s.length * n) withString:s startingAtIndex:0];
-}
-
-@implementation JsonSfyTok
 @end
 
-NSString * jsonStringify(NSArray *a) {
-    if (!a || a.count == 0) {
-        return @"";
-    }
-
-    CrossType *va = a[0];
-
-    BOOL p = NO;
-    if (a.count > 1) {
-        CrossType *o = a[1];
-        if (o && o.kind == XlKindDict) {
-            NSDictionary<NSString *, CrossType *> *d = (NSDictionary<NSString *, CrossType *> *)o.rawValue;
-            CrossType *pV = [d objectForKey:@"pretty"];
-            if (pV && pV.kind == XlKindBool) {
-                p = [pV.rawValue boolValue];
-            }
-        }
-    }
-
-    NSString * t = @"    ";
-    NSMutableArray<JsonSfyTok *> * s = [[NSMutableArray alloc] init];
-    
-    JsonSfyTok * tokRt = [[JsonSfyTok alloc] init];
-    tokRt.t = @"ref";
-    tokRt.v = va;
-    tokRt.rv = @"";
-    tokRt.d = 0;
-    [s addObject:tokRt];
-    
-    NSMutableString * r = [[NSMutableString alloc] init];
-    
-    while (s.count > 0) {
-        JsonSfyTok * c = s.lastObject;
-        [s removeLastObject];
-        
-        if ([c.t isEqualToString:@"raw"]) {
-            [r appendString:c.rv];
-            continue;
-        }
-        
-        NSUInteger curT = c.d;
-        CrossType * el = c.v;
-        
-        if (el.kind == XlKindNone) {
-            [r appendString:@"null"];
-            continue;
-        }
-        
-        if (el.kind == XlKindString) {
-            [r appendFormat:@"\"%@\"", el.rawValue];
-            continue;
-        }
-        
-        if (el.kind == XlKindBool) {
-            [r appendString:[el.rawValue boolValue] ? @"true" : @"false"];
-            continue;
-        }
-        
-        if (el.kind == XlKindInt || el.kind == XlKindFloat) {
-            [r appendFormat:@"%@", el.rawValue];
-            continue;
-        }
-        
-        if (el.kind == XlKindList) {
-            NSArray<CrossType *> * lR = (NSArray<CrossType *> *)el.rawValue;
-            if (lR.count == 0) {
-                [r appendString:@"[]"];
-                continue;
-            }
-            
-            NSUInteger childT = curT + 1;
-            
-            JsonSfyTok * tokCls = [[JsonSfyTok alloc] init];
-            tokCls.t = @"raw";
-            tokCls.rv = p ? 
-                [NSString stringWithFormat:@"\n%@]", stringRepeat(t, curT)] : @"]";
-            tokCls.d = curT;
-            [s addObject:tokCls];
-            
-            for (NSInteger i = (NSInteger)lR.count - 1; i >= 0; i -= 1) {
-                JsonSfyTok * tokLsEl = [[JsonSfyTok alloc] init];
-                tokLsEl.t = @"ref";
-                tokLsEl.v = lR[i];
-                tokLsEl.d = childT;
-                [s addObject:tokLsEl];
-                
-                if (i > 0) {
-                    JsonSfyTok * tokCom = [[JsonSfyTok alloc] init];
-                    tokCom.t = @"raw";
-                    tokCom.rv = p ? 
-                        [NSString stringWithFormat:@",\n%@", stringRepeat(t, childT)] : @", ";
-                    tokCom.d = childT;
-                    [s addObject:tokCom];
-                }
-            }
-            
-            JsonSfyTok * tokOpn = [[JsonSfyTok alloc] init];
-            tokOpn.t = @"raw";
-            tokOpn.rv = p ? 
-                [NSString stringWithFormat:@"[\n%@", stringRepeat(t, childT)] : @"[";
-            tokOpn.d = childT;
-            [s addObject:tokOpn];
-            continue;
-        }
-        
-        if (el.kind == XlKindDictIndexed) {
-            XlDictIndexed * xlDictIndexedRef = (XlDictIndexed *)el.rawValue;
-            if (xlDictIndexedRef.keys.count == 0) {
-                [r appendString:@"{}"];
-                continue;
-            }
-            
-            NSUInteger childT = curT + 1;
-            
-            JsonSfyTok * tokCls = [[JsonSfyTok alloc] init];
-            tokCls.t = @"raw";
-            tokCls.rv = p ? 
-                [NSString stringWithFormat:@"\n%@}", stringRepeat(t, curT)] : @" }";
-            tokCls.d = curT;
-            [s addObject:tokCls];
-            
-            for (NSInteger i = (NSInteger)xlDictIndexedRef.keys.count - 1; i >= 0; i -= 1) {
-                NSString * key = xlDictIndexedRef.keys[i];
-                CrossType * val = [xlDictIndexedRef.map objectForKey:key];
-                
-                JsonSfyTok * tokDi = [[JsonSfyTok alloc] init];
-                tokDi.t = @"ref";
-                tokDi.v = val;
-                tokDi.d = childT;
-                [s addObject:tokDi];
-                
-                JsonSfyTok * tokDk = [[JsonSfyTok alloc] init];
-                tokDk.t = @"raw";
-                tokDk.rv = [NSString stringWithFormat:@"\"%@\": ", key];
-                tokDk.d = childT;
-                [s addObject:tokDk];
-                
-                if (i > 0) {
-                    JsonSfyTok * tokCom = [[JsonSfyTok alloc] init];
-                    tokCom.t = @"raw";
-                    tokCom.rv = p ? 
-                        [NSString stringWithFormat:@",\n%@", stringRepeat(t, childT)] : @", ";
-                    tokCom.d = childT;
-                    [s addObject:tokCom];
-                }
-            }
-            
-            JsonSfyTok * tokOpn = [[JsonSfyTok alloc] init];
-            tokOpn.t = @"raw";
-            tokOpn.rv = p ? 
-                [NSString stringWithFormat:@"{\n%@", stringRepeat(t, childT)] : @"{ ";
-            tokOpn.d = childT;
-            [s addObject:tokOpn];
-            continue;
-        }
-        
-        if (el.kind == XlKindDict) {
-            NSDictionary<NSString *, CrossType *> * xlDictRef = (NSDictionary<NSString *, CrossType *> *)el.rawValue;
-            if (xlDictRef.count == 0) {
-                [r appendString:@"{}"];
-                continue;
-            }
-            
-            NSUInteger childT = curT + 1;
-            
-            JsonSfyTok * tokCls = [[JsonSfyTok alloc] init];
-            tokCls.t = @"raw";
-            tokCls.rv = p ? 
-                [NSString stringWithFormat:@"\n%@}", stringRepeat(t, curT)] : @" }";
-            tokCls.d = curT;
-            [s addObject:tokCls];
-            
-            NSArray<NSString *> * allKeys = [xlDictRef allKeys];
-            
-            for (NSInteger i = (NSInteger)allKeys.count - 1; i >= 0; i -= 1) {
-                NSString * key = allKeys[i];
-                CrossType * val = [xlDictRef objectForKey:key];
-                
-                JsonSfyTok * tokDi = [[JsonSfyTok alloc] init];
-                tokDi.t = @"ref";
-                tokDi.v = val;
-                tokDi.d = childT;
-                [s addObject:tokDi];
-                
-                JsonSfyTok * tokDk = [[JsonSfyTok alloc] init];
-                tokDk.t = @"raw";
-                tokDk.rv = [NSString stringWithFormat:@"\"%@\": ", key];
-                tokDk.d = childT;
-                [s addObject:tokDk];
-                
-                if (i > 0) {
-                    JsonSfyTok * tokCom = [[JsonSfyTok alloc] init];
-                    tokCom.t = @"raw";
-                    tokCom.rv = p ? 
-                        [NSString stringWithFormat:@",\n%@", stringRepeat(t, childT)] : @", ";
-                    tokCom.d = childT;
-                    [s addObject:tokCom];
-                }
-            }
-            
-            JsonSfyTok * tokOpn = [[JsonSfyTok alloc] init];
-            tokOpn.t = @"raw";
-            tokOpn.rv = p ?
-                [NSString stringWithFormat:@"{\n%@", stringRepeat(t, childT)] : @"{ ";
-                tokOpn.d = childT;
-                [s addObject:tokOpn];
-                continue;
-        }
-        if (el.kind == XlKindClosure) {
-            [r appendString:@"\"[object XlClosure]\""];
-            continue;
-        }
-        [r appendString:@"\"[object [Objective C Thing]]\""];
-    }
-    return [r copy];
+XlNamespace * xl;
+__attribute__((constructor)) static void initialize_xl_namespace() {
+    xl = [XlNamespace new];
 }
+
+NS_ASSUME_NONNULL_END

@@ -15,6 +15,14 @@ X="${FNX##*.}"
 SD="$(dirname "$(realpath "$0")")"
 LID="$(basename "$SD")"
 RD="$(realpath "$SD/../..")"
+RN="$(basename "$RD")"
+
+PTRFNX="$RD/runtimes/objective-c/runtime/willyhorizont/runtime.m"
+if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
+    echo "usage:"
+    echo "run.sh <path-to-filename-with-extension>"
+    exit 1
+fi
 
 LEF="$RD/.env.$LID"
 
@@ -39,8 +47,6 @@ cd \"$PTFNXD\"
 objc $FNX -o $FN
 ./$FN
 "
-
-docker run --rm "$IMG" find / -name "libobjc.so*" 2>/dev/null
 
 docker run -i --rm \
     --entrypoint bash \

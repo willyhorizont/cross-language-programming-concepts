@@ -25,10 +25,10 @@ def json_stringify(a, pretty=False):
     r = ""
     while len(s) > 0:
         c = s.pop()
-        v = c["v"]
         if c["t"] == "r":
-            r+= v
+            r+= c["v"]
             continue
+        v = c["v"]
         cur_t = c["d"]
         if v is None:
             r += "null"

@@ -20,11 +20,11 @@
         let r = "";
         while (s.length > 0) {
             const c = s.pop();
-            const v = c["v"];
             if (c["t"] === "r") {
-                r += v;
+                r += c["v"];
                 continue;
             }
+            const v = c["v"];
             const cur_t = c["d"];
             if (v === null || v === undefined) {
                 r += "null";

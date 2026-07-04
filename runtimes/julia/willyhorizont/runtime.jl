@@ -7,11 +7,11 @@ module Cross
         r = ""
         while length(s) > 0
             c = pop!(s)
-            v = c["v"]
             if c["t"] == "r"
-                r *= v
+                r *= c["v"]
                 continue
             end
+            v = c["v"]
             cur_t = c["d"]
             if (v === nothing && isnothing(v)) || v === undef
                 r *= "null"

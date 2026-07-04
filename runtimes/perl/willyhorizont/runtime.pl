@@ -15,13 +15,13 @@ sub json_stringify {
     
     while (@$s > 0) {
         my $c = pop @$s;
-        my $v = $c->{v};
         
         if ($c->{t} eq "r") {
-            $r .= $v;
+            $r .= $c->{v};
             next;
         }
         
+        my $v = $c->{v};
         my $cur_t = $c->{d};
         
         if (!defined $v) {

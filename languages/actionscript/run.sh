@@ -15,6 +15,14 @@ X="${FNX##*.}"
 SD="$(dirname "$(realpath "$0")")"
 LID="$(basename "$SD")"
 RD="$(realpath "$SD/../..")"
+RN="$(basename "$RD")"
+
+PTRFNX="$RD/runtimes/actionscript/runtime/willyhorizont/Xl.as"
+if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
+    echo "usage:"
+    echo "run.sh <path-to-filename-with-extension>"
+    exit 1
+fi
 
 LEF="$RD/.env.$LID"
 
@@ -74,16 +82,6 @@ fi
 
 PTRD="$RD/runtimes/$LID"
 PTOFXD="$PTRD/output"
-PTRFXD="$PTRD/runtime/willyhorizont"
-RFN="Xl"
-PTRFX="$PTRFXD/$RFN.$X"
-
-if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFX" 2>/dev/null)" ]; then
-    echo "usage:"
-    echo "run.sh <path-to-filename-with-extension>"
-    exit 1
-fi
-
 IFN="Program"
 PTIFX="$PTRD/$IFN.$X"
 

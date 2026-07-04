@@ -9,7 +9,7 @@ func main() {
 	1. support closure as value, or has workaround
 	*/
 	sayHello := func(va ...interface{}) interface{} {
-		itr := xl.MakeIterator(va)
+		itr := xl.Iter(va)
 		callbackFunction := itr.Next()
 		xl.Println("hello")
 		xl.ToClosure(callbackFunction).Call()
@@ -20,10 +20,10 @@ func main() {
 		return nil
 	})
 	createMultiplier := func(va ...interface{}) interface{} {
-		itr := xl.MakeIterator(va)
+		itr := xl.Iter(va)
 		aa := itr.Next()
 		return func(va ...interface{}) interface{} {
-			itr := xl.MakeIterator(va)
+			itr := xl.Iter(va)
 			bb := itr.Next()
 			return xl.ToInt(aa) * xl.ToInt(bb)
 		}
@@ -46,7 +46,7 @@ func main() {
 		xl.XlList{1, 2, 3},
 		xl.XlDict{"foo": "bar"},
 		func(va ...interface{}) interface{} {
-			itr := xl.MakeIterator(va)
+			itr := xl.Iter(va)
 			aa := itr.Next()
 			bb := itr.Next()
 			return xl.ToInt(aa) * xl.ToInt(bb)
@@ -66,7 +66,7 @@ func main() {
 		"xl_list": xl.XlList{1, 2, 3},
 		"xl_dict": xl.XlDict{"foo": "bar"},
 		"xl_closure": func(va ...interface{}) interface{} {
-			itr := xl.MakeIterator(va)
+			itr := xl.Iter(va)
 			aa := itr.Next()
 			bb := itr.Next()
 			return xl.ToInt(aa) * xl.ToInt(bb)

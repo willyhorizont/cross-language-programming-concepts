@@ -9,11 +9,11 @@ class Xl {
         $r = "";
         while (count($s) > 0) {
             $c = array_pop($s);
-            $v = $c["v"];
             if ($c["t"] === "r") {
-                $r .= $v;
+                $r .= $c["v"];
                 continue;
             }
+            $v = $c["v"];
             $cur_t = $c["d"];
             if ($v === null) {
                 $r .= "null";

@@ -69,11 +69,11 @@ local json_stringify = function (a, o)
     local r = ""
     while #s > 0 do
         local c = table.remove(s)
-        local v = c["v"]
         if c["t"] == "r" then
-            r = r .. v
+            r = r .. c["v"]
             goto next_iteration
         end
+        local v = c["v"]
         local cur_t = c["d"]
         if v == nil then
             r = r .. "null"

@@ -15,6 +15,7 @@ X="${FNX##*.}"
 SD="$(dirname "$(realpath "$0")")"
 LID="$(basename "$SD")"
 RD="$(realpath "$SD/../..")"
+RN="$(basename "$RD")"
 
 LEV="$RD/.env.$LID"
 
