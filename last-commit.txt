@@ -1,5 +1,5 @@
 git add .
-git commit -m "version 2.6.5: update go runtime; update actionscript runtime;"
-git tag -a 2.6.5 -m "version 2.6.5: update go runtime; update actionscript runtime;"
+git commit -m "version 2.6.6: update python run.sh;"
+git tag -a 2.6.6 -m "version 2.6.6: update python run.sh;"
 git push origin main -f
 git push origin --tags -f
