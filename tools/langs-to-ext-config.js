@@ -1,0 +1,18 @@
+const fs = require("fs").promises;
+const langToExt = async () => {
+    try {
+        const ljS = await fs.readFile("../languages.json", "utf8");
+        const lJ = JSON.parse(ljS);
+        const nLj = lJ.map((l) => ({
+            "id": l["id"],
+            "file_extension": l["file_extension"],
+            "vscode_extensions": l["vscode_extensions"],
+        }));
+        const nLjS = JSON.stringify(nLj, null, 4);
+        await fs.writeFile("./output/auto-config.json", nLjS);
+        console.log("Success!");
+    } catch (error) {
+        console.error("Something went wrong:", error.message);
+    }
+};
+langToExt();

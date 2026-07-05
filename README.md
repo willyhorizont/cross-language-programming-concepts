@@ -897,3 +897,9 @@ Cross-language implementations of common programming concepts, data structures, 
   38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/list-append-to-tail.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-append-to-tail.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-append-to-tail.groovy)  
+
+## Trends
+
+- [https://www.tiobe.com/tiobe-index/](https://www.tiobe.com/tiobe-index/)
+- [https://pypl.github.io/PYPL.html](https://pypl.github.io/PYPL.html)
+- [https://tjpalmer.github.io/languish/](https://tjpalmer.github.io/languish/)  

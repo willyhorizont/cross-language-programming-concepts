@@ -30,12 +30,11 @@ if [ -f "$LEF" ]; then
     source "$LEF"
 fi
 
-# "$RD/utils.sh" --setup-lang-specific-vscode-extensions $LID 2>/dev/null
-code --install-extension "$RD/language-specific-extensions-installer.vsix" &> /dev/null
+"$RD/tools/utils.sh" --install-auto-install-vscode-extensions-for-opened-file-vscode-extension 2>/dev/null
 
-IMG=$("$RD/utils.sh" --get-docker-image $LID 2>/dev/null)
+IMG=$("$RD/tools/utils.sh" --get-docker-image $LID 2>/dev/null)
 
-L=$("$RD/utils.sh" --print-sep)
+L=$("$RD/tools/utils.sh" --print-sep)
 
 PTTFNXD="$RD/runtimes/$LID/runtime"
 

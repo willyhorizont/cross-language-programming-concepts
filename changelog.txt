@@ -1,3 +1,10 @@
+[Last updated: 05 Jul 2026 @ 10:23 PM]
+version 2.7.0:
+BIG repo restructure;
+move language-specific-extensions-installer to github.com/willyhorizont/auto-install-vscode-extensions-for-opened-file;
+update utils.sh, add install_auto_install_vscode_extensions_for_opened_file_vscode_extension;
+cp last-commit.txt las-commit.sh
+
 (06/12 month) | Wed, 02 Jun 2026 | 02:24 | 02:24 AM
 finish rebuild utils.sh and run.sh to make universal runner;
 finish cross-language-features.nix;

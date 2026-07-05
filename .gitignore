@@ -11,8 +11,6 @@ package-lock.json
 
 composer
 
-vscode-extensions-current.txt
-
 temp.*
 
 runtimes/java/
@@ -38,4 +36,4 @@ runtimes/actionscript/Program.as
 __init__.py
 __pycache__/
 
-.vscode-extension/*.vsix
+tools/output/
