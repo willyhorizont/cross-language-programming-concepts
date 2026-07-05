@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SD=$(dirname "$(realpath "$0")")
-RD=$(realpath "$SD")
+RD=$(realpath "$SD/..")
 PTEF="$RD/.env"
 [ -f $PTEF ] && source $PTEF
 
@@ -23,7 +23,7 @@ get_docker_image() {
         | .[-1]
         | .["docker_images"]
         | .[-1]
-    ' "$SD/languages.json")
+    ' "$RD/languages.json")
     echo "$IMG"
 }
 

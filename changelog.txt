@@ -1,3 +1,9 @@
+[Last updated: 06 Jul 2026 @ 01:58 AM]
+version 2.7.1:
+fix run.sh python;
+update python runtime import;
+fix utils.sh path;
+
 [Last updated: 05 Jul 2026 @ 10:23 PM]
 version 2.7.0:
 BIG repo restructure;

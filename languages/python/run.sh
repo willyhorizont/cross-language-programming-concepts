@@ -1,5 +1,4 @@
 #!/bin/bash
-export PYTHONDONTWRITEBYTECODE=1
 
 SD="$(dirname "$(realpath "$0")")"
 LID="$(basename "$SD")"
@@ -51,18 +50,6 @@ cd \"$PTFNXD\"
 python \"$FNX\"
 "
 
-if [[ "$RN" = "cross-language-programming-concepts" && "$FNX" != "generate-readme.py" ]]; then
-    touch "$RD/languages/$LID/__init__.py"
-    touch "$RD/languages/__init__.py"
-    touch "$RD/runtimes/__init__.py"
-    touch "$RD/runtimes/$LID/__init__.py"
-    touch "$RD/runtimes/$LID/willyhorizont/__init__.py"
-    CRLC="
-            cd \"$RD\"
-            python -m languages.python.$FN
-        "
-fi
-
 docker run -i --rm \
     --entrypoint bash \
     -v "$RD:$RD" \
@@ -74,37 +61,3 @@ docker run -i --rm \
 
         $CRLC
     "
-
-
-# sudo chown -R $USER: "$RD"
-# sudo rm -f "$RD/languages/$LID/__init__.py"
-# sudo rm -f "$RD/languages/__init__.py"
-# sudo rm -f "$RD/runtimes/__init__.py"
-# sudo rm -f "$RD/runtimes/$LID/__init__.py"
-# sudo rm -f "$RD/runtimes/$LID/willyhorizont/__init__.py"
-# sudo rm -rf "$RD/languages/$LID/__pycache__"
-# sudo rm -rf "$RD/languages/__pycache__"
-# sudo rm -rf "$RD/runtimes/__pycache__"
-# sudo rm -rf "$RD/runtimes/$LID/__pycache__"
-# sudo rm -rf "$RD/runtimes/$LID/willyhorizont/__pycache__"
-rm -f "$RD/languages/$LID/__init__.py"
-rm -f "$RD/languages/__init__.py"
-rm -f "$RD/runtimes/__init__.py"
-rm -f "$RD/runtimes/$LID/__init__.py"
-rm -f "$RD/runtimes/$LID/willyhorizont/__init__.py"
-
-python3 -m compileall -q --purge "$RD" 2>/dev/null
-
-find "$RD" -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null
-
-# echo "sudo chown -R \$USER: \"$RD\""
-# echo "sudo rm -f \"$RD/languages/$LID/__init__.py\""
-# echo "sudo rm -f \"$RD/languages/__init__.py\""
-# echo "sudo rm -f \"$RD/runtimes/__init__.py\""
-# echo "sudo rm -f \"$RD/runtimes/$LID/__init__.py\""
-# echo "sudo rm -f \"$RD/runtimes/$LID/willyhorizont/__init__.py\""
-# echo "sudo rm -rf \"$RD/languages/$LID/__pycache__\""
-# echo "sudo rm -rf \"$RD/languages/__pycache__\""
-# echo "sudo rm -rf \"$RD/runtimes/__pycache__\""
-# echo "sudo rm -rf \"$RD/runtimes/$LID/__pycache__\""
-# echo "sudo rm -rf \"$RD/runtimes/$LID/willyhorizont/__pycache__\""

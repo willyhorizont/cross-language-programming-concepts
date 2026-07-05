@@ -1,4 +1,5 @@
 const fs = require("fs").promises;
+
 const langToExt = async () => {
     try {
         const ljS = await fs.readFile("../languages.json", "utf8");
@@ -11,8 +12,8 @@ const langToExt = async () => {
         const nLjS = JSON.stringify(nLj, null, 4);
         await fs.writeFile("./output/auto-config.json", nLjS);
         console.log("Success!");
-    } catch (error) {
-        console.error("Something went wrong:", error.message);
+    } catch (err) {
+        console.error("Something went wrong:", err.message);
     }
 };
 langToExt();
