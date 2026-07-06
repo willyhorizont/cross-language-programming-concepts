@@ -1,3 +1,17 @@
+[Last updated: 06 Jul 2026 @ 09:56 PM]
+version 2.7.2:
+completely remove language specific extension
+no install all, no partial install, no custom built, all done
+no syntax highlighter, no icon theme
+move sudo commands to create setup-environtment.sh
+
+[Last updated: 06 Jul 2026 @ 09:52 PM]
+version 2.7.2:
+completely remove language specific extension
+no install all, no partial install, no custom built, all done
+no syntax highlighter, no icon theme
+move sudo commands to create setup-environtment.sh
+
 [Last updated: 06 Jul 2026 @ 01:58 AM]
 version 2.7.1:
 fix run.sh python;

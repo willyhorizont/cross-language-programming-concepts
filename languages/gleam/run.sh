@@ -23,8 +23,6 @@ if [ -f "$LEF" ]; then
     source "$LEF"
 fi
 
-"$RD/tools/utils.sh" --install-auto-install-vscode-extensions-for-opened-file-vscode-extension 2>/dev/null
-
 IMG=$("$RD/tools/utils.sh" --get-docker-image $LID 2>/dev/null)
 
 L=$("$RD/tools/utils.sh" --print-sep)
@@ -49,7 +47,7 @@ if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
 fi
 
 mkdir -p "$PTTFNXD"
-sudo cp -f "$PTFNX" "$PTTFNX"
+cp -f "$PTFNX" "$PTTFNX"
 
 CPV="
 echo \">docker images\"

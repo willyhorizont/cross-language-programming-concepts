@@ -23,8 +23,6 @@ if [ -f "$LEF" ]; then
     source "$LEF"
 fi
 
-"$RD/tools/utils.sh" --install-auto-install-vscode-extensions-for-opened-file-vscode-extension 2>/dev/null
-
 IMG=$("$RD/tools/utils.sh" --get-docker-image $LID 2>/dev/null)
 
 L=$("$RD/tools/utils.sh" --print-sep)
@@ -39,7 +37,6 @@ zig version
 CCRLC="
 cd \"$PTFNXD\"
 zig build-exe \"$FNX\"
-sudo chmod +x \"$FN\"
 ./\"$FN\"
 "
 CRLC="

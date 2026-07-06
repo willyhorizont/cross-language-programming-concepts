@@ -10,7 +10,7 @@ const langToExt = async () => {
             "vscode_extensions": l["vscode_extensions"],
         }));
         const nLjS = JSON.stringify(nLj, null, 4);
-        await fs.writeFile("./output/auto-config.json", nLjS);
+        await fs.writeFile("./output/ext-config.json", nLjS);
         console.log("Success!");
     } catch (err) {
         console.error("Something went wrong:", err.message);

@@ -586,7 +586,9 @@
             "list": "List",
             "dict": "Dictionary"
         },
-        "vscode_extensions": [],
+        "vscode_extensions": [
+            "https://github.com/willyhorizont/vim9script-vscode-syntax-highlighter-extension/releases/latest/download/willyhorizont.vim9script-vscode-syntax-highlighter-extension.vsix"
+        ],
         "vscode_extensions_archive": [
             
         ],
@@ -1052,7 +1054,7 @@
             "dict": "OrderedDictionary"
         },
         "vscode_extensions": [
-            "PleasedSkin.smalltalk"
+            "pleasedskin.smalltalk"
         ],
         "vscode_extensions_archive": [
             "badetitou.pharo-language-server",
