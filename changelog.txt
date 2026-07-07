@@ -1,3 +1,9 @@
+[Last updated: 07 Jul 2026 @ 09:16 PM]
+version 2.7.3:
+add install actionscript and smalltalk vscode extensions in setup-environtment.sh;
+remove DictIndexed in objective-c
+add flag "-B" in run python command in python run.sh
+
 [Last updated: 07 Jul 2026 @ 09:13 PM]
 version 2.7.3:
 add install actionscript and smalltalk vscode extensions in setup-environtment.sh;

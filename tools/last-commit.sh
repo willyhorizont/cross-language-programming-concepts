@@ -4,6 +4,8 @@ SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD/..")
 V="2.7.3" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
 T=$(date "+%d %b %Y @ %I:%M %p")
+echo "$V"
+echo "$T"
 npm version "$V" --no-git-tag-version
 # ! DON'T FORGET TO CHANGE COMMIT MESSAGE BEFORE RUNNING !!!!
 M="
