@@ -13,6 +13,8 @@ if ! command -v jq &> /dev/null; then
     sudo apt autoremove -y
 fi
 
+cat "$RD/tools/vscode-extensions-base.txt" | grep -v '^$' | sort -u | xargs -L 1 code --install-extension
+
 FPDL=("wget" "x11-apps" "libgtk2.0-0t64:amd64" "libnss3" "libvdpau-va-gl1")
 MFPDL=()
 for FPD in "${FPDL[@]}"; do
@@ -44,7 +46,8 @@ if [ ! -f /usr/local/bin/ruffle ]; then
     sudo chmod +x /usr/local/bin/ruffle
 fi
 
-cat "$RD/tools/vscode-extensions-base.txt" | grep -v '^$' | sort -u | xargs -L 1 code --install-extension
+code --install-extension bowlerhatllc.vscode-as3mxml
+code --install-extension pleasedskin.smalltalk
 
 rm -rf "$TD"
 hash -r

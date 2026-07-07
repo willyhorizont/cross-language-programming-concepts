@@ -45,7 +45,7 @@ pip --version
 
 CRLC="
 cd \"$PTFNXD\"
-python \"$FNX\"
+python -B \"$FNX\"
 "
 
 docker run -i --rm \

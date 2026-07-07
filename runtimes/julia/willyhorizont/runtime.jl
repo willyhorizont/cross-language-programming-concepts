@@ -1,4 +1,4 @@
-module Cross
+module Xl
     export json_stringify
     function json_stringify(a; pretty=false)
         p = pretty

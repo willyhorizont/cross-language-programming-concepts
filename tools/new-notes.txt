@@ -100,3 +100,10 @@ XlDict : dict/map berisi pasangan2 string dan CrossType
 XlDictIndexed : dict/map berisi pasangan2 string dan CrossType tapi preserve insertion orders
 XlClosure : closure function anonymous argumentnya varargs, parameternya getNextArguments dan outputnya CrossType
 Xl adalah kepanjangan dari CrossLanguages, Xl bisa juga karena tiap type memakai ukuran paling besar misal int64 dan float 64, xl juga nama repoku atau nama runtime atau nama bahasa pemrogramanku
+
+\*(?=[a-z]) -> {
+    // to find c pointer style in objective-c
+    int main(int argc, char* argv[]) {} -> C++
+    int main(int argc, char *argv[]) {} -> C
+    int main(int argc, const char * argv[]) {} -> objective-c
+}

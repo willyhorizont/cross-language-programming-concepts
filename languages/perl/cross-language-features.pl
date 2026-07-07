@@ -1,8 +1,8 @@
 use strict;
 use warnings;
 use v5.42.2;
-use FindBin;
 use File::Spec;
+use FindBin;
 require File::Spec->catfile($FindBin::Bin, "..", "..", "runtimes", "perl", "willyhorizont", "runtime.pl");
 
 =pod

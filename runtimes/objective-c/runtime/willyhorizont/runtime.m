@@ -10,13 +10,11 @@ typedef NS_ENUM(NSInteger, XlType) {
     XlString,
     XlList,
     XlDict,
-    XlDictIndexed,
     XlClosure,
     XlIterator
 };
 
 @class XL;
-@class DictIndexed;
 
 typedef XL * _Nonnull (^Closure)(XL * va);
 
@@ -25,12 +23,6 @@ typedef XL * _Nonnull (^Closure)(XL * va);
 @property (nonatomic, assign) NSUInteger index;
 - (instancetype)initAsList:(NSArray<XL *> *)array;
 - (XL *)next;
-@end
-
-@interface DictIndexed : NSObject
-@property (nonatomic, strong, readonly) NSMutableArray<NSString *> * keys;
-@property (nonatomic, strong, readonly) NSMutableDictionary<NSString *, XL *> * dict;
-- (void)insertKey:(NSString *)key value:(XL *)value;
 @end
 
 @interface XL : NSObject
@@ -48,8 +40,6 @@ typedef XL * _Nonnull (^Closure)(XL * va);
 
 @interface XlNamespace : NSObject
 - (Class)XL;
-- (Class)DictIndexed;
-
 - (XL * (^)(void))initNone;
 - (XL * (^)(BOOL))initBool;
 - (XL * (^)(int64_t))initInt;
@@ -57,10 +47,10 @@ typedef XL * _Nonnull (^Closure)(XL * va);
 - (XL * (^)(NSString *))initString;
 - (XL * (^)(Closure))initClosure;
 - (XL * (^)(NSArray<XL *> * a))initList;
-- (XL * (^)(NSDictionary<NSString *, XL *> *, ...))initDict;
+- (XL * (^)(NSDictionary<NSString *, XL *> *))initDict;
 - (XL * (^)(XL * a))iter;
-- (int64_t (^)(XL *))toXlInt;
-- (double (^)(XL *))toXlFloat;
+- (int64_t (^)(XL *))toInt;
+- (double (^)(XL *))toFloat;
 - (NSString * (^)(XL * _Nullable a, id _Nullable o))jsonStringify;
 @end
 
@@ -82,27 +72,9 @@ extern XlNamespace * xl;
 }
 @end
 
-@implementation DictIndexed
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        _keys = [NSMutableArray new];
-        _dict = [NSMutableDictionary new];
-    }
-    return self;
-}
-- (void)insertKey:(NSString *)key value:(XL *)value {
-    if (![self.dict objectForKey:key]) {
-        [self.keys addObject:key];
-    }
-    [self.dict setObject:value forKey:key];
-}
-@end
-
 @interface XL ()
 - (instancetype)initAsList:(NSArray<XL *> *)v;
 - (instancetype)initAsDict:(NSDictionary<NSString *, XL *> *)v;
-- (instancetype)initAsDictIndexed:(DictIndexed *)v;
 - (instancetype)initAsIterator:(Iterator *)v;
 @end
 
@@ -163,14 +135,6 @@ extern XlNamespace * xl;
     }
     return self;
 }
-- (instancetype)initAsDictIndexed:(DictIndexed *)v {
-    self = [super init];
-    if (self) {
-        _type = XlDictIndexed;
-        _nativeValue = v;
-    }
-    return self;
-}
 - (instancetype)initClosure:(Closure)v {
     self = [super init];
     if (self) {
@@ -182,8 +146,8 @@ extern XlNamespace * xl;
 - (XL *)call:(NSArray<XL *> *)a {
     if (self.type == XlClosure) {
         Closure cB = (Closure)self.nativeValue;
-        Iterator *l = [[Iterator alloc] initAsList:a];
-        XL *el = [[XL alloc] initAsIterator:l];
+        Iterator * l = [[Iterator alloc] initAsList:a];
+        XL * el = [[XL alloc] initAsIterator:l];
         return cB(el);
     }
     @throw [NSException exceptionWithName:@"XlRuntimeError" reason:@"Error: Expected Closure." userInfo:nil];
@@ -198,7 +162,7 @@ extern XlNamespace * xl;
 }
 - (XL *)next {
     if (self.type == XlIterator) {
-        Iterator *internalItr = (Iterator *)self.nativeValue;
+        Iterator * internalItr = (Iterator *)self.nativeValue;
         return [internalItr next];
     }
     @throw [NSException exceptionWithName:@"XlRuntimeError" reason:@"Error: Expected XlIterator." userInfo:nil];
@@ -212,7 +176,6 @@ extern XlNamespace * xl;
         case XlString: return (NSString *)self.nativeValue;
         case XlList: return [NSString stringWithFormat:@"length: %lu", (unsigned long)[self.nativeValue count]];
         case XlDict: return [NSString stringWithFormat:@"length: %lu", (unsigned long)[self.nativeValue count]];
-        case XlDictIndexed: return [NSString stringWithFormat:@"length: %lu", (unsigned long)[[(DictIndexed *)self.nativeValue dict] count]];
         case XlClosure: return @"[object Function]";
         case XlIterator: return @"[object Function]";
     }
@@ -222,9 +185,6 @@ extern XlNamespace * xl;
 @implementation XlNamespace
 - (Class)XL {
     return [XL class];
-}
-- (Class)DictIndexed {
-    return [DictIndexed class];
 }
 
 - (XL * (^)(void))initNone {
@@ -248,7 +208,7 @@ extern XlNamespace * xl;
     };
 }
 - (XL * (^)(NSString *))initString {
-    return ^(NSString *v) {
+    return ^(NSString * v) {
         return [[XL alloc] initString:v];
     };
 }
@@ -258,38 +218,18 @@ extern XlNamespace * xl;
     };
 }
 - (XL * (^)(NSArray<XL *> *))initList {
-    return ^(NSArray<XL *> *a) { 
-        return [[XL alloc] initAsList:a];
+    return ^(NSArray<XL *> * v) { 
+        return [[XL alloc] initAsList:v];
     };
 }
-- (XL * (^)(NSDictionary<NSString *, XL *> *, ...))initDict {
-    return ^(NSDictionary<NSString *, XL *> *d, ...) {
-        if (!d) return [[XL alloc] initNone];
-        
-        va_list a;
-        va_start(a, d);
-
-        id fA = va_arg(a, id);
-
-        if (fA && [fA isKindOfClass:[NSArray class]]) {
-            NSArray<NSString *> *kO = (NSArray<NSString *> *)fA;
-            DictIndexed *dI = [DictIndexed new];
-            for (NSUInteger i = 0; i < kO.count; i += 1) {
-                NSString *key = kO[i];
-                XL *value = [d objectForKey:key];
-                if (value) [dI insertKey:key value:value];
-            }
-            va_end(a);
-            return [[XL alloc] initAsDictIndexed:dI];
-        }
-
-        va_end(a);
-        return [[XL alloc] initAsDict:d];
+- (XL * (^)(NSDictionary<NSString *, XL *> *))initDict {
+    return ^(NSDictionary<NSString *, XL *> * v) {
+        return [[XL alloc] initAsDict:v];
     };
 }
 
-- (int64_t (^)(XL *))toXlInt {
-    return ^(XL *a) {
+- (int64_t (^)(XL *))toInt {
+    return ^(XL * a) {
         if (!a || a.type != XlInt) {
             @throw [NSException exceptionWithName:@"XlError" reason:@"Error: Expected XlInt." userInfo:nil];
         }
@@ -297,8 +237,8 @@ extern XlNamespace * xl;
     };
 }
 
-- (double (^)(XL *))toXlFloat {
-    return ^(XL *a) {
+- (double (^)(XL *))toFloat {
+    return ^(XL * a) {
         if (!a || a.type != XlFloat) {
             @throw [NSException exceptionWithName:@"XlError" reason:@"Error: Expected XlFloat." userInfo:nil];
         }
@@ -308,48 +248,42 @@ extern XlNamespace * xl;
 
 - (XL * (^)(XL *))iter {
     return ^(XL * a) {
-        NSArray<XL *> *l = @[];
+        NSArray<XL *> * l = @[];
         if (a && a.type == XlList) {
             l = (NSArray<XL *> *)a.nativeValue;
         }
-        Iterator *o = [[Iterator alloc] initAsList:l];
+        Iterator * o = [[Iterator alloc] initAsList:l];
         return [[XL alloc] initAsIterator:o];
     };
 }
 
 - (NSString * (^)(XL * _Nullable, id _Nullable))jsonStringify {
     return ^(XL * _Nullable a, id _Nullable oP) {
-        XL *frstA = a ? a : [[XL alloc] initNone];
+        XL * frstA = a ? a : [[XL alloc] initNone];
         BOOL p = NO;
         if (oP && [oP isKindOfClass:[XL class]]) {
-            XL *o = (XL *)oP;
-            if (o.type == XlDict || o.type == XlDictIndexed) {
-                NSDictionary<NSString *, XL *> *oD;
-                if (o.type == XlDictIndexed) {
-                    DictIndexed *dI = (DictIndexed *)o.nativeValue;
-                    oD = dI.dict;
-                } else {
-                    oD = (NSDictionary<NSString *, XL *> *)o.nativeValue;
-                }
-                XL *pV = oD[@"pretty"];
+            XL * o = (XL *)oP;
+            if (o.type == XlDict) {
+                NSDictionary<NSString *, XL *> * oD = (NSDictionary<NSString *, XL *> *)o.nativeValue;
+                XL * pV = oD[@"pretty"];
                 if (pV && pV.type == XlBool) {
                     p = [pV.nativeValue boolValue];
                 }
             }
         }
-        NSString *t = @"    ";
-        NSMutableArray<NSDictionary *> *s = [NSMutableArray new];
+        NSString * t = @"    ";
+        NSMutableArray<NSDictionary *> * s = [NSMutableArray new];
         [s addObject:@{@"t": @"v", @"v": frstA, @"d": @0}];
-        NSMutableString *r = [NSMutableString stringWithString:@""];
+        NSMutableString * r = [NSMutableString stringWithString:@""];
         while (s.count > 0) {
-            NSDictionary *c = s.lastObject;
+            NSDictionary * c = s.lastObject;
             [s removeLastObject];
-            NSString *tT = c[@"t"];
+            NSString * tT = c[@"t"];
             if ([tT isEqualToString:@"r"]) {
                 [r appendString:c[@"v"]];
                 continue;
             }
-            XL *v = c[@"v"];
+            XL * v = c[@"v"];
             NSUInteger curT = [c[@"d"] unsignedIntegerValue];
             if (v.type == XlNone) {
                 [r appendString:@"null"];
@@ -372,13 +306,13 @@ extern XlNamespace * xl;
                 continue;
             }
             if (v.type == XlList) {
-                NSArray<XL *> *l = (NSArray<XL *> *)v.nativeValue;
+                NSArray<XL *> * l = (NSArray<XL *> *)v.nativeValue;
                 if (l.count == 0) {
                     [r appendString:@"[]"];
                     continue;
                 }
                 NSUInteger childT = curT + 1;
-                NSString *closeStr = p ? [NSString stringWithFormat:@"\n%@]", [@"" stringByPaddingToLength:(t.length * curT) withString:t startingAtIndex:0]] : @"]";
+                NSString * closeStr = p ? [NSString stringWithFormat:@"\n%@]", [@"" stringByPaddingToLength:(t.length * curT) withString:t startingAtIndex:0]] : @"]";
                 [s addObject:@{
                     @"t": @"r",
                     @"v": closeStr,
@@ -391,7 +325,7 @@ extern XlNamespace * xl;
                         @"d": @(childT)
                     }];
                     if (i > 0) {
-                        NSString *commaStr = p ? [NSString stringWithFormat:@",\n%@", [@"" stringByPaddingToLength:(t.length * childT) withString:t startingAtIndex:0]] : @",";
+                        NSString * commaStr = p ? [NSString stringWithFormat:@",\n%@", [@"" stringByPaddingToLength:(t.length * childT) withString:t startingAtIndex:0]] : @",";
                         [s addObject:@{
                             @"t": @"r",
                             @"v": commaStr,
@@ -399,7 +333,7 @@ extern XlNamespace * xl;
                         }];
                     }
                 }
-                NSString *openStr = p ? [NSString stringWithFormat:@"[\n%@", [@"" stringByPaddingToLength:(t.length * childT) withString:t startingAtIndex:0]] : @"[";
+                NSString * openStr = p ? [NSString stringWithFormat:@"[\n%@", [@"" stringByPaddingToLength:(t.length * childT) withString:t startingAtIndex:0]] : @"[";
                 [s addObject:@{
                     @"t": @"r",
                     @"v": openStr,
@@ -407,32 +341,23 @@ extern XlNamespace * xl;
                 }];
                 continue;
             }
-            if (v.type == XlDict || v.type == XlDictIndexed) {
-                NSArray<NSString *> *keys;
-                NSDictionary<NSString *, XL *> *dict;
-                if (v.type == XlDictIndexed) {
-                    DictIndexed *dI = (DictIndexed *)v.nativeValue;
-                    keys = dI.keys;
-                    dict = dI.dict;
-                } else {
-                    NSDictionary<NSString *, XL *> *d = (NSDictionary<NSString *, XL *> *)v.nativeValue;
-                    keys = [d allKeys];
-                    dict = d;
-                }
-                if (keys.count == 0) {
+            if (v.type == XlDict) {
+                NSDictionary<NSString *, XL *> * d = (NSDictionary<NSString *, XL *> *)v.nativeValue;
+                NSArray<NSString *> * k = [d allKeys];
+                if (k.count == 0) {
                     [r appendString:@"{}"];
                     continue;
                 }
                 NSUInteger childT = curT + 1;
-                NSString *closeStr = p ? [NSString stringWithFormat:@"\n%@}", [@"" stringByPaddingToLength:(t.length * curT) withString:t startingAtIndex:0]] : @"}";
+                NSString * closeStr = p ? [NSString stringWithFormat:@"\n%@}", [@"" stringByPaddingToLength:(t.length * curT) withString:t startingAtIndex:0]] : @"}";
                 [s addObject:@{
                     @"t": @"r",
                     @"v": closeStr,
                     @"d": @(curT)
                 }];
-                for (NSInteger i = (NSInteger)keys.count - 1; i >= 0; i -= 1) {
-                    NSString *dk = keys[i];
-                    XL *dv = dict[dk];
+                for (NSInteger i = (NSInteger)k.count - 1; i >= 0; i -= 1) {
+                    NSString * dk = k[i];
+                    XL * dv = d[dk];
                     if (dv) {
                         [s addObject:@{
                             @"t": @"v",
@@ -446,14 +371,14 @@ extern XlNamespace * xl;
                             @"d": @(childT)
                         }];
                     }
-                    NSString *keyStr = p ? [NSString stringWithFormat:@"\"%@\": ", dk] : [NSString stringWithFormat:@"\"%@\":", dk];
+                    NSString * keyStr = p ? [NSString stringWithFormat:@"\"%@\": ", dk] : [NSString stringWithFormat:@"\"%@\":", dk];
                     [s addObject:@{
                         @"t": @"r",
                         @"v": keyStr,
                         @"d": @(childT)
                     }];
                     if (i > 0) {
-                        NSString *commaStr = p ? [NSString stringWithFormat:@",\n%@", [@"" stringByPaddingToLength:(t.length * childT) withString:t startingAtIndex:0]] : @",";
+                        NSString * commaStr = p ? [NSString stringWithFormat:@",\n%@", [@"" stringByPaddingToLength:(t.length * childT) withString:t startingAtIndex:0]] : @",";
                         [s addObject:@{
                             @"t": @"r",
                             @"v": commaStr,
@@ -461,7 +386,7 @@ extern XlNamespace * xl;
                         }];
                     }
                 }
-                NSString *openStr = p ? [NSString stringWithFormat:@"{\n%@", [@"" stringByPaddingToLength:(t.length * childT) withString:t startingAtIndex:0]] : @"{";
+                NSString * openStr = p ? [NSString stringWithFormat:@"{\n%@", [@"" stringByPaddingToLength:(t.length * childT) withString:t startingAtIndex:0]] : @"{";
                 [s addObject:@{
                     @"t": @"r",
                     @"v": openStr,

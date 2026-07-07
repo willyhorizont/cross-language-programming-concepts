@@ -1,5 +1,4 @@
 include("../../runtimes/julia/willyhorizont/runtime.jl")
-const Xl = Cross
 
 #=
 1. support closure as value, or has workaround

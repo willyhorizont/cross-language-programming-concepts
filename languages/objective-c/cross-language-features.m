@@ -9,17 +9,15 @@ int main(int argc, const char * argv[]) {
             [callbackFunction call:@[]];
             return xl.initNone();
         });
-        [sayHello call:@[
-            xl.initClosure(^(XL * a) {
-                NSLog(@"world");
-                return xl.initNone();
-            })
-        ]];
+        [sayHello call:@[xl.initClosure(^(XL * a) {
+            NSLog(@"world");
+            return xl.initNone();
+        })]];
         XL * createMultiplier = xl.initClosure(^(XL * args) {
             XL * aa = [args next];
             return xl.initClosure(^(XL * args) {
                 XL * bb = [args next];
-                return xl.initInt(xl.toXlInt(aa) * xl.toXlInt(bb));
+                return xl.initInt(xl.toInt(aa) * xl.toInt(bb));
             });
         });
         XL * multiplyByTwo = [createMultiplier call:@[xl.initInt(2)]];
@@ -37,15 +35,15 @@ int main(int argc, const char * argv[]) {
             xl.initFloat(123.789),
             xl.initFloat(-123.789),
             xl.initList(@[xl.initInt(1), xl.initInt(2), xl.initInt(3)]),
-            xl.initDict(@{ @"foo": xl.initString(@"bar") }, nil),
+            xl.initDict(@{ @"foo": xl.initString(@"bar") }),
             xl.initClosure(^(XL * args) {
                 XL * aa = [args next];
                 XL * bb = [args next];
-                return xl.initInt(xl.toXlInt(aa) * xl.toXlInt(bb));
+                return xl.initInt(xl.toInt(aa) * xl.toInt(bb));
             }),
         ]);
         NSLog(@"%@", [NSString stringWithFormat:@"xl_list: %@", xl.jsonStringify(xlList, nil)]);
-        NSLog(@"%@", [NSString stringWithFormat:@"xl_list: %@", xl.jsonStringify(xlList, xl.initDict(@{ @"pretty": xl.initBool(YES) }, nil))]);
+        NSLog(@"%@", [NSString stringWithFormat:@"xl_list: %@", xl.jsonStringify(xlList, xl.initDict(@{ @"pretty": xl.initBool(YES) }))]);
         XL * xlDict = xl.initDict(@{
             @"xl_none": xl.initNone(),
             @"xl_bool_true": xl.initBool(YES),
@@ -56,48 +54,15 @@ int main(int argc, const char * argv[]) {
             @"xl_float_positive": xl.initFloat(123.789),
             @"xl_float_negative": xl.initFloat(-123.789),
             @"xl_list": xl.initList(@[xl.initInt(1), xl.initInt(2), xl.initInt(3)]),
-            @"xl_dict": xl.initDict(@{ @"foo": xl.initString(@"bar") }, nil),
+            @"xl_dict": xl.initDict(@{ @"foo": xl.initString(@"bar") }),
             @"xl_closure": xl.initClosure(^(XL * args) {
                 XL * aa = [args next];
                 XL * bb = [args next];
-                return xl.initInt(xl.toXlInt(aa) * xl.toXlInt(bb));
+                return xl.initInt(xl.toInt(aa) * xl.toInt(bb));
             }),
-        }, nil);
+        });
         NSLog(@"%@", [NSString stringWithFormat:@"xl_dict: %@", xl.jsonStringify(xlDict, nil)]);
-        NSLog(@"%@", [NSString stringWithFormat:@"xl_dict: %@", xl.jsonStringify(xlDict, xl.initDict(@{ @"pretty": xl.initBool(YES) }, nil))]);
-        XL * xlDictIndexed = xl.initDict(@{
-            @"xl_none": xl.initNone(),
-            @"xl_bool_true": xl.initBool(YES),
-            @"xl_bool_false": xl.initBool(NO),
-            @"xl_string": xl.initString(@"foo"),
-            @"xl_int_positive": xl.initInt(0),
-            @"xl_int_negative": xl.initInt(-123),
-            @"xl_float_positive": xl.initFloat(123.789),
-            @"xl_float_negative": xl.initFloat(-123.789),
-            @"xl_list": xl.initList(@[xl.initInt(1), xl.initInt(2), xl.initInt(3)]),
-            @"xl_dict": xl.initDict(@{ @"foo": xl.initString(@"bar") }, nil),
-            @"xl_closure": xl.initClosure(^(XL * args) {
-                XL * aa = [args next];
-                XL * bb = [args next];
-                return xl.initInt(xl.toXlInt(aa) * xl.toXlInt(bb));
-            }),
-        },
-        @[
-            @"xl_none",
-            @"xl_bool_true",
-            @"xl_bool_false",
-            @"xl_string",
-            @"xl_int_positive",
-            @"xl_int_negative",
-            @"xl_float_positive",
-            @"xl_float_negative",
-            @"xl_list",
-            @"xl_dict",
-            @"xl_closure",
-        ],
-        nil);
-        NSLog(@"%@", [NSString stringWithFormat:@"xl_dict: %@", xl.jsonStringify(xlDictIndexed, nil)]);
-        NSLog(@"%@", [NSString stringWithFormat:@"xl_dict: %@", xl.jsonStringify(xlDictIndexed, xl.initDict(@{ @"pretty": xl.initBool(YES) }, nil))]);
+        NSLog(@"%@", [NSString stringWithFormat:@"xl_dict: %@", xl.jsonStringify(xlDict, xl.initDict(@{ @"pretty": xl.initBool(YES) }))]);
     }
     return 0;
 }
