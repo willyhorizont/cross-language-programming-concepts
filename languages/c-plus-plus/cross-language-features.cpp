@@ -1,100 +1,80 @@
+#include <iostream>
+#include <utility>
 #include "../../runtimes/c-plus-plus/runtime/willyhorizont/runtime.hpp"
 
 int main(int argc, char* argv[]) {
     /*
     1. support closure as value, or has workaround
     */
-    xl::CrossType say_hello = xl::XlClosure([](xl::XlClosureVarArgs& varargs) -> xl::CrossType {
-        xl::CrossType callback_function = varargs.getNextArguments();
+    Xl::Type say_hello = Xl::Closure([](const Xl::Type& args) -> Xl::Type {
+        Xl::Type itr = args.iter();
+        Xl::Type callback_function = itr.next();
         std::cout << "hello" << std::endl;
-
         callback_function.call();
-
-        return xl::CrossType();
+        return Xl::None{};
     });
-    say_hello.call(xl::XlClosure([](xl::XlClosureVarArgs& varargs) -> xl::CrossType {
+    say_hello.call(Xl::Closure([](const Xl::Type& args) -> Xl::Type {
         std::cout << "world" << std::endl;
-
-        return xl::CrossType();
+        return Xl::None{};
     }));
-    xl::CrossType create_multiplier = xl::XlClosure([](xl::XlClosureVarArgs& varargs) -> xl::CrossType {
-        xl::CrossType aa = varargs.getNextArguments();
-
-        return xl::CrossType(xl::XlClosure([aa = std::move(aa)](xl::XlClosureVarArgs& varargs) -> xl::CrossType {
-            xl::CrossType bb = varargs.getNextArguments();
-
-            return xl::CrossType(xl::XlInt(std::get<xl::XlInt>(aa.value) * std::get<xl::XlInt>(bb.value)));
-        }));
+    Xl::Type create_multiplier = Xl::Closure([](const Xl::Type& args) -> Xl::Type {
+        Xl::Type itr = args.iter();
+        Xl::Type aa = itr.next();
+        return Xl::Closure([aa = std::move(aa)](const Xl::Type& args) -> Xl::Type {
+            Xl::Type itr = args.iter();
+            Xl::Type bb = itr.next();
+            return Xl::Int(Xl::to_int(aa) * Xl::to_int(bb));
+        });
     });
-    xl::CrossType multiply_by_two = create_multiplier.call(xl::XlInt(2));
-    std::cout << "multiply_by_two(10): " << std::get<xl::XlInt>(multiply_by_two.call(xl::XlInt(10)).value) << std::endl;
-    xl::CrossType multiply_by_eight = create_multiplier.call(xl::XlInt(8));
-    std::cout << "multiply_by_eight(4): " << std::get<xl::XlInt>(multiply_by_eight.call(xl::XlInt(4)).value) << std::endl;
-    std::cout << "multiply_by_two(8): " << std::get<xl::XlInt>(multiply_by_two.call(xl::XlInt(8)).value) << std::endl;
+    Xl::Type multiply_by_two = create_multiplier.call(Xl::Int(2));
+    std::cout << "multiply_by_two(10): " << Xl::to_int(multiply_by_two.call(Xl::Int(10))) << std::endl;
+    Xl::Type multiply_by_eight = create_multiplier.call(Xl::Int(8));
+    std::cout << "multiply_by_eight(4): " << Xl::to_int(multiply_by_eight.call(Xl::Int(4))) << std::endl;
+    std::cout << "multiply_by_two(8): " << Xl::to_int(multiply_by_two.call(Xl::Int(8))) << std::endl;
 
     /*
     2. support dynamic-typed value, or has workaround
     */
-    xl::CrossType xl_list = xl::to_xl_list(
-        xl::XlNone{},
-        xl::XlBool(true),
-        xl::XlBool(false),
-        xl::XlString("foo"),
-        xl::XlInt(0),
-        xl::XlInt(-123),
-        xl::XlFloat(123.789),
-        xl::XlFloat(-123.789),
-        xl::to_xl_list(xl::XlInt(1), xl::XlInt(2), xl::XlInt(3)),
-        xl::to_xl_dict(std::make_pair("foo", xl::XlString("bar"))),
-        xl::XlClosure([](xl::XlClosureVarArgs& varargs) -> xl::CrossType {
-            xl::CrossType aa = varargs.getNextArguments();
-            xl::CrossType bb = varargs.getNextArguments();
-
-            return xl::CrossType(xl::XlInt(std::get<xl::XlInt>(aa.value) * std::get<xl::XlInt>(bb.value)));
+    Xl::Type xl_list = Xl::List(
+        Xl::None{},
+        Xl::Bool(true),
+        Xl::Bool(false),
+        Xl::String("foo"),
+        Xl::Int(0),
+        Xl::Int(-123),
+        Xl::Float(123.789),
+        Xl::Float(-123.789),
+        Xl::List(Xl::Int(1), Xl::Int(2), Xl::Int(3)),
+        Xl::Dict(Xl::Pair("foo", Xl::String("bar"))),
+        Xl::Closure([](const Xl::Type& args) -> Xl::Type {
+            Xl::Type itr = args.iter();
+            Xl::Type aa = itr.next();
+            Xl::Type bb = itr.next();
+            return Xl::Int(Xl::to_int(aa) * Xl::to_int(bb));
         })
     );
-    std::cout << "xl_list: " << xl::json_stringify(xl_list) << std::endl;
-    std::cout << "xl_list: " << xl::json_stringify(xl_list, { .pretty = true }) << std::endl;
-    xl::CrossType xl_dict = xl::to_xl_dict(
-        std::make_pair("xl_none", xl::XlNone{}),
-        std::make_pair("xl_bool_true", xl::XlBool(true)),
-        std::make_pair("xl_bool_false", xl::XlBool(false)),
-        std::make_pair("xl_string", xl::XlString("foo")),
-        std::make_pair("xl_int_positive", xl::XlInt(0)),
-        std::make_pair("xl_int_negative", xl::XlInt(-123)),
-        std::make_pair("xl_float_positive", xl::XlFloat(123.789)),
-        std::make_pair("xl_float_negative", xl::XlFloat(-123.789)),
-        std::make_pair("xl_list", xl::to_xl_list(xl::XlInt(1), xl::XlInt(2), xl::XlInt(3))),
-        std::make_pair("xl_dict", xl::to_xl_dict(std::make_pair("foo", xl::XlString("bar")))),
-        std::make_pair("xl_closure", xl::XlClosure([](xl::XlClosureVarArgs& varargs) -> xl::CrossType {
-            xl::CrossType aa = varargs.getNextArguments();
-            xl::CrossType bb = varargs.getNextArguments();
-
-            return xl::CrossType(xl::XlInt(std::get<xl::XlInt>(aa.value) * std::get<xl::XlInt>(bb.value)));
+    std::cout << "xl_list: " << Xl::json_stringify(xl_list) << std::endl;
+    std::cout << "xl_list: " << Xl::json_stringify(xl_list, { .pretty = true }) << std::endl;
+    Xl::Type xl_dict = Xl::Dict(
+        Xl::Pair("xl_none", Xl::None{}),
+        Xl::Pair("xl_bool_true", Xl::Bool(true)),
+        Xl::Pair("xl_bool_false", Xl::Bool(false)),
+        Xl::Pair("xl_string", Xl::String("foo")),
+        Xl::Pair("xl_int_positive", Xl::Int(0)),
+        Xl::Pair("xl_int_negative", Xl::Int(-123)),
+        Xl::Pair("xl_float_positive", Xl::Float(123.789)),
+        Xl::Pair("xl_float_negative", Xl::Float(-123.789)),
+        Xl::Pair("xl_list", Xl::List(Xl::Int(1), Xl::Int(2), Xl::Int(3))),
+        Xl::Pair("xl_dict", Xl::Dict(Xl::Pair("foo", Xl::String("bar")))),
+        Xl::Pair("xl_closure", Xl::Closure([](const Xl::Type& args) -> Xl::Type {
+            Xl::Type itr = args.iter();
+            Xl::Type aa = itr.next();
+            Xl::Type bb = itr.next();
+            return Xl::Int(Xl::to_int(aa) * Xl::to_int(bb));
         }))
     );
-    std::cout << "xl_dict: " << xl::json_stringify(xl_dict) << std::endl;
-    std::cout << "xl_dict: " << xl::json_stringify(xl_dict, { .pretty = true }) << std::endl;
-    xl::CrossType xl_dict_indexed = to_xl_dict_indexed(
-        std::make_pair("xl_none", xl::XlNone{}),
-        std::make_pair("xl_bool_true", xl::XlBool(true)),
-        std::make_pair("xl_bool_false", xl::XlBool(false)),
-        std::make_pair("xl_string", xl::XlString("foo")),
-        std::make_pair("xl_int_positive", xl::XlInt(0)),
-        std::make_pair("xl_int_negative", xl::XlInt(-123)),
-        std::make_pair("xl_float_positive", xl::XlFloat(123.789)),
-        std::make_pair("xl_float_negative", xl::XlFloat(-123.789)),
-        std::make_pair("xl_list", xl::to_xl_list(xl::XlInt(1), xl::XlInt(2), xl::XlInt(3))),
-        std::make_pair("xl_dict", xl::to_xl_dict(std::make_pair("foo", xl::XlString("bar")))),
-        std::make_pair("xl_closure", xl::XlClosure([](xl::XlClosureVarArgs& varargs) -> xl::CrossType {
-            xl::CrossType aa = varargs.getNextArguments();
-            xl::CrossType bb = varargs.getNextArguments();
-
-            return xl::CrossType(xl::XlInt(std::get<xl::XlInt>(aa.value) * std::get<xl::XlInt>(bb.value)));
-        }))
-    );
-    std::cout << "xl_dict_indexed: " << xl::json_stringify(xl_dict_indexed) << std::endl;
-    std::cout << "xl_dict_indexed: " << xl::json_stringify(xl_dict_indexed, { .pretty = true }) << std::endl;
+    std::cout << "xl_dict: " << Xl::json_stringify(xl_dict) << std::endl;
+    std::cout << "xl_dict: " << Xl::json_stringify(xl_dict, { .pretty = true }) << std::endl;
 
     return 0;
 }

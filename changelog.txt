@@ -1,3 +1,7 @@
+[Last updated: 08 Jul 2026 @ 03:22 AM]
+version 2.7.6:
+finish c++ init
+
 [Last updated: 07 Jul 2026 @ 09:32 PM]
 version 2.7.5:
 small fix in last-commit.sh, re;

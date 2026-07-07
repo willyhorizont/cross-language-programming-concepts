@@ -107,3 +107,16 @@ Xl adalah kepanjangan dari CrossLanguages, Xl bisa juga karena tiap type memakai
     int main(int argc, char *argv[]) {} -> C
     int main(int argc, const char * argv[]) {} -> objective-c
 }
+
+Xl::Type create_multiplier = Xl::Closure([](const Xl::Type& args) -> Xl::Type {
+    Xl::Type itr = args.iter();
+    Xl::Type aa = itr.next();
+    Xl::Type cc = itr.next();
+
+    return Xl::Closure([aa = std::move(aa), cc = std::move(cc)](const Xl::Type& args) -> Xl::Type {
+        Xl::Type itr = args.iter();
+        Xl::Type bb = itr.next();
+
+        return Xl::Int(Xl::toInt(aa) * Xl::toInt(bb) + Xl::toInt(cc));
+    });
+});
