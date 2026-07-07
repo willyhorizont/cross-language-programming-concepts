@@ -30,6 +30,9 @@ func main() {
 	}
 	multiplyByTwo := createMultiplier(2)
 	XL.Println("multiply_by_two(10): ", XL.ToClosure(multiplyByTwo).Call(10))
+	multiplyByEight := createMultiplier(8)
+	XL.Println("multiply_by_eight(4): ", XL.ToClosure(multiplyByEight).Call(4))
+	XL.Println("multiply_by_two(8): ", XL.ToClosure(multiplyByTwo).Call(8))
 
 	/*
 	2. support dynamic-typed value, or has workaround

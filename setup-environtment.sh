@@ -48,6 +48,7 @@ fi
 
 code --install-extension bowlerhatllc.vscode-as3mxml
 code --install-extension pleasedskin.smalltalk
+code --install-extension DanielGavin.ols
 
 rm -rf "$TD"
 hash -r

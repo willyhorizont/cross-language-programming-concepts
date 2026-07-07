@@ -1,63 +1,59 @@
-package willyhorizont
+package xl
 
 import "core:fmt"
 import "core:strings"
 
-greet :: proc() {
-    fmt.println("hello from package willyhorizont")
-}
-
-XlBool :: bool
-XlString :: string
-XlInt :: int
-XlFloat :: f64
-XlList :: [dynamic]CrossType
-XlDict :: map[string]CrossType
-XlClosure :: struct {
+Bool :: bool
+String :: string
+Int :: int
+Float :: f64
+List :: [dynamic]Type
+Dict :: map[String]Type
+Closure :: struct {
 	state: rawptr,
-	call: proc(self: ^XlClosure, varargs: ..CrossType) -> CrossType,
+	call: proc(self: ^Closure, varargs: ..Type) -> Type,
 }
 
-CrossType :: union {
-    XlBool,
-    XlString,
-    XlInt,
-    XlFloat,
-    XlList,
-    XlDict,
-    XlClosure,
+Type :: union {
+    Bool,
+    String,
+    Int,
+    Float,
+    List,
+    Dict,
+    Closure,
 }
 
-to_xl_bool :: proc(odin_value: XlBool) -> CrossType {
-	return CrossType(XlBool(odin_value))
+to_xl_bool :: proc(v: Bool) -> Type {
+	return Type(Bool(v))
 }
 
-to_xl_string :: proc(odin_value: XlString) -> CrossType {
-	return CrossType(XlString(odin_value))
+to_xl_string :: proc(v: String) -> Type {
+	return Type(String(v))
 }
 
-to_xl_int :: proc(odin_value: XlInt) -> CrossType {
-	return CrossType(XlInt(odin_value))
+to_xl_int :: proc(v: Int) -> Type {
+	return Type(Int(v))
 }
 
-to_xl_float :: proc(odin_value: XlFloat) -> CrossType {
-	return CrossType(XlFloat(odin_value))
+to_xl_float :: proc(v: Float) -> Type {
+	return Type(Float(v))
 }
 
-to_xl_list :: proc(odin_value: XlList) -> CrossType {
-	return CrossType(odin_value)
+to_xl_list :: proc(v: List) -> Type {
+	return Type(v)
 }
 
-to_xl_dict :: proc(odin_value: XlDict) -> CrossType {
-	return CrossType(odin_value)
+to_xl_dict :: proc(v: Dict) -> Type {
+	return Type(v)
 }
 
-to_xl_closure :: proc(odin_value: XlClosure) -> CrossType {
-	return CrossType(odin_value)
+to_xl_closure :: proc(v: Closure) -> Type {
+	return Type(v)
 }
 
-to_xl_self :: proc(odin_value: CrossType) -> CrossType {
-	return odin_value
+to_xl_self :: proc(v: Type) -> Type {
+	return v
 }
 
 to_xl :: proc{
@@ -71,43 +67,43 @@ to_xl :: proc{
 	to_xl_self,
 }
 
-to_odin_string :: proc(any_xl_value: CrossType) -> XlString {
+to_odin_string :: proc(any_xl_value: Type) -> String {
 	if any_xl_value == nil do return "null"
 	#partial switch xl_value in any_xl_value {
-	case XlBool:
+	case Bool:
 		return fmt.tprintf("%t", xl_value)
-	case XlString:
+	case String:
 		return fmt.tprintf("\"%s\"", xl_value)
-	case XlInt:
+	case Int:
 		return fmt.tprintf("%d", xl_value)
-	case XlFloat:
+	case Float:
 		return fmt.tprintf("%f", xl_value)
-	case XlClosure:
+	case Closure:
 		return "\"[object Function]\""
-	case XlList:
+	case List:
 		return xl_json_stringify(xl_value)
-	case XlDict:
+	case Dict:
 		return xl_json_stringify(xl_value)
 	}
 	return ""
 }
 
 // TODO
-xl_json_stringify :: proc(val: CrossType, options: struct { pretty: XlBool } = {}) -> XlString {
+xl_json_stringify :: proc(val: Type, options: struct { pretty: Bool } = {}) -> String {
     pretty := options.pretty
 	if val == nil do return "null"
 
 	#partial switch self in val {
-	case XlBool, XlString, XlInt, XlFloat, XlClosure:
+	case Bool, String, Int, Float, Closure:
 		return to_odin_string(val)
 	}
 
 	Frame :: struct {
-		val:     CrossType,
-		is_dict: XlBool,
-		keys:    [dynamic]XlString,
-		index:   XlInt,
-		total:   XlInt,
+		val:     Type,
+		is_dict: Bool,
+		keys:    [dynamic]String,
+		index:   Int,
+		total:   Int,
 	}
 
 	b := strings.builder_make()
@@ -119,12 +115,12 @@ xl_json_stringify :: proc(val: CrossType, options: struct { pretty: XlBool } = {
 		delete(stack)
 	}
 
-	if list, is_list := val.(XlList); is_list {
+	if list, is_list := val.(List); is_list {
 		append(&stack, Frame{val = val, is_dict = false, index = 0, total = len(list)})
 		strings.write_string(&b, "[")
 		if pretty do strings.write_string(&b, "\n")
-	} else if dict, is_dict := val.(XlDict); is_dict {
-		dict_keys := make([dynamic]XlString, 0, len(dict))
+	} else if dict, is_dict := val.(Dict); is_dict {
+		dict_keys := make([dynamic]String, 0, len(dict))
 		for k in dict do append(&dict_keys, k)
 		append(&stack, Frame{val = val, is_dict = true, keys = dict_keys, index = 0, total = len(dict_keys)})
 		strings.write_string(&b, "{")
@@ -159,15 +155,15 @@ xl_json_stringify :: proc(val: CrossType, options: struct { pretty: XlBool } = {
             for _ in 0..<current_depth do strings.write_string(&b, "    ")
         }
 
-		current_item: CrossType
+		current_item: Type
 		if frame.is_dict {
 			key := frame.keys[frame.index]
 			if pretty do fmt.sbprintf(&b, "\"%s\": ", key)
 			else do fmt.sbprintf(&b, "\"%s\":", key)
-			dict_map := frame.val.(XlDict)
+			dict_map := frame.val.(Dict)
 			current_item = dict_map[key]
 		} else {
-			list_arr := frame.val.(XlList)
+			list_arr := frame.val.(List)
 			current_item = list_arr[frame.index]
 		}
 
@@ -177,14 +173,14 @@ xl_json_stringify :: proc(val: CrossType, options: struct { pretty: XlBool } = {
 			strings.write_string(&b, "null")
 		} else {
 			#partial switch child in current_item {
-			case XlBool, XlString, XlInt, XlFloat, XlClosure:
+			case Bool, String, Int, Float, Closure:
 				strings.write_string(&b, to_odin_string(current_item))
-			case XlList:
+			case List:
 				append(&stack, Frame{val = current_item, is_dict = false, index = 0, total = len(child)})
 				strings.write_string(&b, "[")
 				if pretty do strings.write_string(&b, "\n")
-			case XlDict:
-				child_keys := make([dynamic]XlString, 0, len(child))
+			case Dict:
+				child_keys := make([dynamic]String, 0, len(child))
 				for k in child do append(&child_keys, k)
 				append(&stack, Frame{val = current_item, is_dict = true, keys = child_keys, index = 0, total = len(child_keys)})
 				strings.write_string(&b, "{")

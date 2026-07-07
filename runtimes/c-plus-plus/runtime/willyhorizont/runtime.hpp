@@ -14,7 +14,7 @@
 #include <stdexcept>
 #include <concepts>
 
-namespace Xl {
+namespace XL {
     struct None {
         bool operator==(const None&) const {
             return true;
@@ -29,7 +29,7 @@ namespace Xl {
     using String = std::string;
     using ListValue = std::vector<Type>;
     using DictValue = std::unordered_map<std::string, Type>;
-    using Pair = std::pair<std::string, Xl::Type>;
+    using Pair = std::pair<std::string, XL::Type>;
     struct Iterator {
         std::shared_ptr<ListValue> list_ptr;
         size_t index = 0;

@@ -7,10 +7,24 @@ import (
 )
 
 type List []interface{}
+
 type Dict map[string]interface{}
+
 type Closure func(va ...interface{}) interface{}
+
+func (c Closure) Call(va ...interface{}) interface{} {
+	return c(va...)
+}
+
 type Callable struct {
 	Underlying Closure
+}
+
+func (c Callable) Call(va ...interface{}) interface{} {
+	if c.Underlying == nil {
+		panic("XlRuntimeError: Can't do Call.")
+	}
+	return c.Underlying(va...)
 }
 
 type Iterator struct {
@@ -104,13 +118,6 @@ func ToBool(a interface{}) bool {
 	default:
 		panic("XlRuntimeError: Can't do ToBool.")
 	}
-}
-
-func (c Callable) Call(va ...interface{}) interface{} {
-	if c.Underlying == nil {
-		panic("XlRuntimeError: Can't do Call.")
-	}
-	return c.Underlying(va...)
 }
 
 func ToClosure(a interface{}) Callable {
