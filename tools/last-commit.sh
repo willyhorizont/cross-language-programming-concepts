@@ -2,18 +2,24 @@
 
 SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD/..")
-V="2.7.3" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
+V="2.7.4" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
 T=$(date "+%d %b %Y @ %I:%M %p")
+cd "$RD"
+\. "$HOME/.nvm/nvm.sh"
 npm version "$V" --no-git-tag-version
+cd "$SD"
 # ! DON'T FORGET TO CHANGE COMMIT MESSAGE BEFORE RUNNING !!!!
-M="
+H="
 [Last updated: $T]
 version $V:
-add install actionscript and smalltalk vscode extensions in setup-environtment.sh;
-remove DictIndexed in objective-c
-add flag \"-B\" in run python command in python run.sh
+"
+H=$(sed -e '/./,$!d' <<< "$H")
+M="
+small fix in last-commit.sh
 "
 M=$(sed -e '/./,$!d' <<< "$M")
+M="$H
+$M"
 awk -v msg="$M" 'BEGIN {print msg; print ""} {print}' "$RD/changelog.txt" > "$RD/changelog.tmp" && mv "$RD/changelog.tmp" "$RD/changelog.txt"
 "$RD/languages/python/run.sh" "$RD/tools/generate-readme.py" 
 git add .
