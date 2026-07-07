@@ -1,3 +1,7 @@
+[Last updated: 07 Jul 2026 @ 09:32 PM]
+version 2.7.5:
+small fix in last-commit.sh, re;
+
 [Last updated: 07 Jul 2026 @ 09:13 PM]
 version 2.7.3:
 add install actionscript and smalltalk vscode extensions in setup-environtment.sh;
