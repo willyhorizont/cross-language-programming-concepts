@@ -19,7 +19,7 @@ type
     of Int: intValue*: int
     of Float: floatValue*: float
     of List: listValue*: seq[Type]
-    of Dict: dictValue*: OrderedTable[string, Type] 
+    of Dict: dictValue*: OrderedTable[string, Type]
     of Closure: closureValue*: proc (args: seq[Type]): Type {.closure.}
 
 type Iterator* = proc (): Type {.closure.}
@@ -87,7 +87,7 @@ proc toFloat*(self: Type): float =
 proc jsonStringify*(a: Type, pretty: bool = false): string =
   let p = pretty
   let t = repeat(" ", 4)
-  type 
+  type
     T = object
       t: string
       v: Type
@@ -129,7 +129,7 @@ proc jsonStringify*(a: Type, pretty: bool = false): string =
       let childD = curD + 1
       s.add(T(
         t: "r",
-        r: (if p: "\n" & repeat(t, curD) & "]" else: "]"), 
+        r: (if p: "\n" & repeat(t, curD) & "]" else: "]"),
         d: curD
       ))
       for i in countdown(v.listValue.len - 1, 0):
@@ -140,13 +140,13 @@ proc jsonStringify*(a: Type, pretty: bool = false): string =
         ))
         if i > 0:
           s.add(T(
-            t: "r", 
-            r: (if p: ",\n" & repeat(t, childD) else: ","), 
+            t: "r",
+            r: (if p: ",\n" & repeat(t, childD) else: ","),
             d: childD
           ))
       s.add(T(
-        t: "r", 
-        r: (if p: "[\n" & repeat(t, childD) else: "["), 
+        t: "r",
+        r: (if p: "[\n" & repeat(t, childD) else: "["),
         d: childD
       ))
       continue
@@ -156,8 +156,8 @@ proc jsonStringify*(a: Type, pretty: bool = false): string =
         continue
       let childD = curD + 1
       s.add(T(
-        t: "r", 
-        r: (if p: "\n" & repeat(t, curD) & "}" else: "}"), 
+        t: "r",
+        r: (if p: "\n" & repeat(t, curD) & "}" else: "}"),
         d: curD
       ))
       var dpL: seq[tuple[key: string, v: Type]] = @[]
@@ -171,19 +171,19 @@ proc jsonStringify*(a: Type, pretty: bool = false): string =
           d: childD
         ))
         s.add(T(
-          t: "r", 
-          r: (if p: "\"" & dK & "\": " else: "\"" & dK & "\":"), 
+          t: "r",
+          r: (if p: "\"" & dK & "\": " else: "\"" & dK & "\":"),
           d: childD
         ))
         if i > 0:
           s.add(T(
-            t: "r", 
-            r: (if p: ",\n" & repeat(t, childD) else: ","), 
+            t: "r",
+            r: (if p: ",\n" & repeat(t, childD) else: ","),
             d: childD
           ))
       s.add(T(
-        t: "r", 
-        r: (if p: "{\n" & repeat(t, childD) else: "{"), 
+        t: "r",
+        r: (if p: "{\n" & repeat(t, childD) else: "{"),
         d: childD
       ))
       continue

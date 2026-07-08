@@ -2,11 +2,14 @@ import std/tables
 import std/strformat
 import willyhorizont/runtime as Xl
 
+#[
+1. support closure as value, or has workaround
+]#
 let sayHello = Xl.init(proc (args: seq[Xl.Type]): Xl.Type {.closure.} =
   let itr = Xl.iter(args)
   let callbackFunction = itr.next()
   echo "hello"
-  discard callbackFunction.call() 
+  discard callbackFunction.call()
 )
 discard sayHello.call(Xl.init(proc (args: seq[Xl.Type]): Xl.Type {.closure.} =
   echo "world"
@@ -26,6 +29,9 @@ let multiplyByEight = createMultiplier.call(8)
 echo fmt"multiply_by_eight(4): {multiplyByEight.call(4).toInt()}"
 echo fmt"multiply_by_two(8): {multiplyByTwo.call(8).toInt()}"
 
+#[
+2. support dynamic-typed value, or has workaround
+]#
 let xlList = Xl.init(@[
   Xl.none,
   Xl.init(true),

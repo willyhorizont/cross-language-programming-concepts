@@ -50,6 +50,7 @@ code --install-extension bowlerhatllc.vscode-as3mxml
 code --install-extension pleasedskin.smalltalk
 code --install-extension DanielGavin.ols
 code --install-extension NimLang.nimlang
+code --install-extension ziglang.vscode-zig
 
 rm -rf "$TD"
 hash -r
