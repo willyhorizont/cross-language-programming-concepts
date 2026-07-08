@@ -532,6 +532,12 @@
         "editor.insertSpaces": true,
         "editor.detectIndentation": false
     },
+    "[nim]": {
+        "editor.wordWrap": "off",
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false
+    },
     "[markdown]": {
         "editor.wordWrap": "off",
         "editor.tabSize": 4,

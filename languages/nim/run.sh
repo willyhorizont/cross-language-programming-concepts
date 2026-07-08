@@ -60,5 +60,4 @@ docker run -i --rm \
         $CRLC
     "
 
-rm -f "$PTTFNXD/$TFN.nim"
 rm -f "$PTTFNXD/$TFN"

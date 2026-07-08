@@ -79,8 +79,8 @@
                 continue;
             }
             if (typeof v === "object") {
-                const dL = Object.entries(v);
-                if (dL.length === 0) {
+                const dpL = Object.entries(v);
+                if (dpL.length === 0) {
                     r += "{}";
                     continue;
                 }
@@ -90,8 +90,8 @@
                     "v": p ? "\n" + String(t.repeat(curD)) + "}" : "}",
                     "d": curD
                 });
-                for (let i = dL.length - 1; i >= 0; i -= 1) {
-                    const [dk, dV] = dL[i];
+                for (let i = dpL.length - 1; i >= 0; i -= 1) {
+                    const [dK, dV] = dpL[i];
                     s.push({
                         "t": "v",
                         "v": dV,
@@ -99,7 +99,7 @@
                     });
                     s.push({
                         "t": "r",
-                        "v": p ? "\"" + String(dk) + "\": " : "\"" + String(dk) + "\":",
+                        "v": p ? "\"" + String(dK) + "\": " : "\"" + String(dK) + "\":",
                         "d": childD
                     });
                     if (i > 0) {
