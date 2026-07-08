@@ -41,3 +41,4 @@ tools/output/
 tempCodeRunnerFile.*
 
 runtimes/nim/main.nim
+runtimes/zig/main.zig

@@ -1,3 +1,7 @@
+[Last updated: 09 Jul 2026 @ 05:50 AM]
+version 2.7.13:
+finish zig runtime init
+
 [Last updated: 08 Jul 2026 @ 10:05 PM]
 version 2.7.12:
 small update in nim

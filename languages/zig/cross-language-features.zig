@@ -1,133 +1,100 @@
 const std = @import("std");
+const xl = @import("willyhorizont/runtime/runtime.zig");
 
-pub const AnyType = enum {
-    PyNone,
-    PyBool,
-    JsInt,
-    JsFloat,
-    JsString,
-    PyList,
-    PyDict,
-    JsFunction,
-};
+pub fn main(init: std.process.Init) !void {
+    const gpa = init.gpa;
 
-const PyDictItem = struct { []const u8, Any };
-
-pub const Any = union(AnyType) {
-    PyNone: void,
-    PyBool: bool,
-    JsInt: i128,
-    JsFloat: f128,
-    JsString: []const u8,
-    PyList: []const Any,
-    PyDict: []const PyDictItem,
-    JsFunction: Function,
-};
-
-pub const Function = struct {
-    runtime_callback: *const fn (args: []const Any) Any,
-    factor: []const Any,
-    pub fn init(callback: *const fn (args: []const Any) Any, factor: []const Any) Function {
-        return Function{
-            .runtime_callback = callback,
-            .factor = factor,
-        };
-    }
-    pub fn call(self: Function, new_args: []const Any) Any {
-        var buffer: [256]Any = undefined;
-        const total_len = new_args.len + self.factor.len;
-        if (total_len > 256) @panic("Too many arguments passed to Function call!");
-        @memcpy(buffer[0..new_args.len], new_args);
-        @memcpy(buffer[new_args.len..total_len], self.factor);
-        return self.runtime_callback(buffer[0..total_len]);
-    }
-};
-
-pub fn main() !void {
-    // 1. support function as value
-    const greet_and_do_something = Function.init(struct {
-        fn function_body(args: []const Any) Any {
-            const calback_function = args[0].JsFunction;
-            std.debug.print("hello\n", .{});
-            _ = calback_function.call(&[_]Any{});
-            return Any{ .PyNone = {} };
+    // 1. support closure as value, or has workaround
+    const say_hello = try xl.makeClosure(gpa, .{}, struct {
+        fn body(ctx: anytype, args: []const xl.Type) xl.Type {
+            _ = ctx;
+            var itr = xl.Iterator.init(args);
+            const callback_function = itr.next();
+            xl.print(std.heap.page_allocator, .{}, .{ xl.Type{ .String = "hello" } });
+            _ = callback_function.call(std.heap.page_allocator, .{});
+            return xl.Type{ .None = {} };
         }
-    }.function_body, &[_]Any{});
-    _ = greet_and_do_something.call(&[_]Any{Any{ .JsFunction = (Function.init(struct {
-        fn function_body(args: []const Any) Any {
-            _ = args;
-            std.debug.print("wold\n", .{});
-            return Any{ .PyNone = {} };
-        }
-    }.function_body, &[_]Any{})) }});
-    const multiply = Function.init(struct {
-        fn function_body(args: []const Any) Any {
-            const a = args[0].JsInt;
-            const static_holder = struct {
-                var val: [1]Any = undefined;
-            };
-            static_holder.val[0] = Any{ .JsInt = a };
-            return Any{ .JsFunction = (Function.init(struct {
-                fn function_body_inner(inner_args: []const Any) Any {
-                    const b = inner_args[0].JsInt;
-                    const b_factor = inner_args[1].JsInt;
-                    return Any{ .JsInt = b * b_factor };
+    }.body);
+    defer say_hello.deinit(gpa);
+    _ = say_hello.call(gpa, .{
+        xl.makeClosure(std.heap.page_allocator, .{}, struct {
+            fn body(ctx: anytype, args: []const xl.Type) xl.Type {
+                _ = ctx; _ = args;
+                xl.print(std.heap.page_allocator, .{}, .{ xl.Type{ .String = "world" } });
+                return xl.Type{ .None = {} };
+            }
+        }.body) catch xl.Type{ .None = {} }
+    });
+    const createMultiplier = try xl.makeClosure(gpa, .{}, struct {
+        fn body(ctx: anytype, args: []const xl.Type) xl.Type {
+            _ = ctx;
+            var itr = xl.Iterator.init(args);
+            const aa = itr.next();
+            return xl.makeClosure(std.heap.page_allocator, .{ .aa = aa }, struct {
+                fn body(ctx_inner: anytype, args_inner: []const xl.Type) xl.Type {
+                    var itr_inner = xl.Iterator.init(args_inner);
+                    const bb = itr_inner.next();
+                    return xl.Type{ .Int = ctx_inner.aa.Int * bb.Int };
                 }
-            }.function_body_inner, &static_holder.val)) };
+            }.body) catch xl.Type{ .None = {} };
         }
-    }.function_body, &[_]Any{});
-    const multiply_by_two = multiply.call(&[_]Any{Any{ .JsInt = 2 }}).JsFunction;
-    std.debug.print("multiply_by_two(10): {}\n", .{multiply_by_two.call(&[_]Any{Any{ .JsInt = 10 }}).JsInt});
-    const multiply_by_eight = multiply.call(&[_]Any{Any{ .JsInt = 8 }}).JsFunction;
-    std.debug.print("multiply_by_eight(4): {}\n", .{multiply_by_eight.call(&[_]Any{Any{ .JsInt = 4 }}).JsInt});
-    std.debug.print("multiply_by_two(8): {}\n", .{multiply_by_two.call(&[_]Any{Any{ .JsInt = 8 }}).JsInt});
-    const get_rectangle_area = Function.init(struct {
-        fn function_body(args: []const Any) Any {
-            return Any{ .JsInt = args[0].JsInt * args[1].JsInt };
-        }
-    }.function_body, &[_]Any{});
-    std.debug.print("get_rectangle_area(7, 5): {}\n", .{get_rectangle_area.call(&[_]Any{ Any{ .JsInt = 7 }, Any{ .JsInt = 5 } }).JsInt});
-    const get_block_volume = Function.init(struct {
-        fn function_body(args: []const Any) Any {
-            return Any{ .JsInt = args[0].JsInt * args[1].JsInt * args[2].JsInt };
-        }
-    }.function_body, &[_]Any{});
-    const out_block = get_block_volume.call(&[_]Any{ Any{ .JsInt = 7 }, Any{ .JsInt = 5 }, Any{ .JsInt = 4 } });
-    std.debug.print("get_block_volume(7, 5, 4): {}\n", .{out_block.JsInt});
+    }.body);
+    defer createMultiplier.deinit(gpa);
+    const multiplyByTwo = createMultiplier.call(gpa, .{ xl.Type{ .Int = 2 } });
+    defer multiplyByTwo.deinit(std.heap.page_allocator);
+    xl.print(gpa, .{}, .{ xl.Type{ .String = "multiply_by_two(10): " }, multiplyByTwo.call(gpa, .{ xl.Type{ .Int = 10 } }) });
+    const multiplyByEight = createMultiplier.call(gpa, .{ xl.Type{ .Int = 8 } });
+    defer multiplyByEight.deinit(std.heap.page_allocator);
+    xl.print(gpa, .{}, .{ xl.Type{ .String = "multiply_by_eight(4): " }, multiplyByEight.call(gpa, .{ xl.Type{ .Int = 4 } }) });
+    xl.print(gpa, .{}, .{ xl.Type{ .String = "multiply_by_two(8): " }, multiplyByTwo.call(gpa, .{ xl.Type{ .Int = 8 } }) });
 
     // 2. support dynamic-typed value, or has workaround
-    const some_python_like_list = &[_]Any{
-        Any{ .JsString = "" },
-        Any{ .PyBool = true },
-        Any{ .PyBool = false },
-        Any{ .JsString = "foo" },
-        Any{ .JsInt = 0 },
-        Any{ .JsInt = -123 },
-        Any{ .JsFloat = 123.789 },
-        Any{ .JsFloat = -123.789 },
-        Any{ .PyList = &[_]Any{ Any{ .JsInt = 1 }, Any{ .JsInt = 2 }, Any{ .JsInt = 3 } } },
-        Any{ .JsFunction = (Function.init(struct {
-            fn function_body(args: []const Any) Any {
-                return Any{ .JsInt = args[0].JsInt * args[1].JsInt };
+    const xl_list = try xl.makeList(gpa, .{
+        xl.Type{ .None = {} },
+        xl.Type{ .Bool = true },
+        xl.Type{ .Bool = false },
+        xl.Type{ .String = "foo" },
+        xl.Type{ .Int = 0 },
+        xl.Type{ .Int = -123 },
+        xl.Type{ .Float = 123.789 },
+        xl.Type{ .Float = -123.789 },
+        try xl.makeList(gpa, .{ xl.Type{ .Int = 1 }, xl.Type{ .Int = 2 }, xl.Type{ .Int = 3 } }),
+        try xl.makeDict(gpa, .{ xl.Pair{ .key = "foo", .val = xl.Type{ .String = "bar" } } }),
+        xl.makeClosure(gpa, .{}, struct {
+            fn body(ctx: anytype, args: []const xl.Type) xl.Type {
+                _ = ctx;
+                var itr = xl.Iterator.init(args);
+                const aa = itr.next();
+                const bb = itr.next();
+                return xl.Type{ .Int = aa.Int * bb.Int };
             }
-        }.function_body, &[_]Any{})) },
-    };
-    std.debug.print("\nsome_python_like_list loaded. Total item: {}\n", .{some_python_like_list.len});
-    const some_python_like_dict = &[_]PyDictItem{
-        PyDictItem{ "some_null", Any{ .JsString = "" } },
-        PyDictItem{ "some_boolean_true", Any{ .PyBool = true } },
-        PyDictItem{ "some_boolean_false", Any{ .PyBool = false } },
-        PyDictItem{ "some_string", Any{ .JsString = "foo" } },
-        PyDictItem{ "some_int_positive", Any{ .JsInt = 0 } },
-        PyDictItem{ "some_int_negative", Any{ .JsInt = -123 } },
-        PyDictItem{ "some_float_positive", Any{ .JsFloat = 123.789 } },
-        PyDictItem{ "some_float_negative", Any{ .JsFloat = -123.789 } },
-        PyDictItem{ "some_python_like_list", Any{ .PyList = &[_]Any{ Any{ .JsInt = 1 }, Any{ .JsInt = 2 }, Any{ .JsInt = 3 } } } },
-        PyDictItem{ "some_python_like_function", Any{ .JsFunction = (Function.init(struct {
-            fn function_body(args: []const Any) Any {
-                return Any{ .JsInt = args[0].JsInt * args[1].JsInt };
+        }.body) catch xl.Type{ .None = {} },
+    });
+    xl.print(gpa, .{}, .{ xl.Type{ .String = "xl_list: " }, xl_list });
+    xl.print(gpa, .{ .pretty = true }, .{ xl.Type{ .String = "xl_list: " }, xl_list });
+    defer xl_list.deinit(gpa);
+    const xl_dict = try xl.makeDict(gpa, .{
+        xl.Pair{ .key = "xl_none", .val = xl.Type{ .None = {} } },
+        xl.Pair{ .key = "xl_bool_true", .val = xl.Type{ .Bool = true } },
+        xl.Pair{ .key = "xl_bool_false", .val = xl.Type{ .Bool = false } },
+        xl.Pair{ .key = "xl_string", .val = xl.Type{ .String = "foo" } },
+        xl.Pair{ .key = "xl_int_positive", .val = xl.Type{ .Int = 0 } },
+        xl.Pair{ .key = "xl_int_negative", .val = xl.Type{ .Int = -123 } },
+        xl.Pair{ .key = "xl_float_positive", .val = xl.Type{ .Float = 123.789 } },
+        xl.Pair{ .key = "xl_float_negative", .val = xl.Type{ .Float = -123.789 } },
+        xl.Pair{ .key = "xl_list", .val = try xl.makeList(gpa, .{ xl.Type{ .Int = 1 }, xl.Type{ .Int = 2 }, xl.Type{ .Int = 3 } }) },
+        xl.Pair{ .key = "xl_dict", .val = try xl.makeDict(gpa, .{ xl.Pair{ .key = "foo", .val = xl.Type{ .String = "bar" } } }) },
+        xl.Pair{ .key = "xl_closure", .val = xl.makeClosure(gpa, .{}, struct {
+            fn body(ctx: anytype, args: []const xl.Type) xl.Type {
+                _ = ctx;
+                var itr = xl.Iterator.init(args);
+                const aa = itr.next();
+                const bb = itr.next();
+                return xl.Type{ .Int = aa.Int * bb.Int };
             }
-        }.function_body, &[_]Any{})) } },
-    };
-    std.debug.print("some_python_like_dict loaded. Total key: {}\n", .{some_python_like_dict.len});
+        }.body) catch xl.Type{ .None = {} } },
+    });
+    xl.print(gpa, .{}, .{ xl.Type{ .String = "xl_dict: " }, xl_dict });
+    xl.print(gpa, .{ .pretty = true }, .{ xl.Type{ .String = "xl_dict: " }, xl_dict });
+    defer xl_dict.deinit(gpa);
 }

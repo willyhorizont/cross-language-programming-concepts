@@ -51,16 +51,17 @@ https://nue.nu/
 ~~freepascal~~ tried, canceled, no closure as value, FPC >= 3.3.x still not stable, even using paid software Embarcadero Delphi >= 2009, the syntax is still "unique"
 ~~c~~ tried, canceled, no closure as value, already have C++ tho...
 ~~groovy~~
+d
+v
+c3
+vala
+hare
+wren
 https://nekovm.org/
 Haxe
 coffeescript
 typescript
 Bosque
-c3
-v
-d
-vala
-hare
 f#
 clojure
 crystal

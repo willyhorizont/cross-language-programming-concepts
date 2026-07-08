@@ -17,6 +17,13 @@ X="${FNX##*.}"
 RD="$(realpath "$SD/../..")"
 RN="$(basename "$RD")"
 
+PTRFNX="$RD/runtimes/zig/willyhorizont/runtime/runtime.zig"
+if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
+    echo "usage:"
+    echo "\"$SD/run.sh\" path/to/*.$LID"
+    exit 1
+fi
+
 LEF="$RD/.env.$LID"
 
 if [ -f "$LEF" ]; then
@@ -27,6 +34,13 @@ IMG=$("$RD/tools/utils.sh" --get-docker-image $LID 2>/dev/null)
 
 L=$("$RD/tools/utils.sh" --print-sep)
 
+PTTFNXD="$RD/runtimes/$LID"
+TFN="main"
+PTTFNX="$PTTFNXD/$TFN.$X"
+
+mkdir -p "$PTTFNXD"
+cp -f "$PTFNX" "$PTTFNX"
+
 CPV="
 echo \">docker images\"
 echo \"$IMG\"
@@ -35,13 +49,13 @@ zig version
 "
 
 CCRLC="
-cd \"$PTFNXD\"
-zig build-exe \"$FNX\"
-./\"$FN\"
+cd \"$PTTFNXD\"
+zig build-exe \"$TFN.$X\"
+./\"$TFN\"
 "
 CRLC="
-cd \"$PTFNXD\"
-zig run \"$FNX\"
+cd \"$PTTFNXD\"
+zig run \"$TFN.$X\"
 "
 
 if ! docker image inspect "$IMG" > /dev/null 2>&1; then
@@ -60,7 +74,6 @@ docker run -i --rm \
 
         echo \"$L\"
 
-        $CRLC
+        $CCRLC
     "
-
-rm -f "$PTFNXD/$FN"
+rm -f "$PTTFNXD/$TFN"
