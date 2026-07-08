@@ -56,7 +56,7 @@ Cross-language implementations of common programming concepts, data structures, 
 35. [Odin](https://odin-lang.org/) : [https://odin-lang.org/](https://odin-lang.org/)  
 36. [C++ (C Plus Plus)](https://isocpp.org/) : [https://isocpp.org/](https://isocpp.org/)  
 37. [Objective C](https://developer.apple.com/documentation/objectivec/) : [https://developer.apple.com/documentation/objectivec/](https://developer.apple.com/documentation/objectivec/)  
-38. [Pharo (Smalltalk dialect)](https://pharo.org/) : [https://pharo.org/](https://pharo.org/)  
+38. [Smalltalk](https://pharo.org/) : [https://pharo.org/](https://pharo.org/)  
 39. [ActionScript](https://flex.apache.org/) : [https://flex.apache.org/](https://flex.apache.org/)  
 40. [Groovy](https://groovy-lang.org/) : [https://groovy-lang.org/](https://groovy-lang.org/)  
 
@@ -102,7 +102,7 @@ Cross-language implementations of common programming concepts, data structures, 
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/cross-language-features.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/cross-language-features.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/cross-language-features.m)  
-  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/cross-language-features.st)  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/cross-language-features.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/cross-language-features.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/cross-language-features.groovy)  
 
@@ -146,7 +146,7 @@ Cross-language implementations of common programming concepts, data structures, 
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/comments.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/comments.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/comments.m)  
-  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/comments.st)  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/comments.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/comments.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/comments.groovy)  
 
@@ -190,7 +190,7 @@ Cross-language implementations of common programming concepts, data structures, 
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/hello-world.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/hello-world.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/hello-world.m)  
-  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/hello-world.st)  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/hello-world.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/hello-world.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/hello-world.groovy)  
 
@@ -234,7 +234,7 @@ Cross-language implementations of common programming concepts, data structures, 
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/conditionals.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/conditionals.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/conditionals.m)  
-  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/conditionals.st)  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/conditionals.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/conditionals.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/conditionals.groovy)  
 
@@ -278,7 +278,7 @@ Cross-language implementations of common programming concepts, data structures, 
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/loops.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/loops.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/loops.m)  
-  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/loops.st)  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/loops.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/loops.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/loops.groovy)  
 
@@ -322,7 +322,7 @@ Cross-language implementations of common programming concepts, data structures, 
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/functions-and-closure.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/functions-and-closure.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/functions-and-closure.m)  
-  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/functions-and-closure.st)  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/functions-and-closure.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/functions-and-closure.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/functions-and-closure.groovy)  
 
@@ -366,7 +366,7 @@ Cross-language implementations of common programming concepts, data structures, 
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/error-handling.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/error-handling.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/error-handling.m)  
-  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/error-handling.st)  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/error-handling.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/error-handling.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/error-handling.groovy)  
 
@@ -410,7 +410,7 @@ Cross-language implementations of common programming concepts, data structures, 
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list.odin) : Slice  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list.cpp) : Vector  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list.m) : Array  
-  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/list.st) : OrderedCollection  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/list.st) : OrderedCollection  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list.as) : Array  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list.groovy) : List  
 
@@ -454,7 +454,7 @@ Cross-language implementations of common programming concepts, data structures, 
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/dict.odin) : Map  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/dict.cpp) : Unordered Map  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/dict.m) : Dictionary  
-  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/dict.st) : OrderedDictionary  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/dict.st) : OrderedDictionary  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/dict.as) : Object  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/dict.groovy) : Map  
 
@@ -498,7 +498,7 @@ Cross-language implementations of common programming concepts, data structures, 
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-for-each.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-for-each.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-for-each.m)  
-  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/list-for-each.st)  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/list-for-each.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-for-each.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-for-each.groovy)  
 
@@ -542,7 +542,7 @@ Cross-language implementations of common programming concepts, data structures, 
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-any-match.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-any-match.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-any-match.m)  
-  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/list-any-match.st)  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/list-any-match.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-any-match.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-any-match.groovy)  
 
@@ -586,7 +586,7 @@ Cross-language implementations of common programming concepts, data structures, 
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-all-match.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-all-match.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-all-match.m)  
-  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/list-all-match.st)  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/list-all-match.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-all-match.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-all-match.groovy)  
 
@@ -630,7 +630,7 @@ Cross-language implementations of common programming concepts, data structures, 
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-find.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-find.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-find.m)  
-  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/list-find.st)  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/list-find.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-find.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-find.groovy)  
 
@@ -674,7 +674,7 @@ Cross-language implementations of common programming concepts, data structures, 
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-find-index.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-find-index.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-find-index.m)  
-  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/list-find-index.st)  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/list-find-index.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-find-index.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-find-index.groovy)  
 
@@ -718,7 +718,7 @@ Cross-language implementations of common programming concepts, data structures, 
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-filter.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-filter.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-filter.m)  
-  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/list-filter.st)  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/list-filter.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-filter.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-filter.groovy)  
 
@@ -762,7 +762,7 @@ Cross-language implementations of common programming concepts, data structures, 
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-map.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-map.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-map.m)  
-  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/list-map.st)  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/list-map.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-map.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-map.groovy)  
 
@@ -806,7 +806,7 @@ Cross-language implementations of common programming concepts, data structures, 
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-reduce.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-reduce.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-reduce.m)  
-  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/list-reduce.st)  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/list-reduce.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-reduce.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-reduce.groovy)  
 
@@ -850,7 +850,7 @@ Cross-language implementations of common programming concepts, data structures, 
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-pop-tail.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-pop-tail.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-pop-tail.m)  
-  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/list-pop-tail.st)  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/list-pop-tail.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-pop-tail.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-pop-tail.groovy)  
 
@@ -894,7 +894,7 @@ Cross-language implementations of common programming concepts, data structures, 
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-append-to-tail.odin)  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-append-to-tail.cpp)  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-append-to-tail.m)  
-  38. [Pharo (Smalltalk dialect)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk-dialect-pharo/list-append-to-tail.st)  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/list-append-to-tail.st)  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-append-to-tail.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-append-to-tail.groovy)  
 

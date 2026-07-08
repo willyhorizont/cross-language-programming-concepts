@@ -1,3 +1,7 @@
+[Last updated: 08 Jul 2026 @ 04:45 PM]
+version 2.7.10:
+small update in smalltalk
+
 [Last updated: 08 Jul 2026 @ 01:57 PM]
 version 2.7.9:
 small update in odin

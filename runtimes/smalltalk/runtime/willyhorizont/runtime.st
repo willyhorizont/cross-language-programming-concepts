@@ -1,6 +1,7 @@
-Smalltalk at: #WillyHorizontRuntime put: Dictionary new.
+Smalltalk at: #WillyHorizont put: Dictionary new.
+(Smalltalk at: #WillyHorizont) at: #Runtime put: Dictionary new.
 
-(Smalltalk at: #WillyHorizontRuntime) at: #iter put: [ :a |
+((Smalltalk at: #WillyHorizont) at: #Runtime) at: #iter put: [ :a |
     Generator on: [ :gen |
         a do: [ :each |
             gen yield: each.
@@ -8,10 +9,10 @@ Smalltalk at: #WillyHorizontRuntime put: Dictionary new.
     ].
 ].
 
-(Smalltalk at: #WillyHorizontRuntime) at: #getType put: [ :a |
+((Smalltalk at: #WillyHorizont) at: #Runtime) at: #getType put: [ :a |
     a ifNil: [ '[object XlNone]' ] ifNotNil: [
         (a isKindOf: BlockClosure) ifTrue: [ '[object XlClosure]' ] ifFalse: [
-            ((a isKindOf: OrderedDictionary) or: (a isKindOf: Dictionary)) ifTrue: [ '[object XlDict]' ] ifFalse: [
+            ((a isKindOf: OrderedDictionary) or: [ a isKindOf: Dictionary ]) ifTrue: [ '[object XlDict]' ] ifFalse: [
                 (a isArray or: [ a isCollection and: [ a isString not ] ]) ifTrue: [ '[object XlList]' ] ifFalse: [
                     a isString ifTrue: [ '[object XlString]' ] ifFalse: [
                         (a isKindOf: Boolean) ifTrue: [ '[object XlBool]' ] ifFalse: [
@@ -28,9 +29,9 @@ Smalltalk at: #WillyHorizontRuntime put: Dictionary new.
     ]
 ].
 
-(Smalltalk at: #WillyHorizontRuntime) at: #jsonStringify put: [ :va |
+((Smalltalk at: #WillyHorizont) at: #Runtime) at: #jsonStringify put: [ :va |
     | xl itr a opt p t s r c v curD curT childD dL dK dV |
-    xl := Smalltalk at: #WillyHorizontRuntime.
+    xl := (Smalltalk at: #WillyHorizont) at: #Runtime.
     ((xl at: #getType) value: va) = '[object XlList]' ifTrue: [
         itr := (xl at: #iter) value: va.
         a := itr next.
@@ -77,27 +78,26 @@ Smalltalk at: #WillyHorizontRuntime put: Dictionary new.
                         at: 't' put: 'r';
                         at: 'v' put: (p ifTrue: [ String lf , (t repeat: curD) , ']' ] ifFalse: [ ']' ]);
                         at: 'd' put: curD;
-                        yourself).
+                    yourself).
                     v size to: 1 by: -1 do: [ :i |
                         s add: (Dictionary new
                             at: 't' put: 'v';
                             at: 'v' put: (v at: i);
                             at: 'd' put: childD;
-                            yourself).
-
+                        yourself).
                         i > 1 ifTrue: [
                             s add: (Dictionary new
                                 at: 't' put: 'r';
                                 at: 'v' put: (p ifTrue: [ ',' , String lf , (t repeat: childD) ] ifFalse: [ ', ' ]);
                                 at: 'd' put: childD;
-                                yourself).
+                            yourself).
                         ].
                     ].
                     s add: (Dictionary new
                         at: 't' put: 'r';
                         at: 'v' put: (p ifTrue: [ '[' , String lf , (t repeat: childD) ] ifFalse: [ '[' ]);
                         at: 'd' put: childD;
-                        yourself).
+                    yourself).
                 ].
             ].
             curT = '[object XlDict]' ifTrue: [
@@ -110,7 +110,7 @@ Smalltalk at: #WillyHorizontRuntime put: Dictionary new.
                         at: 't' put: 'r';
                         at: 'v' put: (p ifTrue: [ String lf , (t repeat: curD) , '}' ] ifFalse: [ ' }' ]);
                         at: 'd' put: curD;
-                        yourself).
+                    yourself).
                     dL size to: 1 by: -1 do: [ :i |
                         dK := (dL at: i) key.
                         dV := (dL at: i) value.
@@ -118,25 +118,25 @@ Smalltalk at: #WillyHorizontRuntime put: Dictionary new.
                             at: 't' put: 'v';
                             at: 'v' put: dV;
                             at: 'd' put: childD;
-                            yourself).
+                        yourself).
                         s add: (Dictionary new
                             at: 't' put: 'r';
                             at: 'v' put: '"' , dK asString , '": ';
                             at: 'd' put: childD;
-                            yourself).
+                        yourself).
                         i > 1 ifTrue: [
                             s add: (Dictionary new
                                 at: 't' put: 'r';
                                 at: 'v' put: (p ifTrue: [ ',' , String lf , (t repeat: childD) ] ifFalse: [ ', ' ]);
                                 at: 'd' put: childD;
-                                yourself).
+                            yourself).
                         ].
                     ].
                     s add: (Dictionary new
                         at: 't' put: 'r';
                         at: 'v' put: (p ifTrue: [ '{' , String lf , (t repeat: childD) ] ifFalse: [ '{ ' ]);
                         at: 'd' put: childD;
-                        yourself).
+                    yourself).
                 ].
             ].
             curT = '[object XlClosure]' ifTrue: [

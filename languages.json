@@ -1040,10 +1040,10 @@
         ]
     },
     {
-        "id": "smalltalk-dialect-pharo",
+        "id": "smalltalk",
         "stack": [
             { 
-                "name": "Pharo (Smalltalk dialect)",
+                "name": "Smalltalk",
                 "url": "https://pharo.org/",
                 "color": "#596706"
             }

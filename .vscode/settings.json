@@ -383,7 +383,7 @@
         ".nim": "bash $workspaceRoot/languages/nim/run.sh $dirWithoutTrailingSlash/$fileName",
         ".odin": "bash $workspaceRoot/languages/odin/run.sh $dirWithoutTrailingSlash/$fileName",
         ".cpp": "bash $workspaceRoot/languages/c-plus-plus/run.sh $dirWithoutTrailingSlash/$fileName",
-        ".st": "bash $workspaceRoot/languages/smalltalk-dialect-pharo/run.sh $dirWithoutTrailingSlash/$fileName",
+        ".st": "bash $workspaceRoot/languages/smalltalk/run.sh $dirWithoutTrailingSlash/$fileName",
         ".as": "bash $workspaceRoot/languages/actionscript/run.sh $dirWithoutTrailingSlash/$fileName",
 
         // ".mojo": "bash ./languages/mojo/run.sh $fileName",
@@ -423,7 +423,7 @@
         "odin": "bash $workspaceRoot/languages/odin/run.sh $dirWithoutTrailingSlash/$fileName",
         "cpp": "bash $workspaceRoot/languages/c-plus-plus/run.sh $dirWithoutTrailingSlash/$fileName",
         "objective-c": "bash $workspaceRoot/languages/objective-c/run.sh $dirWithoutTrailingSlash/$fileName",
-        "smalltalk": "bash $workspaceRoot/languages/smalltalk-dialect-pharo/run.sh $dirWithoutTrailingSlash/$fileName",
+        "smalltalk": "bash $workspaceRoot/languages/smalltalk/run.sh $dirWithoutTrailingSlash/$fileName",
         "actionscript": "bash $workspaceRoot/languages/actionscript/run.sh $dirWithoutTrailingSlash/$fileName",
         "groovy": "bash $workspaceRoot/languages/groovy/run.sh $dirWithoutTrailingSlash/$fileName",
 

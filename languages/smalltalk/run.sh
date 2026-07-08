@@ -17,7 +17,7 @@ X="${FNX##*.}"
 RD="$(realpath "$SD/../..")"
 RN="$(basename "$RD")"
 
-PTRFNX="$RD/runtimes/smalltalk-dialect-pharo/runtime/willyhorizont/runtime.st"
+PTRFNX="$RD/runtimes/smalltalk/runtime/willyhorizont/runtime.st"
 if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
     echo "usage:"
     echo "\"$SD/run.sh\" path/to/*.$LID"
