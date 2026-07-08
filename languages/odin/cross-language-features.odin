@@ -5,13 +5,13 @@ import "core:strings"
 import xl "willyhorizont/runtime"
 
 main :: proc() {
-    glob_scope := xl.reg_scope(nil)
+    glb_scp := xl.reg_scope(nil)
     /*
     1. support function as value
     */
     say_hello := xl.Closure{
-        call = proc(self: ^xl.Closure, varargs: ..xl.Type) -> xl.Type {
-            itr := xl.iter(..varargs) 
+        call = proc(self: ^xl.Closure, va: ..xl.Type) -> xl.Type {
+            itr := xl.iter(..va) 
             callback_function := xl.next(&itr).(xl.Closure)
             fmt.println("hello")
             callback_function.call(&callback_function)
@@ -19,26 +19,26 @@ main :: proc() {
         },
     }
     say_hello.call(&say_hello, xl.Closure{
-        call = proc(self: ^xl.Closure, varargs: ..xl.Type) -> xl.Type {
+        call = proc(self: ^xl.Closure, va: ..xl.Type) -> xl.Type {
             fmt.println("world")
             return nil
         },
     })
     create_multiplier := xl.Closure{
-        value = glob_scope, 
-        call = proc(self: ^xl.Closure, varargs: ..xl.Type) -> xl.Type {
-            itr := xl.iter(..varargs) 
+        value = glb_scp, 
+        call = proc(self: ^xl.Closure, va: ..xl.Type) -> xl.Type {
+            itr := xl.iter(..va) 
             aa := xl.next(&itr)
             par_scp := (^xl.Scope)(self.value)
-            lcl_scp := xl.reg_scope(par_scp)
-            lcl_scp.var["aa"] = aa.(xl.Int)
             return xl.Closure{
-                value = lcl_scp, 
-                call  = proc(self: ^xl.Closure, varargs: ..xl.Type) -> xl.Type {
-                    itr := xl.iter(..varargs)
+                value = xl.reg_scope(par_scp, xl.Dict{
+                    "aa" = aa.(xl.Int),
+                }), 
+                call  = proc(self: ^xl.Closure, va: ..xl.Type) -> xl.Type {
+                    itr := xl.iter(..va)
                     bb := xl.next(&itr)
                     par_scp := (^xl.Scope)(self.value)
-                    aa, _ := xl.get_var(par_scp, "aa")
+                    aa := xl.get_var(par_scp, "aa")
                     return xl.Int(aa.(xl.Int) * bb.(xl.Int))
                 },
             }
@@ -65,8 +65,8 @@ main :: proc() {
         xl.List{1, 2, 3},
         xl.Dict{"foo" = "bar"},
         xl.Closure{
-            call = proc(self: ^xl.Closure, varargs: ..xl.Type) -> xl.Type {
-                itr := xl.iter(..varargs) 
+            call = proc(self: ^xl.Closure, va: ..xl.Type) -> xl.Type {
+                itr := xl.iter(..va) 
                 aa := xl.next(&itr).(xl.Int)
                 bb := xl.next(&itr).(xl.Int)
                 return xl.Int(aa * bb)
@@ -87,8 +87,8 @@ main :: proc() {
         "xl_list" = xl.List{1, 2, 3},
         "xl_dict" = xl.Dict{"foo" = "bar"},
         "xl_closure" = xl.Closure{
-            call = proc(self: ^xl.Closure, varargs: ..xl.Type) -> xl.Type {
-                itr := xl.iter(..varargs) 
+            call = proc(self: ^xl.Closure, va: ..xl.Type) -> xl.Type {
+                itr := xl.iter(..va) 
                 aa := xl.next(&itr).(xl.Int)
                 bb := xl.next(&itr).(xl.Int)
                 return xl.Int(aa * bb)
@@ -103,5 +103,5 @@ main :: proc() {
     xl.unreg_scope((^xl.Scope)(multiply_by_eight.value))
     delete(xl_list)
     delete(xl_dict)
-    xl.unreg_scope(glob_scope)
+    xl.unreg_scope(glb_scp)
 }

@@ -48,22 +48,27 @@ Scope :: struct {
     var: Dict,
 }
 
-reg_scope :: proc(outer: ^Scope = nil) -> ^Scope {
+reg_scope :: proc(outer: ^Scope = nil, initial_vars: ..Dict) -> ^Scope {
     s := new(Scope)
     s.outer = outer
     s.var = make(Dict)
+    if len(initial_vars) > 0 {
+        for k, v in initial_vars[0] {
+            s.var[k] = v
+        }
+    }
     return s
 }
 
-get_var :: proc(s: ^Scope, name: String) -> (Type, Bool) {
+get_var :: proc(s: ^Scope, name: String) -> Type {
     c := s
     for c != nil {
         if v, ok := c.var[name]; ok {
-            return v, true
+            return v
         }
         c = c.outer
     }
-    return nil, false
+    return nil
 }
 
 set_var :: proc(s: ^Scope, name: String, value: Type) -> Bool {
