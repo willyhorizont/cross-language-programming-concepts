@@ -9,8 +9,9 @@ Int :: int
 Float :: f64
 List :: [dynamic]Type
 Dict :: map[String]Type
+Pair :: struct { key: String, value: Type }
 Closure :: struct {
-	state: rawptr,
+	value: rawptr,
 	call: proc(self: ^Closure, varargs: ..Type) -> Type,
 }
 
@@ -24,169 +25,207 @@ Type :: union {
     Closure,
 }
 
-to_xl_bool :: proc(v: Bool) -> Type {
-	return Type(Bool(v))
+Iterator :: struct {
+    args: []Type, 
+    idx:  int,    
 }
 
-to_xl_string :: proc(v: String) -> Type {
-	return Type(String(v))
+iter :: proc(varargs: ..Type) -> Iterator {
+    return Iterator{ args = varargs, idx = 0 }
 }
 
-to_xl_int :: proc(v: Int) -> Type {
-	return Type(Int(v))
+next :: proc(it: ^Iterator) -> Type {
+    if it.idx >= len(it.args) {
+        return nil 
+    }
+    v := it.args[it.idx]
+    it.idx += 1
+    return v
 }
 
-to_xl_float :: proc(v: Float) -> Type {
-	return Type(Float(v))
+Scope :: struct {
+    outer: ^Scope,
+    var: Dict,
 }
 
-to_xl_list :: proc(v: List) -> Type {
-	return Type(v)
+reg_scope :: proc(outer: ^Scope = nil) -> ^Scope {
+    s := new(Scope)
+    s.outer = outer
+    s.var = make(Dict)
+    return s
 }
 
-to_xl_dict :: proc(v: Dict) -> Type {
-	return Type(v)
-}
-
-to_xl_closure :: proc(v: Closure) -> Type {
-	return Type(v)
-}
-
-to_xl_self :: proc(v: Type) -> Type {
-	return v
-}
-
-to_xl :: proc{
-	to_xl_bool,
-	to_xl_string,
-	to_xl_int,
-	to_xl_float,
-	to_xl_list,
-	to_xl_dict,
-	to_xl_closure,
-	to_xl_self,
-}
-
-to_odin_string :: proc(any_xl_value: Type) -> String {
-	if any_xl_value == nil do return "null"
-	#partial switch xl_value in any_xl_value {
-	case Bool:
-		return fmt.tprintf("%t", xl_value)
-	case String:
-		return fmt.tprintf("\"%s\"", xl_value)
-	case Int:
-		return fmt.tprintf("%d", xl_value)
-	case Float:
-		return fmt.tprintf("%f", xl_value)
-	case Closure:
-		return "\"[object Function]\""
-	case List:
-		return xl_json_stringify(xl_value)
-	case Dict:
-		return xl_json_stringify(xl_value)
-	}
-	return ""
-}
-
-// TODO
-xl_json_stringify :: proc(val: Type, options: struct { pretty: Bool } = {}) -> String {
-    pretty := options.pretty
-	if val == nil do return "null"
-
-	#partial switch self in val {
-	case Bool, String, Int, Float, Closure:
-		return to_odin_string(val)
-	}
-
-	Frame :: struct {
-		val:     Type,
-		is_dict: Bool,
-		keys:    [dynamic]String,
-		index:   Int,
-		total:   Int,
-	}
-
-	b := strings.builder_make()
-	stack: [dynamic]Frame
-	defer {
-		for frame in stack {
-			if frame.is_dict do delete(frame.keys)
-		}
-		delete(stack)
-	}
-
-	if list, is_list := val.(List); is_list {
-		append(&stack, Frame{val = val, is_dict = false, index = 0, total = len(list)})
-		strings.write_string(&b, "[")
-		if pretty do strings.write_string(&b, "\n")
-	} else if dict, is_dict := val.(Dict); is_dict {
-		dict_keys := make([dynamic]String, 0, len(dict))
-		for k in dict do append(&dict_keys, k)
-		append(&stack, Frame{val = val, is_dict = true, keys = dict_keys, index = 0, total = len(dict_keys)})
-		strings.write_string(&b, "{")
-		if pretty do strings.write_string(&b, "\n")
-	}
-
-	for len(stack) > 0 {
-		top_idx := len(stack) - 1
-		frame := &stack[top_idx]
-		current_depth := len(stack)
-
-		if frame.index >= frame.total {
-			if pretty do strings.write_string(&b, "\n")
-            if pretty {
-                for _ in 0..<(current_depth - 1) do strings.write_string(&b, "    ")
-            }
-			if frame.is_dict {
-				strings.write_string(&b, "}")
-				delete(frame.keys)
-			} else {
-				strings.write_string(&b, "]")
-			}
-			pop(&stack)
-			continue
-		}
-
-		if frame.index > 0 {
-			if pretty do strings.write_string(&b, ",\n")
-			else do strings.write_string(&b, ",")
-		}
-        if pretty {
-            for _ in 0..<current_depth do strings.write_string(&b, "    ")
+get_var :: proc(s: ^Scope, name: String) -> (Type, Bool) {
+    c := s
+    for c != nil {
+        if v, ok := c.var[name]; ok {
+            return v, true
         }
+        c = c.outer
+    }
+    return nil, false
+}
 
-		current_item: Type
-		if frame.is_dict {
-			key := frame.keys[frame.index]
-			if pretty do fmt.sbprintf(&b, "\"%s\": ", key)
-			else do fmt.sbprintf(&b, "\"%s\":", key)
-			dict_map := frame.val.(Dict)
-			current_item = dict_map[key]
-		} else {
-			list_arr := frame.val.(List)
-			current_item = list_arr[frame.index]
-		}
+set_var :: proc(s: ^Scope, name: String, value: Type) -> Bool {
+    c := s
+    for c != nil {
+        if _, ok := c.var[name]; ok {
+            c.var[name] = value
+            return true
+        }
+        c = c.outer
+    }
+    s.var[name] = value 
+    return false
+}
 
-		frame.index += 1
+unreg_scope :: proc(s: ^Scope) {
+    if s == nil do return
+    delete(s.var)
+    free(s)
+}
 
-		if current_item == nil {
-			strings.write_string(&b, "null")
-		} else {
-			#partial switch child in current_item {
-			case Bool, String, Int, Float, Closure:
-				strings.write_string(&b, to_odin_string(current_item))
-			case List:
-				append(&stack, Frame{val = current_item, is_dict = false, index = 0, total = len(child)})
-				strings.write_string(&b, "[")
-				if pretty do strings.write_string(&b, "\n")
-			case Dict:
-				child_keys := make([dynamic]String, 0, len(child))
-				for k in child do append(&child_keys, k)
-				append(&stack, Frame{val = current_item, is_dict = true, keys = child_keys, index = 0, total = len(child_keys)})
-				strings.write_string(&b, "{")
-				if pretty do strings.write_string(&b, "\n")
-			}
-		}
-	}
-	return strings.to_string(b)
+string_repeat :: proc(a: String, n: Int) -> String {
+    s := strings.builder_make(context.temp_allocator) 
+    for _ in 0..<n {
+        strings.write_string(&s, string(a))
+    }
+    return strings.to_string(s)
+}
+
+json_stringify :: proc(a: Type, o: struct { pretty: Bool } = {}) -> String {
+    pretty := o.pretty
+    if a == nil do return "null"
+    t := string_repeat(" ", 4)
+    Tok :: struct {
+        t: String,
+        v: Type,
+        r: String,
+        d: Int,
+    }
+    s: [dynamic]Tok
+    append(&s, Tok{t = "v", v = a, r = "", d = 0})
+    r := strings.builder_make()
+    for len(s) > 0 {
+        c := pop(&s)
+        if c.t == "r" {
+            strings.write_string(&r, c.r)
+            continue
+        }
+        v := c.v
+        cur_d := c.d
+        if v == nil {
+            strings.write_string(&r, "null")
+            continue
+        }
+        if bv, ok := v.(Bool); ok {
+            strings.write_string(&r, bv ? "true" : "false")
+            continue
+        }
+        if sv, ok := v.(String); ok {
+            strings.write_string(&r, "\"")
+            strings.write_string(&r, sv)
+            strings.write_string(&r, "\"")
+            continue
+        }
+        if iv, ok := v.(Int); ok {
+            fmt.sbprint(&r, iv)
+            continue
+        }
+        if fv, ok := v.(Float); ok {
+            fmt.sbprint(&r, fv)
+            continue
+        }
+        if _, ok := v.(Closure); ok {
+            strings.write_string(&r, "\"[object Function]\"")
+            continue
+        }
+        if lv, ok := v.(List); ok {
+            if len(lv) == 0 {
+                strings.write_string(&r, "[]")
+                continue
+            }
+            child_d := cur_d + 1
+            append(&s, Tok{
+                t = "r",
+                v = nil,
+                r = pretty ? strings.concatenate({"\n", string_repeat(t, cur_d), "]"}, context.temp_allocator) : "]",
+                d = cur_d,
+            })
+            for i := len(lv) - 1; i >= 0; i -= 1 {
+                append(&s, Tok{
+                    t = "v",
+                    v = lv[i],
+                    r = "",
+                    d = child_d,
+                })
+                if i > 0 {
+                    append(&s, Tok{
+                        t = "r",
+                        v = nil,
+                        r = pretty ? strings.concatenate({",\n", string_repeat(t, child_d)}, context.temp_allocator) : ",",
+                        d = child_d,
+                    })
+                }
+            }
+            append(&s, Tok{
+                t = "r",
+                v = nil,
+                r = pretty ? strings.concatenate({"[\n", string_repeat(t, child_d)}, context.temp_allocator) : "[",
+                d = child_d,
+            })
+            continue
+        }
+        if dv, ok := v.(Dict); ok {
+            if len(dv) == 0 {
+                strings.write_string(&r, "{}")
+                continue
+            }
+            child_d := cur_d + 1
+            append(&s, Tok{
+                t = "r",
+                v = nil,
+                r = pretty ? strings.concatenate({"\n", string_repeat(t, cur_d), "}"}, context.temp_allocator) : "}",
+                d = cur_d,
+            })
+            dpl: [dynamic]Pair
+            for dpk, dpv in dv {
+                append(&dpl, Pair{key = dpk, value = dpv})
+            }
+            for i := len(dpl) - 1; i >= 0; i -= 1 {
+                dp := dpl[i]
+                append(&s, Tok{
+                    t = "v",
+                    v = dp.value,
+                    r = "",
+                    d = child_d
+                })
+                append(&s, Tok{
+                    t = "r",
+                    v = nil,
+                    r = pretty ? fmt.tprintf("\"%s\": ", dp.key) : fmt.tprintf("\"%s\":", dp.key),
+                    d = child_d
+                })
+                if i > 0 {
+                    append(&s, Tok{
+                        t = "r",
+                        v = nil,
+                        r = pretty ? strings.concatenate({",\n", string_repeat(t, child_d)}, context.temp_allocator) : ",",
+                        d = child_d
+                    })
+                }
+            }
+            append(&s, Tok{
+                t = "r",
+                v = nil,
+                r = pretty ? strings.concatenate({"{\n", string_repeat(t, child_d)}, context.temp_allocator) : "{",
+                d = child_d
+            })
+            delete(dpl)
+            continue
+        }
+        strings.write_string(&r, "\"[objct \\\"Odin Object\\\"]\"")
+    }
+    delete(s)
+    return strings.to_string(r)
 }

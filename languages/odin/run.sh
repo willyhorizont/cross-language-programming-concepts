@@ -17,6 +17,13 @@ X="${FNX##*.}"
 RD="$(realpath "$SD/../..")"
 RN="$(basename "$RD")"
 
+PTRFNX="$RD/runtimes/odin/willyhorizont/runtime/runtime.odin"
+if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
+    echo "usage:"
+    echo "\"$SD/run.sh\" path/to/*.$LID"
+    exit 1
+fi
+
 LEF="$RD/.env.$LID"
 
 if [ -f "$LEF" ]; then
@@ -64,5 +71,3 @@ docker run -i --rm \
 
         $CCRLC
     "
-
-rm -f "$PTTFNXD/$TFN.$X"

@@ -1,3 +1,7 @@
+[Last updated: 08 Jul 2026 @ 08:26 AM]
+version 2.7.8:
+finish odin runtime init
+
 [Last updated: 08 Jul 2026 @ 04:28 AM]
 version 2.7.7:
 small update in cpp go odin

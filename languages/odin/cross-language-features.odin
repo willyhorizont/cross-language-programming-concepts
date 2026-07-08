@@ -1,59 +1,54 @@
 #+feature dynamic-literals
 package main
-
 import "core:fmt"
 import "core:strings"
 import xl "willyhorizont/runtime"
 
 main :: proc() {
+    glob_scope := xl.reg_scope(nil)
     /*
     1. support function as value
     */
     say_hello := xl.Closure{
-        state = nil,
         call = proc(self: ^xl.Closure, varargs: ..xl.Type) -> xl.Type {
-            callback_function := varargs[0].(xl.Closure)
+            itr := xl.iter(..varargs) 
+            callback_function := xl.next(&itr).(xl.Closure)
             fmt.println("hello")
             callback_function.call(&callback_function)
             return nil
         },
     }
     say_hello.call(&say_hello, xl.Closure{
-        state = nil,
         call = proc(self: ^xl.Closure, varargs: ..xl.Type) -> xl.Type {
             fmt.println("world")
             return nil
         },
     })
-    free(say_hello.state)
-
     create_multiplier := xl.Closure{
-        state = nil,
+        value = glob_scope, 
         call = proc(self: ^xl.Closure, varargs: ..xl.Type) -> xl.Type {
-            aa := varargs[0].(xl.Int)
-
-            current_state := new(struct { aa: xl.Int })
-            current_state.aa = aa
-
+            itr := xl.iter(..varargs) 
+            aa := xl.next(&itr)
+            par_scp := (^xl.Scope)(self.value)
+            lcl_scp := xl.reg_scope(par_scp)
+            lcl_scp.var["aa"] = aa.(xl.Int)
             return xl.Closure{
-                state = current_state,
+                value = lcl_scp, 
                 call  = proc(self: ^xl.Closure, varargs: ..xl.Type) -> xl.Type {
-                    bb := varargs[0].(xl.Int)
-
-                    current_state := (^struct { aa: xl.Int })(self.state)
-
-                    return xl.Int(current_state.aa * bb)
+                    itr := xl.iter(..varargs)
+                    bb := xl.next(&itr)
+                    par_scp := (^xl.Scope)(self.value)
+                    aa, _ := xl.get_var(par_scp, "aa")
+                    return xl.Int(aa.(xl.Int) * bb.(xl.Int))
                 },
             }
         },
     }
     multiply_by_two := create_multiplier.call(&create_multiplier, 2).(xl.Closure)
-    fmt.println(strings.concatenate([]string{"multiply_by_two(10): ", xl.to_odin_string(multiply_by_two.call(&multiply_by_two, 10))}))
     multiply_by_eight := create_multiplier.call(&create_multiplier, 8).(xl.Closure)
-    fmt.println(strings.concatenate([]string{"multiply_by_eight(4): ", xl.to_odin_string(multiply_by_eight.call(&multiply_by_eight, 4))}))
-    fmt.println(strings.concatenate([]string{"multiply_by_two(8): ", xl.to_odin_string(multiply_by_two.call(&multiply_by_two, 8))}))
-    free(multiply_by_two.state)
-    free(multiply_by_eight.state)
+    fmt.printfln("multiply_by_two(10): %d", multiply_by_two.call(&multiply_by_two, 10).(xl.Int))
+    fmt.printfln("multiply_by_eight(4): %d", multiply_by_eight.call(&multiply_by_eight, 4).(xl.Int))
+    fmt.printfln("multiply_by_two(8): %d", multiply_by_two.call(&multiply_by_two, 8).(xl.Int))
 
     /*
     2. support dynamic-typed value, or has workaround
@@ -70,17 +65,16 @@ main :: proc() {
         xl.List{1, 2, 3},
         xl.Dict{"foo" = "bar"},
         xl.Closure{
-            state = nil,
             call = proc(self: ^xl.Closure, varargs: ..xl.Type) -> xl.Type {
-                aa := varargs[0].(xl.Int)
-                bb := varargs[1].(xl.Int)
+                itr := xl.iter(..varargs) 
+                aa := xl.next(&itr).(xl.Int)
+                bb := xl.next(&itr).(xl.Int)
                 return xl.Int(aa * bb)
             },
         },
     }
-    defer delete(xl_list)
-    fmt.println(strings.concatenate([]string{"xl_list: ", xl.xl_json_stringify(xl_list)}))
-    fmt.println(strings.concatenate([]string{"xl_list: ", xl.xl_json_stringify(xl_list, {pretty = true})}))
+    fmt.println(strings.concatenate([]string{"xl_list: ", xl.json_stringify(xl_list)}, context.temp_allocator))
+    fmt.println(strings.concatenate([]string{"xl_list: ", xl.json_stringify(xl_list, {pretty = true})}, context.temp_allocator))
     xl_dict := xl.Dict{
         "xl_none" = nil,
         "xl_bool_true" = true,
@@ -93,15 +87,21 @@ main :: proc() {
         "xl_list" = xl.List{1, 2, 3},
         "xl_dict" = xl.Dict{"foo" = "bar"},
         "xl_closure" = xl.Closure{
-            state = nil,
             call = proc(self: ^xl.Closure, varargs: ..xl.Type) -> xl.Type {
-                aa := varargs[0].(xl.Int)
-                bb := varargs[1].(xl.Int)
+                itr := xl.iter(..varargs) 
+                aa := xl.next(&itr).(xl.Int)
+                bb := xl.next(&itr).(xl.Int)
                 return xl.Int(aa * bb)
             },
         },
     }
-    defer delete(xl_dict)
-    fmt.println(strings.concatenate([]string{"xl_dict: ", xl.xl_json_stringify(xl_dict)}))
-    fmt.println(strings.concatenate([]string{"xl_dict: ", xl.xl_json_stringify(xl_dict, {pretty = true})}))
+    fmt.println(strings.concatenate([]string{"xl_dict: ", xl.json_stringify(xl_dict)}, context.temp_allocator))
+    fmt.println(strings.concatenate([]string{"xl_dict: ", xl.json_stringify(xl_dict, {pretty = true})}, context.temp_allocator))
+
+    free(say_hello.value)
+    xl.unreg_scope((^xl.Scope)(multiply_by_two.value))
+    xl.unreg_scope((^xl.Scope)(multiply_by_eight.value))
+    delete(xl_list)
+    delete(xl_dict)
+    xl.unreg_scope(glob_scope)
 }
