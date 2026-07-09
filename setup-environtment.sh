@@ -54,6 +54,7 @@ code --install-extension ziglang.vscode-zig
 code --install-extension Gleam.gleam
 code --install-extension JakeBecker.elixir-ls
 code --install-extension pgourlain.erlang
+code --install-extension ocamllabs.ocaml-platform
 
 eval "$RD/tools/vscode-extensions/vim9script-syntax-highlighter/install.sh"
 

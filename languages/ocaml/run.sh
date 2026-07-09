@@ -12,7 +12,7 @@ PTFNX="$1"
 PTFNXD="$(dirname "$PTFNX")"
 FNX="$(basename "$PTFNX")"
 FN="${FNX%.*}"
-X="${FNX##*.}"
+FX="${FNX##*.}"
 
 RD="$(realpath "$SD/../..")"
 RN="$(basename "$RD")"
@@ -27,28 +27,11 @@ IMG=$("$RD/tools/utils.sh" --get-docker-image $LID 2>/dev/null)
 
 L=$("$RD/tools/utils.sh" --print-sep)
 
-PTTFNXD="$RD/runtimes/$LID/runtime"
+PTTFNXD="$RD/runtimes/$LID"
 TFN="main"
-PTTFNX="$PTTFNXD/$TFN.$X"
+PTTFNX="$PTTFNXD/$TFN.$FX"
 
 mkdir -p "$PTTFNXD"
-# cp -f "$PTFNX" "$PTTFNX"
-
-if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
-    CIR="
-        eval \$(opam env)
-        ocamlopt -c \"$PTTFNXD/willyhorizont.ml\"
-    "
-    docker run -i --rm \
-        --entrypoint bash \
-        -v "$RD:$RD" \
-        "$IMG" \
-        -c "
-            $CIR
-        "
-    echo "IS_RUNTIME_INSTALLED=\"TRUE\"" > "$LEF"
-fi
-
 cp -f "$PTFNX" "$PTTFNX"
 
 CPV="
@@ -59,10 +42,39 @@ echo \">ocamlc --version\"
 ocamlc --version
 "
 
+PTRFNX="$PTTFNXD/willyhorizont/runtime/runtime.ml"
+PTRFNXD="$(dirname "$PTRFNX")"
+RFNX="$(basename "$PTRFNX")"
+RFN="${RFNX%.*}"
+RX="${RFNX##*.}"
+
 CRLC="
-ocamlopt -I \"$PTTFNXD\" -o \"$PTTFNXD/$TFN\" \"$PTTFNXD/willyhorizont.cmx\" \"$PTTFNXD/$TFN.$X\"
+eval \$(opam env)
 cd \"$PTTFNXD\"
+rm -f \"$PTTFNXD/$TFN\"
+rm -f \"$PTTFNXD\"/*.cmi
+rm -f \"$PTTFNXD\"/*.cmo
+rm -f \"$PTTFNXD\"/*.cmx
+rm -f \"$PTRFNXD\"/*.o
+rm -f \"$PTRFNXD\"/*.cmi
+rm -f \"$PTRFNXD\"/*.cmo
+rm -f \"$PTRFNXD\"/*.cmx
+rm -f \"$PTRFNXD\"/*.cmx
+ocamlc -c -for-pack Willyhorizont \"$PTRFNX\"
+ocamlc -pack -o willyhorizont.cmo \"$PTRFNXD/$RFN.cmo\"
+ocamlc -c \"$PTTFNXD/$TFN.ml\"
+ocamlc -o $TFN \"$PTTFNXD/willyhorizont.cmo\" \"$PTTFNXD/$TFN.cmo\"
 ./$TFN
+rm -f \"$PTTFNXD/$TFN\"
+rm -f \"$PTTFNXD\"/*.cmi
+rm -f \"$PTTFNXD\"/*.cmo
+rm -f \"$PTTFNXD\"/*.cmx
+rm -f \"$PTRFNXD\"/*.o
+rm -f \"$PTRFNXD\"/*.cmi
+rm -f \"$PTRFNXD\"/*.cmo
+rm -f \"$PTRFNXD\"/*.cmx
+rm -f \"$PTRFNXD\"/*.cmx
+cd \"$RD\"
 "
 
 docker run -i --rm \
@@ -76,9 +88,3 @@ docker run -i --rm \
 
         $CRLC
     "
-
-rm -f "$PTTFNXD/$TFN.cmi"
-rm -f "$PTTFNXD/$TFN.cmx"
-rm -f "$PTTFNXD/$TFN.ml"
-rm -f "$PTTFNXD/$TFN.o"
-rm -f "$PTTFNXD/$TFN"

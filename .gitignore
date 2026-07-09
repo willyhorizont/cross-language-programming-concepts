@@ -21,9 +21,18 @@ Main.java
 runtimes/typst/willyhorizont/output/typst/
 *.pdf
 
-runtimes/ocaml/runtime/willyhorizont.cmi
-runtimes/ocaml/runtime/willyhorizont.cmx
-runtimes/ocaml/runtime/willyhorizont.o
+runtimes/ocaml/main
+runtimes/ocaml/main.ml
+
+runtimes/ocaml/*.cmi
+runtimes/ocaml/*.cmo
+runtimes/ocaml/*.cmx
+runtimes/ocaml/*.o
+
+runtimes/ocaml/willyhorizont/runtime/*.cmi
+runtimes/ocaml/willyhorizont/runtime/*.cmo
+runtimes/ocaml/willyhorizont/runtime/*.cmx
+runtimes/ocaml/willyhorizont/runtime/*.o
 
 runtimes/odin/main.odin
 runtimes/gleam/main/
