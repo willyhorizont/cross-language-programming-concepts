@@ -21,37 +21,14 @@ pub fn call(c: Xl, va: List(Xl)) -> Xl {
     }
 }
 
-pub fn none() -> Xl {
-    None
-}
-
-pub fn bool(b: Bool) -> Xl {
-    Bool(b)
-}
-
-pub fn string(s: String) -> Xl {
-    String(s)
-}
-
-pub fn int(n: Int) -> Xl {
-    Int(n)
-}
-
-pub fn float(f: Float) -> Xl {
-    Float(f)
-}
-
-pub fn list(l: List(Xl)) -> Xl {
-    List(l)
-}
-
-pub fn dict(p: List(#(String, Xl))) -> Xl {
-    Dict(dict.from_list(p))
-}
-
-pub fn closure(f: fn(List(Xl)) -> Xl) -> Xl {
-    Closure(f)
-}
+pub fn none() -> Xl { None }
+pub fn bool(b: Bool) -> Xl { Bool(b) }
+pub fn string(s: String) -> Xl { String(s) }
+pub fn int(n: Int) -> Xl { Int(n) }
+pub fn float(f: Float) -> Xl { Float(f) }
+pub fn list(l: List(Xl)) -> Xl { List(l) }
+pub fn dict(p: List(#(String, Xl))) -> Xl { Dict(dict.from_list(p)) }
+pub fn closure(f: fn(List(Xl)) -> Xl) -> Xl { Closure(f) }
 
 pub fn to_bool(v: Xl) -> Bool {
     case v {
@@ -86,9 +63,6 @@ pub fn to_string(v: Xl) -> String {
 
 pub fn to_int(v: Xl) -> Int {
     case v {
-        None -> 0
-        Bool(True) -> 1
-        Bool(False) -> 0
         String(s) -> {
             case int.parse(s) {
                 Ok(n) -> n
@@ -97,17 +71,12 @@ pub fn to_int(v: Xl) -> Int {
         }
         Int(n) -> n
         Float(f) -> float.round(f)
-        List(_) -> 0
-        Dict(_) -> 0
-        Closure(_) -> 0
+        _ -> 0
     }
 }
 
 pub fn to_float(v: Xl) -> Float {
     case v {
-        None -> 0.0
-        Bool(True) -> 1.0
-        Bool(False) -> 0.0
         String(s) -> {
             case float.parse(s) {
                 Ok(f) -> f
@@ -116,9 +85,7 @@ pub fn to_float(v: Xl) -> Float {
         }
         Int(n) -> int.to_float(n)
         Float(f) -> f
-        List(_) -> 0.0
-        Dict(_) -> 0.0
-        Closure(_) -> 0.0
+        _ -> 0.0
     }
 }
 
@@ -153,37 +120,74 @@ pub fn at(l: List(Xl), i: Int) -> Xl {
     }
 }
 
-type StkEl {
-    Raw(v: String)
-    Val(v: Xl, d: Int)
+type JifyStkEl {
+    JifyStkElR(v: String)
+    JifyStkElV(v: Xl, d: Int)
 }
 
-pub fn json_stringify(a: Xl) -> String {
-    let #(x, o) = case a {
-        List([fa, sa, ..]) -> #(fa, sa)
-        List([fa]) -> #(fa, None)
-        _ -> #(a, None)
-    }
-    let p = case o {
-        Dict(d) -> {
-            case dict.get(d, "pretty") {
-                Ok(v) -> to_bool(v)
-                Error(_) -> False
+fn jify_list(
+    l: List(Xl),
+    child_d: Int,
+    p: Bool,
+    t: String,
+    acc_stk: List(JifyStkEl),
+) -> List(JifyStkEl) {
+    case l {
+        [] -> acc_stk
+        [head, ..tail] -> {
+            let next_acc = [JifyStkElV(head, child_d), ..acc_stk]
+            let next_acc_p = case tail {
+                [] -> next_acc
+                _ -> {
+                    let slelsep = case p {
+                        True -> ",\n" <> string.repeat(t, child_d)
+                        False -> ","
+                    }
+                    [JifyStkElR(slelsep), ..next_acc]
+                }
             }
+            jify_list(tail, child_d, p, t, next_acc_p)
         }
-        _ -> False
     }
-    let s = [Val(x, 0)]
-    jify_loop(s, "", p)
 }
 
-fn jify_loop(s: List(StkEl), r: String, p: Bool) -> String {
+fn jify_dict(
+    dpl: List(#(String, Xl)),
+    child_d: Int,
+    p: Bool,
+    t: String,
+    acc_stk: List(JifyStkEl),
+) -> List(JifyStkEl) {
+    case dpl {
+        [] -> acc_stk
+        [#(k, v), ..tail] -> {
+            let sdkp = case p {
+                True -> "\"" <> k <> "\": "
+                False -> "\"" <> k <> "\":"
+            }
+            let next_acc = [JifyStkElR(sdkp), JifyStkElV(v, child_d), ..acc_stk]
+            let next_acc_p = case tail {
+                [] -> next_acc
+                _ -> {
+                    let sdelsep = case p {
+                        True -> ",\n" <> string.repeat(t, child_d)
+                        False -> ","
+                    }
+                    [JifyStkElR(sdelsep), ..next_acc]
+                }
+            }
+            jify_dict(tail, child_d, p, t, next_acc_p)
+        }
+    }
+}
+
+fn jify_loop(s: List(JifyStkEl), r: String, p: Bool) -> String {
     case s {
         [] -> r
-        [Raw(v), ..ns] -> {
+        [JifyStkElR(v), ..ns] -> {
             jify_loop(ns, r <> v, p)
         }
-        [Val(v, cur_d), ..ns] -> {
+        [JifyStkElV(v, cur_d), ..ns] -> {
             let t = string.repeat(" ", 4)
             let child_d = cur_d + 1
             case v {
@@ -202,13 +206,12 @@ fn jify_loop(s: List(StkEl), r: String, p: Bool) -> String {
                                 True -> "\n" <> string.repeat(t, cur_d) <> "]"
                                 False -> "]"
                             }
-                            let slcbp = [Raw(slcb), ..ns]
-                            let slel = jify_list(lv, child_d, p, t, slcbp)
+                            let slel = jify_list(lv, child_d, p, t, [JifyStkElR(slcb), ..ns])
                             let slob = case p {
                                 True -> "[\n" <> string.repeat(t, child_d)
                                 False -> "["
                             }
-                            jify_loop([Raw(slob), ..slel], r, p)
+                            jify_loop([JifyStkElR(slob), ..slel], r, p)
                         }
                     }
                 }
@@ -221,13 +224,12 @@ fn jify_loop(s: List(StkEl), r: String, p: Bool) -> String {
                                 True -> "\n" <> string.repeat(t, cur_d) <> "}"
                                 False -> "}"
                             }
-                            let sdcbp = [Raw(sdcb), ..ns]
-                            let sdel = jify_dict(dpl, child_d, p, t, sdcbp)
+                            let sdel = jify_dict(dpl, child_d, p, t, [JifyStkElR(sdcb), ..ns])
                             let sdob = case p {
                                 True -> "{\n" <> string.repeat(t, child_d)
                                 False -> "{"
                             }
-                            jify_loop([Raw(sdob), ..sdel], r, p)
+                            jify_loop([JifyStkElR(sdob), ..sdel], r, p)
                         }
                     }
                 }
@@ -236,58 +238,21 @@ fn jify_loop(s: List(StkEl), r: String, p: Bool) -> String {
     }
 }
 
-fn jify_list(
-    l: List(Xl),
-    child_d: Int,
-    p: Bool,
-    t: String,
-    acc_stk: List(StkEl),
-) -> List(StkEl) {
-    case l {
-        [] -> acc_stk
-        [head, ..tail] -> {
-            let next_acc = [Val(head, child_d), ..acc_stk]
-            let next_acc_p = case tail {
-                [] -> next_acc
-                _ -> {
-                    let slelsep = case p {
-                        True -> ",\n" <> string.repeat(t, child_d)
-                        False -> ","
-                    }
-                    [Raw(slelsep), ..next_acc]
-                }
-            }
-            jify_list(tail, child_d, p, t, next_acc_p)
-        }
+pub fn json_stringify(a: List(Xl)) -> String {
+    let #(x, o) = case a {
+        [fa, sa, ..] -> #(fa, sa)
+        [fa] -> #(fa, None)
+        [] -> #(None, None)
     }
-}
-
-fn jify_dict(
-    dpl: List(#(String, Xl)),
-    child_d: Int,
-    p: Bool,
-    t: String,
-    acc_stk: List(StkEl),
-) -> List(StkEl) {
-    case dpl {
-        [] -> acc_stk
-        [#(k, v), ..tail] -> {
-            let sdkp = case p {
-                True -> "\"" <> k <> "\": "
-                False -> "\"" <> k <> "\":"
+    let p = case o {
+        Dict(d) -> {
+            case dict.get(d, "pretty") {
+                Ok(v) -> to_bool(v)
+                Error(_) -> False
             }
-            let next_acc = [Raw(sdkp), Val(v, child_d), ..acc_stk]
-            let next_acc_p = case tail {
-                [] -> next_acc
-                _ -> {
-                    let sdelsep = case p {
-                        True -> ",\n" <> string.repeat(t, child_d)
-                        False -> ","
-                    }
-                    [Raw(sdelsep), ..next_acc]
-                }
-            }
-            jify_dict(tail, child_d, p, t, next_acc_p)
         }
+        _ -> False
     }
+    let s = [JifyStkElV(x, 0)]
+    jify_loop(s, "", p)
 }

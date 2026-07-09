@@ -1,3 +1,7 @@
+[Last updated: 09 Jul 2026 @ 09:20 PM]
+version 2.7.16:
+small minification in gleam;
+
 [Last updated: 09 Jul 2026 @ 08:22 PM]
 version 2.7.15:
 finish add gleam runtime init;

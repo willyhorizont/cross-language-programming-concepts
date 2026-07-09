@@ -55,8 +55,8 @@ pub fn main() {
             }
         }),
     ])
-    io.println("xl_list: " <> xl.json_stringify(xl.list([xl_list])))
-    io.println("xl_list: " <> xl.json_stringify(xl.list([xl_list, xl.dict([#("pretty", xl.bool(True))])])))
+    io.println("xl_list: " <> xl.json_stringify([xl_list]))
+    io.println("xl_list: " <> xl.json_stringify([xl_list, xl.dict([#("pretty", xl.bool(True))])]))
     let xl_dict = xl.dict([
         #("xl_none", xl.none()),
         #("xl_bool_true", xl.bool(True)),
@@ -75,6 +75,6 @@ pub fn main() {
             }
         })),
     ])
-    io.println("xl_dict: " <> xl.json_stringify(xl.list([xl_dict])))
-    io.println("xl_dict: " <> xl.json_stringify(xl.list([xl_dict, xl.dict([#("pretty", xl.bool(True))])])))
+    io.println("xl_dict: " <> xl.json_stringify([xl_dict]))
+    io.println("xl_dict: " <> xl.json_stringify([xl_dict, xl.dict([#("pretty", xl.bool(True))])]))
 }
