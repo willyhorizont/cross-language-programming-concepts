@@ -27,6 +27,7 @@ runtimes/ocaml/runtime/willyhorizont.o
 
 runtimes/odin/main.odin
 runtimes/gleam/main/
+runtimes/erlang/main.erl
 
 *.zip
 *.swf

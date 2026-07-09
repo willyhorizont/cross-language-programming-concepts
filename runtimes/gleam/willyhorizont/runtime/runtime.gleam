@@ -202,16 +202,13 @@ fn jify_loop(s: List(JifyStkEl), r: String, p: Bool) -> String {
                     case lv {
                         [] -> jify_loop(ns, r <> "[]", p)
                         _ -> {
-                            let slcb = case p {
-                                True -> "\n" <> string.repeat(t, cur_d) <> "]"
-                                False -> "]"
-                            }
-                            let slel = jify_list(lv, child_d, p, t, [JifyStkElR(slcb), ..ns])
-                            let slob = case p {
+                            jify_loop([JifyStkElR(case p {
                                 True -> "[\n" <> string.repeat(t, child_d)
                                 False -> "["
-                            }
-                            jify_loop([JifyStkElR(slob), ..slel], r, p)
+                            }), ..jify_list(lv, child_d, p, t, [JifyStkElR(case p {
+                                True -> "\n" <> string.repeat(t, cur_d) <> "]"
+                                False -> "]"
+                            }), ..ns])], r, p)
                         }
                     }
                 }
@@ -220,16 +217,13 @@ fn jify_loop(s: List(JifyStkEl), r: String, p: Bool) -> String {
                     case dpl {
                         [] -> jify_loop(ns, r <> "{}", p)
                         _ -> {
-                            let sdcb = case p {
-                                True -> "\n" <> string.repeat(t, cur_d) <> "}"
-                                False -> "}"
-                            }
-                            let sdel = jify_dict(dpl, child_d, p, t, [JifyStkElR(sdcb), ..ns])
-                            let sdob = case p {
+                            jify_loop([JifyStkElR(case p {
                                 True -> "{\n" <> string.repeat(t, child_d)
                                 False -> "{"
-                            }
-                            jify_loop([JifyStkElR(sdob), ..sdel], r, p)
+                            }), ..jify_dict(dpl, child_d, p, t, [JifyStkElR(case p {
+                                True -> "\n" <> string.repeat(t, cur_d) <> "}"
+                                False -> "}"
+                            }), ..ns])], r, p)
                         }
                     }
                 }

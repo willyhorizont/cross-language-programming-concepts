@@ -32,7 +32,7 @@ TFN="main"
 PTTFNX="$PTTFNXD/$TFN.$X"
 
 mkdir -p "$PTTFNXD"
-cp -f "$PTFNX" "$PTTFNX"
+# cp -f "$PTFNX" "$PTTFNX"
 
 if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
     CIR="
@@ -48,6 +48,8 @@ if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
         "
     echo "IS_RUNTIME_INSTALLED=\"TRUE\"" > "$LEF"
 fi
+
+cp -f "$PTFNX" "$PTTFNX"
 
 CPV="
 echo \">docker images\"
