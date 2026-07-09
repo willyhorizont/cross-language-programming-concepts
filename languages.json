@@ -790,7 +790,7 @@
         "file_extension": ".exs",
         "concept_definition": {
             "list": "List",
-            "dict": "Associative List"
+            "dict": "Map"
         },
         "vscode_extensions": [
             "JakeBecker.elixir-ls"
@@ -848,7 +848,7 @@
         "file_extension": ".erl",
         "concept_definition": {
             "list": "list",
-            "dict": "associative list"
+            "dict": "map"
         },
         "vscode_extensions": [
             "pgourlain.erlang"
@@ -877,7 +877,7 @@
         "file_extension": ".gleam",
         "concept_definition": {
             "list": "List",
-            "dict": "Associative List"
+            "dict": "Dict"
         },
         "vscode_extensions": [
             "Gleam.gleam"

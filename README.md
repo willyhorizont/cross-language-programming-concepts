@@ -445,10 +445,10 @@ Cross-language implementations of common programming concepts, data structures, 
   26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/dict.gd) : Dictionary  
   27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/dict.typ) : Dictionary  
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/dict.ps1) : HashTable  
-  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/dict.exs) : Associative List  
+  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/dict.exs) : Map  
   30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/dict.ml) : Association List  
-  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/dict.erl) : associative list  
-  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/dict.gleam) : Associative List  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/dict.erl) : map  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/dict.gleam) : Dict  
   33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/dict.zig) : Association Slice  
   34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/dict.nim) : Ordered Table  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/dict.odin) : Map  

@@ -1,72 +1,80 @@
 import gleam/io
-import gleam/string
-
-pub type Any {
-    PyNone
-    PyBool(Bool)
-    JsString(String)
-    JsInt(Int)
-    JsFloat(Float)
-    PyList(List(Any))
-    PyDict(List(#(String, Any)))
-    JsFunction(fn(List(Any)) -> Any)
-}
+import willyhorizont/runtime/xl
 
 pub fn main() {
-    // 1. Support function as value
-    let say_hello = fn(callback_function: fn() -> Nil) {
-        io.print("hello\n")
-        callback_function()
-    }
-    say_hello(fn() { io.print("world\n") })
-    let create_multiplier = fn(a: Int) {
-        fn(b: Int) {
-            a * b
+    // 1. support closure as value, or has workaround
+    let say_hello = xl.closure(fn(va) {
+        case va {
+            [xl.Closure(callback_function)] -> {
+                io.println("hello")
+                callback_function([])
+                xl.none()
+            }
+            _ -> xl.none()
         }
-    }
-    let multiply_by_two = create_multiplier(2)
-    io.println("multiply_by_two.(10): " <> string.inspect(multiply_by_two(10)))
-    let multiply_by_eight = create_multiplier(8)
-    io.println("multiply_by_eight.(4): " <> string.inspect(multiply_by_eight(4)))
-    io.println("multiply_by_two.(8): " <> string.inspect(multiply_by_two(8)))
+    })
+    let _ = xl.call(say_hello, [xl.closure(fn(_) {
+        io.println("wold")
+        xl.none()
+    })])
+    let create_multiplier = xl.closure(fn(va) {
+        case va {
+            [xl.Int(aa)] -> {
+                xl.closure(fn(va) {
+                    case va {
+                        [xl.Int(bb)] -> xl.int(aa * bb)
+                        _ -> xl.none()
+                    }
+                })
+            }
+            _ -> xl.none()
+        }
+    })
+    let multiply_by_two = xl.call(create_multiplier, [xl.int(2)])
+    io.println("multiply_by_two(10): " <> xl.to_string(xl.call(multiply_by_two, [xl.int(10)])))
+    let multiply_by_eight = xl.call(create_multiplier, [xl.int(8)])
+    io.println("multiply_by_eight(4): " <> xl.to_string(xl.call(multiply_by_eight, [xl.int(4)])))
+    io.println("multiply_by_two(8): " <> xl.to_string(xl.call(multiply_by_two, [xl.int(8)])))
 
-    // 2. Support dynamic-typed value
-    let some_python_like_list = PyList([
-        PyNone,
-        PyBool(True),
-        PyBool(False),
-        JsString("foo"),
-        JsInt(0),
-        JsInt(-123),
-        JsFloat(123.789),
-        JsFloat(-123.789),
-        PyList([JsInt(1), JsInt(2), JsInt(3)]),
-        PyDict([#("foo", JsString("bar"))]),
-        JsFunction(fn(variadic_arguments) {
-            case variadic_arguments {
-                [JsInt(a), JsInt(b), ..] -> JsInt(a * b)
-                _ -> PyNone
+    // 2. support dynamic-typed value, or has workaround
+    let xl_list = xl.list([
+        xl.none(),
+        xl.bool(True),
+        xl.bool(False),
+        xl.string("foo"),
+        xl.int(0),
+        xl.int(-123),
+        xl.float(123.789),
+        xl.float(-123.789),
+        xl.list([xl.int(1), xl.int(2), xl.int(3)]),
+        xl.dict([#("foo", xl.string("bar"))]),
+        xl.closure(fn(va) {
+            case va {
+                [xl.Int(aa), xl.Int(bb)] -> xl.int(aa * bb)
+                _ -> xl.none()
             }
         }),
     ])
-    io.println("some_python_like_list: " <> string.inspect(some_python_like_list))
-    let some_python_like_dict = PyDict([
-        #("some_null", PyNone),
-        #("some_boolean_true", PyBool(True)),
-        #("some_boolean_false", PyBool(False)),
-        #("some_string", JsString("foo")),
-        #("some_int_positive", JsInt(0)),
-        #("some_int_negative", JsInt(-123)),
-        #("some_float_positive", JsFloat(123.789)),
-        #("some_float_negative", JsFloat(-123.789)),
-        #("some_python_like_list", PyList([JsInt(1), JsInt(2), JsInt(3)])),
-        #("some_python_like_dict", PyDict([#("foo", JsString("bar"))])),
-        #("some_function", JsFunction(fn(variadic_arguments) {
-            case variadic_arguments {
-                [JsInt(a), JsInt(b), ..] -> JsInt(a * b)
-                _ -> PyNone
+    io.println("xl_list: " <> xl.json_stringify(xl.list([xl_list])))
+    io.println("xl_list: " <> xl.json_stringify(xl.list([xl_list, xl.dict([#("pretty", xl.bool(True))])])))
+    let xl_dict = xl.dict([
+        #("xl_none", xl.none()),
+        #("xl_bool_true", xl.bool(True)),
+        #("xl_bool_false", xl.bool(False)),
+        #("xl_string", xl.string("foo")),
+        #("xl_int_positive", xl.int(0)),
+        #("xl_int_negative", xl.int(-123)),
+        #("xl_float_positive", xl.float(123.789)),
+        #("xl_float_negative", xl.float(-123.789)),
+        #("xl_list", xl.list([xl.int(1), xl.int(2), xl.int(3)])),
+        #("xl_dict", xl.dict([#("foo", xl.string("bar"))])),
+        #("xl_closure", xl.closure(fn(va) {
+            case va {
+                [xl.Int(aa), xl.Int(bb)] -> xl.int(aa * bb)
+                _ -> xl.none()
             }
         })),
     ])
-    io.println("some_python_like_dict: " <> string.inspect(some_python_like_dict))
+    io.println("xl_dict: " <> xl.json_stringify(xl.list([xl_dict])))
+    io.println("xl_dict: " <> xl.json_stringify(xl.list([xl_dict, xl.dict([#("pretty", xl.bool(True))])])))
 }

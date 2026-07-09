@@ -2,7 +2,7 @@
 
 SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD/..")
-V="2.7.14" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
+V="2.7.15" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
 T=$(date "+%d %b %Y @ %I:%M %p")
 \. "$HOME/.nvm/nvm.sh"
 npm version "$V" --no-git-tag-version
@@ -14,9 +14,7 @@ version $V:
 H=$(sed -e '/./,$!d' <<< "$H")
 # ! DON'T FORGET TO CHANGE COMMIT MESSAGE BEFORE RUNNING !!!!
 M="
-add install my own vimscript syntax highlighter extension to setup-environtment.sh;
-small update on comments;
-small update on vimscript init;
+finish add gleam runtime init;
 "
 M=$(sed -e '/./,$!d' <<< "$M")
 M="$H

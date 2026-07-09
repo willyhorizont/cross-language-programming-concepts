@@ -39,17 +39,17 @@ main() ->
     ],
     io:fwrite("some_python_like_list: ~p~n", [SomePythonLikeList]),
 
-    SomePythonLikeDict = [
-        [<<"some_null">>, nil],
-        [<<"some_boolean_true">>, true],
-        [<<"some_boolean_false">>, false],
-        [<<"some_string">>, <<"foo">>],
-        [<<"some_int_positive">>, 0],
-        [<<"some_int_negative">>, -123],
-        [<<"some_float_positive">>, 123.789],
-        [<<"some_float_negative">>, -123.789],
-        [<<"some_python_like_list">>, [1, 2, 3]],
-        [<<"some_python_like_dict">>, #{<<"foo">> => <<"bar">>}],
-        [<<"some_function">>, fun(Aa, Bb) -> (Aa * Bb) end]
-    ],
+    SomePythonLikeDict = #{
+        <<"some_null">> => nil,
+        <<"some_boolean_true">> => true,
+        <<"some_boolean_false">> => false,
+        <<"some_string">> => <<"foo">>,
+        <<"some_int_positive">> => 0,
+        <<"some_int_negative">> => -123,
+        <<"some_float_positive">> => 123.789,
+        <<"some_float_negative">> => -123.789,
+        <<"some_python_like_list">> => [1, 2, 3],
+        <<"some_python_like_dict">> => #{<<"foo">> => <<"bar">>},
+        <<"some_function">> => fun(Aa, Bb) -> (Aa * Bb) end
+    },
     io:fwrite("some_python_like_dict: ~p~n", [SomePythonLikeDict]).

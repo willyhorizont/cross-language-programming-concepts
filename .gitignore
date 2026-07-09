@@ -26,7 +26,7 @@ runtimes/ocaml/runtime/willyhorizont.cmx
 runtimes/ocaml/runtime/willyhorizont.o
 
 runtimes/odin/main.odin
-runtimes/gleam/
+runtimes/gleam/main/
 
 *.zip
 *.swf

@@ -29,7 +29,10 @@ L=$("$RD/tools/utils.sh" --print-sep)
 
 PTTFNXD="$RD/runtimes/$LID"
 TFN="main"
-PTTFNX="$PTTFNXD/$TFN/src/$TFN.$X"
+PTTD="$PTTFNXD/$TFN/src"
+PTTFNX="$PTTD/$TFN.$X"
+
+mkdir -p "$PTTFNXD"
 
 if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
     CIR="
@@ -46,8 +49,10 @@ if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
     echo "IS_RUNTIME_INSTALLED=\"TRUE\"" > "$LEF"
 fi
 
-mkdir -p "$PTTFNXD"
 cp -f "$PTFNX" "$PTTFNX"
+mkdir -p "$PTTD/willyhorizont"
+mkdir -p "$PTTD/willyhorizont/runtime"
+cp -f "$PTTFNXD/willyhorizont/runtime/runtime.gleam" "$PTTD/willyhorizont/runtime/xl.gleam"
 
 CPV="
 echo \">docker images\"
