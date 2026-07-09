@@ -1,48 +1,46 @@
 vim9script
 
-# 1. support function as value
-var SayHello = (Callback) => {
-    echomsg "hello\n"
-    Callback()
+# 1. support closure as value, or has workaround
+var SayHello = (CallbackFunction) => {
+    echomsg "hello"
+    CallbackFunction()
 }
 SayHello(() => {
     echomsg "wold"
 })
-var Multiply = (a) => (b) => (a * b)
-var MultiplyByTwo = Multiply(2)
+var CreateMultiplier = (aa) => (bb) => (aa * bb)
+var MultiplyByTwo = CreateMultiplier(2)
 echomsg $"multiply_by_two(10): {MultiplyByTwo(10)}"
-var MultiplyByEight = Multiply(8)
+var MultiplyByEight = CreateMultiplier(8)
 echomsg $"multiply_by_eight(4): {MultiplyByEight(4)}"
 echomsg $"multiply_by_two(8): {MultiplyByTwo(8)}"
 
 # 2. support dynamic-typed value, or has workaround
-var SomePythonLikeList = [
+var XlList = [
     null,
     true,
     false,
     "foo",
-    123,
+    0,
     -123,
     123.789,
     -123.789,
     [1, 2, 3],
     {"foo": "bar"},
-    (a, b) => (a * b),
+    (aa, bb) => (aa * bb),
 ]
-# echomsg $"SomePythonLikeList: {json_encode(SomePythonLikeList)}" # error if contain function
-
-# 2. support dynamic-typed value, or has workaround
-var SomePythonLikeDict = {
-    "some_null": null,
-    "some_boolean_true": true,
-    "some_boolean_false": false,
-    "some_string": "foo",
-    "some_int_positive": 123,
-    "some_int_negative": -123,
-    "some_float_positive": 123.789,
-    "some_float_negative": -123.789,
-    "SomePythonLikeList": [1, 2, 3],
-    "some_python_like_dict": {foo: "bar"},
-    "some_function": (a, b) => (a * b),
+# echomsg $"xl_list: {json_encode(XlList)}" # error if contain function
+var XlDict = {
+    "xl_none": null,
+    "xl_bool_true": true,
+    "xl_bool_false": false,
+    "xl_string": "foo",
+    "xl_int_positive": 0,
+    "xl_int_negative": -123,
+    "xl_float_positive": 123.789,
+    "xl_float_negative": -123.789,
+    "xl_list": [1, 2, 3],
+    "xl_dict": {"foo": "bar"},
+    "xl_closure": (aa, bb) => (aa * bb),
 }
-# echomsg $"SomePythonLikeDict: {json_encode(SomePythonLikeDict)}" # error if contain function
+# echomsg $"xl_dict: {json_encode(XlDict)}" # error if contain function

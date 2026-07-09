@@ -1,4 +1,4 @@
-# 1. support function as value
+# 1. support closure as value, or has workaround
 var say-hello = {|callback-function|
     echo "hello"
     $callback-function
@@ -10,7 +10,7 @@ var multiply = {|a| put {|b| put (* $a $b) }}
 var multiply-by-two = ($multiply 2)
 echo "$multiply-by-two 10: "($multiply-by-two 10)""
 
-# 2. support dynamic-typed value
+# 2. support dynamic-typed value, or has workaround
 var some-python-like-list = [
     $nil
     $true

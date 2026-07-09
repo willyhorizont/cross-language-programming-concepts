@@ -2,7 +2,7 @@ open Willyhorizont.Runtime
 
 let () =
     (*
-    1. support function as value
+    1. support closure as value, or has workaround
     *)
     let say_hello = Any (fun any_variadic_arguments_py_list -> (
         let ocaml_variadic_arguments = get_py_list_from_anything any_variadic_arguments_py_list in

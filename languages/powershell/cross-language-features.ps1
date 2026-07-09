@@ -1,5 +1,5 @@
 <#
-1. support function as value
+1. support closure as value, or has workaround
 #>
 $SayHello = {
     param($CallbackFunction)

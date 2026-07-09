@@ -3,7 +3,7 @@ let
 in
 runtime.do [
     /*
-    1. support function as value
+    1. support closure as value, or has workaround
     */
     (state:
         let
@@ -74,6 +74,9 @@ runtime.do [
             state
     )
 
+    /*
+    2. support dynamic-typed value, or has workaround
+    */
     (state:
         let
             xlList = [

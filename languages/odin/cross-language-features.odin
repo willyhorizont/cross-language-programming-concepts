@@ -7,7 +7,7 @@ import xl "willyhorizont/runtime"
 main :: proc() {
     glb_scp := xl.reg_scope(nil)
     /*
-    1. support function as value
+    1. support closure as value, or has workaround
     */
     say_hello := xl.Closure{
         call = proc(self: ^xl.Closure, va: ..xl.Type) -> xl.Type {

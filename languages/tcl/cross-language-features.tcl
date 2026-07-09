@@ -19,7 +19,7 @@ oo::class create Function {
     }
 }
 
-# 1. support function as value
+# 1. support closure as value, or has workaround
 set greet_and_do_something [Function new {{variadic_arguments} {
     lassign $variadic_arguments callback_function
     puts "hello"

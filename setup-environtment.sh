@@ -52,5 +52,7 @@ code --install-extension DanielGavin.ols
 code --install-extension NimLang.nimlang
 code --install-extension ziglang.vscode-zig
 
+eval "$RD/tools/vscode-extensions/vim9script-syntax-highlighter/install.sh"
+
 rm -rf "$TD"
 hash -r

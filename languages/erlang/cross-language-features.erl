@@ -2,7 +2,7 @@
 -export([main/0]).
 
 main() ->
-    %% 1. support function as value
+    %% 1. support closure as value, or has workaround
     SayHello = fun(CallbackFunction) ->
         io:fwrite("hello~n"),
         CallbackFunction()
@@ -23,7 +23,7 @@ main() ->
     io:fwrite("multiply_by_eight.(4): ~p~n", [MultiplyByEight(4)]),
     io:fwrite("multiply_by_two.(8): ~p~n", [MultiplyByTwo(8)]),
 
-    %% 2. support dynamic-typed value
+    %% 2. support dynamic-typed value, or has workaround
     SomePythonLikeList = [
         nil,
         true,

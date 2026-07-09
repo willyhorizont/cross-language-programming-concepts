@@ -2,7 +2,7 @@ extends SceneTree
 
 
 func main():
-	# 1. support function as value
+	# 1. support closure as value, or has workaround
 	var say_hello = func (callback_function):
 		print("hello")
 		callback_function.call()

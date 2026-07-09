@@ -1,4 +1,4 @@
-# 1. support function as value
+# 1. support closure as value, or has workaround
 say_hello = fn (callback_function) ->
     "hello" |> IO.puts()
     callback_function.()

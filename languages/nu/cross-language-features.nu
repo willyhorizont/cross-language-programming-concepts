@@ -1,4 +1,4 @@
-# 1. support function as value
+# 1. support closure as value, or has workaround
 let say_hello = {|callback_function|
     print "hello"
     do $callback_function

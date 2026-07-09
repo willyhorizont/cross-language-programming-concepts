@@ -42,3 +42,8 @@ tempCodeRunnerFile.*
 
 runtimes/nim/main.nim
 runtimes/zig/main.zig
+
+*.vsix
+
+tools/vscode-extensions/vim9script-syntax-highlighter/repos/
+

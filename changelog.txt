@@ -1,3 +1,9 @@
+[Last updated: 09 Jul 2026 @ 04:14 PM]
+version 2.7.14:
+add install my own vimscript syntax highlighter extension to setup-environtment.sh;
+small update on comments;
+small update on vimscript init;
+
 [Last updated: 09 Jul 2026 @ 05:50 AM]
 version 2.7.13:
 finish zig runtime init
