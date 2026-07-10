@@ -8,35 +8,24 @@
         #u-n\@#u-c:#text(fill: rgb("#729fcf"))[#u-d]#text(fill: rgb("#ddd"))[\$]
     ]
 }
-#let set-doc = (doc) => {
-    let l = none
-    if ("children" in doc.fields()) {
-        l = doc.children
-    } else {
-        l = (doc,)
+#let setup-doc = (doc) => {
+    let n-doc = doc
+    if n-doc.at("children", default: ()) == none {
+        return n-doc
     }
-    if ((l.len() > 0) and ((l.at(0).func() == parbreak) or (l.at(0) == [ ]) or (l.at(0) == []) or (l.at(0) == [#{"\n"}]))) {
-        l = l.slice(1)
+    if n-doc.children.at(0).func() == parbreak {
+        n-doc = n-doc.children.slice(1).sum()
     }
-    let n-l = l.map((el) => {
-        let n-el = none
-        if ("children" in el.fields()) {
-            n-el = el.children
-        } else {
-            n-el = (el,)
-        }
-        if ((n-el.len() > 0) and ((n-el.at(0).func() == parbreak) or (n-el.at(0) == [ ]) or (n-el.at(0) == []) or (n-el.at(0) == [#{"\n"}]))) {
-            n-el = n-el.slice(1)
-        }
-        if ((n-el == [ ]) or (n-el == [])) {
+    if n-doc.children.at(0) == [ ] {
+        n-doc = n-doc.children.slice(1).sum()
+    }
+    n-doc = n-doc.children.map((el) => {
+        if (el == [ ]) {
             return [#{"\n"}]
         }
-        if (n-el.len() > 0) {
-            return n-el.sum()
-        }
-        return [#{"\n"}]
-    })
-    return n-l
+        return el
+    }).sum()
+    return n-doc
 }
 #let print-cmd = (cmd-out) => {
     return [
@@ -45,7 +34,7 @@
     ]
 }
 #let runtime = (doc) => {
-    let n-doc = set-doc(set-doc(doc).sum(default: [])).sum(default: [])
+    let n-doc = setup-doc(doc)
     return [
         #set page(
             fill: rgb("1c1c1c"),

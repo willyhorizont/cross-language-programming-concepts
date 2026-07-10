@@ -14,10 +14,10 @@
     })
     let create-multiplier = (a) => (b) => (a * b)
     let multiply-by-two = create-multiplier(2)
-    xl.print-cmd("multiply_by_two(10): " + xl.json-stringify(multiply-by-two(10)))
+    xl.print-cmd([multiply_by_two(10): #{xl.json-stringify(multiply-by-two(10))}])
     let multiply-by-eight = create-multiplier(8)
-    xl.print-cmd("multiply_by_eight(4): " + xl.json-stringify(multiply-by-eight(4)))
-    xl.print-cmd("multiply_by_two(8): " + xl.json-stringify(multiply-by-two(8)))
+    xl.print-cmd([multiply_by_eight(4): #{xl.json-stringify(multiply-by-eight(4))}])
+    xl.print-cmd([multiply_by_two(8): #{xl.json-stringify(multiply-by-two(8))}])
 
     /*
     2. support dynamic-typed value, or has workaround
@@ -35,8 +35,8 @@
         ("foo": "bar"),
         (a, b) => (a * b),
     )
-    xl.print-cmd("xl_list: " + xl.json-stringify(xl-list))
-    xl.print-cmd("xl_list: " + xl.json-stringify(xl-list, pretty: true))
+    xl.print-cmd([xl_list: #{xl.json-stringify(xl-list)}])
+    xl.print-cmd([xl_list: #{xl.json-stringify(xl-list, pretty: true)}])
     let xl-dict = (
         "xl_none": none,
         "xl_bool_true": true,
@@ -50,6 +50,6 @@
         "xl_dict": ("foo": "bar"),
         "xl_closure": (a, b) => (a * b),
     )
-    xl.print-cmd("xl_dict: " + xl.json-stringify(xl-dict))
-    xl.print-cmd("xl_dict: " + xl.json-stringify(xl-dict, pretty: true))
+    xl.print-cmd([xl_dict: #{xl.json-stringify(xl-dict)}])
+    xl.print-cmd([xl_dict: #{xl.json-stringify(xl-dict, pretty: true)}])
 }
