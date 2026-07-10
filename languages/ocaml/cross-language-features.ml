@@ -4,68 +4,72 @@ let () =
     (*
     1. support closure as value, or has workaround
     *)
-    let say_hello = Xl.Type (fun va -> (
-        let itr = Seq.to_dispenser (List.to_seq (Xl.to_list va)) in
+    let say_hello = Xl.closure (fun va -> (
+        let itr = Xl.iter va in
         let callback_function = Xl.next itr in
         print_endline "hello";
-        (Xl.to_closure callback_function) (Xl.Type [Xl.Type ()])
+        Xl.call callback_function [Xl.none]
     )) in
-    let _ = Xl.Type ((Xl.to_closure say_hello) (Xl.Type [Xl.Type (fun (_) -> (
+    let _ = Xl.call say_hello [Xl.closure (fun (_) -> (
         print_endline "world";
-        Xl.Type ()
-    ))])) in
-    (* let create_multiplier = Xl.Type (fun va -> (
-        let itr = Seq.to_dispenser (List.to_seq (Xl.to_list va)) in
+        Xl.none
+    ))] in
+    let create_multiplier = Xl.closure (fun va -> (
+        let itr = Xl.iter va in
         let aa = Xl.next itr in
-        Xl.Type (fun va -> (
-            let itr = Seq.to_dispenser (List.to_seq (Xl.to_list va)) in
+        Xl.closure (fun va -> (
+            let itr = Xl.iter va in
             let bb = Xl.next itr in
-            Xl.Type ((Xl.to_int aa) * (Xl.to_int bb))
+            Xl.int ((Xl.to_int aa) * (Xl.to_int bb))
         ))
     )) in
-    let multiply_by_two = Xl.Type ((Xl.to_closure create_multiplier) (Xl.Type [Xl.Type (Xl.to_int 2)])) in
-    let () = print_endline ("multiply_by_two(10): " ^ (Xl.to_string (Xl.json_stringify (Xl.Type [Xl.Type ((Xl.to_closure multiply_by_two) (Xl.to_int 10))])))) in *)
+    let multiply_by_two = Xl.call create_multiplier [Xl.int 2] in
+    print_endline ("multiply_by_two(10): " ^ (Xl.json_stringify [Xl.call multiply_by_two [Xl.int 10]]));
+    let multiply_by_eight = Xl.call create_multiplier [Xl.int 8] in
+    print_endline ("multiply_by_eight(4): " ^ (Xl.json_stringify [Xl.call multiply_by_eight [Xl.int 4]]));
+    print_endline ("multiply_by_two(8): " ^ (Xl.json_stringify [Xl.call multiply_by_two [Xl.int 8]]));
+
     (*
     2. support dynamic-typed value, or has workaround
     *)
-    let some_py_list = Xl.Type [
-        Xl.Type ();
-        Xl.Type true;
-        Xl.Type false;
-        Xl.Type "foo";
-        Xl.Type 0;
-        Xl.Type (-123);
-        Xl.Type (123.789);
-        Xl.Type (-123.789);
-        Xl.Type [Xl.Type 1; Xl.Type 2; Xl.Type 3];
-        Xl.Type [Xl.Type [Xl.Type "foo"; Xl.Type "bar"]];
-        Xl.Type (fun va -> (
-            let itr = Seq.to_dispenser (List.to_seq (Xl.to_list va)) in
+    let xl_list = Xl.list [
+        Xl.none;
+        Xl.bool true;
+        Xl.bool false;
+        Xl.string "foo";
+        Xl.int (0);
+        Xl.int (-123);
+        Xl.float (123.789);
+        Xl.float (-123.789);
+        Xl.list [Xl.int (1); Xl.int (2); Xl.int (3)];
+        Xl.dict [("foo", Xl.string "bar")];
+        Xl.closure (fun va -> (
+            let itr = Xl.iter va in
             let aa = Xl.next itr in
             let bb = Xl.next itr in
-            Xl.Type ((Xl.to_int aa) * (Xl.to_int bb))
+            Xl.int ((Xl.to_int aa) * (Xl.to_int bb))
         ));
     ] in
-    let () = print_endline ("some_py_list: " ^ (Xl.to_string (Xl.json_stringify (Xl.Type [some_py_list])))) in
-    let () = print_endline ("some_py_list: " ^ (Xl.to_string (Xl.json_stringify (Xl.Type [some_py_list; Xl.Type [Xl.Type [Xl.Type "pretty"; Xl.Type true]]])))) in
-    let some_py_dict = Xl.Type [
-        Xl.Type [Xl.Type "some_py_none"; Xl.Type ()];
-        Xl.Type [Xl.Type "some_py_boolean_true"; Xl.Type true];
-        Xl.Type [Xl.Type "some_py_boolean_false"; Xl.Type false];
-        Xl.Type [Xl.Type "some_js_string"; Xl.Type "foo"];
-        Xl.Type [Xl.Type "some_js_int_positive"; Xl.Type 0];
-        Xl.Type [Xl.Type "some_js_int_negative"; Xl.Type (-123)];
-        Xl.Type [Xl.Type "some_js_float_positive"; Xl.Type (123.789)];
-        Xl.Type [Xl.Type "some_js_float_negative"; Xl.Type (-123.789)];
-        Xl.Type [Xl.Type "some_py_list"; Xl.Type [Xl.Type 1; Xl.Type 2; Xl.Type 3]];
-        Xl.Type [Xl.Type "some_py_dict"; Xl.Type [Xl.Type [Xl.Type "foo"; Xl.Type "bar"]]];
-        Xl.Type [Xl.Type "some_js_function"; Xl.Type (fun va -> (
-            let itr = Seq.to_dispenser (List.to_seq (Xl.to_list va)) in
+    print_endline ("xl_list: " ^ (Xl.json_stringify [xl_list]));
+    print_endline ("xl_list: " ^ (Xl.json_stringify [xl_list; Xl.dict [("pretty", Xl.bool true)]]));
+    let xl_dict = Xl.dict [
+        ("xl_none", Xl.none);
+        ("xl_bool_true", Xl.bool true);
+        ("xl_bool_false", Xl.bool false);
+        ("xl_string", Xl.string "foo");
+        ("xl_int_positive", Xl.int (0));
+        ("xl_int_negative", Xl.int (-123));
+        ("xl_float_positive", Xl.float (123.789));
+        ("xl_float_negative", Xl.float (-123.789));
+        ("xl_list", Xl.list [Xl.int (1); Xl.int (2); Xl.int (3)]);
+        ("xl_dict", Xl.dict [("foo", Xl.string "bar")]);
+        ("xl_closure", Xl.closure (fun va -> (
+            let itr = Xl.iter va in
             let aa = Xl.next itr in
             let bb = Xl.next itr in
-            Xl.Type ((Xl.to_int aa) * (Xl.to_int bb))
-        ))];
+            Xl.int ((Xl.to_int aa) * (Xl.to_int bb))
+        )));
     ] in
-    let () = print_endline ("some_py_dict: " ^ (Xl.to_string (Xl.json_stringify (Xl.Type [some_py_dict])))) in
-    let () = print_endline ("some_py_dict: " ^ (Xl.to_string (Xl.json_stringify (Xl.Type [some_py_dict; Xl.Type [Xl.Type [Xl.Type "pretty"; Xl.Type true]]])))) in
+    print_endline ("xl_dict" ^ (Xl.json_stringify [xl_dict]));
+    print_endline ("xl_dict" ^ (Xl.json_stringify [xl_dict; Xl.dict [("pretty", Xl.bool true)]]));
     ()
