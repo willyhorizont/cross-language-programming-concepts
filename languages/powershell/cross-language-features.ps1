@@ -1,3 +1,5 @@
+. (Join-Path $PSScriptRoot "..\..\runtimes\powershell\willyhorizont\runtime\runtime.ps1")
+
 <#
 1. support closure as value, or has workaround
 #>
@@ -10,41 +12,43 @@ $SayHello = {
     param()
     Write-Host "world"
 }
-$CreateMultiplier = { param($a) { param($b) ($a * $b) }.GetNewClosure() }
+$CreateMultiplier = { param($Aa) { param($Bb) ($Aa * $Bb) }.GetNewClosure() }
 $MultiplyByTwo = &$CreateMultiplier 2
-Write-Host "&$$MultiplyByTwo 10: $(&$MultiplyByTwo 10)"
+Write-Host "multiply_by_two(10): $(&$MultiplyByTwo 10)"
 $MultiplyByEight = &$CreateMultiplier 8
-Write-Host "&$$MultiplyByEight 4: $(&$MultiplyByEight 4)"
-Write-Host "&$$MultiplyByTwo 8: $(&$MultiplyByTwo 8)"
+Write-Host "multiply_by_eight(4): $(&$MultiplyByEight 4)"
+Write-Host "multiply_by_two(8): $(&$MultiplyByTwo 8)"
 
 <#
 2. support dynamic-typed value, or has workaround
 #>
-$SomePythonLikeList = @(
+$XlList = @(
     $null,
     $true,
     $false,
     "foo",
-    123,
+    0,
     -123,
     123.789,
     -123.789,
     @(1, 2, 3),
     @{ "foo" = "bar"; },
-    { param($a, $b) ($a * $b) }
+    { param($Aa, $Bb) ($Aa * $Bb) }
 )
-Write-Host "$$SomePythonLikeList: $($SomePythonLikeList | ConvertTo-Json)"
-$SomePythonLikeDict = @{
-    "some_null" = $null;
-    "some_boolean_true" = $true;
-    "some_boolean_false" = $false;
-    "some_string" = "foo";
-    "some_int_positive" = 123;
-    "some_int_negative" = -123;
-    "some_float_positive" = 123.789;
-    "some_float_negative" = -123.789;
-    "some_python_like_list" = @(1, 2, 3);
-    "some_python_like_dict" = @{ "foo" = "bar" };
-    "some_function" = { param($a, $b) ($a * $b) }
+Write-Host "xl_list: $([Xl]::JsonStringify($XlList))"
+Write-Host "xl_list: $([Xl]::JsonStringify($XlList, @{ Pretty = $true }))"
+$XlDict = @{
+    "xl_none" = $null;
+    "xl_bool_true" = $true;
+    "xl_bool_false" = $false;
+    "xl_string" = "foo";
+    "xl_int_positive" = 0;
+    "xl_int_negative" = -123;
+    "xl_float_positive" = 123.789;
+    "xl_float_negative" = -123.789;
+    "xl_list" = @(1, 2, 3);
+    "xl_dict" = @{ "foo" = "bar" };
+    "xl_closure" = { param($Aa, $Bb) ($Aa * $Bb) }
 }
-Write-Host "$$SomePythonLikeDict: $($SomePythonLikeDict | ConvertTo-Json)"
+Write-Host "xl_dict: $([Xl]::JsonStringify($XlDict))"
+Write-Host "xl_dict: $([Xl]::JsonStringify($XlDict, @{ Pretty = $true }))"
