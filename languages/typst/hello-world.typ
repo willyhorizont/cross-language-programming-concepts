@@ -1,5 +1,6 @@
-#import "/runtimes/typst/willyhorizont/runtime.typ": *
-#show: setup-command-prompt
+#import "/runtimes/typst/willyhorizont/runtime/runtime.typ" as xl
+#show: xl.runtime
+
 #{
-print-command([hello, world])
+    xl.print-cmd("hello, world")
 }

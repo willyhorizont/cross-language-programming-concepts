@@ -17,6 +17,13 @@ X="${FNX##*.}"
 RD="$(realpath "$SD/../..")"
 RN="$(basename "$RD")"
 
+PTRFNX="$RD/runtimes/typst/willyhorizont/runtime/runtime.typ"
+if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
+    echo "usage:"
+    echo "\"$SD/run.sh\" path/to/*.$LID"
+    exit 1
+fi
+
 LEF="$RD/.env.$LID"
 
 if [ -f "$LEF" ]; then
@@ -36,7 +43,7 @@ echo \">typst -V\"
 typst -V
 "
 
-PTOFNXD="$RD/runtimes/typst/willyhorizont/output/$LID"
+PTOFNXD="$RD/runtimes/typst/willyhorizont/output"
 mkdir -p "$PTOFNXD"
 PTOFNX="$PTOFNXD/$FN.pdf"
 UN="$(whoami)"
@@ -44,6 +51,7 @@ UC="$(hostname)"
 UPWD="$(pwd | sed "s|^$HOME|~|")"
 
 CRLC="
+rm -f \"$PTOFNX\"
 cd \"$PTFNXD\"
 typst compile --open --root \"$RD\" --input user-name=$UN --input user-computer=$UC --input user-pwd=$UPWD --input file-name-with-extension=\"$FNX\" \"$FNX\" \"$PTOFNX\"
 echo \"if output not open automatically, open it here: \\\"$PTOFNX\\\"\"

@@ -55,6 +55,8 @@ code --install-extension Gleam.gleam
 code --install-extension JakeBecker.elixir-ls
 code --install-extension pgourlain.erlang
 code --install-extension ocamllabs.ocaml-platform
+code --install-extension myriad-dreamin.tinymist
+code --install-extension mathematic.vscode-pdf
 
 eval "$RD/tools/vscode-extensions/vim9script-syntax-highlighter/install.sh"
 
