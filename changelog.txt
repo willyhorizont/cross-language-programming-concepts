@@ -1,3 +1,7 @@
+[Last updated: 11 Jul 2026 @ 03:44 PM]
+version 2.7.25:
+finish update gdscript runtime init;
+
 [Last updated: 11 Jul 2026 @ 02:36 PM]
 version 2.7.24:
 small update in actionscript;

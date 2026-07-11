@@ -35,8 +35,7 @@ godot --version
 "
 
 CRLC="
-cd \"$PTFNXD\"
-godot --script --headless \"$FNX\"
+godot --headless --script \"$PTFNX\"
 "
 
 docker run -i --rm \

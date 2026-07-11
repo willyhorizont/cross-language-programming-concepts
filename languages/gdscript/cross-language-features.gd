@@ -1,5 +1,6 @@
 extends SceneTree
 
+const Xl = preload("../../runtimes/gdscript/willyhorizont/runtime/runtime.gd")
 
 func main():
 	# 1. support closure as value, or has workaround
@@ -9,43 +10,44 @@ func main():
 	say_hello.call(func ():
 		print("world")
 	)
-	var multiply = func (a): return func (b): return (a * b)
-	var multiply_by_two = multiply.call(2)
-	print("multiply_by_two.call(10): " + str(multiply_by_two.call(10)))
-	var multiply_by_eight = multiply.call(8)
-	print("multiply_by_eight.call(4): " + str(multiply_by_eight.call(4)))
-	print("multiply_by_two.call(8): " + str(multiply_by_two.call(8)))
+	var create_multiplier = func (aa): return func (bb): return (aa * bb)
+	var multiply_by_two = create_multiplier.call(2)
+	print("multiply_by_two(10): " + str(multiply_by_two.call(10)))
+	var multiply_by_eight = create_multiplier.call(8)
+	print("multiply_by_eight(4): " + str(multiply_by_eight.call(4)))
+	print("multiply_by_two(8): " + str(multiply_by_two.call(8)))
 
 	# 2. support dynamic-typed value, or has workaround
-	var some_python_like_list = [
+	var xl_list = [
 		null,
 		true,
 		false,
 		"foo",
-		123,
+		0,
 		-123,
 		123.789,
 		-123.789,
 		[1, 2, 3],
 		{"foo": "bar"},
-		func (a, b): return (a * b),
+		func (aa, bb): return (aa * bb),
 	]
-	print("some_python_like_list: " + str(some_python_like_list))
-	var some_python_like_dict = {
-		"some_null": null,
-		"some_boolean_true": true,
-		"some_boolean_false": false,
-		"some_string": "foo",
-		"some_int_positive": 123,
-		"some_int_negative": -123,
-		"some_float_positive": 123.789,
-		"some_float_negative": -123.789,
-		"some_python_like_list": [1, 2, 3],
-		"some_python_like_dict": {"foo": "bar"},
-		"some_function": func (a, b): return (a * b),
+	print("xl_list: " + Xl.json_stringify(xl_list))
+	print("xl_list: " + Xl.json_stringify(xl_list, {"pretty": true}))
+	var xl_dict = {
+		"xl_none": null,
+		"xl_bool_true": true,
+		"xl_bool_false": false,
+		"xl_string": "foo",
+		"xl_int_positive": 0,
+		"xl_int_negative": -123,
+		"xl_float_positive": 123.789,
+		"xl_float_negative": -123.789,
+		"xl_list": [1, 2, 3],
+		"xl_dict": {"foo": "bar"},
+		"xl_closure": func (aa, bb): return (aa * bb),
 	}
-	print("some_python_like_dict: " + str(some_python_like_dict))
-
+	print("xl_dict: " + Xl.json_stringify(xl_dict))
+	print("xl_dict: " + Xl.json_stringify(xl_dict, {"pretty": true}))
 
 func _init():
 	main()
