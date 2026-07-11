@@ -703,11 +703,11 @@
             "dict": "Dictionary"
         },
         "vscode_extensions": [
-            "geequlim.godot-tools",
-            "EddieDover.gdscript-formatter-linter",
-            "DoHe.godot-format"
+            "geequlim.godot-tools"
         ],
         "vscode_extensions_archive": [
+            "EddieDover.gdscript-formatter-linter",
+            "DoHe.godot-format",
             "poeticAndroid.pretty-gd-vs"
         ],
         "docker": [

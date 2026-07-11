@@ -1,8 +1,8 @@
 package {
     import flash.display.Sprite;
-    import runtime.willyhorizont.Terminal;
+    import willyhorizont.runtime.Terminal;
 
-    public class Program extends Sprite {
+    public class Main extends Sprite {
         public static function run():void {
             Terminal.print("hello, world");
         }

@@ -1,9 +1,9 @@
 package {
     import flash.display.Sprite;
-    import runtime.willyhorizont.Terminal;
-    import runtime.willyhorizont.Xl;
+    import willyhorizont.runtime.Terminal;
+    import willyhorizont.runtime.Xl;
 
-    public class Program extends Sprite {
+    public class Main extends Sprite {
         public static function run():void {
             /*
             1. support closure as value, or has workaround

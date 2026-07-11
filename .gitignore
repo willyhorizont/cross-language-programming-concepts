@@ -41,7 +41,7 @@ runtimes/erlang/main.erl
 *.zip
 *.swf
 runtimes/actionscript/output/
-runtimes/actionscript/Program.as
+runtimes/actionscript/Main.as
 
 __init__.py
 __pycache__/

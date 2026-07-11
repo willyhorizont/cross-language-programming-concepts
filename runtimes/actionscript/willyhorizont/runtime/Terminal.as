@@ -1,4 +1,4 @@
-package runtime.willyhorizont {
+package willyhorizont.runtime {
     import flash.display.Sprite;
     import flash.display.StageScaleMode;
     import flash.display.StageAlign;
@@ -7,7 +7,7 @@ package runtime.willyhorizont {
     import flash.text.TextFieldType;
     import flash.events.Event;
     import flash.events.MouseEvent;
-    import Program;
+    import Main;
     [SWF(backgroundColor="0x121212")]
     public class Terminal extends Sprite {
         private var bg:Sprite;
@@ -51,7 +51,7 @@ package runtime.willyhorizont {
             rTx = tP + C1 + "\n" + C2 + "\n" + C3 + "\n";
             stage.addEventListener(MouseEvent.MOUSE_WHEEL, hMw);
             stage.addEventListener(Event.RESIZE, re);
-            Program.run();
+            Main.run();
             re();
         }
         private function re(e:Event = null):void {

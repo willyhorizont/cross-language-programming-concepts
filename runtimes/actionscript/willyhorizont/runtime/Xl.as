@@ -1,7 +1,7 @@
-package runtime.willyhorizont {
+package willyhorizont.runtime {
     import flash.display.Sprite;
     import flash.utils.getQualifiedClassName;
-    import runtime.willyhorizont.Terminal;
+    import willyhorizont.runtime.Terminal;
 
     public class Xl extends Sprite {
         public function Xl() {
