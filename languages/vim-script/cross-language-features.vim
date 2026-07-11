@@ -6,7 +6,7 @@ var SayHello = (CallbackFunction) => {
     CallbackFunction()
 }
 SayHello(() => {
-    echomsg "wold"
+    echomsg "world"
 })
 var CreateMultiplier = (aa) => (bb) => (aa * bb)
 var MultiplyByTwo = CreateMultiplier(2)

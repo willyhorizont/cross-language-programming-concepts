@@ -21,7 +21,7 @@ runtime.do [
         let
         in
             state.sayHello (_:
-                builtins.trace "wold"
+                builtins.trace "world"
                 state
             )
     )

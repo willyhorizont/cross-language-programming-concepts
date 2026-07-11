@@ -11,7 +11,7 @@ say_hello = lambda callback_function: [
     callback_function(),
 ][-1]
 say_hello(lambda: [
-    print("wold"),
+    print("world"),
 ][-1])
 create_multiplier = lambda aa: lambda bb: (aa * bb)
 multiply_by_two = create_multiplier(2)

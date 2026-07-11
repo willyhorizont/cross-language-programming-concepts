@@ -4,7 +4,7 @@ var say-hello = {|callback-function|
     $callback-function
 }
 $say-hello {||
-    echo "wold"
+    echo "world"
 }
 var multiply = {|a| put {|b| put (* $a $b) }}
 var multiply-by-two = ($multiply 2)

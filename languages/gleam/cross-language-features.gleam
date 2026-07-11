@@ -14,7 +14,7 @@ pub fn main() {
         }
     })
     let _ = xl.call(say_hello, [xl.closure(fn(_) {
-        io.println("wold")
+        io.println("world")
         xl.none()
     })])
     let create_multiplier = xl.closure(fn(va) {

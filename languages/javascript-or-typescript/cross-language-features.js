@@ -8,7 +8,7 @@ const sayHello = (callbackFunction) => {
     callbackFunction();
 };
 sayHello(() => {
-    console.log("wold");
+    console.log("world");
 });
 const createMultiplier = (aa) => (bb) => (aa * bb);
 const multiplyByTwo = createMultiplier(2);
