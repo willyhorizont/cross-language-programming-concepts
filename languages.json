@@ -674,9 +674,10 @@
             "dict": "dict"
         },
         "vscode_extensions": [
-            "rashwell.tcl"
+            "sleutho.tcl"
         ],
         "vscode_extensions_archive": [
+            "rashwell.tcl",
             "bitwisecook.tcl-lsp"
         ],
         "docker": [

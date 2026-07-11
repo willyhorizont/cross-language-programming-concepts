@@ -1,4 +1,4 @@
-source [file join [file dirname [file normalize [info script]]] ".." ".." "runtimes" "tcl" "willyhorizont" "runtime" "runtime.tcl"]
+source [file join [file dirname [file normalize [info script]]] ".." ".." "runtimes" "tcl" "willyhorizont" "runtime" "xl.tcl"]
 
 # 1. support closure as value, or has workaround
 set say_hello [xl::closure {{va} {
