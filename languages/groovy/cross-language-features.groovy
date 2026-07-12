@@ -1,4 +1,4 @@
-import runtimes.groovy.willyhorizont.Runtime
+import runtimes.groovy.willyhorizont.runtime.Xl
 
 /*
 1. support closure as value, or has workaround
@@ -33,8 +33,8 @@ def xlList = [
     [ "foo": "bar" ],
     { aa, bb -> (aa * bb) }
 ]
-println("xl_list: ${Runtime.jsonStringify(xlList)}")
-println("xl_list: ${Runtime.jsonStringify(xlList, [pretty: true])}")
+println("xl_list: ${Xl.jsonStringify(xlList)}")
+println("xl_list: ${Xl.jsonStringify(xlList, [pretty: true])}")
 def xlDict = [
     "xl_none": null,
     "xl_bool_true": true,
@@ -48,5 +48,5 @@ def xlDict = [
     "xl_dict": [ "foo": "bar" ],
     "xl_closure": { aa, bb -> (aa * bb) }
 ]
-println("xl_dict: ${Runtime.jsonStringify(xlDict)}")
-println("xl_dict: ${Runtime.jsonStringify(xlDict, [pretty: true])}")
+println("xl_dict: ${Xl.jsonStringify(xlDict)}")
+println("xl_dict: ${Xl.jsonStringify(xlDict, [pretty: true])}")

@@ -1,3 +1,7 @@
+[Last updated: 13 Jul 2026 @ 02:15 AM]
+version 2.7.31:
+small update in groovy;
+
 [Last updated: 13 Jul 2026 @ 12:47 AM]
 version 2.7.30:
 small fix in gleam;

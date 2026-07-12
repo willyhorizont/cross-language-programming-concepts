@@ -42,7 +42,7 @@ groovy --version
 
 CRLC="
 cd \"$PTFNXD\"
-groovy -cp \"$RD\" \"$FNX\"
+groovy --classpath \"$RD\" \"$FNX\"
 "
 
 docker run -i --rm \
