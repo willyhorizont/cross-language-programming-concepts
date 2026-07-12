@@ -1,3 +1,12 @@
+[Last updated: 12 Jul 2026 @ 10:30 PM]
+version 2.7.29:
+update typst run.sh;
+update gleam run.sh;
+update gleam project structure;
+update rust run.sh;
+update rust project structure;
+finish rust runtime init;
+
 [Last updated: 12 Jul 2026 @ 07:02 PM]
 version 2.7.28:
 update typst run.sh;
