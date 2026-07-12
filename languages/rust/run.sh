@@ -37,9 +37,11 @@ cargo --version
 "
 
 CRLC="
+rm -rf \"$RD/runtimes/rust/target\"
 cp -f \"$PTFNX\" \"$RD/runtimes/rust/src/main.rs\"
 cd \"$RD/runtimes/rust\"
 cargo run
+rm -rf \"$RD/runtimes/rust/target\"
 cd \"$RD\"
 "
 

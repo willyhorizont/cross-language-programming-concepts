@@ -1,7 +1,8 @@
 import gleam/dict
-import gleam/float
-import gleam/int
+import gleam/list
 import gleam/string
+import gleam/int
+import gleam/float
 
 pub type Xl {
     None
@@ -205,7 +206,7 @@ fn jify_loop(s: List(JifyStkEl), r: String, p: Bool) -> String {
                             jify_loop([JifyStkElR(case p {
                                 True -> "[\n" <> string.repeat(t, child_d)
                                 False -> "["
-                            }), ..jify_list(lv, child_d, p, t, [JifyStkElR(case p {
+                            }), ..jify_list(list.reverse(lv), child_d, p, t, [JifyStkElR(case p {
                                 True -> "\n" <> string.repeat(t, cur_d) <> "]"
                                 False -> "]"
                             }), ..ns])], r, p)
@@ -220,7 +221,7 @@ fn jify_loop(s: List(JifyStkEl), r: String, p: Bool) -> String {
                             jify_loop([JifyStkElR(case p {
                                 True -> "{\n" <> string.repeat(t, child_d)
                                 False -> "{"
-                            }), ..jify_dict(dpl, child_d, p, t, [JifyStkElR(case p {
+                            }), ..jify_dict(list.reverse(dpl), child_d, p, t, [JifyStkElR(case p {
                                 True -> "\n" <> string.repeat(t, cur_d) <> "}"
                                 False -> "}"
                             }), ..ns])], r, p)

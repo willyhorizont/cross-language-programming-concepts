@@ -44,8 +44,10 @@ cat /usr/local/lib/erlang/releases/29/OTP_VERSION
 "
 
 CRLC="
+rm -rf \"$RD/runtimes/gleam/build\"
 cd \"$PTTFNXD\"
 gleam run
+rm -rf \"$RD/runtimes/gleam/build\"
 "
 
 docker run -i --rm \
