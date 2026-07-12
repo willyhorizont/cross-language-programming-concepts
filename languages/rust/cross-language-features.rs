@@ -1,82 +1,86 @@
-use std::fmt;
-
-pub enum Any {
-    PyNone,
-    PyBool(bool),
-    JsString(String),
-    JsInt(i32),
-    JsFloat(f64),
-    PyList(Vec<Any>),
-    PyDict(Vec<(String, Any)>),
-    JsFunction(fn(Vec<Any>) -> Any),
-}
-
-impl fmt::Debug for Any {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        match self {
-            Any::PyNone => write!(f, "PyNone"),
-            Any::PyBool(b) => write!(f, "PyBool({})", b),
-            Any::JsString(s) => write!(f, "JsString({:?})", s),
-            Any::JsInt(i) => write!(f, "JsInt({})", i),
-            Any::JsFloat(fl) => write!(f, "JsFloat({})", fl),
-            Any::PyList(l) => write!(f, "PyList({:?})", l),
-            Any::PyDict(d) => write!(f, "PyDict({:?})", d),
-            Any::JsFunction(_) => write!(f, "JsFunction(<fn>)"),
-        }
-    }
-}
+use std::collections::HashMap;
+use std::rc::Rc;
+pub mod willyhorizont;
+use crate::willyhorizont::runtime::Xl;
+// use crate::willyhorizont::runtime::xl;
 
 fn main() {
-    // support function as value
-    let say_hello = |callback_function: fn()| {
+    /*
+    1. support closure as value, or has workaround
+    */
+    let say_hello = Xl::Closure(Rc::new(|va| {
         println!("hello");
-        callback_function();
-    };
-    say_hello(|| println!("world"));
-    let create_multiplier = |a: i32| move |b: i32| a * b;
-    let multiply_by_two = create_multiplier(2);
-    println!("multiply_by_two(10): {}", multiply_by_two(10));
-    let multiply_by_eight = create_multiplier(8);
-    println!("multiply_by_eight(4): {}", multiply_by_eight(4));
-    println!("multiply_by_two(8): {}", multiply_by_two(8));
-
-    // support dynamic-typed value, or has workaround
-    let some_python_like_list = Any::PyList(vec![
-        Any::PyNone,
-        Any::PyBool(true),
-        Any::PyBool(false),
-        Any::JsString(String::from("foo")),
-        Any::JsInt(0),
-        Any::JsInt(-123),
-        Any::JsFloat(123.789),
-        Any::JsFloat(-123.789),
-        Any::PyList(vec![Any::JsInt(1), Any::JsInt(2), Any::JsInt(3)]),
-        Any::PyList(vec![Any::PyList(vec![Any::JsString(String::from("foo")), Any::JsString(String::from("bar"))])]),
-        Any::JsFunction(|variadic_arguments| {
-            match variadic_arguments.as_slice() {
-                [Any::JsInt(a), Any::JsInt(b), ..] => Any::JsInt(a * b),
-                _ => Any::PyNone,
+        match va.as_slice() {
+            [Xl::Closure(callback), ..] => {
+                callback(vec![]);
             }
-        }),
-    ]);
-    println!("some_python_like_list: {:?}", some_python_like_list);
-    let some_python_like_dict = Any::PyDict(vec![
-        (String::from("some_null"), Any::PyNone),
-        (String::from("some_boolean_true"), Any::PyBool(true)),
-        (String::from("some_boolean_false"), Any::PyBool(false)),
-        (String::from("some_string"), Any::JsString(String::from("foo"))),
-        (String::from("some_int_positive"), Any::JsInt(0)),
-        (String::from("some_int_negative"), Any::JsInt(-123)),
-        (String::from("some_float_positive"), Any::JsFloat(123.789)),
-        (String::from("some_float_negative"), Any::JsFloat(-123.789)),
-        (String::from("some_python_like_list"), Any::PyList(vec![Any::JsInt(1), Any::JsInt(2), Any::JsInt(3)])),
-        (String::from("some_python_like_dict"), Any::PyList(vec![Any::PyList(vec![Any::JsString(String::from("foo")), Any::JsString(String::from("bar"))])])),
-        (String::from("some_function"), Any::JsFunction(|variadic_arguments| {
-            match variadic_arguments.as_slice() {
-                [Any::JsInt(a), Any::JsInt(b), ..] => Any::JsInt(a * b),
-                _ => Any::PyNone,
+            _ => println!("XlError: Expected Closure."),
+        }
+        Xl::None
+    }));
+    say_hello.clone().call(vec![Xl::Closure(Rc::new(|_| {
+        println!("world");
+        Xl::None
+    }))]);
+    let create_multiplier = Xl::Closure(Rc::new(|va| {
+        match va.as_slice() {
+            [Xl::Int(aa), ..] => {
+                let aa_v = *aa;
+                Xl::Closure(Rc::new(move |va| {
+                    match va.as_slice() {
+                        [Xl::Int(bb), ..] => Xl::Int(aa_v * bb),
+                        _ => Xl::None,
+                    }
+                }))
+            },
+            _ => Xl::None,
+        }
+    }));
+    let multiply_by_two = create_multiplier.call(vec![Xl::Int(2)]);
+    println!("multiply_by_two(10): {}", multiply_by_two.clone().call(vec![Xl::Int(10)]).to_int());
+    let multiply_by_eight = create_multiplier.call(vec![Xl::Int(8)]);
+    println!("multiply_by_eight(4): {}", multiply_by_eight.clone().call(vec![Xl::Int(4)]).to_int());
+    println!("multiply_by_two(8): {}", multiply_by_two.clone().call(vec![Xl::Int(8)]).to_int());
+
+    /*
+    2. support dynamic-typed value, or has workaround
+    */
+    let xl_list = Xl::List(vec![
+        Xl::None,
+        Xl::Bool(true),
+        Xl::Bool(false),
+        Xl::String(String::from("foo")),
+        Xl::Int(0),
+        Xl::Int(-123),
+        Xl::Float(123.789),
+        Xl::Float(-123.789),
+        Xl::List(vec![Xl::Int(1), Xl::Int(2), Xl::Int(3)]),
+        Xl::Dict(HashMap::from([(String::from("foo"), Xl::String(String::from("bar")))])),
+        Xl::Closure(Rc::new(|va| {
+            match va.as_slice() {
+                [Xl::Int(aa), Xl::Int(bb), ..] => Xl::Int(aa * bb),
+                _ => Xl::None,
             }
         })),
     ]);
-    println!("some_python_like_dict: {:?}", some_python_like_dict);
+    println!("xl_list: {:?}", xl_list);
+    let xl_dict = Xl::Dict(HashMap::from([
+        (String::from("xl_null"), Xl::None),
+        (String::from("xl_bool_true"), Xl::Bool(true)),
+        (String::from("xl_bool_false"), Xl::Bool(false)),
+        (String::from("xl_string"), Xl::String(String::from("foo"))),
+        (String::from("xl_int_positive"), Xl::Int(0)),
+        (String::from("xl_int_negative"), Xl::Int(-123)),
+        (String::from("xl_float_positive"), Xl::Float(123.789)),
+        (String::from("xl_float_negative"), Xl::Float(-123.789)),
+        (String::from("xl_list"), Xl::List(vec![Xl::Int(1), Xl::Int(2), Xl::Int(3)])),
+        (String::from("xl_dict"), Xl::Dict(HashMap::from([(String::from("foo"), Xl::String(String::from("bar")))]))),
+        (String::from("xl_closure"), Xl::Closure(Rc::new(|va| {
+            match va.as_slice() {
+                [Xl::Int(aa), Xl::Int(bb), ..] => Xl::Int(aa * bb),
+                _ => Xl::None,
+            }
+        }))),
+    ]));
+    println!("xl_dict: {:?}", xl_dict);
 }

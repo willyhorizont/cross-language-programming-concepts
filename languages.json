@@ -616,10 +616,11 @@
             "dict": "Map"
         },
         "vscode_extensions": [
+            "dustypomerleau.rust-syntax",
             "rust-lang.rust-analyzer"
         ],
         "vscode_extensions_archive": [
-            "dustypomerleau.rust-syntax"
+            
         ],
         "docker": [
             {

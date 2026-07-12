@@ -18,3 +18,4 @@ ritwickdey.liveserver
 yzhang.markdown-all-in-one
 zignd.html-css-class-completion
 mohd-akram.vscode-html-format
+tamasfe.even-better-toml

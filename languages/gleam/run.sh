@@ -27,32 +27,10 @@ IMG=$("$RD/tools/utils.sh" --get-docker-image $LID 2>/dev/null)
 
 L=$("$RD/tools/utils.sh" --print-sep)
 
-PTTFNXD="$RD/runtimes/$LID"
-TFN="main"
-PTTD="$PTTFNXD/$TFN/src"
-PTTFNX="$PTTD/$TFN.$X"
-
-mkdir -p "$PTTFNXD"
-
-if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
-    CIR="
-        cd $PTTFNXD
-        gleam new $TFN
-    "
-    docker run -i --rm \
-        --entrypoint bash \
-        -v "$RD:$RD" \
-        "$IMG" \
-        -c "
-            $CIR
-        "
-    echo "IS_RUNTIME_INSTALLED=\"TRUE\"" > "$LEF"
-fi
+PTTFNXD="$RD/runtimes/gleam"
+PTTFNX="$RD/runtimes/gleam/src/demo.gleam"
 
 cp -f "$PTFNX" "$PTTFNX"
-mkdir -p "$PTTD/willyhorizont"
-mkdir -p "$PTTD/willyhorizont/runtime"
-cp -f "$PTTFNXD/willyhorizont/runtime/runtime.gleam" "$PTTD/willyhorizont/runtime/xl.gleam"
 
 CPV="
 echo \">docker images\"
@@ -66,7 +44,7 @@ cat /usr/local/lib/erlang/releases/29/OTP_VERSION
 "
 
 CRLC="
-cd \"$PTTFNXD/$TFN\"
+cd \"$PTTFNXD\"
 gleam run
 "
 

@@ -35,7 +35,19 @@ runtimes/ocaml/willyhorizont/runtime/*.cmx
 runtimes/ocaml/willyhorizont/runtime/*.o
 
 runtimes/odin/main.odin
-runtimes/gleam/main/
+
+runtimes/gleam/*.beam
+runtimes/gleam/*.ez
+runtimes/gleam/build/
+runtimes/gleam/erl_crash.dump
+runtimes/gleam/.github/
+runtimes/gleam/test/
+runtimes/gleam/README.md
+runtimes/gleam/src/demo.gleam
+
+runtimes/rust/target/
+runtimes/rust/src/main.rs
+
 runtimes/erlang/main.erl
 
 *.zip

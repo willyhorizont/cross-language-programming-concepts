@@ -37,9 +37,10 @@ cargo --version
 "
 
 CRLC="
-cd \"$PTFNXD\"
-rustc \"$FNX\"
-./$FN
+cp -f \"$PTFNX\" \"$RD/runtimes/rust/src/main.rs\"
+cd \"$RD/runtimes/rust\"
+cargo run
+cd \"$RD\"
 "
 
 docker run -i --rm \
@@ -53,5 +54,3 @@ docker run -i --rm \
 
         $CRLC
     "
-
-rm -f "$PTFNXD/$FN"
