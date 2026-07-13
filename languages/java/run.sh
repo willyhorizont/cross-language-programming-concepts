@@ -1,33 +1,7 @@
 #!/bin/bash
 
-SD="$(dirname "$(realpath "$0")")"
-LID="$(basename "$SD")"
-if [ -z "$1" ]; then
-    echo "usage:"
-    echo "\"$SD/run.sh\" path/to/*.$LID"
-    exit 1
-fi
+source "$(dirname "$(realpath "$0")")/../../tools/runner.sh" "$0" "$@"
 
-PTFNX="$1"
-PTFNXD="$(dirname "$PTFNX")"
-FNX="$(basename "$PTFNX")"
-FN="${FNX%.*}"
-X="${FNX##*.}"
-
-RD="$(realpath "$SD/../..")"
-RN="$(basename "$RD")"
-
-LEF="$RD/.env.$LID"
-
-if [ -f "$LEF" ]; then
-    source "$LEF"
-fi
-
-IMG=$("$RD/tools/utils.sh" --get-docker-image $LID 2>/dev/null)
-
-L=$("$RD/tools/utils.sh" --print-sep)
-
-PTTFNXD="$RD/runtimes/java"
 TFN="Main"
 PTTFNX="$PTTFNXD/$TFN.$X"
 
@@ -36,7 +10,7 @@ mkdir -p "$PTTFNXD"
 
 if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
     CIR="
-        find \"$RD/runtimes/$LID\" -name \"*.java\" -print0 | xargs -0 javac -d \"$RD/runtimes/$LID\"
+        find \"$PTTFNXD\" -name \"*.java\" -print0 | xargs -0 javac -d \"$PTTFNXD\"
     "
     docker run -i --rm \
         --entrypoint bash \

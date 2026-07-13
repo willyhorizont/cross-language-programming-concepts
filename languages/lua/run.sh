@@ -1,21 +1,6 @@
 #!/bin/bash
 
-SD="$(dirname "$(realpath "$0")")"
-LID="$(basename "$SD")"
-if [ -z "$1" ]; then
-    echo "usage:"
-    echo "\"$SD/run.sh\" path/to/*.$LID"
-    exit 1
-fi
-
-PTFNX="$1"
-PTFNXD="$(dirname "$PTFNX")"
-FNX="$(basename "$PTFNX")"
-FN="${FNX%.*}"
-X="${FNX##*.}"
-
-RD="$(realpath "$SD/../..")"
-RN="$(basename "$RD")"
+source "$(dirname "$(realpath "$0")")/../../tools/runner.sh" "$0" "$@"
 
 PTRFNX="$RD/runtimes/lua/willyhorizont/runtime.lua"
 if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
@@ -23,16 +8,6 @@ if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; the
     echo "\"$SD/run.sh\" path/to/*.$LID"
     exit 1
 fi
-
-LEF="$RD/.env.$LID"
-
-if [ -f "$LEF" ]; then
-    source "$LEF"
-fi
-
-IMG=$("$RD/tools/utils.sh" --get-docker-image $LID 2>/dev/null)
-
-L=$("$RD/tools/utils.sh" --print-sep)
 
 CPV="
 echo \">docker images\"

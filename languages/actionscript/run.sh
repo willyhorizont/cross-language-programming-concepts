@@ -1,21 +1,6 @@
 #!/bin/bash
 
-SD="$(dirname "$(realpath "$0")")"
-LID="$(basename "$SD")"
-if [ -z "$1" ]; then
-    echo "usage:"
-    echo "\"$SD/run.sh\" path/to/*.$LID"
-    exit 1
-fi
-
-PTFNX="$1"
-PTFNXD="$(dirname "$PTFNX")"
-FNX="$(basename "$PTFNX")"
-FN="${FNX%.*}"
-X="${FNX##*.}"
-
-RD="$(realpath "$SD/../..")"
-RN="$(basename "$RD")"
+source "$(dirname "$(realpath "$0")")/../../tools/runner.sh" "$0" "$@"
 
 PTRFNX="$RD/runtimes/actionscript/willyhorizont/runtime/Xl.as"
 if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
@@ -23,22 +8,13 @@ if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; the
     echo "\"$SD/run.sh\" path/to/*.$LID"
     exit 1
 fi
+
 PTTFNX="$RD/runtimes/actionscript/willyhorizont/runtime/Terminal.as"
 if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTTFNX" 2>/dev/null)" ]; then
     echo "usage:"
     echo "\"$SD/run.sh\" path/to/*.$LID"
     exit 1
 fi
-
-LEF="$RD/.env.$LID"
-
-if [ -f "$LEF" ]; then
-    source "$LEF"
-fi
-
-IMG=$("$RD/tools/utils.sh" --get-docker-image $LID 2>/dev/null)
-
-L=$("$RD/tools/utils.sh" --print-sep)
 
 if ! docker image inspect "$IMG" > /dev/null 2>&1; then
     docker build \
@@ -47,11 +23,10 @@ if ! docker image inspect "$IMG" > /dev/null 2>&1; then
         "$RD"
 fi
 
-PTRD="$RD/runtimes/$LID"
-PTOFXD="$PTRD/output"
+PTOFXD="$PTTFNXD/output"
 PTOFNX="$PTOFXD/$FN.swf"
 CFN="Main"
-PTCFX="$PTRD/$CFN.$X"
+PTCFX="$PTTFNXD/$CFN.$X"
 
 mkdir -p "$PTOFXD"
 cp -f "$PTFNX" "$PTCFX"
@@ -74,7 +49,7 @@ C3="mxmlc \"$PTRFNX\" -output \"$PTOFNX\""
 
 CCLC="
 rm -f \"$PTOFNX\"
-mxmlc -source-path+=\"$PTRD\" -default-size 800 450 -compiler.define=CONFIG::SCREEN_WIDTH,\"'${SW}'\" -compiler.define=CONFIG::SCREEN_HEIGHT,\"'${SH}'\" -compiler.define=CONFIG::USER_NAME,\"'${UN}'\" -compiler.define=CONFIG::USER_COMPUTER,\"'${UC}'\" -compiler.define=CONFIG::USER_PWD,\"'${UD}'\" -compiler.define=CONFIG::COMMAND_1,\"'${C1}'\" -compiler.define=CONFIG::COMMAND_2,\"'${C2}'\" -compiler.define=CONFIG::COMMAND_3,\"'${C3}'\" \"$PTRFNX\" -output \"$PTOFNX\"
+mxmlc -source-path+=\"$PTTFNXD\" -default-size 800 450 -compiler.define=CONFIG::SCREEN_WIDTH,\"'${SW}'\" -compiler.define=CONFIG::SCREEN_HEIGHT,\"'${SH}'\" -compiler.define=CONFIG::USER_NAME,\"'${UN}'\" -compiler.define=CONFIG::USER_COMPUTER,\"'${UC}'\" -compiler.define=CONFIG::USER_PWD,\"'${UD}'\" -compiler.define=CONFIG::COMMAND_1,\"'${C1}'\" -compiler.define=CONFIG::COMMAND_2,\"'${C2}'\" -compiler.define=CONFIG::COMMAND_3,\"'${C3}'\" \"$PTRFNX\" -output \"$PTOFNX\"
 echo \">SWF version:\"
 java -jar /apache-flex-sdk/lib/swfdump.jar \"$PTOFNX\" | grep \"version=\"
 echo \">Flash Player version:\"

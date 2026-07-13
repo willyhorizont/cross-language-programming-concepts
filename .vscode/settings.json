@@ -28,9 +28,6 @@
 
     "editor.semanticHighlighting.enabled": true,
 
-    "workbench.editor.showTabs": "multiple",
-    "workbench.tree.indent": 24,
-
     "views.customizations": {
         "viewContainerLocations": {
             "workbench.views.service.auxiliarybar.d8075f6a-32ff-4930-b609-1ce17888bc4e": 0
@@ -256,13 +253,15 @@
     // },
 
     "explorer.compactFolders": false,
-    "workbench.editor.tabSizing": "fixed",
-    "workbench.editor.tabSizingFixedMinWidth": 38,
+    "workbench.tree.indent": 24,
+    "workbench.editor.showTabs": "multiple",
+    "workbench.editor.wrapTabs": true,
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.editor.tabSizingFixedMinWidth": 50,
     "workbench.editor.pinnedTabSizing": "normal",
     "workbench.sideBar.location": "right",
     "workbench.editor.pinnedTabsOnSeparateRow": true,
     "workbench.editor.titleScrollbarSizing": "large",
-    "workbench.editor.wrapTabs": true,
     "workbench.iconTheme": "vscode-great-icons",
     "editor.fontFamily": "'Source Code Pro', Consolas, 'Courier New', monospace",
     "editor.maxTokenizationLineLength": 9999999999999999999999999999999999999999999999999999999,
@@ -577,5 +576,6 @@
     "julia.juliaup.customDepot": false,
     "julia.promptToInstall": false,
     "julia.executablePath": "/usr/local/julia/bin/julia",
-    "workbench.notifications.position": "bottom-left"
+    "workbench.notifications.position": "bottom-left",
+    "notification.statusMode": "off"
 }
