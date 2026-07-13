@@ -1,6 +1,17 @@
 import std/tables
 import std/strutils
 
+proc escapeString*(s: string): string =
+  if s.len == 0:
+    return ""
+  var r = s
+  r = r.replace("\\", "\\\\")
+  r = r.replace("\"", "\\\"")
+  r = r.replace("\n", "\\n")
+  r = r.replace("\r", "\\r")
+  r = r.replace("\t", "\\t")
+  return r
+
 type
   Types* = enum
     None,
@@ -59,13 +70,13 @@ proc `$`*(self: Type): string =
   of Int: $self.intValue
   of Float: $self.floatValue
   of List:
-    var items: seq[string] = @[]
-    for x in self.listValue: items.add($x)
-    "[" & items.join(", ") & "]"
+    var l: seq[string] = @[]
+    for x in self.listValue: l.add($x)
+    "[" & l.join(", ") & "]"
   of Dict:
-    var pairs: seq[string] = @[]
-    for k, v in self.dictValue.pairs: pairs.add(k & ": " & $v)
-    "{" & pairs.join(", ") & "}"
+    var dpl: seq[string] = @[]
+    for k, v in self.dictValue.pairs: dpl.add(k & ": " & $v)
+    "{" & dpl.join(", ") & "}"
   of Closure: "\"[object Function]\""
 
 proc toBool*(self: Type): bool =

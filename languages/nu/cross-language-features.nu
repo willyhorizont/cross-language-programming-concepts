@@ -6,39 +6,39 @@ let say_hello = {|callback_function|
 do $say_hello {||
     print "world"
 }
-let multiply = {|a| {|b| $a * $b}}
-let multiply_by_two = do $multiply 2
-print $"do $multiply_by_two 10: (do $multiply_by_two 10)"
-let multiply_by_eight = do $multiply 8
-print $"do $multiply_by_eight 4: (do $multiply_by_eight 4)"
-print $"do $multiply_by_two 8: (do $multiply_by_two 8)"
+let createMultiplier = {|aa| {|bb| $aa * $bb}}
+let multiply_by_two = do $createMultiplier 2
+print $"multiply_by_two(10): (do $multiply_by_two 10)"
+let multiply_by_eight = do $createMultiplier 8
+print $"multiply_by_eight(4): (do $multiply_by_eight 4)"
+print $"multiply_by_two(8): (do $multiply_by_two 8)"
 
 # 2. support dynamic-typed value, or has workaround
-let some_python_like_list = [
+let xl_list = [
     null,
     true,
     false,
     "foo",
-    123,
+    0,
     -123,
     123.789,
     -123.789,
     [1, 2, 3],
-    {foo:"bar"},
-    {|a, b| ($a * $b)},
+    {"foo":"bar"},
+    {|aa, bb| ($aa * $bb)},
 ]
-print $"$some_python_like_list: ($some_python_like_list | to json --serialize --indent 4)"
-let some_python_like_dict = {
-    some_null:null,
-    some_boolean_true:true,
-    some_boolean_false:false,
-    some_string:"foo",
-    some_int_positive:123,
-    some_int_negative:-123,
-    some_float_positive:123.789,
-    some_float_negative:-123.789,
-    some_python_like_list:[1, 2, 3],
-    some_python_like_dict:{foo:"bar"},
-    some_function:{|a, b| ($a * $b)},
+print $"xl_list: ($xl_list | to json --serialize --indent 4)"
+let xl_dict = {
+    "xl_null":null,
+    "xl_bool_true":true,
+    "xl_bool_false":false,
+    "xl_string":"foo",
+    "xl_int_positive":0,
+    "xl_int_negative":-123,
+    "xl_float_positive":123.789,
+    "xl_float_negative":-123.789,
+    "xl_list":[1, 2, 3],
+    "xl_dict":{"foo":"bar"},
+    "xl_closure":{|aa, bb| ($aa * $bb)},
 }
-print $"$some_python_like_dict: ($some_python_like_dict | to json --serialize --indent 4)"
+print $"xl_dict: ($xl_dict | to json --serialize --indent 4)"

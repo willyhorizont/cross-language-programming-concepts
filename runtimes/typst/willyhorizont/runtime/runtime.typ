@@ -48,6 +48,16 @@
         #p-prompt()#print-cmd([typst compile #f-n-x])#{"\n"}#text(fill: rgb("#ddd"))[#n-doc|]
     ]
 }
+#let escape-string(s) = {
+    if s == none or s == "" { return "" }
+    let r = str(s)
+    r = r.replace("\\", "\\\\")
+    r = r.replace("\"", "\\\"")
+    r = r.replace("\n", "\\n")
+    r = r.replace("\r", "\\r")
+    r = r.replace("\t", "\\t")
+    return r
+}
 #let json-stringify(a, pretty: false) = {
     let p = pretty
     let t = " " * 4
@@ -72,7 +82,7 @@
             continue
         }
         if v-t == str {
-            r += "\"" + v + "\""
+            r += "\"" + escape-string(v) + "\""
             continue
         }
         if v-t in (int, float) {

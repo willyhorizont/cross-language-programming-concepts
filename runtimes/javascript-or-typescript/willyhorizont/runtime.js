@@ -13,6 +13,16 @@
     }
     // Unknown / unsupported environment
 })(globalThis, (root) => {
+    const escapeString = (s) => {
+        if (s === null || s === undefined) return "";
+        let r = String(s);
+        r = r.replace(/\\/g, "\\\\");
+        r = r.replace(/"/g, "\\\"");
+        r = r.replace(/\n/g, "\\n");
+        r = r.replace(/\r/g, "\\r");
+        r = r.replace(/\t/g, "\\t");
+        return r;
+    };
     const jsonStringify = (a, { pretty = false } = {}) => {
         const p = pretty;
         const t = " ".repeat(4);
@@ -35,7 +45,7 @@
                 continue;
             }
             if (typeof v === "string") {
-                r += "\"" + v + "\"";
+                r += "\"" + escapeString(v) + "\"";
                 continue;
             }
             if (typeof v === "number") {
@@ -122,6 +132,7 @@
         return r;
     };
     return {
+        escapeString,
         jsonStringify,
     };
 });

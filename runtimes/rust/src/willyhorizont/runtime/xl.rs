@@ -4,6 +4,24 @@ pub const NONE: Xl = Xl::None;
 pub const TRUE: Xl = Xl::Bool(true);
 pub const FALSE: Xl = Xl::Bool(false);
 
+pub fn escape_string(s: &str) -> String {
+    if s.is_empty() {
+        return String::new();
+    }
+    let mut r = String::with_capacity(s.len());
+    for c in s.chars() {
+        match c {
+            '\\' => r.push_str("\\\\"),
+            '"'  => r.push_str("\\\""),
+            '\n' => r.push_str("\\n"),
+            '\r' => r.push_str("\\r"),
+            '\t' => r.push_str("\\t"),
+            _    => r.push(c),
+        }
+    }
+    r
+}
+
 #[macro_export]
 macro_rules! xl_string {
     ($v:expr) => {
@@ -98,7 +116,7 @@ pub(crate) fn jify(a: &Xl, o: &Xl) -> String {
                     Xl::Bool(v) => r.push_str(if *v { "true" } else { "false" }),
                     Xl::String(v) => {
                         r.push_str("\"");
-                        r.push_str(v);
+                        r.push_str(&escape_string(&v));
                         r.push_str("\"");
                     }
                     Xl::Int(v) => r.push_str(&v.to_string()),

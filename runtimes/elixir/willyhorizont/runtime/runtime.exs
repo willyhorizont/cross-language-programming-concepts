@@ -1,4 +1,14 @@
 defmodule Runtime do
+    def escape_string(s) when is_binary(s) do
+        s
+        |> String.replace("\\", "\\\\")
+        |> String.replace("\"", "\\\"")
+        |> String.replace("\n", "\\n")
+        |> String.replace("\r", "\\r")
+        |> String.replace("\t", "\\t")
+    end
+    def escape_string(_), do: ""
+
     defp jify_list([], _, _, _, acc), do: acc
 
     defp jify_list([head | tail], child_d, p, t, acc) do
@@ -57,7 +67,7 @@ defmodule Runtime do
                 is_boolean(v) ->
                     jify_loop(ns, r <> to_string(v), p, t)
                 is_binary(v) ->
-                    jify_loop(ns, r <> "\"" <> v <> "\"", p, t)
+                    jify_loop(ns, r <> "\"" <> escape_string(v) <> "\"", p, t)
                 is_number(v) ->
                     jify_loop(ns, r <> to_string(v), p, t)
                 is_function(v) ->

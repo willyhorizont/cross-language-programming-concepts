@@ -1,4 +1,12 @@
 class Xl {
+    static [string] EscapeString([string]$s) {
+        if ([string]::IsNullOrEmpty($s)) { return "" }
+        return $s.Replace('\', '\\')
+            .Replace('"', '\"')
+            .Replace("`n", '\n')
+            .Replace("`r", '\r')
+            .Replace("`t", '\t')
+    }
     static [string] JsonStringify($A, [System.Collections.IDictionary]$O = @{}) {
         $P = if ($O.ContainsKey("Pretty")) { [bool]$O["Pretty"] } else { $false }
         $T = " " * 4
@@ -22,7 +30,7 @@ class Xl {
                 continue
             }
             if ($V -is [string]) {
-                $R += """" + $V + """"
+                $R += """" + [Xl]::EscapeString($V) + """"
                 continue
             }
             if ($V -is [int] -or $V -is [double] -or $V -is [decimal] -or $V -is [long] -or $V -is [float]) {

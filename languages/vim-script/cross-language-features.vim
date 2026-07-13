@@ -1,19 +1,21 @@
 vim9script
 
+import "../../runtimes/vimscript/willyhorizont/runtime/runtime.vim" as Xl
+
 # 1. support closure as value, or has workaround
 var SayHello = (CallbackFunction) => {
-    echomsg "hello"
+    Xl.Echoln("hello")
     CallbackFunction()
 }
 SayHello(() => {
-    echomsg "world"
+    Xl.Echoln("world")
 })
 var CreateMultiplier = (aa) => (bb) => (aa * bb)
 var MultiplyByTwo = CreateMultiplier(2)
-echomsg $"multiply_by_two(10): {MultiplyByTwo(10)}"
+Xl.Echoln($"multiply_by_two(10): {MultiplyByTwo(10)}")
 var MultiplyByEight = CreateMultiplier(8)
-echomsg $"multiply_by_eight(4): {MultiplyByEight(4)}"
-echomsg $"multiply_by_two(8): {MultiplyByTwo(8)}"
+Xl.Echoln($"multiply_by_eight(4): {MultiplyByEight(4)}")
+Xl.Echoln($"multiply_by_two(8): {MultiplyByTwo(8)}")
 
 # 2. support dynamic-typed value, or has workaround
 var XlList = [
@@ -29,7 +31,8 @@ var XlList = [
     {"foo": "bar"},
     (aa, bb) => (aa * bb),
 ]
-# echomsg $"xl_list: {json_encode(XlList)}" # error if contain function
+Xl.Echoln($"xl_list: {Xl.JsonStringify(XlList)}")
+Xl.Echoln($"xl_list: {Xl.JsonStringify(XlList, {"pretty": true})}")
 var XlDict = {
     "xl_none": null,
     "xl_bool_true": true,
@@ -43,4 +46,5 @@ var XlDict = {
     "xl_dict": {"foo": "bar"},
     "xl_closure": (aa, bb) => (aa * bb),
 }
-# echomsg $"xl_dict: {json_encode(XlDict)}" # error if contain function
+Xl.Echoln($"xl_dict: {Xl.JsonStringify(XlDict)}")
+Xl.Echoln($"xl_dict: {Xl.JsonStringify(XlDict, {"pretty": true})}")

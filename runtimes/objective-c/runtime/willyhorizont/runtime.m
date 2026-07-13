@@ -39,6 +39,7 @@ typedef XL * _Nonnull (^Closure)(XL * va);
 @end
 
 @interface XlNamespace : NSObject
++ (NSString *)escapeString:(NSString *)s;
 - (Class)XL;
 - (XL * (^)(void))initNone;
 - (XL * (^)(BOOL))initBool;
@@ -51,7 +52,7 @@ typedef XL * _Nonnull (^Closure)(XL * va);
 - (XL * (^)(XL * a))iter;
 - (int64_t (^)(XL *))toInt;
 - (double (^)(XL *))toFloat;
-- (NSString * (^)(XL * _Nullable a, id _Nullable o))jsonStringify;
+- (NSString * (^)(XL * _Nullable, id _Nullable))jsonStringify;
 @end
 
 extern XlNamespace * xl;
@@ -257,6 +258,17 @@ extern XlNamespace * xl;
     };
 }
 
++ (NSString *)escapeString:(NSString *)s {
+    if (!s) return @"";
+    NSMutableString *r = [s mutableCopy];
+    [r replaceOccurrencesOfString:@"\\" withString:@"\\\\" options:0 range:NSMakeRange(0, r.length)];
+    [r replaceOccurrencesOfString:@"\"" withString:@"\\\"" options:0 range:NSMakeRange(0, r.length)];
+    [r replaceOccurrencesOfString:@"\n" withString:@"\\n" options:0 range:NSMakeRange(0, r.length)];
+    [r replaceOccurrencesOfString:@"\r" withString:@"\\r" options:0 range:NSMakeRange(0, r.length)];
+    [r replaceOccurrencesOfString:@"\t" withString:@"\\t" options:0 range:NSMakeRange(0, r.length)];
+    return [r copy];
+}
+
 - (NSString * (^)(XL * _Nullable, id _Nullable))jsonStringify {
     return ^(XL * _Nullable a, id _Nullable oP) {
         XL * frstA = a ? a : [[XL alloc] initNone];
@@ -294,7 +306,7 @@ extern XlNamespace * xl;
                 continue;
             }
             if (v.type == XlString) {
-                [r appendFormat:@"\"%@\"", v.nativeValue];
+                [r appendFormat:@"\"%@\"", [XlNamespace escapeString:(NSString *)v.nativeValue]];
                 continue;
             }
             if (v.type == XlInt || v.type == XlFloat) {

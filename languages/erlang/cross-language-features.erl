@@ -1,8 +1,9 @@
 -module(main).
 -export([start/0]).
--define(xl, willyhorizont_runtime).
 
 start() ->
+    {ok, _} = compile:file("willyhorizont/runtime/xl.erl"),
+    
     %% 1. support closure as value, or has workaround
     SayHello = fun(CallbackFunction) ->
         io:format("hello~n"),
@@ -19,7 +20,7 @@ start() ->
     MultiplyByEight = CreateMultiplier(8),
     io:format("multiply_by_eight(4): ~p~n", [MultiplyByEight(4)]),
     io:format("multiply_by_two(8): ~p~n", [MultiplyByTwo(8)]),
-
+    
     %% 2. support dynamic-typed value, or has workaround
     XlList = [
         nil,
@@ -34,8 +35,8 @@ start() ->
         #{<<"foo">> => <<"bar">>},
         fun(Aa, Bb) -> (Aa * Bb) end
     ],
-    io:format("xl_list: ~s~n", [?xl:json_stringify(XlList)]),
-    io:format("xl_list: ~s~n", [?xl:json_stringify(XlList, [{pretty, true}])]),
+    io:format("xl_list: ~s~n", [xl:json_stringify(XlList)]),
+    io:format("xl_list: ~s~n", [xl:json_stringify(XlList, [{pretty, true}])]),
     XlDict = #{
         <<"xl_none">> => nil,
         <<"xl_bool_true">> => true,
@@ -49,5 +50,7 @@ start() ->
         <<"xl_dict">> => #{<<"foo">> => <<"bar">>},
         <<"xl_closure">> => fun(Aa, Bb) -> (Aa * Bb) end
     },
-    io:format("xl_dict: ~s~n", [?xl:json_stringify(XlDict)]),
-    io:format("xl_dict: ~s~n", [?xl:json_stringify(XlDict, [{pretty, true}])]).
+    io:format("xl_dict: ~s~n", [xl:json_stringify(XlDict)]),
+    io:format("xl_dict: ~s~n", [xl:json_stringify(XlDict, [{pretty, true}])]),
+    
+    ok.

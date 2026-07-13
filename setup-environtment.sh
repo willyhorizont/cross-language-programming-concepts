@@ -59,6 +59,8 @@ code --install-extension myriad-dreamin.tinymist
 code --install-extension mathematic.vscode-pdf
 code --install-extension geequlim.godot-tools
 code --install-extension sleutho.tcl
+code --install-extension elves.elvish
+code --install-extension TheNuProjectContributors.vscode-nushell-lang
 
 eval "$RD/tools/vscode-extensions/vim9script-syntax-highlighter/install.sh"
 

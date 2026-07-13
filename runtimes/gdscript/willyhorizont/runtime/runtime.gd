@@ -1,5 +1,16 @@
 extends RefCounted
 
+static func escape_string(s: String) -> String:
+	if s.is_empty():
+		return ""
+	var r := s
+	r = r.replace("\\", "\\\\")
+	r = r.replace("\"", "\\\"")
+	r = r.replace("\n", "\\n")
+	r = r.replace("\r", "\\r")
+	r = r.replace("\t", "\\t")
+	return r
+
 static func json_stringify(a, ao = {}):
 	var o = {"pretty": false}
 	o.merge(ao, true)
@@ -21,7 +32,7 @@ static func json_stringify(a, ao = {}):
 			r += "true" if v else "false"
 			continue
 		if typeof(v) == TYPE_STRING:
-			r += "\"" + v + "\""
+			r += "\"" + escape_string(v) + "\""
 			continue
 		if typeof(v) == TYPE_INT or typeof(v) == TYPE_FLOAT:
 			r += str(v)
@@ -58,7 +69,7 @@ static func json_stringify(a, ao = {}):
             })
 			continue
 		if typeof(v) == TYPE_DICTIONARY:
-			var dkl = v.dkl()
+			var dkl = v.keys()
 			if dkl.size() == 0:
 				r += "{}"
 				continue

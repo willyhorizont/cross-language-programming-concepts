@@ -13,6 +13,13 @@ do = va:
         { }
         va;
 
+escapeString = s: 
+    if s == "" then "" 
+    else builtins.replaceStrings 
+        ["\\" "\"" "\n" "\r" "\t"] 
+        ["\\\\" "\\\"" "\\n" "\\r" "\\t"] 
+        s;
+
 ifThenElse = cond: fT: dF: ctx:
     if cond ctx
     then fT ctx
@@ -66,7 +73,7 @@ jsonStringify = a: { pretty ? false }:
         else if cT == "string" then
             ctx // {
             s = rS;
-            r = ctx.r + "\"" + c.v + "\"";
+            r = ctx.r + "\"" + (escapeString c.v) + "\"";
             }
         else if cT == "int" || cT == "float" then
             ctx // {

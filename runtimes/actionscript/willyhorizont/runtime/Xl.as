@@ -80,6 +80,16 @@ package willyhorizont.runtime {
             }
             return d;
         }
+        public static function escapeString(s:String):String {
+            if (s == null) return "";
+            var r:String = s;
+            r = r.replace(new RegExp("\\\\", "g"), "\\\\");
+            r = r.replace(new RegExp("\"", "g"), "\\\"");
+            r = r.replace(new RegExp("\n", "g"), "\\n");
+            r = r.replace(new RegExp("\r", "g"), "\\r");
+            r = r.replace(new RegExp("\t", "g"), "\\t");
+            return r;
+        }
         public static function jsonStringify(a:*, o:Object = null):String {
             var p:Boolean = false;
             if (o != null && o.hasOwnProperty("pretty")) {
@@ -106,7 +116,7 @@ package willyhorizont.runtime {
                     continue;
                 }
                 if (curT === "[object XlString]") {
-                    r += "\"" + v + "\"";
+                    r += "\"" + escapeString(v) + "\"";
                     continue;
                 }
                 if (curT === "[object XlInt]" || curT === "[object XlFloat]") {

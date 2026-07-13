@@ -63,7 +63,10 @@ tools/output/
 tempCodeRunnerFile.*
 
 runtimes/nim/main.nim
+runtimes/nim/main
+
 runtimes/zig/main.zig
+runtimes/zig/main
 
 *.vsix
 

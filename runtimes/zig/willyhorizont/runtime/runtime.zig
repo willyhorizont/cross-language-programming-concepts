@@ -1,5 +1,23 @@
 const std = @import("std");
 
+pub fn escapeString(gpa: std.mem.Allocator, s: ?[]const u8) ![]const u8 {
+    const inp = s orelse return try gpa.dupe(u8, "");
+    if (inp.len == 0) return try gpa.dupe(u8, "");
+    var r: std.ArrayList(u8) = .empty;
+    errdefer r.deinit(gpa);
+    for (inp) |c| {
+        switch (c) {
+            '\\' => try r.appendSlice(gpa, "\\\\"),
+            '"' => try r.appendSlice(gpa, "\\\""),
+            '\n' => try r.appendSlice(gpa, "\\n"),
+            '\r' => try r.appendSlice(gpa, "\\r"),
+            '\t' => try r.appendSlice(gpa, "\\t"),
+            else => try r.append(gpa, c),
+        }
+    }
+    return r.toOwnedSlice(gpa);
+}
+
 pub const Types = enum {
     None,
     Bool,
@@ -191,8 +209,10 @@ pub fn jsonStringify(gpa: std.mem.Allocator, a: Type, o: anytype) ![]const u8 {
                 continue;
             },
             .String => |sv| {
+                const svEsc = try escapeString(gpa, sv);
+                defer gpa.free(svEsc);
                 try r.append(gpa, '"');
-                try r.appendSlice(gpa, sv);
+                try r.appendSlice(gpa, svEsc);
                 try r.append(gpa, '"');
                 continue;
             },
@@ -226,21 +246,11 @@ pub fn jsonStringify(gpa: std.mem.Allocator, a: Type, o: anytype) ![]const u8 {
                     st[st.len - 1] = ']';
                     slcb = st;
                 }
-                try s.append(ma, .{
-                    .t = .r,
-                    .v = .None,
-                    .r = slcb,
-                    .d = curD
-                });
+                try s.append(ma, .{ .t = .r, .v = .None, .r = slcb, .d = curD });
                 var i: usize = lv.len;
                 while (i > 0) {
                     i -= 1;
-                    try s.append(ma, .{
-                        .t = .v,
-                        .v = lv[i],
-                        .r = "",
-                        .d = childDl
-                    });
+                    try s.append(ma, .{ .t = .v, .v = lv[i], .r = "", .d = childDl });
                     if (i > 0) {
                         var slEls: []const u8 = ",";
                         if (p) {
@@ -250,12 +260,7 @@ pub fn jsonStringify(gpa: std.mem.Allocator, a: Type, o: anytype) ![]const u8 {
                             @memset(st[2..], ' ');
                             slEls = st;
                         }
-                        try s.append(ma, .{
-                            .t = .r,
-                            .v = .None,
-                            .r = slEls,
-                            .d = childDl
-                        });
+                        try s.append(ma, .{ .t = .r, .v = .None, .r = slEls, .d = childDl });
                     }
                 }
                 var slob: []const u8 = "[";
@@ -266,12 +271,7 @@ pub fn jsonStringify(gpa: std.mem.Allocator, a: Type, o: anytype) ![]const u8 {
                     @memset(st[2..], ' ');
                     slob = st;
                 }
-                try s.append(ma, .{
-                    .t = .r,
-                    .v = .None,
-                    .r = slob,
-                    .d = childDl
-                });
+                try s.append(ma, .{ .t = .r, .v = .None, .r = slob, .d = childDl });
                 continue;
             },
             .Dict => |dv| {
@@ -288,32 +288,17 @@ pub fn jsonStringify(gpa: std.mem.Allocator, a: Type, o: anytype) ![]const u8 {
                     st[st.len - 1] = '}';
                     sdcb = st;
                 }
-                try s.append(ma, .{
-                    .t = .r,
-                    .v = .None,
-                    .r = sdcb,
-                    .d = curD
-                });
+                try s.append(ma, .{ .t = .r, .v = .None, .r = sdcb, .d = curD });
                 var i: usize = dv.len;
                 while (i > 0) {
                     i -= 1;
                     const dpl = dv[i];
-                    try s.append(ma, .{
-                        .t = .v,
-                        .v = dpl.val,
-                        .r = "",
-                        .d = childDd
-                    });
+                    try s.append(ma, .{ .t = .v, .v = dpl.val, .r = "", .d = childDd });
                     const sdk = if (p)
                         try std.fmt.allocPrint(ma, "\"{s}\": ", .{dpl.key})
                     else
                         try std.fmt.allocPrint(ma, "\"{s}\":", .{dpl.key});
-                    try s.append(ma, .{
-                        .t = .r,
-                        .v = .None,
-                        .r = sdk,
-                        .d = childDd
-                    });
+                    try s.append(ma, .{ .t = .r, .v = .None, .r = sdk, .d = childDd });
                     if (i > 0) {
                         var sdEls: []const u8 = ",";
                         if (p) {
@@ -323,12 +308,7 @@ pub fn jsonStringify(gpa: std.mem.Allocator, a: Type, o: anytype) ![]const u8 {
                             @memset(st[2..], ' ');
                             sdEls = st;
                         }
-                        try s.append(ma, .{
-                            .t = .r,
-                            .v = .None,
-                            .r = sdEls,
-                            .d = childDd
-                        });
+                        try s.append(ma, .{ .t = .r, .v = .None, .r = sdEls, .d = childDd });
                     }
                 }
                 var sdob: []const u8 = "{";
@@ -339,12 +319,7 @@ pub fn jsonStringify(gpa: std.mem.Allocator, a: Type, o: anytype) ![]const u8 {
                     @memset(st[2..], ' ');
                     sdob = st;
                 }
-                try s.append(ma, .{
-                    .t = .r,
-                    .v = .None,
-                    .r = sdob,
-                    .d = childDd
-                });
+                try s.append(ma, .{ .t = .r, .v = .None, .r = sdob, .d = childDd });
                 continue;
             },
             // else => {

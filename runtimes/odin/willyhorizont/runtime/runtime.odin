@@ -3,6 +3,26 @@ package xl
 import "core:fmt"
 import "core:strings"
 
+escape_string :: proc(sb: ^strings.Builder, s: string) {
+	if len(s) == 0 do return
+	for char in s {
+		switch char {
+		case '\\':
+            strings.write_string(sb, "\\\\")
+		case '"':
+            strings.write_string(sb, "\\\"")
+		case '\n':
+            strings.write_string(sb, "\\n")
+		case '\r':
+            strings.write_string(sb, "\\r")
+		case '\t':
+            strings.write_string(sb, "\\t")
+		case:
+            strings.write_rune(sb, char)
+		}
+	}
+}
+
 Bool :: bool
 String :: string
 Int :: int
@@ -109,6 +129,7 @@ json_stringify :: proc(a: Type, o: struct { pretty: Bool } = {}) -> String {
         d: Int,
     }
     s: [dynamic]Tok
+    defer delete(s)
     append(&s, Tok{t = "v", v = a, r = "", d = 0})
     r := strings.builder_make()
     for len(s) > 0 {
@@ -129,7 +150,7 @@ json_stringify :: proc(a: Type, o: struct { pretty: Bool } = {}) -> String {
         }
         if sv, ok := v.(String); ok {
             strings.write_string(&r, "\"")
-            strings.write_string(&r, sv)
+            escape_string(&r, sv)
             strings.write_string(&r, "\"")
             continue
         }
@@ -231,6 +252,5 @@ json_stringify :: proc(a: Type, o: struct { pretty: Bool } = {}) -> String {
         }
         strings.write_string(&r, "\"[objct \\\"Odin Object\\\"]\"")
     }
-    delete(s)
     return strings.to_string(r)
 }

@@ -1,6 +1,20 @@
 exception Break
 exception Continue
 
+let escape_string s =
+    if s = "" then ""
+    else
+        let buf = Buffer.create (String.length s) in
+        String.iter (function
+            | '\\' -> Buffer.add_string buf "\\\\"
+            | '"'  -> Buffer.add_string buf "\\\""
+            | '\n' -> Buffer.add_string buf "\\n"
+            | '\r' -> Buffer.add_string buf "\\r"
+            | '\t' -> Buffer.add_string buf "\\t"
+            | c    -> Buffer.add_char buf c
+        ) s;
+        Buffer.contents buf
+
 type xl =
     | None
     | Bool of bool
@@ -140,7 +154,7 @@ let json_stringify (va : xl list) : string =
                 raise Continue
             end;
             if (is_string v) then begin
-                r := !r ^ "\"" ^ (to_string v) ^ "\"";
+                r := !r ^ "\"" ^ (escape_string (to_string v)) ^ "\"";
                 raise Continue
             end;
             if (is_int v) then begin

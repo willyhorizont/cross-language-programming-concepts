@@ -29,10 +29,9 @@ L=$("$RD/tools/utils.sh" --print-sep)
 
 PTTFNXD="$RD/runtimes/$LID"
 TFN="main"
-PTTFNX="$PTTFNXD/$TFN.$X"
+PTTFNX="$RD/runtimes/erlang/main.erl"
 
 mkdir -p "$PTTFNXD"
-cp -f "$PTFNX" "$PTTFNX"
 
 CPV="
 echo \">docker images\"
@@ -44,10 +43,11 @@ cat /usr/local/lib/erlang/releases/29/OTP_VERSION
 "
 
 CRLC="
+rm -f $TFN
+cp -f \"$PTFNX\" \"$PTTFNX\"
 cd $PTTFNXD
-erlc willyhorizont/runtime/willyhorizont_runtime.erl
 erlc $TFN.$X
-erl -noshell -pa . -s $TFN start -s init stop
+erl -noshell -pa \"$PTTFNXD\" -s $TFN start -s init stop
 "
 
 docker run -i --rm \
@@ -63,5 +63,5 @@ docker run -i --rm \
     "
 
 rm -f "$PTTFNXD/$TFN.beam"
-rm -f "$PTTFNXD/willyhorizont_runtime.beam"
+rm -f "$PTTFNXD/xl.beam"
 cd "$PTTFNXD" && rm -f *.dump

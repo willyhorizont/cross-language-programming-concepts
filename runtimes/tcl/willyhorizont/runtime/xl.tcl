@@ -1,6 +1,20 @@
 package require TclOO
 
 namespace eval xl {
+    proc escape_string {s} {
+        if {$s eq ""} {
+            return ""
+        }
+        set r [string map { "\\" "\\\\" } $s]
+        set r [string map { 
+            "\"" "\\\"" 
+            "\n" "\\n" 
+            "\r" "\\r" 
+            "\t" "\\t" 
+        } $r]
+        return $r
+    }
+
     oo::class create Closure {
         variable cb
         variable fac
@@ -202,10 +216,10 @@ namespace eval xl {
                 continue
             }
             if {[is_string $v]} {
-                append r "\"$v\""
+                append r "\"" [escape_string $v] "\""
                 continue
             }
-            append r "\"\[object \[TCL \\\"$v\\\"\]\]\""
+            append r "\"\[object \[TCL \\\"" [escape_string $v] "\\\"\]\]\""
         }
         return $r
     }

@@ -4,6 +4,20 @@ import gleam/string
 import gleam/int
 import gleam/float
 
+pub fn escape_string(s: String) -> String {
+    case s {
+        "" -> ""
+        _ -> {
+            s
+            |> string.replace(each: "\\", with: "\\\\")
+            |> string.replace(each: "\"", with: "\\\"")
+            |> string.replace(each: "\n", with: "\\n")
+            |> string.replace(each: "\r", with: "\\r")
+            |> string.replace(each: "\t", with: "\\t")
+        }
+    }
+}
+
 pub type Xl {
     None
     Bool(Bool)
@@ -195,7 +209,7 @@ fn jify_loop(s: List(JifyStkEl), r: String, p: Bool) -> String {
                 None -> jify_loop(ns, r <> "null", p)
                 Bool(True) -> jify_loop(ns, r <> "true", p)
                 Bool(False) -> jify_loop(ns, r <> "false", p)
-                String(sv) -> jify_loop(ns, r <> "\"" <> sv <> "\"", p)
+                String(sv) -> jify_loop(ns, r <> "\"" <> escape_string(sv) <> "\"", p)
                 Int(iv) -> jify_loop(ns, r <> int.to_string(iv), p)
                 Float(fv) -> jify_loop(ns, r <> float.to_string(fv), p)
                 Closure(_) -> jify_loop(ns, r <> "\"[object Function]\"", p)

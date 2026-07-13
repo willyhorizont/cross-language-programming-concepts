@@ -72,6 +72,7 @@ falcon
 docker run --rm -i $(./utils.sh --get-docker-image julia) which julia
 
 todo:
+add escape_string and std_json_stringify
 change associative list to xl_dict, and add xl_dict_indexed
 AnyType -> ~DynamicType~ CrossType [xlNone, xlBool, xlString, xlInt, xlFloat, xlList, xlDict, xlClosure] ext .xl (xl = cross language)
 

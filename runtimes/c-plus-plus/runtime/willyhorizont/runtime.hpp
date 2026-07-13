@@ -43,6 +43,35 @@ namespace XL {
 
     class Type {
     public: 
+        static void replaceAll(std::string& s, const std::string& from, const std::string& to) {
+            if (from.empty()) return;
+            size_t start_pos = 0;
+            while ((start_pos = s.find(from, start_pos)) != std::string::npos) {
+                s.replace(start_pos, from.length(), to);
+                start_pos += to.length();
+            }
+        }
+        static std::string escapeString(const std::string* s) {
+            if (s == nullptr) {
+                return "";
+            }
+            std::string r = *s;
+            replaceAll(r, "\\", "\\\\");
+            replaceAll(r, "\"", "\\\"");
+            replaceAll(r, "\n", "\\n");
+            replaceAll(r, "\r", "\\r");
+            replaceAll(r, "\t", "\\t");
+            return r;
+        }
+        static std::string escapeString(const std::string& s) {
+            std::string r = s;
+            replaceAll(r, "\\", "\\\\");
+            replaceAll(r, "\"", "\\\"");
+            replaceAll(r, "\n", "\\n");
+            replaceAll(r, "\r", "\\r");
+            replaceAll(r, "\t", "\\t");
+            return r;
+        }
         std::variant<
             None,
             Bool,
@@ -198,7 +227,7 @@ namespace XL {
                 continue;
             }
             if (auto sr = std::get_if<String>(&v.value)) {
-                r += "\"" + *sr + "\"";
+                r += "\"" + Type::escapeString(*sr) + "\"";
                 continue;
             }
             if (auto ir = std::get_if<Int>(&v.value)) {

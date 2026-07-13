@@ -1,5 +1,18 @@
--module(willyhorizont_runtime).
--export([json_stringify/1, json_stringify/2]).
+-module(xl).
+-export([escape_string/1, json_stringify/1, json_stringify/2]).
+
+escape_string(S) when is_binary(S) ->
+    case S of
+        <<>> -> <<>>;
+        _ ->
+            R1 = re:replace(S,  "\\\\", "\\\\\\\\", [global, {return, binary}, unicode]),
+            R2 = re:replace(R1, "\"",   "\\\\\"",   [global, {return, binary}, unicode]),
+            R3 = re:replace(R2, "\n",   "\\\\n",    [global, {return, binary}, unicode]),
+            R4 = re:replace(R3, "\r",   "\\\\r",    [global, {return, binary}, unicode]),
+            Rf = re:replace(R4, "\t",   "\\\\t",    [global, {return, binary}, unicode]),
+            Rf
+    end;
+escape_string(_) -> <<>>.
 
 jify_list([], _, _, _, Acc) ->
     Acc;
@@ -80,7 +93,7 @@ jify_loop([C | NS], R, P, T) ->
                 V =:= false ->
                     jify_loop(NS, <<R/binary, "false">>, P, T);
                 is_binary(V) ->
-                    jify_loop(NS, <<R/binary, "\"", V/binary, "\"">>, P, T);
+                    jify_loop(NS, <<R/binary, "\"", (escape_string(V))/binary, "\"">>, P, T);
                 is_integer(V) ->
                     jify_loop(NS, <<R/binary, (integer_to_binary(V))/binary>>, P, T);
                 is_float(V) ->
