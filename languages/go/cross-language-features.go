@@ -55,8 +55,8 @@ func main() {
 			return xl.ToInt(aa) * xl.ToInt(bb)
 		},
 	}
-	xl.Println(xl.JsonStringify(xlList))
-	xl.Println(xl.JsonStringify(xlList, xl.Dict{"pretty": true}))
+	xl.Println("xl_list: ", xl.JsonStringify(xlList))
+	xl.Println("xl_list: ", xl.JsonStringify(xlList, xl.Dict{"pretty": true}))
 	xlDict := xl.Dict{
 		"xl_none": nil,
 		"xl_bool_true": true,
@@ -75,6 +75,6 @@ func main() {
 			return xl.ToInt(aa) * xl.ToInt(bb)
 		},
 	}
-	xl.Println(xl.JsonStringify(xlDict))
-	xl.Println(xl.JsonStringify(xlDict, xl.Dict{"pretty": true}))
+	xl.Println("xl_dict: ", xl.JsonStringify(xlDict))
+	xl.Println("xl_dict: ", xl.JsonStringify(xlDict, xl.Dict{"pretty": true}))
 }

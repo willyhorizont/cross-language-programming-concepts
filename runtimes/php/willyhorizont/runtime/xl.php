@@ -1,8 +1,20 @@
 <?php
 
-namespace Runtimes\Php\WillyHorizont;
+namespace WillyHorizont\Runtime;
 
 class Xl {
+    public static function escape_string($s) {
+        if ($s === null) {
+            return "";
+        }
+        return strtr((string)$s, [
+            "\\" => "\\\\",
+            "\""  => "\\\"",
+            "\n" => "\\n",
+            "\r" => "\\r",
+            "\t" => "\\t"
+        ]);
+    }
     public static function json_stringify($a, $p = false) {
         $t = str_repeat(" ", 4);
         $s = [["t" => "v", "v" => $a, "d" => 0]];
@@ -24,7 +36,7 @@ class Xl {
                 continue;
             }
             if ((gettype($v) === "string") && is_string($v)) {
-                $r .= "\"" . $v . "\"";
+                $r .= "\"" . Xl::escape_string($v) . "\"";
                 continue;
             }
             if (is_numeric($v) && ((((gettype($v) === "integer") || (gettype($v) === "int")) && (is_int($v) || is_integer($v))) || (((gettype($v) === "float") || (gettype($v) === "double")) && (is_float($v) || is_double($v))))) {

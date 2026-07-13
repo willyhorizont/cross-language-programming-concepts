@@ -30,7 +30,7 @@ type
     of Int: intValue*: int
     of Float: floatValue*: float
     of List: listValue*: seq[Type]
-    of Dict: dictValue*: OrderedTable[string, Type]
+    of Dict: dictValue*: Table[string, Type]
     of Closure: closureValue*: proc (args: seq[Type]): Type {.closure.}
 
 type Iterator* = proc (): Type {.closure.}
@@ -40,7 +40,7 @@ proc init*(v: string): Type = Type(kind: String, stringValue: v)
 proc init*(v: int): Type = Type(kind: Int, intValue: v)
 proc init*(v: float): Type = Type(kind: Float, floatValue: v)
 proc init*(v: seq[Type]): Type = Type(kind: List, listValue: v)
-proc init*(v: OrderedTable[string, Type]): Type = Type(kind: Dict, dictValue: v)
+proc init*(v: Table[string, Type]): Type = Type(kind: Dict, dictValue: v)
 proc init*(v: proc (args: seq[Type]): Type {.closure.}): Type = Type(kind: Closure, closureValue: v)
 proc init*(t: Type): Type = t
 let none* = Type(kind: None)

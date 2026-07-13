@@ -1,6 +1,6 @@
-| local Xl |
-local := Dictionary new.
+| Xl local |
 Xl := (Smalltalk at: #WillyHorizont) at: #Runtime.
+local := Dictionary new.
 
 "
 1. support closure as value, or has workaround

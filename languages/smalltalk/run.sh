@@ -2,7 +2,7 @@
 
 source "$(dirname "$(realpath "$0")")/../../tools/runner.sh" "$0" "$@"
 
-PTRFNX="$RD/runtimes/smalltalk/runtime/willyhorizont/runtime.st"
+PTRFNX="$RD/runtimes/smalltalk/willyhorizont/runtime/xl.st"
 if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
     echo "usage:"
     echo "\"$SD/run.sh\" path/to/*.$LID"
@@ -21,7 +21,7 @@ echo \">./pharo Pharo.image eval \"SystemVersion current version\"\"
 "
 
 CCRLC="
-./pharo Pharo.image st --quit \"$PTTFNXD/runtime/willyhorizont/runtime.st\" \"$PTFNX\"
+./pharo Pharo.image st --quit \"$PTRFNX\" \"$PTFNX\"
 "
 
 if ! docker image inspect "$IMG" > /dev/null 2>&1; then

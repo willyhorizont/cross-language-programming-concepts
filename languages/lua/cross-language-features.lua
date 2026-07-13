@@ -1,4 +1,4 @@
-local xl = require("runtimes.lua.willyhorizont.runtime")
+local xl = require("runtimes.lua.willyhorizont.runtime.xl")
 
 --[[ 
 1. support closure as value, or has workaround

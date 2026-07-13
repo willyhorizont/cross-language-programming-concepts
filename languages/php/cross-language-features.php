@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../../runtimes/php/willyhorizont/runtime.php';
-use Runtimes\Php\WillyHorizont\Xl;
+require_once __DIR__ . '/../../runtimes/php/willyhorizont/runtime/xl.php';
+use WillyHorizont\Runtime\Xl;
 
 /*
 1. support closure as value, or has workaround
@@ -35,8 +35,8 @@ $xl_list = [
     ["foo" => "bar"],
     fn ($aa, $bb) => ($aa * $bb),
 ];
-echo "xl_list" . Xl::json_stringify($xl_list) . PHP_EOL;
-echo "xl_list" . Xl::json_stringify($xl_list, ["pretty" => true]) . PHP_EOL;
+echo "xl_list: " . Xl::json_stringify($xl_list) . PHP_EOL;
+echo "xl_list: " . Xl::json_stringify($xl_list, ["pretty" => true]) . PHP_EOL;
 $xl_dict = [
     "xl_none" => null,
     "xl_bool_true" => true,
@@ -50,5 +50,5 @@ $xl_dict = [
     "xl_dict" => ["foo" => "bar"],
     "xl_closure" => fn ($aa, $bb) => ($aa * $bb),
 ];
-echo "xl_dict" . Xl::json_stringify($xl_dict) . PHP_EOL;
-echo "xl_dict" . Xl::json_stringify($xl_dict, ["pretty" => true]) . PHP_EOL;
+echo "xl_dict: " . Xl::json_stringify($xl_dict) . PHP_EOL;
+echo "xl_dict: " . Xl::json_stringify($xl_dict, ["pretty" => true]) . PHP_EOL;

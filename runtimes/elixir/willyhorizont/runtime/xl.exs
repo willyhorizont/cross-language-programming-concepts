@@ -1,4 +1,4 @@
-defmodule Runtime do
+defmodule Xl do
     def escape_string(s) when is_binary(s) do
         s
         |> String.replace("\\", "\\\\")

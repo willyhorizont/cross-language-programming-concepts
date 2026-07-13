@@ -230,6 +230,7 @@
         // "*.vim": "csharp",
         
         "*.m": "objective-c",
+        "*.h": "objective-c",
         "*.st": "smalltalk",
         // "stdlib.h": "c",
         // "cstdlib": "c",
@@ -404,7 +405,7 @@
         "dart": "cd $dir && dart run $fileName",
         "vb": "cd $dir && vbc $fileName && $dir$fileNameWithoutExt.exe && del \"$dir$fileNameWithoutExt.exe\"",
         "csharp": "cd $dir && csc $fileName && $dir$fileNameWithoutExt.exe && del \"$dir$fileNameWithoutExt.exe\"",
-        "matlab": "cd \"$dir..\\..\\utils\" && python run_matlab_gnu_octave_file.py $dir$fileName",
+        // "matlab": "cd \"$dir..\\..\\utils\" && python run_matlab_gnu_octave_file.py $dir$fileName",
         "wolfram": "cd $dir && wolframscript -file $fileName",
         "raku": "cd $dir && raku $fileName",
         // "scala": "cd $dir && scala $fileName", // run .scala file using scala interpreter
@@ -430,7 +431,7 @@
         "scala2": "cd $dir && scalac $fileName && scala $fileNameWithoutExt && del \"$dir*.class\"", // compile .scala file to .class and run the .class
         "scala3": "cd $dir && scalac $fileName && scala $fileNameWithoutExt && del \"$dir*.class\"  && del \"$dir*.tasty\"", // compile .scala file to .class and run the .class
         // "c": "gcc --version",
-        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt && rm -f \"$dir$fileNameWithoutExt\"",
+        // "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt && rm -f \"$dir$fileNameWithoutExt\"",
         // "java": "cd $dir && javac $fileName && java $fileNameWithoutExt && del \"$dir*.class\"",
         "perl6": "cd $dir && perl6 $fileName",
         "crystal": "cd $dir && crystal $fileName",

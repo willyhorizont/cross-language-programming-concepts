@@ -2,7 +2,7 @@
 
 source "$(dirname "$(realpath "$0")")/../../tools/runner.sh" "$0" "$@"
 
-PTRFNX="$RD/runtimes/javascript-or-typescript/willyhorizont/runtime.js"
+PTRFNX="$RD/runtimes/javascript-or-typescript/willyhorizont/runtime/xl.js"
 if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
     echo "usage:"
     echo "\"$SD/run.sh\" path/to/*.$LID"
@@ -10,7 +10,6 @@ if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; the
 fi
 
 CPV="
-npm install -g npm@latest --no-fund --no-audit --silent
 echo \">docker images\"
 echo \"$IMG\"
 echo \">node --version\"

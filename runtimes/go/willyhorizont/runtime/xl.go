@@ -1,10 +1,20 @@
-package runtime
+package xl
 
 import (
 	"fmt"
 	rt "reflect"
 	str "strings"
 )
+
+func escapeString(s string) string {
+	return str.NewReplacer(
+		"\\", "\\\\",
+		"\"", "\\\"",
+		"\n", "\\n",
+		"\r", "\\r",
+		"\t", "\\t",
+	).Replace(fmt.Sprintf("%v", s))
+}
 
 type List []interface{}
 
@@ -195,7 +205,7 @@ func JsonStringify(va ...interface{}) string {
 				r.WriteString("false")
 			}
 		case rt.String:
-			r.WriteString("\"" + rv.String() + "\"")
+			r.WriteString("\"" + escapeString(rv.String()) + "\"")
 		case rt.Int, rt.Int8, rt.Int16, rt.Int32, rt.Int64:
 			r.WriteString(fmt.Sprintf("%d", rv.Int()))
 		case rt.Float32, rt.Float64:

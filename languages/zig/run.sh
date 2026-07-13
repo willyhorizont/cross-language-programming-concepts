@@ -2,7 +2,7 @@
 
 source "$(dirname "$(realpath "$0")")/../../tools/runner.sh" "$0" "$@"
 
-PTRFNX="$RD/runtimes/zig/willyhorizont/runtime/runtime.zig"
+PTRFNX="$RD/runtimes/zig/willyhorizont/runtime/xl.zig"
 if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
     echo "usage:"
     echo "\"$SD/run.sh\" path/to/*.$LID"

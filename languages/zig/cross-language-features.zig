@@ -1,5 +1,5 @@
 const std = @import("std");
-const xl = @import("willyhorizont/runtime/runtime.zig");
+const xl = @import("willyhorizont/runtime/xl.zig");
 
 pub fn main(init: std.process.Init) !void {
     const gpa = init.gpa;
@@ -10,21 +10,20 @@ pub fn main(init: std.process.Init) !void {
             _ = ctx;
             var itr = xl.Iterator.init(args);
             const callback_function = itr.next();
-            xl.print(std.heap.page_allocator, .{}, .{ xl.Type{ .String = "hello" } });
+            xl.print(std.heap.page_allocator, .{}, .{xl.Type{ .String = "hello" }});
             _ = callback_function.call(std.heap.page_allocator, .{});
             return xl.Type{ .None = {} };
         }
     }.body);
     defer say_hello.deinit(gpa);
-    _ = say_hello.call(gpa, .{
-        xl.makeClosure(std.heap.page_allocator, .{}, struct {
-            fn body(ctx: anytype, args: []const xl.Type) xl.Type {
-                _ = ctx; _ = args;
-                xl.print(std.heap.page_allocator, .{}, .{ xl.Type{ .String = "world" } });
-                return xl.Type{ .None = {} };
-            }
-        }.body) catch xl.Type{ .None = {} }
-    });
+    _ = say_hello.call(gpa, .{xl.makeClosure(std.heap.page_allocator, .{}, struct {
+        fn body(ctx: anytype, args: []const xl.Type) xl.Type {
+            _ = ctx;
+            _ = args;
+            xl.print(std.heap.page_allocator, .{}, .{xl.Type{ .String = "world" }});
+            return xl.Type{ .None = {} };
+        }
+    }.body) catch xl.Type{ .None = {} }});
     const createMultiplier = try xl.makeClosure(gpa, .{}, struct {
         fn body(ctx: anytype, args: []const xl.Type) xl.Type {
             _ = ctx;
@@ -40,13 +39,13 @@ pub fn main(init: std.process.Init) !void {
         }
     }.body);
     defer createMultiplier.deinit(gpa);
-    const multiplyByTwo = createMultiplier.call(gpa, .{ xl.Type{ .Int = 2 } });
+    const multiplyByTwo = createMultiplier.call(gpa, .{xl.Type{ .Int = 2 }});
     defer multiplyByTwo.deinit(std.heap.page_allocator);
-    xl.print(gpa, .{}, .{ xl.Type{ .String = "multiply_by_two(10): " }, multiplyByTwo.call(gpa, .{ xl.Type{ .Int = 10 } }) });
-    const multiplyByEight = createMultiplier.call(gpa, .{ xl.Type{ .Int = 8 } });
+    xl.print(gpa, .{}, .{ xl.Type{ .String = "multiply_by_two(10): " }, multiplyByTwo.call(gpa, .{xl.Type{ .Int = 10 }}) });
+    const multiplyByEight = createMultiplier.call(gpa, .{xl.Type{ .Int = 8 }});
     defer multiplyByEight.deinit(std.heap.page_allocator);
-    xl.print(gpa, .{}, .{ xl.Type{ .String = "multiply_by_eight(4): " }, multiplyByEight.call(gpa, .{ xl.Type{ .Int = 4 } }) });
-    xl.print(gpa, .{}, .{ xl.Type{ .String = "multiply_by_two(8): " }, multiplyByTwo.call(gpa, .{ xl.Type{ .Int = 8 } }) });
+    xl.print(gpa, .{}, .{ xl.Type{ .String = "multiply_by_eight(4): " }, multiplyByEight.call(gpa, .{xl.Type{ .Int = 4 }}) });
+    xl.print(gpa, .{}, .{ xl.Type{ .String = "multiply_by_two(8): " }, multiplyByTwo.call(gpa, .{xl.Type{ .Int = 8 }}) });
 
     // 2. support dynamic-typed value, or has workaround
     const xl_list = try xl.makeList(gpa, .{
@@ -59,7 +58,7 @@ pub fn main(init: std.process.Init) !void {
         xl.Type{ .Float = 123.789 },
         xl.Type{ .Float = -123.789 },
         try xl.makeList(gpa, .{ xl.Type{ .Int = 1 }, xl.Type{ .Int = 2 }, xl.Type{ .Int = 3 } }),
-        try xl.makeDict(gpa, .{ xl.Pair{ .key = "foo", .val = xl.Type{ .String = "bar" } } }),
+        try xl.makeDict(gpa, .{xl.Pair{ .key = "foo", .val = xl.Type{ .String = "bar" } }}),
         xl.makeClosure(gpa, .{}, struct {
             fn body(ctx: anytype, args: []const xl.Type) xl.Type {
                 _ = ctx;
@@ -83,7 +82,7 @@ pub fn main(init: std.process.Init) !void {
         xl.Pair{ .key = "xl_float_positive", .val = xl.Type{ .Float = 123.789 } },
         xl.Pair{ .key = "xl_float_negative", .val = xl.Type{ .Float = -123.789 } },
         xl.Pair{ .key = "xl_list", .val = try xl.makeList(gpa, .{ xl.Type{ .Int = 1 }, xl.Type{ .Int = 2 }, xl.Type{ .Int = 3 } }) },
-        xl.Pair{ .key = "xl_dict", .val = try xl.makeDict(gpa, .{ xl.Pair{ .key = "foo", .val = xl.Type{ .String = "bar" } } }) },
+        xl.Pair{ .key = "xl_dict", .val = try xl.makeDict(gpa, .{xl.Pair{ .key = "foo", .val = xl.Type{ .String = "bar" } }}) },
         xl.Pair{ .key = "xl_closure", .val = xl.makeClosure(gpa, .{}, struct {
             fn body(ctx: anytype, args: []const xl.Type) xl.Type {
                 _ = ctx;

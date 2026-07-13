@@ -1,5 +1,4 @@
-Code.require_file("../../runtimes/elixir/willyhorizont/runtime/runtime.exs", __DIR__)
-alias Runtime, as: Xl
+Code.require_file("../../runtimes/elixir/willyhorizont/runtime/xl.exs", __DIR__)
 
 # 1. support closure as value, or has workaround
 say_hello = fn (callback_function) ->

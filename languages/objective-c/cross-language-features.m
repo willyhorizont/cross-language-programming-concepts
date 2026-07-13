@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "../../runtimes/objective-c/runtime/willyhorizont/runtime.m"
+#import "../../runtimes/objective-c/willyhorizont/runtime/xl.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {

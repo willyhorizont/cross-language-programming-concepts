@@ -1,4 +1,4 @@
-include("../../runtimes/julia/willyhorizont/runtime.jl")
+include("../../runtimes/julia/willyhorizont/runtime/xl.jl")
 
 #=
 1. support closure as value, or has workaround
@@ -10,7 +10,7 @@ end
 say_hello(() -> begin
     println("world")
 end)
-create_multiplier = aa -> bb -> (aa * bb)
+create_multiplier = aa -> bb -> aa * bb
 multiply_by_two = create_multiplier(2)
 println("multiply_by_two(10): $(multiply_by_two(10))")
 multiply_by_eight = create_multiplier(8)
@@ -31,7 +31,7 @@ xl_list = [
     -123.789,
     [1, 2, 3],
     Dict("foo" => "bar"),
-    (aa, bb) -> (aa * bb),
+    (aa, bb) -> aa * bb,
 ]
 println("xl_list: $(Xl.json_stringify(xl_list))")
 println("xl_list: $(Xl.json_stringify(xl_list, pretty=true))")
@@ -46,7 +46,7 @@ xl_dict = Dict(
     "xl_float_negative" => -123.789,
     "xl_list" => [1, 2, 3],
     "xl_dict" => Dict("foo" => "bar"),
-    "xl_closure" => (aa, bb) -> (aa * bb),
+    "xl_closure" => (aa, bb) -> aa * bb,
 )
 println("xl_dict: $(Xl.json_stringify(xl_dict))")
 println("xl_dict: $(Xl.json_stringify(xl_dict, pretty=true))")

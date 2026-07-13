@@ -1,9 +1,5 @@
-import os
-import sys
-cur_dir = os.path.dirname(os.path.abspath(__file__))
-proj_root = os.path.abspath(os.path.join(cur_dir, "..", ".."))
-sys.path.append(proj_root)
-from runtimes.python.willyhorizont import runtime as xl
+__import__("sys").path.append(str(__import__("pathlib").Path(__file__).resolve().parents[2]))
+from runtimes.python.willyhorizont.runtime import xl
 
 # 1. support closure as value, or has workaround
 say_hello = lambda callback_function: [

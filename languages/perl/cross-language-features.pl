@@ -3,7 +3,7 @@ use warnings;
 use v5.42.2;
 use File::Spec;
 use FindBin;
-require File::Spec->catfile($FindBin::Bin, "..", "..", "runtimes", "perl", "willyhorizont", "runtime.pl");
+require File::Spec->catfile($FindBin::Bin, "..", "..", "runtimes", "perl", "willyhorizont", "runtime", "xl.pl");
 
 =pod
 1. support closure as value, or has workaround
