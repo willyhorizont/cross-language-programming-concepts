@@ -2,6 +2,26 @@
 
 source "$(dirname "$(realpath "$0")")/../../tools/runner.sh" "$0" "$@"
 
+PTRFNX="$RD/runtimes/rust/src/willyhorizont/runtime/runtime.rs"
+if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
+    echo "usage:"
+    echo "\"$SD/run.sh\" path/to/*.$LID"
+    exit 1
+fi
+
+PTFFNX=(
+    "$RD/runtimes/rust/src/willyhorizont/runtime/xl.rs"
+    "$RD/runtimes/rust/src/willyhorizont/runtime/mod.rs"
+    "$RD/runtimes/rust/src/willyhorizont/mod.rs"
+    "$RD/runtimes/rust/src/main.rs"
+)
+PTFNXA="$(realpath "$1" 2>/dev/null)"
+if [[ " ${PTFFNX[*]} " == *" $PTFNXA "* ]]; then
+    echo "usage:"
+    echo "\"$SD/run.sh\" path/to/*.$LID"
+    exit 1
+fi
+
 CPV="
 echo \">docker images\"
 echo \"$IMG\"

@@ -9,22 +9,6 @@ if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; the
     exit 1
 fi
 
-# if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
-#     CIPM="npm install -g npm@latest --no-fund --no-audit --silent"
-#     # CIR="cd $RD && npm install github:willyhorizont/willyhorizont.github.io#2.1.1 --no-fund --no-audit --silent"
-#     echo ">$CIPM"
-#     # echo ">$CIR"
-
-#     docker run -i --rm \
-#         --entrypoint bash \
-#         -v "$RD:$RD" \
-#         "$IMG" \
-#         -c "
-#             $CIPM
-#         "
-#     echo "IS_RUNTIME_INSTALLED=\"TRUE\"" > "$LEF"
-# fi
-
 CPV="
 npm install -g npm@latest --no-fund --no-audit --silent
 echo \">docker images\"
