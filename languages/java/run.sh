@@ -3,7 +3,7 @@
 source "$(dirname "$(realpath "$0")")/../../tools/runner.sh" "$0" "$@"
 
 TFN="Main"
-PTTFNX="$PTTFNXD/$TFN.$X"
+PTTFNX="$PTTFNXD/$TFN.$FX"
 
 mkdir -p "$PTTFNXD"
 # cp -f "$PTFNX" "$PTTFNX"

@@ -11,10 +11,10 @@ def escape-string [s] {
         ""
     } else {
         $s | into string
-            | str replace --all "\\" "\\\\" 
-            | str replace --all "\"" "\\\"" 
-            | str replace --all "\n" "\\n" 
-            | str replace --all "\r" "\\r" 
+            | str replace --all "\\" "\\\\"
+            | str replace --all "\"" "\\\""
+            | str replace --all "\n" "\\n"
+            | str replace --all "\r" "\\r"
             | str replace --all "\t" "\\t"
     }
 }
@@ -62,8 +62,8 @@ export def json-stringify [a, --pretty] {
             }
             let child_d = $cur_d + 1
             mut slcb = "]"
-            if $p { 
-                $slcb = "\n" + (string-repeat " " (4 * $cur_d)) + "]" 
+            if $p {
+                $slcb = "\n" + (string-repeat " " (4 * $cur_d)) + "]"
             }
             $s = ($s | append {
                 "t": "r",
@@ -78,8 +78,8 @@ export def json-stringify [a, --pretty] {
                 })
                 if $i > 0 {
                     mut slelsep = ","
-                    if $p { 
-                        $slelsep = ",\n" + (string-repeat " " (4 * $child_d)) 
+                    if $p {
+                        $slelsep = ",\n" + (string-repeat " " (4 * $child_d))
                     }
                     $s = ($s | append {
                         "t": "r",
@@ -89,8 +89,8 @@ export def json-stringify [a, --pretty] {
                 }
             }
             mut slob = "["
-            if $p { 
-                $slob = "[\n" + (string-repeat " " (4 * $child_d)) 
+            if $p {
+                $slob = "[\n" + (string-repeat " " (4 * $child_d))
             }
             $s = ($s | append {
                 "t": "r",
@@ -108,8 +108,8 @@ export def json-stringify [a, --pretty] {
             }
             let child_d = $cur_d + 1
             mut sdcb = "}"
-            if $p { 
-                $sdcb = "\n" + (string-repeat " " (4 * $cur_d)) + "}" 
+            if $p {
+                $sdcb = "\n" + (string-repeat " " (4 * $cur_d)) + "}"
             }
             $s = ($s | append {
                 "t": "r",
@@ -134,8 +134,8 @@ export def json-stringify [a, --pretty] {
                 })
                 if $i > 0 {
                     mut slelsep = ","
-                    if $p { 
-                        $slelsep = ",\n" + (string-repeat " " (4 * $child_d)) 
+                    if $p {
+                        $slelsep = ",\n" + (string-repeat " " (4 * $child_d))
                     }
                     $s = ($s | append {
                         "t": "r",
@@ -145,8 +145,8 @@ export def json-stringify [a, --pretty] {
                 }
             }
             mut sdob = "{"
-            if $p { 
-                $sdob = "{\n" + (string-repeat " " (4 * $child_d)) 
+            if $p {
+                $sdob = "{\n" + (string-repeat " " (4 * $child_d))
             }
             $s = ($s | append {
                 "t": "r",

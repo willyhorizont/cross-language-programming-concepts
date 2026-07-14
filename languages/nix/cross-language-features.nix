@@ -1,5 +1,5 @@
 let
-    xl = import ../../runtimes/nix/willyhorizont/runtime.nix { };
+    xl = import ../../runtimes/nix/willyhorizont/runtime/xl.nix { };
 in
 xl.do [
     /*
@@ -8,7 +8,7 @@ xl.do [
     (ctx: ctx // {
     sayHello = (callbackFunction:
         builtins.trace "hello"
-        (callbackFunction null)
+        (callbackFunction { })
     );
     })
     (ctx: ctx // {

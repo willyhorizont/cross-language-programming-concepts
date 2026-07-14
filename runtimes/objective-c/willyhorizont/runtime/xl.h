@@ -219,7 +219,7 @@ extern XlNamespace * xl;
     };
 }
 - (XL * (^)(NSArray<XL *> *))initList {
-    return ^(NSArray<XL *> * v) { 
+    return ^(NSArray<XL *> * v) {
         return [[XL alloc] initAsList:v];
     };
 }

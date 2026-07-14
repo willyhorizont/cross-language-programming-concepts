@@ -6,11 +6,11 @@ namespace eval xl {
             return ""
         }
         set r [string map { "\\" "\\\\" } $s]
-        set r [string map { 
-            "\"" "\\\"" 
-            "\n" "\\n" 
-            "\r" "\\r" 
-            "\t" "\\t" 
+        set r [string map {
+            "\"" "\\\""
+            "\n" "\\n"
+            "\r" "\\r"
+            "\t" "\\t"
         } $r]
         return $r
     }

@@ -21,7 +21,7 @@ local is_int = function (a)
     return a == math.floor(a)
 end
 
-local is_float = function (a) 
+local is_float = function (a)
     if type(a) ~= "number" then return false end
     if math.type then return math.type(a) == "float" end
     return a ~= math.floor(a)
@@ -29,38 +29,32 @@ end
 
 local is_closure = function (a) return (type(a) == "function") end
 
-local get_lua_table_properties = function (t)
-    local dl = 0
-    local ll = 0
-    local has_k_no_int = false
-    for k, _ in pairs(t) do
-        dl = dl + 1
-        if type(k) == "number" and k >= 1 and math.floor(k) == k then
-            if k > ll then ll = k end
-        else
-            has_k_no_int = true
-        end
-    end
-    return dl, ll, has_k_no_int
-end
-
 local is_list = function (a)
     if type(a) ~= "table" then return false end
-    local dl, ll, has_k_no_int = get_lua_table_properties(a)
-    if dl == 0 then return true end
-    if has_k_no_int then return false end
-    return true
+    if next(a) == nil then return true, 0 end
+    local i = 1
+    local last_k = nil
+    for k, _ in pairs(a) do
+        if not is_int(k) then return false end
+        if k < 1 then return false end
+        i = k
+        last_k = k
+    end
+    if last_k == nil then return false end
+    return true, i
 end
 
 local is_dict = function (a)
     if type(a) ~= "table" then return false end
-    local dl, ll = get_lua_table_properties(a)
-    if dl == 0 then return false end
-    if ll == dl then return false end
+    local i = 1
+    local last_k = nil
     for k, _ in pairs(a) do
         if type(k) ~= "string" then return false end
+        i = i + 1
+        last_k = k
     end
-    return true
+    if last_k == nil then return false end
+    return true, i
 end
 
 local dict_to_list = function (d)
@@ -105,8 +99,8 @@ local json_stringify = function (a, o)
             r = r .. "\"[object Function]\""
             goto next_iteration
         end
-        if is_list(v) then
-            local _, ll = get_lua_table_properties(v)
+        local is_l, ll = is_list(v)
+        if is_l then
             if ll == 0 then
                 r = r .. "[]"
                 goto next_iteration
@@ -138,7 +132,8 @@ local json_stringify = function (a, o)
             })
             goto next_iteration
         end
-        if is_dict(v) then
+        local is_d, dkl = is_dict(v)
+        if is_d then
             local de = dict_to_list(v)
             local child_t = cur_t + 1
             table.insert(s, {
@@ -147,7 +142,7 @@ local json_stringify = function (a, o)
                 ["d"] = cur_t
             })
             for i = #de, 1, -1 do
-                local dk, dv = de[i][1], de[i][2] 
+                local dk, dv = de[i][1], de[i][2]
                 table.insert(s, {
                     ["t"] = "v",
                     ["v"] = dv,
@@ -186,7 +181,6 @@ XL.is_string = is_string
 XL.is_int = is_int
 XL.is_float = is_float
 XL.is_closure = is_closure
-XL.get_lua_table_properties = get_lua_table_properties
 XL.is_list = is_list
 XL.is_dict = is_dict
 XL.dict_to_list = dict_to_list

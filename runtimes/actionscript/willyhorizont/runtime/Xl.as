@@ -95,7 +95,7 @@ package willyhorizont.runtime {
             if (o != null && o.hasOwnProperty("pretty")) {
                 p = Boolean(o["pretty"]);
             }
-            var t:String = stringRepeat(" ", 4); 
+            var t:String = stringRepeat(" ", 4);
             var s:Array = [{ "t": "v", "v": a, "d": 0 }];
             var r:String = "";
             while (s.length > 0) {
@@ -138,7 +138,6 @@ package willyhorizont.runtime {
                         "v": p ? "\n" + stringRepeat(t, curD) + "]" : "]",
                         "d": curD
                     });
-                    
                     for (var i:int = v.length - 1; i >= 0; i -= 1) {
                         s.push({
                             "t": "v",
@@ -161,7 +160,7 @@ package willyhorizont.runtime {
                     continue;
                 }
                 if (curT === "[object XlDict]") {
-                    var dL:Array = dictToList(v); 
+                    var dL:Array = dictToList(v);
                     if (dL.length === 0) {
                         r += "{}";
                         continue;
@@ -194,7 +193,6 @@ package willyhorizont.runtime {
                             });
                         }
                     }
-                    
                     s.push({
                         "t": "r",
                         "v": p ? "{\n" + stringRepeat(t, childDl) : "{",

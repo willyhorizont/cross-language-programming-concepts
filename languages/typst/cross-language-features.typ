@@ -1,4 +1,4 @@
-#import "/runtimes/typst/willyhorizont/runtime/runtime.typ" as xl
+#import "/runtimes/typst/willyhorizont/runtime/xl.typ" as xl
 #show: xl.runtime
 
 #{

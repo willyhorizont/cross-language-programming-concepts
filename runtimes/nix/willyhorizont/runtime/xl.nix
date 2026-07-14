@@ -13,11 +13,11 @@ do = va:
         { }
         va;
 
-escapeString = s: 
-    if s == "" then "" 
-    else builtins.replaceStrings 
-        ["\\" "\"" "\n" "\r" "\t"] 
-        ["\\\\" "\\\"" "\\n" "\\r" "\\t"] 
+escapeString = s:
+    if s == "" then ""
+    else builtins.replaceStrings
+        ["\\" "\"" "\n" "\r" "\t"]
+        ["\\\\" "\\\"" "\\n" "\\r" "\\t"]
         s;
 
 ifThenElse = cond: fT: dF: ctx:
@@ -27,12 +27,12 @@ ifThenElse = cond: fT: dF: ctx:
 
 while = cond: cb: ctx:
     if cond ctx
-    then 
+    then
         let
             nextCtx = cb ctx;
         in
             builtins.deepSeq nextCtx (while cond cb nextCtx)
-    else 
+    else
         ctx;
 
 stringRepeat = str: n: if n <= 0 then "" else str + (stringRepeat str (n - 1));
@@ -43,7 +43,7 @@ let
 jsonStringify = a: { pretty ? false }:
     let
     p = pretty;
-    t = (stringRepeat " " 4); 
+    t = (stringRepeat " " 4);
     s = [{ t = "v"; v = a; d = 0; }];
     r = "";
     in
@@ -103,7 +103,7 @@ jsonStringify = a: { pretty ? false }:
                 d = curD;
             }]
             ++ builtins.concatLists (builtins.genList (lI:
-            let 
+            let
             i = llen - 1 - lI;
             in
             if i > 0 then
@@ -135,7 +135,7 @@ jsonStringify = a: { pretty ? false }:
             }];
             }
         else if cT == "set" then
-            let 
+            let
             childD = curD + 1;
             dkl = builtins.attrNames c.v;
             dklLen = builtins.length dkl;

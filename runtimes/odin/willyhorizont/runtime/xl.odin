@@ -45,8 +45,8 @@ Type :: union {
 }
 
 Iterator :: struct {
-    args: []Type, 
-    idx:  int,    
+    args: []Type,
+    idx:  int,
 }
 
 iter :: proc(varargs: ..Type) -> Iterator {
@@ -55,7 +55,7 @@ iter :: proc(varargs: ..Type) -> Iterator {
 
 next :: proc(it: ^Iterator) -> Type {
     if it.idx >= len(it.args) {
-        return nil 
+        return nil
     }
     v := it.args[it.idx]
     it.idx += 1
@@ -99,7 +99,7 @@ set_var :: proc(s: ^Scope, name: String, value: Type) -> Bool {
         }
         c = c.outer
     }
-    s.var[name] = value 
+    s.var[name] = value
     return false
 }
 
@@ -110,7 +110,7 @@ unreg_scope :: proc(s: ^Scope) {
 }
 
 string_repeat :: proc(a: String, n: Int) -> String {
-    s := strings.builder_make(context.temp_allocator) 
+    s := strings.builder_make(context.temp_allocator)
     for _ in 0..<n {
         strings.write_string(&s, string(a))
     }

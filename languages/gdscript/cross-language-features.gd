@@ -1,6 +1,6 @@
 extends SceneTree
 
-const Xl = preload("../../runtimes/gdscript/willyhorizont/runtime/runtime.gd")
+const Xl = preload("../../runtimes/gdscript/willyhorizont/runtime/xl.gd")
 
 func main():
 	# 1. support closure as value, or has workaround

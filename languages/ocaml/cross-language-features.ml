@@ -1,4 +1,4 @@
-module Xl = Willyhorizont.Runtime
+module Xl = Willyhorizont.Runtime.Xl
 
 let () =
     (*

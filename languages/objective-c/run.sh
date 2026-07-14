@@ -42,7 +42,7 @@ fi
 PTRFNX="$RD/runtimes/objective-c/willyhorizont/runtime/xl.h"
 if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
     echo "usage:"
-    echo "\"$SD/run.sh\" path/to/*.$LID"
+    echo "\"$SD/run.sh\" path/to/*.$FX"
     exit 1
 fi
 

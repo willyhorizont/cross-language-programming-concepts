@@ -1,3 +1,9 @@
+[Last updated: 14 Jul 2026 @ 07:18 AM]
+version 2.7.36:
+update lua runtime;
+update runtimes
+working progress add escape-string and std-json-stringify in runtime/*
+
 [Last updated: 14 Jul 2026 @ 03:56 AM]
 version 2.7.35:
 restructure runtime;

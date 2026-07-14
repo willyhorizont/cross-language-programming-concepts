@@ -122,3 +122,5 @@ Xl::Type create_multiplier = Xl::Closure([](const Xl::Type& args) -> Xl::Type {
         return Xl::Int(Xl::toInt(aa) * Xl::toInt(bb) + Xl::toInt(cc));
     });
 });
+
+regex to find tailing whitespace => \s+$

@@ -1,4 +1,4 @@
-. (Join-Path $PSScriptRoot "..\..\runtimes\powershell\willyhorizont\runtime\runtime.ps1")
+. (Join-Path $PSScriptRoot "..\..\runtimes\powershell\willyhorizont\runtime\xl.ps1")
 
 <#
 1. support closure as value, or has workaround

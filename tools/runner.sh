@@ -16,7 +16,7 @@ PTFNX="$1"
 PTFNXD="$(dirname "$PTFNX")"
 FNX="$(basename "$PTFNX")"
 FN="${FNX%.*}"
-X="${FNX##*.}"
+FX="${FNX##*.}"
 
 RD="$(realpath "$SD/../..")"
 RN="$(basename "$RD")"

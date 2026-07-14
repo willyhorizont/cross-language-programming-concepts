@@ -80,7 +80,7 @@ package willyhorizont.runtime {
             return cP + dP;
         }
         private function wrapChar(hTx:String, maxWidth:Number):String {
-            var wR:Number = 1600 / 199; 
+            var wR:Number = 1600 / 199;
             var maxchpRow:int = Math.floor(maxWidth / wR);
             if (maxchpRow <= 0) return hTx;
             var txR:String = "";

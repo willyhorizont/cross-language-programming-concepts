@@ -5,12 +5,12 @@ source "$(dirname "$(realpath "$0")")/../../tools/runner.sh" "$0" "$@"
 PTRFNX="$RD/runtimes/zig/willyhorizont/runtime/xl.zig"
 if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
     echo "usage:"
-    echo "\"$SD/run.sh\" path/to/*.$LID"
+    echo "\"$SD/run.sh\" path/to/*.$FX"
     exit 1
 fi
 
 TFN="main"
-PTTFNX="$PTTFNXD/$TFN.$X"
+PTTFNX="$PTTFNXD/$TFN.$FX"
 
 mkdir -p "$PTTFNXD"
 cp -f "$PTFNX" "$PTTFNX"
@@ -24,13 +24,13 @@ zig version
 
 CCRLC="
 cd \"$PTTFNXD\"
-zig build-exe \"$TFN.$X\"
+zig build-exe \"$TFN.$FX\"
 ./\"$TFN\"
 "
 
 CRLC="
 cd \"$PTTFNXD\"
-zig run \"$TFN.$X\"
+zig run \"$TFN.$FX\"
 "
 
 if ! docker image inspect "$IMG" > /dev/null 2>&1; then

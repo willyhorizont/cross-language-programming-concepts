@@ -2,15 +2,25 @@
 
 source "$(dirname "$(realpath "$0")")/../../tools/runner.sh" "$0" "$@"
 
-PTRFNX="$RD/runtimes/ocaml/willyhorizont/runtime/runtime.ml"
+PTRFNX="$RD/runtimes/ocaml/willyhorizont/runtime/xl.ml"
 if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
     echo "usage:"
-    echo "\"$SD/run.sh\" path/to/*.$LID"
+    echo "\"$SD/run.sh\" path/to/*.$FX"
+    exit 1
+fi
+
+PTFFNX=(
+    "$RD/runtimes/ocaml/willyhorizont/runtime/runtime.ml"
+)
+PTFNXA="$(realpath "$1" 2>/dev/null)"
+if [[ " ${PTFFNX[*]} " == *" $PTFNXA "* ]]; then
+    echo "usage:"
+    echo "\"$SD/run.sh\" path/to/*.$FX"
     exit 1
 fi
 
 TFN="main"
-PTTFNX="$PTTFNXD/$TFN.$X"
+PTTFNX="$PTTFNXD/$TFN.$FX"
 
 mkdir -p "$PTTFNXD"
 cp -f "$PTFNX" "$PTTFNX"
@@ -40,9 +50,9 @@ rm -f \"$PTRFNXD\"/*.o
 rm -f \"$PTRFNXD\"/*.cmi
 rm -f \"$PTRFNXD\"/*.cmo
 rm -f \"$PTRFNXD\"/*.cmx
-rm -f \"$PTRFNXD\"/*.cmx
-ocamlc -c -for-pack Willyhorizont \"$PTRFNX\"
-ocamlc -pack -o willyhorizont.cmo \"$PTRFNXD/$RFN.cmo\"
+ocamlc -c -for-pack Willyhorizont \"$PTRFNXD/xl.ml\"
+ocamlc -c -I \"$PTRFNXD\" -for-pack Willyhorizont \"$PTRFNXD/runtime.ml\"
+ocamlc -pack -o willyhorizont.cmo \"$PTRFNXD/xl.cmo\" \"$PTRFNXD/runtime.cmo\"
 ocamlc -c \"$PTTFNXD/$TFN.ml\"
 ocamlc -o $TFN \"$PTTFNXD/willyhorizont.cmo\" \"$PTTFNXD/$TFN.cmo\"
 ./$TFN
@@ -53,7 +63,6 @@ rm -f \"$PTTFNXD\"/*.cmx
 rm -f \"$PTRFNXD\"/*.o
 rm -f \"$PTRFNXD\"/*.cmi
 rm -f \"$PTRFNXD\"/*.cmo
-rm -f \"$PTRFNXD\"/*.cmx
 rm -f \"$PTRFNXD\"/*.cmx
 cd \"$RD\"
 "

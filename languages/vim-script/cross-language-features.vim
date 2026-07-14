@@ -1,6 +1,6 @@
 vim9script
 
-import "../../runtimes/vimscript/willyhorizont/runtime/runtime.vim" as Xl
+import "../../runtimes/vimscript/willyhorizont/runtime/xl.vim" as Xl
 
 # 1. support closure as value, or has workaround
 var SayHello = (CallbackFunction) => {

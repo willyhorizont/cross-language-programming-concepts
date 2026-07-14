@@ -1,6 +1,6 @@
 local xl = require("runtimes.lua.willyhorizont.runtime.xl")
 
---[[ 
+--[[
 1. support closure as value, or has workaround
 ]]
 local say_hello = function (callback_function)
@@ -17,7 +17,7 @@ local multiply_by_eight = create_multiplier(8)
 print("multiply_by_eight(4): " .. multiply_by_eight(4))
 print("multiply_by_two(8): " .. multiply_by_two(8))
 
---[[ 
+--[[
 2. support dynamic-typed value, or has workaround
 ]]
 local xl_list = {

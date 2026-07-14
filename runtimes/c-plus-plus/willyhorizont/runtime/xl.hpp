@@ -42,7 +42,7 @@ namespace XL {
     using Closure = std::function<Type(const Type&)>;
 
     class Type {
-    public: 
+    public:
         static void replaceAll(std::string& s, const std::string& from, const std::string& to) {
             if (from.empty()) return;
             size_t start_pos = 0;
@@ -204,7 +204,7 @@ namespace XL {
     };
 
     inline std::string json_stringify(const Type& a, JifyOpt o = {}) {
-        bool p = o.pretty; 
+        bool p = o.pretty;
         std::string t = "    ";
         std::vector<JifyState> s;
         s.push_back({ .t = "v", .v = a, .r = "", .d = 0 });
