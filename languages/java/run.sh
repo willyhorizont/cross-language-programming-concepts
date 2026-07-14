@@ -5,25 +5,6 @@ source "$(dirname "$(realpath "$0")")/../../tools/runner.sh" "$0" "$@"
 TFN="Main"
 PTTFNX="$PTTFNXD/$TFN.$FX"
 
-mkdir -p "$PTTFNXD"
-# cp -f "$PTFNX" "$PTTFNX"
-
-if [ "$IS_RUNTIME_INSTALLED" != "TRUE" ]; then
-    CIR="
-        find \"$PTTFNXD\" -name \"*.java\" -print0 | xargs -0 javac -d \"$PTTFNXD\"
-    "
-    docker run -i --rm \
-        --entrypoint bash \
-        -v "$RD:$RD" \
-        "$IMG" \
-        -c "
-            $CIR
-        "
-    echo "IS_RUNTIME_INSTALLED=\"TRUE\"" > "$LEF"
-fi
-
-cp -f "$PTFNX" "$PTTFNX"
-
 CPV="
 echo \">docker images\"
 echo \"$IMG\"
@@ -34,8 +15,12 @@ javac -version
 "
 
 CRLC="
+cp -f \"$PTFNX\" \"$PTTFNX\"
+find \"$PTTFNXD\" -name \"*.class\" -delete
+find \"$PTTFNXD\" -name \"*.java\" -print0 | xargs -0 javac -d \"$PTTFNXD\"
 javac -cp \"$PTTFNXD\" -d \"$PTTFNXD\" \"$PTTFNX\"
 java -cp \"$PTTFNXD\" \"$TFN\"
+find \"$PTTFNXD\" -name \"*.class\" -delete
 "
 
 docker run -i --rm \
@@ -49,6 +34,3 @@ docker run -i --rm \
 
         $CRLC
     "
-
-rm -f "$PTTFNXD/$TFN.class"
-rm -f "$PTTFNXD/$TFN.java"

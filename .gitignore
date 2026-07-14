@@ -13,7 +13,6 @@ composer
 
 temp.*
 
-runtimes/java/
 *.jar
 *.class
 Main.java

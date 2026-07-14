@@ -25,15 +25,15 @@ pub fn main(init: std.process.Init) !void {
         }
     }.body) catch xl.Type{ .None = {} }});
     const createMultiplier = try xl.makeClosure(gpa, .{}, struct {
-        fn body(ctx: anytype, args: []const xl.Type) xl.Type {
-            _ = ctx;
-            var itr = xl.Iterator.init(args);
-            const aa = itr.next();
+        fn body(ctx_aa: anytype, args_aa: []const xl.Type) xl.Type {
+            _ = ctx_aa;
+            var itr_aa = xl.Iterator.init(args_aa);
+            const aa = itr_aa.next();
             return xl.makeClosure(std.heap.page_allocator, .{ .aa = aa }, struct {
-                fn body(ctx_inner: anytype, args_inner: []const xl.Type) xl.Type {
-                    var itr_inner = xl.Iterator.init(args_inner);
-                    const bb = itr_inner.next();
-                    return xl.Type{ .Int = ctx_inner.aa.Int * bb.Int };
+                fn body(ctx_bb: anytype, args_bb: []const xl.Type) xl.Type {
+                    var itr_bb = xl.Iterator.init(args_bb);
+                    const bb = itr_bb.next();
+                    return xl.Type{ .Int = ctx_bb.aa.Int * bb.Int };
                 }
             }.body) catch xl.Type{ .None = {} };
         }
