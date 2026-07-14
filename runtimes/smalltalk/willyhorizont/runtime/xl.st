@@ -29,7 +29,7 @@ Smalltalk at: #WillyHorizont put: Dictionary new.
 ((Smalltalk at: #WillyHorizont) at: #Runtime) at: #getType put: [ :a |
     a ifNil: [ '[object XlNone]' ] ifNotNil: [
         (a isKindOf: BlockClosure) ifTrue: [ '[object XlClosure]' ] ifFalse: [
-            ((a isKindOf: OrderedDictionary) or: [ a isKindOf: Dictionary ]) ifTrue: [ '[object XlDict]' ] ifFalse: [
+            (a isKindOf: Dictionary) ifTrue: [ '[object XlDict]' ] ifFalse: [
                 (a isArray or: [ a isCollection and: [ a isString not ] ]) ifTrue: [ '[object XlList]' ] ifFalse: [
                     a isString ifTrue: [ '[object XlString]' ] ifFalse: [
                         (a isKindOf: Boolean) ifTrue: [ '[object XlBool]' ] ifFalse: [

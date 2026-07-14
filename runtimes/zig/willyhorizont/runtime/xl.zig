@@ -1,6 +1,6 @@
 const std = @import("std");
 
-pub fn escapeString(gpa: std.mem.Allocator, s: ?[]const u8) ![]const u8 {
+pub fn escape_string(gpa: std.mem.Allocator, s: ?[]const u8) ![]const u8 {
     const inp = s orelse return try gpa.dupe(u8, "");
     if (inp.len == 0) return try gpa.dupe(u8, "");
     var r: std.ArrayList(u8) = .empty;
@@ -29,13 +29,13 @@ pub const Types = enum {
     Closure,
 };
 
-pub const ClosureDecorator = struct {
+pub const XlClosure = struct {
     context: ?*anyopaque = null,
     func: *const fn (ctx: ?*anyopaque, args: []const Type) Type,
     deinit: ?*const fn (ctx: ?*anyopaque, gpa: std.mem.Allocator) void = null,
 };
 
-pub const Pair = struct { key: []const u8, val: Type };
+pub const XlDict = std.hash_map.StringHashMap(Type);
 
 pub const Type = union(Types) {
     None: void,
@@ -44,19 +44,19 @@ pub const Type = union(Types) {
     Float: f128,
     String: []const u8,
     List: []const Type,
-    Dict: []const Pair,
-    Closure: ClosureDecorator,
+    Dict: XlDict,
+    Closure: XlClosure,
 
     pub fn call(self: Type, gpa: std.mem.Allocator, va: anytype) Type {
         switch (self) {
             .Closure => |c| {
                 var args_buff: [va.len]Type = undefined;
-                inline for (va, 0..) |arg, i| {
-                    args_buff[i] = arg;
+                inline for (va, 0..) |a, i| {
+                    args_buff[i] = a;
                 }
                 defer {
-                    for (&args_buff) |arg| {
-                        arg.deinit(gpa);
+                    for (&args_buff) |a| {
+                        a.deinit(gpa);
                     }
                 }
                 return c.func(c.context, &args_buff);
@@ -69,7 +69,7 @@ pub const Type = union(Types) {
         var stack: std.ArrayList(Type) = .empty;
         defer stack.deinit(gpa);
         stack.append(gpa, self) catch {
-            self.emergencyDeinit(gpa);
+            self.emergency_deinit(gpa);
             return;
         };
         while (stack.pop()) |current| {
@@ -80,27 +80,30 @@ pub const Type = union(Types) {
                     }
                 },
                 .List => |l| {
-                    for (l) |item| {
-                        stack.append(gpa, item) catch {
-                            item.emergencyDeinit(gpa);
+                    for (l) |el| {
+                        stack.append(gpa, el) catch {
+                            el.emergency_deinit(gpa);
                         };
                     }
                     gpa.free(l);
                 },
                 .Dict => |d| {
-                    for (d) |item| {
-                        stack.append(gpa, item.val) catch {
-                            item.val.emergencyDeinit(gpa);
+                    var d_mut = d;
+                    var itr = d_mut.iterator();
+                    while (itr.next()) |dp| {
+                        stack.append(gpa, dp.value_ptr.*) catch {
+                            dp.value_ptr.*.emergency_deinit(gpa);
                         };
+                        gpa.free(dp.key_ptr.*);
                     }
-                    gpa.free(d);
+                    d_mut.deinit();
                 },
                 else => {},
             }
         }
     }
 
-    fn emergencyDeinit(self: Type, gpa: std.mem.Allocator) void {
+    fn emergency_deinit(self: Type, gpa: std.mem.Allocator) void {
         switch (self) {
             .Closure => |c| {
                 if (c.deinit) |free_func| {
@@ -108,16 +111,19 @@ pub const Type = union(Types) {
                 }
             },
             .List => |l| {
-                for (l) |item| {
-                    item.emergencyDeinit(gpa);
+                for (l) |el| {
+                    el.emergency_deinit(gpa);
                 }
                 gpa.free(l);
             },
             .Dict => |d| {
-                for (d) |item| {
-                    item.val.emergencyDeinit(gpa);
+                var d_mut = d;
+                var itr = d_mut.iterator();
+                while (itr.next()) |dp| {
+                    dp.value_ptr.*.emergency_deinit(gpa);
+                    gpa.free(dp.key_ptr.*);
                 }
-                gpa.free(d);
+                d_mut.deinit();
             },
             else => {},
         }
@@ -138,7 +144,7 @@ pub const Iterator = struct {
     }
 };
 
-pub fn makeClosure(gpa: std.mem.Allocator, ctx_value: anytype, comptime func: anytype) !Type {
+pub fn make_closure(gpa: std.mem.Allocator, ctx_value: anytype, comptime func: anytype) !Type {
     const T = @TypeOf(ctx_value);
     const heap_ctx = try gpa.create(T);
     heap_ctx.* = ctx_value;
@@ -153,7 +159,7 @@ pub fn makeClosure(gpa: std.mem.Allocator, ctx_value: anytype, comptime func: an
         }
     };
     return Type{
-        .Closure = ClosureDecorator{
+        .Closure = XlClosure{
             .context = heap_ctx,
             .func = Wrapper.run,
             .deinit = Wrapper.deinit,
@@ -161,23 +167,30 @@ pub fn makeClosure(gpa: std.mem.Allocator, ctx_value: anytype, comptime func: an
     };
 }
 
-pub fn makeList(gpa: std.mem.Allocator, tuple: anytype) !Type {
-    const slice = try gpa.alloc(Type, tuple.len);
-    inline for (tuple, 0..) |item, i| {
-        slice[i] = item;
+pub fn make_list(gpa: std.mem.Allocator, dp: anytype) !Type {
+    const slice = try gpa.alloc(Type, dp.len);
+    inline for (dp, 0..) |el, i| {
+        slice[i] = el;
     }
     return Type{ .List = slice };
 }
 
-pub fn makeDict(gpa: std.mem.Allocator, tuple: anytype) !Type {
-    const slice = try gpa.alloc(Pair, tuple.len);
-    inline for (tuple, 0..) |item, i| {
-        slice[i] = item;
+pub fn make_dict(gpa: std.mem.Allocator, p: anytype) !Type {
+    var d = XlDict.init(gpa);
+    errdefer {
+        var itr = d.iterator();
+        while (itr.next()) |dp| gpa.free(dp.key_ptr.*);
+        d.deinit();
     }
-    return Type{ .Dict = slice };
+    inline for (p) |el| {
+        const k_cpy = try gpa.dupe(u8, el[0]);
+        errdefer gpa.free(k_cpy);
+        try d.put(k_cpy, el[1]);
+    }
+    return Type{ .Dict = d };
 }
 
-pub fn jsonStringify(gpa: std.mem.Allocator, a: Type, o: anytype) ![]const u8 {
+pub fn json_stringify(gpa: std.mem.Allocator, a: Type, o: anytype) ![]const u8 {
     const p = if (@hasField(@TypeOf(o), "pretty")) o.pretty else false;
     var maa = std.heap.ArenaAllocator.init(gpa);
     defer maa.deinit();
@@ -198,7 +211,7 @@ pub fn jsonStringify(gpa: std.mem.Allocator, a: Type, o: anytype) ![]const u8 {
             continue;
         }
         const v = c.v;
-        const curD = c.d;
+        const cur_d = c.d;
         switch (v) {
             .None => {
                 try r.appendSlice(gpa, "null");
@@ -209,10 +222,10 @@ pub fn jsonStringify(gpa: std.mem.Allocator, a: Type, o: anytype) ![]const u8 {
                 continue;
             },
             .String => |sv| {
-                const svEsc = try escapeString(gpa, sv);
-                defer gpa.free(svEsc);
+                const sv_esc = try escape_string(gpa, sv);
+                defer gpa.free(sv_esc);
                 try r.append(gpa, '"');
-                try r.appendSlice(gpa, svEsc);
+                try r.appendSlice(gpa, sv_esc);
                 try r.append(gpa, '"');
                 continue;
             },
@@ -237,108 +250,106 @@ pub fn jsonStringify(gpa: std.mem.Allocator, a: Type, o: anytype) ![]const u8 {
                     try r.appendSlice(gpa, "[]");
                     continue;
                 }
-                const childDl = curD + 1;
+                const child_dl = cur_d + 1;
                 var slcb: []const u8 = "]";
                 if (p) {
-                    var st = try ma.alloc(u8, 2 + curD * 4);
+                    var st = try ma.alloc(u8, 2 + cur_d * 4);
                     st[0] = '\n';
                     @memset(st[1 .. st.len - 1], ' ');
                     st[st.len - 1] = ']';
                     slcb = st;
                 }
-                try s.append(ma, .{ .t = .r, .v = .None, .r = slcb, .d = curD });
+                try s.append(ma, .{ .t = .r, .v = .None, .r = slcb, .d = cur_d });
                 var i: usize = lv.len;
                 while (i > 0) {
                     i -= 1;
-                    try s.append(ma, .{ .t = .v, .v = lv[i], .r = "", .d = childDl });
+                    try s.append(ma, .{ .t = .v, .v = lv[i], .r = "", .d = child_dl });
                     if (i > 0) {
-                        var slEls: []const u8 = ",";
+                        var sl_el_sep: []const u8 = ",";
                         if (p) {
-                            var st = try ma.alloc(u8, 2 + childDl * 4);
+                            var st = try ma.alloc(u8, 2 + child_dl * 4);
                             st[0] = ',';
                             st[1] = '\n';
                             @memset(st[2..], ' ');
-                            slEls = st;
+                            sl_el_sep = st;
                         }
-                        try s.append(ma, .{ .t = .r, .v = .None, .r = slEls, .d = childDl });
+                        try s.append(ma, .{ .t = .r, .v = .None, .r = sl_el_sep, .d = child_dl });
                     }
                 }
                 var slob: []const u8 = "[";
                 if (p) {
-                    var st = try ma.alloc(u8, 2 + childDl * 4);
+                    var st = try ma.alloc(u8, 2 + child_dl * 4);
                     st[0] = '[';
                     st[1] = '\n';
                     @memset(st[2..], ' ');
                     slob = st;
                 }
-                try s.append(ma, .{ .t = .r, .v = .None, .r = slob, .d = childDl });
+                try s.append(ma, .{ .t = .r, .v = .None, .r = slob, .d = child_dl });
                 continue;
             },
             .Dict => |dv| {
-                if (dv.len == 0) {
+                var dv_mut = dv;
+                if (dv_mut.count() == 0) {
                     try r.appendSlice(gpa, "{}");
                     continue;
                 }
-                const childDd = curD + 1;
+                const child_dd = cur_d + 1;
                 var sdcb: []const u8 = "}";
                 if (p) {
-                    var st = try ma.alloc(u8, 2 + curD * 4);
+                    var st = try ma.alloc(u8, 2 + cur_d * 4);
                     st[0] = '\n';
                     @memset(st[1 .. st.len - 1], ' ');
                     st[st.len - 1] = '}';
                     sdcb = st;
                 }
-                try s.append(ma, .{ .t = .r, .v = .None, .r = sdcb, .d = curD });
-                var i: usize = dv.len;
-                while (i > 0) {
-                    i -= 1;
-                    const dpl = dv[i];
-                    try s.append(ma, .{ .t = .v, .v = dpl.val, .r = "", .d = childDd });
-                    const sdk = if (p)
-                        try std.fmt.allocPrint(ma, "\"{s}\": ", .{dpl.key})
-                    else
-                        try std.fmt.allocPrint(ma, "\"{s}\":", .{dpl.key});
-                    try s.append(ma, .{ .t = .r, .v = .None, .r = sdk, .d = childDd });
-                    if (i > 0) {
-                        var sdEls: []const u8 = ",";
+                try s.append(ma, .{ .t = .r, .v = .None, .r = sdcb, .d = cur_d });
+                var itr = dv_mut.iterator();
+                var is_first_prcsed = true;
+                while (itr.next()) |dp| {
+                    if (!is_first_prcsed) {
+                        var sd_el_sep: []const u8 = ",";
                         if (p) {
-                            var st = try ma.alloc(u8, 2 + childDd * 4);
+                            var st = try ma.alloc(u8, 2 + child_dd * 4);
                             st[0] = ',';
                             st[1] = '\n';
                             @memset(st[2..], ' ');
-                            sdEls = st;
+                            sd_el_sep = st;
                         }
-                        try s.append(ma, .{ .t = .r, .v = .None, .r = sdEls, .d = childDd });
+                        try s.append(ma, .{ .t = .r, .v = .None, .r = sd_el_sep, .d = child_dd });
                     }
+                    try s.append(ma, .{ .t = .v, .v = dp.value_ptr.*, .r = "", .d = child_dd });
+                    const sdk = if (p)
+                        try std.fmt.allocPrint(ma, "\"{s}\": ", .{dp.key_ptr.*})
+                    else
+                        try std.fmt.allocPrint(ma, "\"{s}\":", .{dp.key_ptr.*});
+                    try s.append(ma, .{ .t = .r, .v = .None, .r = sdk, .d = child_dd });
+                    is_first_prcsed = false;
                 }
                 var sdob: []const u8 = "{";
                 if (p) {
-                    var st = try ma.alloc(u8, 2 + childDd * 4);
+                    var st = try ma.alloc(u8, 2 + child_dd * 4);
                     st[0] = '{';
                     st[1] = '\n';
                     @memset(st[2..], ' ');
                     sdob = st;
                 }
-                try s.append(ma, .{ .t = .r, .v = .None, .r = sdob, .d = childDd });
+                try s.append(ma, .{ .t = .r, .v = .None, .r = sdob, .d = child_dd });
                 continue;
             },
-            // else => {
-            //     try r.appendSlice(gpa, "\"[object Zig Object]\"");
-            // },
         }
     }
     return r.toOwnedSlice(gpa);
 }
 
-pub fn print(gpa: std.mem.Allocator, options: anytype, varargs: anytype) void {
-    const p = if (@hasField(@TypeOf(options), "pretty")) options.pretty else false;
-    inline for (varargs) |arg| {
-        switch (arg) {
+pub fn print(gpa: std.mem.Allocator, o: anytype, va: anytype) void {
+    const p = if (@hasField(@TypeOf(o), "pretty")) o.pretty else false;
+    inline for (va) |a| {
+        switch (a) {
             .String => |s| {
                 std.debug.print("{s}", .{s});
             },
             else => {
-                if (jsonStringify(gpa, arg, .{ .pretty = p })) |json_str| {
+                if (json_stringify(gpa, a, .{ .pretty = p })) |json_str| {
                     defer gpa.free(json_str);
                     std.debug.print("{s}", .{json_str});
                 } else |err| {

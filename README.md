@@ -378,7 +378,7 @@ Cross-language implementations of common programming concepts, data structures, 
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/list.php) : array  
   4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/list.go) : Slice  
   5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/list.pl) : ARRAY  
-  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/list.jl) : Vector{Any}  
+  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/list.jl) : Vector  
   7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/list.lua) : table  
   8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/list.rb) : Array  
   9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/list.r) : list  
@@ -391,7 +391,7 @@ Cross-language implementations of common programming concepts, data structures, 
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/list.wls) : List  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list.raku) : List  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list.scala) : mutable.ArrayBuffer[Any]  
-  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list.java) : ArrayList&lt;Object&gt;  
+  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list.java) : ArrayList  
   20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/list.nu) : List  
   21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/list.elv) : List  
   22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/list.vim) : List  
@@ -420,10 +420,10 @@ Cross-language implementations of common programming concepts, data structures, 
   1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/dict.js) : Object  
   2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/dict.py) : Dict  
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/dict.php) : associative array  
-  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/dict.go) : map[string]interface{}  
+  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/dict.go) : Map  
   5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/dict.pl) : HASH  
-  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/dict.jl) : Dict{String, Any}  
-  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/dict.lua) : hash table  
+  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/dict.jl) : Dict  
+  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/dict.lua) : table  
   8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/dict.rb) : Hash  
   9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/dict.r) : associative list  
   10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/dict.kt) : MutableMap&lt;String, Any?&gt;  
@@ -435,7 +435,7 @@ Cross-language implementations of common programming concepts, data structures, 
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/dict.wls) : Association  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/dict.raku) : HASH  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/dict.scala) : mutable.Map[String, Any]  
-  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/dict.java) : HashMap&lt;String, Object&gt;  
+  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/dict.java) : HashMap  
   20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/dict.nu) : Record  
   21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/dict.elv) : Map  
   22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/dict.vim) : Dictionary  
@@ -446,15 +446,15 @@ Cross-language implementations of common programming concepts, data structures, 
   27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/dict.typ) : Dictionary  
   28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/dict.ps1) : HashTable  
   29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/dict.exs) : Map  
-  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/dict.ml) : Association List  
+  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/dict.ml) : Hash Table  
   31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/dict.erl) : map  
   32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/dict.gleam) : Dict  
-  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/dict.zig) : Association Slice  
-  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/dict.nim) : Ordered Table  
+  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/dict.zig) : HashMap  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/dict.nim) : Table  
   35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/dict.odin) : Map  
   36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/dict.cpp) : Unordered Map  
   37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/dict.m) : Dictionary  
-  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/dict.st) : OrderedDictionary  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/dict.st) : Dictionary  
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/dict.as) : Object  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/dict.groovy) : Map  
 

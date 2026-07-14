@@ -1,3 +1,11 @@
+[Last updated: 15 Jul 2026 @ 12:10 AM]
+version 2.7.39:
+small fix in smalltalk;
+small fix in zig;
+update languages.json;
+update README.md;
+working progress add escape-string and std-json-stringify in runtime/*
+
 [Last updated: 14 Jul 2026 @ 10:13 PM]
 version 2.7.38:
 small update in java runtime init;

@@ -101,7 +101,7 @@
         "file_extension": ".go",
         "concept_definition": {
             "list": "Slice",
-            "dict": "map[string]interface{}"
+            "dict": "Map"
         },
         "vscode_extensions": [
             "golang.go"
@@ -158,8 +158,8 @@
         ],
         "file_extension": ".jl",
         "concept_definition": {
-            "list": "Vector{Any}",
-            "dict": "Dict{String, Any}"
+            "list": "Vector",
+            "dict": "Dict"
         },
         "vscode_extensions": [
             "julialang.language-julia"
@@ -188,7 +188,7 @@
         "file_extension": ".lua",
         "concept_definition": {
             "list": "table",
-            "dict": "hash table"
+            "dict": "table"
         },
         "vscode_extensions": [
             "sumneko.lua"
@@ -495,8 +495,8 @@
         ],
         "file_extension": ".java",
         "concept_definition": {
-            "list": "ArrayList&lt;Object&gt;",
-            "dict": "HashMap&lt;String, Object&gt;"
+            "list": "ArrayList",
+            "dict": "HashMap"
         },
         "vscode_extensions": [
             "redhat.java",
@@ -821,7 +821,7 @@
         "file_extension": ".ml",
         "concept_definition": {
             "list": "List",
-            "dict": "Association List"
+            "dict": "Hash Table"
         },
         "vscode_extensions": [
             "ocamllabs.ocaml-platform"
@@ -908,7 +908,7 @@
         "file_extension": ".zig",
         "concept_definition": {
             "list": "Slice",
-            "dict": "Association Slice"
+            "dict": "HashMap"
         },
         "vscode_extensions": [
             "ziglang.vscode-zig"
@@ -937,7 +937,7 @@
         "file_extension": ".nim",
         "concept_definition": {
             "list": "Sequence",
-            "dict": "Ordered Table"
+            "dict": "Table"
         },
         "vscode_extensions": [
             "NimLang.nimlang"
@@ -1053,7 +1053,7 @@
         "file_extension": ".st",
         "concept_definition": {
             "list": "OrderedCollection",
-            "dict": "OrderedDictionary"
+            "dict": "Dictionary"
         },
         "vscode_extensions": [
             "pleasedskin.smalltalk"
