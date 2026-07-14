@@ -220,10 +220,10 @@
             "dict": "Hash"
         },
         "vscode_extensions": [
-            "Shopify.ruby-lsp"
+            
         ],
         "vscode_extensions_archive": [
-            
+            "Shopify.ruby-lsp"
         ],
         "docker": [
             {

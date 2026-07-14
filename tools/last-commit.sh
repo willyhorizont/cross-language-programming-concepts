@@ -2,7 +2,7 @@
 
 SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD/..")
-V="2.7.39" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
+V="2.7.40" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
 T=$(date "+%d %b %Y @ %I:%M %p")
 \. "$HOME/.nvm/nvm.sh"
 npm version "$V" --no-git-tag-version
@@ -14,10 +14,7 @@ version $V:
 H=$(sed -e '/./,$!d' <<< "$H")
 # ! DON'T FORGET TO CHANGE COMMIT MESSAGE BEFORE RUNNING !!!!
 M="
-small fix in smalltalk;
-small fix in zig;
-update languages.json;
-update README.md;
+finish ruby runtime init;
 working progress add escape-string and std-json-stringify in runtime/*
 "
 M=$(sed -e '/./,$!d' <<< "$M")

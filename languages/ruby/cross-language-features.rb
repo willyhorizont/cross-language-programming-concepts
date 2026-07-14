@@ -1,3 +1,5 @@
+require_relative "../../runtimes/ruby/willyhorizont/runtime/xl"
+
 =begin
 1. support closure as value, or has workaround
 =end
@@ -31,7 +33,8 @@ xl_list = [
     { "foo" => "bar" },
     lambda do | aa, bb | aa * bb end,
 ]
-puts("xl_list: #{xl_list}")
+puts("xl_list: #{Xl.json_stringify(xl_list)}")
+puts("xl_list: #{Xl.json_stringify(xl_list, pretty: true)}")
 xl_dict = {
     "xl_none" => nil,
     "xl_bool_true" => true,
@@ -45,4 +48,5 @@ xl_dict = {
     "xl_dict" => { "foo" => "bar" },
     "xl_closure" => lambda do | aa, bb | aa * bb end,
 }
-puts("xl_dict: #{xl_dict}")
+puts("xl_dict: #{Xl.json_stringify(xl_dict)}")
+puts("xl_dict: #{Xl.json_stringify(xl_dict, pretty: true)}")
