@@ -26,46 +26,46 @@ public class Xl {
         this.value = v;
     }
 
-    public static Xl of(Boolean v) {
+    public static Xl from(Boolean v) {
         return v == null ? NONE : new Xl(Type.BOOL, v);
     }
 
-    public static Xl of(String v) {
+    public static Xl from(String v) {
         return v == null ? NONE : new Xl(Type.STRING, v);
     }
 
-    public static Xl of(Integer v) {
+    public static Xl from(Integer v) {
         return v == null ? NONE : new Xl(Type.INT, v);
     }
     
-    public static Xl of(Double v) {
+    public static Xl from(Double v) {
         return v == null ? NONE : new Xl(Type.FLOAT, v);
     }
 
-    public static Xl of(Closure v) {
+    public static Xl from(Closure v) {
         return v == null ? NONE : new Xl(Type.CLOSURE, v);
     }
 
     @SuppressWarnings("unchecked")
-    public static Xl of(Iterator<Xl> v) {
+    public static Xl from(Iterator<Xl> v) {
         return v == null ? NONE : new Xl(Type.ITERATOR, v);
     }
 
     public static Xl iter(Xl[] array) {
         if (array == null) return NONE;
-        return of(Arrays.asList(array).iterator());
+        return from(Arrays.asList(array).iterator());
     }
 
     @SuppressWarnings("unchecked")
     public static Xl toXl(Object a) {
         if (a == null) return NONE;
         if (a instanceof Xl) return (Xl) a;
-        if (a instanceof Boolean) return of((Boolean) a);
-        if (a instanceof String) return of((String) a);
-        if (a instanceof Integer) return of((Integer) a);
-        if (a instanceof Double) return of((Double) a);
-        if (a instanceof Closure) return of((Closure) a);
-        if (a instanceof Iterator) return of((Iterator<Xl>) a);
+        if (a instanceof Boolean) return from((Boolean) a);
+        if (a instanceof String) return from((String) a);
+        if (a instanceof Integer) return from((Integer) a);
+        if (a instanceof Double) return from((Double) a);
+        if (a instanceof Closure) return from((Closure) a);
+        if (a instanceof Iterator) return from((Iterator<Xl>) a);
         return NONE;
     }
 

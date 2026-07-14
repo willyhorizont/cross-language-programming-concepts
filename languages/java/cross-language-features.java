@@ -5,31 +5,31 @@ public class Main {
         /*
         1. support closure as value, or has workaround
         */
-        Xl sayHello = Xl.of((Xl... va) -> {
+        Xl sayHello = Xl.from((Xl... va) -> {
             Xl itr = Xl.iter(va);
             Xl callbackFunction = itr.next();
             System.out.println("hello");
             callbackFunction.call();
             return Xl.NONE;
         });
-        sayHello.call(Xl.of((Xl... genericArgs) -> {
+        sayHello.call(Xl.from((Xl... genericArgs) -> {
             System.out.println("world");
             return Xl.NONE;
         }));
-        Xl createMultiplier = Xl.of((Xl... vaAa) -> {
+        Xl createMultiplier = Xl.from((Xl... vaAa) -> {
             Xl itrAa = Xl.iter(vaAa);
             Xl aa = itrAa.next();
-            return Xl.of((Xl... vaBb) -> {
+            return Xl.from((Xl... vaBb) -> {
                 Xl itrBb = Xl.iter(vaBb);
                 Xl bb = itrBb.next();
-                return Xl.of(aa.toInt() * bb.toInt());
+                return Xl.from(aa.toInt() * bb.toInt());
             });
         });
-        Xl multiplyByTwo = createMultiplier.call(Xl.of(2));
-        System.out.println("multiply_by_two(10): " + multiplyByTwo.call(Xl.of(10)));
-        Xl multiplyByEight = createMultiplier.call(Xl.of(8));
-        System.out.println("multiply_by_eight(4): " + multiplyByEight.call(Xl.of(4)));
-        System.out.println("multiply_by_two(8): " + multiplyByTwo.call(Xl.of(8)));
+        Xl multiplyByTwo = createMultiplier.call(Xl.from(2));
+        System.out.println("multiply_by_two(10): " + multiplyByTwo.call(Xl.from(10)));
+        Xl multiplyByEight = createMultiplier.call(Xl.from(8));
+        System.out.println("multiply_by_eight(4): " + multiplyByEight.call(Xl.from(4)));
+        System.out.println("multiply_by_two(8): " + multiplyByTwo.call(Xl.from(8)));
 
         /*
         2. support dynamic-typed value, or has workaround
@@ -45,11 +45,11 @@ public class Main {
             -123.789,
             Xl.list(1, 2, 3),
             Xl.dict(Xl.pair("foo", "bar")),
-            Xl.of((Xl... va) -> {
+            Xl.from((Xl... va) -> {
                 Xl itr = Xl.iter(va);
                 Xl aa = itr.next();
                 Xl bb = itr.next();
-                return Xl.of(aa.toInt() * bb.toInt());
+                return Xl.from(aa.toInt() * bb.toInt());
             })
         );
         System.out.println(Xl.jsonStringify(xlList));
@@ -65,11 +65,11 @@ public class Main {
             Xl.pair("xl_float_negative", -123.789),
             Xl.pair("xl_list", Xl.list(1, 2, 3)),
             Xl.pair("xl_dict", Xl.dict(Xl.pair("foo", "bar"))),
-            Xl.pair("xl_closure", Xl.of((Xl... va) -> {
+            Xl.pair("xl_closure", Xl.from((Xl... va) -> {
                 Xl itr = Xl.iter(va);
                 Xl aa = itr.next();
                 Xl bb = itr.next();
-                return Xl.of(aa.toInt() * bb.toInt());
+                return Xl.from(aa.toInt() * bb.toInt());
             }))
         );
         System.out.println(Xl.jsonStringify(xlDict));
