@@ -53,7 +53,7 @@ public class Main {
             })
         );
         System.out.println(Xl.jsonStringify(xlList));
-        System.out.println(Xl.jsonStringify(xlList, Xl.dict(Xl.pair("pretty", true))));
+        System.out.println(Xl.jsonStringify(xlList, Xl.pair("pretty", true)));
         Xl xlDict = Xl.dict(
             Xl.pair("xl_none", Xl.NONE),
             Xl.pair("xl_bool_true", true),
@@ -73,6 +73,6 @@ public class Main {
             }))
         );
         System.out.println(Xl.jsonStringify(xlDict));
-        System.out.println(Xl.jsonStringify(xlDict, Xl.dict(Xl.pair("pretty", true))));
+        System.out.println(Xl.jsonStringify(xlDict, Xl.pair("pretty", true)));
     }
 }

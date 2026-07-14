@@ -182,7 +182,11 @@ public class Xl {
         return jsonStringify(a, NONE);
     }
 
-    public static String jsonStringify(Xl a, Xl o) {
+    public static String jsonStringify(Xl a, Pair... p) {
+        return jsonStringify(a, dict(p));
+    }
+
+    private static String jsonStringify(Xl a, Xl o) {
         boolean p = false;
         if (o.getType() == Type.DICT) {
             try {
