@@ -22,7 +22,7 @@ M="$H
 $M"
 awk -v msg="$M" 'BEGIN {print msg; print ""} {print}' "$RD/changelog.txt" > "$RD/changelog.tmp" && mv "$RD/changelog.tmp" "$RD/changelog.txt"
 git add .
-"$RD/languages/python/run.sh" "$RD/tools/generate-readme.py"
+"$RD/languages/python/runner.sh" "$RD/tools/generate-readme.py"
 git add .
 git checkout -b dev # ! development
 git commit -m "$M"

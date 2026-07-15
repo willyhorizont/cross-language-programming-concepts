@@ -99,13 +99,13 @@ object Xl {
                         sdcb.put("v", if (p) "\n" + t.repeat(curD) + "}" else "}")
                         sdcb.put("d", curD)
                         s.append(sdcb)
-                        val entries = dv.toArray
-                        var i = entries.length
+                        val dpl = dv.toArray
+                        var i = dpl.length
                         while (i > 0) {
                             i -= 1
-                            val pair = entries(i)
-                            val dK = pair._1
-                            val dV = pair._2
+                            val dp = dpl(i)
+                            val dK = dp._1
+                            val dV = dp._2
                             val sdel = MutableMap[String, Any]()
                             sdel.put("t", "v")
                             sdel.put("v", dV)

@@ -1,3 +1,10 @@
+[Last updated: 15 Jul 2026 @ 08:55 AM]
+version 2.7.44:
+bulk rename languages/**/run.sh to languages/**/runner.sh;
+update .vscode/settings.json, replace run.sh to runner.sh;
+rename tools/runner.sh to tools/base-runner.sh;
+working progress add escape-string and std-json-stringify in runtime/*
+
 [Last updated: 15 Jul 2026 @ 08:39 AM]
 version 2.7.43:
 finish scala runtime init;

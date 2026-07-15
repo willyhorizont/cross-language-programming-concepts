@@ -2,7 +2,7 @@
 
 SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD/..")
-V="2.7.43" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
+V="2.7.44" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
 T=$(date "+%d %b %Y @ %I:%M %p")
 \. "$HOME/.nvm/nvm.sh"
 npm version "$V" --no-git-tag-version
@@ -14,7 +14,9 @@ version $V:
 H=$(sed -e '/./,$!d' <<< "$H")
 # ! DON'T FORGET TO CHANGE COMMIT MESSAGE BEFORE RUNNING !!!!
 M="
-finish scala runtime init;
+bulk rename languages/**/run.sh to languages/**/runner.sh;
+update .vscode/settings.json, replace run.sh to runner.sh;
+rename tools/runner.sh to tools/base-runner.sh;
 working progress add escape-string and std-json-stringify in runtime/*
 "
 M=$(sed -e '/./,$!d' <<< "$M")
@@ -22,7 +24,7 @@ M="$H
 $M"
 awk -v msg="$M" 'BEGIN {print msg; print ""} {print}' "$RD/changelog.txt" > "$RD/changelog.tmp" && mv "$RD/changelog.tmp" "$RD/changelog.txt"
 git add .
-"$RD/languages/python/run.sh" "$RD/tools/generate-readme.py"
+"$RD/languages/python/runner.sh" "$RD/tools/generate-readme.py"
 git add .
 git commit -m "$M"
 git tag -d "$V" 2>/dev/null
