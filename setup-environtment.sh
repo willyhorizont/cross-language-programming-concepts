@@ -61,6 +61,7 @@ code --install-extension geequlim.godot-tools
 code --install-extension sleutho.tcl
 code --install-extension elves.elvish
 code --install-extension TheNuProjectContributors.vscode-nushell-lang
+code --install-extension scala-lang.scala
 
 eval "$RD/tools/vscode-extensions/vim9script-syntax-highlighter/install.sh"
 

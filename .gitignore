@@ -70,3 +70,7 @@ runtimes/zig/main
 *.vsix
 
 tools/vscode-extensions/vim9script-syntax-highlighter/repos/
+
+runtimes/scala/main.scala
+
+active-docker-container.txt

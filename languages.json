@@ -465,8 +465,8 @@
         ],
         "file_extension": ".scala",
         "concept_definition": {
-            "list": "mutable.ArrayBuffer[Any]",
-            "dict": "mutable.Map[String, Any]"
+            "list": "ArrayBuffer",
+            "dict": "Map"
         },
         "vscode_extensions": [
             "scala-lang.scala"
