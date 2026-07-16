@@ -22,7 +22,7 @@ cd \"$PTTFNXD\"
 scala-cli run .
 "
 
-DCN="scala-runner"
+DCN="$LID-runner"
 
 if [ -f "$PTDCNTFNX" ]; then
     TDCN=$(cat "$PTDCNTFNX")

@@ -1,3 +1,8 @@
+[Last updated: 16 Jul 2026 @ 05:18 PM]
+version 2.7.45:
+small fix in zig runtime;
+working progress add escape-string and std-json-stringify in runtime/*
+
 [Last updated: 15 Jul 2026 @ 08:55 AM]
 version 2.7.44:
 bulk rename languages/**/run.sh to languages/**/runner.sh;

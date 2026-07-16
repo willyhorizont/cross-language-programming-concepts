@@ -62,6 +62,7 @@ code --install-extension sleutho.tcl
 code --install-extension elves.elvish
 code --install-extension TheNuProjectContributors.vscode-nushell-lang
 code --install-extension scala-lang.scala
+code --install-extension mathiasfrohlich.Kotlin
 
 eval "$RD/tools/vscode-extensions/vim9script-syntax-highlighter/install.sh"
 

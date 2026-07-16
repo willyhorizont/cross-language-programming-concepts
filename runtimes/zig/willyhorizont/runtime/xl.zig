@@ -1,21 +1,29 @@
 const std = @import("std");
 
-pub fn escape_string(gpa: std.mem.Allocator, s: ?[]const u8) ![]const u8 {
-    const inp = s orelse return try gpa.dupe(u8, "");
-    if (inp.len == 0) return try gpa.dupe(u8, "");
+var global_io: ?std.Io = null;
+var global_allocator: ?std.mem.Allocator = null;
+
+pub fn init_runtime(gpa: std.mem.Allocator, io: std.Io) void {
+    global_allocator = gpa;
+    global_io = io;
+}
+
+pub fn escape_string(allocator: std.mem.Allocator, s: ?[]const u8) ![]const u8 {
+    const inp = s orelse return try allocator.dupe(u8, "");
+    if (inp.len == 0) return try allocator.dupe(u8, "");
     var r: std.ArrayList(u8) = .empty;
-    errdefer r.deinit(gpa);
+    errdefer r.deinit(allocator);
     for (inp) |c| {
         switch (c) {
-            '\\' => try r.appendSlice(gpa, "\\\\"),
-            '"' => try r.appendSlice(gpa, "\\\""),
-            '\n' => try r.appendSlice(gpa, "\\n"),
-            '\r' => try r.appendSlice(gpa, "\\r"),
-            '\t' => try r.appendSlice(gpa, "\\t"),
-            else => try r.append(gpa, c),
+            '\\' => try r.appendSlice(allocator, "\\\\"),
+            '"' => try r.appendSlice(allocator, "\\\""),
+            '\n' => try r.appendSlice(allocator, "\\n"),
+            '\r' => try r.appendSlice(allocator, "\\r"),
+            '\t' => try r.appendSlice(allocator, "\\t"),
+            else => try r.append(allocator, c),
         }
     }
-    return r.toOwnedSlice(gpa);
+    return r.toOwnedSlice(allocator);
 }
 
 pub const Types = enum {
@@ -47,7 +55,7 @@ pub const Type = union(Types) {
     Dict: XlDict,
     Closure: XlClosure,
 
-    pub fn call(self: Type, gpa: std.mem.Allocator, va: anytype) Type {
+    pub fn call(self: Type, va: anytype) Type {
         switch (self) {
             .Closure => |c| {
                 var args_buff: [va.len]Type = undefined;
@@ -56,20 +64,21 @@ pub const Type = union(Types) {
                 }
                 defer {
                     for (&args_buff) |a| {
-                        a.deinit(gpa);
+                        a.deinit();
                     }
                 }
                 return c.func(c.context, &args_buff);
             },
-            else => return Type{ .None = {} },
+            else => return none,
         }
     }
 
-    pub fn deinit(self: Type, gpa: std.mem.Allocator) void {
+    pub fn deinit(self: Type) void {
+        const gpa = global_allocator.?;
         var stack: std.ArrayList(Type) = .empty;
         defer stack.deinit(gpa);
         stack.append(gpa, self) catch {
-            self.emergency_deinit(gpa);
+            self.emergency_deinit();
             return;
         };
         while (stack.pop()) |current| {
@@ -82,7 +91,7 @@ pub const Type = union(Types) {
                 .List => |l| {
                     for (l) |el| {
                         stack.append(gpa, el) catch {
-                            el.emergency_deinit(gpa);
+                            el.emergency_deinit();
                         };
                     }
                     gpa.free(l);
@@ -92,7 +101,7 @@ pub const Type = union(Types) {
                     var itr = d_mut.iterator();
                     while (itr.next()) |dp| {
                         stack.append(gpa, dp.value_ptr.*) catch {
-                            dp.value_ptr.*.emergency_deinit(gpa);
+                            dp.value_ptr.*.emergency_deinit();
                         };
                         gpa.free(dp.key_ptr.*);
                     }
@@ -103,16 +112,15 @@ pub const Type = union(Types) {
         }
     }
 
-    fn emergency_deinit(self: Type, gpa: std.mem.Allocator) void {
+    fn emergency_deinit(self: Type) void {
+        const gpa = global_allocator.?;
         switch (self) {
             .Closure => |c| {
-                if (c.deinit) |free_func| {
-                    free_func(c.context, gpa);
-                }
+                if (c.deinit) |free_func| free_func(c.context, gpa);
             },
             .List => |l| {
                 for (l) |el| {
-                    el.emergency_deinit(gpa);
+                    el.emergency_deinit();
                 }
                 gpa.free(l);
             },
@@ -120,7 +128,7 @@ pub const Type = union(Types) {
                 var d_mut = d;
                 var itr = d_mut.iterator();
                 while (itr.next()) |dp| {
-                    dp.value_ptr.*.emergency_deinit(gpa);
+                    dp.value_ptr.*.emergency_deinit();
                     gpa.free(dp.key_ptr.*);
                 }
                 d_mut.deinit();
@@ -128,7 +136,37 @@ pub const Type = union(Types) {
             else => {},
         }
     }
+
+    pub fn to_bool(self: Type) bool {
+        return switch (self) {
+            .Bool => |b| b,
+            else => @panic("XlRuntimeError: expected Bool."),
+        };
+    }
+
+    pub fn to_int(self: Type) i128 {
+        return switch (self) {
+            .Int => |i| i,
+            else => @panic("XlRuntimeError: expected Int."),
+        };
+    }
+
+    pub fn to_float(self: Type) f128 {
+        return switch (self) {
+            .Float => |f| f,
+            else => @panic("XlRuntimeError: expected Float."),
+        };
+    }
+
+    pub fn to_string(self: Type) []const u8 {
+        return switch (self) {
+            .String => |s| s,
+            else => @panic("XlRuntimeError: expected String."),
+        };
+    }
 };
+
+pub const none = Type{ .None = {} };
 
 pub const Iterator = struct {
     iterable: []const Type,
@@ -137,14 +175,60 @@ pub const Iterator = struct {
         return .{ .iterable = iterable };
     }
     pub fn next(self: *Iterator) Type {
-        if (self.index >= self.iterable.len) return Type{ .None = {} };
+        if (self.index >= self.iterable.len) return none;
         const el = self.iterable[self.index];
         self.index += 1;
         return el;
     }
 };
 
-pub fn make_closure(gpa: std.mem.Allocator, ctx_value: anytype, comptime func: anytype) !Type {
+pub fn iter(iterable: []const Type) Iterator {
+    return Iterator.init(iterable);
+}
+
+pub fn @"bool"(v: bool) Type {
+    return Type{ .Bool = v };
+}
+
+pub fn int(v: i128) Type {
+    return Type{ .Int = v };
+}
+
+pub fn float(v: f128) Type {
+    return Type{ .Float = v };
+}
+
+pub fn string(v: []const u8) Type {
+    return Type{ .String = v };
+}
+
+pub fn list(dp: anytype) !Type {
+    const gpa = global_allocator.?;
+    const l = try gpa.alloc(Type, dp.len);
+    inline for (dp, 0..) |el, i| {
+        l[i] = el;
+    }
+    return Type{ .List = l };
+}
+
+pub fn dict(p: anytype) !Type {
+    const gpa = global_allocator.?;
+    var d = XlDict.init(gpa);
+    errdefer {
+        var itr = d.iterator();
+        while (itr.next()) |dp| gpa.free(dp.key_ptr.*);
+        d.deinit();
+    }
+    inline for (p) |el| {
+        const k_cpy = try gpa.dupe(u8, el.@"0");
+        errdefer gpa.free(k_cpy);
+        try d.put(k_cpy, el.@"1");
+    }
+    return Type{ .Dict = d };
+}
+
+pub fn closure(ctx_value: anytype, comptime func: anytype) !Type {
+    const gpa = global_allocator.?;
     const T = @TypeOf(ctx_value);
     const heap_ctx = try gpa.create(T);
     heap_ctx.* = ctx_value;
@@ -167,30 +251,8 @@ pub fn make_closure(gpa: std.mem.Allocator, ctx_value: anytype, comptime func: a
     };
 }
 
-pub fn make_list(gpa: std.mem.Allocator, dp: anytype) !Type {
-    const slice = try gpa.alloc(Type, dp.len);
-    inline for (dp, 0..) |el, i| {
-        slice[i] = el;
-    }
-    return Type{ .List = slice };
-}
-
-pub fn make_dict(gpa: std.mem.Allocator, p: anytype) !Type {
-    var d = XlDict.init(gpa);
-    errdefer {
-        var itr = d.iterator();
-        while (itr.next()) |dp| gpa.free(dp.key_ptr.*);
-        d.deinit();
-    }
-    inline for (p) |el| {
-        const k_cpy = try gpa.dupe(u8, el[0]);
-        errdefer gpa.free(k_cpy);
-        try d.put(k_cpy, el[1]);
-    }
-    return Type{ .Dict = d };
-}
-
-pub fn json_stringify(gpa: std.mem.Allocator, a: Type, o: anytype) ![]const u8 {
+pub fn json_stringify(a: Type, o: anytype) ![]const u8 {
+    const gpa = global_allocator.?;
     const p = if (@hasField(@TypeOf(o), "pretty")) o.pretty else false;
     var maa = std.heap.ArenaAllocator.init(gpa);
     defer maa.deinit();
@@ -202,6 +264,7 @@ pub fn json_stringify(gpa: std.mem.Allocator, a: Type, o: anytype) ![]const u8 {
         d: usize,
     };
     var s: std.ArrayList(StkEl) = .empty;
+    defer s.deinit(ma);
     try s.append(ma, .{ .t = .v, .v = a, .r = "", .d = 0 });
     var r: std.ArrayList(u8) = .empty;
     errdefer r.deinit(gpa);
@@ -222,10 +285,8 @@ pub fn json_stringify(gpa: std.mem.Allocator, a: Type, o: anytype) ![]const u8 {
                 continue;
             },
             .String => |sv| {
-                const sv_esc = try escape_string(gpa, sv);
-                defer gpa.free(sv_esc);
                 try r.append(gpa, '"');
-                try r.appendSlice(gpa, sv_esc);
+                try r.appendSlice(gpa, try escape_string(ma, sv));
                 try r.append(gpa, '"');
                 continue;
             },
@@ -289,7 +350,8 @@ pub fn json_stringify(gpa: std.mem.Allocator, a: Type, o: anytype) ![]const u8 {
             },
             .Dict => |dv| {
                 var dv_mut = dv;
-                if (dv_mut.count() == 0) {
+                const dpl_len = dv_mut.count();
+                if (dpl_len == 0) {
                     try r.appendSlice(gpa, "{}");
                     continue;
                 }
@@ -304,9 +366,15 @@ pub fn json_stringify(gpa: std.mem.Allocator, a: Type, o: anytype) ![]const u8 {
                 }
                 try s.append(ma, .{ .t = .r, .v = .None, .r = sdcb, .d = cur_d });
                 var itr = dv_mut.iterator();
-                var is_first_prcsed = true;
+                var i: usize = 0;
                 while (itr.next()) |dp| {
-                    if (!is_first_prcsed) {
+                    try s.append(ma, .{ .t = .v, .v = dp.value_ptr.*, .r = "", .d = child_dd });
+                    const sdk = if (p)
+                        try std.fmt.allocPrint(ma, "\"{s}\": ", .{dp.key_ptr.*})
+                    else
+                        try std.fmt.allocPrint(ma, "\"{s}\":", .{dp.key_ptr.*});
+                    try s.append(ma, .{ .t = .r, .v = .None, .r = sdk, .d = child_dd });
+                    if (i < dpl_len - 1) {
                         var sd_el_sep: []const u8 = ",";
                         if (p) {
                             var st = try ma.alloc(u8, 2 + child_dd * 4);
@@ -317,13 +385,7 @@ pub fn json_stringify(gpa: std.mem.Allocator, a: Type, o: anytype) ![]const u8 {
                         }
                         try s.append(ma, .{ .t = .r, .v = .None, .r = sd_el_sep, .d = child_dd });
                     }
-                    try s.append(ma, .{ .t = .v, .v = dp.value_ptr.*, .r = "", .d = child_dd });
-                    const sdk = if (p)
-                        try std.fmt.allocPrint(ma, "\"{s}\": ", .{dp.key_ptr.*})
-                    else
-                        try std.fmt.allocPrint(ma, "\"{s}\":", .{dp.key_ptr.*});
-                    try s.append(ma, .{ .t = .r, .v = .None, .r = sdk, .d = child_dd });
-                    is_first_prcsed = false;
+                    i += 1;
                 }
                 var sdob: []const u8 = "{";
                 if (p) {
@@ -341,22 +403,28 @@ pub fn json_stringify(gpa: std.mem.Allocator, a: Type, o: anytype) ![]const u8 {
     return r.toOwnedSlice(gpa);
 }
 
-pub fn print(gpa: std.mem.Allocator, o: anytype, va: anytype) void {
-    const p = if (@hasField(@TypeOf(o), "pretty")) o.pretty else false;
-    inline for (va) |a| {
-        switch (a) {
-            .String => |s| {
-                std.debug.print("{s}", .{s});
-            },
-            else => {
-                if (json_stringify(gpa, a, .{ .pretty = p })) |json_str| {
-                    defer gpa.free(json_str);
-                    std.debug.print("{s}", .{json_str});
-                } else |err| {
-                    std.debug.print("XlError: Failed to print, {}", .{err});
-                }
-            },
+pub fn print(va: anytype) void {
+    const gpa = global_allocator.?;
+    const io = global_io.?;
+    const stdout_file = std.Io.File.stdout();
+    inline for (va) |arg| {
+        const T = @TypeOf(arg);
+        if (T == []const u8) {
+            stdout_file.writeStreamingAll(io, arg) catch {};
+            gpa.free(arg);
+        } else if (T == Type) {
+            switch (arg) {
+                .String => |s| stdout_file.writeStreamingAll(io, s) catch {},
+                else => {
+                    if (json_stringify(arg, .{})) |s| {
+                        defer gpa.free(s);
+                        stdout_file.writeStreamingAll(io, s) catch {};
+                    } else |_| {}
+                },
+            }
+        } else if (T == *const [arg.len:0]u8 or T == []u8) {
+            stdout_file.writeStreamingAll(io, arg) catch {};
         }
     }
-    std.debug.print("\n", .{});
+    stdout_file.writeStreamingAll(io, "\n") catch {};
 }

@@ -279,11 +279,11 @@
             "dict": "MutableMap&lt;String, Any?&gt;"
         },
         "vscode_extensions": [
-            "JetBrains.kotlin-server",
-            "fwcd.kotlin"
+            "mathiasfrohlich.Kotlin"
         ],
         "vscode_extensions_archive": [
-            "mathiasfrohlich.Kotlin",
+            "fwcd.kotlin",
+            "JetBrains.kotlin-server",
             "esafirm.kotlin-formatter"
         ],
         "docker": [
