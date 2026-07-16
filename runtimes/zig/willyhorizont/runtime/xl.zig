@@ -202,16 +202,16 @@ pub fn string(v: []const u8) Type {
     return Type{ .String = v };
 }
 
-pub fn list(dp: anytype) !Type {
+pub fn list(dp: anytype) Type {
     const gpa = global_allocator.?;
-    const l = try gpa.alloc(Type, dp.len);
+    const l = gpa.alloc(Type, dp.len) catch @panic("XlRuntimeError: Out of memory while allocating list.");
     inline for (dp, 0..) |el, i| {
         l[i] = el;
     }
     return Type{ .List = l };
 }
 
-pub fn dict(p: anytype) !Type {
+pub fn dict(p: anytype) Type {
     const gpa = global_allocator.?;
     var d = XlDict.init(gpa);
     errdefer {
@@ -220,17 +220,17 @@ pub fn dict(p: anytype) !Type {
         d.deinit();
     }
     inline for (p) |el| {
-        const k_cpy = try gpa.dupe(u8, el.@"0");
+        const k_cpy = gpa.dupe(u8, el.@"0") catch @panic("XlRuntimeError: Out of memory while copying dict key.");
         errdefer gpa.free(k_cpy);
-        try d.put(k_cpy, el.@"1");
+        d.put(k_cpy, el.@"1") catch @panic("XlRuntimeError: Out of memory while inserting dict pair.");
     }
     return Type{ .Dict = d };
 }
 
-pub fn closure(ctx_value: anytype, comptime func: anytype) !Type {
+pub fn closure(ctx_value: anytype, comptime func: anytype) Type {
     const gpa = global_allocator.?;
     const T = @TypeOf(ctx_value);
-    const heap_ctx = try gpa.create(T);
+    const heap_ctx = gpa.create(T) catch @panic("XlRuntimeError: Out of memory while allocating closure context.");
     heap_ctx.* = ctx_value;
     const Wrapper = struct {
         fn run(opaque_ctx: ?*anyopaque, args: []const Type) Type {
@@ -250,8 +250,9 @@ pub fn closure(ctx_value: anytype, comptime func: anytype) !Type {
         },
     };
 }
+const jify_err_msg = "XlRuntimeError: Out of memory while performing json_stringify.";
 
-pub fn json_stringify(a: Type, o: anytype) ![]const u8 {
+pub fn json_stringify(a: Type, o: anytype) []const u8 {
     const gpa = global_allocator.?;
     const p = if (@hasField(@TypeOf(o), "pretty")) o.pretty else false;
     var maa = std.heap.ArenaAllocator.init(gpa);
@@ -265,142 +266,141 @@ pub fn json_stringify(a: Type, o: anytype) ![]const u8 {
     };
     var s: std.ArrayList(StkEl) = .empty;
     defer s.deinit(ma);
-    try s.append(ma, .{ .t = .v, .v = a, .r = "", .d = 0 });
+    s.append(ma, .{ .t = .v, .v = a, .r = "", .d = 0 }) catch @panic(jify_err_msg);
     var r: std.ArrayList(u8) = .empty;
-    errdefer r.deinit(gpa);
     while (s.pop()) |c| {
         if (c.t == .r) {
-            try r.appendSlice(gpa, c.r);
+            r.appendSlice(gpa, c.r) catch @panic(jify_err_msg);
             continue;
         }
         const v = c.v;
         const cur_d = c.d;
         switch (v) {
             .None => {
-                try r.appendSlice(gpa, "null");
+                r.appendSlice(gpa, "null") catch @panic(jify_err_msg);
                 continue;
             },
             .Bool => |bv| {
-                try r.appendSlice(gpa, if (bv) "true" else "false");
+                r.appendSlice(gpa, if (bv) "true" else "false") catch @panic(jify_err_msg);
                 continue;
             },
             .String => |sv| {
-                try r.append(gpa, '"');
-                try r.appendSlice(gpa, try escape_string(ma, sv));
-                try r.append(gpa, '"');
+                r.append(gpa, '"') catch @panic(jify_err_msg);
+                r.appendSlice(gpa, escape_string(ma, sv) catch @panic(jify_err_msg)) catch @panic(jify_err_msg);
+                r.append(gpa, '"') catch @panic(jify_err_msg);
                 continue;
             },
             .Int => |iv| {
                 var buf: [64]u8 = undefined;
                 const str = std.fmt.bufPrint(&buf, "{d}", .{iv}) catch "0";
-                try r.appendSlice(gpa, str);
+                r.appendSlice(gpa, str) catch @panic(jify_err_msg);
                 continue;
             },
             .Float => |fv| {
                 var buf: [64]u8 = undefined;
                 const str = std.fmt.bufPrint(&buf, "{d}", .{fv}) catch "0.0";
-                try r.appendSlice(gpa, str);
+                r.appendSlice(gpa, str) catch @panic(jify_err_msg);
                 continue;
             },
             .Closure => {
-                try r.appendSlice(gpa, "\"[object Function]\"");
+                r.appendSlice(gpa, "\"[object Function]\"") catch @panic(jify_err_msg);
                 continue;
             },
             .List => |lv| {
                 if (lv.len == 0) {
-                    try r.appendSlice(gpa, "[]");
+                    r.appendSlice(gpa, "[]") catch @panic(jify_err_msg);
                     continue;
                 }
                 const child_dl = cur_d + 1;
                 var slcb: []const u8 = "]";
                 if (p) {
-                    var st = try ma.alloc(u8, 2 + cur_d * 4);
+                    var st = ma.alloc(u8, 2 + cur_d * 4) catch @panic(jify_err_msg);
                     st[0] = '\n';
                     @memset(st[1 .. st.len - 1], ' ');
                     st[st.len - 1] = ']';
                     slcb = st;
                 }
-                try s.append(ma, .{ .t = .r, .v = .None, .r = slcb, .d = cur_d });
+                s.append(ma, .{ .t = .r, .v = .None, .r = slcb, .d = cur_d }) catch @panic(jify_err_msg);
                 var i: usize = lv.len;
                 while (i > 0) {
                     i -= 1;
-                    try s.append(ma, .{ .t = .v, .v = lv[i], .r = "", .d = child_dl });
+                    s.append(ma, .{ .t = .v, .v = lv[i], .r = "", .d = child_dl }) catch @panic(jify_err_msg);
                     if (i > 0) {
                         var sl_el_sep: []const u8 = ",";
                         if (p) {
-                            var st = try ma.alloc(u8, 2 + child_dl * 4);
+                            var st = ma.alloc(u8, 2 + child_dl * 4) catch @panic(jify_err_msg);
                             st[0] = ',';
                             st[1] = '\n';
                             @memset(st[2..], ' ');
                             sl_el_sep = st;
                         }
-                        try s.append(ma, .{ .t = .r, .v = .None, .r = sl_el_sep, .d = child_dl });
+                        s.append(ma, .{ .t = .r, .v = .None, .r = sl_el_sep, .d = child_dl }) catch @panic(jify_err_msg);
                     }
                 }
                 var slob: []const u8 = "[";
                 if (p) {
-                    var st = try ma.alloc(u8, 2 + child_dl * 4);
+                    var st = ma.alloc(u8, 2 + child_dl * 4) catch @panic(jify_err_msg);
                     st[0] = '[';
                     st[1] = '\n';
                     @memset(st[2..], ' ');
                     slob = st;
                 }
-                try s.append(ma, .{ .t = .r, .v = .None, .r = slob, .d = child_dl });
+                s.append(ma, .{ .t = .r, .v = .None, .r = slob, .d = child_dl }) catch @panic(jify_err_msg);
                 continue;
             },
             .Dict => |dv| {
                 var dv_mut = dv;
                 const dpl_len = dv_mut.count();
                 if (dpl_len == 0) {
-                    try r.appendSlice(gpa, "{}");
+                    r.appendSlice(gpa, "{}") catch @panic(jify_err_msg);
                     continue;
                 }
                 const child_dd = cur_d + 1;
                 var sdcb: []const u8 = "}";
                 if (p) {
-                    var st = try ma.alloc(u8, 2 + cur_d * 4);
+                    var st = ma.alloc(u8, 2 + cur_d * 4) catch @panic(jify_err_msg);
                     st[0] = '\n';
                     @memset(st[1 .. st.len - 1], ' ');
                     st[st.len - 1] = '}';
                     sdcb = st;
                 }
-                try s.append(ma, .{ .t = .r, .v = .None, .r = sdcb, .d = cur_d });
+                s.append(ma, .{ .t = .r, .v = .None, .r = sdcb, .d = cur_d }) catch @panic(jify_err_msg);
                 var itr = dv_mut.iterator();
                 var i: usize = 0;
                 while (itr.next()) |dp| {
-                    try s.append(ma, .{ .t = .v, .v = dp.value_ptr.*, .r = "", .d = child_dd });
+                    s.append(ma, .{ .t = .v, .v = dp.value_ptr.*, .r = "", .d = child_dd }) catch @panic(jify_err_msg);
                     const sdk = if (p)
-                        try std.fmt.allocPrint(ma, "\"{s}\": ", .{dp.key_ptr.*})
+                        std.fmt.allocPrint(ma, "\"{s}\": ", .{dp.key_ptr.*}) catch @panic(jify_err_msg)
                     else
-                        try std.fmt.allocPrint(ma, "\"{s}\":", .{dp.key_ptr.*});
-                    try s.append(ma, .{ .t = .r, .v = .None, .r = sdk, .d = child_dd });
+                        std.fmt.allocPrint(ma, "\"{s}\":", .{dp.key_ptr.*}) catch @panic(jify_err_msg);
+                    s.append(ma, .{ .t = .r, .v = .None, .r = sdk, .d = child_dd }) catch @panic(jify_err_msg);
                     if (i < dpl_len - 1) {
                         var sd_el_sep: []const u8 = ",";
                         if (p) {
-                            var st = try ma.alloc(u8, 2 + child_dd * 4);
+                            var st = ma.alloc(u8, 2 + child_dd * 4) catch @panic(jify_err_msg);
                             st[0] = ',';
                             st[1] = '\n';
                             @memset(st[2..], ' ');
                             sd_el_sep = st;
                         }
-                        try s.append(ma, .{ .t = .r, .v = .None, .r = sd_el_sep, .d = child_dd });
+                        s.append(ma, .{ .t = .r, .v = .None, .r = sd_el_sep, .d = child_dd }) catch @panic(jify_err_msg);
                     }
                     i += 1;
                 }
                 var sdob: []const u8 = "{";
                 if (p) {
-                    var st = try ma.alloc(u8, 2 + child_dd * 4);
+                    var st = ma.alloc(u8, 2 + child_dd * 4) catch @panic(jify_err_msg);
                     st[0] = '{';
                     st[1] = '\n';
                     @memset(st[2..], ' ');
                     sdob = st;
                 }
-                try s.append(ma, .{ .t = .r, .v = .None, .r = sdob, .d = child_dd });
+                s.append(ma, .{ .t = .r, .v = .None, .r = sdob, .d = child_dd }) catch @panic(jify_err_msg);
                 continue;
             },
         }
     }
-    return r.toOwnedSlice(gpa);
+    return r.toOwnedSlice(gpa) catch @panic(jify_err_msg);
 }
 
 pub fn print(va: anytype) void {
@@ -416,10 +416,9 @@ pub fn print(va: anytype) void {
             switch (arg) {
                 .String => |s| stdout_file.writeStreamingAll(io, s) catch {},
                 else => {
-                    if (json_stringify(arg, .{})) |s| {
-                        defer gpa.free(s);
-                        stdout_file.writeStreamingAll(io, s) catch {};
-                    } else |_| {}
+                    const s = json_stringify(arg, .{});
+                    defer gpa.free(s);
+                    stdout_file.writeStreamingAll(io, s) catch {};
                 },
             }
         } else if (T == *const [arg.len:0]u8 or T == []u8) {

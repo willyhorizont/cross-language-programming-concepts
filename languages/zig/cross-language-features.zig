@@ -5,7 +5,7 @@ pub fn main(init: std.process.Init) !void {
     xl.init_runtime(init.gpa, init.io);
 
     // 1. support closure as value, or has workaround
-    const say_hello = try xl.closure(.{}, struct {
+    const say_hello = xl.closure(.{}, struct {
         fn body(ctx: anytype, args: []const xl.Type) xl.Type {
             _ = ctx;
             var itr = xl.iter(args);
@@ -23,8 +23,8 @@ pub fn main(init: std.process.Init) !void {
             xl.print(.{xl.string("world")});
             return xl.none;
         }
-    }.body) catch xl.none});
-    const create_multiplier = try xl.closure(.{}, struct {
+    }.body)});
+    const create_multiplier = xl.closure(.{}, struct {
         fn body(ctx_aa: anytype, args_aa: []const xl.Type) xl.Type {
             _ = ctx_aa;
             var itr_aa = xl.iter(args_aa);
@@ -35,7 +35,7 @@ pub fn main(init: std.process.Init) !void {
                     const bb = itr_bb.next();
                     return xl.int(ctx_bb.aa.to_int() * bb.to_int());
                 }
-            }.body) catch xl.none;
+            }.body);
         }
     }.body);
     defer create_multiplier.deinit();
@@ -43,12 +43,12 @@ pub fn main(init: std.process.Init) !void {
     defer multiply_by_two.deinit();
     const multiply_by_eight = create_multiplier.call(.{xl.int(8)});
     defer multiply_by_eight.deinit();
-    xl.print(.{ "multiply_by_two(8): ", try xl.json_stringify(multiply_by_two.call(.{xl.int(8)}), .{}) });
-    xl.print(.{ "multiply_by_eight(4): ", try xl.json_stringify(multiply_by_eight.call(.{xl.int(4)}), .{}) });
-    xl.print(.{ "multiply_by_two(8): ", try xl.json_stringify(multiply_by_two.call(.{xl.int(8)}), .{}) });
+    xl.print(.{ "multiply_by_two(8): ", xl.json_stringify(multiply_by_two.call(.{xl.int(8)}), .{}) });
+    xl.print(.{ "multiply_by_eight(4): ", xl.json_stringify(multiply_by_eight.call(.{xl.int(4)}), .{}) });
+    xl.print(.{ "multiply_by_two(8): ", xl.json_stringify(multiply_by_two.call(.{xl.int(8)}), .{}) });
 
     // 2. support dynamic-typed value, or has workaround
-    const xl_list = try xl.list(.{
+    const xl_list = xl.list(.{
         xl.none,
         xl.bool(true),
         xl.bool(false),
@@ -57,8 +57,8 @@ pub fn main(init: std.process.Init) !void {
         xl.int(-123),
         xl.float(123.789),
         xl.float(-123.789),
-        try xl.list(.{ xl.int(1), xl.int(2), xl.int(3) }),
-        try xl.dict(.{.{ "foo", xl.string("bar") }}),
+        xl.list(.{ xl.int(1), xl.int(2), xl.int(3) }),
+        xl.dict(.{.{ "foo", xl.string("bar") }}),
         xl.closure(.{}, struct {
             fn body(ctx: anytype, args: []const xl.Type) xl.Type {
                 _ = ctx;
@@ -67,12 +67,12 @@ pub fn main(init: std.process.Init) !void {
                 const bb = itr.next();
                 return xl.int(aa.to_int() * bb.to_int());
             }
-        }.body) catch xl.none,
+        }.body),
     });
     defer xl_list.deinit();
-    xl.print(.{ "xl_list: ", try xl.json_stringify(xl_list, .{}) });
-    xl.print(.{ "xl_list: ", try xl.json_stringify(xl_list, .{ .pretty = true }) });
-    const xl_dict = try xl.dict(.{
+    xl.print(.{ "xl_list: ", xl.json_stringify(xl_list, .{}) });
+    xl.print(.{ "xl_list: ", xl.json_stringify(xl_list, .{ .pretty = true }) });
+    const xl_dict = xl.dict(.{
         .{ "xl_none", xl.none },
         .{ "xl_bool_true", xl.bool(true) },
         .{ "xl_bool_false", xl.bool(false) },
@@ -81,8 +81,8 @@ pub fn main(init: std.process.Init) !void {
         .{ "xl_int_negative", xl.int(-123) },
         .{ "xl_float_positive", xl.float(123.789) },
         .{ "xl_float_negative", xl.float(-123.789) },
-        .{ "xl_list", try xl.list(.{ xl.int(1), xl.int(2), xl.int(3) }) },
-        .{ "xl_dict", try xl.dict(.{.{ "foo", xl.string("bar") }}) },
+        .{ "xl_list", xl.list(.{ xl.int(1), xl.int(2), xl.int(3) }) },
+        .{ "xl_dict", xl.dict(.{.{ "foo", xl.string("bar") }}) },
         .{ "xl_closure", xl.closure(.{}, struct {
             fn body(ctx: anytype, args: []const xl.Type) xl.Type {
                 _ = ctx;
@@ -91,9 +91,9 @@ pub fn main(init: std.process.Init) !void {
                 const bb = itr.next();
                 return xl.int(aa.to_int() * bb.to_int());
             }
-        }.body) catch xl.none },
+        }.body) },
     });
     defer xl_dict.deinit();
-    xl.print(.{ "xl_dict: ", try xl.json_stringify(xl_dict, .{}) });
-    xl.print(.{ "xl_dict: ", try xl.json_stringify(xl_dict, .{ .pretty = true }) });
+    xl.print(.{ "xl_dict: ", xl.json_stringify(xl_dict, .{}) });
+    xl.print(.{ "xl_dict: ", xl.json_stringify(xl_dict, .{ .pretty = true }) });
 }
