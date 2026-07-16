@@ -6,9 +6,9 @@ pub fn main(init: std.process.Init) !void {
 
     // 1. support closure as value, or has workaround
     const say_hello = xl.closure(.{}, struct {
-        fn body(ctx: anytype, args: []const xl.Type) xl.Type {
+        fn body(ctx: anytype, va: []const xl.Type) xl.Type {
             _ = ctx;
-            var itr = xl.iter(args);
+            var itr = xl.iter(va);
             const callback_function = itr.next();
             xl.print(.{xl.string("hello")});
             _ = callback_function.call(.{});
@@ -17,21 +17,21 @@ pub fn main(init: std.process.Init) !void {
     }.body);
     defer say_hello.deinit();
     _ = say_hello.call(.{xl.closure(.{}, struct {
-        fn body(ctx: anytype, args: []const xl.Type) xl.Type {
+        fn body(ctx: anytype, va: []const xl.Type) xl.Type {
             _ = ctx;
-            _ = args;
+            _ = va;
             xl.print(.{xl.string("world")});
             return xl.none;
         }
     }.body)});
     const create_multiplier = xl.closure(.{}, struct {
-        fn body(ctx_aa: anytype, args_aa: []const xl.Type) xl.Type {
+        fn body(ctx_aa: anytype, va_aa: []const xl.Type) xl.Type {
             _ = ctx_aa;
-            var itr_aa = xl.iter(args_aa);
+            var itr_aa = xl.iter(va_aa);
             const aa = itr_aa.next();
             return xl.closure(.{ .aa = aa }, struct {
-                fn body(ctx_bb: anytype, args_bb: []const xl.Type) xl.Type {
-                    var itr_bb = xl.iter(args_bb);
+                fn body(ctx_bb: anytype, va_bb: []const xl.Type) xl.Type {
+                    var itr_bb = xl.iter(va_bb);
                     const bb = itr_bb.next();
                     return xl.int(ctx_bb.aa.to_int() * bb.to_int());
                 }
@@ -60,9 +60,9 @@ pub fn main(init: std.process.Init) !void {
         xl.list(.{ xl.int(1), xl.int(2), xl.int(3) }),
         xl.dict(.{.{ "foo", xl.string("bar") }}),
         xl.closure(.{}, struct {
-            fn body(ctx: anytype, args: []const xl.Type) xl.Type {
+            fn body(ctx: anytype, va: []const xl.Type) xl.Type {
                 _ = ctx;
-                var itr = xl.iter(args);
+                var itr = xl.iter(va);
                 const aa = itr.next();
                 const bb = itr.next();
                 return xl.int(aa.to_int() * bb.to_int());
@@ -84,9 +84,9 @@ pub fn main(init: std.process.Init) !void {
         .{ "xl_list", xl.list(.{ xl.int(1), xl.int(2), xl.int(3) }) },
         .{ "xl_dict", xl.dict(.{.{ "foo", xl.string("bar") }}) },
         .{ "xl_closure", xl.closure(.{}, struct {
-            fn body(ctx: anytype, args: []const xl.Type) xl.Type {
+            fn body(ctx: anytype, va: []const xl.Type) xl.Type {
                 _ = ctx;
-                var itr = xl.iter(args);
+                var itr = xl.iter(va);
                 const aa = itr.next();
                 const bb = itr.next();
                 return xl.int(aa.to_int() * bb.to_int());

@@ -320,11 +320,21 @@ pub fn json_stringify(a: Type, o: anytype) []const u8 {
                     st[st.len - 1] = ']';
                     slcb = st;
                 }
-                s.append(ma, .{ .t = .r, .v = .None, .r = slcb, .d = cur_d }) catch @panic(jify_err_msg);
+                s.append(ma, .{
+                    .t = .r,
+                    .v = .None,
+                    .r = slcb,
+                    .d = cur_d,
+                }) catch @panic(jify_err_msg);
                 var i: usize = lv.len;
                 while (i > 0) {
                     i -= 1;
-                    s.append(ma, .{ .t = .v, .v = lv[i], .r = "", .d = child_dl }) catch @panic(jify_err_msg);
+                    s.append(ma, .{
+                        .t = .v,
+                        .v = lv[i],
+                        .r = "",
+                        .d = child_dl,
+                    }) catch @panic(jify_err_msg);
                     if (i > 0) {
                         var sl_el_sep: []const u8 = ",";
                         if (p) {
@@ -334,7 +344,12 @@ pub fn json_stringify(a: Type, o: anytype) []const u8 {
                             @memset(st[2..], ' ');
                             sl_el_sep = st;
                         }
-                        s.append(ma, .{ .t = .r, .v = .None, .r = sl_el_sep, .d = child_dl }) catch @panic(jify_err_msg);
+                        s.append(ma, .{
+                            .t = .r,
+                            .v = .None,
+                            .r = sl_el_sep,
+                            .d = child_dl,
+                        }) catch @panic(jify_err_msg);
                     }
                 }
                 var slob: []const u8 = "[";
@@ -345,7 +360,12 @@ pub fn json_stringify(a: Type, o: anytype) []const u8 {
                     @memset(st[2..], ' ');
                     slob = st;
                 }
-                s.append(ma, .{ .t = .r, .v = .None, .r = slob, .d = child_dl }) catch @panic(jify_err_msg);
+                s.append(ma, .{
+                    .t = .r,
+                    .v = .None,
+                    .r = slob,
+                    .d = child_dl,
+                }) catch @panic(jify_err_msg);
                 continue;
             },
             .Dict => |dv| {
@@ -364,16 +384,31 @@ pub fn json_stringify(a: Type, o: anytype) []const u8 {
                     st[st.len - 1] = '}';
                     sdcb = st;
                 }
-                s.append(ma, .{ .t = .r, .v = .None, .r = sdcb, .d = cur_d }) catch @panic(jify_err_msg);
+                s.append(ma, .{
+                    .t = .r,
+                    .v = .None,
+                    .r = sdcb,
+                    .d = cur_d,
+                }) catch @panic(jify_err_msg);
                 var itr = dv_mut.iterator();
                 var i: usize = 0;
                 while (itr.next()) |dp| {
-                    s.append(ma, .{ .t = .v, .v = dp.value_ptr.*, .r = "", .d = child_dd }) catch @panic(jify_err_msg);
+                    s.append(ma, .{
+                        .t = .v,
+                        .v = dp.value_ptr.*,
+                        .r = "",
+                        .d = child_dd,
+                    }) catch @panic(jify_err_msg);
                     const sdk = if (p)
                         std.fmt.allocPrint(ma, "\"{s}\": ", .{dp.key_ptr.*}) catch @panic(jify_err_msg)
                     else
                         std.fmt.allocPrint(ma, "\"{s}\":", .{dp.key_ptr.*}) catch @panic(jify_err_msg);
-                    s.append(ma, .{ .t = .r, .v = .None, .r = sdk, .d = child_dd }) catch @panic(jify_err_msg);
+                    s.append(ma, .{
+                        .t = .r,
+                        .v = .None,
+                        .r = sdk,
+                        .d = child_dd,
+                    }) catch @panic(jify_err_msg);
                     if (i < dpl_len - 1) {
                         var sd_el_sep: []const u8 = ",";
                         if (p) {
@@ -383,7 +418,12 @@ pub fn json_stringify(a: Type, o: anytype) []const u8 {
                             @memset(st[2..], ' ');
                             sd_el_sep = st;
                         }
-                        s.append(ma, .{ .t = .r, .v = .None, .r = sd_el_sep, .d = child_dd }) catch @panic(jify_err_msg);
+                        s.append(ma, .{
+                            .t = .r,
+                            .v = .None,
+                            .r = sd_el_sep,
+                            .d = child_dd,
+                        }) catch @panic(jify_err_msg);
                     }
                     i += 1;
                 }
@@ -395,7 +435,12 @@ pub fn json_stringify(a: Type, o: anytype) []const u8 {
                     @memset(st[2..], ' ');
                     sdob = st;
                 }
-                s.append(ma, .{ .t = .r, .v = .None, .r = sdob, .d = child_dd }) catch @panic(jify_err_msg);
+                s.append(ma, .{
+                    .t = .r,
+                    .v = .None,
+                    .r = sdob,
+                    .d = child_dd,
+                }) catch @panic(jify_err_msg);
                 continue;
             },
         }

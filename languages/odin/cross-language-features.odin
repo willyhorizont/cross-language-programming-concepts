@@ -2,14 +2,26 @@
 package main
 import "core:fmt"
 import "core:strings"
+import "core:mem"
+import "core:mem/virtual"
 import xl "willyhorizont/runtime"
 
 main :: proc() {
-    glb_scp := xl.reg_scope(nil)
+    mva: virtual.Arena
+    mva_err := virtual.arena_init_growing(&mva)
+    if mva_err != nil {
+        fmt.eprintln("XlRuntimeError: Failed initialize memory arena.")
+        return
+    }
+    defer virtual.arena_destroy(&mva) 
+    context.allocator = virtual.arena_allocator(&mva)
+
+    glob_scp := xl.reg_scope(nil)
     /*
     1. support closure as value, or has workaround
     */
     say_hello := xl.Closure{
+        value = glob_scp,
         call = proc(self: ^xl.Closure, va: ..xl.Type) -> xl.Type {
             itr := xl.iter(..va)
             callback_function := xl.next(&itr).(xl.Closure)
@@ -19,26 +31,27 @@ main :: proc() {
         },
     }
     say_hello.call(&say_hello, xl.Closure{
+        value = glob_scp,
         call = proc(self: ^xl.Closure, va: ..xl.Type) -> xl.Type {
             fmt.println("world")
             return nil
         },
     })
     create_multiplier := xl.Closure{
-        value = glb_scp,
+        value = glob_scp,
         call = proc(self: ^xl.Closure, va: ..xl.Type) -> xl.Type {
             itr := xl.iter(..va)
             aa := xl.next(&itr)
-            par_scp := (^xl.Scope)(self.value)
+            loc_scp := (^xl.Scope)(self.value)
             return xl.Closure{
-                value = xl.reg_scope(par_scp, xl.Dict{
+                value = xl.reg_scope(loc_scp, xl.Dict{
                     "aa" = aa.(xl.Int),
                 }),
-                call  = proc(self: ^xl.Closure, va: ..xl.Type) -> xl.Type {
+                call = proc(self: ^xl.Closure, va: ..xl.Type) -> xl.Type {
                     itr := xl.iter(..va)
                     bb := xl.next(&itr)
-                    par_scp := (^xl.Scope)(self.value)
-                    aa := xl.get_var(par_scp, "aa")
+                    loc_scp := (^xl.Scope)(self.value)
+                    aa := xl.get_var(loc_scp, "aa")
                     return xl.Int(aa.(xl.Int) * bb.(xl.Int))
                 },
             }
@@ -65,6 +78,7 @@ main :: proc() {
         xl.List{1, 2, 3},
         xl.Dict{"foo" = "bar"},
         xl.Closure{
+            value = glob_scp,
             call = proc(self: ^xl.Closure, va: ..xl.Type) -> xl.Type {
                 itr := xl.iter(..va)
                 aa := xl.next(&itr).(xl.Int)
@@ -87,6 +101,7 @@ main :: proc() {
         "xl_list" = xl.List{1, 2, 3},
         "xl_dict" = xl.Dict{"foo" = "bar"},
         "xl_closure" = xl.Closure{
+            value = glob_scp,
             call = proc(self: ^xl.Closure, va: ..xl.Type) -> xl.Type {
                 itr := xl.iter(..va)
                 aa := xl.next(&itr).(xl.Int)
@@ -97,11 +112,4 @@ main :: proc() {
     }
     fmt.println(strings.concatenate([]string{"xl_dict: ", xl.json_stringify(xl_dict)}, context.temp_allocator))
     fmt.println(strings.concatenate([]string{"xl_dict: ", xl.json_stringify(xl_dict, {pretty = true})}, context.temp_allocator))
-
-    free(say_hello.value)
-    xl.unreg_scope((^xl.Scope)(multiply_by_two.value))
-    xl.unreg_scope((^xl.Scope)(multiply_by_eight.value))
-    delete(xl_list)
-    delete(xl_dict)
-    xl.unreg_scope(glb_scp)
 }

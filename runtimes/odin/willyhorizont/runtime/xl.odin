@@ -127,8 +127,7 @@ json_stringify :: proc(a: Type, o: struct { pretty: Bool } = {}) -> String {
         r: String,
         d: Int,
     }
-    s: [dynamic]Tok
-    defer delete(s)
+    s: [dynamic]Tok = make([dynamic]Tok, context.temp_allocator)
     append(&s, Tok{t = "v", v = a, r = "", d = 0})
     r := strings.builder_make()
     for len(s) > 0 {
@@ -213,7 +212,7 @@ json_stringify :: proc(a: Type, o: struct { pretty: Bool } = {}) -> String {
                 r = pretty ? strings.concatenate({"\n", string_repeat(t, cur_d), "}"}, context.temp_allocator) : "}",
                 d = cur_d,
             })
-            dpl: [dynamic]Pair
+            dpl := make([dynamic]Pair, context.temp_allocator)
             for dpk, dpv in dv {
                 append(&dpl, Pair{key = dpk, value = dpv})
             }
@@ -246,10 +245,9 @@ json_stringify :: proc(a: Type, o: struct { pretty: Bool } = {}) -> String {
                 r = pretty ? strings.concatenate({"{\n", string_repeat(t, child_d)}, context.temp_allocator) : "{",
                 d = child_d
             })
-            delete(dpl)
             continue
         }
-        strings.write_string(&r, "\"[objct \\\"Odin Object\\\"]\"")
+        strings.write_string(&r, "\"[object \\\"Odin Object\\\"]\"")
     }
     return strings.to_string(r)
 }

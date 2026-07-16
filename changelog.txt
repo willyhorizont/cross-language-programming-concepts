@@ -1,3 +1,12 @@
+[Last updated: 17 Jul 2026 @ 01:35 AM]
+version 2.7.47:
+small fix in odin;
+small fix in tcl;
+small update in c-plus-plus;
+small update in zig;
+small update in erlang;
+working progress add escape-string and std-json-stringify in runtime/*
+
 [Last updated: 16 Jul 2026 @ 05:50 PM]
 version 2.7.46:
 small update in zig runtime;

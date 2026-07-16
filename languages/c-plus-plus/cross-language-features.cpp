@@ -6,22 +6,22 @@ int main(int argc, char* argv[]) {
     /*
     1. support closure as value, or has workaround
     */
-    XL::Type say_hello = XL::Closure([](const XL::Type& args) -> XL::Type {
-        XL::Type itr = args.iter();
+    XL::Type say_hello = XL::Closure([](const XL::Type& va) -> XL::Type {
+        XL::Type itr = va.iter();
         XL::Type callback_function = itr.next();
         std::cout << "hello" << std::endl;
         callback_function.call();
         return XL::None{};
     });
-    say_hello.call(XL::Closure([](const XL::Type& args) -> XL::Type {
+    say_hello.call(XL::Closure([](const XL::Type& va) -> XL::Type {
         std::cout << "world" << std::endl;
         return XL::None{};
     }));
-    XL::Type create_multiplier = XL::Closure([](const XL::Type& args) -> XL::Type {
-        XL::Type itr = args.iter();
+    XL::Type create_multiplier = XL::Closure([](const XL::Type& va) -> XL::Type {
+        XL::Type itr = va.iter();
         XL::Type aa = itr.next();
-        return XL::Closure([aa = std::move(aa)](const XL::Type& args) -> XL::Type {
-            XL::Type itr = args.iter();
+        return XL::Closure([aa = std::move(aa)](const XL::Type& va) -> XL::Type {
+            XL::Type itr = va.iter();
             XL::Type bb = itr.next();
             return XL::Int(XL::to_int(aa) * XL::to_int(bb));
         });
@@ -46,8 +46,8 @@ int main(int argc, char* argv[]) {
         XL::Float(-123.789),
         XL::List(XL::Int(1), XL::Int(2), XL::Int(3)),
         XL::Dict(XL::Pair("foo", XL::String("bar"))),
-        XL::Closure([](const XL::Type& args) -> XL::Type {
-            XL::Type itr = args.iter();
+        XL::Closure([](const XL::Type& va) -> XL::Type {
+            XL::Type itr = va.iter();
             XL::Type aa = itr.next();
             XL::Type bb = itr.next();
             return XL::Int(XL::to_int(aa) * XL::to_int(bb));
@@ -66,8 +66,8 @@ int main(int argc, char* argv[]) {
         XL::Pair("xl_float_negative", XL::Float(-123.789)),
         XL::Pair("xl_list", XL::List(XL::Int(1), XL::Int(2), XL::Int(3))),
         XL::Pair("xl_dict", XL::Dict(XL::Pair("foo", XL::String("bar")))),
-        XL::Pair("xl_closure", XL::Closure([](const XL::Type& args) -> XL::Type {
-            XL::Type itr = args.iter();
+        XL::Pair("xl_closure", XL::Closure([](const XL::Type& va) -> XL::Type {
+            XL::Type itr = va.iter();
             XL::Type aa = itr.next();
             XL::Type bb = itr.next();
             return XL::Int(XL::to_int(aa) * XL::to_int(bb));

@@ -20,7 +20,7 @@ namespace eval xl {
         variable fac
         constructor {cb_or_fac args} {
             if {[llength $args] > 0} {
-                set fac [list $cb_or_fac]
+                set fac $cb_or_fac
                 set cb [lindex $args 0]
             } else {
                 set fac {}
@@ -42,10 +42,7 @@ namespace eval xl {
     }
 
     proc is_bool {v} {
-        if {$v eq "true" || $v eq "false"} {
-            return true
-        }
-        return false
+        return [expr {$v eq "true" || $v eq "false"}]
     }
 
     proc is_int {v} {
@@ -53,12 +50,7 @@ namespace eval xl {
     }
 
     proc is_float {v} {
-        if {[string is double -strict $v]} {
-            if {![string is entier -strict $v]} {
-                return true
-            }
-        }
-        return false
+        return [expr {[string is double -strict $v] && ![string is entier -strict $v]}]
     }
 
     proc is_closure {v} {
@@ -67,39 +59,22 @@ namespace eval xl {
         }
         return false
     }
+
     proc is_dict {v} {
-        if {$v eq ""} {
+        if {[catch {dict size $v}] != 0} {
             return false
         }
-        if {[string is list $v] && [llength $v] % 2 == 0 && [llength $v] > 0} {
-            if {[string is entier -strict [lindex $v 0]]} {
+        set len [llength $v]
+        if {$len % 2 != 0 || $len == 0} {
+            return false
+        }
+        for {set i 0} {$i < $len} {incr i 2} {
+            set pk [lindex $v $i]
+            if {[is_closure $pk]} {
                 return false
             }
-            if {[catch {dict size $v}] == 0} {
-                return true
-            }
         }
-        return false
-    }
-
-    proc is_string {v} {
-        if {$v eq ""} {
-            return true
-        }
-        if {[string first "::" $v] != -1} {
-            return false
-        }
-        if {[llength $v] == 1} {
-            return true
-        }
-        return false
-    }
-
-    proc is_list {v} {
-        if {$v eq ""} {
-            return false
-        }
-        return [string is list $v]
+        return true
     }
 
     proc json_stringify {a {o {}}} {
@@ -117,7 +92,7 @@ namespace eval xl {
                 append r [dict get $c "v"]
                 continue
             }
-            set v  [dict get $c "v"]
+            set v [dict get $c "v"]
             set cur_d [dict get $c "d"]
             if {$v eq ""} {
                 append r "\"\""
@@ -140,9 +115,9 @@ namespace eval xl {
                 continue
             }
             set child_d [expr {$cur_d + 1}]
+            set cur_t [string repeat $t $cur_d]
+            set child_t [string repeat $t $child_d]
             if {[is_dict $v]} {
-                set cur_t [string repeat $t $cur_d]
-                set child_t [string repeat $t $child_d]
                 lappend s [dict create \
                     "t" "r" \
                     "v" [expr {$p ? "\n${cur_t}\}" : "\}"}] \
@@ -181,20 +156,13 @@ namespace eval xl {
                 ]
                 continue
             }
-            if {[llength $v] > 1 || $v eq "\[\]" || $v eq "{}"} {
-                set cur_t [string repeat $t $cur_d]
-                set child_t [string repeat $t $child_d]
-                set llen [llength $v]
-                if {$llen == 0 || $v eq "\[\]" || $v eq "{}"} {
-                    append r "\[\]"
-                    continue
-                }
+            if {[string is list $v] && [llength $v] > 1} {
                 lappend s [dict create \
                     "t" "r" \
                     "v" [expr {$p ? "\n${cur_t}\]" : "\]"}] \
                     "d" $cur_d \
                 ]
-                for {set i [expr {$llen - 1}]} {$i >= 0} {incr i -1} {
+                for {set i [expr {[llength $v] - 1}]} {$i >= 0} {incr i -1} {
                     lappend s [dict create \
                         "t" "v" \
                         "v" [lindex $v $i] \
@@ -215,11 +183,7 @@ namespace eval xl {
                 ]
                 continue
             }
-            if {[is_string $v]} {
-                append r "\"" [escape_string $v] "\""
-                continue
-            }
-            append r "\"\[object \[TCL \\\"" [escape_string $v] "\\\"\]\]\""
+            append r "\"" [escape_string $v] "\""
         }
         return $r
     }

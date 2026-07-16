@@ -43,33 +43,24 @@ namespace XL {
 
     class Type {
     public:
-        static void replaceAll(std::string& s, const std::string& from, const std::string& to) {
-            if (from.empty()) return;
-            size_t start_pos = 0;
-            while ((start_pos = s.find(from, start_pos)) != std::string::npos) {
-                s.replace(start_pos, from.length(), to);
-                start_pos += to.length();
-            }
-        }
         static std::string escapeString(const std::string* s) {
             if (s == nullptr) {
                 return "";
             }
-            std::string r = *s;
-            replaceAll(r, "\\", "\\\\");
-            replaceAll(r, "\"", "\\\"");
-            replaceAll(r, "\n", "\\n");
-            replaceAll(r, "\r", "\\r");
-            replaceAll(r, "\t", "\\t");
-            return r;
+            return escapeString(*s);
         }
         static std::string escapeString(const std::string& s) {
-            std::string r = s;
-            replaceAll(r, "\\", "\\\\");
-            replaceAll(r, "\"", "\\\"");
-            replaceAll(r, "\n", "\\n");
-            replaceAll(r, "\r", "\\r");
-            replaceAll(r, "\t", "\\t");
+            std::string r = "";
+            for (char c : s) {
+                switch (c) {
+                    case '\\': r += "\\\\"; break;
+                    case '"':  r += "\\\""; break;
+                    case '\n': r += "\\n"; break;
+                    case '\r': r += "\\r"; break;
+                    case '\t': r += "\\t"; break;
+                    default:   r += c; break;
+                }
+            }
             return r;
         }
         std::variant<
@@ -196,7 +187,7 @@ namespace XL {
         bool pretty = false;
     };
 
-    struct JifyState {
+    struct JifyTok {
         std::string t;
         Type v;
         std::string r;
@@ -205,12 +196,12 @@ namespace XL {
 
     inline std::string json_stringify(const Type& a, JifyOpt o = {}) {
         bool p = o.pretty;
-        std::string t = "    ";
-        std::vector<JifyState> s;
+        std::string t = string_repeat(" ", 4);
+        std::vector<JifyTok> s;
         s.push_back({ .t = "v", .v = a, .r = "", .d = 0 });
         std::string r = "";
         while (!s.empty()) {
-            JifyState c = s.back();
+            JifyTok c = s.back();
             s.pop_back();
             if (c.t == "r") {
                 r += c.r;

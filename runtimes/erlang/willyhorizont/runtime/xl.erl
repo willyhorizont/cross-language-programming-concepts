@@ -2,17 +2,22 @@
 -export([escape_string/1, json_stringify/1, json_stringify/2]).
 
 escape_string(S) when is_binary(S) ->
-    case S of
-        <<>> -> <<>>;
-        _ ->
-            R1 = re:replace(S,  "\\\\", "\\\\\\\\", [global, {return, binary}, unicode]),
-            R2 = re:replace(R1, "\"",   "\\\\\"",   [global, {return, binary}, unicode]),
-            R3 = re:replace(R2, "\n",   "\\\\n",    [global, {return, binary}, unicode]),
-            R4 = re:replace(R3, "\r",   "\\\\r",    [global, {return, binary}, unicode]),
-            Rf = re:replace(R4, "\t",   "\\\\t",    [global, {return, binary}, unicode]),
-            Rf
-    end;
-escape_string(_) -> <<>>.
+    escape_string(S, <<>>).
+
+escape_string(<<>>, Acc) ->
+    Acc;
+escape_string(<<$\\, Rest/binary>>, Acc) ->
+    escape_string(Rest, <<Acc/binary, "\\\\">>);
+escape_string(<<$", Rest/binary>>, Acc) ->
+    escape_string(Rest, <<Acc/binary, "\\\"">>);
+escape_string(<<$\n, Rest/binary>>, Acc) ->
+    escape_string(Rest, <<Acc/binary, "\\n">>);
+escape_string(<<$\r, Rest/binary>>, Acc) ->
+    escape_string(Rest, <<Acc/binary, "\\r">>);
+escape_string(<<$\t, Rest/binary>>, Acc) ->
+    escape_string(Rest, <<Acc/binary, "\\t">>);
+escape_string(<<C, Rest/binary>>, Acc) ->
+    escape_string(Rest, <<Acc/binary, C>>).
 
 jify_list([], _, _, _, Acc) ->
     Acc;
@@ -41,16 +46,11 @@ jify_dict([], _, _, _, Acc) ->
     Acc;
 
 jify_dict([{Dk, Dv} | Tail], ChildD, P, T, Acc) ->
-    DkS = (if
-        is_atom(Dk) -> atom_to_binary(Dk, utf8);
-        is_binary(Dk) -> Dk;
-        true -> list_to_binary(io_lib:format("~p", [Dk]))
-    end),
     AccDel = [#{
         <<"t">> => <<"r">>,
         <<"v">> => (if
-            P -> <<"\"", DkS/binary, "\": ">>;
-            true -> <<"\"", DkS/binary, "\":">>
+            P -> <<"\"", Dk/binary, "\": ">>;
+            true -> <<"\"", Dk/binary, "\":">>
         end),
         <<"d">> => ChildD
     },
