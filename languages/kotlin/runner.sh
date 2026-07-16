@@ -2,7 +2,7 @@
 
 source "$(dirname "$(realpath "$0")")/../../tools/base-runner.sh" "$0" "$@"
 
-PTRFNX="$RD/runtimes/elixir/willyhorizont/runtime/runtime.exs"
+PTRFNX="$RD/runtimes/kotlin/willyhorizont/runtime/xl.kt"
 if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
     echo "usage:"
     echo "\"$SD/runner.sh\" path/to/*.$FX"
@@ -19,8 +19,7 @@ kotlin -version
 "
 
 CRLC="
-cd \"$PTFNXD\"
-kotlinc \"$FNX\" -include-runtime -d \"$FN.jar\"
+kotlinc \"$PTRFNX\" \"$PTFNX\" -include-runtime -d \"$FN.jar\"
 kotlin \"$FN.jar\"
 "
 
