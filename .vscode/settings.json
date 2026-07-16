@@ -398,7 +398,7 @@
         "ruby": "bash $workspaceRoot/languages/ruby/runner.sh $dirWithoutTrailingSlash/$fileName",
         "r": "bash $workspaceRoot/languages/r/runner.sh $dirWithoutTrailingSlash/$fileName",
         "kotlin": "bash $workspaceRoot/languages/kotlin/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "swift": "cd $dir && swiftc $fileName && $dir$fileNameWithoutExt && rm -f $dir$fileNameWithoutExt",
+        "swift": "bash $workspaceRoot/languages/swift/runner.sh $dirWithoutTrailingSlash/$fileName",
         "dart": "cd $dir && dart run $fileName",
         "vb": "cd $dir && vbc $fileName && $dir$fileNameWithoutExt.exe && del \"$dir$fileNameWithoutExt.exe\"",
         "csharp": "cd $dir && csc $fileName && $dir$fileNameWithoutExt.exe && del \"$dir$fileNameWithoutExt.exe\"",

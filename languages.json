@@ -315,7 +315,14 @@
         "vscode_extensions_archive": [
             
         ],
-        "docker": []
+        "docker": [
+            {
+                "language_version_notes": "swift:6.3.3-bookworm",
+                "docker_images": [
+                    "swift:6.3.3-bookworm"
+                ]
+            }
+        ]
     },
     {
         "id": "dart",
