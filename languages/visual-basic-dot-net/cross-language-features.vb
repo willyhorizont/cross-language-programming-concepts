@@ -1,4 +1,6 @@
 Imports System
+Imports System.Collections.Generic
+Imports System.Linq
 Imports Xl = WillyHorizont.Runtime
 
 Module Program

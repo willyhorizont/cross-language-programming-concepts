@@ -2,6 +2,7 @@ Imports System
 Imports System.Text
 Imports System.Collections
 Imports System.Collections.Generic
+Imports System.Linq
 
 Namespace WillyHorizont.Runtime
     Public Module Xl
@@ -19,16 +20,11 @@ Namespace WillyHorizont.Runtime
         Public Function JsonStringify(O As Object, Optional Pretty As Object = False) As Object
             Dim P As Boolean = Convert.ToBoolean(Pretty)
             Dim T As String = String.Concat(Enumerable.Repeat(" ", 4))
-            Dim S As New List(Of Dictionary(Of String, Object))()
-            S.Add(New Dictionary(Of String, Object) From {
-                {"t", "v"},
-                {"v", O},
-                {"d", 0}
-            })
+            Dim S As New Stack(Of Dictionary(Of String, Object))()
+            S.Push(New Dictionary(Of String, Object) From {{"t", "v"}, {"v", O}, {"d", 0}})
             Dim R As String = ""
             While S.Count > 0
-                Dim C As Object = s.Last()
-                S.RemoveAt(S.Count - 1)
+                Dim C As Dictionary(Of String, Object) = S.Pop()
                 If Convert.ToString(C("t")) = "r" Then
                     R &= Convert.ToString(C("v"))
                     Continue While
@@ -63,26 +59,26 @@ Namespace WillyHorizont.Runtime
                         Continue While
                     End If
                     Dim ChildD As Integer = CurD + 1
-                    S.Add(New Dictionary(Of String, Object) From {
+                    S.Push(New Dictionary(Of String, Object) From {
                         {"t", "r"},
                         {"v", If(P, vbLf & String.Concat(Enumerable.Repeat(T, CurD)) & "]", "]")},
                         {"d", CurD}
                     })
                     For I As Integer = Vl.Count - 1 To 0 Step -1
-                        S.Add(New Dictionary(Of String, Object) From {
+                        S.Push(New Dictionary(Of String, Object) From {
                             {"t", "v"},
                             {"v", Vl(I)},
                             {"d", ChildD}
                         })
                         If I > 0 Then
-                            S.Add(New Dictionary(Of String, Object) From {
+                            S.Push(New Dictionary(Of String, Object) From {
                                 {"t", "r"},
                                 {"v", If(P, "," & vbLf & String.Concat(Enumerable.Repeat(T, ChildD)), ",")},
                                 {"d", ChildD}
                             })
                         End If
                     Next
-                    S.Add(New Dictionary(Of String, Object) From {
+                    S.Push(New Dictionary(Of String, Object) From {
                         {"t", "r"},
                         {"v", If(P, "[" & vbLf & String.Concat(Enumerable.Repeat(T, ChildD)), "[")},
                         {"d", ChildD}
@@ -96,7 +92,7 @@ Namespace WillyHorizont.Runtime
                         Continue While
                     End If
                     Dim ChildD As Integer = CurD + 1
-                    S.Add(New Dictionary(Of String, Object) From {
+                    S.Push(New Dictionary(Of String, Object) From {
                         {"t", "r"},
                         {"v", If(P, vbLf & String.Concat(Enumerable.Repeat(T, CurD)) & "}", "}")},
                         {"d", CurD}
@@ -104,25 +100,25 @@ Namespace WillyHorizont.Runtime
                     Dim Dk As New List(Of Object)(Vd.Keys.Cast(Of Object)())
                     Dim Dv As New List(Of Object)(Vd.Values.Cast(Of Object)())
                     For I As Integer = Vd.Count - 1 To 0 Step -1
-                        S.Add(New Dictionary(Of String, Object) From {
+                        S.Push(New Dictionary(Of String, Object) From {
                             {"t", "v"},
                             {"v", Dv(I)},
                             {"d", ChildD}
                         })
-                        S.Add(New Dictionary(Of String, Object) From {
+                        S.Push(New Dictionary(Of String, Object) From {
                             {"t", "r"},
                             {"v", If(P, """" & Convert.ToString(Dk(I)) & """: ", """" & Convert.ToString(Dk(I)) & """:")},
                             {"d", ChildD}
                         })
                         If I > 0 Then
-                            S.Add(New Dictionary(Of String, Object) From {
+                            S.Push(New Dictionary(Of String, Object) From {
                                 {"t", "r"},
                                 {"v", If(P, "," & vbLf & String.Concat(Enumerable.Repeat(T, ChildD)), ",")},
                                 {"d", ChildD}
                             })
                         End If
                     Next
-                    S.Add(New Dictionary(Of String, Object) From {
+                    S.Push(New Dictionary(Of String, Object) From {
                         {"t", "r"},
                         {"v", If(P, "{" & vbLf & String.Concat(Enumerable.Repeat(T, ChildD)), "{")},
                         {"d", ChildD}

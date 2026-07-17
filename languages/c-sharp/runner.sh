@@ -2,7 +2,7 @@
 
 source "$(dirname "$(realpath "$0")")/../../tools/base-runner.sh" "$0" "$@"
 
-PTRFNX="$RD/runtimes/visual-basic-dot-net/willyhorizont/runtime/Xl.vb"
+PTRFNX="$RD/runtimes/c-sharp/willyhorizont/runtime/Xl.cs"
 if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
     echo "usage:"
     echo "\"$SD/runner.sh\" path/to/*.$FX"
@@ -29,9 +29,9 @@ echo \"$DN_INFO\"
 CRLC="
 rm -rf \"$PTTFNXD/obj\"
 rm -rf \"$PTTFNXD/output\"
-cp -f \"$PTFNX\" \"$PTTFNXD/Main.vb\"
+cp -f \"$PTFNX\" \"$PTTFNXD/Main.cs\"
 cd \"$PTTFNXD\"
-dotnet build \"Main.vbproj\" -c Release --verbosity quiet
+dotnet build \"Main.csproj\" -c Release --verbosity quiet
 cd \"$PTTFNXD/output/net9.0\"
 ./Main
 cd \"$RD\"

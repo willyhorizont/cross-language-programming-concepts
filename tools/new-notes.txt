@@ -126,3 +126,6 @@ Xl::Type create_multiplier = Xl::Closure([](const Xl::Type& args) -> Xl::Type {
 });
 
 regex to find tailing whitespace => \s+$
+
+https://mcr.microsoft.com/en-us/artifact/mar/dotnet/sdk/tags
+https://mcr.microsoft.com/en-us/artifact/mar/dotnet/sdk/tag/9.0.316-bookworm-slim-amd64

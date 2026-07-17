@@ -78,3 +78,7 @@ active-docker-container.txt
 runtimes/visual-basic-dot-net/output/
 runtimes/visual-basic-dot-net/obj/
 runtimes/visual-basic-dot-net/Main.vb
+
+runtimes/c-sharp/output/
+runtimes/c-sharp/obj/
+runtimes/c-sharp/Main.cs

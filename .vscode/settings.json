@@ -401,7 +401,7 @@
         "swift": "bash $workspaceRoot/languages/swift/runner.sh $dirWithoutTrailingSlash/$fileName",
         "dart": "bash $workspaceRoot/languages/dart/runner.sh $dirWithoutTrailingSlash/$fileName",
         "vb": "bash $workspaceRoot/languages/visual-basic-dot-net/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "csharp": "cd $dir && csc $fileName && $dir$fileNameWithoutExt.exe && del \"$dir$fileNameWithoutExt.exe\"",
+        "csharp": "bash $workspaceRoot/languages/c-sharp/runner.sh $dirWithoutTrailingSlash/$fileName",
         // "matlab": "cd \"$dir..\\..\\utils\" && python run_matlab_gnu_octave_file.py $dir$fileName",
         "wolfram": "cd $dir && wolframscript -file $fileName",
         "raku": "cd $dir && raku $fileName",
