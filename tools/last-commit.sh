@@ -2,7 +2,7 @@
 
 SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD/..")
-V="2.7.49" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
+V="2.7.50" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
 T=$(date "+%d %b %Y @ %I:%M %p")
 \. "$HOME/.nvm/nvm.sh"
 npm version "$V" --no-git-tag-version
@@ -14,7 +14,7 @@ version $V:
 H=$(sed -e '/./,$!d' <<< "$H")
 # ! DON'T FORGET TO CHANGE COMMIT MESSAGE BEFORE RUNNING !!!!
 M="
-finish swift runtime init;
+finish dart runtime init;
 working progress add escape-string and std-json-stringify in runtime/*
 "
 M=$(sed -e '/./,$!d' <<< "$M")

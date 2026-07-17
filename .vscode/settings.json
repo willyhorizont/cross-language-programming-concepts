@@ -399,7 +399,7 @@
         "r": "bash $workspaceRoot/languages/r/runner.sh $dirWithoutTrailingSlash/$fileName",
         "kotlin": "bash $workspaceRoot/languages/kotlin/runner.sh $dirWithoutTrailingSlash/$fileName",
         "swift": "bash $workspaceRoot/languages/swift/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "dart": "cd $dir && dart run $fileName",
+        "dart": "bash $workspaceRoot/languages/dart/runner.sh $dirWithoutTrailingSlash/$fileName",
         "vb": "cd $dir && vbc $fileName && $dir$fileNameWithoutExt.exe && del \"$dir$fileNameWithoutExt.exe\"",
         "csharp": "cd $dir && csc $fileName && $dir$fileNameWithoutExt.exe && del \"$dir$fileNameWithoutExt.exe\"",
         // "matlab": "cd \"$dir..\\..\\utils\" && python run_matlab_gnu_octave_file.py $dir$fileName",

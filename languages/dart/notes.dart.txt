@@ -1,0 +1,1 @@
+Cascade Operator (..) is return self instead of method output

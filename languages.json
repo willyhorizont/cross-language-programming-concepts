@@ -339,12 +339,20 @@
             "dict": "Map&lt;String, dynamic&gt;"
         },
         "vscode_extensions": [
-            "dart-code.dart-code"
+
         ],
         "vscode_extensions_archive": [
-            
+            "dart-code.dart-code",
+            "oscarcs.dart-syntax-highlighting-only"
         ],
-        "docker": []
+        "docker": [
+            {
+                "language_version_notes": "dart:3.12.2-sdk",
+                "docker_images": [
+                    "dart:3.12.2-sdk"
+                ]
+            }
+        ]
     },
     {
         "id": "visual-basic-dot-net",
