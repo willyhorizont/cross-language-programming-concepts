@@ -386,7 +386,7 @@ Cross-language implementations of common programming concepts, data structures, 
   11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/list.swift) : Array  
   12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/list.dart) : List  
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list.vb) : List  
-  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list.cs) : List&lt;dynamic&gt;  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list.cs) : List  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list.m) : Cell Array  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/list.wls) : List  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list.raku) : List  
@@ -430,7 +430,7 @@ Cross-language implementations of common programming concepts, data structures, 
   11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/dict.swift) : Dictionary  
   12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/dict.dart) : Map  
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/dict.vb) : Dictionary  
-  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/dict.cs) : Dictionary&lt;string, dynamic&gt;  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/dict.cs) : Dictionary  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/dict.m) : struct  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/dict.wls) : Association  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/dict.raku) : HASH  

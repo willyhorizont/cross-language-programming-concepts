@@ -2,7 +2,7 @@
 
 SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD/..")
-V="2.7.52" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
+V="53" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
 T=$(date "+%d %b %Y @ %I:%M %p")
 \. "$HOME/.nvm/nvm.sh"
 npm version "$V" --no-git-tag-version
@@ -14,6 +14,7 @@ version $V:
 H=$(sed -e '/./,$!d' <<< "$H")
 # ! DON'T FORGET TO CHANGE COMMIT MESSAGE BEFORE RUNNING !!!!
 M="
+re commit
 finish c-sharp runtime init;
 small update in visual-basic-dot-net runtime init;
 working progress add escape-string and std-json-stringify in runtime/*
