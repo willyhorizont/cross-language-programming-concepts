@@ -246,7 +246,7 @@
         "file_extension": ".r",
         "concept_definition": {
             "list": "list",
-            "dict": "associative list"
+            "dict": "environtment"
         },
         "vscode_extensions": [
             "reditorsupport.r",
@@ -275,8 +275,8 @@
         ],
         "file_extension": ".kt",
         "concept_definition": {
-            "list": "MutableList&lt;Any?&gt;",
-            "dict": "MutableMap&lt;String, Any?&gt;"
+            "list": "ArrayList",
+            "dict": "HashMap"
         },
         "vscode_extensions": [
             "mathiasfrohlich.Kotlin"
@@ -307,7 +307,7 @@
         "file_extension": ".swift",
         "concept_definition": {
             "list": "Array",
-            "dict": "OrderedDictionary&lt;String, Any?&gt;"
+            "dict": "Dictionary"
         },
         "vscode_extensions": [
             "swiftlang.swift-vscode"
@@ -335,8 +335,8 @@
         ],
         "file_extension": ".dart",
         "concept_definition": {
-            "list": "List&lt;dynamic&gt;",
-            "dict": "Map&lt;String, dynamic&gt;"
+            "list": "List",
+            "dict": "Map"
         },
         "vscode_extensions": [
 
@@ -365,8 +365,8 @@
         ],
         "file_extension": ".vb",
         "concept_definition": {
-            "list": "List(Of Object)",
-            "dict": "Dictionary(Of String, Object)"
+            "list": "List",
+            "dict": "Dictionary"
         },
         "vscode_extensions": [
             "dnakode.vbnet-language-support"
@@ -374,7 +374,14 @@
         "vscode_extensions_archive": [
             
         ],
-        "docker": []
+        "docker": [
+            {
+                "language_version_notes": "mcr.microsoft.com/dotnet/sdk:9.0.316-bookworm-slim-amd64",
+                "docker_images": [
+                    "mcr.microsoft.com/dotnet/sdk:9.0.316-bookworm-slim-amd64"
+                ]
+            }
+        ]
     },
     {
         "id": "c-sharp",

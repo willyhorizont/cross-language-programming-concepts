@@ -382,10 +382,10 @@ Cross-language implementations of common programming concepts, data structures, 
   7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/list.lua) : table  
   8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/list.rb) : Array  
   9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/list.r) : list  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/list.kt) : MutableList&lt;Any?&gt;  
+  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/list.kt) : ArrayList  
   11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/list.swift) : Array  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/list.dart) : List&lt;dynamic&gt;  
-  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list.vb) : List(Of Object)  
+  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/list.dart) : List  
+  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list.vb) : List  
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list.cs) : List&lt;dynamic&gt;  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list.m) : Cell Array  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/list.wls) : List  
@@ -425,11 +425,11 @@ Cross-language implementations of common programming concepts, data structures, 
   6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/dict.jl) : Dict  
   7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/dict.lua) : table  
   8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/dict.rb) : Hash  
-  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/dict.r) : associative list  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/dict.kt) : MutableMap&lt;String, Any?&gt;  
-  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/dict.swift) : OrderedDictionary&lt;String, Any?&gt;  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/dict.dart) : Map&lt;String, dynamic&gt;  
-  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/dict.vb) : Dictionary(Of String, Object)  
+  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/dict.r) : environtment  
+  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/dict.kt) : HashMap  
+  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/dict.swift) : Dictionary  
+  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/dict.dart) : Map  
+  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/dict.vb) : Dictionary  
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/dict.cs) : Dictionary&lt;string, dynamic&gt;  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/dict.m) : struct  
   16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/dict.wls) : Association  

@@ -41,7 +41,7 @@ fun main() {
     /*
     2. support dynamic-typed value, or has workaround
     */
-    val xlList = mutableListOf<Any?>(
+    val xlList = arrayListOf<Any?>(
         null,
         true,
         false,
