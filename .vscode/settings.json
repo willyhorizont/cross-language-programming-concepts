@@ -404,7 +404,7 @@
         "csharp": "bash $workspaceRoot/languages/c-sharp/runner.sh $dirWithoutTrailingSlash/$fileName",
         // "matlab": "cd \"$dir..\\..\\utils\" && python run_matlab_gnu_octave_file.py $dir$fileName",
         "wolfram": "cd $dir && wolframscript -file $fileName",
-        "raku": "cd $dir && raku $fileName",
+        "raku": "bash $workspaceRoot/languages/raku/runner.sh $dirWithoutTrailingSlash/$fileName",
         // "scala": "cd $dir && scala $fileName", // run .scala file using scala interpreter
         "scala": "bash $workspaceRoot/languages/scala/runner.sh $dirWithoutTrailingSlash/$fileName",
         "java": "bash $workspaceRoot/languages/java/runner.sh $dirWithoutTrailingSlash/$fileName",

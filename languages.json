@@ -481,7 +481,14 @@
         "vscode_extensions_archive": [
             
         ],
-        "docker": []
+        "docker": [
+            {
+                "language_version_notes": "rakudo-star:2026.06-trixie",
+                "docker_images": [
+                    "rakudo-star:2026.06-trixie"
+                ]
+            }
+        ]
     },
     {
         "id": "scala",

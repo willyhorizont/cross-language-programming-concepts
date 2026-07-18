@@ -82,3 +82,5 @@ runtimes/visual-basic-dot-net/Main.vb
 runtimes/c-sharp/output/
 runtimes/c-sharp/obj/
 runtimes/c-sharp/Main.cs
+
+runtimes/raku/willyhorizont/runtime/.precomp
