@@ -9,6 +9,51 @@ if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; the
     exit 1
 fi
 
+PTLICD="$RD/runtimes/wolfram-language-script/Licensing"
+PTLIC="$PTLICD/mathpass"
+
+if [ ! -s "$PTLIC" ]; then
+    echo "$L"
+    echo " 🔑 Missing Wolfram Engine License Token Detected!"
+    echo "$L"
+    echo "1. Enter your Wolfram ID & Password when prompted below."
+    echo "2. Just type 'Quit' and press Enter after you see 'In[1]:=' to automatically save your token."
+    echo "$L"
+    read -p "Press [Enter] to start interactive license activation..."
+    
+    mkdir -p "$PTLICD"
+    
+    TMPC="wolfram-activation-tmp"
+    docker run -it --name "$TMPC" "$IMG" wolframscript
+    
+    if [ "$(docker ps -aq -f name=$TMPC)" ]; then
+        RLIC=$(docker cp "$TMPC:/home/wolframengine/.WolframEngine/Licensing/mathpass" - 2>/dev/null | tar -xO 2>/dev/null)
+        docker rm -f "$TMPC" > /dev/null 2>&1
+    fi
+    
+    if [ ! -z "$RLIC" ]; then
+        NLIC=$(echo "$RLIC" | tr -d '\r' | tr -s '\t' ' ' | tr -s ' ' | xargs)
+        
+        echo "$NLIC" | \
+            sed 's/%(\*userregistered\*) //g' | \
+            sed 's/^[^ ]*/ead4bcf5fbd0/' > "$PTLIC"
+        
+        chmod -R 777 "$PTLICD"
+    fi
+    
+    if [ ! -s "$PTLIC" ]; then
+        echo ""
+        echo "❌ Error: Activation failed or mathpass was not written. Try again."
+        exit 1
+    fi
+    
+    echo "$L"
+    echo "✅ Success! Token generated cleanly inside:"
+    echo "👉 $PTLIC"
+    echo "$L"
+    sleep 1
+fi
+
 CPV="
 echo \">docker images\"
 echo \"$IMG\"
