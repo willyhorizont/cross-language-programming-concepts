@@ -2,14 +2,14 @@
 
 source "$(dirname "$(realpath "$0")")/../../tools/base-runner.sh" "$0" "$@"
 
-PTRFNX="$RD/runtimes/wolfram-language-script/willyhorizont/runtime/xl.wls"
+PTRFNX="$RD/runtimes/wolfram-language-mathematica/willyhorizont/runtime/xl.wl"
 if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
     echo "usage:"
     echo "\"$SD/runner.sh\" path/to/*.$FX"
     exit 1
 fi
 
-PTLICD="$RD/runtimes/wolfram-language-script/Licensing"
+PTLICD="$RD/runtimes/wolfram-language-mathematica/Licensing"
 PTLIC="$PTLICD/mathpass"
 
 if [ ! -s "$PTLIC" ]; then
@@ -85,7 +85,7 @@ if [ ! "$(docker ps -q -f name=$DCN)" ]; then
         --name $DCN \
         --entrypoint "" \
         -v "$RD:$RD" \
-        -v "$RD/runtimes/wolfram-language-script/Licensing:/home/wolframengine/.WolframEngine/Licensing" \
+        -v "$RD/runtimes/wolfram-language-mathematica/Licensing:/home/wolframengine/.WolframEngine/Licensing" \
         "$IMG" \
         sleep infinity > /dev/null
     echo "$DCN" > "$PTDCNTFNX"

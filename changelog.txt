@@ -1,10 +1,14 @@
+[Last updated: 19 Jul 2026 @ 05:33 AM]
+version 2.7.60:
+update README;
+
 [Last updated: 19 Jul 2026 @ 05:04 AM]
 version 2.7.59:
-add wolfram-language-script runtime license activation automation script;
+add wolfram-language-mathematica runtime license activation automation script;
 
 [Last updated: 19 Jul 2026 @ 04:38 AM]
 version 2.7.58:
-finish wolfram-language-script runtime init;
+finish wolfram-language-mathematica runtime init;
 
 [Last updated: 18 Jul 2026 @ 11:24 PM]
 version 2.7.57:

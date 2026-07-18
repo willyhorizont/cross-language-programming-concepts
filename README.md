@@ -34,7 +34,7 @@ Cross-language implementations of common programming concepts, data structures, 
 13. [VB.NET (Visual Basic dotNET)](https://learn.microsoft.com/en-us/dotnet/visual-basic/) : [https://learn.microsoft.com/en-us/dotnet/visual-basic/](https://learn.microsoft.com/en-us/dotnet/visual-basic/)  
 14. [C# (C Sharp)](https://learn.microsoft.com/en-us/dotnet/csharp/) : [https://learn.microsoft.com/en-us/dotnet/csharp/](https://learn.microsoft.com/en-us/dotnet/csharp/)  
 15. [MATLAB](https://www.mathworks.com/products/matlab.html) / [Octave](https://octave.org/) : [https://www.mathworks.com/products/matlab.html](https://www.mathworks.com/products/matlab.html) or [https://octave.org/](https://octave.org/)  
-16. [Wolfram Language Script](https://www.wolfram.com/wolframscript/) : [https://www.wolfram.com/wolframscript/](https://www.wolfram.com/wolframscript/)  
+16. [Wolfram Language (Mathematica)](https://www.wolfram.com/wolframscript/) : [https://www.wolfram.com/wolframscript/](https://www.wolfram.com/wolframscript/)  
 17. [Raku](https://raku.org/) : [https://raku.org/](https://raku.org/)  
 18. [Scala](https://www.scala-lang.org/) : [https://www.scala-lang.org/](https://www.scala-lang.org/)  
 19. [Java](https://www.oracle.com/java/) : [https://www.oracle.com/java/](https://www.oracle.com/java/)  
@@ -80,7 +80,7 @@ Cross-language implementations of common programming concepts, data structures, 
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/cross-language-features.vb)  
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/cross-language-features.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/cross-language-features.m)  
-  16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/cross-language-features.wls)  
+  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/cross-language-features.wl)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/cross-language-features.raku)  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/cross-language-features.scala)  
   19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/cross-language-features.java)  
@@ -124,7 +124,7 @@ Cross-language implementations of common programming concepts, data structures, 
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list.vb) : List  
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list.cs) : List  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list.m) : Cell Array  
-  16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/list.wls) : List  
+  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list.wl) : List  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list.raku) : ARRAY  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list.scala) : ArrayBuffer  
   19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list.java) : ArrayList  
@@ -168,7 +168,7 @@ Cross-language implementations of common programming concepts, data structures, 
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/dict.vb) : Dictionary  
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/dict.cs) : Dictionary  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/dict.m) : Map  
-  16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/dict.wls) : Association  
+  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/dict.wl) : Association  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/dict.raku) : HASH  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/dict.scala) : Map  
   19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/dict.java) : HashMap  
@@ -212,7 +212,7 @@ Cross-language implementations of common programming concepts, data structures, 
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/functions-and-closure.vb)  
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/functions-and-closure.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/functions-and-closure.m)  
-  16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/functions-and-closure.wls)  
+  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/functions-and-closure.wl)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/functions-and-closure.raku)  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/functions-and-closure.scala)  
   19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/functions-and-closure.java)  
@@ -256,7 +256,7 @@ Cross-language implementations of common programming concepts, data structures, 
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/hello-world.vb)  
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/hello-world.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/hello-world.m)  
-  16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/hello-world.wls)  
+  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/hello-world.wl)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/hello-world.raku)  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/hello-world.scala)  
   19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/hello-world.java)  
@@ -300,7 +300,7 @@ Cross-language implementations of common programming concepts, data structures, 
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/comments.vb)  
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/comments.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/comments.m)  
-  16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/comments.wls)  
+  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/comments.wl)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/comments.raku)  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/comments.scala)  
   19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/comments.java)  
@@ -344,7 +344,7 @@ Cross-language implementations of common programming concepts, data structures, 
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/conditionals.vb)  
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/conditionals.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/conditionals.m)  
-  16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/conditionals.wls)  
+  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/conditionals.wl)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/conditionals.raku)  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/conditionals.scala)  
   19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/conditionals.java)  
@@ -388,7 +388,7 @@ Cross-language implementations of common programming concepts, data structures, 
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/loops.vb)  
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/loops.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/loops.m)  
-  16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/loops.wls)  
+  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/loops.wl)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/loops.raku)  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/loops.scala)  
   19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/loops.java)  
@@ -432,7 +432,7 @@ Cross-language implementations of common programming concepts, data structures, 
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/error-handling.vb)  
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/error-handling.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/error-handling.m)  
-  16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/error-handling.wls)  
+  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/error-handling.wl)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/error-handling.raku)  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/error-handling.scala)  
   19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/error-handling.java)  
@@ -476,7 +476,7 @@ Cross-language implementations of common programming concepts, data structures, 
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list-for-each.vb)  
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-for-each.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list-for-each.m)  
-  16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/list-for-each.wls)  
+  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list-for-each.wl)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list-for-each.raku)  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list-for-each.scala)  
   19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list-for-each.java)  
@@ -520,7 +520,7 @@ Cross-language implementations of common programming concepts, data structures, 
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list-any.vb)  
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-any.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list-any.m)  
-  16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/list-any.wls)  
+  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list-any.wl)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list-any.raku)  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list-any.scala)  
   19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list-any.java)  
@@ -564,7 +564,7 @@ Cross-language implementations of common programming concepts, data structures, 
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list-all.vb)  
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-all.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list-all.m)  
-  16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/list-all.wls)  
+  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list-all.wl)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list-all.raku)  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list-all.scala)  
   19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list-all.java)  
@@ -608,7 +608,7 @@ Cross-language implementations of common programming concepts, data structures, 
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list-find.vb)  
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-find.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list-find.m)  
-  16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/list-find.wls)  
+  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list-find.wl)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list-find.raku)  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list-find.scala)  
   19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list-find.java)  
@@ -652,7 +652,7 @@ Cross-language implementations of common programming concepts, data structures, 
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list-find-index.vb)  
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-find-index.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list-find-index.m)  
-  16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/list-find-index.wls)  
+  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list-find-index.wl)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list-find-index.raku)  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list-find-index.scala)  
   19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list-find-index.java)  
@@ -696,7 +696,7 @@ Cross-language implementations of common programming concepts, data structures, 
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list-filter.vb)  
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-filter.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list-filter.m)  
-  16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/list-filter.wls)  
+  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list-filter.wl)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list-filter.raku)  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list-filter.scala)  
   19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list-filter.java)  
@@ -740,7 +740,7 @@ Cross-language implementations of common programming concepts, data structures, 
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list-map.vb)  
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-map.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list-map.m)  
-  16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/list-map.wls)  
+  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list-map.wl)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list-map.raku)  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list-map.scala)  
   19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list-map.java)  
@@ -784,7 +784,7 @@ Cross-language implementations of common programming concepts, data structures, 
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list-reduce.vb)  
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-reduce.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list-reduce.m)  
-  16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/list-reduce.wls)  
+  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list-reduce.wl)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list-reduce.raku)  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list-reduce.scala)  
   19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list-reduce.java)  
@@ -828,7 +828,7 @@ Cross-language implementations of common programming concepts, data structures, 
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list-pop.vb)  
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-pop.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list-pop.m)  
-  16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/list-pop.wls)  
+  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list-pop.wl)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list-pop.raku)  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list-pop.scala)  
   19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list-pop.java)  
@@ -872,7 +872,7 @@ Cross-language implementations of common programming concepts, data structures, 
   13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list-push.vb)  
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-push.cs)  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list-push.m)  
-  16. [Wolfram Language Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-script/list-push.wls)  
+  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list-push.wl)  
   17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list-push.raku)  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list-push.scala)  
   19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list-push.java)  

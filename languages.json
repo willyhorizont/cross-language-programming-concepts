@@ -447,15 +447,15 @@
         ]
     },
     {
-        "id": "wolfram-language-script",
+        "id": "wolfram-language-mathematica",
         "stack": [
             { 
-                "name": "Wolfram Language Script",
+                "name": "Wolfram Language (Mathematica)",
                 "url": "https://www.wolfram.com/wolframscript/",
                 "color": "#ff4131"
             }
         ],
-        "file_extension": ".wls",
+        "file_extension": ".wl",
         "concept_definition": {
             "list": "List",
             "dict": "Association"

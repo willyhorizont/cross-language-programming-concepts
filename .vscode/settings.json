@@ -232,7 +232,7 @@
         "*.m": "objective-c",
         "*.h": "objective-c",
         "*.st": "smalltalk",
-        "*.wls": "wolfram",
+        "*.wl": "wolfram",
         // "stdlib.h": "c",
         // "cstdlib": "c",
         // "type_traits": "c",
@@ -404,7 +404,7 @@
         "vb": "bash $workspaceRoot/languages/visual-basic-dot-net/runner.sh $dirWithoutTrailingSlash/$fileName",
         "csharp": "bash $workspaceRoot/languages/c-sharp/runner.sh $dirWithoutTrailingSlash/$fileName",
         "matlab": "bash $workspaceRoot/languages/matlab-or-octave/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "wolfram": "bash $workspaceRoot/languages/wolfram-language-script/runner.sh $dirWithoutTrailingSlash/$fileName",
+        "wolfram": "bash $workspaceRoot/languages/wolfram-language-mathematica/runner.sh $dirWithoutTrailingSlash/$fileName",
         "raku": "bash $workspaceRoot/languages/raku/runner.sh $dirWithoutTrailingSlash/$fileName",
         // "scala": "cd $dir && scala $fileName", // run .scala file using scala interpreter
         "scala": "bash $workspaceRoot/languages/scala/runner.sh $dirWithoutTrailingSlash/$fileName",

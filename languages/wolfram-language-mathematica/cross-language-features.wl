@@ -1,4 +1,4 @@
-Get[FileNameJoin[{DirectoryName[$InputFileName], "..", "..", "runtimes", "wolfram-language-script", "willyhorizont", "runtime", "xl.wls"}]];
+Get[FileNameJoin[{DirectoryName[$InputFileName], "..", "..", "runtimes", "wolfram-language-mathematica", "willyhorizont", "runtime", "xl.wl"}]];
 
 (*
 1. support closure as value, or has workaround
