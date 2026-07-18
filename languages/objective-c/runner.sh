@@ -2,11 +2,18 @@
 
 source "$(dirname "$(realpath "$0")")/../../tools/base-runner.sh" "$0" "$@"
 
-IS_ANY_MATLAB_COMMENT=false
-if grep -q -E "%\{|%\}" "$PTFNX"; then
-    IS_ANY_MATLAB_COMMENT=true
+IS_ANY_MATLAB_KEYWORD=false
+if grep -q -E "%\{|%\}|function|end|disp" "$PTFNX"; then
+    IS_ANY_MATLAB_KEYWORD=true
 else
-    IS_ANY_MATLAB_COMMENT=false
+    IS_ANY_MATLAB_KEYWORD=false
+fi
+
+IS_ANY_C_KEYWORD=false
+if grep -q -E "#include|<stdio\.h>" "$PTFNX"; then
+    IS_ANY_C_KEYWORD=true
+else
+    IS_ANY_C_KEYWORD=false
 fi
 
 IS_ANY_OBJC_KEYWORD=false
@@ -30,9 +37,9 @@ else
     IS_ANY_OBJC_METHOD_CALL=false
 fi
 
-if ! { [ "$IS_ANY_MATLAB_COMMENT" = false ] && [ "$IS_ANY_OBJC_KEYWORD" = true ] && ( [ "$IS_ANY_OBJC_NS_PREFIX" = true ] || [ "$IS_ANY_OBJC_METHOD_CALL" = true ] ); }; then
-    if [ "$IS_ANY_MATLAB_COMMENT" = true ]; then
-        bash "/home/willy/Documents/Codes/cross-language-programming-concepts/languages/matlab/runner.sh" "$1"
+if ! { [ "$IS_ANY_MATLAB_KEYWORD" = false ] && [ "$IS_ANY_OBJC_KEYWORD" = true ] && ( [ "$IS_ANY_OBJC_NS_PREFIX" = true ] || [ "$IS_ANY_OBJC_METHOD_CALL" = true ] ); }; then
+    if [ "$IS_ANY_MATLAB_KEYWORD" = true ]; then
+        bash "/home/willy/Documents/Codes/cross-language-programming-concepts/languages/matlab-or-octave/runner.sh" "$1"
         exit 0
     fi
     echo "C runtime is not supported"

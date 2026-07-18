@@ -402,7 +402,7 @@
         "dart": "bash $workspaceRoot/languages/dart/runner.sh $dirWithoutTrailingSlash/$fileName",
         "vb": "bash $workspaceRoot/languages/visual-basic-dot-net/runner.sh $dirWithoutTrailingSlash/$fileName",
         "csharp": "bash $workspaceRoot/languages/c-sharp/runner.sh $dirWithoutTrailingSlash/$fileName",
-        // "matlab": "cd \"$dir..\\..\\utils\" && python run_matlab_gnu_octave_file.py $dir$fileName",
+        "matlab": "bash $workspaceRoot/languages/matlab-or-octave/runner.sh $dirWithoutTrailingSlash/$fileName",
         "wolfram": "cd $dir && wolframscript -file $fileName",
         "raku": "bash $workspaceRoot/languages/raku/runner.sh $dirWithoutTrailingSlash/$fileName",
         // "scala": "cd $dir && scala $fileName", // run .scala file using scala interpreter

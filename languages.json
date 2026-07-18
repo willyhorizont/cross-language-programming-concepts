@@ -429,7 +429,7 @@
         "file_extension": ".m",
         "concept_definition": {
             "list": "Cell Array",
-            "dict": "struct"
+            "dict": "Map"
         },
         "vscode_extensions": [
             "MathWorks.language-matlab"
@@ -437,7 +437,14 @@
         "vscode_extensions_archive": [
             "gimly81.matlab"
         ],
-        "docker": []
+        "docker": [
+            {
+                "language_version_notes": "gnuoctave/octave:11.3.0 or mathworks/matlab:r2026a",
+                "docker_images": [
+                    "gnuoctave/octave:11.3.0"
+                ]
+            }
+        ]
     },
     {
         "id": "wolfram-language-script",
@@ -472,7 +479,7 @@
         ],
         "file_extension": ".raku",
         "concept_definition": {
-            "list": "List",
+            "list": "ARRAY",
             "dict": "HASH"
         },
         "vscode_extensions": [

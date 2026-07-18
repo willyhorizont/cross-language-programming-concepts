@@ -63,6 +63,7 @@ code --install-extension elves.elvish
 code --install-extension TheNuProjectContributors.vscode-nushell-lang
 code --install-extension scala-lang.scala
 code --install-extension mathiasfrohlich.Kotlin
+code --install-extension MathWorks.language-matlab
 
 eval "$RD/tools/vscode-extensions/vim9script-syntax-highlighter/install.sh"
 
