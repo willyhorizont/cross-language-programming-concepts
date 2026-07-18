@@ -1,4 +1,4 @@
-import '../../runtimes/willyhorizont/runtime/xl.dart' as xl;
+import '../../runtimes/dart/willyhorizont/runtime/xl.dart' as xl;
 
 void main() {
 	/*

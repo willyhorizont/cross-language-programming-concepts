@@ -5,13 +5,28 @@
         "concept_definition": null
     },
     {
-        "id": "comments",
-        "name": "Comments",
+        "id": "list",
+        "name": "List",
+        "concept_definition": null
+    },
+    {
+        "id": "dict",
+        "name": "Dict",
+        "concept_definition": null
+    },
+    {
+        "id": "functions-and-closure",
+        "name": "Functions and Closure",
         "concept_definition": null
     },
     {
         "id": "hello-world",
         "name": "Hello World",
+        "concept_definition": null
+    },
+    {
+        "id": "comments",
+        "name": "Comments",
         "concept_definition": null
     },
     {
@@ -25,23 +40,8 @@
         "concept_definition": null
     },
     {
-        "id": "functions-and-closure",
-        "name": "Functions and Closure",
-        "concept_definition": null
-    },
-    {
         "id": "error-handling",
         "name": "Error Handling",
-        "concept_definition": null
-    },
-    {
-        "id": "list",
-        "name": "List",
-        "concept_definition": null
-    },
-    {
-        "id": "dict",
-        "name": "Dict",
         "concept_definition": null
     },
     {
@@ -50,12 +50,12 @@
         "concept_definition": "(Loop Through Each List Item)"
     },
     {
-        "id": "list-any-match",
+        "id": "list-any",
         "name": "[some / any / exists / contains / includes]",
         "concept_definition": "(Get is Any Item in List Matching Condition)"
     },
     {
-        "id": "list-all-match",
+        "id": "list-all",
         "name": "[every / all]",
         "concept_definition": "(Get is All Item in List Matching Condition)"
     },
@@ -85,12 +85,12 @@
         "concept_definition": "(Combine All List Item)"
     },
     {
-        "id": "list-pop-tail",
+        "id": "list-pop",
         "name": "[pop]",
         "concept_definition": "(List Pop Tail)"
     },
     {
-        "id": "list-append-to-tail",
+        "id": "list-push",
         "name": "[push / append]",
         "concept_definition": "(List Append to Tail)"
     }

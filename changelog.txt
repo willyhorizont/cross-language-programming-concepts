@@ -1,3 +1,7 @@
+[Last updated: 19 Jul 2026 @ 04:38 AM]
+version 2.7.58:
+finish wolfram-language-script runtime init;
+
 [Last updated: 18 Jul 2026 @ 11:24 PM]
 version 2.7.57:
 finish matlab/octave runtime init;

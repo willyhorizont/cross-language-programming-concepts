@@ -2,7 +2,7 @@
 
 source "$(dirname "$(realpath "$0")")/../../tools/base-runner.sh" "$0" "$@"
 
-PTRFNX="$RD/runtimes/willyhorizont/runtime/xl.dart"
+PTRFNX="$RD/runtimes/dart/willyhorizont/runtime/xl.dart"
 if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
     echo "usage:"
     echo "\"$SD/runner.sh\" path/to/*.$FX"

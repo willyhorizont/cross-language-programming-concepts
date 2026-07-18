@@ -12,10 +12,10 @@ sayhello(@() {
 }{end});
 createmultiplier = @(aa) {@(bb) {aa * bb}{end}}{end};
 multiplybytwo = createmultiplier(2);
-disp(cstrcat("multiply_by_two(10): ", num2str(multiplybytwo(10))));
+disp(cstrcat("multiply_by_two(10): ", xl.jsonstringify(multiplybytwo(10))));
 multiplybyeight = createmultiplier(8);
-disp(cstrcat("multiply_by_eight(4): ", num2str(multiplybyeight(4))));
-disp(cstrcat("multiply_by_two(8): ", num2str(multiplybytwo(8))));
+disp(cstrcat("multiply_by_eight(4): ", xl.jsonstringify(multiplybyeight(4))));
+disp(cstrcat("multiply_by_two(8): ", xl.jsonstringify(multiplybytwo(8))));
 
 %{
 2. support dynamic-typed value, or has workaround

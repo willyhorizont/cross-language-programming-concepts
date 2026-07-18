@@ -466,7 +466,14 @@
         "vscode_extensions_archive": [
             "shigma.vscode-wl"
         ],
-        "docker": []
+        "docker": [
+            {
+                "language_version_notes": "wolframresearch/wolframengine:15.0.0",
+                "docker_images": [
+                    "wolframresearch/wolframengine:15.0.0"
+                ]
+            }
+        ]
     },
     {
         "id": "raku",
