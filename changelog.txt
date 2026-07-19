@@ -1,3 +1,7 @@
+[Last updated: 20 Jul 2026 @ 01:07 AM]
+version 2.7.61:
+finish cangjie runtime init;
+
 [Last updated: 19 Jul 2026 @ 05:33 AM]
 version 2.7.60:
 update README;

@@ -24,9 +24,9 @@
         ],
         "docker": [
             {
-                "language_version_notes": "node:26.1.0",
+                "language_version_notes": "node:26.5.0-trixie",
                 "docker_images": [
-                    "node:26.1.0"
+                    "node:26.5.0-trixie"
                 ]
             }
         ]
@@ -53,9 +53,9 @@
         ],
         "docker": [
             {
-                "language_version_notes": "python:3.14.5",
+                "language_version_notes": "python:3.14.6-trixie",
                 "docker_images": [
-                    "python:3.14.5"
+                    "python:3.14.6-trixie"
                 ]
             }
         ]
@@ -1176,6 +1176,35 @@
                 "language_version_notes": "groovy:5.0.6-jdk21-noble",
                 "docker_images": [
                     "groovy:5.0.6-jdk21-noble"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "cangjie",
+        "stack": [
+            { 
+                "name": "Cangjie",
+                "url": "https://cangjie-lang.cn/en",
+                "color": "#00868B"
+            }
+        ],
+        "file_extension": ".cj",
+        "concept_definition": {
+            "list": "ArrayList",
+            "dict": "HashMap"
+        },
+        "vscode_extensions": [
+            "IDE-Innovation-Lab.cangjie"
+        ],
+        "vscode_extensions_archive": [
+            
+        ],
+        "docker": [
+            {
+                "language_version_notes": "willyhorizont/cangjie:1.1.3",
+                "docker_images": [
+                    "willyhorizont/cangjie:1.1.3"
                 ]
             }
         ]

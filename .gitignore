@@ -86,3 +86,6 @@ runtimes/c-sharp/Main.cs
 runtimes/raku/willyhorizont/runtime/.precomp
 
 mathpass
+
+*.cjo
+runtimes/cangjie/main.cj

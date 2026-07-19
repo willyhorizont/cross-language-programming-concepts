@@ -65,6 +65,7 @@ code --install-extension scala-lang.scala
 code --install-extension mathiasfrohlich.Kotlin
 code --install-extension MathWorks.language-matlab
 code --install-extension WolframResearch.wolfram
+code --install-extension IDE-Innovation-Lab.cangjie
 
 eval "$RD/tools/vscode-extensions/vim9script-syntax-highlighter/install.sh"
 

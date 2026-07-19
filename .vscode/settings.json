@@ -386,6 +386,7 @@
         ".cpp": "bash $workspaceRoot/languages/c-plus-plus/runner.sh $dirWithoutTrailingSlash/$fileName",
         ".st": "bash $workspaceRoot/languages/smalltalk/runner.sh $dirWithoutTrailingSlash/$fileName",
         ".as": "bash $workspaceRoot/languages/actionscript/runner.sh $dirWithoutTrailingSlash/$fileName",
+        ".cj": "bash $workspaceRoot/languages/cangjie/runner.sh $dirWithoutTrailingSlash/$fileName",
     },
     "code-runner.executorMap": {
         "shellscript": "bash $fullFileName",
@@ -424,6 +425,7 @@
         "smalltalk": "bash $workspaceRoot/languages/smalltalk/runner.sh $dirWithoutTrailingSlash/$fileName",
         "actionscript": "bash $workspaceRoot/languages/actionscript/runner.sh $dirWithoutTrailingSlash/$fileName",
         "groovy": "bash $workspaceRoot/languages/groovy/runner.sh $dirWithoutTrailingSlash/$fileName",
+        "cangjie": "bash $workspaceRoot/languages/cangjie/runner.sh $dirWithoutTrailingSlash/$fileName",
 
         "mojo": "bash $workspaceRoot/languages/mojo/runner.sh $dirWithoutTrailingSlash/$fileName",
         "scala2": "cd $dir && scalac $fileName && scala $fileNameWithoutExt && del \"$dir*.class\"", // compile .scala file to .class and run the .class
