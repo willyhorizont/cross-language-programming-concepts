@@ -25,13 +25,13 @@ main() {
             case aa: xl.Int =>
                 return { va: xl.Vararg =>
                     let itr = xl.iter(va)
-                    match (xl.next(itr)) {
+                    (match (xl.next(itr)) {
                         case bb: xl.Int =>
-                            return (aa * bb) as Any
+                            return aa * bb
                         case _ =>
                             throw Exception("Error: Invalid arguments.")
-                    }
-                } as Any
+                    }) as Any
+                }
             case _ =>
                 throw Exception("Error: Invalid arguments.")
         }
@@ -58,7 +58,7 @@ main() {
         xl.Dict([("foo", "bar")]),
         { va: xl.Vararg =>
             let itr = xl.iter(va)
-            match ((
+            (match ((
                 xl.next(itr),
                 xl.next(itr),
             )) {
@@ -66,7 +66,7 @@ main() {
                     return aa * bb
                 case _ =>
                     throw Exception("Error: Invalid arguments.")
-            }
+            }) as Any
         },
     ])
     println("xl_list: ${xl.jsonStringify(xlList)}")
@@ -84,7 +84,7 @@ main() {
         ("xl_dict", xl.Dict([("foo", "bar")])),
         ("xl_closure", { va: xl.Vararg =>
             let itr = xl.iter(va)
-            match ((
+            (match ((
                 xl.next(itr),
                 xl.next(itr),
             )) {
@@ -92,7 +92,7 @@ main() {
                     return aa * bb
                 case _ =>
                     throw Exception("Error: Invalid arguments.")
-            }
+            }) as Any
         }),
     ])
     println("xl_dict: ${xl.jsonStringify(xlDict)}")

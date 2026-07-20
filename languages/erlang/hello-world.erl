@@ -3,3 +3,5 @@
 
 start() ->
     io:format("hello, world~n").
+
+    ok.

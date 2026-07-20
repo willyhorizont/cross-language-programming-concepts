@@ -13,8 +13,8 @@ public type Float = Float64
 public type List = ArrayList<Any>
 public type Dict = HashMap<String, Any>
 public type Vararg = Array<Any>
-public type `Iterator` = Iterator<Any>
 public type Closure = (Vararg) -> Any
+public type `Iterator` = Iterator<Any>
 
 public func iter(va: Vararg): `Iterator` {
     return va.iterator()

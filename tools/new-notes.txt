@@ -51,14 +51,15 @@ https://nue.nu/
 ~~freepascal~~ tried, canceled, no closure as value, FPC >= 3.3.x still not stable, even using paid software Embarcadero Delphi >= 2009, the syntax is still "unique"
 ~~c~~ tried, canceled, no closure as value, already have C++ tho...
 ~~groovy~~
-gml
-cangjie
+~~cangjie~~
 d
 v
 c3
+crystal
 vala
 hare
 wren
+gml
 https://nekovm.org/
 Haxe
 coffeescript
@@ -66,7 +67,6 @@ typescript
 Bosque
 f#
 clojure
-crystal
 lo
 pike
 falcon
@@ -129,3 +129,6 @@ regex to find tailing whitespace => \s+$
 
 https://mcr.microsoft.com/en-us/artifact/mar/dotnet/sdk/tags
 https://mcr.microsoft.com/en-us/artifact/mar/dotnet/sdk/tag/9.0.316-bookworm-slim-amd64
+
+sort docker images by disk usage:
+docker images --format "{{.Size}}\t{{.Repository}}:{{.Tag}}" | sort -hr
