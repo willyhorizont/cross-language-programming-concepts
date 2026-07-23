@@ -62,8 +62,7 @@ public struct WillyHorizont {
                         r += String(vF)
                         continue
                     }
-                    let vC = Mirror(reflecting: v!)
-                    if (vC.displayStyle == nil && String(describing: v!).contains("->")) || 
+                    if (Mirror(reflecting: v!).displayStyle == nil && String(describing: v!).contains("->")) || 
                         String(describing: Swift.type(of: v!)).contains("->") {
                         r += "\"[object Function]\""
                         continue

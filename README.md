@@ -127,7 +127,7 @@ Cross-language implementations of common programming concepts, data structures, 
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list.cs) : List  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list.m) : Cell Array  
   16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list.wl) : List  
-  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list.raku) : ARRAY  
+  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list.raku) : Positional  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list.scala) : ArrayBuffer  
   19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list.java) : ArrayList  
   20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/list.nu) : List  
@@ -157,7 +157,7 @@ Cross-language implementations of common programming concepts, data structures, 
 
 ### Dict  
   1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/dict.js) : Object  
-  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/dict.py) : Dict  
+  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/dict.py) : dict  
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/dict.php) : associative array  
   4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/dict.go) : Map  
   5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/dict.pl) : HASH  
@@ -172,7 +172,7 @@ Cross-language implementations of common programming concepts, data structures, 
   14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/dict.cs) : Dictionary  
   15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/dict.m) : Map  
   16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/dict.wl) : Association  
-  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/dict.raku) : HASH  
+  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/dict.raku) : Associative  
   18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/dict.scala) : Map  
   19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/dict.java) : HashMap  
   20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/dict.nu) : Record  
@@ -200,48 +200,48 @@ Cross-language implementations of common programming concepts, data structures, 
 
 ---
 
-### Functions and Closure  
-  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/functions-and-closure.js)  
-  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/functions-and-closure.py)  
-  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/functions-and-closure.php)  
-  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/functions-and-closure.go)  
-  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/functions-and-closure.pl)  
-  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/functions-and-closure.jl)  
-  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/functions-and-closure.lua)  
-  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/functions-and-closure.rb)  
-  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/functions-and-closure.r)  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/functions-and-closure.kt)  
-  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/functions-and-closure.swift)  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/functions-and-closure.dart)  
-  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/functions-and-closure.vb)  
-  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/functions-and-closure.cs)  
-  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/functions-and-closure.m)  
-  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/functions-and-closure.wl)  
-  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/functions-and-closure.raku)  
-  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/functions-and-closure.scala)  
-  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/functions-and-closure.java)  
-  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/functions-and-closure.nu)  
-  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/functions-and-closure.elv)  
-  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/functions-and-closure.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/functions-and-closure.rs)  
-  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/functions-and-closure.nix)  
-  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/functions-and-closure.tcl)  
-  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/functions-and-closure.gd)  
-  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/functions-and-closure.typ)  
-  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/functions-and-closure.ps1)  
-  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/functions-and-closure.exs)  
-  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/functions-and-closure.ml)  
-  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/functions-and-closure.erl)  
-  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/functions-and-closure.gleam)  
-  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/functions-and-closure.zig)  
-  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/functions-and-closure.nim)  
-  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/functions-and-closure.odin)  
-  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/functions-and-closure.cpp)  
-  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/functions-and-closure.m)  
-  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/functions-and-closure.st)  
-  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/functions-and-closure.as)  
-  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/functions-and-closure.groovy)  
-  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/functions-and-closure.cj)  
+### Lambda (Lambda as a value. Lambda with closure support. Lambda with dynamic variadic inputs. Lambda with dynamic outputs.)  
+  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/lambda.js) : Anonymous Function  
+  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/lambda.py) : lambda  
+  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/lambda.php) : Anonymous Function  
+  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/lambda.go) : Anonymous Function  
+  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/lambda.pl) : Anonymous Subroutine  
+  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/lambda.jl) : Anonymous Function  
+  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/lambda.lua) : Anonymous Function  
+  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/lambda.rb) : Lambda  
+  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/lambda.r) : Anonymous Function  
+  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/lambda.kt) : Anonymous Object  
+  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/lambda.swift) : Closure  
+  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/lambda.dart) : Anonymous Function  
+  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/lambda.vb) : Delegate  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/lambda.cs) : Delegate  
+  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/lambda.m) : Anonymous Function  
+  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/lambda.wl) : Anonymous Function  
+  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/lambda.raku) : Anonymous Subroutine  
+  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/lambda.scala) : Lambda Expression  
+  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/lambda.java) : Lambda Expression  
+  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/lambda.nu) : Closure  
+  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/lambda.elv) : Lambda Expression  
+  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/lambda.vim) : Anonymous Function  
+  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/lambda.rs) : Closure  
+  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/lambda.nix) : Lambda  
+  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/lambda.tcl)  
+  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/lambda.gd) : Anonymous Function  
+  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/lambda.typ) : Anonymous Function  
+  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/lambda.ps1) : Block  
+  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/lambda.exs) : Anonymous Function  
+  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/lambda.ml) : Closure  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/lambda.erl) : Anonymous Function  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/lambda.gleam) : Anonymous Function  
+  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/lambda.zig)  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/lambda.nim) : Closure  
+  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/lambda.odin)  
+  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/lambda.cpp) : Lambda Expression  
+  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/lambda.m) : Block  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/lambda.st) : BlockClosure  
+  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/lambda.as) : Anonymous Function  
+  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/lambda.groovy) : Closure  
+  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/lambda.cj) : Closure  
 
 ---
 

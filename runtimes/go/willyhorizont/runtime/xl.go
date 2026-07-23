@@ -179,7 +179,7 @@ func JsonStringify(va ...interface{}) string {
 			}
 		}
 	}
-	t := "    "
+	t := str.Repeat(" ", 4)
 	s := List{Dict{ "t": "v", "v": a, "d": 0 }}
 	var r str.Builder
 	for len(s) > 0 {

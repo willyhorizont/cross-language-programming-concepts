@@ -9,7 +9,7 @@ say_hello = lambda callback_function: [
 say_hello(lambda: [
     print("world"),
 ][-1])
-create_multiplier = lambda aa: lambda bb: (aa * bb)
+create_multiplier = lambda aa: lambda bb: aa * bb
 multiply_by_two = create_multiplier(2)
 print(f"multiply_by_two(10): {multiply_by_two(10)}")
 multiply_by_eight = create_multiplier(8)
@@ -28,7 +28,7 @@ xl_list = [
     -123.789,
     [1, 2, 3],
     {"foo":"bar"},
-    lambda aa, bb: (aa * bb),
+    lambda aa, bb: aa * bb,
 ]
 print(f"xl_list: {xl.json_stringify(xl_list)}")
 print(f"xl_list: {xl.json_stringify(xl_list, pretty=True)}")
@@ -43,7 +43,7 @@ xl_dict = {
     "xl_float_negative": -123.789,
     "xl_list": [1, 2, 3],
     "xl_dict": {"foo":"bar"},
-    "xl_closure": lambda aa, bb: (aa * bb),
+    "xl_closure": lambda aa, bb: aa * bb,
 }
 print(f"xl_dict: {xl.json_stringify(xl_dict)}")
 print(f"xl_dict: {xl.json_stringify(xl_dict, pretty=True)}")

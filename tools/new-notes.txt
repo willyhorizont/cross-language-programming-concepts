@@ -55,10 +55,15 @@ https://nue.nu/
 d
 v
 c3
-crystal
 vala
+vale
 hare
+crystal
 wren
+onyx
+lobster
+pony
+vere
 gml
 https://nekovm.org/
 Haxe
@@ -74,8 +79,10 @@ falcon
 docker run --rm -i $(./utils.sh --get-docker-image julia) which julia
 
 todo:
-add escape_string and std_json_stringify
-change associative list to xl_dict, and add xl_dict_indexed
+change none() to none
+~~add escape_string~~
+add std_json_stringify
+~~change associative list to xl_dict, and add xl_dict_indexed~~
 AnyType -> ~DynamicType~ CrossType [xlNone, xlBool, xlString, xlInt, xlFloat, xlList, xlDict, xlClosure] ext .xl (xl = cross language)
 
 change Language Mode to:

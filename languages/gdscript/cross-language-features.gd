@@ -10,7 +10,7 @@ func main():
 	say_hello.call(func ():
 		print("world")
 	)
-	var create_multiplier = func (aa): return func (bb): return (aa * bb)
+	var create_multiplier = func (aa): return func (bb): return aa * bb
 	var multiply_by_two = create_multiplier.call(2)
 	print("multiply_by_two(10): " + str(multiply_by_two.call(10)))
 	var multiply_by_eight = create_multiplier.call(8)
@@ -29,7 +29,7 @@ func main():
 		-123.789,
 		[1, 2, 3],
 		{"foo": "bar"},
-		func (aa, bb): return (aa * bb),
+		func (aa, bb): return aa * bb,
 	]
 	print("xl_list: " + Xl.json_stringify(xl_list))
 	print("xl_list: " + Xl.json_stringify(xl_list, {"pretty": true}))
@@ -44,7 +44,7 @@ func main():
 		"xl_float_negative": -123.789,
 		"xl_list": [1, 2, 3],
 		"xl_dict": {"foo": "bar"},
-		"xl_closure": func (aa, bb): return (aa * bb),
+		"xl_closure": func (aa, bb): return aa * bb,
 	}
 	print("xl_dict: " + Xl.json_stringify(xl_dict))
 	print("xl_dict: " + Xl.json_stringify(xl_dict, {"pretty": true}))

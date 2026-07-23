@@ -10,7 +10,7 @@ const sayHello = (callbackFunction) => {
 sayHello(() => {
     console.log("world");
 });
-const createMultiplier = (aa) => (bb) => (aa * bb);
+const createMultiplier = (aa) => (bb) => aa * bb;
 const multiplyByTwo = createMultiplier(2);
 console.log(`multiply_by_two(10): ${multiplyByTwo(10)}`);
 const multiplyByEight = createMultiplier(8);
@@ -31,7 +31,7 @@ const xlList = [
     -123.789,
     [1, 2, 3],
     { "foo": "bar" },
-    (aa, bb) => (aa * bb),
+    (aa, bb) => aa * bb,
 ];
 console.log(`xl_list: ${xl.jsonStringify(xlList)}`);
 console.log(`xl_list: ${xl.jsonStringify(xlList, { "pretty": true })}`);
@@ -46,7 +46,7 @@ const xlDict = {
     "xl_float_negative": -123.789,
     "xl_list": [1, 2, 3],
     "xl_dict": { "foo": "bar" },
-    "xl_closure": (aa, bb) => (aa * bb),
+    "xl_closure": (aa, bb) => aa * bb,
 };
 console.log(`xl_dict: ${xl.jsonStringify(xlDict)}`);
 console.log(`xl_dict: ${xl.jsonStringify(xlDict, { "pretty": true })}`);

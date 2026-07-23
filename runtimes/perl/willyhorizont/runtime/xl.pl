@@ -39,6 +39,10 @@ sub json_stringify {
         }
         my $rt = ref($v);
         if ($rt) {
+            if ($rt eq "CODE") {
+                $r .= "\"[object Function]\"";
+                next;
+            }
             if ($rt eq "ARRAY") {
                 if (@$v == 0) {
                     $r .= "[]";
@@ -108,10 +112,6 @@ sub json_stringify {
                     "v" => $p ? "{\n" . ($t x $child_t) : "{",
                     "d" => $child_t
                 };
-                next;
-            }
-            if ($rt eq "CODE") {
-                $r .= "\"[object Function]\"";
                 next;
             }
             $r .= "\"$rt\"";

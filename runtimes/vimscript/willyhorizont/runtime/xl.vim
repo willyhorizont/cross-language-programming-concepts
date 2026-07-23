@@ -16,85 +16,6 @@ export def EscapeString(s: string): string
     return r
 enddef
 
-def PrettifyJsonString(jsonStr: string): string
-    var r = ""
-    var t = 0
-    var inStr = false
-    var i = 0
-    var sLen = len(jsonStr)
-    while i < sLen
-        var c = jsonStr[i]
-        if c == "\"" && (i == 0 || jsonStr[i - 1] != "\\")
-            inStr = !inStr
-        endif
-        if !inStr
-            if c == "{" || c == "["
-                t += 4
-                r ..= c .. "\n" .. repeat(" ", t)
-            elseif c == "}" || c == "]"
-                t -= 4
-                r ..= "\n" .. repeat(" ", t) .. c
-            elseif c == ","
-                r ..= ",\n" .. repeat(" ", t)
-            elseif c == ":"
-                r ..= ": "
-            else
-                r ..= c
-            endif
-        else
-            r ..= c
-        endif
-        i += 1
-    endwhile
-    return r
-enddef
-
-export def StdJsonStringify(a: any, op: dict<any> = {}): string
-    var r = {"v": a}
-    var s: list<dict<any>> = [{"t": r, "k": "v", "v": a}]
-    while !empty(s)
-        var c = remove(s, -1)
-        var t = c["t"]
-        var k = c["k"]
-        var v = c["v"]
-        if type(v) == v:t_func
-            t[k] = "[object Function]"
-            continue
-        endif
-        if type(v) == v:t_list
-            var nL: list<any> = []
-            t[k] = nL
-            var idx = len(v) - 1
-            while idx >= 0
-                add(s, {"t": nL, "k": idx, "v": v[idx]})
-                idx -= 1
-            endwhile
-            continue
-        endif
-        if type(v) == v:t_dict
-            var nD: dict<any> = {}
-            t[k] = nD
-            var p_list: list<dict<any>> = []
-            for [pK, pV] in items(v)
-                add(p_list, {"pK": pK, "pV": pV})
-            endfor
-            var idx = len(p_list) - 1
-            while idx >= 0
-                var p = p_list[idx]
-                add(s, {"t": nD, "k": p["pK"], "v": p["pV"]})
-                idx -= 1
-            endwhile
-            continue
-        endif
-        t[k] = v
-    endwhile
-    var jifyS = json_encode(r["v"])
-    if has_key(op, "pretty") && op["pretty"] == true
-        return PrettifyJsonString(jifyS)
-    endif
-    return jifyS
-enddef
-
 export def JsonStringify(a: any, op: dict<any> = {}): string
     var p = has_key(op, "pretty") ? op["pretty"] == true : false
     var t = repeat(" ", 4)
@@ -207,4 +128,83 @@ export def JsonStringify(a: any, op: dict<any> = {}): string
         r ..= "\"" .. typename(v) .. "\""
     endwhile
     return r
+enddef
+
+def PrettifyJsonString(jsonStr: string): string
+    var r = ""
+    var t = 0
+    var inStr = false
+    var i = 0
+    var sLen = len(jsonStr)
+    while i < sLen
+        var c = jsonStr[i]
+        if c == "\"" && (i == 0 || jsonStr[i - 1] != "\\")
+            inStr = !inStr
+        endif
+        if !inStr
+            if c == "{" || c == "["
+                t += 4
+                r ..= c .. "\n" .. repeat(" ", t)
+            elseif c == "}" || c == "]"
+                t -= 4
+                r ..= "\n" .. repeat(" ", t) .. c
+            elseif c == ","
+                r ..= ",\n" .. repeat(" ", t)
+            elseif c == ":"
+                r ..= ": "
+            else
+                r ..= c
+            endif
+        else
+            r ..= c
+        endif
+        i += 1
+    endwhile
+    return r
+enddef
+
+export def StdJsonStringify(a: any, op: dict<any> = {}): string
+    var r = {"v": a}
+    var s: list<dict<any>> = [{"t": r, "k": "v", "v": a}]
+    while !empty(s)
+        var c = remove(s, -1)
+        var t = c["t"]
+        var k = c["k"]
+        var v = c["v"]
+        if type(v) == v:t_func
+            t[k] = "[object Function]"
+            continue
+        endif
+        if type(v) == v:t_list
+            var nL: list<any> = []
+            t[k] = nL
+            var idx = len(v) - 1
+            while idx >= 0
+                add(s, {"t": nL, "k": idx, "v": v[idx]})
+                idx -= 1
+            endwhile
+            continue
+        endif
+        if type(v) == v:t_dict
+            var nD: dict<any> = {}
+            t[k] = nD
+            var p_list: list<dict<any>> = []
+            for [pK, pV] in items(v)
+                add(p_list, {"pK": pK, "pV": pV})
+            endfor
+            var idx = len(p_list) - 1
+            while idx >= 0
+                var p = p_list[idx]
+                add(s, {"t": nD, "k": p["pK"], "v": p["pV"]})
+                idx -= 1
+            endwhile
+            continue
+        endif
+        t[k] = v
+    endwhile
+    var jifyS = json_encode(r["v"])
+    if has_key(op, "pretty") && op["pretty"] == true
+        return PrettifyJsonString(jifyS)
+    endif
+    return jifyS
 enddef

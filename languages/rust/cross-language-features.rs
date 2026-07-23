@@ -23,10 +23,10 @@ fn main() {
     let create_multiplier = xl::closure!(|va| {
         match va.as_slice() {
             [Xl::Int(aa), ..] => {
-                let aa_c = *aa;
+                let aa_ctx = *aa;
                 xl::closure!(move |va| {
                     match va.as_slice() {
-                        [Xl::Int(bb), ..] => xl::int!(aa_c * bb),
+                        [Xl::Int(bb), ..] => xl::int!(aa_ctx * bb),
                         _ => xl::NONE,
                     }
                 })

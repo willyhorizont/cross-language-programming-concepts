@@ -13,7 +13,7 @@ start() ->
         io:format("world~n")
     end),
     CreateMultiplier = fun(Aa) ->
-        fun(Bb) -> (Aa * Bb) end
+        fun(Bb) -> Aa * Bb end
     end,
     MultiplyByTwo = CreateMultiplier(2),
     io:format("multiply_by_two(10): ~p~n", [MultiplyByTwo(10)]),
@@ -33,7 +33,7 @@ start() ->
         -123.789,
         [1, 2, 3],
         #{<<"foo">> => <<"bar">>},
-        fun(Aa, Bb) -> (Aa * Bb) end
+        fun(Aa, Bb) -> Aa * Bb end
     ],
     io:format("xl_list: ~s~n", [xl:json_stringify(XlList)]),
     io:format("xl_list: ~s~n", [xl:json_stringify(XlList, [{pretty, true}])]),
@@ -48,7 +48,7 @@ start() ->
         <<"xl_float_negative">> => -123.789,
         <<"xl_list">> => [1, 2, 3],
         <<"xl_dict">> => #{<<"foo">> => <<"bar">>},
-        <<"xl_closure">> => fun(Aa, Bb) -> (Aa * Bb) end
+        <<"xl_closure">> => fun(Aa, Bb) -> Aa * Bb end
     },
     io:format("xl_dict: ~s~n", [xl:json_stringify(XlDict)]),
     io:format("xl_dict: ~s~n", [xl:json_stringify(XlDict, [{pretty, true}])]),

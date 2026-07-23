@@ -10,7 +10,7 @@ var SayHello = (CallbackFunction) => {
 SayHello(() => {
     Xl.Echoln("world")
 })
-var CreateMultiplier = (aa) => (bb) => (aa * bb)
+var CreateMultiplier = (aa) => (bb) => aa * bb
 var MultiplyByTwo = CreateMultiplier(2)
 Xl.Echoln($"multiply_by_two(10): {MultiplyByTwo(10)}")
 var MultiplyByEight = CreateMultiplier(8)
@@ -29,7 +29,7 @@ var XlList = [
     -123.789,
     [1, 2, 3],
     {"foo": "bar"},
-    (aa, bb) => (aa * bb),
+    (aa, bb) => aa * bb,
 ]
 Xl.Echoln($"xl_list: {Xl.JsonStringify(XlList)}")
 Xl.Echoln($"xl_list: {Xl.JsonStringify(XlList, {"pretty": true})}")
@@ -44,7 +44,7 @@ var XlDict = {
     "xl_float_negative": -123.789,
     "xl_list": [1, 2, 3],
     "xl_dict": {"foo": "bar"},
-    "xl_closure": (aa, bb) => (aa * bb),
+    "xl_closure": (aa, bb) => aa * bb,
 }
 Xl.Echoln($"xl_dict: {Xl.JsonStringify(XlDict)}")
 Xl.Echoln($"xl_dict: {Xl.JsonStringify(XlDict, {"pretty": true})}")

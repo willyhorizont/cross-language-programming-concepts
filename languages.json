@@ -16,7 +16,8 @@
         "file_extension": ".js",
         "concept_definition": {
             "list": "Array",
-            "dict": "Object"
+            "dict": "Object",
+            "lambda": "Anonymous Function"
         },
         "vscode_extensions": [],
         "vscode_extensions_archive": [
@@ -43,7 +44,8 @@
         "file_extension": ".py",
         "concept_definition": {
             "list": "list",
-            "dict": "Dict"
+            "dict": "dict",
+            "lambda": "lambda"
         },
         "vscode_extensions": [
             "ms-python.vscode-pylance"
@@ -72,7 +74,8 @@
         "file_extension": ".php",
         "concept_definition": {
             "list": "array",
-            "dict": "associative array"
+            "dict": "associative array",
+            "lambda": "Anonymous Function"
         },
         "vscode_extensions": [
             "bmewburn.vscode-intelephense-client"
@@ -101,7 +104,8 @@
         "file_extension": ".go",
         "concept_definition": {
             "list": "Slice",
-            "dict": "Map"
+            "dict": "Map",
+            "lambda": "Anonymous Function"
         },
         "vscode_extensions": [
             "golang.go"
@@ -130,7 +134,8 @@
         "file_extension": ".pl",
         "concept_definition": {
             "list": "ARRAY",
-            "dict": "HASH"
+            "dict": "HASH",
+            "lambda": "Anonymous Subroutine"
         },
         "vscode_extensions": [
             "bscan.perlnavigator"
@@ -159,7 +164,8 @@
         "file_extension": ".jl",
         "concept_definition": {
             "list": "Vector",
-            "dict": "Dict"
+            "dict": "Dict",
+            "lambda": "Anonymous Function"
         },
         "vscode_extensions": [
             "julialang.language-julia"
@@ -188,7 +194,8 @@
         "file_extension": ".lua",
         "concept_definition": {
             "list": "table",
-            "dict": "table"
+            "dict": "table",
+            "lambda": "Anonymous Function"
         },
         "vscode_extensions": [
             "sumneko.lua"
@@ -217,7 +224,8 @@
         "file_extension": ".rb",
         "concept_definition": {
             "list": "Array",
-            "dict": "Hash"
+            "dict": "Hash",
+            "lambda": "Lambda"
         },
         "vscode_extensions": [
             
@@ -246,7 +254,8 @@
         "file_extension": ".r",
         "concept_definition": {
             "list": "list",
-            "dict": "environtment"
+            "dict": "environtment",
+            "lambda": "Anonymous Function"
         },
         "vscode_extensions": [
             "reditorsupport.r",
@@ -276,7 +285,8 @@
         "file_extension": ".kt",
         "concept_definition": {
             "list": "ArrayList",
-            "dict": "HashMap"
+            "dict": "HashMap",
+            "lambda": "Anonymous Object"
         },
         "vscode_extensions": [
             "mathiasfrohlich.Kotlin"
@@ -307,7 +317,8 @@
         "file_extension": ".swift",
         "concept_definition": {
             "list": "Array",
-            "dict": "Dictionary"
+            "dict": "Dictionary",
+            "lambda": "Closure"
         },
         "vscode_extensions": [
             "swiftlang.swift-vscode"
@@ -336,7 +347,8 @@
         "file_extension": ".dart",
         "concept_definition": {
             "list": "List",
-            "dict": "Map"
+            "dict": "Map",
+            "lambda": "Anonymous Function"
         },
         "vscode_extensions": [
 
@@ -366,7 +378,8 @@
         "file_extension": ".vb",
         "concept_definition": {
             "list": "List",
-            "dict": "Dictionary"
+            "dict": "Dictionary",
+            "lambda": "Delegate"
         },
         "vscode_extensions": [
             "dnakode.vbnet-language-support"
@@ -395,7 +408,8 @@
         "file_extension": ".cs",
         "concept_definition": {
             "list": "List",
-            "dict": "Dictionary"
+            "dict": "Dictionary",
+            "lambda": "Delegate"
         },
         "vscode_extensions": [
             "ms-dotnettools.csharp"
@@ -429,7 +443,8 @@
         "file_extension": ".m",
         "concept_definition": {
             "list": "Cell Array",
-            "dict": "Map"
+            "dict": "Map",
+            "lambda": "Anonymous Function"
         },
         "vscode_extensions": [
             "MathWorks.language-matlab"
@@ -458,7 +473,8 @@
         "file_extension": ".wl",
         "concept_definition": {
             "list": "List",
-            "dict": "Association"
+            "dict": "Association",
+            "lambda": "Anonymous Function"
         },
         "vscode_extensions": [
             "WolframResearch.wolfram"
@@ -486,8 +502,9 @@
         ],
         "file_extension": ".raku",
         "concept_definition": {
-            "list": "ARRAY",
-            "dict": "HASH"
+            "list": "Positional",
+            "dict": "Associative",
+            "lambda": "Anonymous Subroutine"
         },
         "vscode_extensions": [
             "bscan.raku-navigator"
@@ -516,7 +533,8 @@
         "file_extension": ".scala",
         "concept_definition": {
             "list": "ArrayBuffer",
-            "dict": "Map"
+            "dict": "Map",
+            "lambda": "Lambda Expression"
         },
         "vscode_extensions": [
             "scala-lang.scala"
@@ -546,7 +564,8 @@
         "file_extension": ".java",
         "concept_definition": {
             "list": "ArrayList",
-            "dict": "HashMap"
+            "dict": "HashMap",
+            "lambda": "Lambda Expression"
         },
         "vscode_extensions": [
             "redhat.java",
@@ -576,7 +595,8 @@
         "file_extension": ".nu",
         "concept_definition": {
             "list": "List",
-            "dict": "Record"
+            "dict": "Record",
+            "lambda": "Closure"
         },
         "vscode_extensions": [
             "TheNuProjectContributors.vscode-nushell-lang"
@@ -605,7 +625,8 @@
         "file_extension": ".elv",
         "concept_definition": {
             "list": "List",
-            "dict": "Map"
+            "dict": "Map",
+            "lambda": "Lambda Expression"
         },
         "vscode_extensions": [
             "elves.elvish"
@@ -634,7 +655,8 @@
         "file_extension": ".vim",
         "concept_definition": {
             "list": "List",
-            "dict": "Dictionary"
+            "dict": "Dictionary",
+            "lambda": "Anonymous Function"
         },
         "vscode_extensions": [
             "https://github.com/willyhorizont/vim9script-vscode-syntax-highlighter-extension/releases/latest/download/willyhorizont.vim9script-vscode-syntax-highlighter-extension.vsix"
@@ -663,7 +685,8 @@
         "file_extension": ".rs",
         "concept_definition": {
             "list": "Vec",
-            "dict": "Map"
+            "dict": "Map",
+            "lambda": "Closure"
         },
         "vscode_extensions": [
             "dustypomerleau.rust-syntax",
@@ -693,7 +716,8 @@
         "file_extension": ".nix",
         "concept_definition": {
             "list": "List",
-            "dict": "Attribute Set"
+            "dict": "Attribute Set",
+            "lambda": "Lambda"
         },
         "vscode_extensions": [
             "jnoortheen.nix-ide"
@@ -722,7 +746,8 @@
         "file_extension": ".tcl",
         "concept_definition": {
             "list": "list",
-            "dict": "dict"
+            "dict": "dict",
+            "lambda": null
         },
         "vscode_extensions": [
             "sleutho.tcl"
@@ -752,7 +777,8 @@
         "file_extension": ".gd",
         "concept_definition": {
             "list": "Array",
-            "dict": "Dictionary"
+            "dict": "Dictionary",
+            "lambda": "Anonymous Function"
         },
         "vscode_extensions": [
             "geequlim.godot-tools"
@@ -783,7 +809,8 @@
         "file_extension": ".typ",
         "concept_definition": {
             "list": "Array",
-            "dict": "Dictionary"
+            "dict": "Dictionary",
+            "lambda": "Anonymous Function"
         },
         "vscode_extensions": [
             "myriad-dreamin.tinymist",
@@ -813,7 +840,8 @@
         "file_extension": ".ps1",
         "concept_definition": {
             "list": "Array",
-            "dict": "HashTable"
+            "dict": "HashTable",
+            "lambda": "Block"
         },
         "vscode_extensions": [
             "ms-vscode.PowerShell"
@@ -842,7 +870,8 @@
         "file_extension": ".exs",
         "concept_definition": {
             "list": "List",
-            "dict": "Map"
+            "dict": "Map",
+            "lambda": "Anonymous Function"
         },
         "vscode_extensions": [
             "JakeBecker.elixir-ls"
@@ -871,7 +900,8 @@
         "file_extension": ".ml",
         "concept_definition": {
             "list": "List",
-            "dict": "Hash Table"
+            "dict": "Hash Table",
+            "lambda": "Closure"
         },
         "vscode_extensions": [
             "ocamllabs.ocaml-platform"
@@ -900,7 +930,8 @@
         "file_extension": ".erl",
         "concept_definition": {
             "list": "list",
-            "dict": "map"
+            "dict": "map",
+            "lambda": "Anonymous Function"
         },
         "vscode_extensions": [
             "pgourlain.erlang"
@@ -929,7 +960,8 @@
         "file_extension": ".gleam",
         "concept_definition": {
             "list": "List",
-            "dict": "Dict"
+            "dict": "Dict",
+            "lambda": "Anonymous Function"
         },
         "vscode_extensions": [
             "Gleam.gleam"
@@ -958,7 +990,8 @@
         "file_extension": ".zig",
         "concept_definition": {
             "list": "Slice",
-            "dict": "HashMap"
+            "dict": "HashMap",
+            "lambda": null
         },
         "vscode_extensions": [
             "ziglang.vscode-zig"
@@ -987,7 +1020,8 @@
         "file_extension": ".nim",
         "concept_definition": {
             "list": "Sequence",
-            "dict": "Table"
+            "dict": "Table",
+            "lambda": "Closure"
         },
         "vscode_extensions": [
             "NimLang.nimlang"
@@ -1016,7 +1050,8 @@
         "file_extension": ".odin",
         "concept_definition": {
             "list": "Slice",
-            "dict": "Map"
+            "dict": "Map",
+            "lambda": null
         },
         "vscode_extensions": [
             "DanielGavin.ols"
@@ -1045,7 +1080,8 @@
         "file_extension": ".cpp",
         "concept_definition": {
             "list": "Vector",
-            "dict": "Unordered Map"
+            "dict": "Unordered Map",
+            "lambda": "Lambda Expression"
         },
         "vscode_extensions": [
             "jeff-hykin.better-cpp-syntax"
@@ -1074,7 +1110,8 @@
         "file_extension": ".m",
         "concept_definition": {
             "list": "Array",
-            "dict": "Dictionary"
+            "dict": "Dictionary",
+            "lambda": "Block"
         },
         "vscode_extensions": [
             "jeff-hykin.better-objc-syntax"
@@ -1103,7 +1140,8 @@
         "file_extension": ".st",
         "concept_definition": {
             "list": "OrderedCollection",
-            "dict": "Dictionary"
+            "dict": "Dictionary",
+            "lambda": "BlockClosure"
         },
         "vscode_extensions": [
             "pleasedskin.smalltalk"
@@ -1134,7 +1172,8 @@
         "file_extension": ".as",
         "concept_definition": {
             "list": "Array",
-            "dict": "Object"
+            "dict": "Object",
+            "lambda": "Anonymous Function"
         },
         "vscode_extensions": [
             "bowlerhatllc.vscode-as3mxml"
@@ -1163,7 +1202,8 @@
         "file_extension": ".groovy",
         "concept_definition": {
             "list": "List",
-            "dict": "Map"
+            "dict": "Map",
+            "lambda": "Closure"
         },
         "vscode_extensions": [
             "NicolasVuillamy.vscode-groovy-lint"
@@ -1192,7 +1232,8 @@
         "file_extension": ".cj",
         "concept_definition": {
             "list": "ArrayList",
-            "dict": "HashMap"
+            "dict": "HashMap",
+            "lambda": "Closure"
         },
         "vscode_extensions": [
             "IDE-Innovation-Lab.cangjie"

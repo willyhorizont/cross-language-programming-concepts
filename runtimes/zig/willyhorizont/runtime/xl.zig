@@ -8,24 +8,6 @@ pub fn init_runtime(gpa: std.mem.Allocator, io: std.Io) void {
     global_io = io;
 }
 
-pub fn escape_string(allocator: std.mem.Allocator, s: ?[]const u8) ![]const u8 {
-    const inp = s orelse return try allocator.dupe(u8, "");
-    if (inp.len == 0) return try allocator.dupe(u8, "");
-    var r: std.ArrayList(u8) = .empty;
-    errdefer r.deinit(allocator);
-    for (inp) |c| {
-        switch (c) {
-            '\\' => try r.appendSlice(allocator, "\\\\"),
-            '"' => try r.appendSlice(allocator, "\\\""),
-            '\n' => try r.appendSlice(allocator, "\\n"),
-            '\r' => try r.appendSlice(allocator, "\\r"),
-            '\t' => try r.appendSlice(allocator, "\\t"),
-            else => try r.append(allocator, c),
-        }
-    }
-    return r.toOwnedSlice(allocator);
-}
-
 pub const Types = enum {
     None,
     Bool,
@@ -250,6 +232,25 @@ pub fn closure(ctx_value: anytype, comptime func: anytype) Type {
         },
     };
 }
+
+pub fn escape_string(allocator: std.mem.Allocator, s: ?[]const u8) ![]const u8 {
+    const inp = s orelse return try allocator.dupe(u8, "");
+    if (inp.len == 0) return try allocator.dupe(u8, "");
+    var r: std.ArrayList(u8) = .empty;
+    errdefer r.deinit(allocator);
+    for (inp) |c| {
+        switch (c) {
+            '\\' => try r.appendSlice(allocator, "\\\\"),
+            '"' => try r.appendSlice(allocator, "\\\""),
+            '\n' => try r.appendSlice(allocator, "\\n"),
+            '\r' => try r.appendSlice(allocator, "\\r"),
+            '\t' => try r.appendSlice(allocator, "\\t"),
+            else => try r.append(allocator, c),
+        }
+    }
+    return r.toOwnedSlice(allocator);
+}
+
 const jify_err_msg = "XlRuntimeError: Out of memory while performing json_stringify.";
 
 pub fn json_stringify(a: Type, o: anytype) []const u8 {

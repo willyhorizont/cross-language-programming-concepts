@@ -10,7 +10,7 @@ def sayHello = { callbackFunction ->
 sayHello({ ->
     println("world")
 })
-def createMultiplier = { aa -> { bb -> (aa * bb) } }
+def createMultiplier = { aa -> { bb -> aa * bb } }
 def multiplyByTwo = createMultiplier(2)
 println("multiply_by_two(10): ${multiplyByTwo(10)}")
 def multiplyByEight = createMultiplier(8)
@@ -31,7 +31,7 @@ def xlList = [
     -123.789,
     [1, 2, 3],
     [ "foo": "bar" ],
-    { aa, bb -> (aa * bb) }
+    { aa, bb -> aa * bb }
 ]
 println("xl_list: ${Xl.jsonStringify(xlList)}")
 println("xl_list: ${Xl.jsonStringify(xlList, [pretty: true])}")
@@ -46,7 +46,7 @@ def xlDict = [
     "xl_float_negative": -123.789,
     "xl_list": [1, 2, 3],
     "xl_dict": [ "foo": "bar" ],
-    "xl_closure": { aa, bb -> (aa * bb) }
+    "xl_closure": { aa, bb -> aa * bb }
 ]
 println("xl_dict: ${Xl.jsonStringify(xlDict)}")
 println("xl_dict: ${Xl.jsonStringify(xlDict, [pretty: true])}")

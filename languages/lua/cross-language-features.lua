@@ -10,7 +10,7 @@ end
 say_hello(function ()
     print("world")
 end)
-local create_multiplier = function (aa) return function (bb) return (aa * bb) end end
+local create_multiplier = function (aa) return function (bb) return aa * bb end end
 local multiply_by_two = create_multiplier(2)
 print("multiply_by_two(10): " .. multiply_by_two(10))
 local multiply_by_eight = create_multiplier(8)
@@ -31,7 +31,7 @@ local xl_list = {
     -123.789,
     {1, 2, 3},
     { ["foo"] = "bar" },
-    function (aa, bb) return (aa * bb) end,
+    function (aa, bb) return aa * bb end,
 }
 print("xl_list: " .. xl.json_stringify(xl_list))
 print("xl_list: " .. xl.json_stringify(xl_list, { ["pretty"] = true }))
@@ -46,7 +46,7 @@ local xl_dict = {
     ["xl_float_negative"] = -123.789,
     ["xl_list"] = {1, 2, 3},
     ["xl_dict"] = { ["foo"] = "bar" },
-    ["xl_closure"] = function (aa, bb) return (aa * bb) end,
+    ["xl_closure"] = function (aa, bb) return aa * bb end,
 }
 print("xl_dict: " .. xl.json_stringify(xl_dict))
 print("xl_dict: " .. xl.json_stringify(xl_dict, { ["pretty"] = true }))

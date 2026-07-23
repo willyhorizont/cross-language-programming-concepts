@@ -283,7 +283,7 @@ extern XlNamespace * xl;
                 }
             }
         }
-        NSString * t = @"    ";
+        NSString * t = [@"" stringByPaddingToLength:4 withString:@" " startingAtIndex:0];
         NSMutableArray<NSDictionary *> * s = [NSMutableArray new];
         [s addObject:@{@"t": @"v", @"v": frstA, @"d": @0}];
         NSMutableString * r = [NSMutableString stringWithString:@""];

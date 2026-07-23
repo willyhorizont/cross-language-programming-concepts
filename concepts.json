@@ -15,9 +15,9 @@
         "concept_definition": null
     },
     {
-        "id": "functions-and-closure",
-        "name": "Functions and Closure",
-        "concept_definition": null
+        "id": "lambda",
+        "name": "Lambda",
+        "concept_definition": "(Lambda as a value. Lambda with closure support. Lambda with dynamic variadic inputs. Lambda with dynamic outputs.)"
     },
     {
         "id": "hello-world",
