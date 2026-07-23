@@ -1,7 +1,7 @@
 require_relative "../../runtimes/ruby/willyhorizont/runtime/xl"
 
 =begin
-1. support closure as value, or has workaround
+1. support lambda as value, or has workaround
 =end
 say_hello = lambda do | callback_function |
     puts("hello")
@@ -46,7 +46,7 @@ xl_dict = {
     "xl_float_negative" => -123.789,
     "xl_list" => [1, 2, 3],
     "xl_dict" => { "foo" => "bar" },
-    "xl_closure" => lambda do | aa, bb | aa * bb end,
+    "xl_lambda" => lambda do | aa, bb | aa * bb end,
 }
 puts("xl_dict: #{Xl.json_stringify(xl_dict)}")
 puts("xl_dict: #{Xl.json_stringify(xl_dict, pretty: true)}")

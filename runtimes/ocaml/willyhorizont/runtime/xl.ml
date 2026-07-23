@@ -1,20 +1,6 @@
 exception Break
 exception Continue
 
-let escape_string s =
-    if s = "" then ""
-    else
-        let buf = Buffer.create (String.length s) in
-        String.iter (function
-            | '\\' -> Buffer.add_string buf "\\\\"
-            | '"'  -> Buffer.add_string buf "\\\""
-            | '\n' -> Buffer.add_string buf "\\n"
-            | '\r' -> Buffer.add_string buf "\\r"
-            | '\t' -> Buffer.add_string buf "\\t"
-            | c    -> Buffer.add_char buf c
-        ) s;
-        Buffer.contents buf
-
 type xl =
     | None
     | Bool of bool
@@ -23,16 +9,16 @@ type xl =
     | Float of float
     | List of xl list
     | Dict of (string, xl) Hashtbl.t
-    | Closure of (xl -> xl)
+    | Lambda of (xl -> xl)
 
-let to_none = function | None -> () | _ -> ()
-let to_bool = function | Bool v -> v | _ -> false
-let to_string = function | String v -> v | _ -> ""
-let to_int = function | Int v -> v | _ -> 0
-let to_float = function | Float v -> v | _ -> 0.0
-let to_list = function | List v -> v | _ -> []
-let to_dict = function | Dict v -> v | _ -> Hashtbl.create 1
-let to_closure = function | Closure v -> v | _ -> (fun x -> x)
+let to_none = function | None -> () | _ -> failwith "Error: Invalid arguments."
+let to_bool = function | Bool v -> v | _ -> failwith "Error: Invalid arguments."
+let to_string = function | String v -> v | _ -> failwith "Error: Invalid arguments."
+let to_int = function | Int v -> v | _ -> failwith "Error: Invalid arguments."
+let to_float = function | Float v -> v | _ -> failwith "Error: Invalid arguments."
+let to_list = function | List v -> v | _ -> failwith "Error: Invalid arguments."
+let to_dict = function | Dict v -> v | _ -> failwith "Error: Invalid arguments."
+let to_lambda = function | Lambda v -> v | _ -> failwith "Error: Invalid arguments."
 
 let iter (va : xl) : (unit -> xl option) =
     Seq.to_dispenser (List.to_seq (to_list va))
@@ -45,8 +31,8 @@ let next = (fun itr -> (
 
 let call (f : xl) (va : xl list) : xl =
     match f with
-    | Closure fn -> fn (List va)
-    | _ -> None
+    | Lambda fn -> fn (List va)
+    | _ -> failwith "Error: Invalid arguments."
 
 let none = None
 let bool (v : bool) : xl = Bool v
@@ -59,7 +45,7 @@ let dict (p : (string * xl) list) : xl =
     let d = Hashtbl.create len in
     List.iter (fun (k, v) -> Hashtbl.add d k v) p;
     Dict d
-let closure (v : xl -> xl) : xl = Closure v
+let lambda (v : xl -> xl) : xl = Lambda v
 
 let is_none = function | None -> true | _ -> false
 let is_bool = function | Bool _ -> true | _ -> false
@@ -68,7 +54,7 @@ let is_int = function | Int _ -> true | _ -> false
 let is_float = function | Float _ -> true | _ -> false
 let is_list = function | List _ -> true | _ -> false
 let is_dict = function | Dict _ -> true | _ -> false
-let is_closure = function | Closure _ -> true | _ -> false
+let is_lambda = function | Lambda _ -> true | _ -> false
 
 let append = (fun va -> (
     let itr = iter va in
@@ -94,7 +80,7 @@ let find = (fun va -> (
     try
         List.iter (fun el -> (
             match c with
-            | Closure f ->
+            | Lambda f ->
                 if (to_bool (f (List [el; !i; l]))) then begin
                     n := el;
                     raise Break
@@ -123,6 +109,20 @@ let string_repeat = (fun va -> (
     let n = next itr in
     String (String.concat "" (List.init (to_int n) (fun _ -> (to_string s))))
 ))
+
+let escape_string s =
+    if s = "" then ""
+    else
+        let buf = Buffer.create (String.length s) in
+        String.iter (function
+            | '\\' -> Buffer.add_string buf "\\\\"
+            | '"'  -> Buffer.add_string buf "\\\""
+            | '\n' -> Buffer.add_string buf "\\n"
+            | '\r' -> Buffer.add_string buf "\\r"
+            | '\t' -> Buffer.add_string buf "\\t"
+            | c    -> Buffer.add_char buf c
+        ) s;
+        Buffer.contents buf
 
 let json_stringify (va : xl list) : string =
     let itr = Seq.to_dispenser (List.to_seq va) in
@@ -165,7 +165,7 @@ let json_stringify (va : xl list) : string =
                 r := !r ^ (string_of_float (to_float v));
                 raise Continue
             end;
-            if (is_closure v) then begin
+            if (is_lambda v) then begin
                 r := !r ^ "\"[object Function]\"";
                 raise Continue
             end;

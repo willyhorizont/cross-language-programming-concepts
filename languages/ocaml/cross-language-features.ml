@@ -2,22 +2,22 @@ module Xl = Willyhorizont.Runtime.Xl
 
 let () =
     (*
-    1. support closure as value, or has workaround
+    1. support lambda as value, or has workaround
     *)
-    let say_hello = Xl.closure (fun va -> (
+    let say_hello = Xl.lambda (fun va -> (
         let itr = Xl.iter va in
         let callback_function = Xl.next itr in
         print_endline "hello";
         Xl.call callback_function [Xl.none]
     )) in
-    let _ = Xl.call say_hello [Xl.closure (fun (_) -> (
+    let _ = Xl.call say_hello [Xl.lambda (fun (_) -> (
         print_endline "world";
         Xl.none
     ))] in
-    let create_multiplier = Xl.closure (fun va -> (
+    let create_multiplier = Xl.lambda (fun va -> (
         let itr = Xl.iter va in
         let aa = Xl.next itr in
-        Xl.closure (fun va -> (
+        Xl.lambda (fun va -> (
             let itr = Xl.iter va in
             let bb = Xl.next itr in
             Xl.int ((Xl.to_int aa) * (Xl.to_int bb))
@@ -43,7 +43,7 @@ let () =
         Xl.float (-123.789);
         Xl.list [Xl.int (1); Xl.int (2); Xl.int (3)];
         Xl.dict [("foo", Xl.string "bar")];
-        Xl.closure (fun va -> (
+        Xl.lambda (fun va -> (
             let itr = Xl.iter va in
             let aa = Xl.next itr in
             let bb = Xl.next itr in
@@ -63,7 +63,7 @@ let () =
         ("xl_float_negative", Xl.float (-123.789));
         ("xl_list", Xl.list [Xl.int (1); Xl.int (2); Xl.int (3)]);
         ("xl_dict", Xl.dict [("foo", Xl.string "bar")]);
-        ("xl_closure", Xl.closure (fun va -> (
+        ("xl_lambda", Xl.lambda (fun va -> (
             let itr = Xl.iter va in
             let aa = Xl.next itr in
             let bb = Xl.next itr in

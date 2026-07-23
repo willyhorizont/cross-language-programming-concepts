@@ -2,7 +2,7 @@ use v6.d;
 EVALFILE $*PROGRAM.IO.parent.add("../../runtimes/raku/willyhorizont/runtime/xl.raku");
 
 #`(
-1. support closure as value, or has workaround
+1. support lambda as value, or has workaround
 )
 
 my $say-hello = sub ($callback-function) {
@@ -54,7 +54,7 @@ my $xl-dict = {
     "xl_float_negative" => -123.789,
     "xl_list" => [1, 2, 3],
     "xl_dict" => {"foo" => "bar"},
-    "xl_closure" => sub ($a, $b) {
+    "xl_lambda" => sub ($a, $b) {
         return ($a * $b);
     },
 };

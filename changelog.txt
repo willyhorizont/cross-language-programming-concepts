@@ -1,3 +1,7 @@
+[Last updated: 24 Jul 2026 @ 02:31 AM]
+version 2.7.64:
+rename closure to lambda;
+
 [Last updated: 23 Jul 2026 @ 11:18 PM]
 version 2.7.63:
 update README;

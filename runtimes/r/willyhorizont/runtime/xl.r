@@ -1,17 +1,6 @@
 xl <- list(
-    NONE = "null",
     curry = \(f, ...) \(r) f(r, ...),
     catln = \(...) cat(paste0(..., "\n")),
-    escape_string = \(s) {
-        if (is.null(s) || identical(s, xl$NONE)) return("")
-        r <- as.character(s)
-        r <- gsub("\\\\", "\\\\\\\\", r)
-        r <- gsub("\"", "\\\\\"", r)
-        r <- gsub("\n", "\\\\n", r)
-        r <- gsub("\r", "\\\\r", r)
-        r <- gsub("\t", "\\\\t", r)
-        return(r)
-    },
     dict = \(...) {
         va <- list(...)
         d <- new.env(parent = emptyenv())
@@ -31,6 +20,16 @@ xl <- list(
         if (!exists(k, envir = d, inherits = FALSE)) stop(paste0("XlRuntimeError: Key \"", k, "\" not found in dict."))
         return(d[[k]])
     },
+    escape_string = \(s) {
+        if (is.null(s)) return("")
+        r <- as.character(s)
+        r <- gsub("\\\\", "\\\\\\\\", r)
+        r <- gsub("\"", "\\\\\"", r)
+        r <- gsub("\n", "\\\\n", r)
+        r <- gsub("\r", "\\\\r", r)
+        r <- gsub("\t", "\\\\t", r)
+        return(r)
+    },
     json_stringify = \(a, pretty = FALSE) {
         p <- isTRUE(pretty)
         t <- strrep(" ", 4)
@@ -45,7 +44,7 @@ xl <- list(
             }
             v <- c$"v"
             cur_d <- c$"d"
-            if (is.null(v) || identical(v, xl$NONE)) {
+            if (is.null(v)) {
                 r <- paste0(r, "null")
                 next
             }
@@ -53,7 +52,7 @@ xl <- list(
                 r <- paste0(r, if (v) "true" else "false")
                 next
             }
-            if (is.character(v) && length(v) == 1 && !identical(v, xl$NONE)) {
+            if (is.character(v) && length(v) == 1) {
                 r <- paste0(r, "\"", xl$escape_string(v), "\"")
                 next
             }

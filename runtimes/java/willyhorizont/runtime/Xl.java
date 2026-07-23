@@ -8,12 +8,12 @@ import java.util.Map;
 
 public class Xl {
     @FunctionalInterface
-    public interface Closure {
+    public interface Lambda {
         Xl apply(Xl... args);
     }
 
     public enum Type {
-        NONE, BOOL, STRING, INT, FLOAT, LIST, DICT, CLOSURE, ITERATOR
+        NONE, BOOL, STRING, INT, FLOAT, LIST, DICT, LAMBDA, ITERATOR
     }
 
     public static final Xl NONE = new Xl(Type.NONE, null);
@@ -42,8 +42,8 @@ public class Xl {
         return v == null ? NONE : new Xl(Type.FLOAT, v);
     }
 
-    public static Xl from(Closure v) {
-        return v == null ? NONE : new Xl(Type.CLOSURE, v);
+    public static Xl from(Lambda v) {
+        return v == null ? NONE : new Xl(Type.LAMBDA, v);
     }
 
     @SuppressWarnings("unchecked")
@@ -64,7 +64,7 @@ public class Xl {
         if (a instanceof String) return from((String) a);
         if (a instanceof Integer) return from((Integer) a);
         if (a instanceof Double) return from((Double) a);
-        if (a instanceof Closure) return from((Closure) a);
+        if (a instanceof Lambda) return from((Lambda) a);
         if (a instanceof Iterator) return from((Iterator<Xl>) a);
         return NONE;
     }
@@ -99,8 +99,8 @@ public class Xl {
     }
 
     public Xl call(Xl... args) {
-        if (this.type == Type.CLOSURE) {
-            return ((Closure) this.value).apply(args);
+        if (this.type == Type.LAMBDA) {
+            return ((Lambda) this.value).apply(args);
         }
         return NONE;
     }
@@ -223,7 +223,7 @@ public class Xl {
                 r.append(v.toString());
                 continue;
             }
-            if (v.getType() == Type.CLOSURE) {
+            if (v.getType() == Type.LAMBDA) {
                 r.append("\"[object Function]\"");
                 continue;
             }

@@ -5,7 +5,7 @@ Imports Xl = WillyHorizont.Runtime
 
 Module Program
     Sub Main()
-        ' 1. support closure as value, or has workaround
+        ' 1. support lambda as value, or has workaround
         Dim SayHello As Object = Function(Va() As Object) As Object
             Dim Itr As Object = Va.GetEnumerator()
             Dim CallbackFunction As Object = New Object() {Itr.MoveNext(), Itr.Current}.Last()
@@ -68,7 +68,7 @@ Module Program
             {"xl_float_negative", -123.789},
             {"xl_list", New List(Of Object) From {1, 2, 3}},
             {"xl_dict", New Dictionary(Of String, Object) From {{"foo", "bar"}}},
-            {"xl_closure", Function(Va() As Object) As Object
+            {"xl_lambda", Function(Va() As Object) As Object
                 Dim Itr As Object = Va.GetEnumerator()
                 Dim Aa As Object = New Object() {Itr.MoveNext(), Itr.Current}.Last()
                 Dim Bb As Object = New Object() {Itr.MoveNext(), Itr.Current}.Last()

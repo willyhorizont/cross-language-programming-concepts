@@ -3,7 +3,7 @@ Xl := (Smalltalk at: #WillyHorizont) at: #Runtime.
 local := Dictionary new.
 
 "
-1. support closure as value, or has workaround
+1. support lambda as value, or has workaround
 "
 local at: #sayHello put: [ :callbackFunction |
     Stdio stdout nextPutAll: 'hello'; lf.
@@ -48,7 +48,7 @@ local at: #xlDict put: (Dictionary new
     at: 'xl_float_negative' put: -123.789;
     at: 'xl_list' put: (OrderedCollection new add: 1; add: 2; add: 3; yourself) asArray;
     at: 'xl_dict' put: (Dictionary new at: 'foo' put: 'bar'; yourself);
-    at: 'xl_closure' put: [ :aa :bb | aa * bb ];
+    at: 'xl_lambda' put: [ :aa :bb | aa * bb ];
 yourself).
 Stdio stdout nextPutAll: 'xl_dict:'; lf; nextPutAll: ((Xl at: #jsonStringify) value: (OrderedCollection new add: (local at: #xlDict); yourself) asArray); lf.
 Stdio stdout nextPutAll: 'xl_dict:'; lf; nextPutAll: ((Xl at: #jsonStringify) value: (OrderedCollection new add: (local at: #xlDict); add: (Dictionary new at: 'pretty' put: true; yourself); yourself) asArray); lf.

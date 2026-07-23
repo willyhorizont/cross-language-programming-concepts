@@ -1,6 +1,6 @@
 use ../../runtimes/nu/willyhorizont/runtime/xl.nu
 
-# 1. support closure as value, or has workaround
+# 1. support lambda as value, or has workaround
 let say_hello = { |callback_function|
     print "hello"
     do $callback_function
@@ -42,7 +42,7 @@ let xl_dict = {
     "xl_float_negative": -123.789,
     "xl_list": [1, 2, 3],
     "xl_dict": { "foo": "bar" },
-    "xl_closure": { |aa, bb| $aa * $bb },
+    "xl_lambda": { |aa, bb| $aa * $bb },
 }
 print $"xl_dict: (xl json-stringify $xl_dict)"
 print $"xl_dict: (xl json-stringify $xl_dict --pretty)"

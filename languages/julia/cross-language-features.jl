@@ -1,7 +1,7 @@
 include("../../runtimes/julia/willyhorizont/runtime/xl.jl")
 
 #=
-1. support closure as value, or has workaround
+1. support lambda as value, or has workaround
 =#
 say_hello = (callback_function) -> begin
     println("hello")
@@ -46,7 +46,7 @@ xl_dict = Dict(
     "xl_float_negative" => -123.789,
     "xl_list" => [1, 2, 3],
     "xl_dict" => Dict("foo" => "bar"),
-    "xl_closure" => (aa, bb) -> aa * bb,
+    "xl_lambda" => (aa, bb) -> aa * bb,
 )
 println("xl_dict: $(Xl.json_stringify(xl_dict))")
 println("xl_dict: $(Xl.json_stringify(xl_dict, pretty=true))")

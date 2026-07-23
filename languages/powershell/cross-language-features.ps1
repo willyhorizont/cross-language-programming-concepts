@@ -1,7 +1,7 @@
 . (Join-Path $PSScriptRoot "..\..\runtimes\powershell\willyhorizont\runtime\xl.ps1")
 
 <#
-1. support closure as value, or has workaround
+1. support lambda as value, or has workaround
 #>
 $SayHello = {
     param($CallbackFunction)
@@ -48,7 +48,7 @@ $XlDict = @{
     "xl_float_negative" = -123.789;
     "xl_list" = @(1, 2, 3);
     "xl_dict" = @{ "foo" = "bar" };
-    "xl_closure" = { param($Aa, $Bb) ($Aa * $Bb) }
+    "xl_lambda" = { param($Aa, $Bb) ($Aa * $Bb) }
 }
 Write-Host "xl_dict: $([Xl]::JsonStringify($XlDict))"
 Write-Host "xl_dict: $([Xl]::JsonStringify($XlDict, @{ Pretty = $true }))"

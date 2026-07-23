@@ -13,7 +13,7 @@ public type Float = Float64
 public type List = ArrayList<Any>
 public type Dict = HashMap<String, Any>
 public type Vararg = Array<Any>
-public type Closure = (Vararg) -> Any
+public type Lambda = (Vararg) -> Any
 public type `Iterator` = Iterator<Any>
 
 public func iter(va: Vararg): `Iterator` {
@@ -26,8 +26,8 @@ public func next(itr: `Iterator`): Any {
 
 public func call(v: Any, va: Vararg): Any {
     match (v) {
-        case f: Closure => return f(va)
-        case _ => throw Exception("XlRuntimeError: Expected Closure.")
+        case f: Lambda => return f(va)
+        case _ => throw Exception("XlRuntimeError: Expected Lambda.")
     }
 }
 
@@ -195,7 +195,7 @@ public func jsonStringify(a: Any, pretty!: Bool = false): String {
                     ("d", childD),
                 ]))
             case _ =>
-                if (v is Closure) {
+                if (v is Lambda) {
                     r.append("\"[object Function]\"")
                 } else {
                     r.append("\"[object Cangjie]\"")

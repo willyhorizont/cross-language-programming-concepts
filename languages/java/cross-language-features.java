@@ -3,7 +3,7 @@ import willyhorizont.runtime.Xl;
 public class Main {
     public static void main(String[] args) {
         /*
-        1. support closure as value, or has workaround
+        1. support lambda as value, or has workaround
         */
         Xl sayHello = Xl.from((Xl... va) -> {
             Xl itr = Xl.iter(va);
@@ -65,7 +65,7 @@ public class Main {
             Xl.pair("xl_float_negative", -123.789),
             Xl.pair("xl_list", Xl.list(1, 2, 3)),
             Xl.pair("xl_dict", Xl.dict(Xl.pair("foo", "bar"))),
-            Xl.pair("xl_closure", Xl.from((Xl... va) -> {
+            Xl.pair("xl_lambda", Xl.from((Xl... va) -> {
                 Xl itr = Xl.iter(va);
                 Xl aa = itr.next();
                 Xl bb = itr.next();

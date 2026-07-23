@@ -1,7 +1,7 @@
 Get[FileNameJoin[{DirectoryName[$InputFileName], "..", "..", "runtimes", "wolfram-language-mathematica", "willyhorizont", "runtime", "xl.wl"}]];
 
 (*
-1. support closure as value, or has workaround
+1. support lambda as value, or has workaround
 *)
 SayHello = {CallbackFunction} |-> (
     Print["hello"];
@@ -46,7 +46,7 @@ XlDict = <|
     "xl_float_negative" -> -123.789,
     "xl_list" -> {1, 2, 3},
     "xl_dict" -> <|"foo" -> "bar"|>,
-    "xl_closure" -> ({Aa, Bb} |-> Aa * Bb)
+    "xl_lambda" -> ({Aa, Bb} |-> Aa * Bb)
 |>;
 Print["xl_dict: ", Xl`JsonStringify[{XlDict}]];
 Print["xl_dict: ", Xl`JsonStringify[{XlDict, "Pretty" -> True}]];

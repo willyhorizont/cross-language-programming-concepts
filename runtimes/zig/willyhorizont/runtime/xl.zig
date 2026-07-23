@@ -16,10 +16,10 @@ pub const Types = enum {
     String,
     List,
     Dict,
-    Closure,
+    Lambda,
 };
 
-pub const XlClosure = struct {
+pub const XlLambda = struct {
     context: ?*anyopaque = null,
     func: *const fn (ctx: ?*anyopaque, args: []const Type) Type,
     deinit: ?*const fn (ctx: ?*anyopaque, gpa: std.mem.Allocator) void = null,
@@ -35,11 +35,11 @@ pub const Type = union(Types) {
     String: []const u8,
     List: []const Type,
     Dict: XlDict,
-    Closure: XlClosure,
+    Lambda: XlLambda,
 
     pub fn call(self: Type, va: anytype) Type {
         switch (self) {
-            .Closure => |c| {
+            .Lambda => |c| {
                 var args_buff: [va.len]Type = undefined;
                 inline for (va, 0..) |a, i| {
                     args_buff[i] = a;
@@ -65,7 +65,7 @@ pub const Type = union(Types) {
         };
         while (stack.pop()) |current| {
             switch (current) {
-                .Closure => |c| {
+                .Lambda => |c| {
                     if (c.deinit) |free_func| {
                         free_func(c.context, gpa);
                     }
@@ -97,7 +97,7 @@ pub const Type = union(Types) {
     fn emergency_deinit(self: Type) void {
         const gpa = global_allocator.?;
         switch (self) {
-            .Closure => |c| {
+            .Lambda => |c| {
                 if (c.deinit) |free_func| free_func(c.context, gpa);
             },
             .List => |l| {
@@ -209,10 +209,10 @@ pub fn dict(p: anytype) Type {
     return Type{ .Dict = d };
 }
 
-pub fn closure(ctx_value: anytype, comptime func: anytype) Type {
+pub fn lambda(ctx_value: anytype, comptime func: anytype) Type {
     const gpa = global_allocator.?;
     const T = @TypeOf(ctx_value);
-    const heap_ctx = gpa.create(T) catch @panic("XlRuntimeError: Out of memory while allocating closure context.");
+    const heap_ctx = gpa.create(T) catch @panic("XlRuntimeError: Out of memory while allocating lambda context.");
     heap_ctx.* = ctx_value;
     const Wrapper = struct {
         fn run(opaque_ctx: ?*anyopaque, args: []const Type) Type {
@@ -225,7 +225,7 @@ pub fn closure(ctx_value: anytype, comptime func: anytype) Type {
         }
     };
     return Type{
-        .Closure = XlClosure{
+        .Lambda = XlLambda{
             .context = heap_ctx,
             .func = Wrapper.run,
             .deinit = Wrapper.deinit,
@@ -303,7 +303,7 @@ pub fn json_stringify(a: Type, o: anytype) []const u8 {
                 r.appendSlice(gpa, str) catch @panic(jify_err_msg);
                 continue;
             },
-            .Closure => {
+            .Lambda => {
                 r.appendSlice(gpa, "\"[object Function]\"") catch @panic(jify_err_msg);
                 continue;
             },

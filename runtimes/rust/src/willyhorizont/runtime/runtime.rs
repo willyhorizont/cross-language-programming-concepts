@@ -11,14 +11,14 @@ pub enum Xl {
     Float(f64),
     List(Vec<Xl>),
     Dict(HashMap<String, Xl>),
-    Closure(Rc<dyn Fn(Vec<Xl>) -> Xl>),
+    Lambda(Rc<dyn Fn(Vec<Xl>) -> Xl>),
 }
 
 impl Xl {
     pub fn call(&self, va: Vec<Xl>) -> Xl {
         match self {
-            Xl::Closure(f) => f(va),
-            _ => panic!("XlError: Expected Xl::Closure."),
+            Xl::Lambda(f) => f(va),
+            _ => panic!("XlError: Expected Xl::Lambda."),
         }
     }
     pub fn to_bool(&self) -> bool {
@@ -72,7 +72,7 @@ impl fmt::Debug for Xl {
             Xl::Float(v) => write!(f, "Float({})", v),
             Xl::List(v) => write!(f, "List({:?})", v),
             Xl::Dict(v) => write!(f, "Dict({:?})", v),
-            Xl::Closure(_) => write!(f, "Closure(<fn>)"),
+            Xl::Lambda(_) => write!(f, "Lambda(<fn>)"),
         }
     }
 }

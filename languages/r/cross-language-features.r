@@ -1,6 +1,6 @@
 source("../../runtimes/r/willyhorizont/runtime/xl.r")
 
-# 1. support closure as value, or has workaround
+# 1. support lambda as value, or has workaround
 say_hello <- \(callback_function) {
     xl$catln("hello")
     callback_function()
@@ -17,7 +17,7 @@ xl$catln("multiply_by_two(8): ", multiply_by_two(8))
 
 # 2. support dynamic-typed value, or has workaround
 xl_list <- list(
-    xl$NONE,
+    NULL,
     TRUE,
     FALSE,
     "foo",
@@ -32,7 +32,7 @@ xl_list <- list(
 xl$catln("xl_list: ", xl$json_stringify(xl_list))
 xl$catln("xl_list: ", xl$json_stringify(xl_list, "pretty" = TRUE))
 xl_dict <- xl$dict(
-    "xl_none" = xl$NONE,
+    "xl_none" = NULL,
     "xl_bool_true" = TRUE,
     "xl_bool_false" = FALSE,
     "xl_string" = "foo",
@@ -42,7 +42,7 @@ xl_dict <- xl$dict(
     "xl_float_negative" = -123.789,
     "xl_list" = list(1, 2, 3),
     "xl_dict" = xl$dict("foo" = "bar"),
-    "xl_closure" = \(aa, bb) aa * bb
+    "xl_lambda" = \(aa, bb) aa * bb
 )
 xl$catln("xl_dict: ", xl$json_stringify(xl_dict))
 xl$catln("xl_dict: ", xl$json_stringify(xl_dict, "pretty" = TRUE))

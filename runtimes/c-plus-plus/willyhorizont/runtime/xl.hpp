@@ -21,6 +21,8 @@ namespace XL {
         }
     };
 
+    inline constexpr None NONE{};
+
     class Type;
 
     using Bool = bool;
@@ -39,30 +41,10 @@ namespace XL {
         Type next();
     };
 
-    using Closure = std::function<Type(const Type&)>;
+    using Lambda = std::function<Type(const Type&)>;
 
     class Type {
     public:
-        static std::string escapeString(const std::string* s) {
-            if (s == nullptr) {
-                return "";
-            }
-            return escapeString(*s);
-        }
-        static std::string escapeString(const std::string& s) {
-            std::string r = "";
-            for (char c : s) {
-                switch (c) {
-                    case '\\': r += "\\\\"; break;
-                    case '"':  r += "\\\""; break;
-                    case '\n': r += "\\n"; break;
-                    case '\r': r += "\\r"; break;
-                    case '\t': r += "\\t"; break;
-                    default:   r += c; break;
-                }
-            }
-            return r;
-        }
         std::variant<
             None,
             Bool,
@@ -71,11 +53,11 @@ namespace XL {
             String,
             std::shared_ptr<ListValue>,
             std::shared_ptr<DictValue>,
-            Closure,
+            Lambda,
             std::shared_ptr<Iterator>
         > value;
 
-        Type() : value(None{}) {}
+        Type() : value(NONE) {}
         Type(None v) : value(v) {}
         Type(Bool v) : value(v) {}
         Type(Int v) : value(v) {}
@@ -84,24 +66,24 @@ namespace XL {
         Type(const char* v) : value(String(v)) {}
         Type(ListValue v) : value(std::make_shared<ListValue>(std::move(v))) {}
         Type(DictValue v) : value(std::make_shared<DictValue>(std::move(v))) {}
-        Type(Closure v) : value(v) {}
+        Type(Lambda v) : value(v) {}
         Type(std::shared_ptr<Iterator> v) : value(v) {}
 
         template <typename F>
         requires std::invocable<F, const Type&> && (!std::is_same_v<std::decay_t<F>, Type>)
         Type(F&& f) {
-            value = Closure(std::forward<F>(f));
+            value = Lambda(std::forward<F>(f));
         }
 
         template <typename... Args>
         Type call(Args&&... args) const {
-            if (auto c = std::get_if<Closure>(&value)) {
+            if (auto c = std::get_if<Lambda>(&value)) {
                 ListValue a;
                 a.reserve(sizeof...(args));
                 (a.push_back(Type(std::forward<Args>(args))), ...);
                 return (*c)(Type(std::move(a)));
             }
-            throw std::runtime_error("XlError: Expected Closure.");
+            throw std::runtime_error("XlError: Expected Lambda.");
         }
 
         Type iter() const {
@@ -125,7 +107,7 @@ namespace XL {
             index += 1;
             return el;
         }
-        return Type(None{});
+        return Type(NONE);
     }
 
     template <typename... Args>
@@ -179,15 +161,36 @@ namespace XL {
         return std::get<std::shared_ptr<DictValue>>(t.value);
     }
 
-    inline const Closure& to_closure(const Type& t) {
-        return std::get<Closure>(t.value);
+    inline const Lambda& to_lambda(const Type& t) {
+        return std::get<Lambda>(t.value);
+    }
+
+    inline std::string escapeString(const std::string& s) {
+        std::string r = "";
+        for (char c : s) {
+            switch (c) {
+                case '\\': r += "\\\\"; break;
+                case '"':  r += "\\\""; break;
+                case '\n': r += "\\n"; break;
+                case '\r': r += "\\r"; break;
+                case '\t': r += "\\t"; break;
+                default:   r += c; break;
+            }
+        }
+        return r;
+    }
+    inline std::string escapeString(const std::string* s) {
+        if (s == nullptr) {
+            return "";
+        }
+        return escapeString(*s);
     }
 
     struct JifyOpt {
         bool pretty = false;
     };
 
-    struct JifyTok {
+    struct JifyStkEl {
         std::string t;
         Type v;
         std::string r;
@@ -197,11 +200,11 @@ namespace XL {
     inline std::string json_stringify(const Type& a, JifyOpt o = {}) {
         bool p = o.pretty;
         std::string t = string_repeat(" ", 4);
-        std::vector<JifyTok> s;
+        std::vector<JifyStkEl> s;
         s.push_back({ .t = "v", .v = a, .r = "", .d = 0 });
         std::string r = "";
         while (!s.empty()) {
-            JifyTok c = s.back();
+            JifyStkEl c = s.back();
             s.pop_back();
             if (c.t == "r") {
                 r += c.r;
@@ -218,7 +221,7 @@ namespace XL {
                 continue;
             }
             if (auto sr = std::get_if<String>(&v.value)) {
-                r += "\"" + Type::escapeString(*sr) + "\"";
+                r += "\"" + escapeString(*sr) + "\"";
                 continue;
             }
             if (auto ir = std::get_if<Int>(&v.value)) {
@@ -229,7 +232,7 @@ namespace XL {
                 r += std::to_string(*fr);
                 continue;
             }
-            if (std::holds_alternative<Closure>(v.value)) {
+            if (std::holds_alternative<Lambda>(v.value)) {
                 r += "\"[object Function]\"";
                 continue;
             }
@@ -242,7 +245,7 @@ namespace XL {
                 size_t child_d = cur_d + 1;
                 s.push_back({
                     .t = "r",
-                    .v = None{},
+                    .v = NONE,
                     .r = p ? ("\n" + string_repeat(t, cur_d) + "]") : "]",
                     .d = cur_d
                 });
@@ -256,7 +259,7 @@ namespace XL {
                     if (i > 0) {
                         s.push_back({
                             .t = "r",
-                            .v = None{},
+                            .v = NONE,
                             .r = p ? (",\n" + string_repeat(t, child_d)) : ",",
                             .d = child_d
                         });
@@ -264,7 +267,7 @@ namespace XL {
                 }
                 s.push_back({
                     .t = "r",
-                    .v = None{},
+                    .v = NONE,
                     .r = p ? ("[\n" + string_repeat(t, child_d)) : "[",
                     .d = child_d
                 });
@@ -279,7 +282,7 @@ namespace XL {
                 size_t child_d = cur_d + 1;
                 s.push_back({
                     .t = "r",
-                    .v = None{},
+                    .v = NONE,
                     .r = p ? ("\n" + string_repeat(t, cur_d) + "}") : "}",
                     .d = cur_d
                 });
@@ -295,14 +298,14 @@ namespace XL {
                     });
                     s.push_back({
                         .t = "r",
-                        .v = None{},
+                        .v = NONE,
                         .r = p ? ("\"" + dk + "\": ") : ("\"" + dk + "\":"),
                         .d = child_d
                     });
                     if (i > 0) {
                         s.push_back({
                             .t = "r",
-                            .v = None{},
+                            .v = NONE,
                             .r = p ? (",\n" + string_repeat(t, child_d)) : ",",
                             .d = child_d
                         });
@@ -310,7 +313,7 @@ namespace XL {
                 }
                 s.push_back({
                     .t = "r",
-                    .v = None{},
+                    .v = NONE,
                     .r = p ? ("{\n" + string_repeat(t, child_d)) : "{",
                     .d = child_d
                 });

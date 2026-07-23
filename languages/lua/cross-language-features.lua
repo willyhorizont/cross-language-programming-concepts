@@ -1,7 +1,7 @@
 local xl = require("runtimes.lua.willyhorizont.runtime.xl")
 
 --[[
-1. support closure as value, or has workaround
+1. support lambda as value, or has workaround
 ]]
 local say_hello = function (callback_function)
     callback_function()
@@ -46,7 +46,7 @@ local xl_dict = {
     ["xl_float_negative"] = -123.789,
     ["xl_list"] = {1, 2, 3},
     ["xl_dict"] = { ["foo"] = "bar" },
-    ["xl_closure"] = function (aa, bb) return aa * bb end,
+    ["xl_lambda"] = function (aa, bb) return aa * bb end,
 }
 print("xl_dict: " .. xl.json_stringify(xl_dict))
 print("xl_dict: " .. xl.json_stringify(xl_dict, { ["pretty"] = true }))

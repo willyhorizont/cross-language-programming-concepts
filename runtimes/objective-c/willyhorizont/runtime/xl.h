@@ -10,13 +10,13 @@ typedef NS_ENUM(NSInteger, XlType) {
     XlString,
     XlList,
     XlDict,
-    XlClosure,
+    XlLambda,
     XlIterator
 };
 
 @class XL;
 
-typedef XL * _Nonnull (^Closure)(XL * va);
+typedef XL * _Nonnull (^Lambda)(XL * va);
 
 @interface Iterator : NSObject
 @property (nonatomic, strong, readonly) NSArray<XL *> * array;
@@ -33,7 +33,7 @@ typedef XL * _Nonnull (^Closure)(XL * va);
 - (instancetype)initInt:(int64_t)v;
 - (instancetype)initFloat:(double)v;
 - (instancetype)initString:(NSString *)v;
-- (instancetype)initClosure:(Closure)v;
+- (instancetype)initLambda:(Lambda)v;
 - (XL *)call:(NSArray<XL *> *)a;
 - (XL *)next;
 @end
@@ -46,7 +46,7 @@ typedef XL * _Nonnull (^Closure)(XL * va);
 - (XL * (^)(int64_t))initInt;
 - (XL * (^)(double))initFloat;
 - (XL * (^)(NSString *))initString;
-- (XL * (^)(Closure))initClosure;
+- (XL * (^)(Lambda))initLambda;
 - (XL * (^)(NSArray<XL *> * a))initList;
 - (XL * (^)(NSDictionary<NSString *, XL *> *))initDict;
 - (XL * (^)(XL * a))iter;
@@ -136,22 +136,22 @@ extern XlNamespace * xl;
     }
     return self;
 }
-- (instancetype)initClosure:(Closure)v {
+- (instancetype)initLambda:(Lambda)v {
     self = [super init];
     if (self) {
-        _type = XlClosure;
+        _type = XlLambda;
         _nativeValue = [v copy];
     }
     return self;
 }
 - (XL *)call:(NSArray<XL *> *)a {
-    if (self.type == XlClosure) {
-        Closure cB = (Closure)self.nativeValue;
+    if (self.type == XlLambda) {
+        Lambda cB = (Lambda)self.nativeValue;
         Iterator * l = [[Iterator alloc] initAsList:a];
         XL * el = [[XL alloc] initAsIterator:l];
         return cB(el);
     }
-    @throw [NSException exceptionWithName:@"XlRuntimeError" reason:@"Error: Expected Closure." userInfo:nil];
+    @throw [NSException exceptionWithName:@"XlRuntimeError" reason:@"Error: Expected Lambda." userInfo:nil];
 }
 - (instancetype)initAsIterator:(Iterator *)v {
     self = [super init];
@@ -177,7 +177,7 @@ extern XlNamespace * xl;
         case XlString: return (NSString *)self.nativeValue;
         case XlList: return [NSString stringWithFormat:@"length: %lu", (unsigned long)[self.nativeValue count]];
         case XlDict: return [NSString stringWithFormat:@"length: %lu", (unsigned long)[self.nativeValue count]];
-        case XlClosure: return @"[object Function]";
+        case XlLambda: return @"[object Function]";
         case XlIterator: return @"[object Function]";
     }
 }
@@ -213,9 +213,9 @@ extern XlNamespace * xl;
         return [[XL alloc] initString:v];
     };
 }
-- (XL * (^)(Closure))initClosure {
-    return ^(Closure v) {
-        return [[XL alloc] initClosure:v];
+- (XL * (^)(Lambda))initLambda {
+    return ^(Lambda v) {
+        return [[XL alloc] initLambda:v];
     };
 }
 - (XL * (^)(NSArray<XL *> *))initList {
@@ -313,7 +313,7 @@ extern XlNamespace * xl;
                 [r appendFormat:@"%@", v.nativeValue];
                 continue;
             }
-            if (v.type == XlClosure) {
+            if (v.type == XlLambda) {
                 [r appendString:@"\"[object Function]\""];
                 continue;
             }

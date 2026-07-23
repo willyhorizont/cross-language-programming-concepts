@@ -4,24 +4,6 @@ pub const NONE: Xl = Xl::None;
 pub const TRUE: Xl = Xl::Bool(true);
 pub const FALSE: Xl = Xl::Bool(false);
 
-pub fn escape_string(s: &str) -> String {
-    if s.is_empty() {
-        return String::new();
-    }
-    let mut r = String::with_capacity(s.len());
-    for c in s.chars() {
-        match c {
-            '\\' => r.push_str("\\\\"),
-            '"'  => r.push_str("\\\""),
-            '\n' => r.push_str("\\n"),
-            '\r' => r.push_str("\\r"),
-            '\t' => r.push_str("\\t"),
-            _    => r.push(c),
-        }
-    }
-    r
-}
-
 #[macro_export]
 macro_rules! xl_string {
     ($v:expr) => {
@@ -51,12 +33,12 @@ macro_rules! xl_dict {
 pub use xl_dict as dict;
 
 #[macro_export]
-macro_rules! xl_closure {
+macro_rules! xl_lambda {
     ($c:expr) => {
-        $crate::willyhorizont::runtime::runtime::Xl::Closure(std::rc::Rc::new($c))
+        $crate::willyhorizont::runtime::runtime::Xl::Lambda(std::rc::Rc::new($c))
     };
 }
-pub use xl_closure as closure;
+pub use xl_lambda as lambda;
 
 #[macro_export]
 macro_rules! xl_none {
@@ -90,6 +72,24 @@ macro_rules! xl_float {
 }
 pub use xl_float as float;
 
+pub fn escape_string(s: &str) -> String {
+    if s.is_empty() {
+        return String::new();
+    }
+    let mut r = String::with_capacity(s.len());
+    for c in s.chars() {
+        match c {
+            '\\' => r.push_str("\\\\"),
+            '"'  => r.push_str("\\\""),
+            '\n' => r.push_str("\\n"),
+            '\r' => r.push_str("\\r"),
+            '\t' => r.push_str("\\t"),
+            _    => r.push(c),
+        }
+    }
+    r
+}
+
 enum JifyStkEl<'a> {
     V { v: &'a Xl, d: usize },
     R { v: String },
@@ -121,7 +121,7 @@ pub(crate) fn jify(a: &Xl, o: &Xl) -> String {
                     }
                     Xl::Int(v) => r.push_str(&v.to_string()),
                     Xl::Float(v) => r.push_str(&v.to_string()),
-                    Xl::Closure(_) => r.push_str("\"[object Function]\""),
+                    Xl::Lambda(_) => r.push_str("\"[object Function]\""),
                     Xl::List(v) => {
                         if v.is_empty() {
                             r.push_str("[]");

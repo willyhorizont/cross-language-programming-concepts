@@ -6,7 +6,7 @@ package {
     public class Main extends Sprite {
         public static function run():void {
             /*
-            1. support closure as value, or has workaround
+            1. support lambda as value, or has workaround
             */
             var sayHello:* = function(callbackFunction:*):* {
                 Terminal.print("hello");
@@ -57,7 +57,7 @@ package {
                 "xl_float_negative": -123.789,
                 "xl_list": [1, 2, 3],
                 "xl_dict": { "foo": "bar" },
-                "xl_closure": function(aa:*, bb:*):* {
+                "xl_lambda": function(aa:*, bb:*):* {
                     return aa * bb;
                 }
             };

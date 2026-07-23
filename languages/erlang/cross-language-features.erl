@@ -4,7 +4,7 @@
 start() ->
     {ok, _} = compile:file("willyhorizont/runtime/xl.erl"),
     
-    %% 1. support closure as value, or has workaround
+    %% 1. support lambda as value, or has workaround
     SayHello = fun(CallbackFunction) ->
         io:format("hello~n"),
         CallbackFunction()
@@ -48,7 +48,7 @@ start() ->
         <<"xl_float_negative">> => -123.789,
         <<"xl_list">> => [1, 2, 3],
         <<"xl_dict">> => #{<<"foo">> => <<"bar">>},
-        <<"xl_closure">> => fun(Aa, Bb) -> Aa * Bb end
+        <<"xl_lambda">> => fun(Aa, Bb) -> Aa * Bb end
     },
     io:format("xl_dict: ~s~n", [xl:json_stringify(XlDict)]),
     io:format("xl_dict: ~s~n", [xl:json_stringify(XlDict, [{pretty, true}])]),

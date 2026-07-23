@@ -1,6 +1,6 @@
 use ../../runtimes/elvish/willyhorizont/runtime/xl
 
-# 1. support closure as value, or has workaround
+# 1. support lambda as value, or has workaround
 var say-hello = {|callback-function|
     echo "hello"
     $callback-function
@@ -42,7 +42,7 @@ var xl-dict = [
     &"xl_float_negative"=-123.789
     &"xl_list"=[1 2 3]
     &"xl_dict"=[&"foo"="bar"]
-    &"xl_closure"={|a b| put (* $a $b)}
+    &"xl_lambda"={|a b| put (* $a $b)}
 ]
 echo "xl_dict:" ($xl:json-stringify $xl-dict)
 echo "xl_dict:" ($xl:json-stringify $xl-dict &pretty=$true)

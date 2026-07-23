@@ -4,34 +4,34 @@ use crate::willyhorizont::runtime::xl;
 
 fn main() {
     /*
-    1. support closure as value, or has workaround
+    1. support lambda as value, or has workaround
     */
-    let say_hello = xl::closure!(|va| {
+    let say_hello = xl::lambda!(|va| {
         println!("hello");
         match va.as_slice() {
-            [Xl::Closure(callback), ..] => {
+            [Xl::Lambda(callback), ..] => {
                 callback(vec![]);
             }
-            _ => println!("XlError: Expected Xl::Closure."),
+            _ => panic!("Error: Invalid arguments."),
         }
         xl::NONE
     });
-    say_hello.clone().call(vec![xl::closure!(|_| {
+    say_hello.clone().call(vec![xl::lambda!(|_| {
         println!("world");
         xl::NONE
     })]);
-    let create_multiplier = xl::closure!(|va| {
+    let create_multiplier = xl::lambda!(|va| {
         match va.as_slice() {
             [Xl::Int(aa), ..] => {
                 let aa_ctx = *aa;
-                xl::closure!(move |va| {
+                xl::lambda!(move |va| {
                     match va.as_slice() {
                         [Xl::Int(bb), ..] => xl::int!(aa_ctx * bb),
-                        _ => xl::NONE,
+                        _ => panic!("Error: Invalid arguments."),
                     }
                 })
             },
-            _ => xl::NONE,
+            _ => panic!("Error: Invalid arguments."),
         }
     });
     let multiply_by_two = create_multiplier.call(vec![xl::int!(2)]);
@@ -54,10 +54,10 @@ fn main() {
         xl::float!(-123.789),
         xl::list![xl::int!(1), xl::int!(2), xl::int!(3)],
         xl::dict! { "foo" => xl::string!("bar") },
-        xl::closure!(|va| {
+        xl::lambda!(|va| {
             match va.as_slice() {
                 [Xl::Int(aa), Xl::Int(bb), ..] => xl::int!(aa * bb),
-                _ => xl::NONE,
+                _ => panic!("Error: Invalid arguments."),
             }
         }),
     ];
@@ -74,10 +74,10 @@ fn main() {
         "xl_float_negative" => xl::float!(-123.789),
         "xl_list" => xl::list![xl::int!(1), xl::int!(2), xl::int!(3)],
         "xl_dict" => xl::dict! { "foo" => xl::string!("bar") },
-        "xl_closure" => xl::closure!(|va| {
+        "xl_lambda" => xl::lambda!(|va| {
             match va.as_slice() {
                 [Xl::Int(aa), Xl::Int(bb), ..] => xl::int!(aa * bb),
-                _ => xl::NONE,
+                _ => panic!("Error: Invalid arguments."),
             }
         }),
     };

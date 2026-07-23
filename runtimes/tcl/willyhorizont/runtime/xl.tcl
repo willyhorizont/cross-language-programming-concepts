@@ -1,21 +1,7 @@
 package require TclOO
 
 namespace eval xl {
-    proc escape_string {s} {
-        if {$s eq ""} {
-            return ""
-        }
-        set r [string map { "\\" "\\\\" } $s]
-        set r [string map {
-            "\"" "\\\""
-            "\n" "\\n"
-            "\r" "\\r"
-            "\t" "\\t"
-        } $r]
-        return $r
-    }
-
-    oo::class create Closure {
+    oo::class create Lambda {
         variable cb
         variable fac
         constructor {cb_or_fac args} {
@@ -37,8 +23,8 @@ namespace eval xl {
         }
     }
 
-    proc closure {args} {
-        return [Closure new {*}$args]
+    proc lambda {args} {
+        return [Lambda new {*}$args]
     }
 
     proc is_bool {v} {
@@ -53,9 +39,9 @@ namespace eval xl {
         return [expr {[string is double -strict $v] && ![string is entier -strict $v]}]
     }
 
-    proc is_closure {v} {
+    proc is_lambda {v} {
         if {[info commands $v] ne "" && [info object isa object $v]} {
-            return [info object isa typeof $v ::xl::Closure]
+            return [info object isa typeof $v ::xl::Lambda]
         }
         return false
     }
@@ -70,11 +56,25 @@ namespace eval xl {
         }
         for {set i 0} {$i < $len} {incr i 2} {
             set pk [lindex $v $i]
-            if {[is_closure $pk]} {
+            if {[is_lambda $pk]} {
                 return false
             }
         }
         return true
+    }
+
+    proc escape_string {s} {
+        if {$s eq ""} {
+            return ""
+        }
+        set r [string map { "\\" "\\\\" } $s]
+        set r [string map {
+            "\"" "\\\""
+            "\n" "\\n"
+            "\r" "\\r"
+            "\t" "\\t"
+        } $r]
+        return $r
     }
 
     proc json_stringify {a {o {}}} {
@@ -102,7 +102,7 @@ namespace eval xl {
                 append r $v
                 continue
             }
-            if {[is_closure $v]} {
+            if {[is_lambda $v]} {
                 append r "\"\[object Function\]\""
                 continue
             }

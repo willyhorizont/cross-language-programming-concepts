@@ -1,19 +1,6 @@
 Smalltalk at: #WillyHorizont put: Dictionary new.
 (Smalltalk at: #WillyHorizont) at: #Runtime put: Dictionary new.
 
-((Smalltalk at: #WillyHorizont) at: #Runtime) at: #escapeString put: [ :aString |
-    String streamContents: [ :s |
-        | backslash doubleQuote |
-        backslash := Character value: 92.
-        doubleQuote := Character value: 34.
-        aString do: [ :c |
-            c = backslash ifTrue: [ s nextPutAll: '\\' ] ifFalse: [
-            c = doubleQuote ifTrue: [ s nextPutAll: '\"' ] ifFalse: [
-            c = Character lf ifTrue: [ s nextPutAll: '\n' ] ifFalse: [
-            c = Character cr ifTrue: [ s nextPutAll: '\r' ] ifFalse: [
-            c = Character tab ifTrue: [ s nextPutAll: '\t' ] ifFalse: [
-                s nextPut: c ] ] ] ] ] ] ] ].
-
 ((Smalltalk at: #WillyHorizont) at: #Runtime) at: #stringRepeat put: [ :str :count |
     String streamContents: [ :stream |
         count timesRepeat: [ stream nextPutAll: str ] ] ].
@@ -28,7 +15,7 @@ Smalltalk at: #WillyHorizont put: Dictionary new.
 
 ((Smalltalk at: #WillyHorizont) at: #Runtime) at: #getType put: [ :a |
     a ifNil: [ '[object XlNone]' ] ifNotNil: [
-        (a isKindOf: BlockClosure) ifTrue: [ '[object XlClosure]' ] ifFalse: [
+        (a isKindOf: BlockClosure) ifTrue: [ '[object XlLambda]' ] ifFalse: [
             (a isKindOf: Dictionary) ifTrue: [ '[object XlDict]' ] ifFalse: [
                 (a isArray or: [ a isCollection and: [ a isString not ] ]) ifTrue: [ '[object XlList]' ] ifFalse: [
                     a isString ifTrue: [ '[object XlString]' ] ifFalse: [
@@ -45,6 +32,19 @@ Smalltalk at: #WillyHorizont put: Dictionary new.
         ]
     ]
 ].
+
+((Smalltalk at: #WillyHorizont) at: #Runtime) at: #escapeString put: [ :aString |
+    String streamContents: [ :s |
+        | backslash doubleQuote |
+        backslash := Character value: 92.
+        doubleQuote := Character value: 34.
+        aString do: [ :c |
+            c = backslash ifTrue: [ s nextPutAll: '\\' ] ifFalse: [
+            c = doubleQuote ifTrue: [ s nextPutAll: '\"' ] ifFalse: [
+            c = Character lf ifTrue: [ s nextPutAll: '\n' ] ifFalse: [
+            c = Character cr ifTrue: [ s nextPutAll: '\r' ] ifFalse: [
+            c = Character tab ifTrue: [ s nextPutAll: '\t' ] ifFalse: [
+                s nextPut: c ] ] ] ] ] ] ] ].
 
 ((Smalltalk at: #WillyHorizont) at: #Runtime) at: #jsonStringify put: [ :va |
     | xl itr a opt p t s r c v curT curD childD dL dK dV |
@@ -157,10 +157,10 @@ Smalltalk at: #WillyHorizont put: Dictionary new.
                     yourself).
                 ].
             ].
-            curT = '[object XlClosure]' ifTrue: [
+            curT = '[object XlLambda]' ifTrue: [
                 r := r , '"' , '[object Function]' , '"'
             ].
-            ((curT = '[object XlNone]' or: [ curT = '[object XlBool]' or: [ curT = '[object XlString]' or: [ curT = '[object XlInt]' or: [ curT = '[object XlFloat]' or: [ curT = '[object XlList]' or: [ curT = '[object XlDict]' or: [ curT = '[object XlClosure]' ] ] ] ] ] ] ])) ifFalse: [
+            ((curT = '[object XlNone]' or: [ curT = '[object XlBool]' or: [ curT = '[object XlString]' or: [ curT = '[object XlInt]' or: [ curT = '[object XlFloat]' or: [ curT = '[object XlList]' or: [ curT = '[object XlDict]' or: [ curT = '[object XlLambda]' ] ] ] ] ] ] ])) ifFalse: [
                 r := r , '"[object ["Smalltalk \"' , curT , '\"]"'.
             ].
         ].

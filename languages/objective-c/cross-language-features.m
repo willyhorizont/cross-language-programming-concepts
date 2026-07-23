@@ -3,19 +3,22 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        XL * sayHello = xl.initClosure(^(XL * args) {
+        /*
+        1. support lambda as value, or has workaround
+        */
+        XL * sayHello = xl.initLambda(^(XL * args) {
             XL * callbackFunction = [args next];
             NSLog(@"hello");
             [callbackFunction call:@[]];
             return xl.initNone();
         });
-        [sayHello call:@[xl.initClosure(^(XL * a) {
+        [sayHello call:@[xl.initLambda(^(XL * a) {
             NSLog(@"world");
             return xl.initNone();
         })]];
-        XL * createMultiplier = xl.initClosure(^(XL * args) {
+        XL * createMultiplier = xl.initLambda(^(XL * args) {
             XL * aa = [args next];
-            return xl.initClosure(^(XL * args) {
+            return xl.initLambda(^(XL * args) {
                 XL * bb = [args next];
                 return xl.initInt(xl.toInt(aa) * xl.toInt(bb));
             });
@@ -25,6 +28,10 @@ int main(int argc, const char * argv[]) {
         XL * multiplyByEight = [createMultiplier call:@[xl.initInt(8)]];
         NSLog(@"%@", [NSString stringWithFormat:@"multiply_by_eight(4): %@", xl.jsonStringify([multiplyByEight call:@[xl.initInt(4)]], nil)]);
         NSLog(@"%@", [NSString stringWithFormat:@"multiply_by_two(2): %@", xl.jsonStringify([multiplyByTwo call:@[xl.initInt(2)]], nil)]);
+
+        /*
+        2. support dynamic-typed value, or has workaround
+        */
         XL * xlList = xl.initList(@[
             xl.initNone(),
             xl.initBool(YES),
@@ -36,7 +43,7 @@ int main(int argc, const char * argv[]) {
             xl.initFloat(-123.789),
             xl.initList(@[xl.initInt(1), xl.initInt(2), xl.initInt(3)]),
             xl.initDict(@{ @"foo": xl.initString(@"bar") }),
-            xl.initClosure(^(XL * args) {
+            xl.initLambda(^(XL * args) {
                 XL * aa = [args next];
                 XL * bb = [args next];
                 return xl.initInt(xl.toInt(aa) * xl.toInt(bb));
@@ -55,7 +62,7 @@ int main(int argc, const char * argv[]) {
             @"xl_float_negative": xl.initFloat(-123.789),
             @"xl_list": xl.initList(@[xl.initInt(1), xl.initInt(2), xl.initInt(3)]),
             @"xl_dict": xl.initDict(@{ @"foo": xl.initString(@"bar") }),
-            @"xl_closure": xl.initClosure(^(XL * args) {
+            @"xl_lambda": xl.initLambda(^(XL * args) {
                 XL * aa = [args next];
                 XL * bb = [args next];
                 return xl.initInt(xl.toInt(aa) * xl.toInt(bb));

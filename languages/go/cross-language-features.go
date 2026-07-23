@@ -6,13 +6,13 @@ import (
 
 func main() {
 	/*
-	1. support closure as value, or has workaround
+	1. support lambda as value, or has workaround
 	*/
 	sayHello := func(va ...interface{}) interface{} {
 		itr := xl.Iter(va)
 		callbackFunction := itr.Next()
 		xl.Println("hello")
-		xl.ToClosure(callbackFunction).Call()
+		xl.ToLambda(callbackFunction).Call()
 		return nil
 	}
 	sayHello(func(va ...interface{}) interface{} {
@@ -29,10 +29,10 @@ func main() {
 		}
 	}
 	multiplyByTwo := createMultiplier(2)
-	xl.Println("multiply_by_two(10): ", xl.ToClosure(multiplyByTwo).Call(10))
+	xl.Println("multiply_by_two(10): ", xl.ToLambda(multiplyByTwo).Call(10))
 	multiplyByEight := createMultiplier(8)
-	xl.Println("multiply_by_eight(4): ", xl.ToClosure(multiplyByEight).Call(4))
-	xl.Println("multiply_by_two(8): ", xl.ToClosure(multiplyByTwo).Call(8))
+	xl.Println("multiply_by_eight(4): ", xl.ToLambda(multiplyByEight).Call(4))
+	xl.Println("multiply_by_two(8): ", xl.ToLambda(multiplyByTwo).Call(8))
 
 	/*
 	2. support dynamic-typed value, or has workaround
@@ -68,7 +68,7 @@ func main() {
 		"xl_float_negative": -123.789,
 		"xl_list": xl.List{1, 2, 3},
 		"xl_dict": xl.Dict{"foo": "bar"},
-		"xl_closure": func(va ...interface{}) interface{} {
+		"xl_lambda": func(va ...interface{}) interface{} {
 			itr := xl.Iter(va)
 			aa := itr.Next()
 			bb := itr.Next()

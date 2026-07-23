@@ -2,26 +2,6 @@ package xl
 import "core:fmt"
 import "core:strings"
 
-escape_string :: proc(sb: ^strings.Builder, s: string) {
-	if len(s) == 0 do return
-	for char in s {
-		switch char {
-		case '\\':
-            strings.write_string(sb, "\\\\")
-		case '"':
-            strings.write_string(sb, "\\\"")
-		case '\n':
-            strings.write_string(sb, "\\n")
-		case '\r':
-            strings.write_string(sb, "\\r")
-		case '\t':
-            strings.write_string(sb, "\\t")
-		case:
-            strings.write_rune(sb, char)
-		}
-	}
-}
-
 Bool :: bool
 String :: string
 Int :: int
@@ -29,9 +9,9 @@ Float :: f64
 List :: [dynamic]Type
 Dict :: map[String]Type
 Pair :: struct { key: String, value: Type }
-Closure :: struct {
+Lambda :: struct {
 	value: rawptr,
-	call: proc(self: ^Closure, varargs: ..Type) -> Type,
+	call: proc(self: ^Lambda, varargs: ..Type) -> Type,
 }
 
 Type :: union {
@@ -41,7 +21,7 @@ Type :: union {
     Float,
     List,
     Dict,
-    Closure,
+    Lambda,
 }
 
 Iterator :: struct {
@@ -117,18 +97,38 @@ string_repeat :: proc(a: String, n: Int) -> String {
     return strings.to_string(s)
 }
 
+escape_string :: proc(sb: ^strings.Builder, s: string) {
+	if len(s) == 0 do return
+	for char in s {
+		switch char {
+		case '\\':
+            strings.write_string(sb, "\\\\")
+		case '"':
+            strings.write_string(sb, "\\\"")
+		case '\n':
+            strings.write_string(sb, "\\n")
+		case '\r':
+            strings.write_string(sb, "\\r")
+		case '\t':
+            strings.write_string(sb, "\\t")
+		case:
+            strings.write_rune(sb, char)
+		}
+	}
+}
+
 json_stringify :: proc(a: Type, o: struct { pretty: Bool } = {}) -> String {
     pretty := o.pretty
     if a == nil do return "null"
     t := string_repeat(" ", 4)
-    Tok :: struct {
+    JifyStkEl :: struct {
         t: String,
         v: Type,
         r: String,
         d: Int,
     }
-    s: [dynamic]Tok = make([dynamic]Tok, context.temp_allocator)
-    append(&s, Tok{t = "v", v = a, r = "", d = 0})
+    s: [dynamic]JifyStkEl = make([dynamic]JifyStkEl, context.temp_allocator)
+    append(&s, JifyStkEl{t = "v", v = a, r = "", d = 0})
     r := strings.builder_make()
     for len(s) > 0 {
         c := pop(&s)
@@ -160,7 +160,7 @@ json_stringify :: proc(a: Type, o: struct { pretty: Bool } = {}) -> String {
             fmt.sbprint(&r, fv)
             continue
         }
-        if _, ok := v.(Closure); ok {
+        if _, ok := v.(Lambda); ok {
             strings.write_string(&r, "\"[object Function]\"")
             continue
         }
@@ -170,21 +170,21 @@ json_stringify :: proc(a: Type, o: struct { pretty: Bool } = {}) -> String {
                 continue
             }
             child_d := cur_d + 1
-            append(&s, Tok{
+            append(&s, JifyStkEl{
                 t = "r",
                 v = nil,
                 r = pretty ? strings.concatenate({"\n", string_repeat(t, cur_d), "]"}, context.temp_allocator) : "]",
                 d = cur_d,
             })
             for i := len(lv) - 1; i >= 0; i -= 1 {
-                append(&s, Tok{
+                append(&s, JifyStkEl{
                     t = "v",
                     v = lv[i],
                     r = "",
                     d = child_d,
                 })
                 if i > 0 {
-                    append(&s, Tok{
+                    append(&s, JifyStkEl{
                         t = "r",
                         v = nil,
                         r = pretty ? strings.concatenate({",\n", string_repeat(t, child_d)}, context.temp_allocator) : ",",
@@ -192,7 +192,7 @@ json_stringify :: proc(a: Type, o: struct { pretty: Bool } = {}) -> String {
                     })
                 }
             }
-            append(&s, Tok{
+            append(&s, JifyStkEl{
                 t = "r",
                 v = nil,
                 r = pretty ? strings.concatenate({"[\n", string_repeat(t, child_d)}, context.temp_allocator) : "[",
@@ -206,7 +206,7 @@ json_stringify :: proc(a: Type, o: struct { pretty: Bool } = {}) -> String {
                 continue
             }
             child_d := cur_d + 1
-            append(&s, Tok{
+            append(&s, JifyStkEl{
                 t = "r",
                 v = nil,
                 r = pretty ? strings.concatenate({"\n", string_repeat(t, cur_d), "}"}, context.temp_allocator) : "}",
@@ -218,20 +218,20 @@ json_stringify :: proc(a: Type, o: struct { pretty: Bool } = {}) -> String {
             }
             for i := len(dpl) - 1; i >= 0; i -= 1 {
                 dp := dpl[i]
-                append(&s, Tok{
+                append(&s, JifyStkEl{
                     t = "v",
                     v = dp.value,
                     r = "",
                     d = child_d
                 })
-                append(&s, Tok{
+                append(&s, JifyStkEl{
                     t = "r",
                     v = nil,
                     r = pretty ? fmt.tprintf("\"%s\": ", dp.key) : fmt.tprintf("\"%s\":", dp.key),
                     d = child_d
                 })
                 if i > 0 {
-                    append(&s, Tok{
+                    append(&s, JifyStkEl{
                         t = "r",
                         v = nil,
                         r = pretty ? strings.concatenate({",\n", string_repeat(t, child_d)}, context.temp_allocator) : ",",
@@ -239,7 +239,7 @@ json_stringify :: proc(a: Type, o: struct { pretty: Bool } = {}) -> String {
                     })
                 }
             }
-            append(&s, Tok{
+            append(&s, JifyStkEl{
                 t = "r",
                 v = nil,
                 r = pretty ? strings.concatenate({"{\n", string_repeat(t, child_d)}, context.temp_allocator) : "{",

@@ -3,7 +3,7 @@
 
 #{
     /*
-    1. support closure as value, or has workaround
+    1. support lambda as value, or has workaround
     */
     let say-hello = (callback-function) => {
         xl.print-cmd("hello")
@@ -48,7 +48,7 @@
         "xl_float_negative": -123.789,
         "xl_list": (1, 2, 3),
         "xl_dict": ("foo": "bar"),
-        "xl_closure": (a, b) => (a * b),
+        "xl_lambda": (a, b) => (a * b),
     )
     xl.print-cmd([xl_dict: #{xl.json-stringify(xl-dict)}])
     xl.print-cmd([xl_dict: #{xl.json-stringify(xl-dict, pretty: true)}])

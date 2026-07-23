@@ -6,28 +6,18 @@ import (
 	str "strings"
 )
 
-func escapeString(s string) string {
-	return str.NewReplacer(
-		"\\", "\\\\",
-		"\"", "\\\"",
-		"\n", "\\n",
-		"\r", "\\r",
-		"\t", "\\t",
-	).Replace(fmt.Sprintf("%v", s))
-}
-
 type List []interface{}
 
 type Dict map[string]interface{}
 
-type Closure func(va ...interface{}) interface{}
+type Lambda func(va ...interface{}) interface{}
 
-func (c Closure) Call(va ...interface{}) interface{} {
+func (c Lambda) Call(va ...interface{}) interface{} {
 	return c(va...)
 }
 
 type Callable struct {
-	Underlying Closure
+	Underlying Lambda
 }
 
 func (c Callable) Call(va ...interface{}) interface{} {
@@ -130,22 +120,22 @@ func ToBool(a interface{}) bool {
 	}
 }
 
-func ToClosure(a interface{}) Callable {
+func ToLambda(a interface{}) Callable {
 	if a == nil {
-		panic("XlRuntimeError: Can't do ToClosure.")
+		panic("XlRuntimeError: Can't do ToLambda.")
 	}
 	if exst, ok := a.(Callable); ok {
 		return exst
 	}
-	if c, ok := a.(Closure); ok {
+	if c, ok := a.(Lambda); ok {
 		return Callable{Underlying: c}
 	}
 	if rC, ok := a.(func(...interface{}) interface{}); ok {
-		return Callable{Underlying: Closure(rC)}
+		return Callable{Underlying: Lambda(rC)}
 	}
 	rv := rt.ValueOf(a)
 	if rv.Kind() != rt.Func {
-		panic("XlRuntimeError: Can't do ToClosure")
+		panic("XlRuntimeError: Can't do ToLambda")
 	}
 	cls := func(va ...interface{}) interface{} {
 		a := make([]rt.Value, len(va))
@@ -159,6 +149,16 @@ func ToClosure(a interface{}) Callable {
 		return nC[0].Interface()
 	}
 	return Callable{Underlying: cls}
+}
+
+func escapeString(s string) string {
+	return str.NewReplacer(
+		"\\", "\\\\",
+		"\"", "\\\"",
+		"\n", "\\n",
+		"\r", "\\r",
+		"\t", "\\t",
+	).Replace(fmt.Sprintf("%v", s))
 }
 
 func JsonStringify(va ...interface{}) string {

@@ -8,7 +8,7 @@ class Program
     static void Main()
     {
         /*
-        1. support closure as value, or has workaround
+        1. support lambda as value, or has workaround
         */
         dynamic SayHello = (Func<dynamic[], dynamic>)((Va) => {
             var Itr = Va.GetEnumerator();
@@ -72,7 +72,7 @@ class Program
             {"xl_float_negative", -123.789},
             {"xl_list", new List<dynamic> {1, 2, 3}},
             {"xl_dict", new Dictionary<string, dynamic> {{"foo", "bar"}}},
-            {"xl_closure", (Func<dynamic[], dynamic>)((Va) => {
+            {"xl_lambda", (Func<dynamic[], dynamic>)((Va) => {
                 var Itr = Va.GetEnumerator();
                 dynamic Aa = new dynamic[] { Itr.MoveNext(), Itr.Current }.Last();
                 dynamic Bb = new dynamic[] { Itr.MoveNext(), Itr.Current }.Last();

@@ -18,36 +18,36 @@ main :: proc() {
 
     glob_scp := xl.reg_scope(nil)
     /*
-    1. support closure as value, or has workaround
+    1. support lambda as value, or has workaround
     */
-    say_hello := xl.Closure{
+    say_hello := xl.Lambda{
         value = glob_scp,
-        call = proc(self: ^xl.Closure, va: ..xl.Type) -> xl.Type {
+        call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
             itr := xl.iter(..va)
-            callback_function := xl.next(&itr).(xl.Closure)
+            callback_function := xl.next(&itr).(xl.Lambda)
             fmt.println("hello")
             callback_function.call(&callback_function)
             return nil
         },
     }
-    say_hello.call(&say_hello, xl.Closure{
+    say_hello.call(&say_hello, xl.Lambda{
         value = glob_scp,
-        call = proc(self: ^xl.Closure, va: ..xl.Type) -> xl.Type {
+        call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
             fmt.println("world")
             return nil
         },
     })
-    create_multiplier := xl.Closure{
+    create_multiplier := xl.Lambda{
         value = glob_scp,
-        call = proc(self: ^xl.Closure, va: ..xl.Type) -> xl.Type {
+        call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
             itr := xl.iter(..va)
             aa := xl.next(&itr)
             loc_scp := (^xl.Scope)(self.value)
-            return xl.Closure{
+            return xl.Lambda{
                 value = xl.reg_scope(loc_scp, xl.Dict{
                     "aa" = aa.(xl.Int),
                 }),
-                call = proc(self: ^xl.Closure, va: ..xl.Type) -> xl.Type {
+                call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
                     itr := xl.iter(..va)
                     bb := xl.next(&itr)
                     loc_scp := (^xl.Scope)(self.value)
@@ -57,8 +57,8 @@ main :: proc() {
             }
         },
     }
-    multiply_by_two := create_multiplier.call(&create_multiplier, 2).(xl.Closure)
-    multiply_by_eight := create_multiplier.call(&create_multiplier, 8).(xl.Closure)
+    multiply_by_two := create_multiplier.call(&create_multiplier, 2).(xl.Lambda)
+    multiply_by_eight := create_multiplier.call(&create_multiplier, 8).(xl.Lambda)
     fmt.printfln("multiply_by_two(10): %d", multiply_by_two.call(&multiply_by_two, 10).(xl.Int))
     fmt.printfln("multiply_by_eight(4): %d", multiply_by_eight.call(&multiply_by_eight, 4).(xl.Int))
     fmt.printfln("multiply_by_two(8): %d", multiply_by_two.call(&multiply_by_two, 8).(xl.Int))
@@ -77,9 +77,9 @@ main :: proc() {
         -123.789,
         xl.List{1, 2, 3},
         xl.Dict{"foo" = "bar"},
-        xl.Closure{
+        xl.Lambda{
             value = glob_scp,
-            call = proc(self: ^xl.Closure, va: ..xl.Type) -> xl.Type {
+            call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
                 itr := xl.iter(..va)
                 aa := xl.next(&itr).(xl.Int)
                 bb := xl.next(&itr).(xl.Int)
@@ -100,9 +100,9 @@ main :: proc() {
         "xl_float_negative" = -123.789,
         "xl_list" = xl.List{1, 2, 3},
         "xl_dict" = xl.Dict{"foo" = "bar"},
-        "xl_closure" = xl.Closure{
+        "xl_lambda" = xl.Lambda{
             value = glob_scp,
-            call = proc(self: ^xl.Closure, va: ..xl.Type) -> xl.Type {
+            call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
                 itr := xl.iter(..va)
                 aa := xl.next(&itr).(xl.Int)
                 bb := xl.next(&itr).(xl.Int)

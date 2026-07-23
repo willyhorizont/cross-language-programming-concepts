@@ -1,7 +1,7 @@
 import runtimes.groovy.willyhorizont.runtime.Xl
 
 /*
-1. support closure as value, or has workaround
+1. support lambda as value, or has workaround
 */
 def sayHello = { callbackFunction ->
     println("hello")
@@ -46,7 +46,7 @@ def xlDict = [
     "xl_float_negative": -123.789,
     "xl_list": [1, 2, 3],
     "xl_dict": [ "foo": "bar" ],
-    "xl_closure": { aa, bb -> aa * bb }
+    "xl_lambda": { aa, bb -> aa * bb }
 ]
 println("xl_dict: ${Xl.jsonStringify(xlDict)}")
 println("xl_dict: ${Xl.jsonStringify(xlDict, [pretty: true])}")

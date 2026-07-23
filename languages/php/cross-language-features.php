@@ -3,7 +3,7 @@ require_once __DIR__ . '/../../runtimes/php/willyhorizont/runtime/xl.php';
 use WillyHorizont\Runtime\Xl;
 
 /*
-1. support closure as value, or has workaround
+1. support lambda as value, or has workaround
 */
 $say_hello = function ($callback_function) {
     echo "hello" . PHP_EOL;
@@ -48,7 +48,7 @@ $xl_dict = [
     "xl_float_negative" => -123.789,
     "xl_list" => [1, 2, 3],
     "xl_dict" => ["foo" => "bar"],
-    "xl_closure" => fn ($aa, $bb) => ($aa * $bb),
+    "xl_lambda" => fn ($aa, $bb) => ($aa * $bb),
 ];
 echo "xl_dict: " . Xl::json_stringify($xl_dict) . PHP_EOL;
 echo "xl_dict: " . Xl::json_stringify($xl_dict, ["pretty" => true]) . PHP_EOL;

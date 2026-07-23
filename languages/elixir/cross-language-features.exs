@@ -1,6 +1,6 @@
 Code.require_file("../../runtimes/elixir/willyhorizont/runtime/xl.exs", __DIR__)
 
-# 1. support closure as value, or has workaround
+# 1. support lambda as value, or has workaround
 say_hello = fn (callback_function) ->
     "hello" |> IO.puts()
     callback_function.()
@@ -42,7 +42,7 @@ xl_dict = %{
     "xl_float_negative" => -123.789,
     "xl_list" => [1, 2, 3],
     "xl_dict" => %{ "foo" => "bar" },
-    "xl_closure" => fn (aa, bb) -> aa * bb end,
+    "xl_lambda" => fn (aa, bb) -> aa * bb end,
 }
 "xl_dict: #{Xl.json_stringify(xl_dict)}" |> IO.puts()
 "xl_dict: #{Xl.json_stringify(xl_dict, pretty: true)}" |> IO.puts()

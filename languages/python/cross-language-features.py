@@ -1,7 +1,7 @@
 __import__("sys").path.append(str(__import__("pathlib").Path(__file__).resolve().parents[2]))
 from runtimes.python.willyhorizont.runtime import xl
 
-# 1. support closure as value, or has workaround
+# 1. support lambda as value, or has workaround
 say_hello = lambda callback_function: [
     print("hello"),
     callback_function(),
@@ -43,7 +43,7 @@ xl_dict = {
     "xl_float_negative": -123.789,
     "xl_list": [1, 2, 3],
     "xl_dict": {"foo":"bar"},
-    "xl_closure": lambda aa, bb: aa * bb,
+    "xl_lambda": lambda aa, bb: aa * bb,
 }
 print(f"xl_dict: {xl.json_stringify(xl_dict)}")
 print(f"xl_dict: {xl.json_stringify(xl_dict, pretty=True)}")

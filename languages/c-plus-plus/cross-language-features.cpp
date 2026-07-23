@@ -4,23 +4,23 @@
 
 int main(int argc, char* argv[]) {
     /*
-    1. support closure as value, or has workaround
+    1. support lambda as value, or has workaround
     */
-    XL::Type say_hello = XL::Closure([](const XL::Type& va) -> XL::Type {
+    XL::Type say_hello = XL::Lambda([](const XL::Type& va) -> XL::Type {
         XL::Type itr = va.iter();
         XL::Type callback_function = itr.next();
         std::cout << "hello" << std::endl;
         callback_function.call();
-        return XL::None{};
+        return XL::NONE;
     });
-    say_hello.call(XL::Closure([](const XL::Type& va) -> XL::Type {
+    say_hello.call(XL::Lambda([](const XL::Type& va) -> XL::Type {
         std::cout << "world" << std::endl;
-        return XL::None{};
+        return XL::NONE;
     }));
-    XL::Type create_multiplier = XL::Closure([](const XL::Type& va) -> XL::Type {
+    XL::Type create_multiplier = XL::Lambda([](const XL::Type& va) -> XL::Type {
         XL::Type itr = va.iter();
         XL::Type aa = itr.next();
-        return XL::Closure([aa = std::move(aa)](const XL::Type& va) -> XL::Type {
+        return XL::Lambda([aa = std::move(aa)](const XL::Type& va) -> XL::Type {
             XL::Type itr = va.iter();
             XL::Type bb = itr.next();
             return XL::Int(XL::to_int(aa) * XL::to_int(bb));
@@ -36,7 +36,7 @@ int main(int argc, char* argv[]) {
     2. support dynamic-typed value, or has workaround
     */
     XL::Type xl_list = XL::List(
-        XL::None{},
+        XL::NONE,
         XL::Bool(true),
         XL::Bool(false),
         XL::String("foo"),
@@ -46,7 +46,7 @@ int main(int argc, char* argv[]) {
         XL::Float(-123.789),
         XL::List(XL::Int(1), XL::Int(2), XL::Int(3)),
         XL::Dict(XL::Pair("foo", XL::String("bar"))),
-        XL::Closure([](const XL::Type& va) -> XL::Type {
+        XL::Lambda([](const XL::Type& va) -> XL::Type {
             XL::Type itr = va.iter();
             XL::Type aa = itr.next();
             XL::Type bb = itr.next();
@@ -56,7 +56,7 @@ int main(int argc, char* argv[]) {
     std::cout << "xl_list: " << XL::json_stringify(xl_list) << std::endl;
     std::cout << "xl_list: " << XL::json_stringify(xl_list, { .pretty = true }) << std::endl;
     XL::Type xl_dict = XL::Dict(
-        XL::Pair("xl_none", XL::None{}),
+        XL::Pair("xl_none", XL::NONE),
         XL::Pair("xl_bool_true", XL::Bool(true)),
         XL::Pair("xl_bool_false", XL::Bool(false)),
         XL::Pair("xl_string", XL::String("foo")),
@@ -66,7 +66,7 @@ int main(int argc, char* argv[]) {
         XL::Pair("xl_float_negative", XL::Float(-123.789)),
         XL::Pair("xl_list", XL::List(XL::Int(1), XL::Int(2), XL::Int(3))),
         XL::Pair("xl_dict", XL::Dict(XL::Pair("foo", XL::String("bar")))),
-        XL::Pair("xl_closure", XL::Closure([](const XL::Type& va) -> XL::Type {
+        XL::Pair("xl_lambda", XL::Lambda([](const XL::Type& va) -> XL::Type {
             XL::Type itr = va.iter();
             XL::Type aa = itr.next();
             XL::Type bb = itr.next();

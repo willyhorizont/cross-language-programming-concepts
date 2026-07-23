@@ -2,28 +2,28 @@ import runtimes.kotlin.willyhorizont.runtime.xl
 
 fun main() {
     /*
-    1. support closure as value, or has workaround
+    1. support lambda as value, or has workaround
     */
-    val sayHello = object : xl.Closure {
+    val sayHello = object : xl.Lambda {
         override fun call(va: Array<out Any?>): Any? {
             val itr = va.iterator()
-            val callbackFunction = itr.next() as xl.Closure
+            val callbackFunction = itr.next() as xl.Lambda
             println("hello")
             callbackFunction()
             return null
         }
     }
-    sayHello(object : xl.Closure {
+    sayHello(object : xl.Lambda {
         override fun call(va: Array<out Any?>): Any? {
             println("world")
             return null
         }
     })
-    val createMultiplier = object : xl.Closure {
+    val createMultiplier = object : xl.Lambda {
         override fun call(va: Array<out Any?>): Any? {
             val itr = va.iterator()
             val aa = itr.next() as Int
-            return object : xl.Closure {
+            return object : xl.Lambda {
                 override fun call(va: Array<out Any?>): Any? {
                     val itr = va.iterator()
                     val bb = itr.next() as Int
@@ -32,9 +32,9 @@ fun main() {
             }
         }
     }
-    val multiplyByTwo = createMultiplier(2) as xl.Closure
+    val multiplyByTwo = createMultiplier(2) as xl.Lambda
     println("multiply_by_two(10): ${multiplyByTwo(10)}")
-    val multiplyByEight = createMultiplier(8) as xl.Closure
+    val multiplyByEight = createMultiplier(8) as xl.Lambda
     println("multiply_by_eight(4): ${multiplyByEight(4)}")
     println("multiply_by_two(8): ${multiplyByTwo(8)}")
 
@@ -52,7 +52,7 @@ fun main() {
         -123.789,
         arrayListOf<Any?>(1, 2, 3),
         hashMapOf<String, Any?>("foo" to "bar"),
-        object : xl.Closure {
+        object : xl.Lambda {
             override fun call(va: Array<out Any?>): Any? {
                 val itr = va.iterator()
                 val aa = itr.next() as Int
@@ -74,7 +74,7 @@ fun main() {
         "xl_float_negative" to -123.789,
         "xl_list" to arrayListOf<Any?>(1, 2, 3),
         "xl_dict" to hashMapOf<String, Any?>("foo" to "bar"),
-        "xl_closure" to object : xl.Closure {
+        "xl_lambda" to object : xl.Lambda {
             override fun call(va: Array<out Any?>): Any? {
                 val itr = va.iterator()
                 val aa = itr.next() as Int

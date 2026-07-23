@@ -13,13 +13,6 @@ do = va:
         { }
         va;
 
-escapeString = s:
-    if s == "" then ""
-    else builtins.replaceStrings
-        ["\\" "\"" "\n" "\r" "\t"]
-        ["\\\\" "\\\"" "\\n" "\\r" "\\t"]
-        s;
-
 ifThenElse = cond: fT: dF: ctx:
     if cond ctx
     then fT ctx
@@ -38,7 +31,15 @@ while = cond: cb: ctx:
 stringRepeat = str: n: if n <= 0 then "" else str + (stringRepeat str (n - 1));
 
 in
+
 let
+
+escapeString = s:
+    if s == "" then ""
+    else builtins.replaceStrings
+        ["\\" "\"" "\n" "\r" "\t"]
+        ["\\\\" "\\\"" "\\n" "\\r" "\\t"]
+        s;
 
 jsonStringify = a: { pretty ? false }:
     let

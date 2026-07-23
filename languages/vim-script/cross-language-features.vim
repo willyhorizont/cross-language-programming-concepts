@@ -2,7 +2,7 @@ vim9script
 
 import "../../runtimes/vimscript/willyhorizont/runtime/xl.vim" as Xl
 
-# 1. support closure as value, or has workaround
+# 1. support lambda as value, or has workaround
 var SayHello = (CallbackFunction) => {
     Xl.Echoln("hello")
     CallbackFunction()
@@ -44,7 +44,7 @@ var XlDict = {
     "xl_float_negative": -123.789,
     "xl_list": [1, 2, 3],
     "xl_dict": {"foo": "bar"},
-    "xl_closure": (aa, bb) => aa * bb,
+    "xl_lambda": (aa, bb) => aa * bb,
 }
 Xl.Echoln($"xl_dict: {Xl.JsonStringify(XlDict)}")
 Xl.Echoln($"xl_dict: {Xl.JsonStringify(XlDict, {"pretty": true})}")

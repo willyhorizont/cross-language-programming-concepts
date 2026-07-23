@@ -3,7 +3,7 @@ let
 in
 xl.do [
     /*
-    1. support closure as value, or has workaround
+    1. support lambda as value, or has workaround
     */
     (ctx: ctx // {
     sayHello = (callbackFunction:
@@ -72,7 +72,7 @@ xl.do [
         "xl_float_negative" = (-123.789);
         "xl_list" = [ 1 2 3 ];
         "xl_dict" = { "foo" = "bar"; };
-        "xl_closure" = (aa: (bb: aa * bb));
+        "xl_lambda" = (aa: (bb: aa * bb));
     };
     })
     (ctx: ctx // {

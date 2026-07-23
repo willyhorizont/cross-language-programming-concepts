@@ -6,7 +6,7 @@ use FindBin;
 require File::Spec->catfile($FindBin::Bin, "..", "..", "runtimes", "perl", "willyhorizont", "runtime", "xl.pl");
 
 =pod
-1. support closure as value, or has workaround
+1. support lambda as value, or has workaround
 =cut
 my $say_hello = sub {
     my ($callback_function) = @_;
@@ -61,7 +61,7 @@ my $xl_dict = {
     "xl_float_negative" => -123.789,
     "xl_list" => [1, 2, 3],
     "xl_dict" => {"foo" => "bar"},
-    "xl_closure" => sub {
+    "xl_lambda" => sub {
         my ($aa, $bb) = @_;
         return ($aa * $bb);
     },

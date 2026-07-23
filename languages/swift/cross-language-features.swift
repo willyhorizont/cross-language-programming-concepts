@@ -5,7 +5,7 @@ typealias xl = WillyHorizont.Runtime.Xl
 struct App {
     static func main() {
         /*
-        1. support closure as value, or has workaround
+        1. support lambda as value, or has workaround
         */
         let sayHello = { (va: [Any?]) -> Any? in
             var itr = va.makeIterator()
@@ -67,7 +67,7 @@ struct App {
             "xl_float_negative": -123.789,
             "xl_list": [1, 2, 3],
             "xl_dict": ["foo": "bar"],
-            "xl_closure": { (va: [Any?]) -> Any? in
+            "xl_lambda": { (va: [Any?]) -> Any? in
                 var itr = va.makeIterator()
                 let aa = itr.next()!! as! Int
                 let bb = itr.next()!! as! Int

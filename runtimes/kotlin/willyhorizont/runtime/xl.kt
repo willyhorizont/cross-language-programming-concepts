@@ -1,7 +1,7 @@
 package runtimes.kotlin.willyhorizont.runtime
 
 object xl {
-    interface Closure {
+    interface Lambda {
         fun call(va: Array<out Any?>): Any?
         operator fun invoke(vararg args: Any?): Any? {
             return call(args)
@@ -48,7 +48,7 @@ object xl {
                 r += v.toString()
                 continue
             }
-            if (v is Closure) {
+            if (v is Lambda) {
                 r += "\"[object Function]\""
                 continue
             }

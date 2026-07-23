@@ -6,7 +6,7 @@ Imports System.Linq
 
 Namespace WillyHorizont.Runtime
     Public Module Xl
-        Private Function EscapeString(S As Object) As Object
+        Public Function EscapeString(S As Object) As Object
             If S Is Nothing Then Return ""
             Dim R As String = Convert.ToString(S)
             R = R.Replace("\", "\\")

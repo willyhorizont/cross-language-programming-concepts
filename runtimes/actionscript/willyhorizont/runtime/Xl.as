@@ -33,7 +33,7 @@ package willyhorizont.runtime {
                     return "[object XlDict]";
                     break;
                 case "Function":
-                    return "[object XlClosure]";
+                    return "[object XlLambda]";
                     break;
                 default:
                     return "[object [ActionScript[\"" + aT + "\"]]";
@@ -123,7 +123,7 @@ package willyhorizont.runtime {
                     r += v.toString();
                     continue;
                 }
-                if (curT === "[object XlClosure]") {
+                if (curT === "[object XlLambda]") {
                     r += "\"[object Function]\"";
                     continue;
                 }

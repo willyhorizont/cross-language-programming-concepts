@@ -3,7 +3,7 @@ extends SceneTree
 const Xl = preload("../../runtimes/gdscript/willyhorizont/runtime/xl.gd")
 
 func main():
-	# 1. support closure as value, or has workaround
+	# 1. support lambda as value, or has workaround
 	var say_hello = func (callback_function):
 		print("hello")
 		callback_function.call()
@@ -44,7 +44,7 @@ func main():
 		"xl_float_negative": -123.789,
 		"xl_list": [1, 2, 3],
 		"xl_dict": {"foo": "bar"},
-		"xl_closure": func (aa, bb): return aa * bb,
+		"xl_lambda": func (aa, bb): return aa * bb,
 	}
 	print("xl_dict: " + Xl.json_stringify(xl_dict))
 	print("xl_dict: " + Xl.json_stringify(xl_dict, {"pretty": true}))

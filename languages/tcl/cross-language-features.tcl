@@ -1,17 +1,17 @@
 source [file join [file dirname [file normalize [info script]]] ".." ".." "runtimes" "tcl" "willyhorizont" "runtime" "xl.tcl"]
 
-# 1. support closure as value, or has workaround
-set say_hello [xl::closure [list] {{va} {
+# 1. support lambda as value, or has workaround
+set say_hello [xl::lambda [list] {{va} {
     lassign $va callback_function
     puts "hello"
     $callback_function call
 }}]
-$say_hello call [list [xl::closure [list] {{va} {
+$say_hello call [list [xl::lambda [list] {{va} {
     puts "world"
 }}]]
-set create_multiplier [xl::closure [list] {{va} {
+set create_multiplier [xl::lambda [list] {{va} {
     lassign $va aa
-    return [xl::closure [list $aa] {{va} {
+    return [xl::lambda [list $aa] {{va} {
         lassign $va aa bb
         return [expr {$aa * $bb}]
     }}]
@@ -34,7 +34,7 @@ set xl_list [list \
     -123.789 \
     [list 1 2 3] \
     [dict create "foo" "bar"] \
-    [xl::closure [list] {{va} {
+    [xl::lambda [list] {{va} {
         lassign $va aa bb
         return [expr {$aa * $bb}]
     }}] \
@@ -52,7 +52,7 @@ set xl_dict [dict create \
     "xl_float_negative" -123.789 \
     "xl_list" [list 1 2 3] \
     "xl_dict" [dict create "foo" "bar"] \
-    "xl_closure" [xl::closure [list] {{va} {
+    "xl_lambda" [xl::lambda [list] {{va} {
         lassign $va aa bb
         return [expr {$aa * $bb}]
     }}] \

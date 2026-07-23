@@ -2,12 +2,12 @@ import willyhorizont.runtime as xl
 
 main() {
     /*
-    1. support closure as value, or has workaround
+    1. support lambda as value, or has workaround
     */
     let sayHello: Any = { va: xl.Vararg =>
         let itr = xl.iter(va)
         match (xl.next(itr)) {
-            case callbackFunction: xl.Closure =>
+            case callbackFunction: xl.Lambda =>
                 println("hello")
                 callbackFunction([xl.NONE])
                 return xl.NONE
@@ -82,7 +82,7 @@ main() {
         ("xl_float_negative", -123.789),
         ("xl_list", xl.List([1, 2, 3])),
         ("xl_dict", xl.Dict([("foo", "bar")])),
-        ("xl_closure", { va: xl.Vararg =>
+        ("xl_lambda", { va: xl.Vararg =>
             let itr = xl.iter(va)
             (match ((
                 xl.next(itr),

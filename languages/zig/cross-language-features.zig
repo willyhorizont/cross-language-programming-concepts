@@ -4,8 +4,8 @@ const xl = @import("willyhorizont/runtime/xl.zig");
 pub fn main(init: std.process.Init) !void {
     xl.init_runtime(init.gpa, init.io);
 
-    // 1. support closure as value, or has workaround
-    const say_hello = xl.closure(.{}, struct {
+    // 1. support lambda as value, or has workaround
+    const say_hello = xl.lambda(.{}, struct {
         fn body(ctx: anytype, va: []const xl.Type) xl.Type {
             _ = ctx;
             var itr = xl.iter(va);
@@ -16,7 +16,7 @@ pub fn main(init: std.process.Init) !void {
         }
     }.body);
     defer say_hello.deinit();
-    _ = say_hello.call(.{xl.closure(.{}, struct {
+    _ = say_hello.call(.{xl.lambda(.{}, struct {
         fn body(ctx: anytype, va: []const xl.Type) xl.Type {
             _ = ctx;
             _ = va;
@@ -24,12 +24,12 @@ pub fn main(init: std.process.Init) !void {
             return xl.none;
         }
     }.body)});
-    const create_multiplier = xl.closure(.{}, struct {
+    const create_multiplier = xl.lambda(.{}, struct {
         fn body(ctx_aa: anytype, va_aa: []const xl.Type) xl.Type {
             _ = ctx_aa;
             var itr_aa = xl.iter(va_aa);
             const aa = itr_aa.next();
-            return xl.closure(.{ .aa = aa }, struct {
+            return xl.lambda(.{ .aa = aa }, struct {
                 fn body(ctx_bb: anytype, va_bb: []const xl.Type) xl.Type {
                     var itr_bb = xl.iter(va_bb);
                     const bb = itr_bb.next();
@@ -59,7 +59,7 @@ pub fn main(init: std.process.Init) !void {
         xl.float(-123.789),
         xl.list(.{ xl.int(1), xl.int(2), xl.int(3) }),
         xl.dict(.{.{ "foo", xl.string("bar") }}),
-        xl.closure(.{}, struct {
+        xl.lambda(.{}, struct {
             fn body(ctx: anytype, va: []const xl.Type) xl.Type {
                 _ = ctx;
                 var itr = xl.iter(va);
@@ -83,7 +83,7 @@ pub fn main(init: std.process.Init) !void {
         .{ "xl_float_negative", xl.float(-123.789) },
         .{ "xl_list", xl.list(.{ xl.int(1), xl.int(2), xl.int(3) }) },
         .{ "xl_dict", xl.dict(.{.{ "foo", xl.string("bar") }}) },
-        .{ "xl_closure", xl.closure(.{}, struct {
+        .{ "xl_lambda", xl.lambda(.{}, struct {
             fn body(ctx: anytype, va: []const xl.Type) xl.Type {
                 _ = ctx;
                 var itr = xl.iter(va);

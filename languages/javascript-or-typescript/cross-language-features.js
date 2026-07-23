@@ -1,7 +1,7 @@
 const xl = require("../../runtimes/javascript-or-typescript/willyhorizont/runtime/xl.js");
 
 /*
-1. support closure as value, or has workaround
+1. support lambda as value, or has workaround
 */
 const sayHello = (callbackFunction) => {
     console.log("hello");
@@ -46,7 +46,7 @@ const xlDict = {
     "xl_float_negative": -123.789,
     "xl_list": [1, 2, 3],
     "xl_dict": { "foo": "bar" },
-    "xl_closure": (aa, bb) => aa * bb,
+    "xl_lambda": (aa, bb) => aa * bb,
 };
 console.log(`xl_dict: ${xl.jsonStringify(xlDict)}`);
 console.log(`xl_dict: ${xl.jsonStringify(xlDict, { "pretty": true })}`);

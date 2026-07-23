@@ -1,16 +1,5 @@
 local XL = {}
 
-local escapeString = function(s)
-    if s == nil then return "" end
-    local r = tostring(s)
-    r = r:gsub("\\", "\\\\")
-    r = r:gsub("\"", "\\\"")
-    r = r:gsub("\n", "\\n")
-    r = r:gsub("\r", "\\r")
-    r = r:gsub("\t", "\\t")
-    return r
-end
-
 local is_none = function (a) return (type(a) == "nil") end
 local is_bool = function (a) return (type(a) == "boolean") end
 local is_string = function (a) return (type(a) == "string") end
@@ -27,7 +16,7 @@ local is_float = function (a)
     return a ~= math.floor(a)
 end
 
-local is_closure = function (a) return (type(a) == "function") end
+local is_lambda = function (a) return (type(a) == "function") end
 
 local is_list = function (a)
     if type(a) ~= "table" then return false end
@@ -63,6 +52,17 @@ local dict_to_list = function (d)
         table.insert(nl, {k, v})
     end
     return nl
+end
+
+local escapeString = function(s)
+    if s == nil then return "" end
+    local r = tostring(s)
+    r = r:gsub("\\", "\\\\")
+    r = r:gsub("\"", "\\\"")
+    r = r:gsub("\n", "\\n")
+    r = r:gsub("\r", "\\r")
+    r = r:gsub("\t", "\\t")
+    return r
 end
 
 local json_stringify = function (a, o)
@@ -180,7 +180,7 @@ XL.is_bool = is_bool
 XL.is_string = is_string
 XL.is_int = is_int
 XL.is_float = is_float
-XL.is_closure = is_closure
+XL.is_lambda = is_lambda
 XL.is_list = is_list
 XL.is_dict = is_dict
 XL.dict_to_list = dict_to_list

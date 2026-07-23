@@ -2,7 +2,7 @@ import '../../runtimes/dart/willyhorizont/runtime/xl.dart' as xl;
 
 void main() {
 	/*
-	1. support closure as value, or has workaround
+	1. support lambda as value, or has workaround
 	*/
 	var sayHello = (va) {
 		var itr = va.iterator;
@@ -62,7 +62,7 @@ void main() {
 		"xl_float_negative": -123.789,
 		"xl_list": [1, 2, 3],
 		"xl_dict": { "foo": "bar" },
-		"xl_closure": (va) {
+		"xl_lambda": (va) {
 			var itr = va.iterator;
 			var aa = (itr..moveNext()).current;
 			var bb = (itr..moveNext()).current;

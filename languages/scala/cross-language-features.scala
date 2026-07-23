@@ -2,7 +2,7 @@ import willyhorizont.runtime.Xl
 
 @main def apply(): Unit = {
     /*
-    1. support closure as value, or has workaround
+    1. support lambda as value, or has workaround
     */
     val sayHello = ((va: Seq[Any]) => {
         def body(): Any = {
@@ -75,7 +75,7 @@ import willyhorizont.runtime.Xl
         "xl_float_negative" -> -123.789,
         "xl_list" -> Xl.list(1, 2, 3),
         "xl_dict" -> Xl.dict("foo" -> "bar"),
-        "xl_closure" -> ((va: Seq[Any]) => {
+        "xl_lambda" -> ((va: Seq[Any]) => {
             def body(): Any = {
                 val aa = va(0)
                 val bb = va(1)

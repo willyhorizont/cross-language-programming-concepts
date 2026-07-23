@@ -4,20 +4,6 @@ import gleam/string
 import gleam/int
 import gleam/float
 
-pub fn escape_string(s: String) -> String {
-    case s {
-        "" -> ""
-        _ -> {
-            s
-            |> string.replace(each: "\\", with: "\\\\")
-            |> string.replace(each: "\"", with: "\\\"")
-            |> string.replace(each: "\n", with: "\\n")
-            |> string.replace(each: "\r", with: "\\r")
-            |> string.replace(each: "\t", with: "\\t")
-        }
-    }
-}
-
 pub type Xl {
     None
     Bool(Bool)
@@ -26,24 +12,25 @@ pub type Xl {
     Float(Float)
     List(List(Xl))
     Dict(dict.Dict(String, Xl))
-    Closure(fn(List(Xl)) -> Xl)
+    Lambda(fn(List(Xl)) -> Xl)
 }
 
 pub fn call(c: Xl, va: List(Xl)) -> Xl {
     case c {
-        Closure(f) -> f(va)
-        _ -> None
+        Lambda(f) -> f(va)
+        _ -> panic as "Error: Invalid arguments."
     }
 }
 
-pub fn none() -> Xl { None }
+pub const none = None
+// pub fn none() -> Xl { None }
 pub fn bool(b: Bool) -> Xl { Bool(b) }
 pub fn string(s: String) -> Xl { String(s) }
 pub fn int(n: Int) -> Xl { Int(n) }
 pub fn float(f: Float) -> Xl { Float(f) }
 pub fn list(l: List(Xl)) -> Xl { List(l) }
 pub fn dict(p: List(#(String, Xl))) -> Xl { Dict(dict.from_list(p)) }
-pub fn closure(f: fn(List(Xl)) -> Xl) -> Xl { Closure(f) }
+pub fn lambda(f: fn(List(Xl)) -> Xl) -> Xl { Lambda(f) }
 
 pub fn to_bool(v: Xl) -> Bool {
     case v {
@@ -58,7 +45,7 @@ pub fn to_bool(v: Xl) -> Bool {
         List([]) -> False
         List(_) -> True
         Dict(d) -> dict.size(d) > 0
-        Closure(_) -> True
+        Lambda(_) -> True
     }
 }
 
@@ -72,7 +59,7 @@ pub fn to_string(v: Xl) -> String {
         Float(v) -> float.to_string(v)
         List(v) -> string.inspect(v)
         Dict(v) -> string.inspect(v)
-        Closure(v) -> string.inspect(v)
+        Lambda(v) -> string.inspect(v)
     }
 }
 
@@ -86,7 +73,7 @@ pub fn to_int(v: Xl) -> Int {
         }
         Int(n) -> n
         Float(f) -> float.round(f)
-        _ -> 0
+        _ -> panic as "Error: Invalid arguments."
     }
 }
 
@@ -100,7 +87,7 @@ pub fn to_float(v: Xl) -> Float {
         }
         Int(n) -> int.to_float(n)
         Float(f) -> f
-        _ -> 0.0
+        _ -> panic as "Error: Invalid arguments."
     }
 }
 
@@ -108,21 +95,21 @@ pub fn to_list(v: Xl) -> List(Xl) {
     case v {
         None -> []
         List(l) -> l
-        _ -> [v]
+        _ -> panic as "Error: Invalid arguments."
     }
 }
 
 pub fn to_dict(v: Xl) -> dict.Dict(String, Xl) {
     case v {
         Dict(d) -> d
-        _ -> dict.new()
+        _ -> panic as "Error: Invalid arguments."
     }
 }
 
-pub fn to_closure(v: Xl) -> fn(List(Xl)) -> Xl {
+pub fn to_lambda(v: Xl) -> fn(List(Xl)) -> Xl {
     case v {
-        Closure(f) -> f
-        _ -> fn(_) { None }
+        Lambda(f) -> f
+        _ -> panic as "Error: Invalid arguments."
     }
 }
 
@@ -131,7 +118,21 @@ pub fn at(l: List(Xl), i: Int) -> Xl {
         [] -> None
         [h, .._] if i == 0 -> h
         [_, ..t] if i > 0 -> at(t, i - 1)
-        _ -> None
+        _ -> panic as "Error: Invalid arguments."
+    }
+}
+
+pub fn escape_string(s: String) -> String {
+    case s {
+        "" -> ""
+        _ -> {
+            s
+            |> string.replace(each: "\\", with: "\\\\")
+            |> string.replace(each: "\"", with: "\\\"")
+            |> string.replace(each: "\n", with: "\\n")
+            |> string.replace(each: "\r", with: "\\r")
+            |> string.replace(each: "\t", with: "\\t")
+        }
     }
 }
 
@@ -212,7 +213,7 @@ fn jify_loop(s: List(JifyStkEl), r: String, p: Bool) -> String {
                 String(sv) -> jify_loop(ns, r <> "\"" <> escape_string(sv) <> "\"", p)
                 Int(iv) -> jify_loop(ns, r <> int.to_string(iv), p)
                 Float(fv) -> jify_loop(ns, r <> float.to_string(fv), p)
-                Closure(_) -> jify_loop(ns, r <> "\"[object Function]\"", p)
+                Lambda(_) -> jify_loop(ns, r <> "\"[object Function]\"", p)
                 List(lv) -> {
                     case lv {
                         [] -> jify_loop(ns, r <> "[]", p)
