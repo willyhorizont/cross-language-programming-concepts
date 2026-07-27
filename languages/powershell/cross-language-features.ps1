@@ -7,11 +7,11 @@ $SayHello = {
     param($CallbackFunction)
     Write-Host "hello"
     &$CallbackFunction
-}
+}.GetNewClosure()
 &$SayHello {
     param()
     Write-Host "world"
-}
+}.GetNewClosure()
 $CreateMultiplier = { param($Aa) { param($Bb) ($Aa * $Bb) }.GetNewClosure() }
 $MultiplyByTwo = &$CreateMultiplier 2
 Write-Host "multiply_by_two(10): $(&$MultiplyByTwo 10)"
@@ -33,7 +33,7 @@ $XlList = @(
     -123.789,
     @(1, 2, 3),
     @{ "foo" = "bar"; },
-    { param($Aa, $Bb) ($Aa * $Bb) }
+    { param($Aa, $Bb) ($Aa * $Bb) }.GetNewClosure()
 )
 Write-Host "xl_list: $([Xl]::JsonStringify($XlList))"
 Write-Host "xl_list: $([Xl]::JsonStringify($XlList, @{ Pretty = $true }))"
@@ -48,7 +48,7 @@ $XlDict = @{
     "xl_float_negative" = -123.789;
     "xl_list" = @(1, 2, 3);
     "xl_dict" = @{ "foo" = "bar" };
-    "xl_lambda" = { param($Aa, $Bb) ($Aa * $Bb) }
+    "xl_lambda" = { param($Aa, $Bb) ($Aa * $Bb) }.GetNewClosure()
 }
 Write-Host "xl_dict: $([Xl]::JsonStringify($XlDict))"
 Write-Host "xl_dict: $([Xl]::JsonStringify($XlDict, @{ Pretty = $true }))"

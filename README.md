@@ -200,7 +200,7 @@ Cross-language implementations of common programming concepts, data structures, 
 
 ---
 
-### Lambda (Lambda as a value. Lambda with closure support. Lambda with dynamic variadic inputs. Lambda with dynamic outputs.)  
+### Lambda (Lambda as a value. Lambda with closure support. Lambda with dynamically typed variadic inputs. Lambda with dynamically typed outputs.)  
   1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/lambda.js) : Anonymous Function  
   2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/lambda.py) : lambda  
   3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/lambda.php) : Anonymous Function  

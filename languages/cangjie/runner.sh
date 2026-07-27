@@ -32,6 +32,7 @@ cjc --import-path \"$RD/runtimes/cangjie/target\" \
 cd \"$RD/runtimes/cangjie\"
 ./main
 rm -rf main target
+find \"$RD/runtimes/cangjie\" -name \"*.cjo\" -delete
 "
 
 if ! docker image inspect "$IMG" > /dev/null 2>&1; then

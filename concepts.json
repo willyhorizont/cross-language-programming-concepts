@@ -17,7 +17,7 @@
     {
         "id": "lambda",
         "name": "Lambda",
-        "concept_definition": "(Lambda as a value. Lambda with closure support. Lambda with dynamic variadic inputs. Lambda with dynamic outputs.)"
+        "concept_definition": "(Lambda as a value. Lambda with closure support. Lambda with dynamically typed variadic inputs. Lambda with dynamically typed outputs.)"
     },
     {
         "id": "hello-world",

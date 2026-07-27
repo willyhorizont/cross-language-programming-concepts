@@ -139,3 +139,5 @@ https://mcr.microsoft.com/en-us/artifact/mar/dotnet/sdk/tag/9.0.316-bookworm-sli
 
 sort docker images by disk usage:
 docker images --format "{{.Size}}\t{{.Repository}}:{{.Tag}}" | sort -hr
+
+sudo chown -R $USER:$USER runtimes/c3

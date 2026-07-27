@@ -389,9 +389,9 @@
         ],
         "docker": [
             {
-                "language_version_notes": "mcr.microsoft.com/dotnet/sdk:9.0.316-bookworm-slim-amd64",
+                "language_version_notes": "willyhorizont/microsoft/dotnet/sdk:10.0.302",
                 "docker_images": [
-                    "mcr.microsoft.com/dotnet/sdk:9.0.316-bookworm-slim-amd64"
+                    "willyhorizont/microsoft/dotnet/sdk:10.0.302"
                 ]
             }
         ]
@@ -419,9 +419,9 @@
         ],
         "docker": [
             {
-                "language_version_notes": "mcr.microsoft.com/dotnet/sdk:9.0.316-bookworm-slim-amd64",
+                "language_version_notes": "willyhorizont/microsoft/dotnet/sdk:10.0.302",
                 "docker_images": [
-                    "mcr.microsoft.com/dotnet/sdk:9.0.316-bookworm-slim-amd64"
+                    "willyhorizont/microsoft/dotnet/sdk:10.0.302"
                 ]
             }
         ]

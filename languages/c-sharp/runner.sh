@@ -10,13 +10,13 @@ if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; the
 fi
 
 DN_INFO="
-.NET SDK: 9.0.316
-ASP.NET Core Runtime: 9.0.18
-Visual Studio support: Visual Studio 2026 (v17.14)
-Included in: Visual Studio 17.14.36
-Included runtimes: .NET Runtime 9.0.18, ASP.NET Core Runtime 9.0.18, .NET Desktop Runtime 9.0.18
-Language support: C# 13.0, F# 9.0, Visual Basic 17.13
-more info: https://dotnet.microsoft.com/en-us/download/dotnet/9.0
+.NET SDK: 10.0.302
+ASP.NET Core Runtime: 10.0.10
+Visual Studio support: Visual Studio 2026 (v18.8)
+Included in: Visual Studio 18.8.0
+Included runtimes: .NET Runtime 10.0.10, ASP.NET Core Runtime 10.0.10, .NET Desktop Runtime 10.0.10
+Language support: C# 14.0, F# 10.0, Visual Basic 17.13
+more info: https://dotnet.microsoft.com/en-us/download/dotnet/10.0
 "
 
 CPV="
@@ -32,12 +32,19 @@ rm -rf \"$PTTFNXD/output\"
 cp -f \"$PTFNX\" \"$PTTFNXD/Main.cs\"
 cd \"$PTTFNXD\"
 dotnet build \"Main.csproj\" -c Release --verbosity quiet
-cd \"$PTTFNXD/output/net9.0\"
+cd \"$PTTFNXD/output/net10.0\"
 ./Main
 cd \"$RD\"
 rm -rf \"$PTTFNXD/output\"
 rm -rf \"$PTTFNXD/obj\"
 "
+
+if ! docker image inspect "$IMG" > /dev/null 2>&1; then
+    docker build \
+        -t "$IMG" \
+        -f "$RD/docker/c-sharp-and-visual-basic-dot-net/Dockerfile" \
+        "$RD"
+fi
 
 docker run -i --rm \
     --entrypoint bash \

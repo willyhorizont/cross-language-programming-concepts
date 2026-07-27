@@ -1,3 +1,7 @@
+[Last updated: 27 Jul 2026 @ 04:05 PM]
+version 2.7.65:
+update dotnet:9.0 to dotnet:10.0;
+
 [Last updated: 24 Jul 2026 @ 02:31 AM]
 version 2.7.64:
 rename closure to lambda;

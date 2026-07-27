@@ -387,6 +387,7 @@
         ".st": "bash $workspaceRoot/languages/smalltalk/runner.sh $dirWithoutTrailingSlash/$fileName",
         ".as": "bash $workspaceRoot/languages/actionscript/runner.sh $dirWithoutTrailingSlash/$fileName",
         ".cj": "bash $workspaceRoot/languages/cangjie/runner.sh $dirWithoutTrailingSlash/$fileName",
+        ".c3": "bash $workspaceRoot/languages/c3/runner.sh $dirWithoutTrailingSlash/$fileName",
     },
     "code-runner.executorMap": {
         "shellscript": "bash $fullFileName",
@@ -426,6 +427,7 @@
         "actionscript": "bash $workspaceRoot/languages/actionscript/runner.sh $dirWithoutTrailingSlash/$fileName",
         "groovy": "bash $workspaceRoot/languages/groovy/runner.sh $dirWithoutTrailingSlash/$fileName",
         "cangjie": "bash $workspaceRoot/languages/cangjie/runner.sh $dirWithoutTrailingSlash/$fileName",
+        "c3": "bash $workspaceRoot/languages/c3/runner.sh $dirWithoutTrailingSlash/$fileName",
 
         "mojo": "bash $workspaceRoot/languages/mojo/runner.sh $dirWithoutTrailingSlash/$fileName",
         "scala2": "cd $dir && scalac $fileName && scala $fileNameWithoutExt && del \"$dir*.class\"", // compile .scala file to .class and run the .class
@@ -578,5 +580,11 @@
     "julia.promptToInstall": false,
     "julia.executablePath": "/usr/local/julia/bin/julia",
     "workbench.notifications.position": "bottom-left",
-    "notification.statusMode": "off"
+    "notification.statusMode": "off",
+    "c3.lsp.enable": false,
+    "c3.lsp.checkForUpdate": false,
+    "zenMode.silentNotifications": true,
+    // "workbench.notification.extensionHidingList": [
+    //     "c3.vscode-c3"
+    // ],
 }
