@@ -37,6 +37,7 @@
     let n-doc = setup-doc(doc)
     return [
         #set page(
+            paper: "a4",
             fill: rgb("1c1c1c"),
             margin: 4pt,
         )

@@ -60,6 +60,7 @@ Cross-language implementations of common programming concepts, data structures, 
 39. [ActionScript](https://flex.apache.org/) : [https://flex.apache.org/](https://flex.apache.org/)  
 40. [Groovy](https://groovy-lang.org/) : [https://groovy-lang.org/](https://groovy-lang.org/)  
 41. [Cangjie](https://cangjie-lang.cn/en) : [https://cangjie-lang.cn/en](https://cangjie-lang.cn/en)  
+42. [C3](https://c3-lang.org/) : [https://c3-lang.org/](https://c3-lang.org/)  
 
 ![GitHub Programming Languages Card](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/github-programming-languages-card.png)  
 
@@ -107,6 +108,7 @@ Cross-language implementations of common programming concepts, data structures, 
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/cross-language-features.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/cross-language-features.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/cross-language-features.cj)  
+  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/cross-language-features.c3)  
 
 ---
 
@@ -152,6 +154,7 @@ Cross-language implementations of common programming concepts, data structures, 
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list.as) : Array  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list.groovy) : List  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list.cj) : ArrayList  
+  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list.c3) : List  
 
 ---
 
@@ -197,6 +200,7 @@ Cross-language implementations of common programming concepts, data structures, 
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/dict.as) : Object  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/dict.groovy) : Map  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/dict.cj) : HashMap  
+  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/dict.c3) : HashMap  
 
 ---
 
@@ -242,6 +246,7 @@ Cross-language implementations of common programming concepts, data structures, 
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/lambda.as) : Anonymous Function  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/lambda.groovy) : Closure  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/lambda.cj) : Closure  
+  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/lambda.c3)  
 
 ---
 
@@ -287,6 +292,7 @@ Cross-language implementations of common programming concepts, data structures, 
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/hello-world.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/hello-world.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/hello-world.cj)  
+  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/hello-world.c3)  
 
 ---
 
@@ -332,6 +338,7 @@ Cross-language implementations of common programming concepts, data structures, 
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/comments.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/comments.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/comments.cj)  
+  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/comments.c3)  
 
 ---
 
@@ -377,6 +384,7 @@ Cross-language implementations of common programming concepts, data structures, 
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/conditionals.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/conditionals.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/conditionals.cj)  
+  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/conditionals.c3)  
 
 ---
 
@@ -422,6 +430,7 @@ Cross-language implementations of common programming concepts, data structures, 
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/loops.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/loops.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/loops.cj)  
+  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/loops.c3)  
 
 ---
 
@@ -467,6 +476,7 @@ Cross-language implementations of common programming concepts, data structures, 
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/error-handling.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/error-handling.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/error-handling.cj)  
+  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/error-handling.c3)  
 
 ---
 
@@ -512,6 +522,7 @@ Cross-language implementations of common programming concepts, data structures, 
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-for-each.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-for-each.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-for-each.cj)  
+  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-for-each.c3)  
 
 ---
 
@@ -557,6 +568,7 @@ Cross-language implementations of common programming concepts, data structures, 
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-any.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-any.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-any.cj)  
+  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-any.c3)  
 
 ---
 
@@ -602,6 +614,7 @@ Cross-language implementations of common programming concepts, data structures, 
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-all.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-all.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-all.cj)  
+  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-all.c3)  
 
 ---
 
@@ -647,6 +660,7 @@ Cross-language implementations of common programming concepts, data structures, 
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-find.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-find.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-find.cj)  
+  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-find.c3)  
 
 ---
 
@@ -692,6 +706,7 @@ Cross-language implementations of common programming concepts, data structures, 
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-find-index.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-find-index.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-find-index.cj)  
+  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-find-index.c3)  
 
 ---
 
@@ -737,6 +752,7 @@ Cross-language implementations of common programming concepts, data structures, 
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-filter.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-filter.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-filter.cj)  
+  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-filter.c3)  
 
 ---
 
@@ -782,6 +798,7 @@ Cross-language implementations of common programming concepts, data structures, 
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-map.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-map.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-map.cj)  
+  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-map.c3)  
 
 ---
 
@@ -827,6 +844,7 @@ Cross-language implementations of common programming concepts, data structures, 
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-reduce.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-reduce.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-reduce.cj)  
+  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-reduce.c3)  
 
 ---
 
@@ -872,6 +890,7 @@ Cross-language implementations of common programming concepts, data structures, 
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-pop.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-pop.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-pop.cj)  
+  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-pop.c3)  
 
 ---
 
@@ -917,6 +936,7 @@ Cross-language implementations of common programming concepts, data structures, 
   39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-push.as)  
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-push.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-push.cj)  
+  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-push.c3)  
 
 ## Trends
 

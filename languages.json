@@ -1249,5 +1249,35 @@
                 ]
             }
         ]
+    },
+    {
+        "id": "c3",
+        "stack": [
+            { 
+                "name": "C3",
+                "url": "https://c3-lang.org/",
+                "color": "#2563eb"
+            }
+        ],
+        "file_extension": ".c3",
+        "concept_definition": {
+            "list": "List",
+            "dict": "HashMap",
+            "lambda": null
+        },
+        "vscode_extensions": [
+            "c3.vscode-c3"
+        ],
+        "vscode_extensions_archive": [
+            
+        ],
+        "docker": [
+            {
+                "language_version_notes": "willyhorizont/c3:0.8.2",
+                "docker_images": [
+                    "willyhorizont/c3:0.8.2"
+                ]
+            }
+        ]
     }
 ]

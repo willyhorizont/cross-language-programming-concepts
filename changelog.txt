@@ -1,3 +1,7 @@
+[Last updated: 28 Jul 2026 @ 03:30 AM]
+version 2.7.66:
+finish c3 runtime init;
+
 [Last updated: 27 Jul 2026 @ 04:05 PM]
 version 2.7.65:
 update dotnet:9.0 to dotnet:10.0;

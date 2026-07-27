@@ -55,6 +55,7 @@ https://nue.nu/
 d
 v
 c3
+verse
 vala
 vale
 hare
@@ -63,7 +64,6 @@ wren
 onyx
 lobster
 pony
-vere
 gml
 https://nekovm.org/
 Haxe
