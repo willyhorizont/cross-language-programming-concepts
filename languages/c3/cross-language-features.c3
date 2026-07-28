@@ -48,11 +48,11 @@ fn void main()
     defer xl::free_memory(create_multiplier);
     xl::Type* multiply_by_two = create_multiplier.call(xl::init_int(2));
     defer xl::free_memory(multiply_by_two);
-    xl::printn("multiply_by_two(10): ", xl::json_stringify(multiply_by_two.call(xl::init_int(10))));
+    xl::printn("multiply_by_two(10): ", xl::to_string(multiply_by_two.call(xl::init_int(10))));
     xl::Type* multiply_by_eight = create_multiplier.call(xl::init_int(8));
     defer xl::free_memory(multiply_by_eight);
-    xl::printn("multiply_by_eight(4): ", xl::json_stringify(multiply_by_eight.call(xl::init_int(4))));
-    xl::printn("multiply_by_two(8): ", xl::json_stringify(multiply_by_two.call(xl::init_int(8))));
+    xl::printn("multiply_by_eight(4): ", xl::to_string(multiply_by_eight.call(xl::init_int(4))));
+    xl::printn("multiply_by_two(8): ", xl::to_string(multiply_by_two.call(xl::init_int(8))));
     
     /*
     2. support dynamic-typed value, or has workaround

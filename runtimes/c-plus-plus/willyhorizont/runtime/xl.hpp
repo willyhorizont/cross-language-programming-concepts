@@ -1,4 +1,5 @@
-#pragma once
+#ifndef WILLYHORIZONT_RUNTIME_XL_H
+#define WILLYHORIZONT_RUNTIME_XL_H
 
 #include <iostream>
 #include <variant>
@@ -324,3 +325,5 @@ namespace XL {
         return r;
     }
 }
+
+#endif // WILLYHORIZONT_RUNTIME_XL_H

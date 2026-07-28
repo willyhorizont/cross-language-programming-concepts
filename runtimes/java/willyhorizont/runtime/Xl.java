@@ -69,9 +69,9 @@ public class Xl {
         return NONE;
     }
 
-    public static Xl list(Object... els) {
+    public static Xl list(Object... ell) {
         ArrayList<Xl> l = new ArrayList<>();
-        for (Object el : els) {
+        for (Object el : ell) {
             l.add(toXl(el));
         }
         return new Xl(Type.LIST, l);

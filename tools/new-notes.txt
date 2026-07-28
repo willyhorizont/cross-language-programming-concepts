@@ -64,6 +64,7 @@ wren
 onyx
 lobster
 pony
+monkey c
 gml
 https://nekovm.org/
 Haxe
@@ -141,3 +142,5 @@ sort docker images by disk usage:
 docker images --format "{{.Size}}\t{{.Repository}}:{{.Tag}}" | sort -hr
 
 sudo chown -R $USER:$USER runtimes/c3
+
+\b[a-z]+(?:[A-Z][a-z0-9]*)+\b regex to find camelCase

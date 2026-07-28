@@ -3,9 +3,9 @@ package willyhorizont.runtime
 import scala.collection.mutable.{Map => MutableMap, ArrayBuffer}
 
 object Xl {
-    def list(els: Any*): Any = {
+    def list(ell: Any*): Any = {
         val l = ArrayBuffer[Any]()
-        els.foreach((el) => {
+        ell.foreach((el) => {
             l.append(el)
         })
         return l

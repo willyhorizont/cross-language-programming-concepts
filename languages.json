@@ -1091,7 +1091,7 @@
         ],
         "docker": [
             {
-                "language_version_notes": "gcc:16.1.0-trixie and c++23",
+                "language_version_notes": "gcc:16.1.0-trixie and cpp:23",
                 "docker_images": [
                     "gcc:16.1.0-trixie"
                 ]
@@ -1276,6 +1276,36 @@
                 "language_version_notes": "willyhorizont/c3:0.8.2",
                 "docker_images": [
                     "willyhorizont/c3:0.8.2"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "c",
+        "stack": [
+            { 
+                "name": "C",
+                "url": "https://www.c-language.org/",
+                "color": "#555555"
+            }
+        ],
+        "file_extension": ".c",
+        "concept_definition": {
+            "list": null,
+            "dict": null,
+            "lambda": null
+        },
+        "vscode_extensions": [
+            
+        ],
+        "vscode_extensions_archive": [
+            
+        ],
+        "docker": [
+            {
+                "language_version_notes": "gcc:16.1.0-trixie and c:23",
+                "docker_images": [
+                    "gcc:16.1.0-trixie"
                 ]
             }
         ]

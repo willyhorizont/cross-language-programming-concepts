@@ -61,6 +61,7 @@ Cross-language implementations of common programming concepts, data structures, 
 40. [Groovy](https://groovy-lang.org/) : [https://groovy-lang.org/](https://groovy-lang.org/)  
 41. [Cangjie](https://cangjie-lang.cn/en) : [https://cangjie-lang.cn/en](https://cangjie-lang.cn/en)  
 42. [C3](https://c3-lang.org/) : [https://c3-lang.org/](https://c3-lang.org/)  
+43. [C](https://www.c-language.org/) : [https://www.c-language.org/](https://www.c-language.org/)  
 
 ![GitHub Programming Languages Card](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/github-programming-languages-card.png)  
 
@@ -109,6 +110,7 @@ Cross-language implementations of common programming concepts, data structures, 
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/cross-language-features.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/cross-language-features.cj)  
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/cross-language-features.c3)  
+  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/cross-language-features.c)  
 
 ---
 
@@ -155,6 +157,7 @@ Cross-language implementations of common programming concepts, data structures, 
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list.groovy) : List  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list.cj) : ArrayList  
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list.c3) : List  
+  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list.c)  
 
 ---
 
@@ -201,6 +204,7 @@ Cross-language implementations of common programming concepts, data structures, 
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/dict.groovy) : Map  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/dict.cj) : HashMap  
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/dict.c3) : HashMap  
+  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/dict.c)  
 
 ---
 
@@ -247,6 +251,7 @@ Cross-language implementations of common programming concepts, data structures, 
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/lambda.groovy) : Closure  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/lambda.cj) : Closure  
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/lambda.c3)  
+  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/lambda.c)  
 
 ---
 
@@ -293,6 +298,7 @@ Cross-language implementations of common programming concepts, data structures, 
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/hello-world.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/hello-world.cj)  
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/hello-world.c3)  
+  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/hello-world.c)  
 
 ---
 
@@ -339,6 +345,7 @@ Cross-language implementations of common programming concepts, data structures, 
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/comments.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/comments.cj)  
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/comments.c3)  
+  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/comments.c)  
 
 ---
 
@@ -385,6 +392,7 @@ Cross-language implementations of common programming concepts, data structures, 
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/conditionals.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/conditionals.cj)  
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/conditionals.c3)  
+  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/conditionals.c)  
 
 ---
 
@@ -431,6 +439,7 @@ Cross-language implementations of common programming concepts, data structures, 
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/loops.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/loops.cj)  
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/loops.c3)  
+  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/loops.c)  
 
 ---
 
@@ -477,6 +486,7 @@ Cross-language implementations of common programming concepts, data structures, 
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/error-handling.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/error-handling.cj)  
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/error-handling.c3)  
+  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/error-handling.c)  
 
 ---
 
@@ -523,6 +533,7 @@ Cross-language implementations of common programming concepts, data structures, 
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-for-each.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-for-each.cj)  
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-for-each.c3)  
+  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-for-each.c)  
 
 ---
 
@@ -569,6 +580,7 @@ Cross-language implementations of common programming concepts, data structures, 
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-any.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-any.cj)  
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-any.c3)  
+  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-any.c)  
 
 ---
 
@@ -615,6 +627,7 @@ Cross-language implementations of common programming concepts, data structures, 
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-all.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-all.cj)  
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-all.c3)  
+  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-all.c)  
 
 ---
 
@@ -661,6 +674,7 @@ Cross-language implementations of common programming concepts, data structures, 
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-find.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-find.cj)  
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-find.c3)  
+  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-find.c)  
 
 ---
 
@@ -707,6 +721,7 @@ Cross-language implementations of common programming concepts, data structures, 
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-find-index.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-find-index.cj)  
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-find-index.c3)  
+  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-find-index.c)  
 
 ---
 
@@ -753,6 +768,7 @@ Cross-language implementations of common programming concepts, data structures, 
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-filter.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-filter.cj)  
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-filter.c3)  
+  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-filter.c)  
 
 ---
 
@@ -799,6 +815,7 @@ Cross-language implementations of common programming concepts, data structures, 
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-map.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-map.cj)  
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-map.c3)  
+  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-map.c)  
 
 ---
 
@@ -845,6 +862,7 @@ Cross-language implementations of common programming concepts, data structures, 
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-reduce.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-reduce.cj)  
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-reduce.c3)  
+  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-reduce.c)  
 
 ---
 
@@ -891,6 +909,7 @@ Cross-language implementations of common programming concepts, data structures, 
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-pop.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-pop.cj)  
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-pop.c3)  
+  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-pop.c)  
 
 ---
 
@@ -937,6 +956,7 @@ Cross-language implementations of common programming concepts, data structures, 
   40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-push.groovy)  
   41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-push.cj)  
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-push.c3)  
+  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-push.c)  
 
 ## Trends
 

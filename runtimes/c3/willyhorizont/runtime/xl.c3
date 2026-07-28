@@ -106,12 +106,12 @@ fn Type* init_float(Float v) @public
     return r;
 }
 
-fn Type* init_list(Type*... els) @public
+fn Type* init_list(Type*... ell) @public
 {
     Type* r = mem::new(Type);
     List* lr = mem::new(List);
     lr.init(mem);
-    foreach (el : els)
+    foreach (el : ell)
     {
         lr.push(el);
     }
@@ -464,6 +464,96 @@ fn String json_stringify(Type* a, bool pretty = false) @public
         }
     }
     return join(r.str_view());
+}
+
+fn Bool to_bool(Type* a) @public
+{
+    if (a == null) return false;
+    switch (a.type)
+    {
+        case NONE:
+            return false;
+        case BOOL:
+            return a.bool_value;
+        case INT:
+            return a.int_value != 0;
+        case FLOAT:
+            return a.float_value != 0.0;
+        case STRING:
+            return a.string_value.len > 0;
+        case LIST:
+            return a.list_ref != null && a.list_ref.len() > 0;
+        case DICT:
+            return a.dict_ref != null && a.dict_ref.len() > 0;
+        default:
+            return true;
+    }
+}
+
+fn String to_string(Type* a) @public
+{
+    if (a == null) return "null";
+    switch (a.type)
+    {
+        case NONE:
+            return "null";
+        case BOOL:
+            return a.bool_value ? "true" : "false";
+        case INT:
+            return string::format(mem, "%d", a.int_value);
+        case FLOAT:
+            return string::format(mem, "%f", a.float_value);
+        case STRING:
+            return a.string_value;
+        case LIST:
+            return json_stringify(a);
+        case DICT:
+            return json_stringify(a);
+        case LAMBDA:
+            return "[object Function]";
+        default:
+            return "null";
+    }
+}
+
+fn Int to_int(Type* a) @public
+{
+    if (a == null) return 0;
+    switch (a.type)
+    {
+        case NONE:
+            return 0;
+        case BOOL:
+            return a.bool_value ? 1 : 0;
+        case INT:
+            return a.int_value;
+        case FLOAT:
+            return (Int)a.float_value;
+        case STRING:
+            return (Int)a.string_value.to_int(10)!!;
+        default:
+            return 0;
+    }
+}
+
+fn Float to_float(Type* a) @public
+{
+    if (a == null) return 0.0;
+    switch (a.type)
+    {
+        case NONE:
+            return 0.0;
+        case BOOL:
+            return a.bool_value ? 1.0 : 0.0;
+        case INT:
+            return (Float)a.int_value;
+        case FLOAT:
+            return a.float_value;
+        case STRING:
+            return (Float)a.string_value.to_float()!!;
+        default:
+            return 0.0;
+    }
 }
 
 macro printn(...) @public
