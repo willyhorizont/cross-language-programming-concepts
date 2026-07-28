@@ -38,13 +38,13 @@ struct Type @public
         Float float_value;
         List* list_ref;
         Dict* dict_ref;
-        Lambda lambda_ref;
+        Lambda lambda_value;
         Iterator* iterator_ref;
     }
 	Type* ctx_ref;
 }
 
-struct Pair @public
+struct Pair
 {
     String key;
     Type* value;
@@ -143,7 +143,7 @@ macro Type* init_lambda(c_ref, Type* ctx_ref = null) @public
     Type* r = mem::new(Type);
     Type c;
     c.type = Types.LAMBDA;
-    c.lambda_ref = (xl::Lambda)c_ref;
+    c.lambda_value = (xl::Lambda)c_ref;
     c.ctx_ref = ctx_ref;
     *r = c;
     return r;
@@ -151,7 +151,7 @@ macro Type* init_lambda(c_ref, Type* ctx_ref = null) @public
 
 macro Type* Type.call(Type* this, va)
 {
-    if (this == null || this.type != Types.LAMBDA || this.lambda_ref == null)
+    if (this == null || this.type != Types.LAMBDA || this.lambda_value == null)
     {
         unreachable("XlRuntimeError: Invalid arguments.");
     }
@@ -159,17 +159,17 @@ macro Type* Type.call(Type* this, va)
     if (this.ctx_ref != null) {
         ctx_ref = this.ctx_ref;
     }
-    return this.lambda_ref(ctx_ref, init_list(va));
+    return this.lambda_value(ctx_ref, init_list(va));
 }
 
-fn Type* get(Type* ctx_ref, String k) @public
+fn Type* get(Type* d, String k) @public
 {
-    if (ctx_ref == null || ctx_ref.type != Types.DICT || ctx_ref.dict_ref == null)
+    if (d == null || d.type != Types.DICT || d.dict_ref == null)
     {
         unreachable("XlRuntimeError: Invalid arguments.");
     }
-    xl::Dict* d = ctx_ref.dict_ref;
-    return d.get(k)!!;
+    xl::Dict* d_ref = d.dict_ref;
+    return d_ref.get(k)!!;
 }
 
 fn Type* iter(Type* l) @public
@@ -468,7 +468,7 @@ fn String json_stringify(Type* a, bool pretty = false) @public
 
 macro printn(...) @public
 {
-    $for var $i = 0; $i < $vaarg.len; $i++:
+    $for var $i = 0; $i < $vaarg.len; $i += 1:
         $switch $Typeof($vaarg[$i]):
             $case String:
                 io::print((String)$vaarg[$i]);
