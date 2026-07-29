@@ -714,8 +714,8 @@ typedef struct {
     Xl* (*init_string)(String);
     Xl* (*init_int)(Int);
     Xl* (*init_float)(Float);
-    Xl* (*init_list)(Xl*, ...);
-    Xl* (*init_dict)(Pair, ...);
+    Xl* (*mk_l)(Xl*, ...);
+    Xl* (*mk_d)(Pair, ...);
     Xl* (*mk_c)(Lambda, Xl*);
     Xl* (*call)(Xl*, Xl*);
     Xl* (*get)(Xl*, String);
@@ -726,7 +726,7 @@ typedef struct {
     Xl* (*repeat)(String, Int);
     String (*jify)(Xl*, JifyOpt);
     Pair (*init_pair)(String, Xl*);
-    void (*print)(String, ...); 
+    void (*prnt)(String, ...); 
     Bool (*to_bool)(Xl*);
     String (*to_string)(Xl*);
     Int (*to_int)(Xl*);
@@ -739,8 +739,8 @@ const static XlNamespace xl = {
     .init_string = mk_s,
     .init_int = mk_i,
     .init_float = mk_f,
-    .init_list = mk_l,
-    .init_dict = mk_d,
+    .mk_l = mk_l,
+    .mk_d = mk_d,
     .mk_c = mk_c,
     .call = c_c,
     .get = d_g,
@@ -751,14 +751,17 @@ const static XlNamespace xl = {
     .repeat = s_rpt,
     .jify = jify,
     .init_pair = mk_p,
-    .print = prnt,
+    .prnt = prnt,
     .to_bool = to_b,
     .to_string = to_s,
     .to_int = to_i,
     .to_float = to_f,
 };
 
+#define init_list(...) mk_l(__VA_ARGS__, NULL)
+#define init_dict(...) mk_d(__VA_ARGS__, mk_p(NULL, NULL))
 #define init_lambda(body, ctx) mk_c(({ Xl* __fn__ (Xl* ctx_ref, Xl* vararg) body; __fn__; }), ctx)
 #define json_stringify(_a, ...) jify((_a), (JifyOpt){ .pretty = false, __VA_ARGS__ })
+#define print(...) prnt(__VA_ARGS__, NULL)
 
 #endif // WILLYHORIZONT_RUNTIME_XL_H

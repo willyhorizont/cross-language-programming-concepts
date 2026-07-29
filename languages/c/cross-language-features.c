@@ -34,13 +34,13 @@ int main(int argc, char *argv[]) {
             xl.free(itr);
             xl.free(vararg);
             return otp;
-        }, xl.init_dict(xl.init_pair("aa", xl.init_int(aa_ctx)), xl.init_pair(NULL, NULL)));
+        }, xl.init_dict(xl.init_pair("aa", xl.init_int(aa_ctx))));
     }, NULL);
     Xl* multiply_by_two = xl.call(create_multiplier, xl.init_int(2));
-    xl.print("multiply_by_two(10): ", xl.to_string(xl.call(multiply_by_two, xl.init_int(10))), NULL);
+    xl.print("multiply_by_two(10): ", xl.to_string(xl.call(multiply_by_two, xl.init_int(10))));
     Xl* multiply_by_eight = xl.call(create_multiplier, xl.init_int(8));
-    xl.print("multiply_by_eight(4): ", xl.to_string(xl.call(multiply_by_eight, xl.init_int(4))), NULL);
-    xl.print("multiply_by_two(8): ", xl.to_string(xl.call(multiply_by_two, xl.init_int(8))), NULL);
+    xl.print("multiply_by_eight(4): ", xl.to_string(xl.call(multiply_by_eight, xl.init_int(4))));
+    xl.print("multiply_by_two(8): ", xl.to_string(xl.call(multiply_by_two, xl.init_int(8))));
     xl.free(multiply_by_two);
     xl.free(multiply_by_eight);
     xl.free(create_multiplier);
@@ -57,8 +57,8 @@ int main(int argc, char *argv[]) {
         xl.init_int(-123),
         xl.init_float(123.789),
         xl.init_float(-123.789),
-        xl.init_list(xl.init_int(1), xl.init_int(2), xl.init_int(3), NULL),
-        xl.init_dict(xl.init_pair("foo", xl.init_string("bar")), xl.init_pair(NULL, NULL)),
+        xl.init_list(xl.init_int(1), xl.init_int(2), xl.init_int(3)),
+        xl.init_dict(xl.init_pair("foo", xl.init_string("bar"))),
         xl.init_lambda({
             Xl* itr = xl.iter(vararg);
             Xl* aa = xl.next(itr);
@@ -67,10 +67,10 @@ int main(int argc, char *argv[]) {
             xl.free(itr);
             xl.free(vararg);
             return otp;
-        }, NULL),
-    NULL);
-    xl.print("xl_list: ", xl.json_stringify(xl_list), NULL);
-    xl.print("xl_list: ", xl.json_stringify(xl_list, .pretty = true), NULL);
+        }, NULL)
+    );
+    xl.print("xl_list: ", xl.json_stringify(xl_list));
+    xl.print("xl_list: ", xl.json_stringify(xl_list, .pretty = true));
     xl.free(xl_list);
     Xl* xl_dict = xl.init_dict(
         xl.init_pair("xl_none", xl.init_none()),
@@ -81,8 +81,8 @@ int main(int argc, char *argv[]) {
         xl.init_pair("xl_int_negative", xl.init_int(-123)),
         xl.init_pair("xl_float_positive", xl.init_float(123.789)),
         xl.init_pair("xl_float_negative", xl.init_float(-123.789)),
-        xl.init_pair("xl_list", xl.init_list(xl.init_int(1), xl.init_int(2), xl.init_int(3), NULL)),
-        xl.init_pair("xl_dict", xl.init_dict(xl.init_pair("foo", xl.init_string("bar")), xl.init_pair(NULL, NULL))),
+        xl.init_pair("xl_list", xl.init_list(xl.init_int(1), xl.init_int(2), xl.init_int(3))),
+        xl.init_pair("xl_dict", xl.init_dict(xl.init_pair("foo", xl.init_string("bar")))),
         xl.init_pair("xl_lambda", xl.init_lambda({
             Xl* itr = xl.iter(vararg);
             Xl* aa = xl.next(itr);
@@ -91,10 +91,10 @@ int main(int argc, char *argv[]) {
             xl.free(itr);
             xl.free(vararg);
             return otp;
-        }, NULL)),
-    xl.init_pair(NULL, NULL));
-    xl.print("xl_dict: ", xl.json_stringify(xl_dict), NULL);
-    xl.print("xl_dict: ", xl.json_stringify(xl_dict, .pretty = true), NULL);
+        }, NULL))
+    );
+    xl.print("xl_dict: ", xl.json_stringify(xl_dict));
+    xl.print("xl_dict: ", xl.json_stringify(xl_dict, .pretty = true));
     xl.free(xl_dict);
     
     return 0;
