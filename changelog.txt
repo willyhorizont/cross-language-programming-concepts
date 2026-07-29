@@ -1,3 +1,7 @@
+[Last updated: 30 Jul 2026 @ 01:52 AM]
+version 2.7.70:
+finish d runtime init;
+
 [Last updated: 29 Jul 2026 @ 07:01 AM]
 version 2.7.69:
 small update in c runtime init;

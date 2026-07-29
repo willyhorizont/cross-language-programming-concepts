@@ -9,12 +9,12 @@ int main(int argc, char* argv[]) {
     XL::Type say_hello = XL::Lambda([](const XL::Type& va) -> XL::Type {
         XL::Type itr = va.iter();
         XL::Type callback_function = itr.next();
-        std::cout << "hello" << std::endl;
+        std::cout << "hello" << '\n';
         callback_function.call();
         return XL::NONE;
     });
     say_hello.call(XL::Lambda([](const XL::Type& va) -> XL::Type {
-        std::cout << "world" << std::endl;
+        std::cout << "world" << '\n';
         return XL::NONE;
     }));
     XL::Type create_multiplier = XL::Lambda([](const XL::Type& va) -> XL::Type {
@@ -27,10 +27,10 @@ int main(int argc, char* argv[]) {
         });
     });
     XL::Type multiply_by_two = create_multiplier.call(XL::Int(2));
-    std::cout << "multiply_by_two(10): " << XL::to_int(multiply_by_two.call(XL::Int(10))) << std::endl;
+    std::cout << "multiply_by_two(10): " << XL::to_int(multiply_by_two.call(XL::Int(10))) << '\n';
     XL::Type multiply_by_eight = create_multiplier.call(XL::Int(8));
-    std::cout << "multiply_by_eight(4): " << XL::to_int(multiply_by_eight.call(XL::Int(4))) << std::endl;
-    std::cout << "multiply_by_two(8): " << XL::to_int(multiply_by_two.call(XL::Int(8))) << std::endl;
+    std::cout << "multiply_by_eight(4): " << XL::to_int(multiply_by_eight.call(XL::Int(4))) << '\n';
+    std::cout << "multiply_by_two(8): " << XL::to_int(multiply_by_two.call(XL::Int(8))) << '\n';
 
     /*
     2. support dynamic-typed value, or has workaround
@@ -53,8 +53,8 @@ int main(int argc, char* argv[]) {
             return XL::Int(XL::to_int(aa) * XL::to_int(bb));
         })
     );
-    std::cout << "xl_list: " << XL::json_stringify(xl_list) << std::endl;
-    std::cout << "xl_list: " << XL::json_stringify(xl_list, { .pretty = true }) << std::endl;
+    std::cout << "xl_list: " << XL::json_stringify(xl_list) << '\n';
+    std::cout << "xl_list: " << XL::json_stringify(xl_list, { .pretty = true }) << '\n';
     XL::Type xl_dict = XL::Dict(
         XL::Pair("xl_none", XL::NONE),
         XL::Pair("xl_bool_true", XL::Bool(true)),
@@ -73,8 +73,8 @@ int main(int argc, char* argv[]) {
             return XL::Int(XL::to_int(aa) * XL::to_int(bb));
         }))
     );
-    std::cout << "xl_dict: " << XL::json_stringify(xl_dict) << std::endl;
-    std::cout << "xl_dict: " << XL::json_stringify(xl_dict, { .pretty = true }) << std::endl;
+    std::cout << "xl_dict: " << XL::json_stringify(xl_dict) << '\n';
+    std::cout << "xl_dict: " << XL::json_stringify(xl_dict, { .pretty = true }) << '\n';
 
     return 0;
 }

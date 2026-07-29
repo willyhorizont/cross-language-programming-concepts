@@ -52,10 +52,10 @@ https://nue.nu/
 ~~c~~ tried, canceled, no closure as value, already have C++ tho...
 ~~groovy~~
 ~~cangjie~~
-d
+~~c3~~
+~~c~~
+~~d~~
 v
-c3
-verse
 vala
 vale
 hare
@@ -64,6 +64,11 @@ wren
 onyx
 lobster
 pony
+verse
+val
+roc
+circle
+cppfront/cpp2
 monkey c
 gml
 https://nekovm.org/
@@ -144,3 +149,13 @@ docker images --format "{{.Size}}\t{{.Repository}}:{{.Tag}}" | sort -hr
 sudo chown -R $USER:$USER runtimes/c3
 
 \b[a-z]+(?:[A-Z][a-z0-9]*)+\b regex to find camelCase
+
+def greet_girl(gn, pretty=False):
+    if pretty:
+        print("Hi pretty")
+    else:
+        print("Hi")
+greet_girl("Alisa", pretty=True)
+greet_girl("Mia")
+
+\([^()]*\)(?=[^\]\s);,-]) regex to find c-style casting

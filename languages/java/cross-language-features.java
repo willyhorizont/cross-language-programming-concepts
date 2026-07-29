@@ -12,7 +12,7 @@ public class Main {
             callbackFunction.call();
             return Xl.NONE;
         });
-        sayHello.call(Xl.from((Xl... genericArgs) -> {
+        sayHello.call(Xl.from((Xl... va) -> {
             System.out.println("world");
             return Xl.NONE;
         }));

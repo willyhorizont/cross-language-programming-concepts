@@ -1309,5 +1309,35 @@
                 ]
             }
         ]
+    },
+    {
+        "id": "d",
+        "stack": [
+            { 
+                "name": "D",
+                "url": "https://dlang.org/",
+                "color": "#ba595e"
+            }
+        ],
+        "file_extension": ".d",
+        "concept_definition": {
+            "list": "Array",
+            "dict": "Associative Array",
+            "lambda": "Delegate"
+        },
+        "vscode_extensions": [
+            "webfreak.code-d"
+        ],
+        "vscode_extensions_archive": [
+            
+        ],
+        "docker": [
+            {
+                "language_version_notes": "willyhorizont/dmd:2.112.0",
+                "docker_images": [
+                    "willyhorizont/dmd:2.112.0"
+                ]
+            }
+        ]
     }
 ]

@@ -34,11 +34,9 @@ namespace XL {
     using DictValue = std::unordered_map<std::string, Type>;
     using Pair = std::pair<std::string, XL::Type>;
     struct Iterator {
-        std::shared_ptr<ListValue> list_ptr;
+        std::shared_ptr<ListValue> list_ref;
         size_t index = 0;
-
-        Iterator(std::shared_ptr<ListValue> l, size_t start_idx = 0) : list_ptr(l), index(start_idx) {}
-
+        Iterator(std::shared_ptr<ListValue> l, size_t start_idx = 0) : list_ref(l), index(start_idx) {}
         Type next();
     };
 
@@ -88,23 +86,23 @@ namespace XL {
         }
 
         Type iter() const {
-            if (auto list_ptr = std::get_if<std::shared_ptr<ListValue>>(&value)) {
-                return Type(std::make_shared<Iterator>(*list_ptr, 0));
+            if (auto list_ref = std::get_if<std::shared_ptr<ListValue>>(&value)) {
+                return Type(std::make_shared<Iterator>(*list_ref, 0));
             }
             throw std::runtime_error("XlError: Object is not iterable.");
         }
 
         Type next() const {
-            if (auto it_ptr = std::get_if<std::shared_ptr<Iterator>>(&value)) {
-                return (*it_ptr)->next();
+            if (auto itr_ref = std::get_if<std::shared_ptr<Iterator>>(&value)) {
+                return (*itr_ref)->next();
             }
             throw std::runtime_error("XlError: Object is not an iterator.");
         }
     };
 
     inline Type Iterator::next() {
-        if (list_ptr && index < list_ptr->size()) {
-            Type el = (*list_ptr)[index];
+        if (list_ref && index < list_ref->size()) {
+            Type el = (*list_ref)[index];
             index += 1;
             return el;
         }

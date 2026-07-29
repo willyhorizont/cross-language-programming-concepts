@@ -91,3 +91,5 @@ mathpass
 runtimes/cangjie/main.cj
 
 runtimes/c3/output/
+
+*.o

@@ -360,9 +360,6 @@
         "editor.insertSpaces": false,
         "editor.detectIndentation": false
     },
-    "d.dubCompiler": "dmd.EXE",
-    "r.rpath.windows": "C:\\\\Users\\\\willy\\\\AppData\\\\Local\\\\Programs\\\\R-4.3.2\\\\bin\\\\x64\\\\R.exe",
-    "r.rterm.windows": "C:\\\\Users\\\\willy\\\\AppData\\\\Local\\\\Programs\\\\R-4.3.2\\\\bin\\\\x64\\\\Rterm.exe",
     "code-runner.ignoreSelection": true,
     "code-runner.runInTerminal": true,
     "code-runner.executorMapByFileExtension": {
@@ -429,6 +426,7 @@
         "cangjie": "bash $workspaceRoot/languages/cangjie/runner.sh $dirWithoutTrailingSlash/$fileName",
         "c3": "bash $workspaceRoot/languages/c3/runner.sh $dirWithoutTrailingSlash/$fileName",
         "c": "bash $workspaceRoot/languages/c/runner.sh $dirWithoutTrailingSlash/$fileName",
+        "d": "bash $workspaceRoot/languages/d/runner.sh $dirWithoutTrailingSlash/$fileName",
 
         "mojo": "bash $workspaceRoot/languages/mojo/runner.sh $dirWithoutTrailingSlash/$fileName",
         "scala2": "cd $dir && scalac $fileName && scala $fileNameWithoutExt && del \"$dir*.class\"", // compile .scala file to .class and run the .class
@@ -454,7 +452,6 @@
         "ahk": "autohotkey",
         "autoit": "autoit3",
         "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
-        "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
         "haskell": "runghc",
         // "nim": "nim compile --verbosity:0 --hints:off --run",
         "lisp": "sbcl --script",
