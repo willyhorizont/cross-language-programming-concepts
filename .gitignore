@@ -93,3 +93,5 @@ runtimes/cangjie/main.cj
 runtimes/c3/output/
 
 *.o
+
+runtimes/hare/main.ha

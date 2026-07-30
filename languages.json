@@ -1339,5 +1339,35 @@
                 ]
             }
         ]
+    },
+    {
+        "id": "hare",
+        "stack": [
+            { 
+                "name": "Hare",
+                "url": "https://harelang.org/",
+                "color": "#9d7424"
+            }
+        ],
+        "file_extension": ".ha",
+        "concept_definition": {
+            "list": "Slice",
+            "dict": "Array of Structs",
+            "lambda": "TODO"
+        },
+        "vscode_extensions": [
+            "wackbyte.hare"
+        ],
+        "vscode_extensions_archive": [
+            
+        ],
+        "docker": [
+            {
+                "language_version_notes": "willyhorizont/hare:0.26.0 and qbe:1.3.0",
+                "docker_images": [
+                    "willyhorizont/hare:0.26.0"
+                ]
+            }
+        ]
     }
 ]

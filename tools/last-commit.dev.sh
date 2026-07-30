@@ -2,11 +2,11 @@
 
 SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD/..")
-V="2.7.20" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
+V="2.7.74a" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
 T=$(date "+%d %b %Y @ %I:%M %p")
+cd "$RD" || exit
 \. "$HOME/.nvm/nvm.sh"
 npm version "$V" --no-git-tag-version
-git add .
 H="
 [Last updated: $T]
 version $V:
@@ -15,13 +15,12 @@ H=$(sed -e '/./,$!d' <<< "$H")
 # ! DON'T FORGET TO CHANGE COMMIT MESSAGE BEFORE RUNNING !!!!
 M="
 [branch: dev]
-after finish rewrite ocaml runtime init;
+try hare and not continue because hare don't support lambda and no workaround for lambda;
 "
 M=$(sed -e '/./,$!d' <<< "$M")
 M="$H
 $M"
 awk -v msg="$M" 'BEGIN {print msg; print ""} {print}' "$RD/changelog.txt" > "$RD/changelog.tmp" && mv "$RD/changelog.tmp" "$RD/changelog.txt"
-git add .
 "$RD/languages/python/runner.sh" "$RD/tools/generate-readme.py"
 git add .
 git checkout -b dev # ! development

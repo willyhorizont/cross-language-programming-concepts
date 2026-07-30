@@ -233,6 +233,7 @@
         "*.h": "objective-c",
         "*.st": "smalltalk",
         "*.wl": "wolfram",
+        "*.ha": "hare",
         // "stdlib.h": "c",
         // "cstdlib": "c",
         // "type_traits": "c",
@@ -385,6 +386,7 @@
         ".cj": "bash $workspaceRoot/languages/cangjie/runner.sh $dirWithoutTrailingSlash/$fileName",
         ".c3": "bash $workspaceRoot/languages/c3/runner.sh $dirWithoutTrailingSlash/$fileName",
         ".c": "bash $workspaceRoot/languages/c/runner.sh $dirWithoutTrailingSlash/$fileName",
+        ".ha": "bash $workspaceRoot/languages/hare/runner.sh $dirWithoutTrailingSlash/$fileName",
     },
     "code-runner.executorMap": {
         "shellscript": "bash $fullFileName",
@@ -405,7 +407,6 @@
         "matlab": "bash $workspaceRoot/languages/matlab-or-octave/runner.sh $dirWithoutTrailingSlash/$fileName",
         "wolfram": "bash $workspaceRoot/languages/wolfram-language-mathematica/runner.sh $dirWithoutTrailingSlash/$fileName",
         "raku": "bash $workspaceRoot/languages/raku/runner.sh $dirWithoutTrailingSlash/$fileName",
-        // "scala": "cd $dir && scala $fileName", // run .scala file using scala interpreter
         "scala": "bash $workspaceRoot/languages/scala/runner.sh $dirWithoutTrailingSlash/$fileName",
         "java": "bash $workspaceRoot/languages/java/runner.sh $dirWithoutTrailingSlash/$fileName",
         "gdscript": "bash $workspaceRoot/languages/gdscript/runner.sh $dirWithoutTrailingSlash/$fileName",
@@ -427,6 +428,7 @@
         "c3": "bash $workspaceRoot/languages/c3/runner.sh $dirWithoutTrailingSlash/$fileName",
         "c": "bash $workspaceRoot/languages/c/runner.sh $dirWithoutTrailingSlash/$fileName",
         "d": "bash $workspaceRoot/languages/d/runner.sh $dirWithoutTrailingSlash/$fileName",
+        "hare": "bash $workspaceRoot/languages/hare/runner.sh $dirWithoutTrailingSlash/$fileName",
 
         "mojo": "bash $workspaceRoot/languages/mojo/runner.sh $dirWithoutTrailingSlash/$fileName",
         "scala2": "cd $dir && scalac $fileName && scala $fileNameWithoutExt && del \"$dir*.class\"", // compile .scala file to .class and run the .class
@@ -533,6 +535,12 @@
         "editor.detectIndentation": false
     },
     "[c3]": {
+        "editor.wordWrap": "off",
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false
+    },
+    "[hare]": {
         "editor.wordWrap": "off",
         "editor.tabSize": 4,
         "editor.insertSpaces": true,
