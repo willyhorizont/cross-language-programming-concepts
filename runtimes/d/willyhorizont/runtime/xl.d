@@ -33,16 +33,16 @@ struct Xl {
         return unwrap!double(this);
     }
     Xl call(Args...)(Args args) {
-        auto c = unwrap!(Xl delegate(Xl[]))(this);
+        auto c = unwrap!(Lambda)(this);
         Xl[] va;
         foreach(arg; args) {
             va ~= Xl(arg);
         }
-        return c(va);
+        return c(Xl(va));
     }
 }
 
-alias Lambda = Xl delegate(Xl[]);
+alias Lambda = Xl delegate(Xl);
 alias Iterator = InputRange!Xl;
 
 @property Xl None() {
@@ -79,59 +79,26 @@ Xl[string] dict(Args...)(Args args) {
 }
 
 Xl lambda(T)(T c) {
-    static if (is(ReturnType!T == Xl)) {
+    alias RetT = ReturnType!T;
+    alias VaT = ParameterTypeTuple!T;
+    static if (is(RetT == Xl) && VaT.length == 1 && is(VaT[0] == Xl)) {
         return Xl(cast(Lambda) c);
-    } else {
-        Lambda adptr = delegate(Xl[] args) {
-            static if (is(ReturnType!T == void)) {
-                c(args);
-            } else {
-                c(args);
-            }
+    }
+    return Xl(cast(Lambda) delegate(Xl va) {
+        static if (is(RetT == void)) {
+            c(va);
             return None;
-        };
-        return Xl(adptr);
-    }
+        } else {
+            return from(c(va));
+        }
+    });
 }
 
-auto unwrap(T)(Xl a) {
-    if (auto r = a.value.peek!T) return *r;
-    static if (is(T == int) || is(T == double) || is(T == string) || is(T == bool)) {
-        try {
-            string s = a.value.to!(string);
-            return s.to!(T);
-        } catch(Exception e) {
-            // continue
-        }
+Iterator iter(Xl va) {
+    if (auto lR = va.value.peek!(Xl[])) {
+        return inputRangeObject(*lR);
     }
-    static if (is(T F == delegate)) {
-        alias RetT = ReturnType!T;
-        alias ParamT = ParameterTypeTuple!T;
-        if (auto pSafe = a.value.peek!(RetT delegate(ParamT) @safe)) return cast(T)*pSafe;
-        if (auto pSys = a.value.peek!(RetT delegate(ParamT) @system)) return cast(T)*pSys;
-        if (auto pSafePure = a.value.peek!(RetT delegate(ParamT) pure @safe)) return cast(T)*pSafePure;
-        if (auto pSysPure = a.value.peek!(RetT delegate(ParamT) pure @system)) return cast(T)*pSysPure;
-        static if (is(RetT == Xl)) {
-            if (auto pVoidSafe = a.value.peek!(void delegate(ParamT) @safe)) {
-                auto c = *pVoidSafe;
-                return cast(T) delegate(ParamT args) {
-                    c(args);
-                    return Xl();
-                };
-            }
-            if (auto pVoidSys = a.value.peek!(void delegate(ParamT) @system)) {
-                auto c = *pVoidSys;
-                return cast(T) delegate(ParamT args) {
-                    c(args);
-                    return Xl();
-                };
-            }
-        }
-    }
-    throw new Exception("XlRuntimeError: Failed to unwrap Xl to target type. Xl holds: " ~ a.value.type.toString());
-}
-
-Iterator iter(Xl[] l) {
+    Xl[] l = [va];
     return inputRangeObject(l);
 }
 
@@ -140,6 +107,49 @@ Xl next(Xl v) {
     Xl el = itr.front;
     itr.popFront();
     return el;
+}
+
+auto unwrap(T)(Xl a) {
+    if (auto v = a.value.peek!T) return *v;
+    static if (is(T == bool) || is(T == string) || is(T == int) || is(T == double)) {
+        try {
+            string s = a.value.to!(string);
+            return s.to!(T);
+        } catch(Exception e) {
+            // continue
+        }
+    }
+    static if (is(T == Xl[])) {
+        if (auto l = a.value.peek!(Xl[])) return *l;
+    }
+    static if (is(T == Xl[string])) {
+        if (auto d = a.value.peek!(Xl[string])) return *d;
+    }
+    static if (is(T F == delegate)) {
+        alias RetT = ReturnType!T;
+        alias VaT = ParameterTypeTuple!T;
+        if (auto pSafe = a.value.peek!(RetT delegate(VaT) @safe)) return cast(T)*pSafe;
+        if (auto pSys = a.value.peek!(RetT delegate(VaT) @system)) return cast(T)*pSys;
+        if (auto pSafePure = a.value.peek!(RetT delegate(VaT) pure @safe)) return cast(T)*pSafePure;
+        if (auto pSysPure = a.value.peek!(RetT delegate(VaT) pure @system)) return cast(T)*pSysPure;
+        static if (is(RetT == Xl)) {
+            if (auto pVoidSafe = a.value.peek!(void delegate(VaT) @safe)) {
+                auto c = *pVoidSafe;
+                return cast(T) delegate(VaT va) {
+                    c(va);
+                    return Xl();
+                };
+            }
+            if (auto pVoidSys = a.value.peek!(void delegate(VaT) @system)) {
+                auto c = *pVoidSys;
+                return cast(T) delegate(VaT va) {
+                    c(va);
+                    return Xl();
+                };
+            }
+        }
+    }
+    throw new Exception("XlRuntimeError: Failed to unwrap Xl to target type. Xl holds: " ~ a.value.type.toString());
 }
 
 string escapeString(string s) {
@@ -153,7 +163,7 @@ string escapeString(string s) {
 }
 
 string jsonStringify(Xl a, bool pretty = false) {
-    struct JifyStkEl {
+    struct El {
         string t;
         Xl v;
         string r;
@@ -161,10 +171,10 @@ string jsonStringify(Xl a, bool pretty = false) {
     }
     bool p = pretty;
     string t = " ".replicate(4);
-    JifyStkEl[] s = [JifyStkEl(t: "v", v: a, r: "", d: 0)];
+    El[] s = [El(t: "v", v: a, r: "", d: 0)];
     string r = "";
     while (s.length > 0) {
-        JifyStkEl c = s[$ - 1];
+        El c = s[$ - 1];
         s.length -= 1;
         if (c.t == "r") {
             r ~= c.r;
@@ -204,21 +214,21 @@ string jsonStringify(Xl a, bool pretty = false) {
                 continue;
             }
             int childD = curD + 1;
-            s ~= JifyStkEl(
+            s ~= El(
                 t: "r",
                 v: None,
                 r: p ? "\n" ~ t.replicate(curD) ~ "]" : "]",
                 d: curD,
             );
             for (int i = cast(int)l.length - 1; i >= 0; i -= 1) {
-                s ~= JifyStkEl(
+                s ~= El(
                     t: "v",
                     v: l[i],
                     r: "",
                     d: childD,
                 );
                 if (i > 0) {
-                    s ~= JifyStkEl(
+                    s ~= El(
                         t: "r",
                         v: None,
                         r: p ? ",\n" ~ t.replicate(childD) : ",",
@@ -226,7 +236,7 @@ string jsonStringify(Xl a, bool pretty = false) {
                     );
                 }
             }
-            s ~= JifyStkEl(
+            s ~= El(
                 t: "r",
                 v: None,
                 r: p ? "[\n" ~ t.replicate(childD) : "[",
@@ -241,30 +251,30 @@ string jsonStringify(Xl a, bool pretty = false) {
                 continue;
             }
             int childD = curD + 1;
-            s ~= JifyStkEl(
+            s ~= El(
                 t: "r",
                 v: None,
                 r: p ? "\n" ~ t.replicate(curD) ~ "}" : "}",
                 d: curD,
             );
-            string[] dkL = d.keys;
-            for (int i = cast(int)dkL.length - 1; i >= 0; i -= 1) {
-                string dK = dkL[i];
-                Xl dV = d[dK];
-                s ~= JifyStkEl(
+            string[] pkL = d.keys;
+            for (int i = cast(int)pkL.length - 1; i >= 0; i -= 1) {
+                string pK = pkL[i];
+                Xl pV = d[pK];
+                s ~= El(
                     t: "v",
-                    v: dV,
+                    v: pV,
                     r: "",
                     d: childD,
                 );
-                s ~= JifyStkEl(
+                s ~= El(
                     t: "r",
                     v: None,
-                    r: p ? "\"" ~ dK ~ "\": " : "\"" ~ dK ~ "\":",
+                    r: p ? "\"" ~ pK ~ "\": " : "\"" ~ pK ~ "\":",
                     d: childD,
                 );
                 if (i > 0) {
-                    s ~= JifyStkEl(
+                    s ~= El(
                         t: "r",
                         v: None,
                         r: p ? ",\n" ~ t.replicate(childD) : ",",
@@ -272,7 +282,7 @@ string jsonStringify(Xl a, bool pretty = false) {
                     );
                 }
             }
-            s ~= JifyStkEl(
+            s ~= El(
                 t: "r",
                 v: None,
                 r: p ? "{\n" ~ t.replicate(childD) : "{",

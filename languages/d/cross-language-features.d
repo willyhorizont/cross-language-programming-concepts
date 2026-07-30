@@ -8,19 +8,19 @@ void main() {
     /*
     1. support lambda as value, or has workaround
     */
-    Xl sayHello = xl.lambda(delegate(Xl[] va) {
+    Xl sayHello = xl.lambda(delegate(Xl va) {
         Xl itr = xl.iter(va);
         Xl callbackFunction = xl.next(itr);
         writeln("hello");
         callbackFunction.call();
     });
-    sayHello.call(xl.lambda(delegate(Xl[] va) {
+    sayHello.call(xl.lambda(delegate(Xl va) {
         writeln("world");
     }));
-    Xl createMultiplier = xl.lambda(delegate(Xl[] va) {
+    Xl createMultiplier = xl.lambda(delegate(Xl va) {
         Xl itr = xl.iter(va); 
         Xl aa = xl.next(itr);
-        return xl.lambda(delegate(Xl[] va) {
+        return xl.lambda(delegate(Xl va) {
             Xl itr = xl.iter(va);
             Xl bb = xl.next(itr);
             return xl.from(aa.toInt() * bb.toInt());
@@ -46,7 +46,7 @@ void main() {
         -123.789,
         xl.list(1, 2, 3),
         xl.dict(xl.pair("foo", "bar")),
-        xl.lambda(delegate(Xl[] va) {
+        xl.lambda(delegate(Xl va) {
             Xl itr = xl.iter(va);
             Xl aa = xl.next(itr);
             Xl bb = xl.next(itr);
@@ -66,7 +66,7 @@ void main() {
         xl.pair("xl_float_negative", -123.789),
         xl.pair("xl_list", xl.list(1, 2, 3)),
         xl.pair("xl_dict", xl.dict(xl.pair("foo", "bar"))),
-        xl.pair("xl_lambda", xl.lambda(delegate(Xl[] va) {
+        xl.pair("xl_lambda", xl.lambda(delegate(Xl va) {
             Xl itr = xl.iter(va);
             Xl aa = xl.next(itr);
             Xl bb = xl.next(itr);
