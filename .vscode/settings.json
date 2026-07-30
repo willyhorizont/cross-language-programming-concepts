@@ -258,7 +258,7 @@
     "workbench.tree.indent": 24,
     "workbench.editor.showTabs": "multiple",
     "workbench.editor.wrapTabs": true,
-    "workbench.editor.tabSizing": "shrink",
+    "workbench.editor.tabSizing": "fixed",
     "workbench.editor.tabSizingFixedMinWidth": 50,
     "workbench.editor.pinnedTabSizing": "normal",
     "workbench.sideBar.location": "right",

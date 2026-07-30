@@ -5,7 +5,42 @@ Imports System.Collections.Generic
 Imports System.Linq
 
 Namespace WillyHorizont.Runtime
+    Public Delegate Function XlLambda(ByVal Va As Object) As Object
+    Public Structure Lambda
+        Private ReadOnly Value As XlLambda
+        Public Sub New(ByVal C As XlLambda)
+            Me.Value = C
+        End Sub
+        Public Shared Widening Operator CType(ByVal C As XlLambda) As Lambda
+            Return New Lambda(C)
+        End Operator
+        Public Function Invoke(ParamArray Va As Object()) As Object
+            If Va Is Nothing Then
+                Return Me.Value(New Object() {Nothing})
+            End If
+            Return Me.Value(Va)
+        End Function
+    End Structure
     Public Module Xl
+        Public Class List
+            Inherits List(Of Object)
+            Public Sub New()
+                MyBase.New()
+            End Sub
+        End Class
+        Public Class Dict
+            Inherits Dictionary(Of String, Object)
+            Public Sub New()
+                MyBase.New()
+            End Sub
+        End Class
+        Public Function Iter(ByVal Va As Object) As Object
+            Return CType(Va, Object()).GetEnumerator()
+        End Function
+        Public Function NextItem(ByVal Itr As IEnumerator) As Object
+            Itr.MoveNext()
+            Return Itr.Current
+        End Function
         Public Function EscapeString(S As Object) As Object
             If S Is Nothing Then Return ""
             Dim R As String = Convert.ToString(S)
@@ -16,12 +51,11 @@ Namespace WillyHorizont.Runtime
             R = R.Replace(vbTab, "\t")
             Return R
         End Function
-        
-        Public Function JsonStringify(O As Object, Optional Pretty As Object = False) As Object
+        Public Function JsonStringify(A As Object, Optional Pretty As Object = False) As Object
             Dim P As Boolean = Convert.ToBoolean(Pretty)
             Dim T As String = String.Concat(Enumerable.Repeat(" ", 4))
             Dim S As New Stack(Of Dictionary(Of String, Object))()
-            S.Push(New Dictionary(Of String, Object) From {{"t", "v"}, {"v", O}, {"d", 0}})
+            S.Push(New Dictionary(Of String, Object) From {{"t", "v"}, {"v", A}, {"d", 0}})
             Dim R As String = ""
             While S.Count > 0
                 Dim C As Dictionary(Of String, Object) = S.Pop()
@@ -48,7 +82,7 @@ Namespace WillyHorizont.Runtime
                     R &= V.ToString()
                     Continue While
                 End If
-                If GetType(MulticastDelegate).IsAssignableFrom(Vt) OrElse Vt.BaseType Is GetType(MulticastDelegate) Then
+                If GetType(MulticastDelegate).IsAssignableFrom(Vt) OrElse Vt.BaseType Is GetType(MulticastDelegate) OrElse GetType(Lambda).IsAssignableFrom(Vt) OrElse Vt.BaseType Is GetType(Lambda) Then
                     R &= """[object Function]"""
                     Continue While
                 End If
@@ -97,17 +131,17 @@ Namespace WillyHorizont.Runtime
                         {"v", If(P, vbLf & String.Concat(Enumerable.Repeat(T, CurD)) & "}", "}")},
                         {"d", CurD}
                     })
-                    Dim Dk As New List(Of Object)(Vd.Keys.Cast(Of Object)())
-                    Dim Dv As New List(Of Object)(Vd.Values.Cast(Of Object)())
+                    Dim Pk As New List(Of Object)(Vd.Keys.Cast(Of Object)())
+                    Dim Pv As New List(Of Object)(Vd.Values.Cast(Of Object)())
                     For I As Integer = Vd.Count - 1 To 0 Step -1
                         S.Push(New Dictionary(Of String, Object) From {
                             {"t", "v"},
-                            {"v", Dv(I)},
+                            {"v", Pv(I)},
                             {"d", ChildD}
                         })
                         S.Push(New Dictionary(Of String, Object) From {
                             {"t", "r"},
-                            {"v", If(P, """" & Convert.ToString(Dk(I)) & """: ", """" & Convert.ToString(Dk(I)) & """:")},
+                            {"v", If(P, """" & Convert.ToString(Pk(I)) & """: ", """" & Convert.ToString(Pk(I)) & """:")},
                             {"d", ChildD}
                         })
                         If I > 0 Then

@@ -8,10 +8,59 @@ namespace WillyHorizont.Runtime
 {
     public static class Xl
     {
-        private static string EscapeString(dynamic S)
+        public class List : List<dynamic>
+        {
+            public List() : base()
+            {
+            }
+        }
+        public class Dict : Dictionary<string, dynamic>
+        {
+            public Dict() : base()
+            {
+            }
+        }
+        public class Lambda
+        {
+            private readonly Func<dynamic[], dynamic> value;
+            public Lambda(Func<dynamic[], dynamic> c)
+            {
+                this.value = c;
+            }
+            public static implicit operator Lambda(Func<dynamic[], dynamic> c)
+            {
+                return new Lambda(c);
+            }
+            public static implicit operator Lambda(Action<dynamic[]> c)
+            {
+                return new Lambda(delegate (dynamic[] Va)
+                {
+                    c(Va);
+                    return null;
+                });
+            }
+            public dynamic Call(params dynamic[] Va)
+            {
+                if (Va == null)
+                {
+                    return this.value(new dynamic[] { null });
+                }
+                return this.value(Va);
+            }
+        }
+        public static dynamic Iter(dynamic[] Va)
+        {
+            return Va.GetEnumerator();
+        }
+        public static dynamic Next(System.Collections.IEnumerator Itr)
+        {
+            Itr.MoveNext();
+            return Itr.Current;
+        }
+        private static dynamic EscapeString(dynamic S)
         {
             if (S == null) return "";
-            string R = Convert.ToString(S);
+            dynamic R = Convert.ToString(S);
             R = R.Replace("\\", "\\\\");
             R = R.Replace("\"", "\\\"");
             R = R.Replace("\n", "\\n");
@@ -19,29 +68,28 @@ namespace WillyHorizont.Runtime
             R = R.Replace("\t", "\\t");
             return R;
         }
-        public static dynamic JsonStringify(dynamic O, dynamic Pretty = null)
+        public static dynamic JsonStringify(dynamic A, dynamic Pretty = null)
         {
-            bool P = Pretty != null && Convert.ToBoolean(Pretty);
-            string T = string.Concat(Enumerable.Repeat(" ", 4));
-            var S = new Stack<Dictionary<string, dynamic>>();
-            S.Push(new Dictionary<string, dynamic> {{ "t", "v" }, { "v", O }, { "d", 0 }});
-            string R = "";
+            dynamic P = Pretty != null && Convert.ToBoolean(Pretty);
+            dynamic T = string.Concat(Enumerable.Repeat(" ", 4));
+            dynamic S = new Stack<Dictionary<string, dynamic>>(new Dictionary<string, dynamic>[]{new Dictionary<string, dynamic> { { "t", "v" }, { "v", A }, { "d", 0 } }});
+            dynamic R = "";
             while (S.Count > 0)
             {
-                var C = S.Pop();
+                dynamic C = S.Pop();
                 if (Convert.ToString(C["t"]) == "r")
                 {
                     R += Convert.ToString(C["v"]);
                     continue;
                 }
                 dynamic V = C["v"];
-                int CurD = Convert.ToInt32(C["d"]);
+                dynamic CurD = Convert.ToInt32(C["d"]);
                 if (V == null)
                 {
                     R += "null";
                     continue;
                 }
-                Type Vt = V.GetType();
+                dynamic Vt = V.GetType();
                 if (Vt == typeof(bool))
                 {
                     R += V ? "true" : "false";
@@ -57,7 +105,7 @@ namespace WillyHorizont.Runtime
                     R += V.ToString();
                     continue;
                 }
-                if (typeof(MulticastDelegate).IsAssignableFrom(Vt) || Vt.BaseType == typeof(MulticastDelegate))
+                if ((typeof(MulticastDelegate).IsAssignableFrom(Vt) || Vt.BaseType == typeof(MulticastDelegate)) || (typeof(Lambda).IsAssignableFrom(Vt) || Vt.BaseType == typeof(Lambda)))
                 {
                     R += "\"[object Function]\"";
                     continue;
@@ -69,9 +117,9 @@ namespace WillyHorizont.Runtime
                         R += "[]";
                         continue;
                     }
-                    int ChildD = CurD + 1;
-                    string CurT = string.Concat(Enumerable.Repeat(" ", CurD * 4));
-                    string ChildT = string.Concat(Enumerable.Repeat(" ", ChildD * 4));
+                    dynamic ChildD = CurD + 1;
+                    dynamic CurT = string.Concat(Enumerable.Repeat(" ", CurD * 4));
+                    dynamic ChildT = string.Concat(Enumerable.Repeat(" ", ChildD * 4));
                     S.Push(new Dictionary<string, dynamic>
                     {
                         { "t", "r" },
@@ -111,29 +159,29 @@ namespace WillyHorizont.Runtime
                         R += "{}";
                         continue;
                     }
-                    int ChildD = CurD + 1;
-                    string CurT = string.Concat(Enumerable.Repeat(" ", CurD * 4));
-                    string ChildT = string.Concat(Enumerable.Repeat(" ", ChildD * 4));
+                    dynamic ChildD = CurD + 1;
+                    dynamic CurT = string.Concat(Enumerable.Repeat(" ", CurD * 4));
+                    dynamic ChildT = string.Concat(Enumerable.Repeat(" ", ChildD * 4));
                     S.Push(new Dictionary<string, dynamic>
                     {
                         { "t", "r" },
                         { "v", P ? "\n" + CurT + "}" : "}" },
                         { "d", CurD }
                     });
-                    var Dk = new List<dynamic>(((IDictionary)Vd).Keys.Cast<dynamic>());
-                    var Dv = new List<dynamic>(((IDictionary)Vd).Values.Cast<dynamic>());
+                    dynamic Pk = new List<dynamic>(((IDictionary)Vd).Keys.Cast<dynamic>());
+                    dynamic Pv = new List<dynamic>(((IDictionary)Vd).Values.Cast<dynamic>());
                     for (int i = Vd.Count - 1; i >= 0; i -= 1)
                     {
                         S.Push(new Dictionary<string, dynamic>
                         {
                             { "t", "v" },
-                            { "v", Dv[i] },
+                            { "v", Pv[i] },
                             { "d", ChildD }
                         });
                         S.Push(new Dictionary<string, dynamic>
                         {
                             { "t", "r" },
-                            { "v", P ? "\"" + Convert.ToString(Dk[i]) + "\": " : "\"" + Convert.ToString(Dk[i]) + "\":" },
+                            { "v", P ? "\"" + Convert.ToString(Pk[i]) + "\": " : "\"" + Convert.ToString(Pk[i]) + "\":" },
                             { "d", ChildD }
                         });
                         if (i > 0)
