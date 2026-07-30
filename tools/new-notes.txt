@@ -55,24 +55,27 @@ https://nue.nu/
 ~~c3~~
 ~~c~~
 ~~d~~
+hare
 v
 vala
 vale
-hare
-crystal
+val
+monkey c
+roc
+bend
 wren
 onyx
 lobster
 pony
+haxe
+g#
 verse
-val
-roc
+gml
+carbon
 circle
 cppfront/cpp2
-monkey c
-gml
+crystal
 https://nekovm.org/
-Haxe
 coffeescript
 typescript
 Bosque

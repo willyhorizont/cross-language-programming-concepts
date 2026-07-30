@@ -2,6 +2,8 @@
 
 Cross-language implementations of common programming concepts, data structures, algorithms, and patterns. Rewrite of [https://github.com/willyhorizont/learn_programming_languages_with_javascript](https://github.com/willyhorizont/learn_programming_languages_with_javascript)
 
+![GitHub Programming Languages Card](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/github-programming-languages-card.png)  
+
 ## Requirements
 
 - [Visual Studio Code](https://code.visualstudio.com/) + [Code Runner VSCode Extension](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
@@ -63,8 +65,6 @@ Cross-language implementations of common programming concepts, data structures, 
 42. [C3](https://c3-lang.org/) : [https://c3-lang.org/](https://c3-lang.org/)  
 43. [C](https://www.c-language.org/) : [https://www.c-language.org/](https://www.c-language.org/)  
 44. [D](https://dlang.org/) : [https://dlang.org/](https://dlang.org/)  
-
-![GitHub Programming Languages Card](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/github-programming-languages-card.png)  
 
 ## Programming concepts
 
