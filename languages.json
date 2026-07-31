@@ -1339,5 +1339,35 @@
                 ]
             }
         ]
+    },
+    {
+        "id": "v",
+        "stack": [
+            { 
+                "name": "V",
+                "url": "https://vlang.io/",
+                "color": "#4f87c4"
+            }
+        ],
+        "file_extension": ".v",
+        "concept_definition": {
+            "list": "array",
+            "dict": "map",
+            "lambda": "anonymous function"
+        },
+        "vscode_extensions": [
+            "vlanguage.vscode-vlang"
+        ],
+        "vscode_extensions_archive": [
+            
+        ],
+        "docker": [
+            {
+                "language_version_notes": "willyhorizont/v:0.5.2",
+                "docker_images": [
+                    "willyhorizont/v:0.5.2"
+                ]
+            }
+        ]
     }
 ]

@@ -68,6 +68,7 @@ code --install-extension WolframResearch.wolfram
 code --install-extension IDE-Innovation-Lab.cangjie
 code --install-extension c3.vscode-c3
 code --install-extension webfreak.code-d
+code --install-extension vlanguage.vscode-vlang
 
 eval "$RD/tools/vscode-extensions/vim9script-syntax-highlighter/install.sh"
 
