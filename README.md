@@ -65,6 +65,7 @@ Cross-language implementations of common programming concepts, data structures, 
 42. [C3](https://c3-lang.org/) : [https://c3-lang.org/](https://c3-lang.org/)  
 43. [C](https://www.c-language.org/) : [https://www.c-language.org/](https://www.c-language.org/)  
 44. [D](https://dlang.org/) : [https://dlang.org/](https://dlang.org/)  
+45. [V](https://vlang.io/) : [https://vlang.io/](https://vlang.io/)  
 
 ## Programming concepts
 
@@ -113,6 +114,7 @@ Cross-language implementations of common programming concepts, data structures, 
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/cross-language-features.c3)  
   43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/cross-language-features.c)  
   44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/cross-language-features.d)  
+  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/cross-language-features.v)  
 
 ---
 
@@ -161,6 +163,7 @@ Cross-language implementations of common programming concepts, data structures, 
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list.c3) : List  
   43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list.c)  
   44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/list.d) : Array  
+  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/list.v) : array  
 
 ---
 
@@ -209,6 +212,7 @@ Cross-language implementations of common programming concepts, data structures, 
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/dict.c3) : HashMap  
   43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/dict.c)  
   44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/dict.d) : Associative Array  
+  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/dict.v) : map  
 
 ---
 
@@ -257,6 +261,7 @@ Cross-language implementations of common programming concepts, data structures, 
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/lambda.c3)  
   43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/lambda.c)  
   44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/lambda.d) : Delegate  
+  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/lambda.v) : anonymous function  
 
 ---
 
@@ -305,6 +310,7 @@ Cross-language implementations of common programming concepts, data structures, 
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/hello-world.c3)  
   43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/hello-world.c)  
   44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/hello-world.d)  
+  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/hello-world.v)  
 
 ---
 
@@ -353,6 +359,7 @@ Cross-language implementations of common programming concepts, data structures, 
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/comments.c3)  
   43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/comments.c)  
   44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/comments.d)  
+  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/comments.v)  
 
 ---
 
@@ -401,6 +408,7 @@ Cross-language implementations of common programming concepts, data structures, 
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/conditionals.c3)  
   43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/conditionals.c)  
   44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/conditionals.d)  
+  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/conditionals.v)  
 
 ---
 
@@ -449,6 +457,7 @@ Cross-language implementations of common programming concepts, data structures, 
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/loops.c3)  
   43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/loops.c)  
   44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/loops.d)  
+  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/loops.v)  
 
 ---
 
@@ -497,6 +506,7 @@ Cross-language implementations of common programming concepts, data structures, 
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/error-handling.c3)  
   43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/error-handling.c)  
   44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/error-handling.d)  
+  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/error-handling.v)  
 
 ---
 
@@ -545,6 +555,7 @@ Cross-language implementations of common programming concepts, data structures, 
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-for-each.c3)  
   43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-for-each.c)  
   44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/list-for-each.d)  
+  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/list-for-each.v)  
 
 ---
 
@@ -593,6 +604,7 @@ Cross-language implementations of common programming concepts, data structures, 
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-any.c3)  
   43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-any.c)  
   44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/list-any.d)  
+  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/list-any.v)  
 
 ---
 
@@ -641,6 +653,7 @@ Cross-language implementations of common programming concepts, data structures, 
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-all.c3)  
   43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-all.c)  
   44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/list-all.d)  
+  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/list-all.v)  
 
 ---
 
@@ -689,6 +702,7 @@ Cross-language implementations of common programming concepts, data structures, 
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-find.c3)  
   43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-find.c)  
   44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/list-find.d)  
+  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/list-find.v)  
 
 ---
 
@@ -737,6 +751,7 @@ Cross-language implementations of common programming concepts, data structures, 
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-find-index.c3)  
   43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-find-index.c)  
   44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/list-find-index.d)  
+  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/list-find-index.v)  
 
 ---
 
@@ -785,6 +800,7 @@ Cross-language implementations of common programming concepts, data structures, 
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-filter.c3)  
   43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-filter.c)  
   44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/list-filter.d)  
+  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/list-filter.v)  
 
 ---
 
@@ -833,6 +849,7 @@ Cross-language implementations of common programming concepts, data structures, 
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-map.c3)  
   43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-map.c)  
   44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/list-map.d)  
+  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/list-map.v)  
 
 ---
 
@@ -881,6 +898,7 @@ Cross-language implementations of common programming concepts, data structures, 
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-reduce.c3)  
   43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-reduce.c)  
   44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/list-reduce.d)  
+  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/list-reduce.v)  
 
 ---
 
@@ -929,6 +947,7 @@ Cross-language implementations of common programming concepts, data structures, 
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-pop.c3)  
   43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-pop.c)  
   44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/list-pop.d)  
+  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/list-pop.v)  
 
 ---
 
@@ -977,6 +996,7 @@ Cross-language implementations of common programming concepts, data structures, 
   42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-push.c3)  
   43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-push.c)  
   44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/list-push.d)  
+  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/list-push.v)  
 
 ## Trends
 

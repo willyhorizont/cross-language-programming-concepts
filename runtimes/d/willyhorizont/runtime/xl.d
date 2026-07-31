@@ -8,8 +8,6 @@ import std.range;
 import std.range.interfaces;
 import std.traits : ReturnType, ParameterTypeTuple;
 import std.string : replace;
-// import std.functional : toDelegate;
-// import std.algorithm : fold, map, reduce;
 
 struct Xl {
     Variant value;
