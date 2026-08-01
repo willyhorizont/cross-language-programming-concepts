@@ -7,21 +7,21 @@ import "core:mem/virtual"
 import xl "willyhorizont/runtime"
 
 main :: proc() {
-    mva: virtual.Arena
-    mva_err := virtual.arena_init_growing(&mva)
-    if mva_err != nil {
-        fmt.eprintln("XlRuntimeError: Failed initialize memory arena.")
+    arena: virtual.Arena
+    err := virtual.arena_init_growing(&arena)
+    if err != nil {
+        fmt.eprintln("Error: Failed initialize virtual memory arena.")
         return
     }
-    defer virtual.arena_destroy(&mva) 
-    context.allocator = virtual.arena_allocator(&mva)
+    defer virtual.arena_destroy(&arena) 
+    context.allocator = virtual.arena_allocator(&arena)
 
-    glob_scp := xl.reg_scope(nil)
+    ctx := xl.reg_ctx(nil)
     /*
     1. support lambda as value, or has workaround
     */
     say_hello := xl.Lambda{
-        value = glob_scp,
+        value = ctx,
         call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
             itr := xl.iter(..va)
             callback_function := xl.next(&itr).(xl.Lambda)
@@ -31,27 +31,27 @@ main :: proc() {
         },
     }
     say_hello.call(&say_hello, xl.Lambda{
-        value = glob_scp,
+        value = ctx,
         call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
             fmt.println("world")
             return nil
         },
     })
     create_multiplier := xl.Lambda{
-        value = glob_scp,
+        value = ctx,
         call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
             itr := xl.iter(..va)
             aa := xl.next(&itr)
-            loc_scp := (^xl.Scope)(self.value)
+            ctx := (^xl.Ctx)(self.value)
             return xl.Lambda{
-                value = xl.reg_scope(loc_scp, xl.Dict{
+                value = xl.reg_ctx(ctx, xl.Dict{
                     "aa" = aa.(xl.Int),
                 }),
                 call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
                     itr := xl.iter(..va)
                     bb := xl.next(&itr)
-                    loc_scp := (^xl.Scope)(self.value)
-                    aa := xl.get_var(loc_scp, "aa")
+                    ctx := (^xl.Ctx)(self.value)
+                    aa := xl.get_ctx(ctx, "aa")
                     return xl.Int(aa.(xl.Int) * bb.(xl.Int))
                 },
             }
@@ -78,7 +78,7 @@ main :: proc() {
         xl.List{1, 2, 3},
         xl.Dict{"foo" = "bar"},
         xl.Lambda{
-            value = glob_scp,
+            value = ctx,
             call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
                 itr := xl.iter(..va)
                 aa := xl.next(&itr).(xl.Int)
@@ -101,7 +101,7 @@ main :: proc() {
         "xl_list" = xl.List{1, 2, 3},
         "xl_dict" = xl.Dict{"foo" = "bar"},
         "xl_lambda" = xl.Lambda{
-            value = glob_scp,
+            value = ctx,
             call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
                 itr := xl.iter(..va)
                 aa := xl.next(&itr).(xl.Int)

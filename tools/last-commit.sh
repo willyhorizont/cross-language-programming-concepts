@@ -2,7 +2,7 @@
 
 SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD/..")
-V="2.7.81" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
+V="2.7.82" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
 T=$(date "+%d %b %Y @ %I:%M %p")
 cd "$RD" || exit
 \. "$HOME/.nvm/nvm.sh"
@@ -14,7 +14,10 @@ version $V:
 H=$(sed -e '/./,$!d' <<< "$H")
 # ! DON'T FORGET TO CHANGE COMMIT MESSAGE BEFORE RUNNING !!!!
 M="
-more small update in vala runtime;
+update erlang runtime;
+update lua runtime;
+update odin runtime;
+update zig runtime;
 "
 M=$(sed -e '/./,$!d' <<< "$M")
 M="$H

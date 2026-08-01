@@ -168,23 +168,23 @@ pub fn iter(iterable: []const Type) Iterator {
     return Iterator.init(iterable);
 }
 
-pub fn @"bool"(v: bool) Type {
+pub fn init_bool(v: bool) Type {
     return Type{ .Bool = v };
 }
 
-pub fn int(v: i128) Type {
+pub fn init_int(v: i128) Type {
     return Type{ .Int = v };
 }
 
-pub fn float(v: f128) Type {
+pub fn init_float(v: f128) Type {
     return Type{ .Float = v };
 }
 
-pub fn string(v: []const u8) Type {
+pub fn init_string(v: []const u8) Type {
     return Type{ .String = v };
 }
 
-pub fn list(dp: anytype) Type {
+pub fn init_list(dp: anytype) Type {
     const gpa = global_allocator.?;
     const l = gpa.alloc(Type, dp.len) catch @panic("XlRuntimeError: Out of memory while allocating list.");
     inline for (dp, 0..) |el, i| {
@@ -193,7 +193,7 @@ pub fn list(dp: anytype) Type {
     return Type{ .List = l };
 }
 
-pub fn dict(p: anytype) Type {
+pub fn init_dict(p: anytype) Type {
     const gpa = global_allocator.?;
     var d = XlDict.init(gpa);
     errdefer {
@@ -209,10 +209,10 @@ pub fn dict(p: anytype) Type {
     return Type{ .Dict = d };
 }
 
-pub fn lambda(ctx_value: anytype, comptime func: anytype) Type {
+pub fn init_lambda(ctx_value: anytype, comptime func: anytype) Type {
     const gpa = global_allocator.?;
     const T = @TypeOf(ctx_value);
-    const heap_ctx = gpa.create(T) catch @panic("XlRuntimeError: Out of memory while allocating lambda context.");
+    const heap_ctx = gpa.create(T) catch @panic("XlRuntimeError: Out of memory while allocating init_lambda context.");
     heap_ctx.* = ctx_value;
     const Wrapper = struct {
         fn run(opaque_ctx: ?*anyopaque, args: []const Type) Type {

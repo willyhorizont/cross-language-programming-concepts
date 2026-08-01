@@ -11,7 +11,7 @@ Dict :: map[String]Type
 Pair :: struct { key: String, value: Type }
 Lambda :: struct {
 	value: rawptr,
-	call: proc(self: ^Lambda, varargs: ..Type) -> Type,
+	call: proc(self: ^Lambda, va: ..Type) -> Type,
 }
 
 Type :: union {
@@ -26,67 +26,61 @@ Type :: union {
 
 Iterator :: struct {
     args: []Type,
-    idx:  int,
+    index:  int,
 }
 
-iter :: proc(varargs: ..Type) -> Iterator {
-    return Iterator{ args = varargs, idx = 0 }
+iter :: proc(va: ..Type) -> Iterator {
+    return Iterator{ args = va, index = 0 }
 }
 
-next :: proc(it: ^Iterator) -> Type {
-    if it.idx >= len(it.args) {
+next :: proc(itr: ^Iterator) -> Type {
+    if itr.index >= len(itr.args) {
         return nil
     }
-    v := it.args[it.idx]
-    it.idx += 1
+    v := itr.args[itr.index]
+    itr.index += 1
     return v
 }
 
-Scope :: struct {
-    outer: ^Scope,
-    var: Dict,
+Ctx :: struct {
+    parent: ^Ctx,
+    ctx: Dict,
 }
 
-reg_scope :: proc(outer: ^Scope = nil, initial_vars: ..Dict) -> ^Scope {
-    s := new(Scope)
-    s.outer = outer
-    s.var = make(Dict)
+reg_ctx :: proc(parent: ^Ctx = nil, initial_vars: ..Dict) -> ^Ctx {
+    s := new(Ctx)
+    s.parent = parent
+    s.ctx = make(Dict)
     if len(initial_vars) > 0 {
         for k, v in initial_vars[0] {
-            s.var[k] = v
+            s.ctx[k] = v
         }
     }
     return s
 }
 
-get_var :: proc(s: ^Scope, name: String) -> Type {
+get_ctx :: proc(s: ^Ctx, k: String) -> Type {
     c := s
     for c != nil {
-        if v, ok := c.var[name]; ok {
+        if v, ok := c.ctx[k]; ok {
             return v
         }
-        c = c.outer
+        c = c.parent
     }
     return nil
 }
 
-set_var :: proc(s: ^Scope, name: String, value: Type) -> Bool {
+mut_ctx :: proc(s: ^Ctx, k: String, v: Type) -> Bool {
     c := s
     for c != nil {
-        if _, ok := c.var[name]; ok {
-            c.var[name] = value
+        if _, ok := c.ctx[k]; ok {
+            c.ctx[k] = v
             return true
         }
-        c = c.outer
+        c = c.parent
     }
-    s.var[name] = value
+    s.ctx[k] = v
     return false
-}
-
-unreg_scope :: proc(s: ^Scope) {
-    if s == nil do return
-    delete(s.var)
-    free(s)
 }
 
 string_repeat :: proc(a: String, n: Int) -> String {

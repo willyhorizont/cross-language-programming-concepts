@@ -33,8 +33,8 @@ local xl_list = {
     { ["foo"] = "bar" },
     function (aa, bb) return aa * bb end,
 }
-print("xl_list: " .. xl.json_stringify(xl_list))
-print("xl_list: " .. xl.json_stringify(xl_list, { ["pretty"] = true }))
+print("xl_list: " .. xl.json_stringify({ xl_list }))
+print("xl_list: " .. xl.json_stringify({ xl_list, ["pretty"] = true }))
 local xl_dict = {
     ["xl_none"] = nil,
     ["xl_bool_true"] = true,
@@ -48,5 +48,5 @@ local xl_dict = {
     ["xl_dict"] = { ["foo"] = "bar" },
     ["xl_lambda"] = function (aa, bb) return aa * bb end,
 }
-print("xl_dict: " .. xl.json_stringify(xl_dict))
-print("xl_dict: " .. xl.json_stringify(xl_dict, { ["pretty"] = true }))
+print("xl_dict: " .. xl.json_stringify({ xl_dict }))
+print("xl_dict: " .. xl.json_stringify({ xl_dict, ["pretty"] = true }))

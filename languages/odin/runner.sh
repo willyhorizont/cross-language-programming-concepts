@@ -15,6 +15,8 @@ PTTFNX="$PTTFNXD/$TFN.$FX"
 mkdir -p "$PTTFNXD"
 cp -f "$PTFNX" "$PTTFNX"
 
+# perl -i -pe 's/main :: proc\(\) \{/main :: proc() {\n    arena: virtual.Arena\n    err := virtual.arena_init_growing(\&arena)\n    if err != nil {\n        fmt.eprintln("Error: Failed initialize virtual memory arena.")\n        return\n    }\n    defer virtual.arena_destroy(\&arena) \n    context.allocator = virtual.arena_allocator(\&arena)/' "$PTTFNX"
+
 CPV="
 echo \">docker images\"
 echo \"$IMG\"

@@ -36,7 +36,7 @@ start() ->
         fun(Aa, Bb) -> Aa * Bb end
     ],
     io:format("xl_list: ~s~n", [xl:json_stringify(XlList)]),
-    io:format("xl_list: ~s~n", [xl:json_stringify(XlList, [{pretty, true}])]),
+    io:format("xl_list: ~s~n", [xl:json_stringify(XlList, #{ <<"pretty">> => true })]),
     XlDict = #{
         <<"xl_none">> => nil,
         <<"xl_bool_true">> => true,
@@ -51,6 +51,6 @@ start() ->
         <<"xl_lambda">> => fun(Aa, Bb) -> Aa * Bb end
     },
     io:format("xl_dict: ~s~n", [xl:json_stringify(XlDict)]),
-    io:format("xl_dict: ~s~n", [xl:json_stringify(XlDict, [{pretty, true}])]),
+    io:format("xl_dict: ~s~n", [xl:json_stringify(XlDict, #{ <<"pretty">> => true })]),
     
     ok.

@@ -1,3 +1,10 @@
+[Last updated: 02 Aug 2026 @ 01:08 AM]
+version 2.7.82:
+update erlang runtime;
+update lua runtime;
+update odin runtime;
+update zig runtime;
+
 [Last updated: 01 Aug 2026 @ 12:16 PM]
 version 2.7.81:
 more small update in vala runtime;

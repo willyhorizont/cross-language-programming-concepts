@@ -151,10 +151,10 @@ jify_loop([C | NS], R, P, T) ->
     end.
 
 json_stringify(A) ->
-    json_stringify(A, []).
+    json_stringify(A, #{}).
 
 json_stringify(A, O) ->
-    P = proplists:get_value(pretty, O, false),
+    P = maps:get(<<"pretty">>, O, false),
     T = binary:copy(<<" ">>, 4),
     S = [#{<<"t">> => <<"v">>, <<"v">> => A, <<"d">> => 0}],
     R = <<"">>,

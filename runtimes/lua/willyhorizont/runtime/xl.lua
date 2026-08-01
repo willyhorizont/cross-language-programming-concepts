@@ -65,10 +65,10 @@ local escapeString = function(s)
     return r
 end
 
-local json_stringify = function (a, o)
-    local p = ((o or {})["pretty"] == nil) and false or (o or {})["pretty"]
+local json_stringify = function (a)
+    local p = a["pretty"]
     local t = string.rep(" ", 4)
-    local s = { {["t"] = "v", ["v"] = a, ["d"] = 0} }
+    local s = { {["t"] = "v", ["v"] = a[1], ["d"] = 0} }
     local r = ""
     while #s > 0 do
         local c = table.remove(s)
