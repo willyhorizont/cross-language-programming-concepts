@@ -57,7 +57,7 @@ https://nue.nu/
 ~~d~~
 ~~hare~~ tried, not continue, 0.26.0 don't support lambda and no workaround for lambda;
 ~~v~~
-vala
+~~vala~~
 vale
 val
 monkey c

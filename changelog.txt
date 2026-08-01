@@ -1,3 +1,7 @@
+[Last updated: 01 Aug 2026 @ 09:30 AM]
+version 2.7.77:
+small update in vala runtime init;
+
 [Last updated: 01 Aug 2026 @ 09:24 AM]
 version 2.7.76:
 finish vala runtime init;

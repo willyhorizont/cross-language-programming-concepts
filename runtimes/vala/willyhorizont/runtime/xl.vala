@@ -154,10 +154,10 @@ namespace Willyhorizont.Runtime.Xl {
             t.set_lambda ((owned) c);
             return t;
         }
-        public static Type from_value (GLib.Value value_data) {
+        public static Type from_value (GLib.Value a) {
             var t = new Type ();
             t.data_type = Types.PRIMITIVE;
-            t.value = value_data;
+            t.value = a;
             return t;
         }
         public static Type init_none () {
