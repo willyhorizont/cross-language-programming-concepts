@@ -271,7 +271,7 @@ extern XlNamespace * xl;
 
 - (NSString * (^)(XL * _Nullable, id _Nullable))jsonStringify {
     return ^(XL * _Nullable a, id _Nullable oP) {
-        XL * frstA = a ? a : [[XL alloc] initNone];
+        XL * fstA = a ? a : [[XL alloc] initNone];
         BOOL p = NO;
         if (oP && [oP isKindOfClass:[XL class]]) {
             XL * o = (XL *)oP;
@@ -285,7 +285,7 @@ extern XlNamespace * xl;
         }
         NSString * t = [@"" stringByPaddingToLength:4 withString:@" " startingAtIndex:0];
         NSMutableArray<NSDictionary *> * s = [NSMutableArray new];
-        [s addObject:@{@"t": @"v", @"v": frstA, @"d": @0}];
+        [s addObject:@{@"t": @"v", @"v": fstA, @"d": @0}];
         NSMutableString * r = [NSMutableString stringWithString:@""];
         while (s.count > 0) {
             NSDictionary * c = s.lastObject;

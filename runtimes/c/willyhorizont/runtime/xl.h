@@ -357,12 +357,12 @@ static inline Xl* s_rpt(String this_str, Int count) {
     return r;
 }
 
-static inline void prnt(String frst, ...) {
+static inline void prnt(String fst, ...) {
     StringBuilder* sb = mk_sb();
-    if (frst != NULL) {
-        sb_apd(sb, frst);
+    if (fst != NULL) {
+        sb_apd(sb, fst);
         va_list args;
-        va_start(args, frst);
+        va_start(args, fst);
         String nxt;
         while ((nxt = va_arg(args, String)) != NULL) {
             sb_apd(sb, nxt);

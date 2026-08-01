@@ -1369,5 +1369,35 @@
                 ]
             }
         ]
+    },
+    {
+        "id": "vala",
+        "stack": [
+            { 
+                "name": "Vala",
+                "url": "https://vala.dev/",
+                "color": "#a56de2"
+            }
+        ],
+        "file_extension": ".vala",
+        "concept_definition": {
+            "list": "ArrayList",
+            "dict": "HashMap",
+            "lambda": "Delegate"
+        },
+        "vscode_extensions": [
+            "prince781.vala"
+        ],
+        "vscode_extensions_archive": [
+            
+        ],
+        "docker": [
+            {
+                "language_version_notes": "willyhorizont/vala:0.56.19",
+                "docker_images": [
+                    "willyhorizont/vala:0.56.19"
+                ]
+            }
+        ]
     }
 ]
