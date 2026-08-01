@@ -1,16 +1,20 @@
 namespace Willyhorizont.Runtime.Xl {
     namespace Xl {
+        public static void welcome () {
+            print (GLib.Environment.get_variable ("SEP") ?? "");
+        }
         public enum Types {
             NONE,
-            PRIMITIVE,
+            BASE,
             LIST,
-            DICTIONARY,
+            DICT,
             LAMBDA,
         }
         public class Type : GLib.Object {
             public Type () {}
             public static Type None;
             static construct {
+                welcome();
                 None = from_none ();
             }
             public Types data_type {
@@ -46,9 +50,7 @@ namespace Willyhorizont.Runtime.Xl {
                 this._c = (owned) c;
             }
             public Type? call (Type[] args) {
-                if (this.data_type == Types.LAMBDA && this._c != null) {
-                    return this._c (init_list (args));
-                }
+                if (this.data_type == Types.LAMBDA && this._c != null) return this._c (init_list (args));
                 return None;
             }
             public class Iterator : GLib.Object {
@@ -68,27 +70,53 @@ namespace Willyhorizont.Runtime.Xl {
                 }
             }
             public Iterator iter () {
-                if (this.data_type == Types.LIST && this.list != null) {
-                    return new Iterator (this.list);
-                }
+                if (this.data_type == Types.LIST && this.list != null) return new Iterator (this.list);
                 error ("XlRuntimeError: Expected List.\n");
             }
             public bool get_bool () {
-                return (this.value != null) ? this.value.get_boolean () : false;
+                return (this.value != null && this.value.holds (typeof (bool))) ? this.value.get_boolean () : false;
             }
             public string get_string () {
-                return (this.value != null) ? this.value.get_string () : "";
+                return (this.value != null && this.value.holds (typeof (string))) ? this.value.get_string () : "";
             }
             public int get_int () {
-                return (this.value != null) ? this.value.get_int () : 0;
+                return (this.value != null && this.value.holds (typeof (int))) ? this.value.get_int () : 0;
             }
             public double get_float () {
-                return (this.value != null) ? this.value.get_double () : 0.0;
+                return (this.value != null && this.value.holds (typeof (double))) ? this.value.get_double () : 0.0;
+            }
+            public Type? at (int i) {
+                if (this.data_type == Types.LIST && this.list != null) {
+                    if (i >= 0 && i < this.list.size) return this.list.get (i);
+                    return None;
+                }
+                error ("XlRuntimeError: Expected List.\n");
+            }
+            public void push (Type el) {
+                if (this.data_type == Types.LIST && this.list != null) {
+                    this.list.add (el);
+                    return;
+                }
+                error ("XlRuntimeError: Expected List.\n");
+            }
+            public Type? pop () {
+                if (this.data_type == Types.LIST && this.list != null) {
+                    if (this.list.size > 0) {
+                        return this.list.remove_at (this.list.size - 1);
+                    }
+                    return None;
+                }
+                error ("XlRuntimeError: Expected List.\n");
+            }
+            public new Type? get_item (string key) {
+                if (this.data_type == Types.DICT && this.dict != null) {
+                    if (this.dict.has_key (key)) return this.dict.get (key);
+                    return None;
+                }
+                error ("XlRuntimeError: Expected Dictionary.\n");
             }
             public static Type repeat (string s, int n) {
-                if (n <= 0) {
-                    return from_string ("");
-                }
+                if (n <= 0) return from_string ("");
                 var sb = new StringBuilder ();
                 for (var i = 0; i < n; i += 1) {
                     sb.append (s);
@@ -106,7 +134,7 @@ namespace Willyhorizont.Runtime.Xl {
         }
         public static Type from_bool (bool a) {
             var t = new Type ();
-            t.data_type = Types.PRIMITIVE;
+            t.data_type = Types.BASE;
             GLib.Value v = GLib.Value (typeof (bool));
             v.set_boolean (a);
             t.value = v;
@@ -114,7 +142,7 @@ namespace Willyhorizont.Runtime.Xl {
         }
         public static Type from_string (string a) {
             var t = new Type ();
-            t.data_type = Types.PRIMITIVE;
+            t.data_type = Types.BASE;
             GLib.Value v = GLib.Value (typeof (string));
             v.set_string (a);
             t.value = v;
@@ -122,7 +150,7 @@ namespace Willyhorizont.Runtime.Xl {
         }
         public static Type from_int (int a) {
             var t = new Type ();
-            t.data_type = Types.PRIMITIVE;
+            t.data_type = Types.BASE;
             GLib.Value v = GLib.Value (typeof (int));
             v.set_int (a);
             t.value = v;
@@ -130,7 +158,7 @@ namespace Willyhorizont.Runtime.Xl {
         }
         public static Type from_float (double a) {
             var t = new Type ();
-            t.data_type = Types.PRIMITIVE;
+            t.data_type = Types.BASE;
             GLib.Value v = GLib.Value (typeof (double));
             v.set_double (a);
             t.value = v;
@@ -144,7 +172,7 @@ namespace Willyhorizont.Runtime.Xl {
         }
         public static Type from_dict () {
             var t = new Type ();
-            t.data_type = Types.DICTIONARY;
+            t.data_type = Types.DICT;
             t.dict = new Gee.HashMap<string, Type> ();
             return t;
         }
@@ -156,7 +184,7 @@ namespace Willyhorizont.Runtime.Xl {
         }
         public static Type from_value (GLib.Value a) {
             var t = new Type ();
-            t.data_type = Types.PRIMITIVE;
+            t.data_type = Types.BASE;
             t.value = a;
             return t;
         }
@@ -196,20 +224,9 @@ namespace Willyhorizont.Runtime.Xl {
             return from_lambda ((owned) c);
         }
         public static bool is_none (Type a) {
-            if (a.data_type == Types.NONE) {
-                return true;
-            }
-            if (a.value != null && a.value.holds (typeof (GLib.Object)) && a.value.get_object () == null) {
-                return true;
-            }
+            if (a.data_type == Types.NONE) return true;
+            if (a.value != null && a.value.holds (typeof (GLib.Object)) && a.value.get_object () == null) return true;
             return false;
-        }
-        public static void greet_girl (string gn, bool pretty = false) {
-            if (pretty) {
-                print (@"Hi pretty, $(gn)!\n");
-            } else {
-                print (@"Hi $(gn)!\n");
-            }
         }
         public static string escape_string (string s) {
             var r = s;
@@ -220,49 +237,24 @@ namespace Willyhorizont.Runtime.Xl {
             r = r.replace ("\t", "\\t");
             return r;
         }
-        private class JifyStkEl : GLib.Object {
-            public string t {
-                get;
-                set;
-            }
-            public Type? v {
-                get;
-                set;
-            }
-            public string r {
-                get;
-                set;
-            }
-            public int d {
-                get;
-                set;
-            }
-            public JifyStkEl (string t, Type? v, string r, int d) {
-                this.t = t;
-                this.v = v;
-                this.r = r;
-                this.d = d;
-            }
-        }
         public static string json_stringify (Type a, Type.Pair? o = null) {
             var p = (o != null && o.key == "pretty") ? o.value.get_bool () : false;
             var t = Type.repeat (" ", 4).get_string ();
-            var s = new Gee.ArrayList<JifyStkEl> ();
-            s.add (new JifyStkEl ("v", a, "", 0));
+            var s = init_list ({ init_dict ({ init_pair ("t", init_string ("v")), init_pair ("v", a), init_pair ("r", init_string ("")), init_pair ("d", init_int (0)) }) });
             var r = "";
-            while (s.size > 0) {
-                var c = s.remove_at (s.size - 1);
-                if (c.t == "r") {
-                    r += c.r;
+            while (s.list.size > 0) {
+                var c = s.pop ();
+                if (c.get_item ("t").get_string () == "r") {
+                    r += c.get_item ("r").get_string ();
                     continue;
                 }
-                var v = c.v;
-                var cur_d = c.d;
+                var v = c.get_item ("v");
+                var cur_d = c.get_item ("d").get_int ();
                 if (v == null || is_none (v)) {
                     r += "null";
                     continue;
                 }
-                if (v.data_type == Types.PRIMITIVE && v.value != null) {
+                if (v.data_type == Types.BASE && v.value != null) {
                     var v_t = v.value.type ();
                     if (v_t == typeof (bool)) {
                         r += v.get_bool () ? "true" : "false";
@@ -291,23 +283,48 @@ namespace Willyhorizont.Runtime.Xl {
                         continue;
                     }
                     var child_d = cur_d + 1;
-                    s.add (new JifyStkEl ("r", null, p ? "\n" + Type.repeat (t, cur_d).get_string () + "]" : "]", cur_d));
+                    s.push (init_dict ({
+                        init_pair ("t", init_string ("r")),
+                        init_pair ("v", init_none ()),
+                        init_pair ("r", init_string (p ? "\n" + Type.repeat (t, cur_d).get_string () + "]" : "]")),
+                        init_pair ("d", init_int (cur_d)),
+                    }));
                     for (var i = v.list.size - 1; i >= 0; i -= 1) {
-                        s.add (new JifyStkEl ("v", v.list.get (i), "", child_d));
+                        s.push (init_dict ({
+                            init_pair ("t", init_string ("v")),
+                            init_pair ("v", v.list.get (i)),
+                            init_pair ("r", init_string ("")),
+                            init_pair ("d", init_int (child_d)),
+                        }));
                         if (i > 0) {
-                            s.add (new JifyStkEl ("r", null, p ? ",\n" + Type.repeat (t, child_d).get_string () : ",", child_d));
+                            s.push (init_dict ({
+                                init_pair ("t", init_string ("r")),
+                                init_pair ("v", init_none ()),
+                                init_pair ("r", init_string (p ? ",\n" + Type.repeat (t, child_d).get_string () : ",")),
+                                init_pair ("d", init_int (child_d)),
+                            }));
                         }
                     }
-                    s.add (new JifyStkEl ("r", null, p ? "[\n" + Type.repeat (t, child_d).get_string () : "[", child_d));
+                    s.push (init_dict ({
+                        init_pair ("t", init_string ("r")),
+                        init_pair ("v", init_none ()),
+                        init_pair ("r", init_string (p ? "[\n" + Type.repeat (t, child_d).get_string () : "[")),
+                        init_pair ("d", init_int (child_d)),
+                    }));
                     continue;
                 }
-                if (v.data_type == Types.DICTIONARY && v.dict != null) {
+                if (v.data_type == Types.DICT && v.dict != null) {
                     if (v.dict.size == 0) {
                         r += "{}";
                         continue;
                     }
                     var child_d = cur_d + 1;
-                    s.add (new JifyStkEl ("r", null, p ? "\n" + Type.repeat (t, cur_d).get_string () + "}" : "}", cur_d));
+                    s.push (init_dict ({
+                        init_pair ("t", init_string ("r")),
+                        init_pair ("v", init_none ()),
+                        init_pair ("r", init_string (p ? "\n" + Type.repeat (t, cur_d).get_string () + "}" : "}")),
+                        init_pair ("d", init_int (cur_d)),
+                    }));
                     var dk_l = new Gee.ArrayList<string> ();
                     foreach (var pk in v.dict.keys) {
                         dk_l.add (pk);
@@ -315,13 +332,33 @@ namespace Willyhorizont.Runtime.Xl {
                     for (var i = dk_l.size - 1; i >= 0; i -= 1) {
                         var pk = dk_l.get (i);
                         var pv = v.dict.get (pk);
-                        s.add (new JifyStkEl ("v", pv, "", child_d));
-                        s.add (new JifyStkEl ("r", null, p ? "\"" + pk + "\": " : "\"" + pk + "\":", child_d));
+                        s.push (init_dict ({
+                            init_pair ("t", init_string ("v")),
+                            init_pair ("v", pv),
+                            init_pair ("r", init_string ("")),
+                            init_pair ("d", init_int (child_d)),
+                        }));
+                        s.push (init_dict ({
+                            init_pair ("t", init_string ("r")),
+                            init_pair ("v", init_none ()),
+                            init_pair ("r", init_string (p ? "\"" + pk + "\": " : "\"" + pk + "\":")),
+                            init_pair ("d", init_int (child_d)),
+                        }));
                         if (i > 0) {
-                            s.add (new JifyStkEl ("r", null, p ? ",\n" + Type.repeat (t, child_d).get_string () : ",", child_d));
+                            s.push (init_dict ({
+                                init_pair ("t", init_string ("r")),
+                                init_pair ("v", init_none ()),
+                                init_pair ("r", init_string (p ? ",\n" + Type.repeat (t, child_d).get_string () : ",")),
+                                init_pair ("d", init_int (child_d)),
+                            }));
                         }
                     }
-                    s.add (new JifyStkEl ("r", null, p ? "{\n" + Type.repeat (t, child_d).get_string () : "{", child_d));
+                    s.push (init_dict ({
+                        init_pair ("t", init_string ("r")),
+                        init_pair ("v", init_none ()),
+                        init_pair ("r", init_string (p ? "{\n" + Type.repeat (t, child_d).get_string () : "{")),
+                        init_pair ("d", init_int (child_d)),
+                    }));
                     continue;
                 }
                 r += "\"[object Object]\"";

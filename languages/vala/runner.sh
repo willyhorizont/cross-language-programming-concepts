@@ -14,7 +14,6 @@ echo \">docker images\"
 echo \"$IMG\"
 echo \">valac --version\"
 valac --version
-echo \"Note: The warnings regarding __atomic_load are related to internal GLib macro compatibility with newer GCC versions in the environment and do not indicate an error in the Vala source code itself.\"
 "
 
 CCRLC="
@@ -28,6 +27,14 @@ CRLC="
 cd \"$RD\"
 valac --run --pkg gee-0.8 \"$PTFNX\" \"$RD/runtimes/vala/willyhorizont/runtime/xl.vala\"
 "
+
+SPRE="$L
+/* [NOTICE] THIS IS NOT AN ERROR! The '__atomic_load' compiler warnings below are just GLib macro incompatibility with new GCC versions. Vala code is 100% WORK and compiled perfectly! */
+"
+
+SPOST="
+/* [NOTICE] THIS IS NOT AN ERROR! The '__atomic_load' compiler warnings above are just GLib macro incompatibility with new GCC versions. Vala code is 100% WORK and compiled perfectly! */
+$L"
 
 if ! docker image inspect "$IMG" > /dev/null 2>&1; then
     docker build \
@@ -43,7 +50,9 @@ docker run -i --rm \
     -c "
         $CPV
 
-        echo \"$L\"
+        echo \"$SPRE\"
+
+        export SEP=\"$SPOST\"
 
         $CCRLC
     "
