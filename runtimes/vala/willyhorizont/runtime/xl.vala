@@ -90,7 +90,7 @@ namespace Willyhorizont.Runtime.Xl {
                     return from_string ("");
                 }
                 var sb = new StringBuilder ();
-                for (int i = 0; i < n; i += 1) {
+                for (var i = 0; i < n; i += 1) {
                     sb.append (s);
                 }
                 return from_string (sb.str);
@@ -292,7 +292,7 @@ namespace Willyhorizont.Runtime.Xl {
                     }
                     var child_d = cur_d + 1;
                     s.add (new JifyStkEl ("r", null, p ? "\n" + Type.repeat (t, cur_d).get_string () + "]" : "]", cur_d));
-                    for (int i = v.list.size - 1; i >= 0; i -= 1) {
+                    for (var i = v.list.size - 1; i >= 0; i -= 1) {
                         s.add (new JifyStkEl ("v", v.list.get (i), "", child_d));
                         if (i > 0) {
                             s.add (new JifyStkEl ("r", null, p ? ",\n" + Type.repeat (t, child_d).get_string () : ",", child_d));
@@ -312,7 +312,7 @@ namespace Willyhorizont.Runtime.Xl {
                     foreach (var pk in v.dict.keys) {
                         dk_l.add (pk);
                     }
-                    for (int i = dk_l.size - 1; i >= 0; i -= 1) {
+                    for (var i = dk_l.size - 1; i >= 0; i -= 1) {
                         var pk = dk_l.get (i);
                         var pv = v.dict.get (pk);
                         s.add (new JifyStkEl ("v", pv, "", child_d));
