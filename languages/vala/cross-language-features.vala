@@ -17,18 +17,18 @@ void main () {
     }) });
     var create_multiplier = Xl.init_lambda ((va_aa) => {
         var itr_aa = va_aa.iter ();
-        var aa = itr_aa.next ().get_int ();
+        var aa = itr_aa.next ();
         return Xl.init_lambda ((va_bb) => {
             var itr_bb = va_bb.iter ();
-            var bb = itr_bb.next ().get_int ();
-            return Xl.init_int (aa * bb);
+            var bb = itr_bb.next ();
+            return Xl.init_int (aa.to_int () * bb.to_int ());
         });
     });
     var multiply_by_two = create_multiplier.call ({ Xl.init_int (2) });
-    print (@"multiply_by_two(10): $(multiply_by_two.call ({ Xl.init_int (10) }).get_int())\n");
+    print (@"multiply_by_two(10): $(multiply_by_two.call ({ Xl.init_int (10) }).to_int())\n");
     var multiply_by_eight = create_multiplier.call ({ Xl.init_int (8) });
-    print (@"multiply_by_eight(4): $(multiply_by_eight.call ({ Xl.init_int (4) }).get_int())\n");
-    print (@"multiply_by_two(8): $(multiply_by_two.call ({ Xl.init_int (8) }).get_int())\n");
+    print (@"multiply_by_eight(4): $(multiply_by_eight.call ({ Xl.init_int (4) }).to_int())\n");
+    print (@"multiply_by_two(8): $(multiply_by_two.call ({ Xl.init_int (8) }).to_int())\n");
 
     /*
     2. support dynamic-typed value, or has workaround
@@ -46,9 +46,9 @@ void main () {
         Xl.init_dict ({ Xl.init_pair ("foo", Xl.init_string("bar")) }),
         Xl.init_lambda ((va) => {
             var itr = va.iter ();
-            var aa = itr.next ().get_int ();
-            var bb = itr.next ().get_int ();
-            return Xl.init_int (aa * bb);
+            var aa = itr.next ();
+            var bb = itr.next ();
+            return Xl.init_int (aa.to_int () * bb.to_int ());
         }),
     });
     print (@"xl_list: $(Xl.json_stringify(xl_list))\n");
@@ -66,9 +66,9 @@ void main () {
         Xl.init_pair ("xl_dict", Xl.init_dict ({ Xl.init_pair ("foo", Xl.init_string("bar")) })),
         Xl.init_pair ("xl_lambda", Xl.init_lambda ((va) => {
             var itr = va.iter ();
-            var aa = itr.next ().get_int ();
-            var bb = itr.next ().get_int ();
-            return Xl.init_int (aa * bb);
+            var aa = itr.next ();
+            var bb = itr.next ();
+            return Xl.init_int (aa.to_int () * bb.to_int ());
         })),
     });
     print (@"xl_dict: $(Xl.json_stringify(xl_dict))\n");

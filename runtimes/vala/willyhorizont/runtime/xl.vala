@@ -73,16 +73,16 @@ namespace Willyhorizont.Runtime.Xl {
                 if (this.data_type == Types.LIST && this.list != null) return new Iterator (this.list);
                 error ("XlRuntimeError: Expected List.\n");
             }
-            public bool get_bool () {
+            public bool to_bool () {
                 return (this.value != null && this.value.holds (typeof (bool))) ? this.value.get_boolean () : false;
             }
-            public string get_string () {
+            public string to_string () {
                 return (this.value != null && this.value.holds (typeof (string))) ? this.value.get_string () : "";
             }
-            public int get_int () {
+            public int to_int () {
                 return (this.value != null && this.value.holds (typeof (int))) ? this.value.get_int () : 0;
             }
-            public double get_float () {
+            public double to_float () {
                 return (this.value != null && this.value.holds (typeof (double))) ? this.value.get_double () : 0.0;
             }
             public Type? at (int i) {
@@ -238,18 +238,18 @@ namespace Willyhorizont.Runtime.Xl {
             return r;
         }
         public static string json_stringify (Type a, Type.Pair? o = null) {
-            var p = (o != null && o.key == "pretty") ? o.value.get_bool () : false;
-            var t = Type.repeat (" ", 4).get_string ();
+            var p = (o != null && o.key == "pretty") ? o.value.to_bool () : false;
+            var t = Type.repeat (" ", 4).to_string ();
             var s = init_list ({ init_dict ({ init_pair ("t", init_string ("v")), init_pair ("v", a), init_pair ("r", init_string ("")), init_pair ("d", init_int (0)) }) });
             var r = "";
             while (s.list.size > 0) {
                 var c = s.pop ();
-                if (c.get_item ("t").get_string () == "r") {
-                    r += c.get_item ("r").get_string ();
+                if (c.get_item ("t").to_string () == "r") {
+                    r += c.get_item ("r").to_string ();
                     continue;
                 }
                 var v = c.get_item ("v");
-                var cur_d = c.get_item ("d").get_int ();
+                var cur_d = c.get_item ("d").to_int ();
                 if (v == null || is_none (v)) {
                     r += "null";
                     continue;
@@ -257,19 +257,19 @@ namespace Willyhorizont.Runtime.Xl {
                 if (v.data_type == Types.BASE && v.value != null) {
                     var v_t = v.value.type ();
                     if (v_t == typeof (bool)) {
-                        r += v.get_bool () ? "true" : "false";
+                        r += v.to_bool () ? "true" : "false";
                         continue;
                     }
                     if (v_t == typeof (string)) {
-                        r += "\"" + escape_string (v.get_string ()) + "\"";
+                        r += "\"" + escape_string (v.to_string ()) + "\"";
                         continue;
                     }
                     if (v_t == typeof (int)) {
-                        r += v.get_int ().to_string ();
+                        r += v.to_int ().to_string ();
                         continue;
                     }
                     if (v_t == typeof (double)) {
-                        r += v.get_float ().to_string ();
+                        r += v.to_float ().to_string ();
                         continue;
                     }
                 }
@@ -286,7 +286,7 @@ namespace Willyhorizont.Runtime.Xl {
                     s.push (init_dict ({
                         init_pair ("t", init_string ("r")),
                         init_pair ("v", init_none ()),
-                        init_pair ("r", init_string (p ? "\n" + Type.repeat (t, cur_d).get_string () + "]" : "]")),
+                        init_pair ("r", init_string (p ? "\n" + Type.repeat (t, cur_d).to_string () + "]" : "]")),
                         init_pair ("d", init_int (cur_d)),
                     }));
                     for (var i = v.list.size - 1; i >= 0; i -= 1) {
@@ -300,7 +300,7 @@ namespace Willyhorizont.Runtime.Xl {
                             s.push (init_dict ({
                                 init_pair ("t", init_string ("r")),
                                 init_pair ("v", init_none ()),
-                                init_pair ("r", init_string (p ? ",\n" + Type.repeat (t, child_d).get_string () : ",")),
+                                init_pair ("r", init_string (p ? ",\n" + Type.repeat (t, child_d).to_string () : ",")),
                                 init_pair ("d", init_int (child_d)),
                             }));
                         }
@@ -308,7 +308,7 @@ namespace Willyhorizont.Runtime.Xl {
                     s.push (init_dict ({
                         init_pair ("t", init_string ("r")),
                         init_pair ("v", init_none ()),
-                        init_pair ("r", init_string (p ? "[\n" + Type.repeat (t, child_d).get_string () : "[")),
+                        init_pair ("r", init_string (p ? "[\n" + Type.repeat (t, child_d).to_string () : "[")),
                         init_pair ("d", init_int (child_d)),
                     }));
                     continue;
@@ -322,7 +322,7 @@ namespace Willyhorizont.Runtime.Xl {
                     s.push (init_dict ({
                         init_pair ("t", init_string ("r")),
                         init_pair ("v", init_none ()),
-                        init_pair ("r", init_string (p ? "\n" + Type.repeat (t, cur_d).get_string () + "}" : "}")),
+                        init_pair ("r", init_string (p ? "\n" + Type.repeat (t, cur_d).to_string () + "}" : "}")),
                         init_pair ("d", init_int (cur_d)),
                     }));
                     var dk_l = new Gee.ArrayList<string> ();
@@ -348,7 +348,7 @@ namespace Willyhorizont.Runtime.Xl {
                             s.push (init_dict ({
                                 init_pair ("t", init_string ("r")),
                                 init_pair ("v", init_none ()),
-                                init_pair ("r", init_string (p ? ",\n" + Type.repeat (t, child_d).get_string () : ",")),
+                                init_pair ("r", init_string (p ? ",\n" + Type.repeat (t, child_d).to_string () : ",")),
                                 init_pair ("d", init_int (child_d)),
                             }));
                         }
@@ -356,7 +356,7 @@ namespace Willyhorizont.Runtime.Xl {
                     s.push (init_dict ({
                         init_pair ("t", init_string ("r")),
                         init_pair ("v", init_none ()),
-                        init_pair ("r", init_string (p ? "{\n" + Type.repeat (t, child_d).get_string () : "{")),
+                        init_pair ("r", init_string (p ? "{\n" + Type.repeat (t, child_d).to_string () : "{")),
                         init_pair ("d", init_int (child_d)),
                     }));
                     continue;
