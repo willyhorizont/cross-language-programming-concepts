@@ -115,7 +115,8 @@ namespace Willyhorizont.Runtime.Xl {
                 }
                 error ("XlRuntimeError: Expected Dictionary.\n");
             }
-            public static Type repeat (string s, int n) {
+            public Type repeat (int n) {
+                string s = this.to_string(); 
                 if (n <= 0) return from_string ("");
                 var sb = new StringBuilder ();
                 for (var i = 0; i < n; i += 1) {
@@ -239,7 +240,7 @@ namespace Willyhorizont.Runtime.Xl {
         }
         public static string json_stringify (Type a, Type.Pair? o = null) {
             var p = (o != null && o.key == "pretty") ? o.value.to_bool () : false;
-            var t = Type.repeat (" ", 4).to_string ();
+            var t = init_string(" ").repeat(4);
             var s = init_list ({ init_dict ({ init_pair ("t", init_string ("v")), init_pair ("v", a), init_pair ("r", init_string ("")), init_pair ("d", init_int (0)) }) });
             var r = "";
             while (s.list.size > 0) {
@@ -286,7 +287,7 @@ namespace Willyhorizont.Runtime.Xl {
                     s.push (init_dict ({
                         init_pair ("t", init_string ("r")),
                         init_pair ("v", init_none ()),
-                        init_pair ("r", init_string (p ? "\n" + Type.repeat (t, cur_d).to_string () + "]" : "]")),
+                        init_pair ("r", init_string (p ? "\n" + t.repeat (cur_d).to_string () + "]" : "]")),
                         init_pair ("d", init_int (cur_d)),
                     }));
                     for (var i = v.list.size - 1; i >= 0; i -= 1) {
@@ -300,7 +301,7 @@ namespace Willyhorizont.Runtime.Xl {
                             s.push (init_dict ({
                                 init_pair ("t", init_string ("r")),
                                 init_pair ("v", init_none ()),
-                                init_pair ("r", init_string (p ? ",\n" + Type.repeat (t, child_d).to_string () : ",")),
+                                init_pair ("r", init_string (p ? ",\n" + t.repeat (child_d).to_string () : ",")),
                                 init_pair ("d", init_int (child_d)),
                             }));
                         }
@@ -308,7 +309,7 @@ namespace Willyhorizont.Runtime.Xl {
                     s.push (init_dict ({
                         init_pair ("t", init_string ("r")),
                         init_pair ("v", init_none ()),
-                        init_pair ("r", init_string (p ? "[\n" + Type.repeat (t, child_d).to_string () : "[")),
+                        init_pair ("r", init_string (p ? "[\n" + t.repeat (child_d).to_string () : "[")),
                         init_pair ("d", init_int (child_d)),
                     }));
                     continue;
@@ -322,7 +323,7 @@ namespace Willyhorizont.Runtime.Xl {
                     s.push (init_dict ({
                         init_pair ("t", init_string ("r")),
                         init_pair ("v", init_none ()),
-                        init_pair ("r", init_string (p ? "\n" + Type.repeat (t, cur_d).to_string () + "}" : "}")),
+                        init_pair ("r", init_string (p ? "\n" + t.repeat (cur_d).to_string () + "}" : "}")),
                         init_pair ("d", init_int (cur_d)),
                     }));
                     var dk_l = new Gee.ArrayList<string> ();
@@ -348,7 +349,7 @@ namespace Willyhorizont.Runtime.Xl {
                             s.push (init_dict ({
                                 init_pair ("t", init_string ("r")),
                                 init_pair ("v", init_none ()),
-                                init_pair ("r", init_string (p ? ",\n" + Type.repeat (t, child_d).to_string () : ",")),
+                                init_pair ("r", init_string (p ? ",\n" + t.repeat (child_d).to_string () : ",")),
                                 init_pair ("d", init_int (child_d)),
                             }));
                         }
@@ -356,7 +357,7 @@ namespace Willyhorizont.Runtime.Xl {
                     s.push (init_dict ({
                         init_pair ("t", init_string ("r")),
                         init_pair ("v", init_none ()),
-                        init_pair ("r", init_string (p ? "{\n" + Type.repeat (t, child_d).to_string () : "{")),
+                        init_pair ("r", init_string (p ? "{\n" + t.repeat (child_d).to_string () : "{")),
                         init_pair ("d", init_int (child_d)),
                     }));
                     continue;

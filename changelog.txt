@@ -1,3 +1,7 @@
+[Last updated: 01 Aug 2026 @ 12:16 PM]
+version 2.7.81:
+more small update in vala runtime;
+
 [Last updated: 01 Aug 2026 @ 12:02 PM]
 version 2.7.80:
 small update in vala runtime again;
