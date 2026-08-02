@@ -14,7 +14,7 @@ $say-hello(sub () {
 });
 my $create-multiplier = sub ($aa) {
     return sub ($bb) {
-        return $aa * $bb
+        return $aa * $bb;
     };
 };
 my $multiply-by-two = $create-multiplier(2);
@@ -37,8 +37,8 @@ my $xl-list = [
     -123.789,
     [1, 2, 3],
     {"foo" => "bar"},
-    sub ($a, $b) {
-        return ($a * $b);
+    sub ($aa, $bb) {
+        return $aa * $bb;
     },
 ];
 print("xl_list: {xl::json-stringify($xl-list)}\n");
@@ -54,8 +54,8 @@ my $xl-dict = {
     "xl_float_negative" => -123.789,
     "xl_list" => [1, 2, 3],
     "xl_dict" => {"foo" => "bar"},
-    "xl_lambda" => sub ($a, $b) {
-        return ($a * $b);
+    "xl_lambda" => sub ($aa, $bb) {
+        return $aa * $bb;
     },
 };
 print("xl_dict: {xl::json-stringify($xl-dict)}\n");

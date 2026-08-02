@@ -20,7 +20,7 @@ my $create_multiplier = sub {
     my ($aa) = @_;
     return sub {
         my ($bb) = @_;
-        return ($aa * $bb);
+        return $aa * $bb;
     };
 };
 my $multiply_by_two = &$create_multiplier(2);
@@ -45,7 +45,7 @@ my $xl_list = [
     {"foo" => "bar"},
     sub {
         my ($aa, $bb) = @_;
-        return ($aa * $bb);
+        return $aa * $bb;
     },
 ];
 say("xl_list: " . xl::json_stringify($xl_list));
@@ -63,7 +63,7 @@ my $xl_dict = {
     "xl_dict" => {"foo" => "bar"},
     "xl_lambda" => sub {
         my ($aa, $bb) = @_;
-        return ($aa * $bb);
+        return $aa * $bb;
     },
 };
 say("xl_dict: " . xl::json_stringify($xl_dict));

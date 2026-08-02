@@ -58,27 +58,32 @@ https://nue.nu/
 ~~hare~~ tried, not continue, 0.26.0 don't support lambda and no workaround for lambda;
 ~~v~~
 ~~vala~~
+~~crystal | v1.13.0 | stable~~
 [name] | [latest version] | [status]
 wren | v0.4.0 | stable
 lobster | v0.3.0 | stable
 pony | v0.55.1 | stable
+beef | v0.43.5 | stable
+umka | v1.5.3 | stable
 haxe | v4.3.6 | stable
-crystal | v1.13.0 | stable
 neko | v2.4.1 | stable
 pike | v8.0.1738 | stable
 falcon | 1.2.4 | stable (inactive project/legacy, but latest release version are stable) https://github.com/EricLBuehler/Falcon-Programming-Language
+vale | v0.2 | unstable (under active development)
+onyx | v0.1.13 | unstable (Beta, under active development)
+gravity | v0.9.7 | unstable (under active development)
+gren | v26.03 | unstable (under active development, compiler is working toward v1.0)
+xl | v0.1.0 | unstable (under active development, extensible concept programming language)
+temper | v0.6.0 | unstable (under active development)
+grain | v0.7 | unstable (under active development)
+moonbit | v0.8.0 | unstable (under active development)
+gml (GameMaker Language) | v2024.6 | stable
+verse (UEFN Unreal Engine for Fortnite) | v1.0 | stable
+monkey c | v8.0 | stable (Garmin Connect IQ SDK 8)
 coffeescript | v2.7.0 | stable
 f# | v8.0 | stable
 clojure | v1.12.0 | stable
-gml | v2024.6 | stable (GameMaker Language)
-verse | v1.0 | stable (UEFN Unreal Engine for Fortnite)
-monkey c | v8.0 | stable (Garmin Connect IQ SDK 8)
 typescript | v5.5.4 | stable
-moonbit | v0.8.0 | unstable (under active development)
-grain | v0.7 | unstable (under active development)
-temper | v0.6.0 | unstable (under active development)
-vale | v0.2 | unstable (under active development)
-onyx | v0.1.13 | unstable (Beta, under active development)
 val (now Hylo) | v0.1 | unstable (under active development)
 roc | v0.0.0-alpha4 | unstable (under active development)
 carbon | v0.1 | unstable (Experimental Google, under active development)
@@ -87,8 +92,14 @@ cppfront/cpp2 | v0.1 | unstable (Experimental oleh Herb Sutter, under active dev
 lo | v0.1.0 | unstable (under active development)
 g# | v1.3 | unstable (research lab)
 bosque | v0.1 | unstable (research experimental Microsoft)
+checked-c | v0.6 | unstable (under active development, extension specification v1.0)
 bend | v0.2.38 | unstable (under active development, features like print are missing/limited)
 mojo | v1.0.0b2 | stable (Mojo 1.0 Beta brings language stability, but lambda is still not fully implemented)
+~~supper-collider~~ c++ based
+~~sonic-pi~~ ruby based
+~~faust~~ not programming language
+~~c-sound~~ not programming language
+~~soul~~ not programming language
 
 docker run --rm -i $(./utils.sh --get-docker-image julia) which julia
 
