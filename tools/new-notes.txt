@@ -59,8 +59,8 @@ https://nue.nu/
 ~~v~~
 ~~vala~~
 ~~crystal | v1.13.0 | stable~~
+~~wren | v0.4.0 | stable~~
 [name] | [latest version] | [status]
-wren | v0.4.0 | stable
 lobster | v0.3.0 | stable
 pony | v0.55.1 | stable
 beef | v0.43.5 | stable

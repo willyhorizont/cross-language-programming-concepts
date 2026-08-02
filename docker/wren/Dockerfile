@@ -11,7 +11,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /build
 
-RUN git clone https://github.com/wren-lang/wren-cli.git .
+RUN git clone --branch 0.4.0 --depth 1 --recursive https://github.com/wren-lang/wren-cli.git .
+
+RUN sed -i 's/\bwrite\b/wrenWrite/g' src/cli/vm.c
 
 WORKDIR /build/projects/make
 
