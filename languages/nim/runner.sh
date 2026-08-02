@@ -27,6 +27,7 @@ nim -v
 CRLC="
 cd \"$PTTFNXD\"
 nim c -r --hints:off \"$TFN.$FX\"
+rm -f \"$PTTFNXD/$TFN\"
 "
 
 docker run -i --rm \
@@ -40,5 +41,3 @@ docker run -i --rm \
 
         $CRLC
     "
-
-rm -f "$PTTFNXD/$TFN"

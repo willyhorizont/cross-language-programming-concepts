@@ -73,6 +73,7 @@ CRLC="
 cd \"$PTFNXD\"
 objc $FNX -o $FN
 ./$FN
+rm -f \"$PTFNXD/$FN\"
 "
 
 docker run -i --rm \
@@ -86,5 +87,3 @@ docker run -i --rm \
 
         $CRLC
     "
-
-rm -f "$PTFNXD/$FN"

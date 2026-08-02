@@ -29,6 +29,9 @@ cp -f \"$PTFNX\" \"$PTTFNX\"
 cd $PTTFNXD
 erlc $TFN.$FX
 erl -noshell -pa \"$PTTFNXD\" -s $TFN start -s init stop
+rm -f \"$PTTFNXD/$TFN.beam\"
+rm -f \"$PTTFNXD/xl.beam\"
+find \"$PTTFNXD\" -name \"*.dump\" -delete
 "
 
 docker run -i --rm \
@@ -42,7 +45,3 @@ docker run -i --rm \
 
         $CRLC
     "
-
-rm -f "$PTTFNXD/$TFN.beam"
-rm -f "$PTTFNXD/xl.beam"
-cd "$PTTFNXD" && rm -f *.dump

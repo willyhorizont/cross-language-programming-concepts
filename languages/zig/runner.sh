@@ -26,6 +26,7 @@ CCRLC="
 cd \"$PTTFNXD\"
 zig build-exe \"$TFN.$FX\"
 ./\"$TFN\"
+rm -f \"$PTTFNXD/$TFN\"
 "
 
 CRLC="
@@ -51,5 +52,3 @@ docker run -i --rm \
 
         $CCRLC
     "
-
-rm -f "$PTTFNXD/$TFN"

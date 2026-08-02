@@ -26,7 +26,7 @@ echo \">dotnet --info\"
 echo \"$DN_INFO\"
 "
 
-CRLC="
+CCRLC="
 rm -rf \"$PTTFNXD/obj\"
 rm -rf \"$PTTFNXD/output\"
 cp -f \"$PTFNX\" \"$PTTFNXD/Main.cs\"
@@ -55,5 +55,5 @@ docker run -i --rm \
 
         echo \"$L\"
 
-        $CRLC
+        $CCRLC
     "

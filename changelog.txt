@@ -1,3 +1,7 @@
+[Last updated: 03 Aug 2026 @ 12:46 AM]
+version 2.7.87:
+finish wren runtime init;
+
 [Last updated: 02 Aug 2026 @ 10:01 PM]
 version 2.7.86:
 update notes;

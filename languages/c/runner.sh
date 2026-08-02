@@ -15,10 +15,11 @@ echo \"$IMG\"
 echo \">gcc -std=c23 \"$FNX\" -o \"$FN\"\"
 "
 
-CRLC="
+CCRLC="
 cd \"$PTFNXD\"
 gcc -std=c23 \"$FNX\" -o \"$FN\"
 ./$FN
+rm -f \"$PTFNXD/$FN\"
 "
 
 docker run -i --rm \
@@ -30,7 +31,5 @@ docker run -i --rm \
 
         echo \"$L\"
 
-        $CRLC
+        $CCRLC
     "
-
-rm -f "$PTFNXD/$FN"

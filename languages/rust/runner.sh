@@ -31,7 +31,7 @@ echo \">cargo --version\"
 cargo --version
 "
 
-CRLC="
+CCRLC="
 rm -rf \"$RD/runtimes/rust/target\"
 cp -f \"$PTFNX\" \"$RD/runtimes/rust/src/main.rs\"
 cd \"$RD/runtimes/rust\"
@@ -49,5 +49,5 @@ docker run -i --rm \
 
         echo \"$L\"
 
-        $CRLC
+        $CCRLC
     "
