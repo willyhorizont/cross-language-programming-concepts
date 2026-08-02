@@ -225,7 +225,7 @@
         "concept_definition": {
             "list": "Array",
             "dict": "Hash",
-            "lambda": "Lambda"
+            "lambda": "Lambda and Proc"
         },
         "vscode_extensions": [
             
@@ -1396,6 +1396,36 @@
                 "language_version_notes": "willyhorizont/vala:0.56.19",
                 "docker_images": [
                     "willyhorizont/vala:0.56.19"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "crystal",
+        "stack": [
+            { 
+                "name": "Crystal",
+                "url": "https://crystal-lang.org/",
+                "color": "#000100"
+            }
+        ],
+        "file_extension": ".cr",
+        "concept_definition": {
+            "list": "Array",
+            "dict": "Hash",
+            "lambda": "Proc"
+        },
+        "vscode_extensions": [
+            "crystal-lang-tools.crystal-lang"
+        ],
+        "vscode_extensions_archive": [
+            
+        ],
+        "docker": [
+            {
+                "language_version_notes": "willyhorizont/crystal:1.21.0",
+                "docker_images": [
+                    "willyhorizont/crystal:1.21.0"
                 ]
             }
         ]

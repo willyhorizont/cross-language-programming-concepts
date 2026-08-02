@@ -1,3 +1,7 @@
+[Last updated: 02 Aug 2026 @ 07:00 PM]
+version 2.7.85:
+finish crystal runtime init;
+
 [Last updated: 02 Aug 2026 @ 01:45 PM]
 version 2.7.84:
 update readme;

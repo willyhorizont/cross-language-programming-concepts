@@ -101,15 +101,15 @@
                     "d": curD
                 });
                 for (let i = dpL.length - 1; i >= 0; i -= 1) {
-                    const [dK, dV] = dpL[i];
+                    const [pK, pV] = dpL[i];
                     s.push({
                         "t": "v",
-                        "v": dV,
+                        "v": pV,
                         "d": childD
                     });
                     s.push({
                         "t": "r",
-                        "v": p ? "\"" + String(dK) + "\": " : "\"" + String(dK) + "\":",
+                        "v": p ? "\"" + String(pK) + "\": " : "\"" + String(pK) + "\":",
                         "d": childD
                     });
                     if (i > 0) {
