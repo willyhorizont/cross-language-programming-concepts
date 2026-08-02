@@ -1,3 +1,7 @@
+[Last updated: 02 Aug 2026 @ 01:45 PM]
+version 2.7.84:
+update readme;
+
 [Last updated: 02 Aug 2026 @ 11:32 AM]
 version 2.7.83:
 update scala runtime;
