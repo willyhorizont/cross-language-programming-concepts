@@ -62,7 +62,8 @@ vale
 val
 monkey c
 roc
-bend
+bend still unstable (doesn't have print)
+mojo still unstable (doesn't have lambda)
 wren
 onyx
 lobster

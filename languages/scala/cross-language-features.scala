@@ -5,33 +5,33 @@ import willyhorizont.runtime.Xl
     1. support lambda as value, or has workaround
     */
     val sayHello = ((va: Seq[Any]) => {
-        def body(): Any = {
+        def invoke(): Any = {
             val callbackFunction = va(0)
             println("hello")
             callbackFunction.asInstanceOf[Seq[Any] => Any](Seq(null))
             return null
         }
-        body()
+        invoke()
     }).asInstanceOf[Seq[Any] => Any]
     sayHello.asInstanceOf[Seq[Any] => Any](Seq(((va: Seq[Any]) => {
-        def body(): Any = {
+        def invoke(): Any = {
             println("world")
             return null
         }
-        body()
+        invoke()
     }).asInstanceOf[Seq[Any] => Any]))
     val createMultiplier = ((va: Seq[Any]) => {
-        def body(): Any = {
+        def invoke(): Any = {
             val aa = va(0)
             return ((va: Seq[Any]) => {
-                def body(): Any = {
+                def invoke(): Any = {
                     val bb = va(0)
                     return aa.asInstanceOf[Int] * bb.asInstanceOf[Int]
                 }
-                body()
+                invoke()
             }).asInstanceOf[Seq[Any] => Any]
         }
-        body()
+        invoke()
     }).asInstanceOf[Seq[Any] => Any]
     val multiplyByTwo = createMultiplier.asInstanceOf[Seq[Any] => Any](Seq(2))
     println(s"multiply_by_two(10): ${multiplyByTwo.asInstanceOf[Seq[Any] => Any](Seq(10))}")
@@ -54,12 +54,12 @@ import willyhorizont.runtime.Xl
         Xl.list(1, 2, 3),
         Xl.dict("foo" -> "bar"),
         ((va: Seq[Any]) => {
-            def body(): Any = {
+            def invoke(): Any = {
                 val aa = va(0)
                 val bb = va(1)
                 return aa.asInstanceOf[Int] * bb.asInstanceOf[Int]
             }
-            body()
+            invoke()
         }).asInstanceOf[Seq[Any] => Any]
     )
     println(s"xl_list: ${Xl.jsonStringify(xlList)}")
@@ -76,12 +76,12 @@ import willyhorizont.runtime.Xl
         "xl_list" -> Xl.list(1, 2, 3),
         "xl_dict" -> Xl.dict("foo" -> "bar"),
         "xl_lambda" -> ((va: Seq[Any]) => {
-            def body(): Any = {
+            def invoke(): Any = {
                 val aa = va(0)
                 val bb = va(1)
                 return aa.asInstanceOf[Int] * bb.asInstanceOf[Int]
             }
-            body()
+            invoke()
         }).asInstanceOf[Seq[Any] => Any]
     )
     println(s"xl_dict: ${Xl.jsonStringify(xlDict)}")

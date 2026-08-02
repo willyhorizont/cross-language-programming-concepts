@@ -6,7 +6,7 @@ pub fn main(init: std.process.Init) !void {
 
     // 1. support lambda as value, or has workaround
     const say_hello = xl.init_lambda(.{}, struct {
-        fn body(ctx: anytype, va: []const xl.Type) xl.Type {
+        fn call(ctx: anytype, va: []const xl.Type) xl.Type {
             _ = ctx;
             var itr = xl.iter(va);
             const callback_function = itr.next();
@@ -14,30 +14,30 @@ pub fn main(init: std.process.Init) !void {
             _ = callback_function.call(.{});
             return xl.none;
         }
-    }.body);
+    }.call);
     defer say_hello.deinit();
     _ = say_hello.call(.{xl.init_lambda(.{}, struct {
-        fn body(ctx: anytype, va: []const xl.Type) xl.Type {
+        fn call(ctx: anytype, va: []const xl.Type) xl.Type {
             _ = ctx;
             _ = va;
             xl.print(.{xl.init_string("world")});
             return xl.none;
         }
-    }.body)});
+    }.call)});
     const create_multiplier = xl.init_lambda(.{}, struct {
-        fn body(ctx_aa: anytype, va_aa: []const xl.Type) xl.Type {
+        fn call(ctx_aa: anytype, va_aa: []const xl.Type) xl.Type {
             _ = ctx_aa;
             var itr_aa = xl.iter(va_aa);
             const aa = itr_aa.next();
             return xl.init_lambda(.{ .aa = aa }, struct {
-                fn body(ctx_bb: anytype, va_bb: []const xl.Type) xl.Type {
+                fn call(ctx_bb: anytype, va_bb: []const xl.Type) xl.Type {
                     var itr_bb = xl.iter(va_bb);
                     const bb = itr_bb.next();
                     return xl.init_int(ctx_bb.aa.to_int() * bb.to_int());
                 }
-            }.body);
+            }.call);
         }
-    }.body);
+    }.call);
     defer create_multiplier.deinit();
     const multiply_by_two = create_multiplier.call(.{xl.init_int(2)});
     defer multiply_by_two.deinit();
@@ -60,14 +60,14 @@ pub fn main(init: std.process.Init) !void {
         xl.init_list(.{ xl.init_int(1), xl.init_int(2), xl.init_int(3) }),
         xl.init_dict(.{.{ "foo", xl.init_string("bar") }}),
         xl.init_lambda(.{}, struct {
-            fn body(ctx: anytype, va: []const xl.Type) xl.Type {
+            fn call(ctx: anytype, va: []const xl.Type) xl.Type {
                 _ = ctx;
                 var itr = xl.iter(va);
                 const aa = itr.next();
                 const bb = itr.next();
                 return xl.init_int(aa.to_int() * bb.to_int());
             }
-        }.body),
+        }.call),
     });
     defer xl_list.deinit();
     xl.print(.{ "xl_list: ", xl.json_stringify(xl_list, .{}) });
@@ -84,14 +84,14 @@ pub fn main(init: std.process.Init) !void {
         .{ "xl_list", xl.init_list(.{ xl.init_int(1), xl.init_int(2), xl.init_int(3) }) },
         .{ "xl_dict", xl.init_dict(.{.{ "foo", xl.init_string("bar") }}) },
         .{ "xl_lambda", xl.init_lambda(.{}, struct {
-            fn body(ctx: anytype, va: []const xl.Type) xl.Type {
+            fn call(ctx: anytype, va: []const xl.Type) xl.Type {
                 _ = ctx;
                 var itr = xl.iter(va);
                 const aa = itr.next();
                 const bb = itr.next();
                 return xl.init_int(aa.to_int() * bb.to_int());
             }
-        }.body) },
+        }.call) },
     });
     defer xl_dict.deinit();
     xl.print(.{ "xl_dict: ", xl.json_stringify(xl_dict, .{}) });
