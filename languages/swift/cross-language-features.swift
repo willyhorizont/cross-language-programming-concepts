@@ -20,11 +20,11 @@ struct App {
         }])
         let createMultiplier = { (va: [Any?]) -> Any? in
             var itr = va.makeIterator()
-            let aa = itr.next()!! as! Int
+            let aa = itr.next()!!
             return { (va: [Any?]) -> Any? in
                 var itr = va.makeIterator()
-                let bb = itr.next()!! as! Int
-                return aa * bb as Any?
+                let bb = itr.next()!!
+                return ((aa as! Int) * (bb as! Int)) as Any?
             }
         }
         let multiplyByTwo = createMultiplier([2])
@@ -49,9 +49,9 @@ struct App {
             ["foo": "bar"],
             { (va: [Any?]) -> Any? in
                 var itr = va.makeIterator()
-                let aa = itr.next()!! as! Int
-                let bb = itr.next()!! as! Int
-                return aa * bb as Any?
+                let aa = itr.next()!!
+                let bb = itr.next()!!
+                return ((aa as! Int) * (bb as! Int)) as Any?
             }
         ] as [Any?]
         print("xl_list: \(xl.jsonStringify(xlList))")
@@ -69,9 +69,9 @@ struct App {
             "xl_dict": ["foo": "bar"],
             "xl_lambda": { (va: [Any?]) -> Any? in
                 var itr = va.makeIterator()
-                let aa = itr.next()!! as! Int
-                let bb = itr.next()!! as! Int
-                return aa * bb as Any?
+                let aa = itr.next()!!
+                let bb = itr.next()!!
+                return ((aa as! Int) * (bb as! Int)) as Any?
             },
         ] as [String: Any?]
         print("xl_dict: \(xl.jsonStringify(xlDict))")

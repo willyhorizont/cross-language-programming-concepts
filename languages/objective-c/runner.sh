@@ -76,6 +76,13 @@ objc $FNX -o $FN
 rm -f \"$PTFNXD/$FN\"
 "
 
+if ! docker image inspect "$IMG" > /dev/null 2>&1; then
+    docker build \
+        -t "$IMG" \
+        -f "$RD/docker/$LID/Dockerfile" \
+        "$RD"
+fi
+
 docker run -i --rm \
     --entrypoint bash \
     -v "$RD:$RD" \

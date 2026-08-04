@@ -1,3 +1,7 @@
+[Last updated: 05 Aug 2026 @ 12:50 AM]
+version 2.7.92:
+turn objective-c Dockerfile to debian based;
+
 [Last updated: 04 Aug 2026 @ 11:57 PM]
 version 2.7.91:
 update Dockerfile;

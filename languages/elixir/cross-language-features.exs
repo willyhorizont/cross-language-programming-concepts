@@ -29,8 +29,8 @@ xl_list = [
     %{ "foo" => "bar" },
     fn (aa, bb) -> aa * bb end,
 ]
-"xl_list: #{Xl.json_stringify(xl_list)}" |> IO.puts()
-"xl_list: #{Xl.json_stringify(xl_list, pretty: true)}" |> IO.puts()
+"xl_list: #{xl_list |> Xl.json_stringify()}" |> IO.puts()
+"xl_list: #{xl_list |> Xl.json_stringify(pretty: true)}" |> IO.puts()
 xl_dict = %{
     "xl_none" => nil,
     "xl_bool_true" => true,
@@ -44,5 +44,5 @@ xl_dict = %{
     "xl_dict" => %{ "foo" => "bar" },
     "xl_lambda" => fn (aa, bb) -> aa * bb end,
 }
-"xl_dict: #{Xl.json_stringify(xl_dict)}" |> IO.puts()
-"xl_dict: #{Xl.json_stringify(xl_dict, pretty: true)}" |> IO.puts()
+"xl_dict: #{xl_dict |> Xl.json_stringify()}" |> IO.puts()
+"xl_dict: #{xl_dict |> Xl.json_stringify(pretty: true)}" |> IO.puts()

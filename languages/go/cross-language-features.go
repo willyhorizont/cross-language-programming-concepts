@@ -12,7 +12,7 @@ func main() {
 		itr := xl.Iter(va)
 		callbackFunction := itr.Next()
 		xl.Println("hello")
-		xl.ToLambda(callbackFunction).Call()
+		xl.Call(callbackFunction)
 		return nil
 	}
 	sayHello(func(va ...interface{}) interface{} {
@@ -29,10 +29,10 @@ func main() {
 		}
 	}
 	multiplyByTwo := createMultiplier(2)
-	xl.Println("multiply_by_two(10): ", xl.ToLambda(multiplyByTwo).Call(10))
+	xl.Println("multiply_by_two(10): ", xl.Call(multiplyByTwo, 10))
 	multiplyByEight := createMultiplier(8)
-	xl.Println("multiply_by_eight(4): ", xl.ToLambda(multiplyByEight).Call(4))
-	xl.Println("multiply_by_two(8): ", xl.ToLambda(multiplyByTwo).Call(8))
+	xl.Println("multiply_by_eight(4): ", xl.Call(multiplyByEight, 4))
+	xl.Println("multiply_by_two(8): ", xl.Call(multiplyByTwo, 8))
 
 	/*
 	2. support dynamic-typed value, or has workaround

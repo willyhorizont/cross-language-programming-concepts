@@ -12,10 +12,10 @@ func main():
 	)
 	var create_multiplier = func (aa): return func (bb): return aa * bb
 	var multiply_by_two = create_multiplier.call(2)
-	print("multiply_by_two(10): " + str(multiply_by_two.call(10)))
+	print("multiply_by_two(10): " + Xl.json_stringify(multiply_by_two.call(10)))
 	var multiply_by_eight = create_multiplier.call(8)
-	print("multiply_by_eight(4): " + str(multiply_by_eight.call(4)))
-	print("multiply_by_two(8): " + str(multiply_by_two.call(8)))
+	print("multiply_by_eight(4): " + Xl.json_stringify(multiply_by_eight.call(4)))
+	print("multiply_by_two(8): " + Xl.json_stringify(multiply_by_two.call(8)))
 
 	# 2. support dynamic-typed value, or has workaround
 	var xl_list = [

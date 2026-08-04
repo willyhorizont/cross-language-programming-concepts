@@ -21,10 +21,10 @@ package {
                 };
             };
             var multiplyByTwo:* = createMultiplier(2);
-            Terminal.print("multiply_by_two(10): " + String(multiplyByTwo(10)));
+            Terminal.print("multiply_by_two(10): " + multiplyByTwo(10));
             var multiplyByEight:* = createMultiplier(8);
-            Terminal.print("multiply_by_eight(4): " + String(multiplyByEight(4)));
-            Terminal.print("multiply_by_two(8): " + String(multiplyByTwo(8)));
+            Terminal.print("multiply_by_eight(4): " + multiplyByEight(4));
+            Terminal.print("multiply_by_two(8): " + multiplyByTwo(8));
 
             /*
             2. support dynamic-typed value, or has workaround

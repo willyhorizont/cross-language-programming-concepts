@@ -1121,9 +1121,9 @@
         ],
         "docker": [
             {
-                "language_version_notes": "pascalecu/clang-objc2-gnustep:clang22-ubuntu26.04",
+                "language_version_notes": "willyhorizont/pascalecu/clang-objc2-gnustep:2.0.0",
                 "docker_images": [
-                    "pascalecu/clang-objc2-gnustep:clang22-ubuntu26.04"
+                    "willyhorizont/pascalecu/clang-objc2-gnustep:2.0.0"
                 ]
             }
         ]

@@ -22,7 +22,7 @@ type Callable struct {
 
 func (c Callable) Call(va ...interface{}) interface{} {
 	if c.Underlying == nil {
-		panic("XlRuntimeError: Can't do Call.")
+		panic("XlRuntimeError: Expected Lambda.")
 	}
 	return c.Underlying(va...)
 }
@@ -57,12 +57,12 @@ func Println(va ...interface{}) {
 
 func ToInt(a interface{}) int64 {
 	if a == nil {
-		panic("XlRuntimeError: Can't do ToInt.")
+		panic("XlRuntimeError: Expected Int.")
 	}
 	rv := rt.ValueOf(a)
 	if rv.Kind() == rt.Ptr {
 		if rv.IsNil() {
-			panic("XlRuntimeError: Can't do ToInt.")
+			panic("XlRuntimeError: Expected Int.")
 		}
 		rv = rv.Elem()
 	}
@@ -74,18 +74,18 @@ func ToInt(a interface{}) int64 {
 	case rt.Float32, rt.Float64:
 		return int64(rv.Float())
 	default:
-		panic("XlRuntimeError: Can't do ToInt.")
+		panic("XlRuntimeError: Expected Int.")
 	}
 }
 
 func ToFloat(a interface{}) float64 {
 	if a == nil {
-		panic("XlRuntimeError: Can't do ToFloat.")
+		panic("XlRuntimeError: Expected Float.")
 	}
 	rv := rt.ValueOf(a)
 	if rv.Kind() == rt.Ptr {
 		if rv.IsNil() {
-			panic("XlRuntimeError: Can't do ToFloat.")
+			panic("XlRuntimeError: Expected Float.")
 		}
 		rv = rv.Elem()
 	}
@@ -97,18 +97,18 @@ func ToFloat(a interface{}) float64 {
 	case rt.Float32, rt.Float64:
 		return rv.Float()
 	default:
-		panic("XlRuntimeError: Can't do ToFloat.")
+		panic("XlRuntimeError: Expected Float.")
 	}
 }
 
 func ToBool(a interface{}) bool {
 	if a == nil {
-		panic("XlRuntimeError: Can't do ToBool.")
+		panic("XlRuntimeError: Expected Bool.")
 	}
 	rv := rt.ValueOf(a)
 	if rv.Kind() == rt.Ptr {
 		if rv.IsNil() {
-			panic("XlRuntimeError: Can't do ToBool.")
+			panic("XlRuntimeError: Expected Bool.")
 		}
 		rv = rv.Elem()
 	}
@@ -116,13 +116,13 @@ func ToBool(a interface{}) bool {
 	case rt.Bool:
 		return rv.Bool()
 	default:
-		panic("XlRuntimeError: Can't do ToBool.")
+		panic("XlRuntimeError: Expected Bool.")
 	}
 }
 
 func ToLambda(a interface{}) Callable {
 	if a == nil {
-		panic("XlRuntimeError: Can't do ToLambda.")
+		panic("XlRuntimeError: Expected Lambda.")
 	}
 	if exst, ok := a.(Callable); ok {
 		return exst
@@ -135,7 +135,7 @@ func ToLambda(a interface{}) Callable {
 	}
 	rv := rt.ValueOf(a)
 	if rv.Kind() != rt.Func {
-		panic("XlRuntimeError: Can't do ToLambda")
+		panic("XlRuntimeError: Expected Lambda")
 	}
 	cls := func(va ...interface{}) interface{} {
 		a := make([]rt.Value, len(va))
@@ -149,6 +149,10 @@ func ToLambda(a interface{}) Callable {
 		return nC[0].Interface()
 	}
 	return Callable{Underlying: cls}
+}
+
+func Call(c interface{}, va ...interface{}) interface{} {
+	return ToLambda(c).Call(va...)
 }
 
 func escapeString(s string) string {

@@ -60,10 +60,10 @@ https://nue.nu/
 ~~vala~~
 ~~crystal | v1.13.0 | stable~~
 ~~wren | v0.4.0 | stable~~
+~~pike | v8.0.1738 | stable~~
 [name] | [latest version] | [status]
 beef | v0.43.5 | stable
 haxe | v4.3.6 | stable
-pike | v8.0.1738 | stable
 moonbit | v0.8.0 | unstable (under active development)
 carbon | v0.1 | unstable (Experimental Google, under active development)
 roc | v0.0.0-alpha4 | unstable (under active development)
