@@ -74,9 +74,9 @@ module Xl
         end
         return l.as(Type::Any)
     end
-    def self.init_dict(d : Hash) : Type::Any
+    def self.init_dict(a : Hash) : Type::Any
         d = {} of String => Type::Any
-        d.each do |pk, pv|
+        a.each do |pk, pv|
             d[pk.to_s] = pv.as(Type::Any)
         end
         return d.as(Type::Any)

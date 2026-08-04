@@ -1,3 +1,7 @@
+[Last updated: 04 Aug 2026 @ 07:59 PM]
+version 2.7.90:
+small fix in crystal runtime init;
+
 [Last updated: 03 Aug 2026 @ 04:06 AM]
 version 2.7.89:
 update wren Dockerfile;
