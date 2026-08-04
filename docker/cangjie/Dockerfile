@@ -18,5 +18,5 @@ RUN curl -L -o /tmp/cangjie.tar.gz "https://cangjie-lang.cn/v1/files/auth/downLo
     && rm /tmp/cangjie.tar.gz
 
 ENV CANGJIE_HOME=/usr/local/cangjie
-ENV PATH=$CANGJIE_HOME/bin:$PATH
+ENV PATH=$CANGJIE_HOME/bin:${PATH}
 ENV LD_LIBRARY_PATH=$CANGJIE_HOME/lib:$CANGJIE_HOME/runtime/lib/linux_x86_64_cjnative

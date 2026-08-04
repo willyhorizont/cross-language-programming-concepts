@@ -71,6 +71,7 @@ code --install-extension webfreak.code-d
 code --install-extension vlanguage.vscode-vlang
 code --install-extension crystal-lang-tools.crystal-lang
 code --install-extension BojanEndrovski.wren
+code --install-extension undeadfish.vscode-pike-lang
 
 eval "$RD/tools/vscode-extensions/vim9script-syntax-highlighter/install.sh"
 

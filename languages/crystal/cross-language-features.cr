@@ -1,6 +1,6 @@
 require "../../runtimes/crystal/willyhorizont/runtime/xl"
 
-# 1. support init_lambda as value, or has workaround
+# 1. support lambda as value, or has workaround
 say_hello = Xl.init_lambda(->(va : Xl::Type::List) do
     itr = Xl.iter(va)
     callback_function = Xl.next(itr)

@@ -386,6 +386,7 @@
         ".c3": "bash $workspaceRoot/languages/c3/runner.sh $dirWithoutTrailingSlash/$fileName",
         ".c": "bash $workspaceRoot/languages/c/runner.sh $dirWithoutTrailingSlash/$fileName",
         ".wren": "bash $workspaceRoot/languages/wren/runner.sh $dirWithoutTrailingSlash/$fileName",
+        ".pike": "bash $workspaceRoot/languages/pike/runner.sh $dirWithoutTrailingSlash/$fileName",
     },
     "code-runner.executorMap": {
         "shellscript": "bash $fullFileName",

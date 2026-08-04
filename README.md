@@ -69,6 +69,7 @@ Cross-language implementations of common programming concepts, data structures, 
 46. [Vala](https://vala.dev/) : [https://vala.dev/](https://vala.dev/)  
 47. [Crystal](https://crystal-lang.org/) : [https://crystal-lang.org/](https://crystal-lang.org/)  
 48. [Wren](https://wren.io/) : [https://wren.io/](https://wren.io/)  
+49. [Pike](https://pike.lysator.liu.se/) : [https://pike.lysator.liu.se/](https://pike.lysator.liu.se/)  
 
 ## Programming concepts
 
@@ -121,6 +122,7 @@ Cross-language implementations of common programming concepts, data structures, 
   46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/cross-language-features.vala)  
   47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/cross-language-features.cr)  
   48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/cross-language-features.wren)  
+  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/cross-language-features.pike)  
 
 ---
 
@@ -173,6 +175,7 @@ Cross-language implementations of common programming concepts, data structures, 
   46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/list.vala) : ArrayList  
   47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/list.cr) : Array  
   48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/list.wren) : List  
+  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/list.pike) : array  
 
 ---
 
@@ -225,6 +228,7 @@ Cross-language implementations of common programming concepts, data structures, 
   46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/dict.vala) : HashMap  
   47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/dict.cr) : Hash  
   48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/dict.wren) : Map  
+  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/dict.pike) : mapping  
 
 ---
 
@@ -277,6 +281,7 @@ Cross-language implementations of common programming concepts, data structures, 
   46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/lambda.vala) : Delegate  
   47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/lambda.cr) : Proc  
   48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/lambda.wren) : Function  
+  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/lambda.pike) : lambda  
 
 ---
 
@@ -329,6 +334,7 @@ Cross-language implementations of common programming concepts, data structures, 
   46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/hello-world.vala)  
   47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/hello-world.cr)  
   48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/hello-world.wren)  
+  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/hello-world.pike)  
 
 ---
 
@@ -381,6 +387,7 @@ Cross-language implementations of common programming concepts, data structures, 
   46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/comments.vala)  
   47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/comments.cr)  
   48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/comments.wren)  
+  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/comments.pike)  
 
 ---
 
@@ -433,6 +440,7 @@ Cross-language implementations of common programming concepts, data structures, 
   46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/conditionals.vala)  
   47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/conditionals.cr)  
   48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/conditionals.wren)  
+  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/conditionals.pike)  
 
 ---
 
@@ -485,6 +493,7 @@ Cross-language implementations of common programming concepts, data structures, 
   46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/loops.vala)  
   47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/loops.cr)  
   48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/loops.wren)  
+  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/loops.pike)  
 
 ---
 
@@ -537,6 +546,7 @@ Cross-language implementations of common programming concepts, data structures, 
   46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/error-handling.vala)  
   47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/error-handling.cr)  
   48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/error-handling.wren)  
+  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/error-handling.pike)  
 
 ---
 
@@ -589,6 +599,7 @@ Cross-language implementations of common programming concepts, data structures, 
   46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/list-for-each.vala)  
   47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/list-for-each.cr)  
   48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/list-for-each.wren)  
+  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/list-for-each.pike)  
 
 ---
 
@@ -641,6 +652,7 @@ Cross-language implementations of common programming concepts, data structures, 
   46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/list-any.vala)  
   47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/list-any.cr)  
   48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/list-any.wren)  
+  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/list-any.pike)  
 
 ---
 
@@ -693,6 +705,7 @@ Cross-language implementations of common programming concepts, data structures, 
   46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/list-all.vala)  
   47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/list-all.cr)  
   48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/list-all.wren)  
+  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/list-all.pike)  
 
 ---
 
@@ -745,6 +758,7 @@ Cross-language implementations of common programming concepts, data structures, 
   46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/list-find.vala)  
   47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/list-find.cr)  
   48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/list-find.wren)  
+  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/list-find.pike)  
 
 ---
 
@@ -797,6 +811,7 @@ Cross-language implementations of common programming concepts, data structures, 
   46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/list-find-index.vala)  
   47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/list-find-index.cr)  
   48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/list-find-index.wren)  
+  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/list-find-index.pike)  
 
 ---
 
@@ -849,6 +864,7 @@ Cross-language implementations of common programming concepts, data structures, 
   46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/list-filter.vala)  
   47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/list-filter.cr)  
   48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/list-filter.wren)  
+  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/list-filter.pike)  
 
 ---
 
@@ -901,6 +917,7 @@ Cross-language implementations of common programming concepts, data structures, 
   46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/list-map.vala)  
   47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/list-map.cr)  
   48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/list-map.wren)  
+  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/list-map.pike)  
 
 ---
 
@@ -953,6 +970,7 @@ Cross-language implementations of common programming concepts, data structures, 
   46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/list-reduce.vala)  
   47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/list-reduce.cr)  
   48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/list-reduce.wren)  
+  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/list-reduce.pike)  
 
 ---
 
@@ -1005,6 +1023,7 @@ Cross-language implementations of common programming concepts, data structures, 
   46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/list-pop.vala)  
   47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/list-pop.cr)  
   48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/list-pop.wren)  
+  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/list-pop.pike)  
 
 ---
 
@@ -1057,6 +1076,7 @@ Cross-language implementations of common programming concepts, data structures, 
   46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/list-push.vala)  
   47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/list-push.cr)  
   48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/list-push.wren)  
+  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/list-push.pike)  
 
 ## Trends
 

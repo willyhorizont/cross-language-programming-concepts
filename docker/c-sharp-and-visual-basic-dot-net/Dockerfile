@@ -21,4 +21,4 @@ RUN mkdir -p /usr/local/dotnet-sdk \
 ENV DOTNET_ROOT=/usr/local/dotnet-sdk
 ENV DOTNET_CLI_TELEMETRY_OPTOUT=true
 ENV DOTNET_NOLOGO=true
-ENV PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
+ENV PATH=${PATH}:$DOTNET_ROOT:$DOTNET_ROOT/tools

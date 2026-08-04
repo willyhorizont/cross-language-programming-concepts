@@ -29,7 +29,7 @@ void main() {
 	print("multiply_by_two(8): ${multiplyByTwo([8])}");
     
 	/*
-	2. support var-typed value, or has workaround
+	2. support dynamic-typed value, or has workaround
 	*/
 	var xlList = [
 		null,

@@ -1459,5 +1459,35 @@
                 ]
             }
         ]
+    },
+    {
+        "id": "pike",
+        "stack": [
+            {
+                "name": "Pike",
+                "url": "https://pike.lysator.liu.se/",
+                "color": "#005390"
+            }
+        ],
+        "file_extension": ".pike",
+        "concept_definition": {
+            "list": "array",
+            "dict": "mapping",
+            "lambda": "lambda"
+        },
+        "vscode_extensions": [
+            "undeadfish.vscode-pike-lang"
+        ],
+        "vscode_extensions_archive": [
+            
+        ],
+        "docker": [
+            {
+                "language_version_notes": "willyhorizont/pike:8.0.1956",
+                "docker_images": [
+                    "willyhorizont/pike:8.0.1956"
+                ]
+            }
+        ]
     }
 ]

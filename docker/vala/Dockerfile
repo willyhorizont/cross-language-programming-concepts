@@ -25,7 +25,8 @@ RUN curl -L -o /tmp/vala.tar.xz "https://download.gnome.org/sources/vala/0.56/va
     && tar -xf /tmp/vala.tar.xz -C /tmp \
     && cd /tmp/vala-0.56.19 \
     && ./configure --prefix=/usr/local \
-    && make && make install \
+    && make \
+    && make install \
     && ldconfig \
     && rm /tmp/vala.tar.xz \
     && rm -rf /tmp/vala-0.56.19

@@ -12,4 +12,4 @@ RUN curl -L -o /tmp/c3.tar.gz "https://github.com/c3lang/c3c/releases/download/v
     && tar -xzf /tmp/c3.tar.gz -C /usr/local \
     && rm /tmp/c3.tar.gz
 
-ENV PATH=/usr/local/c3:$PATH
+ENV PATH=/usr/local/c3:${PATH}

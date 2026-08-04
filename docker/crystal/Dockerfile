@@ -14,4 +14,4 @@ RUN curl -L -o /tmp/crystal.tar.gz "https://github.com/crystal-lang/crystal/rele
     && ln -s /usr/local/crystal-1.21.0-1 /usr/local/crystal \
     && rm /tmp/crystal.tar.gz
 
-ENV PATH=/usr/local/crystal/bin:$PATH
+ENV PATH=/usr/local/crystal/bin:${PATH}
