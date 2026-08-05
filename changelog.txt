@@ -1,3 +1,10 @@
+[Last updated: 05 Aug 2026 @ 11:31 AM]
+version 2.7.94:
+cancel learn beef, the language still work in progess and under active development;
+small update in c-sharp;
+small fix in objective-c runner.sh;
+update notes;
+
 [Last updated: 05 Aug 2026 @ 11:29 AM]
 version 2.7.93:
 cancel learn beef, the language still work in progess and under active development;
