@@ -95,3 +95,6 @@ runtimes/c3/output/
 *.o
 
 runtimes/v/.cache
+
+tools/linguist-languages.json
+tools/linguist-languages.yml
