@@ -1,3 +1,7 @@
+[Last updated: 06 Aug 2026 @ 12:34 AM]
+version 2.7.96:
+small fix in wren runtime init;
+
 [Last updated: 06 Aug 2026 @ 12:33 AM]
 version 2.7.95:
 add linguist tool;

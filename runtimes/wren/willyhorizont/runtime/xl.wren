@@ -31,7 +31,7 @@ class Xl {
             } else if (c == 9) { // \t
                 r = r + "\\t"
             } else {
-                r = r + String.fromCodePoint(cp)
+                r = r + String.fromCodePoint(c)
             }
         }
         return r
