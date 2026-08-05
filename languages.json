@@ -286,7 +286,7 @@
         "concept_definition": {
             "list": "ArrayList",
             "dict": "HashMap",
-            "lambda": "Anonymous Object"
+            "lambda": null
         },
         "vscode_extensions": [
             "mathiasfrohlich.Kotlin"

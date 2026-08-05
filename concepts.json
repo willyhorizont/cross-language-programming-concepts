@@ -2,96 +2,115 @@
     {
         "id": "cross-language-features",
         "name": "Cross Language Features",
+        "status": "finished",
         "concept_definition": null
     },
     {
         "id": "list",
         "name": "List",
+        "status": "work in progess",
         "concept_definition": null
     },
     {
         "id": "dict",
         "name": "Dict",
+        "status": "work in progess",
         "concept_definition": null
     },
     {
         "id": "lambda",
         "name": "Lambda",
+        "status": "work in progess",
         "concept_definition": "(Lambda as a value. Lambda with closure support. Lambda with dynamically typed variadic inputs. Lambda with dynamically typed outputs.)"
     },
     {
         "id": "hello-world",
         "name": "Hello World",
+        "status": "finished",
         "concept_definition": null
     },
     {
         "id": "comments",
         "name": "Comments",
+        "status": "work in progess",
         "concept_definition": null
     },
     {
         "id": "conditionals",
         "name": "Conditionals",
+        "status": "work in progess",
         "concept_definition": null
     },
     {
         "id": "loops",
         "name": "Loops",
+        "status": "work in progess",
         "concept_definition": null
     },
     {
         "id": "error-handling",
         "name": "Error Handling",
+        "status": "work in progess",
         "concept_definition": null
     },
     {
         "id": "list-for-each",
         "name": "forEach",
+        "status": "work in progess",
         "concept_definition": "(Loop Through Each List Item)"
     },
     {
         "id": "list-any",
         "name": "[some / any / exists / contains / includes]",
+        "status": "work in progess",
         "concept_definition": "(Get is Any Item in List Matching Condition)"
     },
     {
         "id": "list-all",
         "name": "[every / all]",
+        "status": "work in progess",
         "concept_definition": "(Get is All Item in List Matching Condition)"
     },
     {
         "id": "list-find",
         "name": "[find]",
+        "status": "work in progess",
         "concept_definition": "(Get First List Item Matching Condition)"
     },
     {
         "id": "list-find-index",
         "name": "[findIndex]",
+        "status": "work in progess",
         "concept_definition": "(Get Index of List Item Matching Condition)"
     },
     {
         "id": "list-filter",
         "name": "[filter / grep]",
+        "status": "work in progess",
         "concept_definition": "(Get All List Item Matching Condition)"
     },
     {
         "id": "list-map",
         "name": "[map / apply]",
+        "status": "work in progess",
         "concept_definition": "(Transform Each List Item)"
     },
     {
         "id": "list-reduce",
         "name": "[reduce / fold / aggregate]",
+        "status": "work in progess",
         "concept_definition": "(Combine All List Item)"
     },
     {
         "id": "list-pop",
         "name": "[pop]",
+        "status": "work in progess",
         "concept_definition": "(List Pop Tail)"
     },
     {
         "id": "list-push",
         "name": "[push / append]",
+        "status": "work in progess",
         "concept_definition": "(List Append to Tail)"
     }
 ]

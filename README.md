@@ -14,8 +14,8 @@ Cross-language implementations of common programming concepts, data structures, 
 
 ### Windows
 - [WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
-- [Git](https://git-scm.com/install/windows)
-- [Docker Dekstop](https://docs.docker.com/desktop/setup/install/windows-install/)
+- [Git](https://git-scm.com/install/linux)
+- [Docker Engine](https://docs.docker.com/engine/install/)
 
 ---
 
@@ -74,1009 +74,1009 @@ Cross-language implementations of common programming concepts, data structures, 
 ## Programming concepts
 
 ### Cross Language Features  
-  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/cross-language-features.js)  
-  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/cross-language-features.py)  
-  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/cross-language-features.php)  
-  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/cross-language-features.go)  
-  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/cross-language-features.pl)  
-  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/cross-language-features.jl)  
-  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/cross-language-features.lua)  
-  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/cross-language-features.rb)  
-  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/cross-language-features.r)  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/cross-language-features.kt)  
-  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/cross-language-features.swift)  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/cross-language-features.dart)  
-  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/cross-language-features.vb)  
-  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/cross-language-features.cs)  
-  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/cross-language-features.m)  
-  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/cross-language-features.wl)  
-  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/cross-language-features.raku)  
-  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/cross-language-features.scala)  
-  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/cross-language-features.java)  
-  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/cross-language-features.nu)  
-  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/cross-language-features.elv)  
-  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/cross-language-features.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/cross-language-features.rs)  
-  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/cross-language-features.nix)  
-  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/cross-language-features.tcl)  
-  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/cross-language-features.gd)  
-  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/cross-language-features.typ)  
-  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/cross-language-features.ps1)  
-  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/cross-language-features.exs)  
-  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/cross-language-features.ml)  
-  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/cross-language-features.erl)  
-  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/cross-language-features.gleam)  
-  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/cross-language-features.zig)  
-  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/cross-language-features.nim)  
-  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/cross-language-features.odin)  
-  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/cross-language-features.cpp)  
-  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/cross-language-features.m)  
-  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/cross-language-features.st)  
-  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/cross-language-features.as)  
-  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/cross-language-features.groovy)  
-  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/cross-language-features.cj)  
-  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/cross-language-features.c3)  
-  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/cross-language-features.c)  
-  44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/cross-language-features.d)  
-  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/cross-language-features.v)  
-  46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/cross-language-features.vala)  
-  47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/cross-language-features.cr)  
-  48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/cross-language-features.wren)  
-  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/cross-language-features.pike)  
+  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/javascript-or-typescript/cross-language-features.js)  
+  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/python/cross-language-features.py)  
+  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/php/cross-language-features.php)  
+  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/go/cross-language-features.go)  
+  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/perl/cross-language-features.pl)  
+  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/julia/cross-language-features.jl)  
+  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/lua/cross-language-features.lua)  
+  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/ruby/cross-language-features.rb)  
+  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/r/cross-language-features.r)  
+  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/kotlin/cross-language-features.kt)  
+  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/swift/cross-language-features.swift)  
+  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/dart/cross-language-features.dart)  
+  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/visual-basic-dot-net/cross-language-features.vb)  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/c-sharp/cross-language-features.cs)  
+  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/matlab-or-octave/cross-language-features.m)  
+  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/wolfram-language-mathematica/cross-language-features.wl)  
+  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/raku/cross-language-features.raku)  
+  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/scala/cross-language-features.scala)  
+  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/java/cross-language-features.java)  
+  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/nu/cross-language-features.nu)  
+  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/elvish/cross-language-features.elv)  
+  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/vim-script/cross-language-features.vim)  
+  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/rust/cross-language-features.rs)  
+  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/nix/cross-language-features.nix)  
+  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/tcl/cross-language-features.tcl)  
+  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/gdscript/cross-language-features.gd)  
+  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/typst/cross-language-features.typ)  
+  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/powershell/cross-language-features.ps1)  
+  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/elixir/cross-language-features.exs)  
+  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/ocaml/cross-language-features.ml)  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/erlang/cross-language-features.erl)  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/gleam/cross-language-features.gleam)  
+  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/zig/cross-language-features.zig)  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/nim/cross-language-features.nim)  
+  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/odin/cross-language-features.odin)  
+  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/c-plus-plus/cross-language-features.cpp)  
+  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/objective-c/cross-language-features.m)  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/smalltalk/cross-language-features.st)  
+  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/actionscript/cross-language-features.as)  
+  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/groovy/cross-language-features.groovy)  
+  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/cangjie/cross-language-features.cj)  
+  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/c3/cross-language-features.c3)  
+  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/c/cross-language-features.c)  
+  44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/d/cross-language-features.d)  
+  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/v/cross-language-features.v)  
+  46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/vala/cross-language-features.vala)  
+  47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/crystal/cross-language-features.cr)  
+  48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/wren/cross-language-features.wren)  
+  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/pike/cross-language-features.pike)  
 
 ---
 
-### List  
-  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/list.js) : Array  
-  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/list.py) : list  
-  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/list.php) : array  
-  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/list.go) : Slice  
-  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/list.pl) : ARRAY  
-  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/list.jl) : Vector  
-  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/list.lua) : table  
-  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/list.rb) : Array  
-  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/list.r) : list  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/list.kt) : ArrayList  
-  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/list.swift) : Array  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/list.dart) : List  
-  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list.vb) : List  
-  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list.cs) : List  
-  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list.m) : Cell Array  
-  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list.wl) : List  
-  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list.raku) : Positional  
-  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list.scala) : ArrayBuffer  
-  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list.java) : ArrayList  
-  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/list.nu) : List  
-  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/list.elv) : List  
-  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/list.vim) : List  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/list.rs) : Vec  
-  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/list.nix) : List  
-  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/list.tcl) : list  
-  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/list.gd) : Array  
-  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/list.typ) : Array  
-  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/list.ps1) : Array  
-  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/list.exs) : List  
-  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/list.ml) : List  
-  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/list.erl) : list  
-  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/list.gleam) : List  
-  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/list.zig) : Slice  
-  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/list.nim) : Sequence  
-  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list.odin) : Slice  
-  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list.cpp) : Vector  
-  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list.m) : Array  
-  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/list.st) : OrderedCollection  
-  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list.as) : Array  
-  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list.groovy) : List  
-  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list.cj) : ArrayList  
-  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list.c3) : List  
-  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list.c)  
-  44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/list.d) : Array  
-  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/list.v) : array  
-  46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/list.vala) : ArrayList  
-  47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/list.cr) : Array  
-  48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/list.wren) : List  
-  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/list.pike) : array  
+### List --work-in-progess  
+  1. JavaScript / TypeScript : Array  
+  2. Python : list  
+  3. PHP : array  
+  4. Go : Slice  
+  5. Perl : ARRAY  
+  6. Julia : Vector  
+  7. Lua : table  
+  8. Ruby : Array  
+  9. R : list  
+  10. Kotlin : ArrayList  
+  11. Swift : Array  
+  12. Dart : List  
+  13. VB.NET (Visual Basic dotNET) : List  
+  14. C# (C Sharp) : List  
+  15. MATLAB / Octave : Cell Array  
+  16. Wolfram Language (Mathematica) : List  
+  17. Raku : Positional  
+  18. Scala : ArrayBuffer  
+  19. Java : ArrayList  
+  20. Nu : List  
+  21. Elvish : List  
+  22. Vim Script : List  
+  23. Rust : Vec  
+  24. Nix : List  
+  25. Tcl : list  
+  26. GDScript : Array  
+  27. Typst : Array  
+  28. PowerShell : Array  
+  29. Elixir : List  
+  30. OCaml : List  
+  31. Erlang : list  
+  32. Gleam : List  
+  33. Zig : Slice  
+  34. Nim : Sequence  
+  35. Odin : Slice  
+  36. C++ (C Plus Plus) : Vector  
+  37. Objective C : Array  
+  38. Smalltalk : OrderedCollection  
+  39. ActionScript : Array  
+  40. Groovy : List  
+  41. Cangjie : ArrayList  
+  42. C3 : List  
+  43. C  
+  44. D : Array  
+  45. V : array  
+  46. Vala : ArrayList  
+  47. Crystal : Array  
+  48. Wren : List  
+  49. Pike : array  
 
 ---
 
-### Dict  
-  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/dict.js) : Object  
-  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/dict.py) : dict  
-  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/dict.php) : associative array  
-  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/dict.go) : Map  
-  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/dict.pl) : HASH  
-  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/dict.jl) : Dict  
-  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/dict.lua) : table  
-  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/dict.rb) : Hash  
-  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/dict.r) : environtment  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/dict.kt) : HashMap  
-  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/dict.swift) : Dictionary  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/dict.dart) : Map  
-  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/dict.vb) : Dictionary  
-  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/dict.cs) : Dictionary  
-  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/dict.m) : Map  
-  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/dict.wl) : Association  
-  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/dict.raku) : Associative  
-  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/dict.scala) : Map  
-  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/dict.java) : HashMap  
-  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/dict.nu) : Record  
-  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/dict.elv) : Map  
-  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/dict.vim) : Dictionary  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/dict.rs) : Map  
-  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/dict.nix) : Attribute Set  
-  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/dict.tcl) : dict  
-  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/dict.gd) : Dictionary  
-  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/dict.typ) : Dictionary  
-  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/dict.ps1) : HashTable  
-  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/dict.exs) : Map  
-  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/dict.ml) : Hash Table  
-  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/dict.erl) : map  
-  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/dict.gleam) : Dict  
-  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/dict.zig) : HashMap  
-  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/dict.nim) : Table  
-  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/dict.odin) : Map  
-  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/dict.cpp) : Unordered Map  
-  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/dict.m) : Dictionary  
-  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/dict.st) : Dictionary  
-  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/dict.as) : Object  
-  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/dict.groovy) : Map  
-  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/dict.cj) : HashMap  
-  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/dict.c3) : HashMap  
-  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/dict.c)  
-  44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/dict.d) : Associative Array  
-  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/dict.v) : map  
-  46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/dict.vala) : HashMap  
-  47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/dict.cr) : Hash  
-  48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/dict.wren) : Map  
-  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/dict.pike) : mapping  
+### Dict --work-in-progess  
+  1. JavaScript / TypeScript : Object  
+  2. Python : dict  
+  3. PHP : associative array  
+  4. Go : Map  
+  5. Perl : HASH  
+  6. Julia : Dict  
+  7. Lua : table  
+  8. Ruby : Hash  
+  9. R : environtment  
+  10. Kotlin : HashMap  
+  11. Swift : Dictionary  
+  12. Dart : Map  
+  13. VB.NET (Visual Basic dotNET) : Dictionary  
+  14. C# (C Sharp) : Dictionary  
+  15. MATLAB / Octave : Map  
+  16. Wolfram Language (Mathematica) : Association  
+  17. Raku : Associative  
+  18. Scala : Map  
+  19. Java : HashMap  
+  20. Nu : Record  
+  21. Elvish : Map  
+  22. Vim Script : Dictionary  
+  23. Rust : Map  
+  24. Nix : Attribute Set  
+  25. Tcl : dict  
+  26. GDScript : Dictionary  
+  27. Typst : Dictionary  
+  28. PowerShell : HashTable  
+  29. Elixir : Map  
+  30. OCaml : Hash Table  
+  31. Erlang : map  
+  32. Gleam : Dict  
+  33. Zig : HashMap  
+  34. Nim : Table  
+  35. Odin : Map  
+  36. C++ (C Plus Plus) : Unordered Map  
+  37. Objective C : Dictionary  
+  38. Smalltalk : Dictionary  
+  39. ActionScript : Object  
+  40. Groovy : Map  
+  41. Cangjie : HashMap  
+  42. C3 : HashMap  
+  43. C  
+  44. D : Associative Array  
+  45. V : map  
+  46. Vala : HashMap  
+  47. Crystal : Hash  
+  48. Wren : Map  
+  49. Pike : mapping  
 
 ---
 
-### Lambda (Lambda as a value. Lambda with closure support. Lambda with dynamically typed variadic inputs. Lambda with dynamically typed outputs.)  
-  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/lambda.js) : Anonymous Function  
-  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/lambda.py) : lambda  
-  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/lambda.php) : Anonymous Function  
-  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/lambda.go) : Anonymous Function  
-  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/lambda.pl) : Anonymous Subroutine  
-  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/lambda.jl) : Anonymous Function  
-  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/lambda.lua) : Anonymous Function  
-  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/lambda.rb) : Lambda and Proc  
-  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/lambda.r) : Anonymous Function  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/lambda.kt) : Anonymous Object  
-  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/lambda.swift) : Closure  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/lambda.dart) : Anonymous Function  
-  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/lambda.vb) : Delegate  
-  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/lambda.cs) : Delegate  
-  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/lambda.m) : Anonymous Function  
-  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/lambda.wl) : Anonymous Function  
-  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/lambda.raku) : Anonymous Subroutine  
-  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/lambda.scala) : Lambda Expression  
-  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/lambda.java) : Lambda Expression  
-  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/lambda.nu) : Closure  
-  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/lambda.elv) : Lambda Expression  
-  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/lambda.vim) : Anonymous Function  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/lambda.rs) : Closure  
-  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/lambda.nix) : Lambda  
-  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/lambda.tcl)  
-  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/lambda.gd) : Anonymous Function  
-  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/lambda.typ) : Anonymous Function  
-  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/lambda.ps1) : Block  
-  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/lambda.exs) : Anonymous Function  
-  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/lambda.ml) : Closure  
-  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/lambda.erl) : Anonymous Function  
-  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/lambda.gleam) : Anonymous Function  
-  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/lambda.zig)  
-  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/lambda.nim) : Closure  
-  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/lambda.odin)  
-  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/lambda.cpp) : Lambda Expression  
-  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/lambda.m) : Block  
-  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/lambda.st) : BlockClosure  
-  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/lambda.as) : Anonymous Function  
-  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/lambda.groovy) : Closure  
-  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/lambda.cj) : Closure  
-  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/lambda.c3)  
-  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/lambda.c)  
-  44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/lambda.d) : Delegate  
-  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/lambda.v) : anonymous function  
-  46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/lambda.vala) : Delegate  
-  47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/lambda.cr) : Proc  
-  48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/lambda.wren) : Function  
-  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/lambda.pike) : lambda  
+### Lambda (Lambda as a value. Lambda with closure support. Lambda with dynamically typed variadic inputs. Lambda with dynamically typed outputs.) --work-in-progess  
+  1. JavaScript / TypeScript : Anonymous Function  
+  2. Python : lambda  
+  3. PHP : Anonymous Function  
+  4. Go : Anonymous Function  
+  5. Perl : Anonymous Subroutine  
+  6. Julia : Anonymous Function  
+  7. Lua : Anonymous Function  
+  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/ruby/lambda.rb) : Lambda and Proc  
+  9. R : Anonymous Function  
+  10. Kotlin  
+  11. Swift : Closure  
+  12. Dart : Anonymous Function  
+  13. VB.NET (Visual Basic dotNET) : Delegate  
+  14. C# (C Sharp) : Delegate  
+  15. MATLAB / Octave : Anonymous Function  
+  16. Wolfram Language (Mathematica) : Anonymous Function  
+  17. Raku : Anonymous Subroutine  
+  18. Scala : Lambda Expression  
+  19. Java : Lambda Expression  
+  20. Nu : Closure  
+  21. Elvish : Lambda Expression  
+  22. Vim Script : Anonymous Function  
+  23. Rust : Closure  
+  24. Nix : Lambda  
+  25. Tcl  
+  26. GDScript : Anonymous Function  
+  27. Typst : Anonymous Function  
+  28. PowerShell : Block  
+  29. Elixir : Anonymous Function  
+  30. OCaml : Closure  
+  31. Erlang : Anonymous Function  
+  32. Gleam : Anonymous Function  
+  33. Zig  
+  34. Nim : Closure  
+  35. Odin  
+  36. C++ (C Plus Plus) : Lambda Expression  
+  37. Objective C : Block  
+  38. Smalltalk : BlockClosure  
+  39. ActionScript : Anonymous Function  
+  40. Groovy : Closure  
+  41. Cangjie : Closure  
+  42. C3  
+  43. C  
+  44. D : Delegate  
+  45. V : anonymous function  
+  46. Vala : Delegate  
+  47. Crystal : Proc  
+  48. Wren : Function  
+  49. Pike : lambda  
 
 ---
 
 ### Hello World  
-  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/hello-world.js)  
-  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/hello-world.py)  
-  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/hello-world.php)  
-  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/hello-world.go)  
-  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/hello-world.pl)  
-  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/hello-world.jl)  
-  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/hello-world.lua)  
-  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/hello-world.rb)  
-  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/hello-world.r)  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/hello-world.kt)  
-  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/hello-world.swift)  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/hello-world.dart)  
-  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/hello-world.vb)  
-  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/hello-world.cs)  
-  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/hello-world.m)  
-  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/hello-world.wl)  
-  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/hello-world.raku)  
-  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/hello-world.scala)  
-  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/hello-world.java)  
-  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/hello-world.nu)  
-  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/hello-world.elv)  
-  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/hello-world.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/hello-world.rs)  
-  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/hello-world.nix)  
-  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/hello-world.tcl)  
-  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/hello-world.gd)  
-  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/hello-world.typ)  
-  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/hello-world.ps1)  
-  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/hello-world.exs)  
-  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/hello-world.ml)  
-  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/hello-world.erl)  
-  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/hello-world.gleam)  
-  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/hello-world.zig)  
-  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/hello-world.nim)  
-  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/hello-world.odin)  
-  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/hello-world.cpp)  
-  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/hello-world.m)  
-  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/hello-world.st)  
-  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/hello-world.as)  
-  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/hello-world.groovy)  
-  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/hello-world.cj)  
-  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/hello-world.c3)  
-  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/hello-world.c)  
-  44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/hello-world.d)  
-  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/hello-world.v)  
-  46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/hello-world.vala)  
-  47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/hello-world.cr)  
-  48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/hello-world.wren)  
-  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/hello-world.pike)  
+  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/javascript-or-typescript/hello-world.js)  
+  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/python/hello-world.py)  
+  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/php/hello-world.php)  
+  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/go/hello-world.go)  
+  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/perl/hello-world.pl)  
+  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/julia/hello-world.jl)  
+  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/lua/hello-world.lua)  
+  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/ruby/hello-world.rb)  
+  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/r/hello-world.r)  
+  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/kotlin/hello-world.kt)  
+  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/swift/hello-world.swift)  
+  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/dart/hello-world.dart)  
+  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/visual-basic-dot-net/hello-world.vb)  
+  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/c-sharp/hello-world.cs)  
+  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/matlab-or-octave/hello-world.m)  
+  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/wolfram-language-mathematica/hello-world.wl)  
+  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/raku/hello-world.raku)  
+  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/scala/hello-world.scala)  
+  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/java/hello-world.java)  
+  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/nu/hello-world.nu)  
+  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/elvish/hello-world.elv)  
+  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/vim-script/hello-world.vim)  
+  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/rust/hello-world.rs)  
+  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/nix/hello-world.nix)  
+  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/tcl/hello-world.tcl)  
+  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/gdscript/hello-world.gd)  
+  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/typst/hello-world.typ)  
+  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/powershell/hello-world.ps1)  
+  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/elixir/hello-world.exs)  
+  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/ocaml/hello-world.ml)  
+  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/erlang/hello-world.erl)  
+  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/gleam/hello-world.gleam)  
+  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/zig/hello-world.zig)  
+  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/nim/hello-world.nim)  
+  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/odin/hello-world.odin)  
+  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/c-plus-plus/hello-world.cpp)  
+  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/objective-c/hello-world.m)  
+  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/smalltalk/hello-world.st)  
+  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/actionscript/hello-world.as)  
+  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/groovy/hello-world.groovy)  
+  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/cangjie/hello-world.cj)  
+  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/c3/hello-world.c3)  
+  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/c/hello-world.c)  
+  44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/d/hello-world.d)  
+  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/v/hello-world.v)  
+  46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/vala/hello-world.vala)  
+  47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/crystal/hello-world.cr)  
+  48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/wren/hello-world.wren)  
+  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/pike/hello-world.pike)  
 
 ---
 
-### Comments  
-  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/comments.js)  
-  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/comments.py)  
-  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/comments.php)  
-  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/comments.go)  
-  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/comments.pl)  
-  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/comments.jl)  
-  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/comments.lua)  
-  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/comments.rb)  
-  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/comments.r)  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/comments.kt)  
-  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/comments.swift)  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/comments.dart)  
-  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/comments.vb)  
-  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/comments.cs)  
-  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/comments.m)  
-  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/comments.wl)  
-  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/comments.raku)  
-  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/comments.scala)  
-  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/comments.java)  
-  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/comments.nu)  
-  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/comments.elv)  
-  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/comments.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/comments.rs)  
-  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/comments.nix)  
-  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/comments.tcl)  
-  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/comments.gd)  
-  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/comments.typ)  
-  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/comments.ps1)  
-  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/comments.exs)  
-  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/comments.ml)  
-  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/comments.erl)  
-  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/comments.gleam)  
-  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/comments.zig)  
-  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/comments.nim)  
-  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/comments.odin)  
-  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/comments.cpp)  
-  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/comments.m)  
-  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/comments.st)  
-  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/comments.as)  
-  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/comments.groovy)  
-  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/comments.cj)  
-  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/comments.c3)  
-  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/comments.c)  
-  44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/comments.d)  
-  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/comments.v)  
-  46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/comments.vala)  
-  47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/comments.cr)  
-  48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/comments.wren)  
-  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/comments.pike)  
+### Comments --work-in-progess  
+  1. JavaScript / TypeScript  
+  2. Python  
+  3. PHP  
+  4. Go  
+  5. Perl  
+  6. Julia  
+  7. Lua  
+  8. Ruby  
+  9. R  
+  10. Kotlin  
+  11. Swift  
+  12. Dart  
+  13. VB.NET (Visual Basic dotNET)  
+  14. C# (C Sharp)  
+  15. MATLAB / Octave  
+  16. Wolfram Language (Mathematica)  
+  17. Raku  
+  18. Scala  
+  19. Java  
+  20. Nu  
+  21. Elvish  
+  22. Vim Script  
+  23. Rust  
+  24. Nix  
+  25. Tcl  
+  26. GDScript  
+  27. Typst  
+  28. PowerShell  
+  29. Elixir  
+  30. OCaml  
+  31. Erlang  
+  32. Gleam  
+  33. Zig  
+  34. Nim  
+  35. Odin  
+  36. C++ (C Plus Plus)  
+  37. Objective C  
+  38. Smalltalk  
+  39. ActionScript  
+  40. Groovy  
+  41. Cangjie  
+  42. C3  
+  43. C  
+  44. D  
+  45. V  
+  46. Vala  
+  47. Crystal  
+  48. Wren  
+  49. Pike  
 
 ---
 
-### Conditionals  
-  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/conditionals.js)  
-  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/conditionals.py)  
-  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/conditionals.php)  
-  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/conditionals.go)  
-  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/conditionals.pl)  
-  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/conditionals.jl)  
-  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/conditionals.lua)  
-  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/conditionals.rb)  
-  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/conditionals.r)  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/conditionals.kt)  
-  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/conditionals.swift)  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/conditionals.dart)  
-  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/conditionals.vb)  
-  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/conditionals.cs)  
-  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/conditionals.m)  
-  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/conditionals.wl)  
-  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/conditionals.raku)  
-  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/conditionals.scala)  
-  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/conditionals.java)  
-  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/conditionals.nu)  
-  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/conditionals.elv)  
-  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/conditionals.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/conditionals.rs)  
-  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/conditionals.nix)  
-  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/conditionals.tcl)  
-  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/conditionals.gd)  
-  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/conditionals.typ)  
-  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/conditionals.ps1)  
-  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/conditionals.exs)  
-  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/conditionals.ml)  
-  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/conditionals.erl)  
-  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/conditionals.gleam)  
-  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/conditionals.zig)  
-  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/conditionals.nim)  
-  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/conditionals.odin)  
-  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/conditionals.cpp)  
-  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/conditionals.m)  
-  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/conditionals.st)  
-  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/conditionals.as)  
-  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/conditionals.groovy)  
-  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/conditionals.cj)  
-  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/conditionals.c3)  
-  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/conditionals.c)  
-  44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/conditionals.d)  
-  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/conditionals.v)  
-  46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/conditionals.vala)  
-  47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/conditionals.cr)  
-  48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/conditionals.wren)  
-  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/conditionals.pike)  
+### Conditionals --work-in-progess  
+  1. JavaScript / TypeScript  
+  2. Python  
+  3. PHP  
+  4. Go  
+  5. Perl  
+  6. Julia  
+  7. Lua  
+  8. Ruby  
+  9. R  
+  10. Kotlin  
+  11. Swift  
+  12. Dart  
+  13. VB.NET (Visual Basic dotNET)  
+  14. C# (C Sharp)  
+  15. MATLAB / Octave  
+  16. Wolfram Language (Mathematica)  
+  17. Raku  
+  18. Scala  
+  19. Java  
+  20. Nu  
+  21. Elvish  
+  22. Vim Script  
+  23. Rust  
+  24. Nix  
+  25. Tcl  
+  26. GDScript  
+  27. Typst  
+  28. PowerShell  
+  29. Elixir  
+  30. OCaml  
+  31. Erlang  
+  32. Gleam  
+  33. Zig  
+  34. Nim  
+  35. Odin  
+  36. C++ (C Plus Plus)  
+  37. Objective C  
+  38. Smalltalk  
+  39. ActionScript  
+  40. Groovy  
+  41. Cangjie  
+  42. C3  
+  43. C  
+  44. D  
+  45. V  
+  46. Vala  
+  47. Crystal  
+  48. Wren  
+  49. Pike  
 
 ---
 
-### Loops  
-  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/loops.js)  
-  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/loops.py)  
-  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/loops.php)  
-  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/loops.go)  
-  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/loops.pl)  
-  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/loops.jl)  
-  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/loops.lua)  
-  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/loops.rb)  
-  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/loops.r)  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/loops.kt)  
-  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/loops.swift)  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/loops.dart)  
-  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/loops.vb)  
-  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/loops.cs)  
-  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/loops.m)  
-  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/loops.wl)  
-  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/loops.raku)  
-  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/loops.scala)  
-  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/loops.java)  
-  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/loops.nu)  
-  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/loops.elv)  
-  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/loops.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/loops.rs)  
-  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/loops.nix)  
-  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/loops.tcl)  
-  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/loops.gd)  
-  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/loops.typ)  
-  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/loops.ps1)  
-  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/loops.exs)  
-  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/loops.ml)  
-  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/loops.erl)  
-  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/loops.gleam)  
-  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/loops.zig)  
-  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/loops.nim)  
-  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/loops.odin)  
-  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/loops.cpp)  
-  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/loops.m)  
-  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/loops.st)  
-  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/loops.as)  
-  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/loops.groovy)  
-  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/loops.cj)  
-  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/loops.c3)  
-  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/loops.c)  
-  44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/loops.d)  
-  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/loops.v)  
-  46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/loops.vala)  
-  47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/loops.cr)  
-  48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/loops.wren)  
-  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/loops.pike)  
+### Loops --work-in-progess  
+  1. JavaScript / TypeScript  
+  2. Python  
+  3. PHP  
+  4. Go  
+  5. Perl  
+  6. Julia  
+  7. Lua  
+  8. Ruby  
+  9. R  
+  10. Kotlin  
+  11. Swift  
+  12. Dart  
+  13. VB.NET (Visual Basic dotNET)  
+  14. C# (C Sharp)  
+  15. MATLAB / Octave  
+  16. Wolfram Language (Mathematica)  
+  17. Raku  
+  18. Scala  
+  19. Java  
+  20. Nu  
+  21. Elvish  
+  22. Vim Script  
+  23. Rust  
+  24. Nix  
+  25. Tcl  
+  26. GDScript  
+  27. Typst  
+  28. PowerShell  
+  29. Elixir  
+  30. OCaml  
+  31. Erlang  
+  32. Gleam  
+  33. Zig  
+  34. Nim  
+  35. Odin  
+  36. C++ (C Plus Plus)  
+  37. Objective C  
+  38. Smalltalk  
+  39. ActionScript  
+  40. Groovy  
+  41. Cangjie  
+  42. C3  
+  43. C  
+  44. D  
+  45. V  
+  46. Vala  
+  47. Crystal  
+  48. Wren  
+  49. Pike  
 
 ---
 
-### Error Handling  
-  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/error-handling.js)  
-  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/error-handling.py)  
-  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/error-handling.php)  
-  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/error-handling.go)  
-  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/error-handling.pl)  
-  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/error-handling.jl)  
-  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/error-handling.lua)  
-  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/error-handling.rb)  
-  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/error-handling.r)  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/error-handling.kt)  
-  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/error-handling.swift)  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/error-handling.dart)  
-  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/error-handling.vb)  
-  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/error-handling.cs)  
-  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/error-handling.m)  
-  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/error-handling.wl)  
-  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/error-handling.raku)  
-  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/error-handling.scala)  
-  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/error-handling.java)  
-  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/error-handling.nu)  
-  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/error-handling.elv)  
-  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/error-handling.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/error-handling.rs)  
-  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/error-handling.nix)  
-  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/error-handling.tcl)  
-  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/error-handling.gd)  
-  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/error-handling.typ)  
-  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/error-handling.ps1)  
-  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/error-handling.exs)  
-  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/error-handling.ml)  
-  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/error-handling.erl)  
-  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/error-handling.gleam)  
-  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/error-handling.zig)  
-  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/error-handling.nim)  
-  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/error-handling.odin)  
-  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/error-handling.cpp)  
-  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/error-handling.m)  
-  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/error-handling.st)  
-  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/error-handling.as)  
-  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/error-handling.groovy)  
-  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/error-handling.cj)  
-  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/error-handling.c3)  
-  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/error-handling.c)  
-  44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/error-handling.d)  
-  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/error-handling.v)  
-  46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/error-handling.vala)  
-  47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/error-handling.cr)  
-  48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/error-handling.wren)  
-  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/error-handling.pike)  
+### Error Handling --work-in-progess  
+  1. JavaScript / TypeScript  
+  2. Python  
+  3. PHP  
+  4. Go  
+  5. Perl  
+  6. Julia  
+  7. Lua  
+  8. Ruby  
+  9. R  
+  10. Kotlin  
+  11. Swift  
+  12. Dart  
+  13. VB.NET (Visual Basic dotNET)  
+  14. C# (C Sharp)  
+  15. MATLAB / Octave  
+  16. Wolfram Language (Mathematica)  
+  17. Raku  
+  18. Scala  
+  19. Java  
+  20. Nu  
+  21. Elvish  
+  22. Vim Script  
+  23. Rust  
+  24. Nix  
+  25. Tcl  
+  26. GDScript  
+  27. Typst  
+  28. PowerShell  
+  29. Elixir  
+  30. OCaml  
+  31. Erlang  
+  32. Gleam  
+  33. Zig  
+  34. Nim  
+  35. Odin  
+  36. C++ (C Plus Plus)  
+  37. Objective C  
+  38. Smalltalk  
+  39. ActionScript  
+  40. Groovy  
+  41. Cangjie  
+  42. C3  
+  43. C  
+  44. D  
+  45. V  
+  46. Vala  
+  47. Crystal  
+  48. Wren  
+  49. Pike  
 
 ---
 
-### forEach (Loop Through Each List Item)  
-  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/list-for-each.js)  
-  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/list-for-each.py)  
-  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/list-for-each.php)  
-  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/list-for-each.go)  
-  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/list-for-each.pl)  
-  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/list-for-each.jl)  
-  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/list-for-each.lua)  
-  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/list-for-each.rb)  
-  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/list-for-each.r)  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/list-for-each.kt)  
-  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/list-for-each.swift)  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/list-for-each.dart)  
-  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list-for-each.vb)  
-  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-for-each.cs)  
-  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list-for-each.m)  
-  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list-for-each.wl)  
-  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list-for-each.raku)  
-  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list-for-each.scala)  
-  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list-for-each.java)  
-  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/list-for-each.nu)  
-  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/list-for-each.elv)  
-  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/list-for-each.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/list-for-each.rs)  
-  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/list-for-each.nix)  
-  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/list-for-each.tcl)  
-  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/list-for-each.gd)  
-  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/list-for-each.typ)  
-  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/list-for-each.ps1)  
-  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/list-for-each.exs)  
-  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/list-for-each.ml)  
-  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/list-for-each.erl)  
-  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/list-for-each.gleam)  
-  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/list-for-each.zig)  
-  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/list-for-each.nim)  
-  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-for-each.odin)  
-  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-for-each.cpp)  
-  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-for-each.m)  
-  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/list-for-each.st)  
-  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-for-each.as)  
-  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-for-each.groovy)  
-  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-for-each.cj)  
-  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-for-each.c3)  
-  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-for-each.c)  
-  44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/list-for-each.d)  
-  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/list-for-each.v)  
-  46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/list-for-each.vala)  
-  47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/list-for-each.cr)  
-  48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/list-for-each.wren)  
-  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/list-for-each.pike)  
+### forEach (Loop Through Each List Item) --work-in-progess  
+  1. JavaScript / TypeScript  
+  2. Python  
+  3. PHP  
+  4. Go  
+  5. Perl  
+  6. Julia  
+  7. Lua  
+  8. Ruby  
+  9. R  
+  10. Kotlin  
+  11. Swift  
+  12. Dart  
+  13. VB.NET (Visual Basic dotNET)  
+  14. C# (C Sharp)  
+  15. MATLAB / Octave  
+  16. Wolfram Language (Mathematica)  
+  17. Raku  
+  18. Scala  
+  19. Java  
+  20. Nu  
+  21. Elvish  
+  22. Vim Script  
+  23. Rust  
+  24. Nix  
+  25. Tcl  
+  26. GDScript  
+  27. Typst  
+  28. PowerShell  
+  29. Elixir  
+  30. OCaml  
+  31. Erlang  
+  32. Gleam  
+  33. Zig  
+  34. Nim  
+  35. Odin  
+  36. C++ (C Plus Plus)  
+  37. Objective C  
+  38. Smalltalk  
+  39. ActionScript  
+  40. Groovy  
+  41. Cangjie  
+  42. C3  
+  43. C  
+  44. D  
+  45. V  
+  46. Vala  
+  47. Crystal  
+  48. Wren  
+  49. Pike  
 
 ---
 
-### [some / any / exists / contains / includes] (Get is Any Item in List Matching Condition)  
-  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/list-any.js)  
-  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/list-any.py)  
-  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/list-any.php)  
-  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/list-any.go)  
-  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/list-any.pl)  
-  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/list-any.jl)  
-  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/list-any.lua)  
-  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/list-any.rb)  
-  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/list-any.r)  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/list-any.kt)  
-  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/list-any.swift)  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/list-any.dart)  
-  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list-any.vb)  
-  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-any.cs)  
-  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list-any.m)  
-  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list-any.wl)  
-  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list-any.raku)  
-  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list-any.scala)  
-  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list-any.java)  
-  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/list-any.nu)  
-  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/list-any.elv)  
-  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/list-any.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/list-any.rs)  
-  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/list-any.nix)  
-  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/list-any.tcl)  
-  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/list-any.gd)  
-  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/list-any.typ)  
-  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/list-any.ps1)  
-  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/list-any.exs)  
-  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/list-any.ml)  
-  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/list-any.erl)  
-  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/list-any.gleam)  
-  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/list-any.zig)  
-  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/list-any.nim)  
-  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-any.odin)  
-  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-any.cpp)  
-  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-any.m)  
-  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/list-any.st)  
-  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-any.as)  
-  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-any.groovy)  
-  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-any.cj)  
-  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-any.c3)  
-  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-any.c)  
-  44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/list-any.d)  
-  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/list-any.v)  
-  46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/list-any.vala)  
-  47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/list-any.cr)  
-  48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/list-any.wren)  
-  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/list-any.pike)  
+### [some / any / exists / contains / includes] (Get is Any Item in List Matching Condition) --work-in-progess  
+  1. JavaScript / TypeScript  
+  2. Python  
+  3. PHP  
+  4. Go  
+  5. Perl  
+  6. Julia  
+  7. Lua  
+  8. Ruby  
+  9. R  
+  10. Kotlin  
+  11. Swift  
+  12. Dart  
+  13. VB.NET (Visual Basic dotNET)  
+  14. C# (C Sharp)  
+  15. MATLAB / Octave  
+  16. Wolfram Language (Mathematica)  
+  17. Raku  
+  18. Scala  
+  19. Java  
+  20. Nu  
+  21. Elvish  
+  22. Vim Script  
+  23. Rust  
+  24. Nix  
+  25. Tcl  
+  26. GDScript  
+  27. Typst  
+  28. PowerShell  
+  29. Elixir  
+  30. OCaml  
+  31. Erlang  
+  32. Gleam  
+  33. Zig  
+  34. Nim  
+  35. Odin  
+  36. C++ (C Plus Plus)  
+  37. Objective C  
+  38. Smalltalk  
+  39. ActionScript  
+  40. Groovy  
+  41. Cangjie  
+  42. C3  
+  43. C  
+  44. D  
+  45. V  
+  46. Vala  
+  47. Crystal  
+  48. Wren  
+  49. Pike  
 
 ---
 
-### [every / all] (Get is All Item in List Matching Condition)  
-  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/list-all.js)  
-  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/list-all.py)  
-  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/list-all.php)  
-  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/list-all.go)  
-  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/list-all.pl)  
-  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/list-all.jl)  
-  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/list-all.lua)  
-  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/list-all.rb)  
-  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/list-all.r)  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/list-all.kt)  
-  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/list-all.swift)  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/list-all.dart)  
-  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list-all.vb)  
-  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-all.cs)  
-  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list-all.m)  
-  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list-all.wl)  
-  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list-all.raku)  
-  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list-all.scala)  
-  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list-all.java)  
-  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/list-all.nu)  
-  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/list-all.elv)  
-  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/list-all.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/list-all.rs)  
-  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/list-all.nix)  
-  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/list-all.tcl)  
-  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/list-all.gd)  
-  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/list-all.typ)  
-  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/list-all.ps1)  
-  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/list-all.exs)  
-  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/list-all.ml)  
-  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/list-all.erl)  
-  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/list-all.gleam)  
-  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/list-all.zig)  
-  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/list-all.nim)  
-  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-all.odin)  
-  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-all.cpp)  
-  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-all.m)  
-  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/list-all.st)  
-  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-all.as)  
-  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-all.groovy)  
-  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-all.cj)  
-  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-all.c3)  
-  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-all.c)  
-  44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/list-all.d)  
-  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/list-all.v)  
-  46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/list-all.vala)  
-  47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/list-all.cr)  
-  48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/list-all.wren)  
-  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/list-all.pike)  
+### [every / all] (Get is All Item in List Matching Condition) --work-in-progess  
+  1. JavaScript / TypeScript  
+  2. Python  
+  3. PHP  
+  4. Go  
+  5. Perl  
+  6. Julia  
+  7. Lua  
+  8. Ruby  
+  9. R  
+  10. Kotlin  
+  11. Swift  
+  12. Dart  
+  13. VB.NET (Visual Basic dotNET)  
+  14. C# (C Sharp)  
+  15. MATLAB / Octave  
+  16. Wolfram Language (Mathematica)  
+  17. Raku  
+  18. Scala  
+  19. Java  
+  20. Nu  
+  21. Elvish  
+  22. Vim Script  
+  23. Rust  
+  24. Nix  
+  25. Tcl  
+  26. GDScript  
+  27. Typst  
+  28. PowerShell  
+  29. Elixir  
+  30. OCaml  
+  31. Erlang  
+  32. Gleam  
+  33. Zig  
+  34. Nim  
+  35. Odin  
+  36. C++ (C Plus Plus)  
+  37. Objective C  
+  38. Smalltalk  
+  39. ActionScript  
+  40. Groovy  
+  41. Cangjie  
+  42. C3  
+  43. C  
+  44. D  
+  45. V  
+  46. Vala  
+  47. Crystal  
+  48. Wren  
+  49. Pike  
 
 ---
 
-### [find] (Get First List Item Matching Condition)  
-  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/list-find.js)  
-  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/list-find.py)  
-  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/list-find.php)  
-  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/list-find.go)  
-  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/list-find.pl)  
-  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/list-find.jl)  
-  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/list-find.lua)  
-  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/list-find.rb)  
-  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/list-find.r)  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/list-find.kt)  
-  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/list-find.swift)  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/list-find.dart)  
-  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list-find.vb)  
-  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-find.cs)  
-  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list-find.m)  
-  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list-find.wl)  
-  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list-find.raku)  
-  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list-find.scala)  
-  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list-find.java)  
-  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/list-find.nu)  
-  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/list-find.elv)  
-  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/list-find.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/list-find.rs)  
-  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/list-find.nix)  
-  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/list-find.tcl)  
-  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/list-find.gd)  
-  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/list-find.typ)  
-  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/list-find.ps1)  
-  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/list-find.exs)  
-  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/list-find.ml)  
-  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/list-find.erl)  
-  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/list-find.gleam)  
-  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/list-find.zig)  
-  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/list-find.nim)  
-  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-find.odin)  
-  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-find.cpp)  
-  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-find.m)  
-  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/list-find.st)  
-  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-find.as)  
-  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-find.groovy)  
-  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-find.cj)  
-  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-find.c3)  
-  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-find.c)  
-  44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/list-find.d)  
-  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/list-find.v)  
-  46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/list-find.vala)  
-  47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/list-find.cr)  
-  48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/list-find.wren)  
-  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/list-find.pike)  
+### [find] (Get First List Item Matching Condition) --work-in-progess  
+  1. JavaScript / TypeScript  
+  2. Python  
+  3. PHP  
+  4. Go  
+  5. Perl  
+  6. Julia  
+  7. Lua  
+  8. Ruby  
+  9. R  
+  10. Kotlin  
+  11. Swift  
+  12. Dart  
+  13. VB.NET (Visual Basic dotNET)  
+  14. C# (C Sharp)  
+  15. MATLAB / Octave  
+  16. Wolfram Language (Mathematica)  
+  17. Raku  
+  18. Scala  
+  19. Java  
+  20. Nu  
+  21. Elvish  
+  22. Vim Script  
+  23. Rust  
+  24. Nix  
+  25. Tcl  
+  26. GDScript  
+  27. Typst  
+  28. PowerShell  
+  29. Elixir  
+  30. OCaml  
+  31. Erlang  
+  32. Gleam  
+  33. Zig  
+  34. Nim  
+  35. Odin  
+  36. C++ (C Plus Plus)  
+  37. Objective C  
+  38. Smalltalk  
+  39. ActionScript  
+  40. Groovy  
+  41. Cangjie  
+  42. C3  
+  43. C  
+  44. D  
+  45. V  
+  46. Vala  
+  47. Crystal  
+  48. Wren  
+  49. Pike  
 
 ---
 
-### [findIndex] (Get Index of List Item Matching Condition)  
-  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/list-find-index.js)  
-  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/list-find-index.py)  
-  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/list-find-index.php)  
-  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/list-find-index.go)  
-  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/list-find-index.pl)  
-  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/list-find-index.jl)  
-  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/list-find-index.lua)  
-  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/list-find-index.rb)  
-  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/list-find-index.r)  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/list-find-index.kt)  
-  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/list-find-index.swift)  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/list-find-index.dart)  
-  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list-find-index.vb)  
-  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-find-index.cs)  
-  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list-find-index.m)  
-  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list-find-index.wl)  
-  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list-find-index.raku)  
-  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list-find-index.scala)  
-  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list-find-index.java)  
-  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/list-find-index.nu)  
-  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/list-find-index.elv)  
-  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/list-find-index.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/list-find-index.rs)  
-  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/list-find-index.nix)  
-  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/list-find-index.tcl)  
-  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/list-find-index.gd)  
-  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/list-find-index.typ)  
-  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/list-find-index.ps1)  
-  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/list-find-index.exs)  
-  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/list-find-index.ml)  
-  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/list-find-index.erl)  
-  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/list-find-index.gleam)  
-  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/list-find-index.zig)  
-  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/list-find-index.nim)  
-  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-find-index.odin)  
-  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-find-index.cpp)  
-  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-find-index.m)  
-  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/list-find-index.st)  
-  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-find-index.as)  
-  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-find-index.groovy)  
-  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-find-index.cj)  
-  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-find-index.c3)  
-  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-find-index.c)  
-  44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/list-find-index.d)  
-  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/list-find-index.v)  
-  46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/list-find-index.vala)  
-  47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/list-find-index.cr)  
-  48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/list-find-index.wren)  
-  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/list-find-index.pike)  
+### [findIndex] (Get Index of List Item Matching Condition) --work-in-progess  
+  1. JavaScript / TypeScript  
+  2. Python  
+  3. PHP  
+  4. Go  
+  5. Perl  
+  6. Julia  
+  7. Lua  
+  8. Ruby  
+  9. R  
+  10. Kotlin  
+  11. Swift  
+  12. Dart  
+  13. VB.NET (Visual Basic dotNET)  
+  14. C# (C Sharp)  
+  15. MATLAB / Octave  
+  16. Wolfram Language (Mathematica)  
+  17. Raku  
+  18. Scala  
+  19. Java  
+  20. Nu  
+  21. Elvish  
+  22. Vim Script  
+  23. Rust  
+  24. Nix  
+  25. Tcl  
+  26. GDScript  
+  27. Typst  
+  28. PowerShell  
+  29. Elixir  
+  30. OCaml  
+  31. Erlang  
+  32. Gleam  
+  33. Zig  
+  34. Nim  
+  35. Odin  
+  36. C++ (C Plus Plus)  
+  37. Objective C  
+  38. Smalltalk  
+  39. ActionScript  
+  40. Groovy  
+  41. Cangjie  
+  42. C3  
+  43. C  
+  44. D  
+  45. V  
+  46. Vala  
+  47. Crystal  
+  48. Wren  
+  49. Pike  
 
 ---
 
-### [filter / grep] (Get All List Item Matching Condition)  
-  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/list-filter.js)  
-  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/list-filter.py)  
-  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/list-filter.php)  
-  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/list-filter.go)  
-  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/list-filter.pl)  
-  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/list-filter.jl)  
-  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/list-filter.lua)  
-  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/list-filter.rb)  
-  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/list-filter.r)  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/list-filter.kt)  
-  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/list-filter.swift)  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/list-filter.dart)  
-  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list-filter.vb)  
-  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-filter.cs)  
-  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list-filter.m)  
-  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list-filter.wl)  
-  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list-filter.raku)  
-  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list-filter.scala)  
-  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list-filter.java)  
-  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/list-filter.nu)  
-  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/list-filter.elv)  
-  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/list-filter.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/list-filter.rs)  
-  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/list-filter.nix)  
-  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/list-filter.tcl)  
-  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/list-filter.gd)  
-  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/list-filter.typ)  
-  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/list-filter.ps1)  
-  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/list-filter.exs)  
-  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/list-filter.ml)  
-  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/list-filter.erl)  
-  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/list-filter.gleam)  
-  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/list-filter.zig)  
-  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/list-filter.nim)  
-  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-filter.odin)  
-  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-filter.cpp)  
-  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-filter.m)  
-  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/list-filter.st)  
-  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-filter.as)  
-  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-filter.groovy)  
-  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-filter.cj)  
-  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-filter.c3)  
-  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-filter.c)  
-  44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/list-filter.d)  
-  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/list-filter.v)  
-  46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/list-filter.vala)  
-  47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/list-filter.cr)  
-  48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/list-filter.wren)  
-  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/list-filter.pike)  
+### [filter / grep] (Get All List Item Matching Condition) --work-in-progess  
+  1. JavaScript / TypeScript  
+  2. Python  
+  3. PHP  
+  4. Go  
+  5. Perl  
+  6. Julia  
+  7. Lua  
+  8. Ruby  
+  9. R  
+  10. Kotlin  
+  11. Swift  
+  12. Dart  
+  13. VB.NET (Visual Basic dotNET)  
+  14. C# (C Sharp)  
+  15. MATLAB / Octave  
+  16. Wolfram Language (Mathematica)  
+  17. Raku  
+  18. Scala  
+  19. Java  
+  20. Nu  
+  21. Elvish  
+  22. Vim Script  
+  23. Rust  
+  24. Nix  
+  25. Tcl  
+  26. GDScript  
+  27. Typst  
+  28. PowerShell  
+  29. Elixir  
+  30. OCaml  
+  31. Erlang  
+  32. Gleam  
+  33. Zig  
+  34. Nim  
+  35. Odin  
+  36. C++ (C Plus Plus)  
+  37. Objective C  
+  38. Smalltalk  
+  39. ActionScript  
+  40. Groovy  
+  41. Cangjie  
+  42. C3  
+  43. C  
+  44. D  
+  45. V  
+  46. Vala  
+  47. Crystal  
+  48. Wren  
+  49. Pike  
 
 ---
 
-### [map / apply] (Transform Each List Item)  
-  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/list-map.js)  
-  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/list-map.py)  
-  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/list-map.php)  
-  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/list-map.go)  
-  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/list-map.pl)  
-  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/list-map.jl)  
-  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/list-map.lua)  
-  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/list-map.rb)  
-  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/list-map.r)  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/list-map.kt)  
-  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/list-map.swift)  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/list-map.dart)  
-  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list-map.vb)  
-  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-map.cs)  
-  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list-map.m)  
-  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list-map.wl)  
-  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list-map.raku)  
-  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list-map.scala)  
-  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list-map.java)  
-  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/list-map.nu)  
-  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/list-map.elv)  
-  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/list-map.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/list-map.rs)  
-  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/list-map.nix)  
-  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/list-map.tcl)  
-  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/list-map.gd)  
-  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/list-map.typ)  
-  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/list-map.ps1)  
-  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/list-map.exs)  
-  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/list-map.ml)  
-  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/list-map.erl)  
-  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/list-map.gleam)  
-  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/list-map.zig)  
-  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/list-map.nim)  
-  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-map.odin)  
-  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-map.cpp)  
-  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-map.m)  
-  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/list-map.st)  
-  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-map.as)  
-  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-map.groovy)  
-  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-map.cj)  
-  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-map.c3)  
-  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-map.c)  
-  44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/list-map.d)  
-  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/list-map.v)  
-  46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/list-map.vala)  
-  47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/list-map.cr)  
-  48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/list-map.wren)  
-  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/list-map.pike)  
+### [map / apply] (Transform Each List Item) --work-in-progess  
+  1. JavaScript / TypeScript  
+  2. Python  
+  3. PHP  
+  4. Go  
+  5. Perl  
+  6. Julia  
+  7. Lua  
+  8. Ruby  
+  9. R  
+  10. Kotlin  
+  11. Swift  
+  12. Dart  
+  13. VB.NET (Visual Basic dotNET)  
+  14. C# (C Sharp)  
+  15. MATLAB / Octave  
+  16. Wolfram Language (Mathematica)  
+  17. Raku  
+  18. Scala  
+  19. Java  
+  20. Nu  
+  21. Elvish  
+  22. Vim Script  
+  23. Rust  
+  24. Nix  
+  25. Tcl  
+  26. GDScript  
+  27. Typst  
+  28. PowerShell  
+  29. Elixir  
+  30. OCaml  
+  31. Erlang  
+  32. Gleam  
+  33. Zig  
+  34. Nim  
+  35. Odin  
+  36. C++ (C Plus Plus)  
+  37. Objective C  
+  38. Smalltalk  
+  39. ActionScript  
+  40. Groovy  
+  41. Cangjie  
+  42. C3  
+  43. C  
+  44. D  
+  45. V  
+  46. Vala  
+  47. Crystal  
+  48. Wren  
+  49. Pike  
 
 ---
 
-### [reduce / fold / aggregate] (Combine All List Item)  
-  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/list-reduce.js)  
-  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/list-reduce.py)  
-  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/list-reduce.php)  
-  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/list-reduce.go)  
-  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/list-reduce.pl)  
-  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/list-reduce.jl)  
-  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/list-reduce.lua)  
-  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/list-reduce.rb)  
-  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/list-reduce.r)  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/list-reduce.kt)  
-  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/list-reduce.swift)  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/list-reduce.dart)  
-  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list-reduce.vb)  
-  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-reduce.cs)  
-  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list-reduce.m)  
-  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list-reduce.wl)  
-  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list-reduce.raku)  
-  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list-reduce.scala)  
-  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list-reduce.java)  
-  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/list-reduce.nu)  
-  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/list-reduce.elv)  
-  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/list-reduce.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/list-reduce.rs)  
-  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/list-reduce.nix)  
-  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/list-reduce.tcl)  
-  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/list-reduce.gd)  
-  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/list-reduce.typ)  
-  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/list-reduce.ps1)  
-  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/list-reduce.exs)  
-  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/list-reduce.ml)  
-  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/list-reduce.erl)  
-  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/list-reduce.gleam)  
-  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/list-reduce.zig)  
-  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/list-reduce.nim)  
-  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-reduce.odin)  
-  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-reduce.cpp)  
-  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-reduce.m)  
-  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/list-reduce.st)  
-  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-reduce.as)  
-  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-reduce.groovy)  
-  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-reduce.cj)  
-  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-reduce.c3)  
-  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-reduce.c)  
-  44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/list-reduce.d)  
-  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/list-reduce.v)  
-  46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/list-reduce.vala)  
-  47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/list-reduce.cr)  
-  48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/list-reduce.wren)  
-  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/list-reduce.pike)  
+### [reduce / fold / aggregate] (Combine All List Item) --work-in-progess  
+  1. JavaScript / TypeScript  
+  2. Python  
+  3. PHP  
+  4. Go  
+  5. Perl  
+  6. Julia  
+  7. Lua  
+  8. Ruby  
+  9. R  
+  10. Kotlin  
+  11. Swift  
+  12. Dart  
+  13. VB.NET (Visual Basic dotNET)  
+  14. C# (C Sharp)  
+  15. MATLAB / Octave  
+  16. Wolfram Language (Mathematica)  
+  17. Raku  
+  18. Scala  
+  19. Java  
+  20. Nu  
+  21. Elvish  
+  22. Vim Script  
+  23. Rust  
+  24. Nix  
+  25. Tcl  
+  26. GDScript  
+  27. Typst  
+  28. PowerShell  
+  29. Elixir  
+  30. OCaml  
+  31. Erlang  
+  32. Gleam  
+  33. Zig  
+  34. Nim  
+  35. Odin  
+  36. C++ (C Plus Plus)  
+  37. Objective C  
+  38. Smalltalk  
+  39. ActionScript  
+  40. Groovy  
+  41. Cangjie  
+  42. C3  
+  43. C  
+  44. D  
+  45. V  
+  46. Vala  
+  47. Crystal  
+  48. Wren  
+  49. Pike  
 
 ---
 
-### [pop] (List Pop Tail)  
-  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/list-pop.js)  
-  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/list-pop.py)  
-  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/list-pop.php)  
-  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/list-pop.go)  
-  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/list-pop.pl)  
-  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/list-pop.jl)  
-  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/list-pop.lua)  
-  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/list-pop.rb)  
-  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/list-pop.r)  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/list-pop.kt)  
-  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/list-pop.swift)  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/list-pop.dart)  
-  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list-pop.vb)  
-  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-pop.cs)  
-  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list-pop.m)  
-  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list-pop.wl)  
-  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list-pop.raku)  
-  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list-pop.scala)  
-  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list-pop.java)  
-  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/list-pop.nu)  
-  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/list-pop.elv)  
-  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/list-pop.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/list-pop.rs)  
-  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/list-pop.nix)  
-  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/list-pop.tcl)  
-  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/list-pop.gd)  
-  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/list-pop.typ)  
-  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/list-pop.ps1)  
-  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/list-pop.exs)  
-  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/list-pop.ml)  
-  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/list-pop.erl)  
-  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/list-pop.gleam)  
-  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/list-pop.zig)  
-  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/list-pop.nim)  
-  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-pop.odin)  
-  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-pop.cpp)  
-  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-pop.m)  
-  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/list-pop.st)  
-  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-pop.as)  
-  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-pop.groovy)  
-  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-pop.cj)  
-  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-pop.c3)  
-  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-pop.c)  
-  44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/list-pop.d)  
-  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/list-pop.v)  
-  46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/list-pop.vala)  
-  47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/list-pop.cr)  
-  48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/list-pop.wren)  
-  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/list-pop.pike)  
+### [pop] (List Pop Tail) --work-in-progess  
+  1. JavaScript / TypeScript  
+  2. Python  
+  3. PHP  
+  4. Go  
+  5. Perl  
+  6. Julia  
+  7. Lua  
+  8. Ruby  
+  9. R  
+  10. Kotlin  
+  11. Swift  
+  12. Dart  
+  13. VB.NET (Visual Basic dotNET)  
+  14. C# (C Sharp)  
+  15. MATLAB / Octave  
+  16. Wolfram Language (Mathematica)  
+  17. Raku  
+  18. Scala  
+  19. Java  
+  20. Nu  
+  21. Elvish  
+  22. Vim Script  
+  23. Rust  
+  24. Nix  
+  25. Tcl  
+  26. GDScript  
+  27. Typst  
+  28. PowerShell  
+  29. Elixir  
+  30. OCaml  
+  31. Erlang  
+  32. Gleam  
+  33. Zig  
+  34. Nim  
+  35. Odin  
+  36. C++ (C Plus Plus)  
+  37. Objective C  
+  38. Smalltalk  
+  39. ActionScript  
+  40. Groovy  
+  41. Cangjie  
+  42. C3  
+  43. C  
+  44. D  
+  45. V  
+  46. Vala  
+  47. Crystal  
+  48. Wren  
+  49. Pike  
 
 ---
 
-### [push / append] (List Append to Tail)  
-  1. [JavaScript / TypeScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/javascript-or-typescript/list-push.js)  
-  2. [Python](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/python/list-push.py)  
-  3. [PHP](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/php/list-push.php)  
-  4. [Go](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/go/list-push.go)  
-  5. [Perl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/perl/list-push.pl)  
-  6. [Julia](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/julia/list-push.jl)  
-  7. [Lua](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/lua/list-push.lua)  
-  8. [Ruby](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ruby/list-push.rb)  
-  9. [R](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/r/list-push.r)  
-  10. [Kotlin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/kotlin/list-push.kt)  
-  11. [Swift](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/swift/list-push.swift)  
-  12. [Dart](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/dart/list-push.dart)  
-  13. [VB.NET (Visual Basic dotNET)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/visual-basic-dot-net/list-push.vb)  
-  14. [C# (C Sharp)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-sharp/list-push.cs)  
-  15. [MATLAB / Octave](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/matlab-or-octave/list-push.m)  
-  16. [Wolfram Language (Mathematica)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wolfram-language-mathematica/list-push.wl)  
-  17. [Raku](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/raku/list-push.raku)  
-  18. [Scala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/scala/list-push.scala)  
-  19. [Java](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/java/list-push.java)  
-  20. [Nu](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nu/list-push.nu)  
-  21. [Elvish](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elvish/list-push.elv)  
-  22. [Vim Script](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vim-script/list-push.vim)  
-  23. [Rust](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/rust/list-push.rs)  
-  24. [Nix](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nix/list-push.nix)  
-  25. [Tcl](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/tcl/list-push.tcl)  
-  26. [GDScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gdscript/list-push.gd)  
-  27. [Typst](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/typst/list-push.typ)  
-  28. [PowerShell](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/powershell/list-push.ps1)  
-  29. [Elixir](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/elixir/list-push.exs)  
-  30. [OCaml](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/ocaml/list-push.ml)  
-  31. [Erlang](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/erlang/list-push.erl)  
-  32. [Gleam](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/gleam/list-push.gleam)  
-  33. [Zig](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/zig/list-push.zig)  
-  34. [Nim](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/nim/list-push.nim)  
-  35. [Odin](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/odin/list-push.odin)  
-  36. [C++ (C Plus Plus)](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c-plus-plus/list-push.cpp)  
-  37. [Objective C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/objective-c/list-push.m)  
-  38. [Smalltalk](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/smalltalk/list-push.st)  
-  39. [ActionScript](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/actionscript/list-push.as)  
-  40. [Groovy](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/groovy/list-push.groovy)  
-  41. [Cangjie](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/cangjie/list-push.cj)  
-  42. [C3](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c3/list-push.c3)  
-  43. [C](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/c/list-push.c)  
-  44. [D](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/d/list-push.d)  
-  45. [V](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/v/list-push.v)  
-  46. [Vala](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/vala/list-push.vala)  
-  47. [Crystal](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/crystal/list-push.cr)  
-  48. [Wren](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/wren/list-push.wren)  
-  49. [Pike](https://github.com/willyhorizont/cross-language-programming-concepts/tree/main/languages/pike/list-push.pike)  
+### [push / append] (List Append to Tail) --work-in-progess  
+  1. JavaScript / TypeScript  
+  2. Python  
+  3. PHP  
+  4. Go  
+  5. Perl  
+  6. Julia  
+  7. Lua  
+  8. Ruby  
+  9. R  
+  10. Kotlin  
+  11. Swift  
+  12. Dart  
+  13. VB.NET (Visual Basic dotNET)  
+  14. C# (C Sharp)  
+  15. MATLAB / Octave  
+  16. Wolfram Language (Mathematica)  
+  17. Raku  
+  18. Scala  
+  19. Java  
+  20. Nu  
+  21. Elvish  
+  22. Vim Script  
+  23. Rust  
+  24. Nix  
+  25. Tcl  
+  26. GDScript  
+  27. Typst  
+  28. PowerShell  
+  29. Elixir  
+  30. OCaml  
+  31. Erlang  
+  32. Gleam  
+  33. Zig  
+  34. Nim  
+  35. Odin  
+  36. C++ (C Plus Plus)  
+  37. Objective C  
+  38. Smalltalk  
+  39. ActionScript  
+  40. Groovy  
+  41. Cangjie  
+  42. C3  
+  43. C  
+  44. D  
+  45. V  
+  46. Vala  
+  47. Crystal  
+  48. Wren  
+  49. Pike  
 
 ## Trends
 
