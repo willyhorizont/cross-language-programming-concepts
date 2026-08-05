@@ -48,12 +48,12 @@ else
 fi
 
 if [[ "$IS_ANY_MATLAB_KEYWORD" == true && "$MAYBE_OBJC" == false ]]; then
-    bash "/home/willy/Documents/Codes/cross-language-programming-concepts/languages/matlab-or-octave/runner.sh" "$1"
+    bash "$RD/languages/matlab-or-octave/runner.sh" "$1"
     exit 0
 fi
 
 if [[ "$IS_ANY_C_KEYWORD" == true && "$MAYBE_OBJC" == false ]]; then
-    bash "/home/willy/Documents/Codes/cross-language-programming-concepts/languages/c/runner.sh" "$1"
+    bash "$RD/languages/c/runner.sh" "$1"
     exit 0
 fi
 

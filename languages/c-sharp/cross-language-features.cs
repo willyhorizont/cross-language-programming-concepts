@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Xl = WillyHorizont.Runtime.Xl;
+using WillyHorizont.Runtime.Xl;
 
 class Program
 {

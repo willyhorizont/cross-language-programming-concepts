@@ -19,16 +19,16 @@ class Xl {
     static escapeString(s) {
         if (s == null) return ""
         var r = ""
-        for (cp in s.codePoints) {
-            if (cp == 92) { // \
+        for (c in s.codePoints) {
+            if (c == 92) { // \
                 r = r + "\\\\"
-            } else if (cp == 34) { // "
+            } else if (c == 34) { // "
                 r = r + "\\\""
-            } else if (cp == 10) { // \n
+            } else if (c == 10) { // \n
                 r = r + "\\n"
-            } else if (cp == 13) { // \r
+            } else if (c == 13) { // \r
                 r = r + "\\r"
-            } else if (cp == 9) { // \t
+            } else if (c == 9) { // \t
                 r = r + "\\t"
             } else {
                 r = r + String.fromCodePoint(cp)
