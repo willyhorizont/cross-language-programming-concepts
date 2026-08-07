@@ -8,33 +8,70 @@ RD="$(realpath "$SD")"
 RN="$(basename "$RD")"
 
 if ! command -v jq &> /dev/null; then
-    echo "jq not installed. installing jq..."
-    sudo apt update && sudo apt install -y jq
-    sudo apt autoremove -y
+    echo "jq not installed. Installing jq..."
+    if command -v dnf &> /dev/null; then
+        (sudo dnf check-update || true) && sudo dnf install -y jq
+        sudo dnf autoremove -y
+    elif command -v apt &> /dev/null; then
+        sudo apt update && sudo apt install -y jq
+        sudo apt autoremove -y
+    else
+        echo "Error: Please use Debian/based distro or Fedora/based distro."
+        exit 1
+    fi
 fi
 
-cat "$RD/tools/vscode-extensions-base.txt" | grep -v '^$' | sort -u | xargs -L 1 code --install-extension
+if [ -f "$RD/tools/vscode-extensions-base.txt" ]; then
+    cat "$RD/tools/vscode-extensions-base.txt" | grep -v '^$' | sort -u | xargs -L 1 code --install-extension
+fi
 
-FPDL=("wget" "x11-apps" "libgtk2.0-0t64:amd64" "libnss3" "libvdpau-va-gl1")
-MFPDL=()
-for FPD in "${FPDL[@]}"; do
-    if ! dpkg -s "$FPD" >/dev/null 2>&1; then
-        MFPDL+=("$FPD")
+if command -v dnf &> /dev/null; then
+    FPDL=("gtk2" "nss")
+    MFPDL=()
+    for FPD in "${FPDL[@]}"; do
+        if ! rpm -q "$FPD" >/dev/null 2>&1; then
+            MFPDL+=("$FPD")
+        fi
+    done
+    if [ ${#MFPDL[@]} -ne 0 ]; then
+        (sudo dnf check-update || true)
+        sudo dnf install "${MFPDL[@]}" -y --skip-unavailable
+        sudo dnf autoremove -y
     fi
-done
-if [ ${#MFPDL[@]} -ne 0 ]; then
-    sudo apt update && sudo apt install "${MFPDL[@]}" -y
-    sudo apt autoremove -y
+elif command -v apt &> /dev/null; then
+    FPDL=("wget" "x11-apps" "libnss3" "libvdpau-va-gl1")
+    if apt-cache show libgtk2.0-0t64 &>/dev/null; then
+        FPDL+=("libgtk2.0-0t64:amd64")
+    else
+        FPDL+=("libgtk2.0-0")
+    fi
+    MFPDL=()
+    for FPD in "${FPDL[@]}"; do
+        if ! dpkg -s "$FPD" >/dev/null 2>&1; then
+            MFPDL+=("$FPD")
+        fi
+    done
+    if [ ${#MFPDL[@]} -ne 0 ]; then
+        sudo apt update && sudo apt install "${MFPDL[@]}" -y
+        sudo apt autoremove -y
+    fi
+else
+    echo "Error: Please use Debian/based distro or Fedora/based distro."
+    exit 1
 fi
 
 TD="$RD/temp-downloads"
 if [ ! -f /usr/local/bin/flashplayer ]; then
     echo "Downloading and installing Adobe Flash Player..."
     mkdir -p "$TD"
-    wget -q -P "$TD" https://fpdownload.macromedia.com/pub/flashplayer/updaters/32/flash_player_sa_linux_debug.x86_64.tar.gz
-    tar -xzf "$TD/flash_player_sa_linux_debug.x86_64.tar.gz" -C "$TD"
-    sudo mv "$TD/flashplayerdebugger" /usr/local/bin/flashplayer
-    sudo chmod +x /usr/local/bin/flashplayer
+    if wget -q -P "$TD" https://fpdownload.macromedia.com/pub/flashplayer/updaters/32/flash_player_sa_linux_debug.x86_64.tar.gz; then
+        tar -xzf "$TD/flash_player_sa_linux_debug.x86_64.tar.gz" -C "$TD"
+        sudo mv "$TD/flashplayerdebugger" /usr/local/bin/flashplayer
+        sudo chmod +x /usr/local/bin/flashplayer
+    else
+        echo "Error: Can not install Adobe Flash Player."
+        exit 1
+    fi
 fi
 
 if [ ! -f /usr/local/bin/ruffle ]; then
@@ -73,7 +110,12 @@ code --install-extension crystal-lang-tools.crystal-lang
 code --install-extension BojanEndrovski.wren
 code --install-extension undeadfish.vscode-pike-lang
 
-eval "$RD/tools/vscode-extensions/vim9script-syntax-highlighter/install.sh"
+# if [ -f "$RD/tools/vscode-extensions/vim9script-syntax-highlighter/install.sh" ]; then
+#     chmod +x "$RD/tools/vscode-extensions/vim9script-syntax-highlighter/install.sh"
+#     eval "$RD/tools/vscode-extensions/vim9script-syntax-highlighter/install.sh"
+# fi
 
 rm -rf "$TD"
 hash -r
+
+echo "setup environment finished"
