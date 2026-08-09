@@ -118,4 +118,7 @@ code --install-extension undeadfish.vscode-pike-lang
 rm -rf "$TD"
 hash -r
 
+sudo usermod -aG docker $USER
+newgrp docker
+
 echo "setup environment finished"

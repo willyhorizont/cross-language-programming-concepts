@@ -1,3 +1,13 @@
+[Last updated: 09 Aug 2026 @ 11:08 PM]
+version 2.7.99:
+update setup-environment;
+updating in Fedora 44 KDE Wayland btw :)
+
+[Last updated: 09 Aug 2026 @ 11:05 PM]
+version 2.7.99:
+update setup-environment;
+updating in Fedora 44 KDE Wayland btw :)
+
 [Last updated: 07 Aug 2026 @ 09:21 PM]
 version 2.7.98:
 update setup-environment to use fedora/based distro;
