@@ -12,16 +12,16 @@ fi
 CPV="
 echo \">docker images\"
 echo \"$IMG\"
-echo \">./pharo Pharo.image --version\"
-./pharo Pharo.image --version
-echo \">./pharo Pharo.image printVersion\"
-./pharo Pharo.image printVersion
-echo \">./pharo Pharo.image eval \"SystemVersion current version\"\"
-./pharo Pharo.image eval \"SystemVersion current version\"
+echo \">pharo /opt/pharo/Pharo.image --version\"
+pharo /opt/pharo/Pharo.image --version
+echo \">pharo /opt/pharo/Pharo.image printVersion\"
+pharo /opt/pharo/Pharo.image printVersion
+echo \">pharo /opt/pharo/Pharo.image eval \"SystemVersion current version\"\"
+pharo /opt/pharo/Pharo.image eval \"SystemVersion current version\"
 "
 
 CCRLC="
-./pharo Pharo.image st --quit \"$PTRFNX\" \"$PTFNX\"
+pharo /opt/pharo/Pharo.image st --quit \"$PTRFNX\" \"$PTFNX\"
 "
 
 if ! docker image inspect "$IMG" > /dev/null 2>&1; then

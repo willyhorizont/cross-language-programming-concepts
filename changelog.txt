@@ -1,3 +1,8 @@
+[Last updated: 10 Aug 2026 @ 07:17 AM]
+version 2.7.100:
+update smalltalk runtime init;
+updating in Fedora 44 KDE Wayland btw :)
+
 [Last updated: 09 Aug 2026 @ 11:08 PM]
 version 2.7.99:
 update setup-environment;

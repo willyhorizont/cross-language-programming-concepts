@@ -6,4 +6,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 
-RUN curl "https://get.pharo.org/130+vm" | bash
+WORKDIR /opt/pharo
+
+RUN curl --connect-timeout 15 \
+    --retry 5 \
+    --retry-delay 2 \
+    -sSfL "https://get.pharo.org/130+vm" | bash \
+    && ln -s /opt/pharo/pharo /usr/local/bin/pharo
