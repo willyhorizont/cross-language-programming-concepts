@@ -2,7 +2,7 @@
 
 SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD/..")
-V="2.7.100" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
+V="2.7.101" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
 T=$(date "+%d %b %Y @ %I:%M %p")
 cd "$RD" || exit
 
@@ -25,13 +25,12 @@ version $V:
 H=$(sed -e '/./,$!d' <<< "$H")
 # ! DON'T FORGET TO CHANGE COMMIT MESSAGE BEFORE RUNNING !!!!
 M="
-update smalltalk runtime init;
-updating in Fedora 44 KDE Wayland btw :)
+update last-commit.sh;
 "
 M=$(sed -e '/./,$!d' <<< "$M")
 M="$H
 $M"
-awk -v msg="$M" 'BEGIN {print msg; print ""} {print}' "$RD/changelog.txt" > "$RD/changelog.tmp" && mv "$RD/changelog.tmp" "$RD/changelog.txt"
+touch "$RD/changelog.txt" && awk -v msg="$M" 'BEGIN {print msg; print ""} {print}' "$RD/changelog.txt" > "$RD/changelog.tmp" && mv "$RD/changelog.tmp" "$RD/changelog.txt"
 git add changelog.txt
 git add package-lock.json
 git add package.json
@@ -40,5 +39,5 @@ git add .
 git commit -m "$M"
 git tag -d "$V" 2>/dev/null
 git tag -a "$V" -m "$M"
-git push origin main -f
-git push origin --tags -f
+git push origin main
+git push origin --tags
