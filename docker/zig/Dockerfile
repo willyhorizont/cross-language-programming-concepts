@@ -1,12 +1,20 @@
-FROM debian:trixie
+FROM debian:trixie AS extractor
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl \
-    ca-certificates \
     xz-utils \
     && rm -rf /var/lib/apt/lists/*
 
-RUN curl -L -o /tmp/zig.tar.xz "https://ziglang.org/download/0.16.0/zig-x86_64-linux-0.16.0.tar.xz" \
-    && tar -xf /tmp/zig.tar.xz -C /opt \
-    && ln -s /opt/zig-x86_64-linux-0.16.0/zig /usr/local/bin/zig \
-    && rm /tmp/zig.tar.xz
+ARG FNX_ZIG=zig-x86_64-linux-0.16.0.tar.xz
+
+COPY tmp/${FNX_ZIG} /tmp/
+
+RUN mkdir -p /opt && tar -xf /tmp/${FNX_ZIG} -C /opt
+
+FROM debian:trixie
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY --from=extractor /opt/zig-x86_64-linux-0.16.0 /opt/zig-x86_64-linux-0.16.0
+
+RUN ln -s /opt/zig-x86_64-linux-0.16.0/zig /usr/local/bin/zig

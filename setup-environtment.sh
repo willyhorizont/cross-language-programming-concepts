@@ -26,7 +26,7 @@ if [ -f "$RD/tools/vscode-extensions-base.txt" ]; then
 fi
 
 if command -v dnf &> /dev/null; then
-    FPDL=("gtk2" "nss")
+    FPDL=("curl" "gtk2" "nss")
     MFPDL=()
     for FPD in "${FPDL[@]}"; do
         if ! rpm -q "$FPD" >/dev/null 2>&1; then
@@ -39,7 +39,7 @@ if command -v dnf &> /dev/null; then
         sudo dnf autoremove -y
     fi
 elif command -v apt &> /dev/null; then
-    FPDL=("wget" "x11-apps" "libnss3" "libvdpau-va-gl1")
+    FPDL=("curl" "wget" "x11-apps" "libnss3" "libvdpau-va-gl1")
     if apt-cache show libgtk2.0-0t64 &>/dev/null; then
         FPDL+=("libgtk2.0-0t64:amd64")
     else
@@ -60,12 +60,19 @@ else
     exit 1
 fi
 
-TD="$RD/temp-downloads"
+TD="$RD/tmp"
+mkdir -p "$TD"
+
 if [ ! -f /usr/local/bin/flashplayer ]; then
-    echo "Downloading and installing Adobe Flash Player..."
-    mkdir -p "$TD"
-    if wget -q -P "$TD" https://fpdownload.macromedia.com/pub/flashplayer/updaters/32/flash_player_sa_linux_debug.x86_64.tar.gz; then
-        tar -xzf "$TD/flash_player_sa_linux_debug.x86_64.tar.gz" -C "$TD"
+    PTFNX_FLASH="$TD/flash_player_sa_linux_debug.x86_64.tar.gz"
+    if [ -f "$PTFNX_FLASH" ]; then
+        echo "Local Adobe Flash Player archive found in tmp. Skipping download."
+    else
+        echo "Downloading Adobe Flash Player..."
+        curl -L -o "$PTFNX_FLASH" https://fpdownload.macromedia.com/pub/flashplayer/updaters/32/flash_player_sa_linux_debug.x86_64.tar.gz
+    fi
+    if [ -f "$PTFNX_FLASH" ]; then
+        tar -xzf "$PTFNX_FLASH" -C "$TD"
         sudo mv "$TD/flashplayerdebugger" /usr/local/bin/flashplayer
         sudo chmod +x /usr/local/bin/flashplayer
     else
@@ -75,12 +82,21 @@ if [ ! -f /usr/local/bin/flashplayer ]; then
 fi
 
 if [ ! -f /usr/local/bin/ruffle ]; then
-    echo "Downloading and installing Ruffle..."
-    mkdir -p "$TD"
-    wget -q -P "$TD" https://github.com/ruffle-rs/ruffle/releases/download/v0.3.0/ruffle-0.3.0-linux-x86_64.tar.gz
-    tar -xzf "$TD/ruffle-0.3.0-linux-x86_64.tar.gz" -C "$TD"
-    sudo mv "$TD/ruffle" /usr/local/bin/ruffle
-    sudo chmod +x /usr/local/bin/ruffle
+    PTFNX_RUFFLE="$TD/ruffle-0.3.0-linux-x86_64.tar.gz"
+    if [ -f "$PTFNX_RUFFLE" ]; then
+        echo "Local Ruffle archive found in tmp. Skipping download."
+    else
+        echo "Downloading Ruffle..."
+        curl -L -o "$PTFNX_RUFFLE" https://github.com/ruffle-rs/ruffle/releases/download/v0.3.0/ruffle-0.3.0-linux-x86_64.tar.gz
+    fi
+    if [ -f "$PTFNX_RUFFLE" ]; then
+        tar -xzf "$PTFNX_RUFFLE" -C "$TD"
+        sudo mv "$TD/ruffle" /usr/local/bin/ruffle
+        sudo chmod +x /usr/local/bin/ruffle
+    else
+        echo "Error: Can not install Ruffle."
+        exit 1
+    fi
 fi
 
 code --install-extension bowlerhatllc.vscode-as3mxml
@@ -115,7 +131,7 @@ code --install-extension undeadfish.vscode-pike-lang
 #     eval "$RD/tools/vscode-extensions/vim9script-syntax-highlighter/install.sh"
 # fi
 
-rm -rf "$TD"
+# rm -rf "$TD"
 hash -r
 
 sudo usermod -aG docker $USER

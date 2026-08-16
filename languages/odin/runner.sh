@@ -30,7 +30,22 @@ odin run .
 "
 
 if ! docker image inspect "$IMG" > /dev/null 2>&1; then
+    mkdir -p "$RD/tmp"
+
+    FNX_ODIN=odin-linux-amd64-dev-2026-06.tar.gz
+
+    if [ ! -f "$RD/tmp/$FNX_ODIN" ]; then
+        echo "Downloading $FNX_ODIN on host..."
+        curl -L \
+            --connect-timeout 60 \
+            --retry 5 \
+            --retry-delay 10 \
+            --max-time 1800 \
+            -o "$RD/tmp/$FNX_ODIN" "https://github.com/odin-lang/Odin/releases/download/dev-2026-06/odin-linux-amd64-dev-2026-06.tar.gz"
+    fi
+
     docker build \
+        --no-cache \
         -t "$IMG" \
         -f "$RD/docker/$LID/Dockerfile" \
         "$RD"

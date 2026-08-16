@@ -4,24 +4,24 @@ Imports System.Collections
 Imports System.Collections.Generic
 Imports System.Linq
 
-Namespace WillyHorizont.Runtime
-    Public Delegate Function XlLambda(ByVal Va As Object) As Object
-    Public Structure Lambda
-        Private ReadOnly Value As XlLambda
-        Public Sub New(ByVal C As XlLambda)
-            Me.Value = C
-        End Sub
-        Public Shared Widening Operator CType(ByVal C As XlLambda) As Lambda
-            Return New Lambda(C)
-        End Operator
-        Public Function Invoke(ParamArray Va As Object()) As Object
-            If Va Is Nothing Then
-                Return Me.Value(New Object() {Nothing})
-            End If
-            Return Me.Value(Va)
-        End Function
-    End Structure
-    Public Module Xl
+Namespace WillyHorizont.Runtime.Xl
+    Public Class Xl
+        Public Delegate Function XlLambda(ByVal Va As Object) As Object
+        Public Structure Lambda
+            Private ReadOnly Value As XlLambda
+            Public Sub New(ByVal C As XlLambda)
+                Me.Value = C
+            End Sub
+            Public Shared Widening Operator CType(ByVal C As XlLambda) As Lambda
+                Return New Lambda(C)
+            End Operator
+            Public Function Invoke(ParamArray Va As Object()) As Object
+                If Va Is Nothing Then
+                    Return Me.Value(New Object() {Nothing})
+                End If
+                Return Me.Value(Va)
+            End Function
+        End Structure
         Public Class List
             Inherits List(Of Object)
             Public Sub New()
@@ -34,14 +34,14 @@ Namespace WillyHorizont.Runtime
                 MyBase.New()
             End Sub
         End Class
-        Public Function Iter(ByVal Va As Object) As Object
+        Public Shared Function Iter(ByVal Va As Object) As Object
             Return CType(Va, Object()).GetEnumerator()
         End Function
-        Public Function NextItem(ByVal Itr As IEnumerator) As Object
+        Public Shared Function NextItem(ByVal Itr As IEnumerator) As Object
             Itr.MoveNext()
             Return Itr.Current
         End Function
-        Public Function EscapeString(S As Object) As Object
+        Public Shared Function EscapeString(S As Object) As Object
             If S Is Nothing Then Return ""
             Dim R As String = Convert.ToString(S)
             R = R.Replace("\", "\\")
@@ -51,7 +51,7 @@ Namespace WillyHorizont.Runtime
             R = R.Replace(vbTab, "\t")
             Return R
         End Function
-        Public Function JsonStringify(A As Object, Optional Pretty As Object = False) As Object
+        Public Shared Function JsonStringify(A As Object, Optional Pretty As Object = False) As Object
             Dim P As Boolean = Convert.ToBoolean(Pretty)
             Dim T As String = String.Concat(Enumerable.Repeat(" ", 4))
             Dim S As New Stack(Of Dictionary(Of String, Object))()
@@ -163,5 +163,5 @@ Namespace WillyHorizont.Runtime
             End While
             Return R
         End Function
-    End Module
+    End Class
 End Namespace

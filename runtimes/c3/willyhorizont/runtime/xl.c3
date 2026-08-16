@@ -41,7 +41,7 @@ struct Type @public
         Lambda lambda_value;
         Iterator* iterator_ref;
     }
-	Type* ctx_ref;
+    Type* ctx_ref;
 }
 
 struct Pair
@@ -569,10 +569,10 @@ macro printn(...) @public
                 Type* $t = (Type*)$vaarg[$i];
                 if ($t != null) {
                     switch ($t.type) {
-						case BOOL:
+                        case BOOL:
                             io::print($t.bool_value ? "true" : "false");
                             break;
-						case STRING:
+                        case STRING:
                             io::print($t.string_value);
                             break;
                         case INT:

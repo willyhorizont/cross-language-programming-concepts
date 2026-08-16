@@ -32,7 +32,22 @@ crystal run \"$PTFNX\"
 "
 
 if ! docker image inspect "$IMG" > /dev/null 2>&1; then
+    mkdir -p "$RD/tmp"
+
+    FNX_CRYSTAL=crystal-1.21.0-1-linux-x86_64-bundled.tar.gz
+
+    if [ ! -f "$RD/tmp/$FNX_CRYSTAL" ]; then
+        echo "Downloading $FNX_CRYSTAL on host..."
+        curl -L \
+            --connect-timeout 60 \
+            --retry 5 \
+            --retry-delay 10 \
+            --max-time 1800 \
+            -o "$RD/tmp/$FNX_CRYSTAL" "https://github.com/crystal-lang/crystal/releases/download/1.21.0/crystal-1.21.0-1-linux-x86_64-bundled.tar.gz"
+    fi
+
     docker build \
+        --no-cache \
         -t "$IMG" \
         -f "$RD/docker/$LID/Dockerfile" \
         "$RD"

@@ -2,7 +2,7 @@ module demo;
 
 import std.stdio;
 import std.conv : text;
-import xl = willyhorizont.runtime.xl : Xl;
+import willyhorizont.runtime.xl;
 
 void main() {
     /*

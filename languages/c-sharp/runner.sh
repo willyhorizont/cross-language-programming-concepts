@@ -40,7 +40,22 @@ rm -rf \"$PTTFNXD/obj\"
 "
 
 if ! docker image inspect "$IMG" > /dev/null 2>&1; then
+    mkdir -p "$RD/tmp"
+
+    FNX_DOTNET=dotnet-sdk-10.0.302-linux-x64.tar.gz
+
+    if [ ! -f "$RD/tmp/$FNX_DOTNET" ]; then
+        echo "Downloading $FNX_DOTNET on host..."
+        curl -L \
+            --connect-timeout 60 \
+            --retry 5 \
+            --retry-delay 10 \
+            --max-time 1800 \
+            -o "$RD/tmp/$FNX_DOTNET" "https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.302/dotnet-sdk-10.0.302-linux-x64.tar.gz"
+    fi
+
     docker build \
+        --no-cache \
         -t "$IMG" \
         -f "$RD/docker/c-sharp-and-visual-basic-dot-net/Dockerfile" \
         "$RD"

@@ -1,3 +1,19 @@
+[Last updated: 17 Aug 2026 @ 01:56 AM][version: 2.8.0]
+update last-commit.sh;
+small update in pike;
+small update in c;
+small update in odin;
+small update in c-sharp;
+small update in cangjie;
+small update in go;
+small update in gdscript;
+small update in v;
+update in d;
+update in dart;
+update in vb;
+update Dockerfile;
+update runner.sh;
+
 [Last updated: 11 Aug 2026 @ 01:47 PM]
 version 2.7.101:
 update last-commit.sh;

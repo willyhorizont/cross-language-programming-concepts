@@ -21,7 +21,22 @@ wren \"$PTFNX\"
 "
 
 if ! docker image inspect "$IMG" > /dev/null 2>&1; then
+    mkdir -p "$RD/tmp"
+
+    FNX_WREN=wren-cli-linux-0.4.0.zip
+
+    if [ ! -f "$RD/tmp/$FNX_WREN" ]; then
+        echo "Downloading $FNX_WREN on host..."
+        curl -L \
+            --connect-timeout 60 \
+            --retry 5 \
+            --retry-delay 10 \
+            --max-time 1800 \
+            -o "$RD/tmp/$FNX_WREN" "https://github.com/wren-lang/wren-cli/releases/download/0.4.0/wren-cli-linux-0.4.0.zip"
+    fi
+
     docker build \
+        --no-cache \
         -t "$IMG" \
         -f "$RD/docker/$LID/Dockerfile" \
         "$RD"

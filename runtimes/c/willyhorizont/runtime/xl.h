@@ -70,11 +70,6 @@ typedef struct Xl {
 } Xl;
 
 typedef struct {
-    const char* gn;
-    bool pretty;
-} GgOpt;
-
-typedef struct {
     bool pretty;
 } JifyOpt;
 

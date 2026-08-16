@@ -3,38 +3,38 @@ module main
 import willyhorizont.runtime.xl
 
 fn main() {
-	/*
-	1. support lambda as value, or has workaround
-	*/
-	say_hello := xl.init(xl.lambda(value: fn (va xl.Type) xl.Type {
-		mut itr := xl.iter(va)
-		callback_function := xl.next(mut itr)
-		println("hello")
-		callback_function.call()
-		return xl.init()
-	}))
-	say_hello.call(xl.init(xl.lambda(value: fn (va xl.Type) xl.Type {
-		println("world")
-		return xl.init()
-	})))
-	create_multiplier := xl.init(xl.lambda(value: fn (va xl.Type) xl.Type {
-		mut itr := xl.iter(va)
-		aa := xl.next(mut itr)
-		return xl.init(xl.lambda(value: fn [aa] (va xl.Type) xl.Type {
-			mut itr := xl.iter(va)
-			bb := xl.next(mut itr)
-			return xl.init(xl.to_int(aa) * xl.to_int(bb))
-		}))
-	}))
-	multiply_by_two := create_multiplier.call(2)
-	println("multiply_by_two(10): ${multiply_by_two.call(10).to_int()}")
-	multiply_by_eight := create_multiplier.call(8)
-	println("multiply_by_eight(4): ${multiply_by_eight.call(4).to_int()}")
-	println("multiply_by_two(8): ${multiply_by_two.call(8).to_int()}")
+    /*
+    1. support lambda as value, or has workaround
+    */
+    say_hello := xl.init(xl.lambda(value: fn (va xl.Type) xl.Type {
+        mut itr := xl.iter(va)
+        callback_function := xl.next(mut itr)
+        println("hello")
+        callback_function.call()
+        return xl.init()
+    }))
+    say_hello.call(xl.init(xl.lambda(value: fn (va xl.Type) xl.Type {
+        println("world")
+        return xl.init()
+    })))
+    create_multiplier := xl.init(xl.lambda(value: fn (va xl.Type) xl.Type {
+        mut itr := xl.iter(va)
+        aa := xl.next(mut itr)
+        return xl.init(xl.lambda(value: fn [aa] (va xl.Type) xl.Type {
+            mut itr := xl.iter(va)
+            bb := xl.next(mut itr)
+            return xl.init(xl.to_int(aa) * xl.to_int(bb))
+        }))
+    }))
+    multiply_by_two := create_multiplier.call(2)
+    println("multiply_by_two(10): ${multiply_by_two.call(10).to_int()}")
+    multiply_by_eight := create_multiplier.call(8)
+    println("multiply_by_eight(4): ${multiply_by_eight.call(4).to_int()}")
+    println("multiply_by_two(8): ${multiply_by_two.call(8).to_int()}")
     
-	/*
-	2. support dynamic-typed value, or has workaround
-	*/
+    /*
+    2. support dynamic-typed value, or has workaround
+    */
     xl_list := xl.init([
         xl.init(),
         xl.init(true),

@@ -4,7 +4,7 @@ import "core:fmt"
 import "core:strings"
 import "core:mem"
 import "core:mem/virtual"
-import xl "willyhorizont/runtime"
+import "willyhorizont/runtime/xl"
 
 main :: proc() {
     arena: virtual.Arena

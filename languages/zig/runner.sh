@@ -35,7 +35,22 @@ zig run \"$TFN.$FX\"
 "
 
 if ! docker image inspect "$IMG" > /dev/null 2>&1; then
+    mkdir -p "$RD/tmp"
+
+    FNX_ZIG=zig-x86_64-linux-0.16.0.tar.xz
+
+    if [ ! -f "$RD/tmp/$FNX_ZIG" ]; then
+        echo "Downloading $FNX_ZIG on host..."
+        curl -L \
+            --connect-timeout 60 \
+            --retry 5 \
+            --retry-delay 10 \
+            --max-time 1800 \
+            -o "$RD/tmp/$FNX_ZIG" "https://ziglang.org/download/0.16.0/zig-x86_64-linux-0.16.0.tar.xz"
+    fi
+
     docker build \
+        --no-cache \
         -t "$IMG" \
         -f "$RD/docker/$LID/Dockerfile" \
         "$RD"

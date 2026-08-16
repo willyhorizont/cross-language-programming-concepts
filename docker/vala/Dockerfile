@@ -1,14 +1,11 @@
-FROM debian:trixie
+FROM debian:trixie AS extractor
 
+# https://gitlab.gnome.org/GNOME/vala/-/tree/0.56.19
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl \
-    ca-certificates \
     xz-utils \
     gcc \
     libc6-dev \
     libglib2.0-dev \
-    gobject-introspection \
-    libgirepository1.0-dev \
     flex \
     bison \
     libgraphviz-dev \
@@ -18,15 +15,35 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     autoconf-archive \
     automake \
     libtool \
+    gobject-introspection \
+    libgirepository1.0-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+ARG FNX_VALA=vala-0.56.19.tar.xz
+
+COPY tmp/${FNX_VALA} /tmp/
+
+RUN mkdir -p /tmp/vala-src \
+    && tar -xf /tmp/${FNX_VALA} -C /tmp/vala-src --strip-components=1 \
+    && cd /tmp/vala-src \
+    && ./configure --prefix=/opt/vala \
+    && make \
+    && make install
+
+FROM debian:trixie
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    libc6-dev \
+    libglib2.0-dev \
+    libgraphviz-dev \
+    libgirepository1.0-dev \
+    gobject-introspection \
     libgee-0.8-dev \
     && rm -rf /var/lib/apt/lists/*
 
-RUN curl -L -o /tmp/vala.tar.xz "https://download.gnome.org/sources/vala/0.56/vala-0.56.19.tar.xz" \
-    && tar -xf /tmp/vala.tar.xz -C /tmp \
-    && cd /tmp/vala-0.56.19 \
-    && ./configure --prefix=/usr/local \
-    && make \
-    && make install \
-    && ldconfig \
-    && rm /tmp/vala.tar.xz \
-    && rm -rf /tmp/vala-0.56.19
+COPY --from=extractor /opt/vala /opt/vala
+
+RUN echo "/opt/vala/lib" > /etc/ld.so.conf.d/vala.conf && ldconfig
+
+ENV PATH="/opt/vala/bin:${PATH}"

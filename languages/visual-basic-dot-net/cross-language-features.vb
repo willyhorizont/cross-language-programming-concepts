@@ -1,7 +1,7 @@
 Imports System
 Imports System.Collections.Generic
 Imports System.Linq
-Imports Xl = WillyHorizont.Runtime
+Imports WillyHorizont.Runtime.Xl
 
 Module Program
     Sub Main()

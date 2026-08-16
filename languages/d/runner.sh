@@ -27,7 +27,22 @@ rm -f $FN
 "
 
 if ! docker image inspect "$IMG" > /dev/null 2>&1; then
+    mkdir -p "$RD/tmp"
+
+    FNX_DMD=dmd.2.112.0.linux.tar.xz
+
+    if [ ! -f "$RD/tmp/$FNX_DMD" ]; then
+        echo "Downloading $FNX_DMD on host..."
+        curl -L \
+            --connect-timeout 60 \
+            --retry 5 \
+            --retry-delay 10 \
+            --max-time 1800 \
+            -o "$RD/tmp/$FNX_DMD" "https://downloads.dlang.org/releases/2.x/2.112.0/dmd.2.112.0.linux.tar.xz"
+    fi
+
     docker build \
+        --no-cache \
         -t "$IMG" \
         -f "$RD/docker/$LID/Dockerfile" \
         "$RD"

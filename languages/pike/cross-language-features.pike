@@ -1,6 +1,6 @@
-int main() {
-    mixed xl = compile_file(combine_path(__DIR__, "../../runtimes/pike/willyhorizont/runtime/xl.pike"))();
+mixed xl = compile_file(combine_path(__DIR__, "../../runtimes/pike/willyhorizont/runtime/xl.pike"))();
 
+int main() {
     /*
     1. support lambda as value, or has workaround
     */
@@ -43,11 +43,11 @@ int main() {
     xl->writeln("xl_list: ", xl->json_stringify(xl_list));
     xl->writeln("xl_list: ", xl->json_stringify(xl_list, ([ "pretty" : 1 ])));
     mixed xl_dict = ([
-        "xl_none": 0, // null
-        "xl_bool_true": 1, // true
-        "xl_bool_false": 0, // false
+        "xl_none": 0,
+        "xl_bool_true": 1,
+        "xl_bool_false": 0,
         "xl_string": "foo",
-        "xl_int_positive": 0, // 0
+        "xl_int_positive": 0,
         "xl_int_negative": -123,
         "xl_float_positive": 123.789,
         "xl_float_negative": -123.789,

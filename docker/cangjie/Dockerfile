@@ -1,9 +1,15 @@
+FROM debian:trixie AS extractor
+
+ARG FNX_CANGJIE=cangjie-sdk-linux-x64-1.1.3.tar.gz
+
+COPY tmp/${FNX_CANGJIE} /tmp/
+
+RUN mkdir -p /usr/local && tar -xzf /tmp/${FNX_CANGJIE} -C /usr/local
+
 FROM debian:trixie
 
 # https://docs.cangjie-lang.cn/en/docs/1.0.0/user_manual/source_en/Appendix/linux_toolchain_install.html
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl \
-    ca-certificates \
     binutils \
     gcc \
     g++ \
@@ -13,9 +19,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     openssl \
     && rm -rf /var/lib/apt/lists/*
 
-RUN curl -L -o /tmp/cangjie.tar.gz "https://cangjie-lang.cn/v1/files/auth/downLoad?nsId=142267&fileName=cangjie-sdk-linux-x64-1.1.3.tar.gz&objectKey=6a19349d21f5a8178d6fd22b" \
-    && tar -xzf /tmp/cangjie.tar.gz -C /usr/local \
-    && rm /tmp/cangjie.tar.gz
+COPY --from=extractor /usr/local/cangjie /usr/local/cangjie
 
 ENV CANGJIE_HOME=/usr/local/cangjie
 ENV PATH=$CANGJIE_HOME/bin:${PATH}

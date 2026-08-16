@@ -28,7 +28,22 @@ rm -f \"$RD/runtimes/c3/output/main\"
 "
 
 if ! docker image inspect "$IMG" > /dev/null 2>&1; then
+    mkdir -p "$RD/tmp"
+
+    FNX_C3=c3-v0.8.2-linux-static.tar.gz
+
+    if [ ! -f "$RD/tmp/$FNX_C3" ]; then
+        echo "Downloading $FNX_C3 on host..."
+        curl -L \
+            --connect-timeout 60 \
+            --retry 5 \
+            --retry-delay 10 \
+            --max-time 1800 \
+            -o "$RD/tmp/$FNX_C3" "https://github.com/c3lang/c3c/releases/download/v0.8.2/c3-linux-static.tar.gz"
+    fi
+
     docker build \
+        --no-cache \
         -t "$IMG" \
         -f "$RD/docker/$LID/Dockerfile" \
         "$RD"

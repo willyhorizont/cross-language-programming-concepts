@@ -34,7 +34,22 @@ v run -path \"$RD/runtimes/v|@vlib|@vmodules\" \"$PTFNX\"
 "
 
 if ! docker image inspect "$IMG" > /dev/null 2>&1; then
+    mkdir -p "$RD/tmp"
+
+    FNX_V=v-0.5.2-linux.zip
+
+    if [ ! -f "$RD/tmp/$FNX_V" ]; then
+        echo "Downloading $FNX_V on host..."
+        curl -L \
+            --connect-timeout 60 \
+            --retry 5 \
+            --retry-delay 10 \
+            --max-time 1800 \
+            -o "$RD/tmp/$FNX_V" "https://github.com/vlang/v/releases/download/0.5.2/v_linux.zip"
+    fi
+
     docker build \
+        --no-cache \
         -t "$IMG" \
         -f "$RD/docker/$LID/Dockerfile" \
         "$RD"

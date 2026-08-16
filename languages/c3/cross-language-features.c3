@@ -8,7 +8,7 @@ fn void main()
     /*
     1. support lambda as value, or has workaround
     */
-	xl::Type* say_hello = xl::init_lambda(fn xl::Type* (xl::Type* ctx_ref, xl::Type* va)
+    xl::Type* say_hello = xl::init_lambda(fn xl::Type* (xl::Type* ctx_ref, xl::Type* va)
     {
         defer xl::free_memory(va);
         xl::Type* itr = xl::iter(va);

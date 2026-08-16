@@ -1,32 +1,32 @@
-import willyhorizont.runtime as xl
+import willyhorizont.runtime.Xl
 
 main() {
     /*
     1. support lambda as value, or has workaround
     */
-    let sayHello: Any = { va: xl.Vararg =>
-        let itr = xl.iter(va)
-        match (xl.next(itr)) {
-            case callbackFunction: xl.Lambda =>
+    let sayHello: Any = { va: Xl.Vararg =>
+        let itr = Xl.iter(va)
+        match (Xl.next(itr)) {
+            case callbackFunction: Xl.Lambda =>
                 println("hello")
-                callbackFunction([xl.NONE])
-                return xl.NONE
+                callbackFunction([Xl.NONE])
+                return Xl.NONE
             case _ =>
                 throw Exception("Error: Invalid arguments.")
         }
     }
-    xl.call(sayHello, [{ _: xl.Vararg =>
+    Xl.call(sayHello, [{ _: Xl.Vararg =>
         println("world")
-        return xl.NONE
+        return Xl.NONE
     }])
-    let createMultiplier: Any = { va: xl.Vararg =>
-        let itr = xl.iter(va)
-        match (xl.next(itr)) {
-            case aa: xl.Int =>
-                return { va: xl.Vararg =>
-                    let itr = xl.iter(va)
-                    (match (xl.next(itr)) {
-                        case bb: xl.Int =>
+    let createMultiplier: Any = { va: Xl.Vararg =>
+        let itr = Xl.iter(va)
+        match (Xl.next(itr)) {
+            case aa: Xl.Int =>
+                return { va: Xl.Vararg =>
+                    let itr = Xl.iter(va)
+                    (match (Xl.next(itr)) {
+                        case bb: Xl.Int =>
                             return aa * bb
                         case _ =>
                             throw Exception("Error: Invalid arguments.")
@@ -36,17 +36,17 @@ main() {
                 throw Exception("Error: Invalid arguments.")
         }
     }
-    let multiplyByTwo: Any = xl.call(createMultiplier, [2])
-    println("multiply_by_two(10): ${xl.jsonStringify(xl.call(multiplyByTwo, [10]))}")
-    let multiplyByEight: Any = xl.call(createMultiplier, [8])
-    println("multiply_by_eight(4): ${xl.jsonStringify(xl.call(multiplyByEight, [4]))}")
-    println("multiply_by_two(8): ${xl.jsonStringify(xl.call(multiplyByTwo, [8]))}")
+    let multiplyByTwo: Any = Xl.call(createMultiplier, [2])
+    println("multiply_by_two(10): ${Xl.jsonStringify(Xl.call(multiplyByTwo, [10]))}")
+    let multiplyByEight: Any = Xl.call(createMultiplier, [8])
+    println("multiply_by_eight(4): ${Xl.jsonStringify(Xl.call(multiplyByEight, [4]))}")
+    println("multiply_by_two(8): ${Xl.jsonStringify(Xl.call(multiplyByTwo, [8]))}")
 
     /*
     2. support dynamic-typed value, or has workaround
     */
-    let xlList: Any = xl.List([
-        xl.NONE,
+    let xlList: Any = Xl.List([
+        Xl.NONE,
         true,
         false,
         "foo",
@@ -54,25 +54,25 @@ main() {
         -123,
         123.789,
         -123.789,
-        xl.List([1, 2, 3]),
-        xl.Dict([("foo", "bar")]),
-        { va: xl.Vararg =>
-            let itr = xl.iter(va)
+        Xl.List([1, 2, 3]),
+        Xl.Dict([("foo", "bar")]),
+        { va: Xl.Vararg =>
+            let itr = Xl.iter(va)
             (match ((
-                xl.next(itr),
-                xl.next(itr),
+                Xl.next(itr),
+                Xl.next(itr),
             )) {
-                case (aa: xl.Int, bb: xl.Int) =>
+                case (aa: Xl.Int, bb: Xl.Int) =>
                     return aa * bb
                 case _ =>
                     throw Exception("Error: Invalid arguments.")
             }) as Any
         },
     ])
-    println("xl_list: ${xl.jsonStringify(xlList)}")
-    println("xl_list: ${xl.jsonStringify(xlList, pretty: true)}")
-    let xlDict: Any = xl.Dict([
-        ("xl_none", xl.NONE),
+    println("xl_list: ${Xl.jsonStringify(xlList)}")
+    println("xl_list: ${Xl.jsonStringify(xlList, pretty: true)}")
+    let xlDict: Any = Xl.Dict([
+        ("xl_none", Xl.NONE),
         ("xl_bool_true", true),
         ("xl_bool_false", false),
         ("xl_string", "foo"),
@@ -80,21 +80,21 @@ main() {
         ("xl_int_negative", -123),
         ("xl_float_positive", 123.789),
         ("xl_float_negative", -123.789),
-        ("xl_list", xl.List([1, 2, 3])),
-        ("xl_dict", xl.Dict([("foo", "bar")])),
-        ("xl_lambda", { va: xl.Vararg =>
-            let itr = xl.iter(va)
+        ("xl_list", Xl.List([1, 2, 3])),
+        ("xl_dict", Xl.Dict([("foo", "bar")])),
+        ("xl_lambda", { va: Xl.Vararg =>
+            let itr = Xl.iter(va)
             (match ((
-                xl.next(itr),
-                xl.next(itr),
+                Xl.next(itr),
+                Xl.next(itr),
             )) {
-                case (aa: xl.Int, bb: xl.Int) =>
+                case (aa: Xl.Int, bb: Xl.Int) =>
                     return aa * bb
                 case _ =>
                     throw Exception("Error: Invalid arguments.")
             }) as Any
         }),
     ])
-    println("xl_dict: ${xl.jsonStringify(xlDict)}")
-    println("xl_dict: ${xl.jsonStringify(xlDict, pretty: true)}")
+    println("xl_dict: ${Xl.jsonStringify(xlDict)}")
+    println("xl_dict: ${Xl.jsonStringify(xlDict, pretty: true)}")
 }

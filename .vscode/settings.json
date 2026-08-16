@@ -355,11 +355,6 @@
         "editor.semanticHighlighting.enabled": true, // Enable semantic highlighting
         "editor.formatOnType": false // Enable formatting while typing
     },
-    "[dart]": {
-        "editor.tabSize": 4,
-        "editor.insertSpaces": false,
-        "editor.detectIndentation": false
-    },
     "code-runner.ignoreSelection": true,
     "code-runner.runInTerminal": true,
     "code-runner.executorMapByFileExtension": {
@@ -545,6 +540,12 @@
     "[nim]": {
         "editor.wordWrap": "off",
         "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false
+    },
+    "[dart]": {
+        "editor.wordWrap": "off",
+        "editor.tabSize": 4,
         "editor.insertSpaces": true,
         "editor.detectIndentation": false
     },

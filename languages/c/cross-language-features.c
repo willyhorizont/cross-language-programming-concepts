@@ -30,10 +30,10 @@ int main(int argc, char *argv[]) {
             Xl* itr = xl.iter(vararg);
             Xl* bb = xl.next(itr);
             Xl* aa = xl.get(ctx_ref, "aa");
-            Xl* otp = xl.init_int(aa->int_value * bb->int_value);
+            Xl* rr = xl.init_int(aa->int_value * bb->int_value);
             xl.free(itr);
             xl.free(vararg);
-            return otp;
+            return rr;
         }, xl.init_dict(xl.init_pair("aa", xl.init_int(aa_ctx))));
     }, NULL);
     Xl* multiply_by_two = xl.call(create_multiplier, xl.init_int(2));
@@ -41,10 +41,10 @@ int main(int argc, char *argv[]) {
     Xl* multiply_by_eight = xl.call(create_multiplier, xl.init_int(8));
     xl.print("multiply_by_eight(4): ", xl.to_string(xl.call(multiply_by_eight, xl.init_int(4))));
     xl.print("multiply_by_two(8): ", xl.to_string(xl.call(multiply_by_two, xl.init_int(8))));
-    xl.free(multiply_by_two);
     xl.free(multiply_by_eight);
+    xl.free(multiply_by_two);
     xl.free(create_multiplier);
-
+    
     /*
     2. support dynamic-typed value, or has workaround
     */
@@ -63,10 +63,10 @@ int main(int argc, char *argv[]) {
             Xl* itr = xl.iter(vararg);
             Xl* aa = xl.next(itr);
             Xl* bb = xl.next(itr);
-            Xl* otp = xl.init_int(aa->int_value * bb->int_value);
+            Xl* rr = xl.init_int(aa->int_value * bb->int_value);
             xl.free(itr);
             xl.free(vararg);
-            return otp;
+            return rr;
         }, NULL)
     );
     xl.print("xl_list: ", xl.json_stringify(xl_list));
@@ -87,10 +87,10 @@ int main(int argc, char *argv[]) {
             Xl* itr = xl.iter(vararg);
             Xl* aa = xl.next(itr);
             Xl* bb = xl.next(itr);
-            Xl* otp = xl.init_int(aa->int_value * bb->int_value);
+            Xl* rr = xl.init_int(aa->int_value * bb->int_value);
             xl.free(itr);
             xl.free(vararg);
-            return otp;
+            return rr;
         }, NULL))
     );
     xl.print("xl_dict: ", xl.json_stringify(xl_dict));
