@@ -12,14 +12,17 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
+RD="$(realpath "$SD/../..")"
+RN="$(basename "$RD")"
+
 PTFNX="$1"
+if [[ "$PTFNX" == ./* ]]; then
+    PTFNX="$RD/${PTFNX#./}"
+fi
 PTFNXD="$(dirname "$PTFNX")"
 FNX="$(basename "$PTFNX")"
 FN="${FNX%.*}"
 FX="${FNX##*.}"
-
-RD="$(realpath "$SD/../..")"
-RN="$(basename "$RD")"
 
 PTTFNXD="$RD/runtimes/$LID"
 
