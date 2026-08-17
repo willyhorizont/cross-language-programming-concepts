@@ -2,7 +2,7 @@ const fs = require("fs").promises;
 
 const manageLinguist = async () => {
     try {
-        const ljS = await fs.readFile("linguist-languages.json", "utf8");
+        const ljS = await fs.readFile("./tmp/linguist-languages.json", "utf8");
         const lJ = JSON.parse(ljS);
         const nLj = Object.entries(lJ).reduce((cur, [pk, pv]) => {
             if (pv?.["type"] !== "programming") return cur;
@@ -20,7 +20,7 @@ const manageLinguist = async () => {
         }, []);
         console.log(nLj.length);
         const nLjS = JSON.stringify(nLj, null, 4);
-        await fs.writeFile("./output/linguist-programming-languages.json", nLjS);
+        await fs.writeFile("./tmp/linguist-programming-languages.json", nLjS);
         console.log("Success!");
     } catch (err) {
         console.error("Something went wrong:", err.message);

@@ -14,6 +14,9 @@
             }
         ],
         "file_extension": ".js",
+        "syntaxes": [
+            "javascript"
+        ],
         "concept_definition": {
             "list": "Array",
             "dict": "Object",
@@ -42,6 +45,9 @@
             }
         ],
         "file_extension": ".py",
+        "syntaxes": [
+            "python"
+        ],
         "concept_definition": {
             "list": "list",
             "dict": "dict",
@@ -72,6 +78,9 @@
             }
         ],
         "file_extension": ".php",
+        "syntaxes": [
+            "php"
+        ],
         "concept_definition": {
             "list": "array",
             "dict": "associative array",
@@ -102,6 +111,9 @@
             }
         ],
         "file_extension": ".go",
+        "syntaxes": [
+            "go"
+        ],
         "concept_definition": {
             "list": "Slice",
             "dict": "Map",
@@ -132,6 +144,9 @@
             }
         ],
         "file_extension": ".pl",
+        "syntaxes": [
+            "perl"
+        ],
         "concept_definition": {
             "list": "ARRAY",
             "dict": "HASH",
@@ -162,6 +177,9 @@
             }
         ],
         "file_extension": ".jl",
+        "syntaxes": [
+            "julia"
+        ],
         "concept_definition": {
             "list": "Vector",
             "dict": "Dict",
@@ -192,6 +210,9 @@
             }
         ],
         "file_extension": ".lua",
+        "syntaxes": [
+            "lua"
+        ],
         "concept_definition": {
             "list": "table",
             "dict": "table",
@@ -222,6 +243,9 @@
             }
         ],
         "file_extension": ".rb",
+        "syntaxes": [
+            "ruby"
+        ],
         "concept_definition": {
             "list": "Array",
             "dict": "Hash",
@@ -252,6 +276,9 @@
             }
         ],
         "file_extension": ".r",
+        "syntaxes": [
+            "r"
+        ],
         "concept_definition": {
             "list": "list",
             "dict": "environtment",
@@ -283,6 +310,9 @@
             }
         ],
         "file_extension": ".kt",
+        "syntaxes": [
+            "kotlin"
+        ],
         "concept_definition": {
             "list": "ArrayList",
             "dict": "HashMap",
@@ -315,6 +345,9 @@
             }
         ],
         "file_extension": ".swift",
+        "syntaxes": [
+            "swift"
+        ],
         "concept_definition": {
             "list": "Array",
             "dict": "Dictionary",
@@ -345,6 +378,9 @@
             }
         ],
         "file_extension": ".dart",
+        "syntaxes": [
+            "dart"
+        ],
         "concept_definition": {
             "list": "List",
             "dict": "Map",
@@ -376,6 +412,9 @@
             }
         ],
         "file_extension": ".vb",
+        "syntaxes": [
+            "vb"
+        ],
         "concept_definition": {
             "list": "List",
             "dict": "Dictionary",
@@ -406,6 +445,9 @@
             }
         ],
         "file_extension": ".cs",
+        "syntaxes": [
+            "c-sharp"
+        ],
         "concept_definition": {
             "list": "List",
             "dict": "Dictionary",
@@ -441,6 +483,10 @@
             }
         ],
         "file_extension": ".m",
+        "syntaxes": [
+            "matlab",
+            "octave"
+        ],
         "concept_definition": {
             "list": "Cell Array",
             "dict": "Map",
@@ -471,6 +517,9 @@
             }
         ],
         "file_extension": ".wl",
+        "syntaxes": [
+            "mathematica"
+        ],
         "concept_definition": {
             "list": "List",
             "dict": "Association",
@@ -501,6 +550,9 @@
             }
         ],
         "file_extension": ".raku",
+        "syntaxes": [
+            "raku"
+        ],
         "concept_definition": {
             "list": "Positional",
             "dict": "Associative",
@@ -531,6 +583,9 @@
             }
         ],
         "file_extension": ".scala",
+        "syntaxes": [
+            "scala"
+        ],
         "concept_definition": {
             "list": "ArrayBuffer",
             "dict": "Map",
@@ -562,6 +617,9 @@
             }
         ],
         "file_extension": ".java",
+        "syntaxes": [
+            "java"
+        ],
         "concept_definition": {
             "list": "ArrayList",
             "dict": "HashMap",
@@ -593,6 +651,9 @@
             }
         ],
         "file_extension": ".nu",
+        "syntaxes": [
+            "scheme"
+        ],
         "concept_definition": {
             "list": "List",
             "dict": "Record",
@@ -623,6 +684,10 @@
             }
         ],
         "file_extension": ".elv",
+        "syntaxes": [
+            "elvish",
+            "raku"
+        ],
         "concept_definition": {
             "list": "List",
             "dict": "Map",
@@ -653,6 +718,9 @@
             }
         ],
         "file_extension": ".vim",
+        "syntaxes": [
+            "javascript"
+        ],
         "concept_definition": {
             "list": "List",
             "dict": "Dictionary",
@@ -683,6 +751,9 @@
             }
         ],
         "file_extension": ".rs",
+        "syntaxes": [
+            "rust"
+        ],
         "concept_definition": {
             "list": "Vec",
             "dict": "Map",
@@ -714,6 +785,9 @@
             }
         ],
         "file_extension": ".nix",
+        "syntaxes": [
+            "nix"
+        ],
         "concept_definition": {
             "list": "List",
             "dict": "Attribute Set",
@@ -744,6 +818,9 @@
             }
         ],
         "file_extension": ".tcl",
+        "syntaxes": [
+            "tcl"
+        ],
         "concept_definition": {
             "list": "list",
             "dict": "dict",
@@ -775,6 +852,9 @@
             }
         ],
         "file_extension": ".gd",
+        "syntaxes": [
+            "gdscript"
+        ],
         "concept_definition": {
             "list": "Array",
             "dict": "Dictionary",
@@ -807,6 +887,10 @@
             }
         ],
         "file_extension": ".typ",
+        "syntaxes": [
+            "typst",
+            "raku"
+        ],
         "concept_definition": {
             "list": "Array",
             "dict": "Dictionary",
@@ -838,6 +922,9 @@
             }
         ],
         "file_extension": ".ps1",
+        "syntaxes": [
+            "powershell"
+        ],
         "concept_definition": {
             "list": "Array",
             "dict": "HashTable",
@@ -868,6 +955,9 @@
             }
         ],
         "file_extension": ".exs",
+        "syntaxes": [
+            "elixir"
+        ],
         "concept_definition": {
             "list": "List",
             "dict": "Map",
@@ -898,6 +988,9 @@
             }
         ],
         "file_extension": ".ml",
+        "syntaxes": [
+            "ocaml"
+        ],
         "concept_definition": {
             "list": "List",
             "dict": "Hash Table",
@@ -928,6 +1021,9 @@
             }
         ],
         "file_extension": ".erl",
+        "syntaxes": [
+            "erlang"
+        ],
         "concept_definition": {
             "list": "list",
             "dict": "map",
@@ -958,6 +1054,9 @@
             }
         ],
         "file_extension": ".gleam",
+        "syntaxes": [
+            "gleam"
+        ],
         "concept_definition": {
             "list": "List",
             "dict": "Dict",
@@ -988,6 +1087,9 @@
             }
         ],
         "file_extension": ".zig",
+        "syntaxes": [
+            "zig"
+        ],
         "concept_definition": {
             "list": "Slice",
             "dict": "HashMap",
@@ -1018,6 +1120,9 @@
             }
         ],
         "file_extension": ".nim",
+        "syntaxes": [
+            "nim"
+        ],
         "concept_definition": {
             "list": "Sequence",
             "dict": "Table",
@@ -1048,6 +1153,9 @@
             }
         ],
         "file_extension": ".odin",
+        "syntaxes": [
+            "odin"
+        ],
         "concept_definition": {
             "list": "Slice",
             "dict": "Map",
@@ -1078,6 +1186,10 @@
             }
         ],
         "file_extension": ".cpp",
+        "syntaxes": [
+            "c-plus-plus",
+            "c"
+        ],
         "concept_definition": {
             "list": "Vector",
             "dict": "Unordered Map",
@@ -1108,6 +1220,9 @@
             }
         ],
         "file_extension": ".m",
+        "syntaxes": [
+            "objectivec"
+        ],
         "concept_definition": {
             "list": "Array",
             "dict": "Dictionary",
@@ -1138,6 +1253,9 @@
             }
         ],
         "file_extension": ".st",
+        "syntaxes": [
+            "smalltalk"
+        ],
         "concept_definition": {
             "list": "OrderedCollection",
             "dict": "Dictionary",
@@ -1170,6 +1288,10 @@
             }
         ],
         "file_extension": ".as",
+        "syntaxes": [
+            "actionscript",
+            "javascript"
+        ],
         "concept_definition": {
             "list": "Array",
             "dict": "Object",
@@ -1200,6 +1322,9 @@
             }
         ],
         "file_extension": ".groovy",
+        "syntaxes": [
+            "groovy"
+        ],
         "concept_definition": {
             "list": "List",
             "dict": "Map",
@@ -1230,6 +1355,9 @@
             }
         ],
         "file_extension": ".cj",
+        "syntaxes": [
+            "swift"
+        ],
         "concept_definition": {
             "list": "ArrayList",
             "dict": "HashMap",
@@ -1260,6 +1388,10 @@
             }
         ],
         "file_extension": ".c3",
+        "syntaxes": [
+            "c-plus-plus",
+            "c"
+        ],
         "concept_definition": {
             "list": "List",
             "dict": "HashMap",
@@ -1290,6 +1422,9 @@
             }
         ],
         "file_extension": ".c",
+        "syntaxes": [
+            "c"
+        ],
         "concept_definition": {
             "list": null,
             "dict": null,
@@ -1320,6 +1455,9 @@
             }
         ],
         "file_extension": ".d",
+        "syntaxes": [
+            "d"
+        ],
         "concept_definition": {
             "list": "Array",
             "dict": "Associative Array",
@@ -1350,6 +1488,10 @@
             }
         ],
         "file_extension": ".v",
+        "syntaxes": [
+            "v",
+            "go"
+        ],
         "concept_definition": {
             "list": "array",
             "dict": "map",
@@ -1380,6 +1522,9 @@
             }
         ],
         "file_extension": ".vala",
+        "syntaxes": [
+            "vala"
+        ],
         "concept_definition": {
             "list": "ArrayList",
             "dict": "HashMap",
@@ -1410,6 +1555,10 @@
             }
         ],
         "file_extension": ".cr",
+        "syntaxes": [
+            "crystal",
+            "ruby"
+        ],
         "concept_definition": {
             "list": "Array",
             "dict": "Hash",
@@ -1440,6 +1589,9 @@
             }
         ],
         "file_extension": ".wren",
+        "syntaxes": [
+            "wren"
+        ],
         "concept_definition": {
             "list": "List",
             "dict": "Map",
@@ -1470,6 +1622,9 @@
             }
         ],
         "file_extension": ".pike",
+        "syntaxes": [
+            "pike"
+        ],
         "concept_definition": {
             "list": "array",
             "dict": "mapping",

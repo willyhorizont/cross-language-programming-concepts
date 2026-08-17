@@ -2,8 +2,11 @@
 
 set -xe
 
-rm -f linguist-languages.yml
-rm -f linguist-languages.json
+SD=$(dirname "$(realpath "$0")")
+RD=$(realpath "$SD/..")
+
+rm -f "$RD/tmp/linguist-languages.yml"
+rm -f "$RD/tmp/linguist-languages.json"
 
 D1="https://"
 D2="raw."
@@ -21,12 +24,22 @@ SUBPATH="${P1}${P2}${P3}${P4}${P5}${P6}"
 
 SRC_URL="${DOMAIN}${SUBPATH}"
 
-curl -L "$SRC_URL" -o "linguist-languages.yml"
+curl -L "$SRC_URL" -o "$RD/tmp/linguist-languages.yml"
 
-python3 -c "import sys, yaml, json; print(json.dumps(yaml.safe_load(open('linguist-languages.yml')), indent=4))" > linguist-languages.json
+mkdir -p "$RD/tmp"
 
-mkdir -p output
-sudo chown -R $(whoami):$(whoami) output
+python3 -c "import sys, yaml, json; print(json.dumps(yaml.safe_load(open('$RD/tmp/linguist-languages.yml')), indent=4))" > "$RD/tmp/linguist-languages.json"
 
-. "$HOME/.nvm/nvm.sh"
-node manage-linguist.js
+sudo chown -R $(whoami):$(whoami) "$RD/tmp"
+
+LID="javascript-or-typescript"
+IMG=$("$RD/tools/utils.sh" --get-docker-image $LID 2>/dev/null)
+
+docker run -i --rm \
+    --entrypoint bash \
+    -v "$RD:$RD" \
+    "$IMG" \
+    -c "
+        cd \"$RD\"
+        node \"$RD/tools/manage-linguist.js\"
+    "
