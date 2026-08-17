@@ -2,7 +2,7 @@
 
 SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD/..")
-V="2.8.0" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
+V="2.8.1" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
 T=$(date "+%d %b %Y @ %I:%M %p")
 cd "$RD" || exit
 
@@ -24,20 +24,7 @@ H="
 H=$(sed -e '/./,$!d' <<< "$H")
 # ! DON'T FORGET TO CHANGE COMMIT MESSAGE BEFORE RUNNING !!!!
 M="
-update last-commit.sh;
-small update in pike;
-small update in c;
-small update in odin;
-small update in c-sharp;
-small update in cangjie;
-small update in go;
-small update in gdscript;
-small update in v;
-update in d;
-update in dart;
-update in vb;
-update Dockerfile;
-update runner.sh;
+chmod +x runner.sh;
 "
 M=$(sed -e '/./,$!d' <<< "$M")
 M="$H
