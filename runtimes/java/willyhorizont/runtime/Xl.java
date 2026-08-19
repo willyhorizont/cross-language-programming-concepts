@@ -69,7 +69,7 @@ public class Xl {
         return NONE;
     }
 
-    public static Xl list(Object... ell) {
+    public static Xl initList(Object... ell) {
         ArrayList<Xl> l = new ArrayList<>();
         for (Object el : ell) {
             l.add(toXl(el));
@@ -86,16 +86,20 @@ public class Xl {
         }
     }
 
-    public static Pair pair(String k, Object v) {
+    public static Pair initPair(String k, Object v) {
         return new Pair(k, v);
     }
 
-    public static Xl dict(Pair... dpl) {
+    public static Xl initDict(Pair... dpl) {
         HashMap<String, Xl> d = new HashMap<>();
         for (Pair dp : dpl) {
             d.put(dp.key, dp.value);
         }
         return new Xl(Type.DICT, d);
+    }
+
+    public static Xl initLambda(Lambda v) {
+        return v == null ? NONE : new Xl(Type.LAMBDA, v);
     }
 
     public Xl call(Xl... args) {
@@ -183,7 +187,7 @@ public class Xl {
     }
 
     public static String jsonStringify(Xl a, Pair... p) {
-        return jsonStringify(a, dict(p));
+        return jsonStringify(a, initDict(p));
     }
 
     private static String jsonStringify(Xl a, Xl o) {
@@ -197,7 +201,7 @@ public class Xl {
         }
         String t = " ".repeat(4);
         ArrayList<Xl> s = new ArrayList<>();
-        s.add(dict(pair("t", "v"), pair("v", a), pair("d", 0)));
+        s.add(initDict(initPair("t", "v"), initPair("v", a), initPair("d", 0)));
         StringBuilder r = new StringBuilder();
         while (s.size() > 0) {
             Xl c = s.remove(s.size() - 1);
@@ -234,29 +238,29 @@ public class Xl {
                     continue;
                 }
                 int childD = curD + 1;
-                s.add(dict(
-                    pair("t", "r"),
-                    pair("v", p ? "\n" + t.repeat(curD) + "]" : "]"),
-                    pair("d", curD)
+                s.add(initDict(
+                    initPair("t", "r"),
+                    initPair("v", p ? "\n" + t.repeat(curD) + "]" : "]"),
+                    initPair("d", curD)
                 ));
                 for (int i = l.size() - 1; i >= 0; i -= 1) {
-                    s.add(dict(
-                        pair("t", "v"),
-                        pair("v", l.get(i)),
-                        pair("d", childD)
+                    s.add(initDict(
+                        initPair("t", "v"),
+                        initPair("v", l.get(i)),
+                        initPair("d", childD)
                     ));
                     if (i > 0) {
-                        s.add(dict(
-                            pair("t", "r"),
-                            pair("v", p ? ",\n" + t.repeat(childD) : ","),
-                            pair("d", childD)
+                        s.add(initDict(
+                            initPair("t", "r"),
+                            initPair("v", p ? ",\n" + t.repeat(childD) : ","),
+                            initPair("d", childD)
                         ));
                     }
                 }
-                s.add(dict(
-                    pair("t", "r"),
-                    pair("v", p ? "[\n" + t.repeat(childD) : "["),
-                    pair("d", childD)
+                s.add(initDict(
+                    initPair("t", "r"),
+                    initPair("v", p ? "[\n" + t.repeat(childD) : "["),
+                    initPair("d", childD)
                 ));
                 continue;
             }
@@ -267,37 +271,37 @@ public class Xl {
                     continue;
                 }
                 int childD = curD + 1;
-                s.add(dict(
-                    pair("t", "r"),
-                    pair("v", p ? "\n" + t.repeat(curD) + "}" : "}"),
-                    pair("d", curD)
+                s.add(initDict(
+                    initPair("t", "r"),
+                    initPair("v", p ? "\n" + t.repeat(curD) + "}" : "}"),
+                    initPair("d", curD)
                 ));
                 Object[] dkl = d.keySet().toArray();
                 for (int i = dkl.length - 1; i >= 0; i -= 1) {
                     String dK = (String) dkl[i];
                     Xl dV = d.get(dK);
-                    s.add(dict(
-                        pair("t", "v"),
-                        pair("v", dV),
-                        pair("d", childD)
+                    s.add(initDict(
+                        initPair("t", "v"),
+                        initPair("v", dV),
+                        initPair("d", childD)
                     ));
-                    s.add(dict(
-                        pair("t", "r"),
-                        pair("v", p ? "\"" + dK + "\": " : "\"" + dK + "\":"),
-                        pair("d", childD)
+                    s.add(initDict(
+                        initPair("t", "r"),
+                        initPair("v", p ? "\"" + dK + "\": " : "\"" + dK + "\":"),
+                        initPair("d", childD)
                     ));
                     if (i > 0) {
-                        s.add(dict(
-                            pair("t", "r"),
-                            pair("v", p ? ",\n" + t.repeat(childD) : ","),
-                            pair("d", childD)
+                        s.add(initDict(
+                            initPair("t", "r"),
+                            initPair("v", p ? ",\n" + t.repeat(childD) : ","),
+                            initPair("d", childD)
                         ));
                     }
                 }
-                s.add(dict(
-                    pair("t", "r"),
-                    pair("v", p ? "{\n" + t.repeat(childD) : "{"),
-                    pair("d", childD)
+                s.add(initDict(
+                    initPair("t", "r"),
+                    initPair("v", p ? "{\n" + t.repeat(childD) : "{"),
+                    initPair("d", childD)
                 ));
                 continue;
             }

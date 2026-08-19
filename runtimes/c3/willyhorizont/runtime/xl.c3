@@ -205,7 +205,7 @@ fn Type* next(Type* itr) @public
     return r;
 }
 
-fn void free_memory(Type* a) @public
+fn void free(Type* a) @public
 {
     if (a == null) return;
     switch (a.type)
@@ -215,7 +215,7 @@ fn void free_memory(Type* a) @public
             {
                 foreach (el : *a.list_ref)
                 {
-                    free_memory(el);
+                    free(el);
                 }
                 a.list_ref.free();
                 mem::free(a.list_ref);
@@ -226,7 +226,7 @@ fn void free_memory(Type* a) @public
             {
                 foreach (p : a.dict_ref.iter())
                 {
-                    free_memory(p.value);
+                    free(p.value);
                 }
                 a.dict_ref.free();
                 mem::free(a.dict_ref);
@@ -235,7 +235,7 @@ fn void free_memory(Type* a) @public
         case LAMBDA:
             if (a.ctx_ref != null)
             {
-                free_memory(a.ctx_ref);
+                free(a.ctx_ref);
             }
             break;
         case ITERATOR:
@@ -585,7 +585,7 @@ macro printn(...) @public
                             io::print("[object Object]");
                             break;
                     }
-                    free_memory($t);
+                    free($t);
                 }
             $default:
                 io::print($vaarg[$i]);

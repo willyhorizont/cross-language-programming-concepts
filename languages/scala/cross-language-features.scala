@@ -42,7 +42,7 @@ import willyhorizont.runtime.Xl
     /*
     ' -- 2. support dynamic-typed value, or has workaround
     */
-    val xlList = Xl.list(
+    val xlList = Xl.initList(
         null,
         true,
         false,
@@ -51,8 +51,8 @@ import willyhorizont.runtime.Xl
         -123,
         123.789,
         -123.789,
-        Xl.list(1, 2, 3),
-        Xl.dict("foo" -> "bar"),
+        Xl.initList(1, 2, 3),
+        Xl.initDict("foo" -> "bar"),
         ((va: Seq[Any]) => {
             def invoke(): Any = {
                 val aa = va(0)
@@ -64,7 +64,7 @@ import willyhorizont.runtime.Xl
     )
     println(s"xl_list: ${Xl.jsonStringify(xlList)}")
     println(s"xl_list: ${Xl.jsonStringify(xlList, pretty = true)}")
-    val xlDict = Xl.dict(
+    val xlDict = Xl.initDict(
         "xl_none" -> null,
         "xl_bool_true" -> true,
         "xl_bool_false" -> false,
@@ -73,8 +73,8 @@ import willyhorizont.runtime.Xl
         "xl_int_negative" -> -123,
         "xl_float_positive" -> 123.789,
         "xl_float_negative" -> -123.789,
-        "xl_list" -> Xl.list(1, 2, 3),
-        "xl_dict" -> Xl.dict("foo" -> "bar"),
+        "xl_list" -> Xl.initList(1, 2, 3),
+        "xl_dict" -> Xl.initDict("foo" -> "bar"),
         "xl_lambda" -> ((va: Seq[Any]) => {
             def invoke(): Any = {
                 val aa = va(0)
@@ -82,7 +82,7 @@ import willyhorizont.runtime.Xl
                 return aa.asInstanceOf[Int] * bb.asInstanceOf[Int]
             }
             invoke()
-        }).asInstanceOf[Seq[Any] => Any]
+        }).asInstanceOf[Seq[Any] => Any],
     )
     println(s"xl_dict: ${Xl.jsonStringify(xlDict)}")
     println(s"xl_dict: ${Xl.jsonStringify(xlDict, pretty = true)}")

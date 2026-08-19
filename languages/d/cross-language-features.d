@@ -8,19 +8,19 @@ void main() {
     /*
     1. support lambda as value, or has workaround
     */
-    Xl sayHello = xl.lambda(delegate(Xl va) {
+    Xl sayHello = xl.initLambda(delegate(Xl va) {
         Xl itr = xl.iter(va);
         Xl callback = xl.next(itr);
         writeln("hello");
         callback.call();
     });
-    sayHello.call(xl.lambda(delegate(Xl va) {
+    sayHello.call(xl.initLambda(delegate(Xl va) {
         writeln("world");
     }));
-    Xl createMultiplier = xl.lambda(delegate(Xl va) {
+    Xl createMultiplier = xl.initLambda(delegate(Xl va) {
         Xl itr = xl.iter(va); 
         Xl aa = xl.next(itr);
-        return xl.lambda(delegate(Xl va) {
+        return xl.initLambda(delegate(Xl va) {
             Xl itr = xl.iter(va);
             Xl bb = xl.next(itr);
             return xl.from(aa.toInt() * bb.toInt());
@@ -35,7 +35,7 @@ void main() {
     /*
     2. support dynamic-typed value, or has workaround
     */
-    Xl xlList = xl.list(
+    Xl xlList = xl.initList(
         xl.None,
         true,
         false,
@@ -44,9 +44,9 @@ void main() {
         -123,
         123.789,
         -123.789,
-        xl.list(1, 2, 3),
-        xl.dict(xl.pair("foo", "bar")),
-        xl.lambda(delegate(Xl va) {
+        xl.initList(1, 2, 3),
+        xl.initDict(xl.pair("foo", "bar")),
+        xl.initLambda(delegate(Xl va) {
             Xl itr = xl.iter(va);
             Xl aa = xl.next(itr);
             Xl bb = xl.next(itr);
@@ -55,7 +55,7 @@ void main() {
     );
     writeln(i"xl_list: $(xl.jsonStringify(xlList))".text);
     writeln(i"xl_list: $(xl.jsonStringify(xlList, pretty: true))".text);
-    Xl xlDict = xl.dict(
+    Xl xlDict = xl.initDict(
         xl.pair("xl_none", xl.None),
         xl.pair("xl_bool_true", true),
         xl.pair("xl_bool_false", false),
@@ -64,9 +64,9 @@ void main() {
         xl.pair("xl_int_negative", -123),
         xl.pair("xl_float_positive", 123.789),
         xl.pair("xl_float_negative", -123.789),
-        xl.pair("xl_list", xl.list(1, 2, 3)),
-        xl.pair("xl_dict", xl.dict(xl.pair("foo", "bar"))),
-        xl.pair("xl_lambda", xl.lambda(delegate(Xl va) {
+        xl.pair("xl_list", xl.initList(1, 2, 3)),
+        xl.pair("xl_dict", xl.initDict(xl.pair("foo", "bar"))),
+        xl.pair("xl_lambda", xl.initLambda(delegate(Xl va) {
             Xl itr = xl.iter(va);
             Xl aa = xl.next(itr);
             Xl bb = xl.next(itr);

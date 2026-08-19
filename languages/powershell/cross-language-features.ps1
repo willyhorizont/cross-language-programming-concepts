@@ -4,15 +4,15 @@
 1. support lambda as value, or has workaround
 #>
 $SayHello = {
-    param($Callback)
+    Param($Callback)
     Write-Host "hello"
     &$Callback
 }.GetNewClosure()
 &$SayHello {
-    param()
+    Param()
     Write-Host "world"
 }.GetNewClosure()
-$CreateMultiplier = { param($Aa) { param($Bb) ($Aa * $Bb) }.GetNewClosure() }
+$CreateMultiplier = { Param($Aa) { Param($Bb) ($Aa * $Bb) }.GetNewClosure() }
 $MultiplyByTwo = &$CreateMultiplier 2
 Write-Host "multiply_by_two(10): $(&$MultiplyByTwo 10)"
 $MultiplyByEight = &$CreateMultiplier 8
@@ -23,9 +23,9 @@ Write-Host "multiply_by_two(8): $(&$MultiplyByTwo 8)"
 2. support dynamic-typed value, or has workaround
 #>
 $XlList = @(
-    $null,
-    $true,
-    $false,
+    $Null,
+    $True,
+    $False,
     "foo",
     0,
     -123,
@@ -33,14 +33,14 @@ $XlList = @(
     -123.789,
     @(1, 2, 3),
     @{ "foo" = "bar"; },
-    { param($Aa, $Bb) ($Aa * $Bb) }.GetNewClosure()
+    { Param($Aa, $Bb) ($Aa * $Bb) }.GetNewClosure()
 )
 Write-Host "xl_list: $([Xl]::JsonStringify($XlList))"
-Write-Host "xl_list: $([Xl]::JsonStringify($XlList, @{ Pretty = $true }))"
+Write-Host "xl_list: $([Xl]::JsonStringify($XlList, @{ Pretty = $True }))"
 $XlDict = @{
-    "xl_none" = $null;
-    "xl_bool_true" = $true;
-    "xl_bool_false" = $false;
+    "xl_none" = $Null;
+    "xl_bool_true" = $True;
+    "xl_bool_false" = $False;
     "xl_string" = "foo";
     "xl_int_positive" = 0;
     "xl_int_negative" = -123;
@@ -48,7 +48,7 @@ $XlDict = @{
     "xl_float_negative" = -123.789;
     "xl_list" = @(1, 2, 3);
     "xl_dict" = @{ "foo" = "bar" };
-    "xl_lambda" = { param($Aa, $Bb) ($Aa * $Bb) }.GetNewClosure()
+    "xl_lambda" = { Param($Aa, $Bb) ($Aa * $Bb) }.GetNewClosure()
 }
 Write-Host "xl_dict: $([Xl]::JsonStringify($XlDict))"
-Write-Host "xl_dict: $([Xl]::JsonStringify($XlDict, @{ Pretty = $true }))"
+Write-Host "xl_dict: $([Xl]::JsonStringify($XlDict, @{ Pretty = $True }))"

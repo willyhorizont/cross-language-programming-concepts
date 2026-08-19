@@ -1,136 +1,136 @@
-class Xl {
-    static [string] EscapeString([string]$s) {
-        if ([string]::IsNullOrEmpty($s)) { return "" }
-        return $s.Replace('\', '\\')
+Class Xl {
+    Static [String] EscapeString([String]$S) {
+        If ([String]::IsNullOrEmpty($S)) { Return "" }
+        Return $S.Replace('\', '\\')
             .Replace('"', '\"')
             .Replace("`n", '\n')
             .Replace("`r", '\r')
             .Replace("`t", '\t')
     }
-    static [string] JsonStringify($A, [System.Collections.IDictionary]$O = @{}) {
-        $P = if ($O.ContainsKey("Pretty")) { [bool]$O["Pretty"] } else { $false }
+    Static [String] JsonStringify($A, [System.Collections.IDictionary]$O = @{}) {
+        $P = If ($O.ContainsKey("Pretty")) { [Bool]$O["Pretty"] } Else { $False }
         $T = " " * 4
-        $S = [System.Collections.Generic.Stack[object]]::new()
+        $S = [System.Collections.Generic.Stack[Object]]::New()
         $S.Push([PSCustomObject]@{ "t" = "v"; "v" = $A; "d" = 0 })
         $R = ""
-        while ($S.Count -gt 0) {
+        While ($S.Count -GT 0) {
             $C = $S.Pop()
-            if ($C."t" -eq "r") {
+            If ($C."t" -EQ "r") {
                 $R += $C."v"
-                continue
+                Continue
             }
             $V = $C."v"
             $CurD = $C."d"
-            if ($null -eq $V) {
+            If ($Null -EQ $V) {
                 $R += "null"
-                continue
+                Continue
             }
-            if ($V -is [bool]) {
-                $R += if ($V) { "true" } else { "false" }
-                continue
+            If ($V -Is [Bool]) {
+                $R += If ($V) { "true" } Else { "false" }
+                Continue
             }
-            if ($V -is [string]) {
+            If ($V -Is [String]) {
                 $R += """" + [Xl]::EscapeString($V) + """"
-                continue
+                Continue
             }
-            if ($V -is [int] -or $V -is [double] -or $V -is [decimal] -or $V -is [long] -or $V -is [float]) {
+            If ($V -Is [Int] -Or $V -Is [Double] -Or $V -Is [Decimal] -Or $V -Is [Long] -Or $V -Is [Float]) {
                 $R += $V.ToString()
-                continue
+                Continue
             }
-            if ($V -is [scriptblock]) {
-                $R += """[object Function]"""
-                continue
+            If ($V -Is [ScriptBlock]) {
+                $R += """[Object Function]"""
+                Continue
             }
-            if ($V -is [System.Collections.IList] -and $V -isnot [System.Collections.IDictionary]) {
-                if ($V.Count -eq 0) {
+            If ($V -Is [System.Collections.IList] -And $V -IsNot [System.Collections.IDictionary]) {
+                If ($V.Count -EQ 0) {
                     $R += "[]"
-                    continue
+                    Continue
                 }
                 $ChildD = $CurD + 1
                 $S.Push([PSCustomObject]@{
                     "t" = "r";
-                    "v" = if ($P) { "`n" + ($T * $CurD) + "]" } else { "]" };
+                    "v" = If ($P) { "`n" + ($T * $CurD) + "]" } Else { "]" };
                     "d" = $CurD;
                 })
-                for ($I = $V.Count - 1; $I -ge 0; $I--) {
+                For ($I = $V.Count - 1; $I -GE 0; $I--) {
                     $S.Push([PSCustomObject]@{
                         "t" = "v";
                         "v" = $V[$I];
                         "d" = $ChildD;
                     })
-                    if ($I -gt 0) {
+                    If ($I -GT 0) {
                         $S.Push([PSCustomObject]@{
                             "t" = "r";
-                            "v" = if ($P) { ",`n" + ($T * $ChildD) } else { "," };
+                            "v" = If ($P) { ",`n" + ($T * $ChildD) } Else { "," };
                             "d" = $ChildD;
                         })
                     }
                 }
                 $S.Push([PSCustomObject]@{
                     "t" = "r";
-                    "v" = if ($P) { "[`n" + ($T * $ChildD) } else { "[" };
+                    "v" = If ($P) { "[`n" + ($T * $ChildD) } Else { "[" };
                     "d" = $ChildD;
                 })
-                continue
+                Continue
             }
-            if ($V -is [System.Collections.IDictionary] -or $V -is [PSCustomObject] -or $V.GetType().IsClass) {
+            If ($V -Is [System.Collections.IDictionary] -Or $V -Is [PSCustomObject] -Or $V.GetType().IsClass) {
                 $Dpl = @()
-                if ($V -is [System.Collections.IDictionary]) {
-                    foreach ($Dplelk in $V.Keys) {
+                If ($V -Is [System.Collections.IDictionary]) {
+                    ForEach ($Dplelk In $V.Keys) {
                         $Dpl += ,@($Dplelk, $V[$Dplelk])
                     }
-                } elseif ($V -is [PSCustomObject]) {
-                    foreach ($D in $V.PSObject.Properties) {
+                } ElseIf ($V -Is [PSCustomObject]) {
+                    ForEach ($D In $V.PSObject.Properties) {
                         $Dpl += ,@($D.Name, $D.Value)
                     }
-                } else {
-                    foreach ($D in $V.GetType().GetProperties()) {
+                } Else {
+                    ForEach ($D In $V.GetType().GetProperties()) {
                         $Dpl += ,@($D.Name, $D.GetValue($V))
                     }
                 }
-                if ($Dpl.Count -eq 0) {
+                If ($Dpl.Count -EQ 0) {
                     $R += "{}"
-                    continue
+                    Continue
                 }
                 $ChildD = $CurD + 1
                 $S.Push([PSCustomObject]@{
                     "t" = "r";
-                    "v" = if ($P) { "`n" + ($T * $CurD) + "}" } else { "}" };
+                    "v" = If ($P) { "`n" + ($T * $CurD) + "}" } Else { "}" };
                     "d" = $CurD;
                 })
-                for ($I = $Dpl.Count - 1; $I -ge 0; $I -= 1) {
-                    $dK = $Dpl[$I][0]
-                    $dV = $Dpl[$I][1]
+                For ($I = $Dpl.Count - 1; $I -GE 0; $I -= 1) {
+                    $PK = $Dpl[$I][0]
+                    $PV = $Dpl[$I][1]
                     $S.Push([PSCustomObject]@{
                         "t" = "v";
-                        "v" = $dV;
+                        "v" = $PV;
                         "d" = $ChildD;
                     })
                     $S.Push([PSCustomObject]@{
                         "t" = "r";
-                        "v" = if ($P) { """" + $dK + """: " } else { """" + $dK + """:" };
+                        "v" = If ($P) { """" + $PK + """: " } Else { """" + $PK + """:" };
                         "d" = $ChildD;
                     })
-                    if ($I -gt 0) {
+                    If ($I -GT 0) {
                         $S.Push([PSCustomObject]@{
                             "t" = "r";
-                            "v" = if ($P) { ",`n" + ($T * $ChildD) } else { "," };
+                            "v" = If ($P) { ",`n" + ($T * $ChildD) } Else { "," };
                             "d" = $ChildD;
                         })
                     }
                 }
                 $S.Push([PSCustomObject]@{
                     "t" = "r";
-                    "v" = if ($P) { "{`n" + ($T * $ChildD) } else { "{" };
+                    "v" = If ($P) { "{`n" + ($T * $ChildD) } Else { "{" };
                     "d" = $ChildD
                 })
-                continue
+                Continue
             }
-            $R += """[object [""""" + $V.GetType().Name + """""]]"""
+            $R += """[Object [""""" + $V.GetType().Name + """""]]"""
         }
-        return $R
+        Return $R
     }
-    static [string] JsonStringify($A) {
-        return [Xl]::JsonStringify($A, @{})
+    Static [String] JsonStringify($A) {
+        Return [Xl]::JsonStringify($A, @{})
     }
 }

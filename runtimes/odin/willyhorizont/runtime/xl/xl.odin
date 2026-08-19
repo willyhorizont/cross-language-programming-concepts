@@ -10,7 +10,7 @@ List :: [dynamic]Type
 Dict :: map[String]Type
 Pair :: struct { key: String, value: Type }
 Lambda :: struct {
-    value: rawptr,
+    ctx: rawptr,
     call: proc(self: ^Lambda, va: ..Type) -> Type,
 }
 

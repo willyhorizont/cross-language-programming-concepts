@@ -10,34 +10,34 @@ fn void main()
     */
     xl::Type* say_hello = xl::init_lambda(fn xl::Type* (xl::Type* ctx_ref, xl::Type* va)
     {
-        defer xl::free_memory(va);
+        defer xl::free(va);
         xl::Type* itr = xl::iter(va);
-        defer xl::free_memory(itr);
+        defer xl::free(itr);
         xl::Type* callback = xl::next(itr);
         io::printn("hello");
-        xl::free_memory(callback.call(xl::init_none()));
+        xl::free(callback.call(xl::init_none()));
         return xl::init_none();
     });
-    defer xl::free_memory(say_hello);
-    xl::free_memory(say_hello.call(xl::init_lambda(fn xl::Type* (xl::Type* ctx_ref, xl::Type* va)
+    defer xl::free(say_hello);
+    xl::free(say_hello.call(xl::init_lambda(fn xl::Type* (xl::Type* ctx_ref, xl::Type* va)
     {
-        defer xl::free_memory(va);
+        defer xl::free(va);
         xl::Type* itr = xl::iter(va);
-        defer xl::free_memory(itr);
+        defer xl::free(itr);
         io::printn("world");
         return xl::init_none();
     })));
     xl::Type* create_multiplier = xl::init_lambda(fn xl::Type* (xl::Type* ctx_ref_aa, xl::Type* va_aa)
     {
-        defer xl::free_memory(va_aa);
+        defer xl::free(va_aa);
         xl::Type* itr_aa = xl::iter(va_aa);
-        defer xl::free_memory(itr_aa);
+        defer xl::free(itr_aa);
         xl::Type* aa = xl::next(itr_aa);
         return xl::init_lambda(fn xl::Type* (xl::Type* ctx_ref_bb, xl::Type* va_bb)
         {
-            defer xl::free_memory(va_bb);
+            defer xl::free(va_bb);
             xl::Type* itr_bb = xl::iter(va_bb);
-            defer xl::free_memory(itr_bb);
+            defer xl::free(itr_bb);
             xl::Type* bb = xl::next(itr_bb);
             xl::Type* aa = xl::get(ctx_ref_bb, "aa");
             return xl::init_int(aa.int_value * bb.int_value);
@@ -45,12 +45,12 @@ fn void main()
             { "aa", xl::init_int(aa.int_value) },
         ));
     });
-    defer xl::free_memory(create_multiplier);
+    defer xl::free(create_multiplier);
     xl::Type* multiply_by_two = create_multiplier.call(xl::init_int(2));
-    defer xl::free_memory(multiply_by_two);
+    defer xl::free(multiply_by_two);
     xl::printn("multiply_by_two(10): ", xl::to_string(multiply_by_two.call(xl::init_int(10))));
     xl::Type* multiply_by_eight = create_multiplier.call(xl::init_int(8));
-    defer xl::free_memory(multiply_by_eight);
+    defer xl::free(multiply_by_eight);
     xl::printn("multiply_by_eight(4): ", xl::to_string(multiply_by_eight.call(xl::init_int(4))));
     xl::printn("multiply_by_two(8): ", xl::to_string(multiply_by_two.call(xl::init_int(8))));
     
@@ -70,15 +70,15 @@ fn void main()
         xl::init_dict({ "foo", xl::init_string("bar") }),
         xl::init_lambda(fn xl::Type* (xl::Type* ctx_ref, xl::Type* va)
         {
-            defer xl::free_memory(va);
+            defer xl::free(va);
             xl::Type* itr = xl::iter(va);
-            defer xl::free_memory(itr);
+            defer xl::free(itr);
             xl::Type* aa = xl::next(itr);
             xl::Type* bb = xl::next(itr);
             return xl::init_int(aa.int_value * bb.int_value);
         }),
     );
-    defer xl::free_memory(xl_list);
+    defer xl::free(xl_list);
     xl::printn("xl_list: ", xl::json_stringify(xl_list));
     xl::printn("xl_list: ", xl::json_stringify(xl_list, pretty: true));
     xl::Type* xl_dict = xl::init_dict(
@@ -94,15 +94,15 @@ fn void main()
         { "xl_dict", xl::init_dict({ "foo", xl::init_string("bar") }) },
         { "xl_lambda", xl::init_lambda(fn xl::Type* (xl::Type* ctx_ref, xl::Type* va)
         {
-            defer xl::free_memory(va);
+            defer xl::free(va);
             xl::Type* itr = xl::iter(va);
-            defer xl::free_memory(itr);
+            defer xl::free(itr);
             xl::Type* aa = xl::next(itr);
             xl::Type* bb = xl::next(itr);
             return xl::init_int(aa.int_value * bb.int_value);
         }) },
     );
-    defer xl::free_memory(xl_dict);
+    defer xl::free(xl_dict);
     xl::printn("xl_dict: ", xl::json_stringify(xl_dict));
     xl::printn("xl_dict: ", xl::json_stringify(xl_dict, pretty: true));
 }

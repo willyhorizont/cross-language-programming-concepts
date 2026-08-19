@@ -1,3 +1,15 @@
+[Last updated: 19 Aug 2026 @ 08:10 PM][version: 2.9.1]
+update zig modes;
+update smalltalk modes;
+small update in c3;
+small update in d;
+small update in java;
+small update in odin;
+update in powershell;
+update in rust;
+update in scala;
+update new-notes.txt;
+
 [Last updated: 19 Aug 2026 @ 09:45 AM][version: 2.9.0]
 disable install language syntax highlighter extensions and use available syntax highlighters instead:
 update setup-environtment.sh, disable install language extensions;

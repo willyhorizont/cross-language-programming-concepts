@@ -5,23 +5,23 @@ pub const TRUE: Xl = Xl::Bool(true);
 pub const FALSE: Xl = Xl::Bool(false);
 
 #[macro_export]
-macro_rules! xl_string {
+macro_rules! init_xl_string {
     ($v:expr) => {
         $crate::willyhorizont::runtime::runtime::Xl::String(String::from($v))
     };
 }
-pub use xl_string as string;
+pub use init_xl_string as init_string;
 
 #[macro_export]
-macro_rules! xl_list {
+macro_rules! init_xl_list {
     ( $( $el:expr ),* $(,)? ) => {
         $crate::willyhorizont::runtime::runtime::Xl::List(vec![ $( $el ),* ])
     };
 }
-pub use xl_list as list;
+pub use init_xl_list as init_list;
 
 #[macro_export]
-macro_rules! xl_dict {
+macro_rules! init_xl_dict {
     ( $( $k:expr => $v:expr ),* $(,)? ) => {{
         let mut _d = std::collections::HashMap::new();
         $(
@@ -30,15 +30,15 @@ macro_rules! xl_dict {
         $crate::willyhorizont::runtime::runtime::Xl::Dict(_d)
     }};
 }
-pub use xl_dict as dict;
+pub use init_xl_dict as init_dict;
 
 #[macro_export]
-macro_rules! xl_lambda {
+macro_rules! init_xl_lambda {
     ($c:expr) => {
         $crate::willyhorizont::runtime::runtime::Xl::Lambda(std::rc::Rc::new($c))
     };
 }
-pub use xl_lambda as lambda;
+pub use init_xl_lambda as init_lambda;
 
 #[macro_export]
 macro_rules! xl_none {
@@ -57,20 +57,20 @@ macro_rules! xl_bool {
 pub use xl_bool as bool;
 
 #[macro_export]
-macro_rules! xl_int {
+macro_rules! init_xl_int {
     ($v:expr) => {
         $crate::willyhorizont::runtime::runtime::Xl::Int($v)
     };
 }
-pub use xl_int as int;
+pub use init_xl_int as init_int;
 
 #[macro_export]
-macro_rules! xl_float {
+macro_rules! init_xl_float {
     ($v:expr) => {
         $crate::willyhorizont::runtime::runtime::Xl::Float($v)
     };
 }
-pub use xl_float as float;
+pub use init_xl_float as init_float;
 
 pub fn escape_string(s: &str) -> String {
     if s.is_empty() {

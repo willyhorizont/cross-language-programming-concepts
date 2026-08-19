@@ -16,12 +16,12 @@ main :: proc() {
     defer virtual.arena_destroy(&arena) 
     context.allocator = virtual.arena_allocator(&arena)
 
-    ctx := xl.reg_ctx(nil)
+    global_ctx := xl.reg_ctx(nil)
     /*
     # -- 1. support lambda as value, or has workaround
     */
     say_hello := xl.Lambda{
-        value = ctx,
+        ctx = global_ctx,
         call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
             itr := xl.iter(..va)
             callback := xl.next(&itr).(xl.Lambda)
@@ -31,27 +31,25 @@ main :: proc() {
         },
     }
     say_hello.call(&say_hello, xl.Lambda{
-        value = ctx,
+        ctx = global_ctx,
         call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
             fmt.println("world")
             return nil
         },
     })
     create_multiplier := xl.Lambda{
-        value = ctx,
+        ctx = global_ctx,
         call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
             itr := xl.iter(..va)
             aa := xl.next(&itr)
-            ctx := (^xl.Ctx)(self.value)
             return xl.Lambda{
-                value = xl.reg_ctx(ctx, xl.Dict{
+                ctx = xl.reg_ctx((^xl.Ctx)(self.ctx), xl.Dict{
                     "aa" = aa.(xl.Int),
                 }),
                 call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
                     itr := xl.iter(..va)
                     bb := xl.next(&itr)
-                    ctx := (^xl.Ctx)(self.value)
-                    aa := xl.get_ctx(ctx, "aa")
+                    aa := xl.get_ctx((^xl.Ctx)(self.ctx), "aa")
                     return xl.Int(aa.(xl.Int) * bb.(xl.Int))
                 },
             }
@@ -78,7 +76,7 @@ main :: proc() {
         xl.List{1, 2, 3},
         xl.Dict{"foo" = "bar"},
         xl.Lambda{
-            value = ctx,
+            ctx = global_ctx,
             call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
                 itr := xl.iter(..va)
                 aa := xl.next(&itr).(xl.Int)
@@ -101,7 +99,7 @@ main :: proc() {
         "xl_list" = xl.List{1, 2, 3},
         "xl_dict" = xl.Dict{"foo" = "bar"},
         "xl_lambda" = xl.Lambda{
-            value = ctx,
+            ctx = global_ctx,
             call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
                 itr := xl.iter(..va)
                 aa := xl.next(&itr).(xl.Int)

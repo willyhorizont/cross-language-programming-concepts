@@ -113,10 +113,6 @@ if [[ "$XPECT_FX" == ".rs" ]]; then
         bash "$RD/languages/wren/runner.sh" "$1"
         exit 0
     fi
-    if [[ ".$FX" == ".zig" ]]; then
-        bash "$RD/languages/zig/runner.sh" "$1"
-        exit 0
-    fi
 fi
 
 if [[ "$XPECT_FX" == ".groovy" ]]; then
@@ -195,10 +191,6 @@ if [[ "$XPECT_FX" == ".go" ]]; then
         bash "$RD/languages/pike/runner.sh" "$1"
         exit 0
     fi
-    if [[ ".$FX" == ".st" ]]; then
-        bash "$RD/languages/smalltalk/runner.sh" "$1"
-        exit 0
-    fi
     if [[ ".$FX" == ".tcl" ]]; then
         bash "$RD/languages/tcl/runner.sh" "$1"
         exit 0
@@ -217,10 +209,6 @@ if [[ "$XPECT_FX" == ".go" ]]; then
     fi
     if [[ ".$FX" == ".wren" ]]; then
         bash "$RD/languages/wren/runner.sh" "$1"
-        exit 0
-    fi
-    if [[ ".$FX" == ".zig" ]]; then
-        bash "$RD/languages/zig/runner.sh" "$1"
         exit 0
     fi
 fi
@@ -362,10 +350,6 @@ if [[ "$XPECT_FX" == ".cs" ]]; then
         bash "$RD/languages/vim-script/runner.sh" "$1"
         exit 0
     fi
-    if [[ ".$FX" == ".zig" ]]; then
-        bash "$RD/languages/zig/runner.sh" "$1"
-        exit 0
-    fi
 fi
 
 if [[ "$XPECT_FX" == ".dart" ]]; then
@@ -459,10 +443,6 @@ if [[ "$XPECT_FX" == ".js" ]]; then
     fi
     if [[ ".$FX" == ".vim" ]]; then
         bash "$RD/languages/vim-script/runner.sh" "$1"
-        exit 0
-    fi
-    if [[ ".$FX" == ".zig" ]]; then
-        bash "$RD/languages/zig/runner.sh" "$1"
         exit 0
     fi
 fi
@@ -580,10 +560,6 @@ if [[ "$XPECT_FX" == ".lua" ]]; then
     fi
     if [[ ".$FX" == ".scala" ]]; then
         bash "$RD/languages/scala/runner.sh" "$1"
-        exit 0
-    fi
-    if [[ ".$FX" == ".st" ]]; then
-        bash "$RD/languages/smalltalk/runner.sh" "$1"
         exit 0
     fi
     if [[ ".$FX" == ".tcl" ]]; then

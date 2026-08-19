@@ -172,7 +172,18 @@ docker images --format "{{.Size}}\t{{.Repository}}:{{.Tag}}" | sort -hr
 
 sudo chown -R $USER:$USER runtimes/c3
 
-\b[a-z]+(?:[A-Z][a-z0-9]*)+\b regex to find camelCase
+regex to find camelCase
+\b[a-z]+(?:[A-Z][a-z0-9]*)+\b
+regex to find PascalCase
+\b[A-Z][a-z0-9]*(?:[A-Z][a-z0-9]*)+\b
+regex to find kebab-case
+\b[a-z0-9]+(?:-[a-z0-9]+)+\b
+regex to find Train-Case
+\b[A-Z][a-z0-9]*(?:-[A-Z][a-z0-9]*)+\b
+regex to find snake_case
+\b[a-z0-9]+(?:_[a-z0-9]+)+\b
+
+\b[a-z]+\b
 
 def greet_girl(gn, pretty=False):
     if pretty:

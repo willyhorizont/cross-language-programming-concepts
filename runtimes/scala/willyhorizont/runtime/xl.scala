@@ -3,7 +3,7 @@ package willyhorizont.runtime
 import scala.collection.mutable.{Map => MutableMap, ArrayBuffer}
 
 object Xl {
-    def list(ell: Any*): Any = {
+    def initList(ell: Any*): Any = {
         val l = ArrayBuffer[Any]()
         ell.foreach((el) => {
             l.append(el)
@@ -11,7 +11,7 @@ object Xl {
         return l
     }
 
-    def dict(pairs: (String, Any)*): Any = {
+    def initDict(pairs: (String, Any)*): Any = {
         val d = MutableMap[String, Any]()
         pairs.foreach { case (k, v) =>
             d.put(k, v)
@@ -33,15 +33,10 @@ object Xl {
     def jsonStringify(a: Any, pretty: Boolean = false): String = {
         val p = pretty
         val t = " ".repeat(4)
-        val s = ArrayBuffer[MutableMap[String, Any]]()
-        val initStkEl = MutableMap[String, Any]()
-        initStkEl.put("t", "v")
-        initStkEl.put("v", a)
-        initStkEl.put("d", 0)
-        s.append(initStkEl)
+        val s = initList(initDict("t"-> "v", "v"-> a, "d"-> 0)).asInstanceOf[ArrayBuffer[Any]]
         var r = ""
         while (s.length > 0) {
-            val c = s.remove(s.length - 1)
+            val c = s.remove(s.length - 1).asInstanceOf[MutableMap[String, Any]]
             if (c("t") == "r") {
                 r += c("v").toString
             } else {
@@ -61,32 +56,32 @@ object Xl {
                         r += "[]"
                     } else {
                         val childD = curD + 1
-                        val slcb = MutableMap[String, Any]()
-                        slcb.put("t", "r")
-                        slcb.put("v", if (p) "\n" + t.repeat(curD) + "]" else "]")
-                        slcb.put("d", curD)
-                        s.append(slcb)
+                        s.append(initDict(
+                            "t"-> "r",
+                            "v"-> (if (p) "\n" + t.repeat(curD) + "]" else "]"),
+                            "d"-> curD,
+                        ))
                         var i = lv.length
                         while (i > 0) {
                             i -= 1
-                            val slel = MutableMap[String, Any]()
-                            slel.put("t", "v")
-                            slel.put("v", lv(i))
-                            slel.put("d", childD)
-                            s.append(slel)
+                            s.append(initDict(
+                                "t"-> "v",
+                                "v"-> lv(i),
+                                "d"-> childD,
+                            ))
                             if (i > 0) {
-                                val slelsep = MutableMap[String, Any]()
-                                slelsep.put("t", "r")
-                                slelsep.put("v", if (p) ",\n" + t.repeat(childD) else ",")
-                                slelsep.put("d", childD)
-                                s.append(slelsep)
+                                s.append(initDict(
+                                    "t"-> "r",
+                                    "v"-> (if (p) ",\n" + t.repeat(childD) else ","),
+                                    "d"-> childD,
+                                ))
                             }
                         }
-                        val slob = MutableMap[String, Any]()
-                        slob.put("t", "r")
-                        slob.put("v", if (p) "[\n" + t.repeat(childD) else "[")
-                        slob.put("d", childD)
-                        s.append(slob)
+                        s.append(initDict(
+                            "t"-> "r",
+                            "v"-> (if (p) "[\n" + t.repeat(childD) else "["),
+                            "d"-> childD,
+                        ))
                     }
                 } else if (v.isInstanceOf[MutableMap[?, ?]]) {
                     val dv = v.asInstanceOf[MutableMap[String, Any]]
@@ -94,11 +89,11 @@ object Xl {
                         r += "{}"
                     } else {
                         val childD = curD + 1
-                        val sdcb = MutableMap[String, Any]()
-                        sdcb.put("t", "r")
-                        sdcb.put("v", if (p) "\n" + t.repeat(curD) + "}" else "}")
-                        sdcb.put("d", curD)
-                        s.append(sdcb)
+                        s.append(initDict(
+                            "t"-> "r",
+                            "v"-> (if (p) "\n" + t.repeat(curD) + "}" else "}"),
+                            "d"-> curD,
+                        ))
                         val dpl = dv.toArray
                         var i = dpl.length
                         while (i > 0) {
@@ -106,29 +101,29 @@ object Xl {
                             val dp = dpl(i)
                             val dK = dp._1
                             val dV = dp._2
-                            val sdel = MutableMap[String, Any]()
-                            sdel.put("t", "v")
-                            sdel.put("v", dV)
-                            sdel.put("d", childD)
-                            s.append(sdel)
-                            val sdkvsep = MutableMap[String, Any]()
-                            sdkvsep.put("t", "r")
-                            sdkvsep.put("v", if (p) "\"" + dK + "\": " else "\"" + dK + "\":")
-                            sdkvsep.put("d", childD)
-                            s.append(sdkvsep)
+                            s.append(initDict(
+                                "t"-> "v",
+                                "v"-> dV,
+                                "d"-> childD,
+                            ))
+                            s.append(initDict(
+                                "t"-> "r",
+                                "v"-> (if (p) "\"" + dK + "\": " else "\"" + dK + "\":"),
+                                "d"-> childD,
+                            ))
                             if (i > 0) {
-                                val sdpelsep = MutableMap[String, Any]()
-                                sdpelsep.put("t", "r")
-                                sdpelsep.put("v", if (p) ",\n" + t.repeat(childD) else ",")
-                                sdpelsep.put("d", childD)
-                                s.append(sdpelsep)
+                                s.append(initDict(
+                                    "t"-> "r",
+                                    "v"-> (if (p) ",\n" + t.repeat(childD) else ","),
+                                    "d"-> childD,
+                                ))
                             }
                         }
-                        val sdob = MutableMap[String, Any]()
-                        sdob.put("t", "r")
-                        sdob.put("v", if (p) "{\n" + t.repeat(childD) else "{")
-                        sdob.put("d", childD)
-                        s.append(sdob)
+                        s.append(initDict(
+                            "t"-> "r",
+                            "v"-> (if (p) "{\n" + t.repeat(childD) else "{"),
+                            "d"-> childD,
+                        ))
                     }
                 } else if (v.isInstanceOf[Function1[?, ?]]) {
                     r += "\"[object Function]\""

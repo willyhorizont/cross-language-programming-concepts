@@ -5,21 +5,21 @@ public class Main {
         /*
         1. support lambda as value, or has workaround
         */
-        Xl sayHello = Xl.from((Xl... va) -> {
+        Xl sayHello = Xl.initLambda((Xl... va) -> {
             Xl itr = Xl.iter(va);
             Xl callback = itr.next();
             System.out.println("hello");
             callback.call();
             return Xl.NONE;
         });
-        sayHello.call(Xl.from((Xl... va) -> {
+        sayHello.call(Xl.initLambda((Xl... va) -> {
             System.out.println("world");
             return Xl.NONE;
         }));
-        Xl createMultiplier = Xl.from((Xl... vaAa) -> {
+        Xl createMultiplier = Xl.initLambda((Xl... vaAa) -> {
             Xl itrAa = Xl.iter(vaAa);
             Xl aa = itrAa.next();
-            return Xl.from((Xl... vaBb) -> {
+            return Xl.initLambda((Xl... vaBb) -> {
                 Xl itrBb = Xl.iter(vaBb);
                 Xl bb = itrBb.next();
                 return Xl.from(aa.toInt() * bb.toInt());
@@ -34,7 +34,7 @@ public class Main {
         /*
         2. support dynamic-typed value, or has workaround
         */
-        Xl xlList = Xl.list(
+        Xl xlList = Xl.initList(
             Xl.NONE,
             true,
             false,
@@ -43,9 +43,9 @@ public class Main {
             -123,
             123.789,
             -123.789,
-            Xl.list(1, 2, 3),
-            Xl.dict(Xl.pair("foo", "bar")),
-            Xl.from((Xl... va) -> {
+            Xl.initList(1, 2, 3),
+            Xl.initDict(Xl.initPair("foo", "bar")),
+            Xl.initLambda((Xl... va) -> {
                 Xl itr = Xl.iter(va);
                 Xl aa = itr.next();
                 Xl bb = itr.next();
@@ -53,19 +53,19 @@ public class Main {
             })
         );
         System.out.println(Xl.jsonStringify(xlList));
-        System.out.println(Xl.jsonStringify(xlList, Xl.pair("pretty", true)));
-        Xl xlDict = Xl.dict(
-            Xl.pair("xl_none", Xl.NONE),
-            Xl.pair("xl_bool_true", true),
-            Xl.pair("xl_bool_false", false),
-            Xl.pair("xl_string", "foo"),
-            Xl.pair("xl_int_positive", 0),
-            Xl.pair("xl_int_negative", -123),
-            Xl.pair("xl_float_positive", 123.789),
-            Xl.pair("xl_float_negative", -123.789),
-            Xl.pair("xl_list", Xl.list(1, 2, 3)),
-            Xl.pair("xl_dict", Xl.dict(Xl.pair("foo", "bar"))),
-            Xl.pair("xl_lambda", Xl.from((Xl... va) -> {
+        System.out.println(Xl.jsonStringify(xlList, Xl.initPair("pretty", true)));
+        Xl xlDict = Xl.initDict(
+            Xl.initPair("xl_none", Xl.NONE),
+            Xl.initPair("xl_bool_true", true),
+            Xl.initPair("xl_bool_false", false),
+            Xl.initPair("xl_string", "foo"),
+            Xl.initPair("xl_int_positive", 0),
+            Xl.initPair("xl_int_negative", -123),
+            Xl.initPair("xl_float_positive", 123.789),
+            Xl.initPair("xl_float_negative", -123.789),
+            Xl.initPair("xl_list", Xl.initList(1, 2, 3)),
+            Xl.initPair("xl_dict", Xl.initDict(Xl.initPair("foo", "bar"))),
+            Xl.initPair("xl_lambda", Xl.initLambda((Xl... va) -> {
                 Xl itr = Xl.iter(va);
                 Xl aa = itr.next();
                 Xl bb = itr.next();
@@ -73,6 +73,6 @@ public class Main {
             }))
         );
         System.out.println(Xl.jsonStringify(xlDict));
-        System.out.println(Xl.jsonStringify(xlDict, Xl.pair("pretty", true)));
+        System.out.println(Xl.jsonStringify(xlDict, Xl.initPair("pretty", true)));
     }
 }

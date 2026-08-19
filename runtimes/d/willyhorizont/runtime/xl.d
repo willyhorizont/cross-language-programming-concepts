@@ -60,7 +60,7 @@ struct xl {
         return Pair(k, Xl(v));
     }
 
-    static Xl[] list(Args...)(Args args) {
+    static Xl[] initList(Args...)(Args args) {
         Xl[] l;
         foreach(arg; args) {
             l ~= Xl(arg);
@@ -68,7 +68,7 @@ struct xl {
         return l;
     }
 
-    static Xl[string] dict(Args...)(Args args) {
+    static Xl[string] initDict(Args...)(Args args) {
         Xl[string] d;
         foreach(arg; args) {
             d[arg.key] = arg.value;
@@ -76,7 +76,7 @@ struct xl {
         return d;
     }
 
-    static Xl lambda(T)(T c) {
+    static Xl initLambda(T)(T c) {
         alias RetT = ReturnType!T;
         alias VaT = ParameterTypeTuple!T;
         static if (is(RetT == Xl) && VaT.length == 1 && is(VaT[0] == Xl)) {

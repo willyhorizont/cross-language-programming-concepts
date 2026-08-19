@@ -1184,14 +1184,10 @@
         ],
         "file_extension": ".zig",
         "syntax_highlighters": [
-            "javascript-or-typescript",
-            "go",
             "java",
             "dart",
-            "rust",
             "c-plus-plus",
             "objective-c",
-            "c-sharp",
             
             "python",
             
@@ -1373,9 +1369,6 @@
         ],
         "file_extension": ".st",
         "syntax_highlighters": [
-            "lua",
-            
-            "go",
             "groovy",
             
             "smalltalk"
