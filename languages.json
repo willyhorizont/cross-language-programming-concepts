@@ -14,8 +14,8 @@
             }
         ],
         "file_extension": ".js",
-        "syntaxes": [
-            "javascript"
+        "syntax_highlighters": [
+            "javascript-or-typescript"
         ],
         "concept_definition": {
             "list": "Array",
@@ -45,7 +45,7 @@
             }
         ],
         "file_extension": ".py",
-        "syntaxes": [
+        "syntax_highlighters": [
             "python"
         ],
         "concept_definition": {
@@ -78,7 +78,7 @@
             }
         ],
         "file_extension": ".php",
-        "syntaxes": [
+        "syntax_highlighters": [
             "php"
         ],
         "concept_definition": {
@@ -111,7 +111,7 @@
             }
         ],
         "file_extension": ".go",
-        "syntaxes": [
+        "syntax_highlighters": [
             "go"
         ],
         "concept_definition": {
@@ -144,7 +144,7 @@
             }
         ],
         "file_extension": ".pl",
-        "syntaxes": [
+        "syntax_highlighters": [
             "perl"
         ],
         "concept_definition": {
@@ -177,7 +177,7 @@
             }
         ],
         "file_extension": ".jl",
-        "syntaxes": [
+        "syntax_highlighters": [
             "julia"
         ],
         "concept_definition": {
@@ -210,7 +210,7 @@
             }
         ],
         "file_extension": ".lua",
-        "syntaxes": [
+        "syntax_highlighters": [
             "lua"
         ],
         "concept_definition": {
@@ -243,7 +243,7 @@
             }
         ],
         "file_extension": ".rb",
-        "syntaxes": [
+        "syntax_highlighters": [
             "ruby"
         ],
         "concept_definition": {
@@ -276,7 +276,7 @@
             }
         ],
         "file_extension": ".r",
-        "syntaxes": [
+        "syntax_highlighters": [
             "r"
         ],
         "concept_definition": {
@@ -310,7 +310,11 @@
             }
         ],
         "file_extension": ".kt",
-        "syntaxes": [
+        "syntax_highlighters": [
+            "rust",
+            "groovy",
+            "swift",
+            
             "kotlin"
         ],
         "concept_definition": {
@@ -345,7 +349,7 @@
             }
         ],
         "file_extension": ".swift",
-        "syntaxes": [
+        "syntax_highlighters": [
             "swift"
         ],
         "concept_definition": {
@@ -378,7 +382,7 @@
             }
         ],
         "file_extension": ".dart",
-        "syntaxes": [
+        "syntax_highlighters": [
             "dart"
         ],
         "concept_definition": {
@@ -412,8 +416,8 @@
             }
         ],
         "file_extension": ".vb",
-        "syntaxes": [
-            "vb"
+        "syntax_highlighters": [
+            "visual-basic-dot-net"
         ],
         "concept_definition": {
             "list": "List",
@@ -445,7 +449,7 @@
             }
         ],
         "file_extension": ".cs",
-        "syntaxes": [
+        "syntax_highlighters": [
             "c-sharp"
         ],
         "concept_definition": {
@@ -483,9 +487,17 @@
             }
         ],
         "file_extension": ".m",
-        "syntaxes": [
-            "matlab",
-            "octave"
+        "syntax_highlighters": [
+            "objective-c",
+            "rust",
+            "go",
+            "c-plus-plus",
+            "c-sharp",
+            
+            "lua",
+            "visual-basic-dot-net",
+            
+            "matlab-or-octave"
         ],
         "concept_definition": {
             "list": "Cell Array",
@@ -517,8 +529,18 @@
             }
         ],
         "file_extension": ".wl",
-        "syntaxes": [
-            "mathematica"
+        "syntax_highlighters": [
+            "c-plus-plus",
+            
+            "c",
+            
+            "visual-basic-dot-net",
+            
+            "java",
+            "rust",
+            "groovy",
+            
+            "wolfram-language-mathematica"
         ],
         "concept_definition": {
             "list": "List",
@@ -550,7 +572,14 @@
             }
         ],
         "file_extension": ".raku",
-        "syntaxes": [
+        "syntax_highlighters": [
+            "java",
+            "objective-c",
+            
+            "r",
+            
+            "swift",
+            
             "raku"
         ],
         "concept_definition": {
@@ -583,7 +612,12 @@
             }
         ],
         "file_extension": ".scala",
-        "syntaxes": [
+        "syntax_highlighters": [
+            "swift",
+            
+            "lua",
+            "visual-basic-dot-net",
+            
             "scala"
         ],
         "concept_definition": {
@@ -617,7 +651,7 @@
             }
         ],
         "file_extension": ".java",
-        "syntaxes": [
+        "syntax_highlighters": [
             "java"
         ],
         "concept_definition": {
@@ -651,8 +685,13 @@
             }
         ],
         "file_extension": ".nu",
-        "syntaxes": [
-            "scheme"
+        "syntax_highlighters": [
+            "julia",
+            "powershell",
+            "raku",
+            "perl",
+
+            "nu"
         ],
         "concept_definition": {
             "list": "List",
@@ -684,9 +723,13 @@
             }
         ],
         "file_extension": ".elv",
-        "syntaxes": [
-            "elvish",
-            "raku"
+        "syntax_highlighters": [
+            "python",
+            "julia",
+            "raku",
+            "r",
+
+            "elvish"
         ],
         "concept_definition": {
             "list": "List",
@@ -718,8 +761,18 @@
             }
         ],
         "file_extension": ".vim",
-        "syntaxes": [
-            "javascript"
+        "syntax_highlighters": [
+            "c-sharp",
+            "rust",
+            "go",
+            "c-plus-plus",
+            
+            "javascript-or-typescript",
+            
+            "lua",
+            "visual-basic-dot-net",
+            
+            "vim-script"
         ],
         "concept_definition": {
             "list": "List",
@@ -751,7 +804,7 @@
             }
         ],
         "file_extension": ".rs",
-        "syntaxes": [
+        "syntax_highlighters": [
             "rust"
         ],
         "concept_definition": {
@@ -785,7 +838,16 @@
             }
         ],
         "file_extension": ".nix",
-        "syntaxes": [
+        "syntax_highlighters": [
+            "lua",
+            
+            "ruby",
+            
+            "visual-basic-dot-net",
+            
+            "powershell",
+            "julia",
+            
             "nix"
         ],
         "concept_definition": {
@@ -818,7 +880,14 @@
             }
         ],
         "file_extension": ".tcl",
-        "syntaxes": [
+        "syntax_highlighters": [
+            "lua",
+            
+            "rust",
+            "go",
+            "c-plus-plus",
+            "c-sharp",
+            
             "tcl"
         ],
         "concept_definition": {
@@ -852,7 +921,13 @@
             }
         ],
         "file_extension": ".gd",
-        "syntaxes": [
+        "syntax_highlighters": [
+            "go",
+            "java",
+            "dart",
+            
+            "javascript-or-typescript",
+            
             "gdscript"
         ],
         "concept_definition": {
@@ -887,9 +962,12 @@
             }
         ],
         "file_extension": ".typ",
-        "syntaxes": [
-            "typst",
-            "raku"
+        "syntax_highlighters": [
+            "dart",
+            "groovy",
+            "java",
+            
+            "typst"
         ],
         "concept_definition": {
             "list": "Array",
@@ -922,7 +1000,7 @@
             }
         ],
         "file_extension": ".ps1",
-        "syntaxes": [
+        "syntax_highlighters": [
             "powershell"
         ],
         "concept_definition": {
@@ -955,7 +1033,11 @@
             }
         ],
         "file_extension": ".exs",
-        "syntaxes": [
+        "syntax_highlighters": [
+            "ruby",
+            "julia",
+            "powershell",
+            
             "elixir"
         ],
         "concept_definition": {
@@ -988,7 +1070,14 @@
             }
         ],
         "file_extension": ".ml",
-        "syntaxes": [
+        "syntax_highlighters": [
+            "rust",
+            "c-plus-plus",
+            
+            "julia",
+            
+            "lua",
+            
             "ocaml"
         ],
         "concept_definition": {
@@ -1021,7 +1110,11 @@
             }
         ],
         "file_extension": ".erl",
-        "syntaxes": [
+        "syntax_highlighters": [
+            "rust",
+            "go",
+            "groovy",
+            
             "erlang"
         ],
         "concept_definition": {
@@ -1054,7 +1147,10 @@
             }
         ],
         "file_extension": ".gleam",
-        "syntaxes": [
+        "syntax_highlighters": [
+            "rust",
+            "swift",
+            
             "gleam"
         ],
         "concept_definition": {
@@ -1087,7 +1183,21 @@
             }
         ],
         "file_extension": ".zig",
-        "syntaxes": [
+        "syntax_highlighters": [
+            "javascript-or-typescript",
+            "go",
+            "java",
+            "dart",
+            "rust",
+            "c-plus-plus",
+            "objective-c",
+            "c-sharp",
+            
+            "python",
+            
+            "lua",
+            "visual-basic-dot-net",
+            
             "zig"
         ],
         "concept_definition": {
@@ -1120,7 +1230,9 @@
             }
         ],
         "file_extension": ".nim",
-        "syntaxes": [
+        "syntax_highlighters": [
+            "rust",
+            
             "nim"
         ],
         "concept_definition": {
@@ -1153,7 +1265,15 @@
             }
         ],
         "file_extension": ".odin",
-        "syntaxes": [
+        "syntax_highlighters": [
+            "rust",
+            "go",
+            
+            "lua",
+            
+            "c",
+            "javascript-or-typescript",
+            
             "odin"
         ],
         "concept_definition": {
@@ -1186,9 +1306,8 @@
             }
         ],
         "file_extension": ".cpp",
-        "syntaxes": [
-            "c-plus-plus",
-            "c"
+        "syntax_highlighters": [
+            "c-plus-plus"
         ],
         "concept_definition": {
             "list": "Vector",
@@ -1220,8 +1339,8 @@
             }
         ],
         "file_extension": ".m",
-        "syntaxes": [
-            "objectivec"
+        "syntax_highlighters": [
+            "objective-c"
         ],
         "concept_definition": {
             "list": "Array",
@@ -1253,7 +1372,12 @@
             }
         ],
         "file_extension": ".st",
-        "syntaxes": [
+        "syntax_highlighters": [
+            "lua",
+            
+            "go",
+            "groovy",
+            
             "smalltalk"
         ],
         "concept_definition": {
@@ -1288,9 +1412,19 @@
             }
         ],
         "file_extension": ".as",
-        "syntaxes": [
-            "actionscript",
-            "javascript"
+        "syntax_highlighters": [
+            "rust",
+            "groovy",
+            "go",
+            "swift",
+            "c-plus-plus",
+            "objective-c",
+            "c-sharp",
+            "dart",
+            
+            "lua",
+            
+            "actionscript"
         ],
         "concept_definition": {
             "list": "Array",
@@ -1322,7 +1456,7 @@
             }
         ],
         "file_extension": ".groovy",
-        "syntaxes": [
+        "syntax_highlighters": [
             "groovy"
         ],
         "concept_definition": {
@@ -1355,8 +1489,15 @@
             }
         ],
         "file_extension": ".cj",
-        "syntaxes": [
-            "swift"
+        "syntax_highlighters": [
+            "swift",
+            
+            "go",
+            "rust",
+            "groovy",
+            "c-sharp",
+            
+            "cangjie"
         ],
         "concept_definition": {
             "list": "ArrayList",
@@ -1388,9 +1529,17 @@
             }
         ],
         "file_extension": ".c3",
-        "syntaxes": [
+        "syntax_highlighters": [
+            "rust",
             "c-plus-plus",
-            "c"
+            "groovy",
+            "swift",
+            "go",
+            "objective-c",
+            "c-sharp",
+            "dart",
+            
+            "c3"
         ],
         "concept_definition": {
             "list": "List",
@@ -1422,7 +1571,7 @@
             }
         ],
         "file_extension": ".c",
-        "syntaxes": [
+        "syntax_highlighters": [
             "c"
         ],
         "concept_definition": {
@@ -1455,7 +1604,17 @@
             }
         ],
         "file_extension": ".d",
-        "syntaxes": [
+        "syntax_highlighters": [
+            "c-sharp",
+            "c-plus-plus",
+            "rust",
+            "java",
+            "groovy",
+            "go",
+            "swift",
+            "objective-c",
+            "dart",
+            
             "d"
         ],
         "concept_definition": {
@@ -1488,9 +1647,14 @@
             }
         ],
         "file_extension": ".v",
-        "syntaxes": [
-            "v",
-            "go"
+        "syntax_highlighters": [
+            "go",
+            
+            "lua",
+            
+            "rust",
+            
+            "v"
         ],
         "concept_definition": {
             "list": "array",
@@ -1522,7 +1686,16 @@
             }
         ],
         "file_extension": ".vala",
-        "syntaxes": [
+        "syntax_highlighters": [
+            "rust",
+            "go",
+            "c-sharp",
+            
+            "javascript-or-typescript",
+            
+            "visual-basic-dot-net",
+            "lua",
+
             "vala"
         ],
         "concept_definition": {
@@ -1555,9 +1728,14 @@
             }
         ],
         "file_extension": ".cr",
-        "syntaxes": [
-            "crystal",
-            "ruby"
+        "syntax_highlighters": [
+            "ruby",
+            
+            "julia",
+            "powershell",
+            "python",
+
+            "crystal"
         ],
         "concept_definition": {
             "list": "Array",
@@ -1589,7 +1767,16 @@
             }
         ],
         "file_extension": ".wren",
-        "syntaxes": [
+        "syntax_highlighters": [
+            "rust",
+            "go",
+            
+            "visual-basic-dot-net",
+            
+            "c-plus-plus",
+            
+            "lua",
+            
             "wren"
         ],
         "concept_definition": {
@@ -1622,7 +1809,10 @@
             }
         ],
         "file_extension": ".pike",
-        "syntaxes": [
+        "syntax_highlighters": [
+            "rust",
+            "go",
+            
             "pike"
         ],
         "concept_definition": {

@@ -5,9 +5,9 @@
     /*
     1. support lambda as value, or has workaround
     */
-    let say-hello = (callback-function) => {
+    let say-hello = (callback) => {
         xl.print-cmd("hello")
-        callback-function()
+        callback()
     }
     say-hello(() => {
         xl.print-cmd("world")

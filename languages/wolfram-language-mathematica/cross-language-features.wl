@@ -1,11 +1,11 @@
 Get[FileNameJoin[{DirectoryName[$InputFileName], "..", "..", "runtimes", "wolfram-language-mathematica", "willyhorizont", "runtime", "xl.wl"}]];
 
 (*
-1. support lambda as value, or has workaround
+// ' 1. support lambda as value, or has workaround
 *)
-SayHello = {CallbackFunction} |-> (
+SayHello = {Callback} |-> (
     Print["hello"];
-    CallbackFunction[]
+    Callback[]
 );
 SayHello[{} |-> (
     Print["world"]
@@ -18,7 +18,7 @@ Print["multiply_by_eight(4): ", MultiplyByEight[4]];
 Print["multiply_by_two(8): ", MultiplyByTwo[8]];
 
 (*
-2. support dynamic-typed value, or has workaround
+// ' 2. support dynamic-typed value, or has workaround
 *)
 XlList = {
     Null,

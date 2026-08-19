@@ -2,7 +2,7 @@
 
 SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD/..")
-V="2.8.3" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
+V="2.9.0" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
 T=$(date "+%d %b %Y @ %I:%M %p")
 cd "$RD" || exit
 
@@ -24,7 +24,14 @@ H="
 H=$(sed -e '/./,$!d' <<< "$H")
 # ! DON'T FORGET TO CHANGE COMMIT MESSAGE BEFORE RUNNING !!!!
 M="
-update languages.json add syntaxes similarities;
+disable install language syntax highlighter extensions and use available syntax highlighters instead:
+update setup-environtment.sh, disable install language extensions;
+update languages.json, update syntax highlighters;
+update .vscode/settings.json files.associations to use available syntax highlighters instead;
+update base-runner.sh, add mapping to use available syntax highlighters instead;
+add get_language_file_extension in utils.sh;
+add vscode-syntax-modes.json;
+update vscode-extensions-base.txt;
 "
 M=$(sed -e '/./,$!d' <<< "$M")
 M="$H

@@ -3,10 +3,10 @@ extends SceneTree
 const Xl = preload("../../runtimes/gdscript/willyhorizont/runtime/xl.gd")
 
 func main():
-    # 1. support lambda as value, or has workaround
-    var say_hello = func (callback_function):
+    # // 1. support lambda as value, or has workaround
+    var say_hello = func (callback):
         print("hello")
-        callback_function.call()
+        callback.call()
     say_hello.call(func ():
         print("world")
     )
@@ -17,7 +17,7 @@ func main():
     print("multiply_by_eight(4): " + Xl.json_stringify(multiply_by_eight.call(4)))
     print("multiply_by_two(8): " + Xl.json_stringify(multiply_by_two.call(8)))
 
-    # 2. support dynamic-typed value, or has workaround
+    # // 2. support dynamic-typed value, or has workaround
     var xl_list = [
         null,
         true,

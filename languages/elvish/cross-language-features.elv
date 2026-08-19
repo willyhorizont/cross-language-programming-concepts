@@ -1,9 +1,9 @@
 use ../../runtimes/elvish/willyhorizont/runtime/xl
 
 # 1. support lambda as value, or has workaround
-var say-hello = {|callback-function|
+var say-hello = {|callback|
     echo "hello"
-    $callback-function
+    $callback
 }
 $say-hello {||
     echo "world"

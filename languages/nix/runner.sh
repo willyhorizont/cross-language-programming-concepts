@@ -2,6 +2,12 @@
 
 source "$(dirname "$(realpath "$0")")/../../tools/base-runner.sh" "$0" "$@"
 
+if [[ ".$FX" != "$XPECT_FX" ]]; then
+    echo "usage:"
+    echo "\"$SD/runner.sh\" path/to/*.$FX"
+    exit 1
+fi
+
 PTRFNX="$RD/runtimes/nix/willyhorizont/runtime/xl.nix"
 if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
     echo "usage:"
@@ -24,7 +30,7 @@ nix-env --versionnix-build --version
 
 CRLC="
 cd \"$PTFNXD\"
-nix-instantiate --eval --strict \"$FNX\"
+nix-instantiate --eval --strict \"$FNX\" > /dev/null
 "
 
 docker run -i --rm \

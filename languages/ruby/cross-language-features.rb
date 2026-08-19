@@ -1,11 +1,9 @@
 require_relative "../../runtimes/ruby/willyhorizont/runtime/xl"
 
-=begin
-1. support lambda as value, or has workaround
-=end
-say_hello = lambda do | callback_function |
+# 1. support lambda as value, or has workaround
+say_hello = lambda do | callback |
     puts("hello")
-    callback_function.call()
+    callback.call()
 end
 say_hello.call(lambda do | |
     puts("world")
@@ -17,9 +15,7 @@ multiply_by_eight = create_multiplier.call(8)
 puts("multiply_by_eight(4): #{multiply_by_eight.call(4)}")
 puts("multiply_by_two(8): #{multiply_by_two.call(8)}")
 
-=begin
-2. support dynamic-typed value, or has workaround
-=end
+# 2. support dynamic-typed value, or has workaround
 xl_list = [
     nil,
     true,

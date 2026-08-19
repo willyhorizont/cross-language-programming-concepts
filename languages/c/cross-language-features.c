@@ -8,9 +8,9 @@ int main(int argc, char *argv[]) {
     */
     Xl* say_hello = xl.init_lambda({
         Xl* itr = xl.iter(vararg);
-        Xl* callback_function = xl.next(itr);
+        Xl* callback = xl.next(itr);
         printf("hello\n");
-        xl.free(xl.call(callback_function, xl.init_none()));
+        xl.free(xl.call(callback, xl.init_none()));
         xl.free(itr);
         xl.free(vararg);
         return xl.init_none();

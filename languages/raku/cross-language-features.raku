@@ -2,12 +2,12 @@ use v6.d;
 EVALFILE $*PROGRAM.IO.parent.add("../../runtimes/raku/willyhorizont/runtime/xl.raku");
 
 #`(
-1. support lambda as value, or has workaround
+// # 1. support lambda as value, or has workaround
 )
 
-my $say-hello = sub ($callback-function) {
+my $say-hello = sub ($callback) {
     print("hello\n");
-    $callback-function();
+    $callback();
 };
 $say-hello(sub () {
     print("world\n");
@@ -24,7 +24,7 @@ print("multiply_by_eight(4): {$multiply-by-eight(4)}\n");
 print("multiply_by_two(8): {$multiply-by-two(8)}\n");
 
 #`(
-2. support dynamic-typed value, or has workaround
+// # 2. support dynamic-typed value, or has workaround
 )
 my $xl-list = [
     Nil,

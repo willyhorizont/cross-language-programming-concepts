@@ -1,11 +1,11 @@
 addpath(fileparts(fullfile({fileparts(mfilename("fullpath"))}{1}, "..", "..", "runtimes", "matlab-or-octave", "willyhorizont", "runtime", "xl.m")));
 
 %{
-1. support lambda as value, or has workaround
+// ' -- 1. support lambda as value, or has workaround
 %}
-sayhello = @(callbackfunction) {
+sayhello = @(callback) {
     disp("hello"),
-    callbackfunction()
+    callback()
 }{end};
 sayhello(@() {
     disp("world")
@@ -18,7 +18,7 @@ disp(cstrcat("multiply_by_eight(4): ", xl.jsonstringify(multiplybyeight(4))));
 disp(cstrcat("multiply_by_two(8): ", xl.jsonstringify(multiplybytwo(8))));
 
 %{
-2. support dynamic-typed value, or has workaround
+// ' -- 2. support dynamic-typed value, or has workaround
 %}
 xllist = {
     {},

@@ -7,9 +7,9 @@ fun main() {
     val sayHello = object : xl.Lambda {
         override fun call(va: Array<out Any?>): Any? {
             val itr = va.iterator()
-            val callbackFunction = itr.next() as xl.Lambda
+            val callback = itr.next() as xl.Lambda
             println("hello")
-            callbackFunction()
+            callback()
             return null
         }
     }

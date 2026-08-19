@@ -3,9 +3,9 @@ require "../../runtimes/crystal/willyhorizont/runtime/xl"
 # 1. support lambda as value, or has workaround
 say_hello = Xl.init_lambda(->(va : Xl::Type::List) do
     itr = Xl.iter(va)
-    callback_function = Xl.next(itr)
+    callback = Xl.next(itr)
     puts "hello"
-    Xl.call(callback_function)
+    Xl.call(callback)
 end)
 Xl.call(say_hello, Xl.init_lambda(->(va : Xl::Type::List) do
     puts "world"

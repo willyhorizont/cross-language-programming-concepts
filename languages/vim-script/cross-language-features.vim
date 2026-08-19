@@ -2,10 +2,10 @@ vim9script
 
 import "../../runtimes/vimscript/willyhorizont/runtime/xl.vim" as Xl
 
-# 1. support lambda as value, or has workaround
-var SayHello = (CallbackFunction) => {
+# // ' -- 1. support lambda as value, or has workaround
+var SayHello = (Callback) => {
     Xl.Echoln("hello")
-    CallbackFunction()
+    Callback()
 }
 SayHello(() => {
     Xl.Echoln("world")
@@ -17,7 +17,7 @@ var MultiplyByEight = CreateMultiplier(8)
 Xl.Echoln($"multiply_by_eight(4): {MultiplyByEight(4)}")
 Xl.Echoln($"multiply_by_two(8): {MultiplyByTwo(8)}")
 
-# 2. support dynamic-typed value, or has workaround
+# // ' -- 2. support dynamic-typed value, or has workaround
 var XlList = [
     null,
     true,

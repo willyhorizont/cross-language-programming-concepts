@@ -6,9 +6,9 @@ void main() {
     */
     var sayHello = (va) {
         var itr = va.iterator;
-        var callbackFunction = (itr..moveNext()).current;
+        var callback = (itr..moveNext()).current;
         print("hello");
-        callbackFunction([]);
+        callback([]);
     };
     sayHello([(va) {
         print("world");

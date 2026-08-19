@@ -5,9 +5,9 @@ use WillyHorizont\Runtime\Xl;
 /*
 1. support lambda as value, or has workaround
 */
-$say_hello = function ($callback_function) {
+$say_hello = function ($callback) {
     echo "hello" . PHP_EOL;
-    $callback_function();
+    $callback();
 };
 $say_hello(function () {
     echo "world" . PHP_EOL;

@@ -3,8 +3,8 @@ local xl = require("runtimes.lua.willyhorizont.runtime.xl")
 --[[
 1. support lambda as value, or has workaround
 ]]
-local say_hello = function (callback_function)
-    callback_function()
+local say_hello = function (callback)
+    callback()
     print("hello")
 end
 say_hello(function ()

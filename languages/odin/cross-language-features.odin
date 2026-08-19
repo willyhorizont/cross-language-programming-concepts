@@ -18,15 +18,15 @@ main :: proc() {
 
     ctx := xl.reg_ctx(nil)
     /*
-    1. support lambda as value, or has workaround
+    # -- 1. support lambda as value, or has workaround
     */
     say_hello := xl.Lambda{
         value = ctx,
         call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
             itr := xl.iter(..va)
-            callback_function := xl.next(&itr).(xl.Lambda)
+            callback := xl.next(&itr).(xl.Lambda)
             fmt.println("hello")
-            callback_function.call(&callback_function)
+            callback.call(&callback)
             return nil
         },
     }
@@ -64,7 +64,7 @@ main :: proc() {
     fmt.printfln("multiply_by_two(8): %d", multiply_by_two.call(&multiply_by_two, 8).(xl.Int))
 
     /*
-    2. support dynamic-typed value, or has workaround
+    # -- 2. support dynamic-typed value, or has workaround
     */
     xl_list := xl.List{
         nil,

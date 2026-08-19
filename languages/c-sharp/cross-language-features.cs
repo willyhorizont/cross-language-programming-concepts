@@ -12,9 +12,9 @@ class Program
         */
         dynamic SayHello = (Xl.Lambda)((Va) => {
             dynamic Itr = Xl.Iter(Va);
-            dynamic CallbackFunction = Xl.Next(Itr);
+            dynamic Callback = Xl.Next(Itr);
             Console.WriteLine("hello");
-            CallbackFunction.Call();
+            Callback.Call();
         });
         SayHello.Call((Xl.Lambda)((Va) => {
             Console.WriteLine("world");

@@ -17,7 +17,6 @@ get_docker_image() {
     local -r LID="${1}"
     local -r IMG=$(jq -r --arg lang "$LID" '
         .[]
-
         | select(.["id"] == $lang)
         | .["docker"]
         | .[-1]
@@ -27,6 +26,20 @@ get_docker_image() {
     echo "$IMG"
 }
 
+get_language_file_extension() {
+    if [ -z "$1" ]; then
+        echo "expected <language-id>"
+        exit 1
+    fi
+    local -r LID="${1}"
+    local -r LFX=$(jq -r --arg lang "$LID" '
+        .[]
+        | select(.["id"] == $lang)
+        | .["file_extension"]
+    ' "$RD/languages.json")
+    echo "$LFX"
+}
+
 case "$1" in
     --print-sep)
         print_separator
@@ -34,8 +47,11 @@ case "$1" in
     --get-docker-image)
         get_docker_image "$2"
         ;;
+    --get-lang-ext)
+        get_language_file_extension "$2"
+        ;;
     *)
-        echo "Usage: $0 {--get-docker-image} {--print-sep}"
+        echo "Usage: $0 {--get-docker-image} {--get-lang-ext} {--print-sep}"
         exit 1
         ;;
 esac

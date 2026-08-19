@@ -1,10 +1,10 @@
 source [file join [file dirname [file normalize [info script]]] ".." ".." "runtimes" "tcl" "willyhorizont" "runtime" "xl.tcl"]
 
-# 1. support lambda as value, or has workaround
+# // -- 1. support lambda as value, or has workaround
 set say_hello [xl::lambda [list] {{va} {
-    lassign $va callback_function
+    lassign $va callback
     puts "hello"
-    $callback_function call
+    $callback call
 }}]
 $say_hello call [list [xl::lambda [list] {{va} {
     puts "world"
@@ -22,7 +22,7 @@ set multiply_by_eight [$create_multiplier call [list 8]]
 puts "multiply_by_eight(4): [$multiply_by_eight call [list 4]]"
 puts "multiply_by_two(8): [$multiply_by_two call [list 8]]"
 
-# 2. support dynamic-typed value, or has workaround
+# // -- 2. support dynamic-typed value, or has workaround
 set xl_list [list \
     "" \
     true \

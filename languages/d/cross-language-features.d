@@ -10,9 +10,9 @@ void main() {
     */
     Xl sayHello = xl.lambda(delegate(Xl va) {
         Xl itr = xl.iter(va);
-        Xl callbackFunction = xl.next(itr);
+        Xl callback = xl.next(itr);
         writeln("hello");
-        callbackFunction.call();
+        callback.call();
     });
     sayHello.call(xl.lambda(delegate(Xl va) {
         writeln("world");

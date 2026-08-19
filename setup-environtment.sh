@@ -22,9 +22,11 @@ if ! command -v jq &> /dev/null; then
 fi
 
 if [ -f "$RD/tools/vscode-extensions-base.txt" ]; then
+    echo "installing essential extensions..."
     cat "$RD/tools/vscode-extensions-base.txt" | grep -v '^$' | sort -u | xargs -L 1 code --install-extension
 fi
 
+echo "installing essential libraries..."
 if command -v dnf &> /dev/null; then
     FPDL=("curl" "gtk2" "nss")
     MFPDL=()
@@ -99,39 +101,6 @@ if [ ! -f /usr/local/bin/ruffle ]; then
     fi
 fi
 
-code --install-extension bowlerhatllc.vscode-as3mxml
-code --install-extension pleasedskin.smalltalk
-code --install-extension DanielGavin.ols
-code --install-extension NimLang.nimlang
-code --install-extension ziglang.vscode-zig
-code --install-extension Gleam.gleam
-code --install-extension JakeBecker.elixir-ls
-code --install-extension pgourlain.erlang
-code --install-extension ocamllabs.ocaml-platform
-code --install-extension myriad-dreamin.tinymist
-code --install-extension mathematic.vscode-pdf
-code --install-extension geequlim.godot-tools
-code --install-extension sleutho.tcl
-code --install-extension elves.elvish
-code --install-extension TheNuProjectContributors.vscode-nushell-lang
-code --install-extension scala-lang.scala
-code --install-extension mathiasfrohlich.Kotlin
-code --install-extension MathWorks.language-matlab
-code --install-extension WolframResearch.wolfram
-code --install-extension IDE-Innovation-Lab.cangjie
-code --install-extension c3.vscode-c3
-code --install-extension webfreak.code-d
-code --install-extension vlanguage.vscode-vlang
-code --install-extension crystal-lang-tools.crystal-lang
-code --install-extension BojanEndrovski.wren
-code --install-extension undeadfish.vscode-pike-lang
-
-# if [ -f "$RD/tools/vscode-extensions/vim9script-syntax-highlighter/install.sh" ]; then
-#     chmod +x "$RD/tools/vscode-extensions/vim9script-syntax-highlighter/install.sh"
-#     eval "$RD/tools/vscode-extensions/vim9script-syntax-highlighter/install.sh"
-# fi
-
-# rm -rf "$TD"
 hash -r
 
 sudo usermod -aG docker $USER

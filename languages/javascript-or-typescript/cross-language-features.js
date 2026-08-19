@@ -3,9 +3,9 @@ const xl = require("../../runtimes/javascript-or-typescript/willyhorizont/runtim
 /*
 1. support lambda as value, or has workaround
 */
-const sayHello = (callbackFunction) => {
+const sayHello = (callback) => {
     console.log("hello");
-    callbackFunction();
+    callback();
 };
 sayHello(() => {
     console.log("world");

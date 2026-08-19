@@ -2,13 +2,13 @@ import willyhorizont.runtime.Xl
 
 @main def apply(): Unit = {
     /*
-    1. support lambda as value, or has workaround
+    ' -- 1. support lambda as value, or has workaround
     */
     val sayHello = ((va: Seq[Any]) => {
         def invoke(): Any = {
-            val callbackFunction = va(0)
+            val callback = va(0)
             println("hello")
-            callbackFunction.asInstanceOf[Seq[Any] => Any](Seq(null))
+            callback.asInstanceOf[Seq[Any] => Any](Seq(null))
             return null
         }
         invoke()
@@ -40,7 +40,7 @@ import willyhorizont.runtime.Xl
     println(s"multiply_by_two(8): ${multiplyByTwo.asInstanceOf[Seq[Any] => Any](Seq(8))}")
     
     /*
-    2. support dynamic-typed value, or has workaround
+    ' -- 2. support dynamic-typed value, or has workaround
     */
     val xlList = Xl.list(
         null,

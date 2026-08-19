@@ -4,9 +4,9 @@
 1. support lambda as value, or has workaround
 #>
 $SayHello = {
-    param($CallbackFunction)
+    param($Callback)
     Write-Host "hello"
-    &$CallbackFunction
+    &$Callback
 }.GetNewClosure()
 &$SayHello {
     param()

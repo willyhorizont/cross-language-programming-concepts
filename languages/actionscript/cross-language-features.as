@@ -6,17 +6,17 @@ package {
     public class Main extends Sprite {
         public static function run():void {
             /*
-            1. support lambda as value, or has workaround
+            # ' -- 1. support lambda as value, or has workaround
             */
-            var sayHello:* = function(callbackFunction:*):* {
+            var sayHello:* = function (callback:*):* {
                 Terminal.print("hello");
-                callbackFunction();
+                callback();
             };
-            sayHello(function():* {
+            sayHello(function ():* {
                 Terminal.print("world");
             });
-            var createMultiplier:* = function(aa:*):* {
-                return function(bb:*):* {
+            var createMultiplier:* = function (aa:*):* {
+                return function (bb:*):* {
                     return aa * bb;
                 };
             };
@@ -27,7 +27,7 @@ package {
             Terminal.print("multiply_by_two(8): " + multiplyByTwo(8));
 
             /*
-            2. support dynamic-typed value, or has workaround
+            # ' -- 2. support dynamic-typed value, or has workaround
             */
             var xlList:* = [
                 null,
@@ -40,7 +40,7 @@ package {
                 -123.789,
                 [1, 2, 3],
                 { "foo": "bar" },
-                function(aa:*, bb:*):* {
+                function (aa:*, bb:*):* {
                     return aa * bb;
                 }
             ];
@@ -57,7 +57,7 @@ package {
                 "xl_float_negative": -123.789,
                 "xl_list": [1, 2, 3],
                 "xl_dict": { "foo": "bar" },
-                "xl_lambda": function(aa:*, bb:*):* {
+                "xl_lambda": function (aa:*, bb:*):* {
                     return aa * bb;
                 }
             };

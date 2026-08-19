@@ -8,9 +8,9 @@ int main(int argc, char* argv[]) {
     */
     XL::Type say_hello = XL::Lambda([](const XL::Type& va) -> XL::Type {
         XL::Type itr = va.iter();
-        XL::Type callback_function = itr.next();
+        XL::Type callback = itr.next();
         std::cout << "hello" << '\n';
-        callback_function.call();
+        callback.call();
         return XL::NONE;
     });
     say_hello.call(XL::Lambda([](const XL::Type& va) -> XL::Type {

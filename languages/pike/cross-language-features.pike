@@ -4,9 +4,9 @@ int main() {
     /*
     1. support lambda as value, or has workaround
     */
-    mixed say_hello = lambda(mixed callback_function) {
+    mixed say_hello = lambda(mixed callback) {
         xl->writeln("hello");
-        callback_function();
+        callback();
     };
     say_hello(lambda() {
         xl->writeln("world");
@@ -26,7 +26,7 @@ int main() {
     2. support dynamic-typed value, or has workaround
     */
     mixed xl_list = ({
-        0, // null
+        0, // none
         1, // true
         0, // false
         "foo",

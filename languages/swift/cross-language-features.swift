@@ -9,9 +9,9 @@ struct App {
         */
         let sayHello = { (va: [Any?]) -> Any? in
             var itr = va.makeIterator()
-            let callbackFunction = itr.next()!! as! ([Any?]) -> Any?
+            let callback = itr.next()!! as! ([Any?]) -> Any?
             print("hello")
-            _ = callbackFunction([])
+            _ = callback([])
             return nil as Any?
         }
         _ = sayHello([{ (va: [Any?]) -> Any? in

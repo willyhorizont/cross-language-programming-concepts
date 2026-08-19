@@ -1,9 +1,9 @@
 source("../../runtimes/r/willyhorizont/runtime/xl.r")
 
 # 1. support lambda as value, or has workaround
-say_hello <- \(callback_function) {
+say_hello <- \(callback) {
     xl$catln("hello")
-    callback_function()
+    callback()
 }
 say_hello(\() {
     xl$catln("world")

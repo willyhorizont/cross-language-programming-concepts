@@ -1,9 +1,9 @@
 use ../../runtimes/nu/willyhorizont/runtime/xl.nu
 
 # 1. support lambda as value, or has workaround
-let say_hello = { |callback_function|
+let say_hello = { |callback|
     print "hello"
-    do $callback_function
+    do $callback
 }
 do $say_hello { ||
     print "world"

@@ -3,9 +3,9 @@ include("../../runtimes/julia/willyhorizont/runtime/xl.jl")
 #=
 1. support lambda as value, or has workaround
 =#
-say_hello = (callback_function) -> begin
+say_hello = (callback) -> begin
     println("hello")
-    callback_function()
+    callback()
 end
 say_hello(() -> begin
     println("world")

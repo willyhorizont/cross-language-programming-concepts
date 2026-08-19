@@ -7,9 +7,9 @@ main() {
     let sayHello: Any = { va: Xl.Vararg =>
         let itr = Xl.iter(va)
         match (Xl.next(itr)) {
-            case callbackFunction: Xl.Lambda =>
+            case callback: Xl.Lambda =>
                 println("hello")
-                callbackFunction([Xl.NONE])
+                callback([Xl.NONE])
                 return Xl.NONE
             case _ =>
                 throw Exception("Error: Invalid arguments.")

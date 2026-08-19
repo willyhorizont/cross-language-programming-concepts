@@ -2,9 +2,9 @@ __import__("sys").path.append(str(__import__("pathlib").Path(__file__).resolve()
 from runtimes.python.willyhorizont.runtime import xl
 
 # 1. support lambda as value, or has workaround
-say_hello = lambda callback_function: [
+say_hello = lambda callback: [
     print("hello"),
-    callback_function(),
+    callback(),
 ][-1]
 say_hello(lambda: [
     print("world"),

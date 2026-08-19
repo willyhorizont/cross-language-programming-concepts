@@ -7,9 +7,9 @@ int main(int argc, const char * argv[]) {
         1. support lambda as value, or has workaround
         */
         XL * sayHello = xl.initLambda(^(XL * args) {
-            XL * callbackFunction = [args next];
+            XL * callback = [args next];
             NSLog(@"hello");
-            [callbackFunction call:@[]];
+            [callback call:@[]];
             return xl.initNone();
         });
         [sayHello call:@[xl.initLambda(^(XL * a) {

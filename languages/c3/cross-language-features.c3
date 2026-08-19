@@ -6,16 +6,16 @@ import willyhorizont::runtime::xl;
 fn void main()
 {
     /*
-    1. support lambda as value, or has workaround
+    # ' -- 1. support lambda as value, or has workaround
     */
     xl::Type* say_hello = xl::init_lambda(fn xl::Type* (xl::Type* ctx_ref, xl::Type* va)
     {
         defer xl::free_memory(va);
         xl::Type* itr = xl::iter(va);
         defer xl::free_memory(itr);
-        xl::Type* callback_function = xl::next(itr);
+        xl::Type* callback = xl::next(itr);
         io::printn("hello");
-        xl::free_memory(callback_function.call(xl::init_none()));
+        xl::free_memory(callback.call(xl::init_none()));
         return xl::init_none();
     });
     defer xl::free_memory(say_hello);
@@ -55,7 +55,7 @@ fn void main()
     xl::printn("multiply_by_two(8): ", xl::to_string(multiply_by_two.call(xl::init_int(8))));
     
     /*
-    2. support dynamic-typed value, or has workaround
+    # ' -- 2. support dynamic-typed value, or has workaround
     */
     xl::Type* xl_list = xl::init_list(
         xl::init_none(),

@@ -1,0 +1,34 @@
+[
+    "rust",
+    "groovy",
+    "go",
+    "swift",
+    "c-plus-plus",
+    "objective-c",
+    "c-sharp",
+    "dart",
+    "java",
+    
+    "c",
+    "javascript-or-typescript",
+    
+    "ruby",
+    "julia",
+    "powershell",
+    "python",
+    "r",
+    "perl",
+    "raku",
+    
+    "lua",
+    "visual-basic-dot-net",
+    
+    "php",
+    
+    "cuda-c-plus-plus",
+    "objective-c-plus-plus",
+    "cofeescript",
+    
+    "f-sharp",
+    "clojure"
+]

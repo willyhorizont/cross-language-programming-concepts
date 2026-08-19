@@ -4,24 +4,22 @@
 start() ->
     {ok, _} = compile:file("willyhorizont/runtime/xl.erl"),
     
-    %% 1. support lambda as value, or has workaround
-    SayHello = fun(CallbackFunction) ->
+    %% // 1. support lambda as value, or has workaround
+    SayHello = fun(Callback) ->
         io:format("hello~n"),
-        CallbackFunction()
+        Callback()
     end,
     SayHello(fun() ->
         io:format("world~n")
     end),
-    CreateMultiplier = fun(Aa) ->
-        fun(Bb) -> Aa * Bb end
-    end,
+    CreateMultiplier = fun(Aa) -> fun(Bb) -> Aa * Bb end end,
     MultiplyByTwo = CreateMultiplier(2),
     io:format("multiply_by_two(10): ~p~n", [MultiplyByTwo(10)]),
     MultiplyByEight = CreateMultiplier(8),
     io:format("multiply_by_eight(4): ~p~n", [MultiplyByEight(4)]),
     io:format("multiply_by_two(8): ~p~n", [MultiplyByTwo(8)]),
     
-    %% 2. support dynamic-typed value, or has workaround
+    %% // 2. support dynamic-typed value, or has workaround
     XlList = [
         nil,
         true,

@@ -1,3 +1,13 @@
+[Last updated: 19 Aug 2026 @ 09:45 AM][version: 2.9.0]
+disable install language syntax highlighter extensions and use available syntax highlighters instead:
+update setup-environtment.sh, disable install language extensions;
+update languages.json, update syntax highlighters;
+update .vscode/settings.json files.associations to use available syntax highlighters instead;
+update base-runner.sh, add mapping to use available syntax highlighters instead;
+add get_language_file_extension in utils.sh;
+add vscode-syntax-modes.json;
+update vscode-extensions-base.txt;
+
 [Last updated: 17 Aug 2026 @ 06:18 PM][version: 2.8.3]
 update languages.json add syntaxes similarities;
 

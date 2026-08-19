@@ -2,6 +2,12 @@
 
 source "$(dirname "$(realpath "$0")")/../../tools/base-runner.sh" "$0" "$@"
 
+if [[ ".$FX" != "$XPECT_FX" ]]; then
+    echo "usage:"
+    echo "\"$SD/runner.sh\" path/to/*.$FX"
+    exit 1
+fi
+
 IS_ANY_MATLAB_KEYWORD=false
 if grep -q -E "%\{|%\}|\bfunction\b|\bend\b|\bdisp\b" "$PTFNX"; then
     IS_ANY_MATLAB_KEYWORD=true
@@ -32,13 +38,6 @@ if grep -q -E "\bNS[A-Z]" "$PTFNX"; then
 else
     IS_ANY_OBJC_NS_PREFIX=false
 fi
-
-# IS_ANY_OBJC_METHOD_CALL=false
-# if grep -q -E "\[[a-zA-Z_][a-zA-Z0-9_]* +[a-zA-Z_]" "$PTFNX"; then
-#     IS_ANY_OBJC_METHOD_CALL=true
-# else
-#     IS_ANY_OBJC_METHOD_CALL=false
-# fi
 
 MAYBE_OBJC=false
 if [[ "$IS_ANY_OBJC_KEYWORD" == true || "$IS_ANY_OBJC_NS_PREFIX" == true  ]]; then

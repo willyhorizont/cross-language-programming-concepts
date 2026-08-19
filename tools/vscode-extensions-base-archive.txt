@@ -1,0 +1,3 @@
+tomrijndorp.find-it-faster
+hjb2012.vscode-es6-string-html
+vscode-icons-team.vscode-icons

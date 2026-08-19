@@ -8,9 +8,9 @@ Module Program
         ' 1. support lambda as value, or has workaround
         Dim SayHello As Object = New Xl.Lambda(Function(Va)
             Dim Itr As Object = Xl.Iter(Va)
-            Dim CallbackFunction As Object = Xl.NextItem(Itr)
+            Dim Callback As Object = Xl.NextItem(Itr)
             Console.WriteLine("hello")
-            CallbackFunction.Invoke()
+            Callback.Invoke()
         End Function)
         SayHello.Invoke(New Xl.Lambda(Function(Va)
             Console.WriteLine("world")

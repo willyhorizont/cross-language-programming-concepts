@@ -22,15 +22,14 @@ pub fn call(c: Xl, va: List(Xl)) -> Xl {
     }
 }
 
-pub const none = None
-// pub fn none() -> Xl { None }
-pub fn bool(b: Bool) -> Xl { Bool(b) }
-pub fn string(s: String) -> Xl { String(s) }
-pub fn int(n: Int) -> Xl { Int(n) }
-pub fn float(f: Float) -> Xl { Float(f) }
-pub fn list(l: List(Xl)) -> Xl { List(l) }
-pub fn dict(p: List(#(String, Xl))) -> Xl { Dict(dict.from_list(p)) }
-pub fn lambda(f: fn(List(Xl)) -> Xl) -> Xl { Lambda(f) }
+pub fn init_none() -> Xl { None }
+pub fn init_bool(b: Bool) -> Xl { Bool(b) }
+pub fn init_string(s: String) -> Xl { String(s) }
+pub fn init_int(n: Int) -> Xl { Int(n) }
+pub fn init_float(f: Float) -> Xl { Float(f) }
+pub fn init_list(l: List(Xl)) -> Xl { List(l) }
+pub fn init_dict(p: List(#(String, Xl))) -> Xl { Dict(dict.from_list(p)) }
+pub fn init_lambda(f: fn(List(Xl)) -> Xl) -> Xl { Lambda(f) }
 
 pub fn to_bool(v: Xl) -> Bool {
     case v {

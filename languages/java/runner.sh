@@ -2,6 +2,12 @@
 
 source "$(dirname "$(realpath "$0")")/../../tools/base-runner.sh" "$0" "$@"
 
+if [[ ".$FX" != "$XPECT_FX" ]]; then
+    echo "usage:"
+    echo "\"$SD/runner.sh\" path/to/*.$FX"
+    exit 1
+fi
+
 TFN="Main"
 PTTFNX="$PTTFNXD/$TFN.$FX"
 

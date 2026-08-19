@@ -1,9 +1,9 @@
 Code.require_file("../../runtimes/elixir/willyhorizont/runtime/xl.exs", __DIR__)
 
 # 1. support lambda as value, or has workaround
-say_hello = fn (callback_function) ->
+say_hello = fn (callback) ->
     "hello" |> IO.puts()
-    callback_function.()
+    callback.()
 end
 say_hello.(fn () ->
     "world" |> IO.puts()

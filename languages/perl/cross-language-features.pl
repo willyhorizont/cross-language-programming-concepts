@@ -9,9 +9,9 @@ require File::Spec->catfile($FindBin::Bin, "..", "..", "runtimes", "perl", "will
 1. support lambda as value, or has workaround
 =cut
 my $say_hello = sub {
-    my ($callback_function) = @_;
+    my ($callback) = @_;
     say("hello");
-    &$callback_function();
+    &$callback();
 };
 &$say_hello(sub {
     say("world");

@@ -2,6 +2,12 @@
 
 source "$(dirname "$(realpath "$0")")/../../tools/base-runner.sh" "$0" "$@"
 
+if [[ ".$FX" != "$XPECT_FX" ]]; then
+    echo "usage:"
+    echo "\"$SD/runner.sh\" path/to/*.$FX"
+    exit 1
+fi
+
 PTRFNX="$RD/runtimes/wolfram-language-mathematica/willyhorizont/runtime/xl.wl"
 if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; then
     echo "usage:"

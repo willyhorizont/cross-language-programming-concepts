@@ -3,9 +3,9 @@ import runtimes.groovy.willyhorizont.runtime.Xl
 /*
 1. support lambda as value, or has workaround
 */
-def sayHello = { callbackFunction ->
+def sayHello = { callback ->
     println("hello")
-    callbackFunction()
+    callback()
 }
 sayHello({ ->
     println("world")

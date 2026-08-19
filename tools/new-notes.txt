@@ -108,6 +108,7 @@ checked-c | v0.6 | unstable (under active development, extension specification v
 docker run --rm -i $(./utils.sh --get-docker-image julia) which julia
 
 todo:
+checkand sync ~/.vscode/extensions/
 change none() to none
 ~~add escape_string~~
 add std_json_stringify

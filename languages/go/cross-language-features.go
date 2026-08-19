@@ -10,9 +10,9 @@ func main() {
     */
     sayHello := func(va ...interface{}) interface{} {
         itr := xl.Iter(va)
-        callbackFunction := itr.Next()
+        callback := itr.Next()
         xl.Println("hello")
-        xl.Call(callbackFunction)
+        xl.Call(callback)
         return nil
     }
     sayHello(func(va ...interface{}) interface{} {

@@ -34,18 +34,18 @@ let call (f : xl) (va : xl list) : xl =
     | Lambda fn -> fn (List va)
     | _ -> failwith "Error: Invalid arguments."
 
-let none = None
-let bool (v : bool) : xl = Bool v
-let string (v : string) : xl = String v
-let int (v : int) : xl = Int v
-let float (v : float) : xl = Float v
-let list (v : xl list) : xl = List v
-let dict (p : (string * xl) list) : xl =
+let init_none = None
+let init_bool (v : bool) : xl = Bool v
+let init_string (v : string) : xl = String v
+let init_int (v : int) : xl = Int v
+let init_float (v : float) : xl = Float v
+let init_list (v : xl list) : xl = List v
+let init_dict (p : (string * xl) list) : xl =
     let len = match List.length p with | 0 -> 1 | n -> n in
     let d = Hashtbl.create len in
     List.iter (fun (k, v) -> Hashtbl.add d k v) p;
     Dict d
-let lambda (v : xl -> xl) : xl = Lambda v
+let init_lambda (v : xl -> xl) : xl = Lambda v
 
 let is_none = function | None -> true | _ -> false
 let is_bool = function | Bool _ -> true | _ -> false
@@ -133,7 +133,7 @@ let json_stringify (va : xl list) : string =
         p := to_bool (get (List [o; String "pretty"]))
     end;
     let t = string_repeat (List [String " "; Int 4]) in
-    let s = ref [dict [("t", String "v"); ("v", a); ("d", Int 0)]] in
+    let s = ref [init_dict [("t", String "v"); ("v", a); ("d", Int 0)]] in
     let r = ref "" in
     while List.length !s > 0 do
         try
@@ -176,26 +176,26 @@ let json_stringify (va : xl list) : string =
                     raise Continue
                 end;
                 let child_d = Int ((to_int cur_d) + 1) in
-                s := to_list (append (List [List !s; dict [
+                s := to_list (append (List [List !s; init_dict [
                     ("t", String "r");
                     ("v", (if !p then String ("\n" ^ (to_string (string_repeat (List [t; cur_d]))) ^ "]") else String "]"));
                     ("d", cur_d)
                 ]]));
                 for i = (List.length lv - 1) downto 0 do
-                    s := to_list (append (List [List !s; dict [
+                    s := to_list (append (List [List !s; init_dict [
                         ("t", String "v");
                         ("v", (List.nth lv i));
                         ("d", child_d)
                     ]]));
                     if i > 0 then begin
-                        s := to_list (append (List [List !s; dict [
+                        s := to_list (append (List [List !s; init_dict [
                             ("t", String "r");
                             ("v", (if !p then String (",\n" ^ (to_string (string_repeat (List [t; child_d])))) else String ", "));
                             ("d", child_d)
                         ]]));
                     end;
                 done;
-                s := to_list (append (List [List !s; dict [
+                s := to_list (append (List [List !s; init_dict [
                     ("t", String "r");
                     ("v", (if !p then String ("[\n" ^ (to_string (string_repeat (List [t; child_d])))) else String "["));
                     ("d", cur_d)
@@ -210,32 +210,32 @@ let json_stringify (va : xl list) : string =
                 end;
                 let dpl = Hashtbl.fold (fun k v acc -> (k, v) :: acc) dv [] in
                 let child_d = Int ((to_int cur_d) + 1) in
-                s := to_list (append (List [List !s; dict [
+                s := to_list (append (List [List !s; init_dict [
                     ("t", String "r");
                     ("v", (if !p then String ("\n" ^ (to_string (string_repeat (List [t; cur_d]))) ^ "}") else String "}"));
                     ("d", cur_d)
                 ]]));
                 for i = (List.length dpl - 1) downto 0 do
                     let (dk, dv) = List.nth dpl i in
-                    s := to_list (append (List [List !s; dict [
+                    s := to_list (append (List [List !s; init_dict [
                         ("t", String "v");
                         ("v", dv);
                         ("d", child_d)
                     ]]));
-                    s := to_list (append (List [List !s; dict [
+                    s := to_list (append (List [List !s; init_dict [
                         ("t", String "r");
                         ("v", String ("\"" ^ dk ^ "\": "));
                         ("d", child_d)
                     ]]));
                     if i > 0 then begin
-                        s := to_list (append (List [List !s; dict [
+                        s := to_list (append (List [List !s; init_dict [
                             ("t", String "r");
                             ("v", (if !p then String (",\n" ^ (to_string (string_repeat (List [t; child_d])))) else String ", "));
                             ("d", child_d)
                         ]]));
                     end;
                 done;
-                s := to_list (append (List [List !s; dict [
+                s := to_list (append (List [List !s; init_dict [
                     ("t", String "r");
                     ("v", (if !p then String ("{\n" ^ (to_string (string_repeat (List [t; child_d])))) else String "{"));
                     ("d", cur_d)

@@ -2,13 +2,13 @@ using Willyhorizont.Runtime.Xl;
 
 void main () {
     /*
-    1. support lambda as value, or has workaround
+    ' -- 1. support lambda as value, or has workaround
     */
     var say_hello = Xl.init_lambda ((va) => {
         var itr = va.iter ();
-        var callback_function = itr.next ();
+        var callback = itr.next ();
         print ("hello\n");
-        callback_function.call ({ Xl.init_none () });
+        callback.call ({ Xl.init_none () });
         return Xl.init_none ();
     });
     say_hello.call ({ Xl.init_lambda ((va) => {
@@ -31,7 +31,7 @@ void main () {
     print (@"multiply_by_two(8): $(multiply_by_two.call ({ Xl.init_int (8) }).to_int())\n");
 
     /*
-    2. support dynamic-typed value, or has workaround
+    ' -- 2. support dynamic-typed value, or has workaround
     */
     var xl_list = Xl.init_list ({
         Xl.init_none (),

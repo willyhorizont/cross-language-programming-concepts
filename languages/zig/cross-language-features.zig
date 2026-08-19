@@ -4,14 +4,14 @@ const xl = @import("willyhorizont/runtime/xl.zig");
 pub fn main(init: std.process.Init) !void {
     xl.init_runtime(init.gpa, init.io);
 
-    // 1. support lambda as value, or has workaround
+    // # ' -- 1. support lambda as value, or has workaround
     const say_hello = xl.init_lambda(.{}, struct {
         fn call(ctx: anytype, va: []const xl.Type) xl.Type {
             _ = ctx;
             var itr = xl.iter(va);
-            const callback_function = itr.next();
+            const callback = itr.next();
             xl.print(.{xl.init_string("hello")});
-            _ = callback_function.call(.{});
+            _ = callback.call(.{});
             return xl.none;
         }
     }.call);
@@ -47,7 +47,7 @@ pub fn main(init: std.process.Init) !void {
     xl.print(.{ "multiply_by_eight(4): ", xl.json_stringify(multiply_by_eight.call(.{xl.init_int(4)}), .{}) });
     xl.print(.{ "multiply_by_two(8): ", xl.json_stringify(multiply_by_two.call(.{xl.init_int(8)}), .{}) });
 
-    // 2. support dynamic-typed value, or has workaround
+    // # ' -- 2. support dynamic-typed value, or has workaround
     const xl_list = xl.init_list(.{
         xl.none,
         xl.init_bool(true),

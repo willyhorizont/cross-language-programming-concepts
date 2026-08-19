@@ -7,9 +7,9 @@ public class Main {
         */
         Xl sayHello = Xl.from((Xl... va) -> {
             Xl itr = Xl.iter(va);
-            Xl callbackFunction = itr.next();
+            Xl callback = itr.next();
             System.out.println("hello");
-            callbackFunction.call();
+            callback.call();
             return Xl.NONE;
         });
         sayHello.call(Xl.from((Xl... va) -> {

@@ -1,11 +1,11 @@
 import "../../runtimes/wren/willyhorizont/runtime/xl" for Xl
 
 /*
-1. support lambda as value, or has workaround
+# ' -- 1. support lambda as value, or has workaround
 */
-var sayHello = Fn.new {|callbackFunction|
+var sayHello = Fn.new {|callback|
     System.print("hello")
-    callbackFunction.call()
+    callback.call()
 }
 sayHello.call(Fn.new {
     System.print("world")
@@ -18,7 +18,7 @@ System.print("multiply_by_eight(4): %(multiplyByEight.call(4))")
 System.print("multiply_by_two(8): %(multiplyByTwo.call(8))")
 
 /*
-2. support dynamic-typed value, or has workaround
+# ' -- 2. support dynamic-typed value, or has workaround
 */
 var xlList = [
     null,

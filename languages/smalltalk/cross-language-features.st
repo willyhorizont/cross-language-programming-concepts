@@ -3,11 +3,11 @@ Xl := (Smalltalk at: #WillyHorizont) at: #Runtime.
 local := Dictionary new.
 
 "
-1. support lambda as value, or has workaround
+// -- 1. support lambda as value, or has workaround
 "
-local at: #sayHello put: [ :callbackFunction |
+local at: #sayHello put: [ :callback |
     Stdio stdout nextPutAll: 'hello'; lf.
-    callbackFunction value.
+    callback value.
 ].
 (local at: #sayHello) value: [
     Stdio stdout nextPutAll: 'world'; lf
@@ -20,7 +20,7 @@ Stdio stdout nextPutAll: 'multiply_by_eight(4): ', ((local at: #multiplyByEight)
 Stdio stdout nextPutAll: 'multiply_by_two(8): ', ((local at: #multiplyByTwo) value: 8) asString; lf.
 
 "
-2. support dynamic-typed value, or has workaround
+// -- 2. support dynamic-typed value, or has workaround
 "
 local at: #xlList put: (OrderedCollection new
     add: nil;

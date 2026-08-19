@@ -4,13 +4,13 @@ import willyhorizont.runtime.xl
 
 fn main() {
     /*
-    1. support lambda as value, or has workaround
+    -- 1. support lambda as value, or has workaround
     */
     say_hello := xl.init(xl.lambda(value: fn (va xl.Type) xl.Type {
         mut itr := xl.iter(va)
-        callback_function := xl.next(mut itr)
+        callback := xl.next(mut itr)
         println("hello")
-        callback_function.call()
+        callback.call()
         return xl.init()
     }))
     say_hello.call(xl.init(xl.lambda(value: fn (va xl.Type) xl.Type {
@@ -33,7 +33,7 @@ fn main() {
     println("multiply_by_two(8): ${multiply_by_two.call(8).to_int()}")
     
     /*
-    2. support dynamic-typed value, or has workaround
+    -- 2. support dynamic-typed value, or has workaround
     */
     xl_list := xl.init([
         xl.init(),
