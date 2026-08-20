@@ -15,7 +15,6 @@ main :: proc() {
     }
     defer virtual.arena_destroy(&arena) 
     context.allocator = virtual.arena_allocator(&arena)
-
     global_ctx := xl.reg_ctx(nil)
     /*
     # -- 1. support lambda as value, or has workaround

@@ -265,7 +265,11 @@
     "workbench.editor.wrapTabs": true,
     "workbench.editor.tabSizing": "fixed",
     "workbench.editor.tabSizingFixedMinWidth": 50,
-    "workbench.editor.pinnedTabSizing": "normal",
+    "workbench.editor.pinnedTabSizing": "shrink",
+    "workbench.editor.tabCloseButton": "off",
+    "workbench.editor.preventPinnedEditorClose": "keyboardAndMouse",
+    "workbench.editor.tabActionCloseVisibility": false,
+    "workbench.editor.tabActionUnpinVisibility": false,
     "workbench.sideBar.location": "right",
     "workbench.editor.pinnedTabsOnSeparateRow": true,
     "workbench.editor.titleScrollbarSizing": "large",
@@ -280,6 +284,8 @@
     "prettier.tabWidth": 4,
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.formatOnSave": false,
     "[html]": {
         // "editor.defaultFormatter": "vscode.html-language-features",
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -294,7 +300,6 @@
     "json.maxItemsComputed": 500000,
     "javascript.updateImportsOnFileMove.enabled": "always",
     "editor.lineHeight": 27,
-    "editor.detectIndentation": false,
     "[json]": {
         "editor.quickSuggestions": {
             "strings": true
