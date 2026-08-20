@@ -20,94 +20,94 @@ main :: proc() {
     /*
     # -- 1. support lambda as value, or has workaround
     */
-    say_hello := xl.Lambda{
+    say_hello := xl.init_lambda(
         ctx = global_ctx,
-        call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
+        value = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
             itr := xl.iter(..va)
-            callback := xl.next(&itr).(xl.Lambda)
+            callback := xl.next(&itr)
             fmt.println("hello")
-            callback.call(&callback)
+            xl.call(callback)
             return nil
         },
-    }
-    say_hello.call(&say_hello, xl.Lambda{
+    )
+    xl.call(say_hello, xl.init_lambda(
         ctx = global_ctx,
-        call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
+        value = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
             fmt.println("world")
             return nil
         },
-    })
-    create_multiplier := xl.Lambda{
+    ))
+    create_multiplier := xl.init_lambda(
         ctx = global_ctx,
-        call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
+        value = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
             itr := xl.iter(..va)
             aa := xl.next(&itr)
-            return xl.Lambda{
+            return xl.init_lambda(
                 ctx = xl.reg_ctx((^xl.Ctx)(self.ctx), xl.Dict{
-                    "aa" = aa.(xl.Int),
+                    "aa" = aa,
                 }),
-                call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
+                value = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
                     itr := xl.iter(..va)
                     bb := xl.next(&itr)
                     aa := xl.get_ctx((^xl.Ctx)(self.ctx), "aa")
-                    return xl.Int(aa.(xl.Int) * bb.(xl.Int))
+                    return xl.init_int(aa.(xl.Int) * bb.(xl.Int))
                 },
-            }
+            )
         },
-    }
-    multiply_by_two := create_multiplier.call(&create_multiplier, 2).(xl.Lambda)
-    multiply_by_eight := create_multiplier.call(&create_multiplier, 8).(xl.Lambda)
-    fmt.printfln("multiply_by_two(10): %d", multiply_by_two.call(&multiply_by_two, 10).(xl.Int))
-    fmt.printfln("multiply_by_eight(4): %d", multiply_by_eight.call(&multiply_by_eight, 4).(xl.Int))
-    fmt.printfln("multiply_by_two(8): %d", multiply_by_two.call(&multiply_by_two, 8).(xl.Int))
+    )
+    multiply_by_two := xl.call(create_multiplier, xl.init_int(2))
+    multiply_by_eight := xl.call(create_multiplier, xl.init_int(8))
+    fmt.println(strings.concatenate([]string{"multiply_by_two(10): ", xl.json_stringify(xl.call(multiply_by_two, xl.init_int(10)))}, context.temp_allocator))
+    fmt.println(strings.concatenate([]string{"multiply_by_eight(4): ", xl.json_stringify(xl.call(multiply_by_eight, xl.init_int(4)))}, context.temp_allocator))
+    fmt.println(strings.concatenate([]string{"multiply_by_two(8): ", xl.json_stringify(xl.call(multiply_by_two, xl.init_int(8)))}, context.temp_allocator))
 
     /*
     # -- 2. support dynamic-typed value, or has workaround
     */
-    xl_list := xl.List{
+    xl_list := xl.init_list(
         nil,
-        true,
-        false,
-        "foo",
-        0,
-        -123,
-        123.789,
-        -123.789,
-        xl.List{1, 2, 3},
-        xl.Dict{"foo" = "bar"},
-        xl.Lambda{
+        xl.init_bool(true),
+        xl.init_bool(false),
+        xl.init_string("foo"),
+        xl.init_int(0),
+        xl.init_int(-123),
+        xl.init_float(123.789),
+        xl.init_float(-123.789),
+        xl.init_list(xl.init_int(1), xl.init_int(2), xl.init_int(3)),
+        xl.init_dict(xl.init_pair("foo", xl.init_string("bar"))),
+        xl.init_lambda(
             ctx = global_ctx,
-            call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
+            value = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
                 itr := xl.iter(..va)
                 aa := xl.next(&itr).(xl.Int)
                 bb := xl.next(&itr).(xl.Int)
-                return xl.Int(aa * bb)
+                return xl.init_int(aa * bb)
             },
-        },
-    }
+        ),
+    )
     fmt.println(strings.concatenate([]string{"xl_list: ", xl.json_stringify(xl_list)}, context.temp_allocator))
     fmt.println(strings.concatenate([]string{"xl_list: ", xl.json_stringify(xl_list, {pretty = true})}, context.temp_allocator))
-    xl_dict := xl.Dict{
-        "xl_none" = nil,
-        "xl_bool_true" = true,
-        "xl_bool_false" = false,
-        "xl_string" = "foo",
-        "xl_int_positive" = 0,
-        "xl_int_negative" = -123,
-        "xl_float_positive" = 123.789,
-        "xl_float_negative" = -123.789,
-        "xl_list" = xl.List{1, 2, 3},
-        "xl_dict" = xl.Dict{"foo" = "bar"},
-        "xl_lambda" = xl.Lambda{
+    xl_dict := xl.init_dict(
+        xl.init_pair("xl_none", nil),
+        xl.init_pair("xl_bool_true", xl.init_bool(true)),
+        xl.init_pair("xl_bool_false", xl.init_bool(false)),
+        xl.init_pair("xl_string", xl.init_string("foo")),
+        xl.init_pair("xl_int_positive", xl.init_int(0)),
+        xl.init_pair("xl_int_negative", xl.init_int(-123)),
+        xl.init_pair("xl_float_positive", xl.init_float(123.789)),
+        xl.init_pair("xl_float_negative", xl.init_float(-123.789)),
+        xl.init_pair("xl_list", xl.init_list(xl.init_int(1), xl.init_int(2), xl.init_int(3))),
+        xl.init_pair("xl_dict", xl.init_dict(xl.init_pair("foo", xl.init_string("bar")))),
+        xl.init_pair("xl_lambda", xl.init_lambda(
             ctx = global_ctx,
-            call = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
+            value = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
                 itr := xl.iter(..va)
                 aa := xl.next(&itr).(xl.Int)
                 bb := xl.next(&itr).(xl.Int)
-                return xl.Int(aa * bb)
+                return xl.init_int(aa * bb)
             },
-        },
-    }
+        )),
+    )
     fmt.println(strings.concatenate([]string{"xl_dict: ", xl.json_stringify(xl_dict)}, context.temp_allocator))
     fmt.println(strings.concatenate([]string{"xl_dict: ", xl.json_stringify(xl_dict, {pretty = true})}, context.temp_allocator))
 }

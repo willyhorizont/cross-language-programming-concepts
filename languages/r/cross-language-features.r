@@ -26,12 +26,12 @@ xl_list <- list(
     123.789,
     -123.789,
     list(1, 2, 3),
-    xl$dict("foo" = "bar"),
+    xl$init_dict("foo" = "bar"),
     \(aa, bb) aa * bb
 )
 xl$catln("xl_list: ", xl$json_stringify(xl_list))
 xl$catln("xl_list: ", xl$json_stringify(xl_list, "pretty" = TRUE))
-xl_dict <- xl$dict(
+xl_dict <- xl$init_dict(
     "xl_none" = NULL,
     "xl_bool_true" = TRUE,
     "xl_bool_false" = FALSE,
@@ -41,7 +41,7 @@ xl_dict <- xl$dict(
     "xl_float_positive" = 123.789,
     "xl_float_negative" = -123.789,
     "xl_list" = list(1, 2, 3),
-    "xl_dict" = xl$dict("foo" = "bar"),
+    "xl_dict" = xl$init_dict("foo" = "bar"),
     "xl_lambda" = \(aa, bb) aa * bb
 )
 xl$catln("xl_dict: ", xl$json_stringify(xl_dict))

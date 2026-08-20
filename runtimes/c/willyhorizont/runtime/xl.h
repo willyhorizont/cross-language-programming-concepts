@@ -14,15 +14,15 @@ typedef int Int;
 typedef float Float;
 
 typedef enum {
-    NONE,
-    BOOL,
-    STRING,
-    INT,
-    FLOAT,
-    LIST,
-    DICT,
-    LAMBDA,
-    ITERATOR
+    XL_NONE,
+    XL_BOOL,
+    XL_STRING,
+    XL_INT,
+    XL_FLOAT,
+    XL_LIST,
+    XL_DICT,
+    XL_LAMBDA,
+    XL_ITERATOR
 } Types;
 
 struct Xl;
@@ -98,35 +98,35 @@ static inline void fr_mm(Xl* a);
 
 static inline Xl* mk_n() {
     Xl* r = malloc(sizeof(Xl));
-    r->type = NONE;
+    r->type = XL_NONE;
     r->none_value = NULL;
     r->ctx_ref = NULL;
     return r;
 }
 static inline Xl* mk_b(Bool v) {
     Xl* r = malloc(sizeof(Xl));
-    r->type = BOOL;
+    r->type = XL_BOOL;
     r->bool_value = v;
     r->ctx_ref = NULL;
     return r;
 }
 static inline Xl* mk_s(String v) {
     Xl* r = malloc(sizeof(Xl));
-    r->type = STRING;
+    r->type = XL_STRING;
     r->string_value = v ? strdup(v) : NULL;
     r->ctx_ref = NULL;
     return r;
 }
 static inline Xl* mk_i(Int v) {
     Xl* r = malloc(sizeof(Xl));
-    r->type = INT;
+    r->type = XL_INT;
     r->int_value = v;
     r->ctx_ref = NULL;
     return r;
 }
 static inline Xl* mk_f(Float v) {
     Xl* r = malloc(sizeof(Xl));
-    r->type = FLOAT;
+    r->type = XL_FLOAT;
     r->float_value = v;
     r->ctx_ref = NULL;
     return r;
@@ -171,7 +171,7 @@ static inline void set(Dict* d, String k, Xl* v) {
 }
 
 static inline Xl* d_g(Xl* a, String k) {
-    if (a == NULL || a->type != DICT || a->dict_ref == NULL) {
+    if (a == NULL || a->type != XL_DICT || a->dict_ref == NULL) {
         fprintf(stderr, "XlRuntimeError: Invalid arguments.\n");
         exit(1);
     }
@@ -205,7 +205,7 @@ static inline Xl* mk_l(Xl* first_el, ...) {
         }
         va_end(args);
     }
-    r->type = LIST;
+    r->type = XL_LIST;
     r->list_ref = lr;
     r->ctx_ref = NULL;
     return r;
@@ -235,7 +235,7 @@ static inline Xl* mk_d(Pair fp, ...) {
         }
         va_end(args);
     }
-    r->type = DICT;
+    r->type = XL_DICT;
     r->dict_ref = dr;
     r->ctx_ref = NULL;
     return r;
@@ -243,14 +243,14 @@ static inline Xl* mk_d(Pair fp, ...) {
 
 static inline Xl* mk_c(Lambda c_ref, Xl* ctx_ref) {
     Xl* r = malloc(sizeof(Xl));
-    r->type = LAMBDA;
+    r->type = XL_LAMBDA;
     r->lambda_value = c_ref;
     r->ctx_ref = ctx_ref;
     return r;
 }
 
 static inline Xl* c_c(Xl* this_ref, Xl* va) {
-    if (this_ref == NULL || this_ref->type != LAMBDA || this_ref->lambda_value == NULL) {
+    if (this_ref == NULL || this_ref->type != XL_LAMBDA || this_ref->lambda_value == NULL) {
         fprintf(stderr, "XlRuntimeError: Invalid arguments.\n");
         exit(1);
     }
@@ -259,7 +259,7 @@ static inline Xl* c_c(Xl* this_ref, Xl* va) {
 }
 
 static inline Xl* l_itr(Xl* l) {
-    if (l == NULL || l->type != LIST || l->list_ref == NULL) {
+    if (l == NULL || l->type != XL_LIST || l->list_ref == NULL) {
         fprintf(stderr, "XlRuntimeError: Invalid arguments.\n");
         exit(1);
     }
@@ -267,14 +267,14 @@ static inline Xl* l_itr(Xl* l) {
     itrr->list_ref = l;
     itrr->index = 0;
     Xl* r = malloc(sizeof(Xl));
-    r->type = ITERATOR;
+    r->type = XL_ITERATOR;
     r->iterator_ref = itrr;
     r->ctx_ref = NULL;
     return r;
 }
 
 static inline Xl* itr_nxt(Xl* itr) {
-    if (itr == NULL || itr->type != ITERATOR || itr->iterator_ref == NULL) {
+    if (itr == NULL || itr->type != XL_ITERATOR || itr->iterator_ref == NULL) {
         fprintf(stderr, "XlRuntimeError: Invalid arguments.\n");
         exit(1);
     }
@@ -320,13 +320,13 @@ static inline void sb_apdf(StringBuilder* sb, String fmt, ...) {
 
 static inline Xl* s_jn(Xl* frs_el, ...) {
     StringBuilder* sb = mk_sb();
-    if (frs_el != NULL && frs_el->type == STRING) {
+    if (frs_el != NULL && frs_el->type == XL_STRING) {
         sb_apd(sb, frs_el->string_value);
         va_list args;
         va_start(args, frs_el);
         Xl* nxt;
         while ((nxt = va_arg(args, Xl*)) != NULL) {
-            if (nxt->type == STRING) {
+            if (nxt->type == XL_STRING) {
                 sb_apd(sb, nxt->string_value);
             }
         }
@@ -427,29 +427,29 @@ static inline String jify(Xl* a, JifyOpt o) {
         }
         Xl* v = c.v;
         int cur_d = c.d;
-        if (v == NULL || v->type == NONE) {
+        if (v == NULL || v->type == XL_NONE) {
             sb_apd(r, "null");
             continue;
         }
         switch (v->type) {
-            case BOOL:
+            case XL_BOOL:
                 sb_apd(r, v->bool_value ? "true" : "false");
                 break;
-            case STRING:
+            case XL_STRING:
                 sb_apd(r, "\"");
                 s_esc(r, v->string_value);
                 sb_apd(r, "\"");
                 break;
-            case INT:
+            case XL_INT:
                 sb_apdf(r, "%d", v->int_value);
                 break;
-            case FLOAT:
+            case XL_FLOAT:
                 sb_apdf(r, "%g", v->float_value);
                 break;
-            case LAMBDA:
+            case XL_LAMBDA:
                 sb_apd(r, "\"[object Function]\"");
                 break;
-            case LIST: {
+            case XL_LIST: {
                 if (v->list_ref == NULL || v->list_ref->len == 0) {
                     sb_apd(r, "[]");
                     continue;
@@ -498,7 +498,7 @@ static inline String jify(Xl* a, JifyOpt o) {
                 l_psh(gcor, slob);
                 break;
             }
-            case DICT: {
+            case XL_DICT: {
                 Dict* d_ref = v->dict_ref;
                 if (d_ref == NULL || d_ref->len == 0) {
                     sb_apd(r, "{}");
@@ -580,7 +580,7 @@ static inline String jify(Xl* a, JifyOpt o) {
     free(r);
     for (size_t i = 0; i < gcor->len; i += 1) {
         Xl* g = gcor->value[i];
-        if (g->type == STRING && g->string_value != NULL) {
+        if (g->type == XL_STRING && g->string_value != NULL) {
             size_t s_len = strlen(g->string_value);
             if (s_len > 1 || (g->string_value[0] != ']' && g->string_value[0] != '[' && g->string_value[0] != ',' && g->string_value[0] != '{' && g->string_value[0] != '}')) {
                 free((void*)g->string_value);
@@ -594,7 +594,7 @@ static inline String jify(Xl* a, JifyOpt o) {
 }
 
 static inline Bool to_b(Xl* a) {
-    if (a == NULL || a->type != BOOL) {
+    if (a == NULL || a->type != XL_BOOL) {
         fprintf(stderr, "XlRuntimeError: Invalid arguments.\n");
         exit(1);
     }
@@ -607,9 +607,9 @@ static inline Int to_i(Xl* a) {
         exit(1);
     }
     switch (a->type) {
-        case INT:
+        case XL_INT:
             return a->int_value;
-        case FLOAT:
+        case XL_FLOAT:
             return (Int)a->float_value;
         default:
             fprintf(stderr, "XlRuntimeError: Invalid arguments.\n");
@@ -623,9 +623,9 @@ static inline Float to_f(Xl* a) {
         exit(1);
     }
     switch (a->type) {
-        case INT:
+        case XL_INT:
             return (Float)a->int_value;
-        case FLOAT:
+        case XL_FLOAT:
             return a->float_value;
         default:
             fprintf(stderr, "XlRuntimeError: Invalid arguments.\n");
@@ -634,18 +634,18 @@ static inline Float to_f(Xl* a) {
 }
 
 static inline String to_s(Xl* a) {
-    if (a == NULL || a->type == NONE) return strdup("null");
+    if (a == NULL || a->type == XL_NONE) return strdup("null");
     switch (a->type) {
-        case BOOL:
+        case XL_BOOL:
             return strdup(a->bool_value ? "true" : "false");
-        case STRING:
+        case XL_STRING:
             return a->string_value ? strdup(a->string_value) : strdup("");
-        case INT: {
+        case XL_INT: {
             char buf[64];
             sprintf(buf, "%d", a->int_value);
             return strdup(buf);
         }
-        case FLOAT: {
+        case XL_FLOAT: {
             char buf[64];
             sprintf(buf, "%g", a->float_value);
             return strdup(buf);
@@ -656,15 +656,25 @@ static inline String to_s(Xl* a) {
     }
 }
 
+static Xl xln = { .type = XL_NONE, .none_value = NULL, .ctx_ref = NULL };
+static Xl xlbt = { .type = XL_BOOL, .bool_value = true, .ctx_ref = NULL };
+static Xl xlbf = { .type = XL_BOOL, .bool_value = false, .ctx_ref = NULL };
+
+static Xl* const NONE_PTR = &xln;
+static Xl* const TRUE_PTR = &xlbt;
+static Xl* const FALSE_PTR = &xlbf;
+
 static inline void fr_mm(Xl* a) {
     if (a == NULL) return;
+    if (a == &xln || a == &xlbt || a == &xlbf) return;
+
     switch (a->type) {
-        case STRING:
+        case XL_STRING:
             if (a->string_value != NULL) {
                 free((void*)a->string_value);
             }
             break;
-        case LIST:
+        case XL_LIST:
             if (a->list_ref != NULL) {
                 for (size_t i = 0; i < a->list_ref->len; i += 1) {
                     fr_mm(a->list_ref->value[i]);
@@ -673,7 +683,7 @@ static inline void fr_mm(Xl* a) {
                 free(a->list_ref);
             }
             break;
-        case DICT:
+        case XL_DICT:
             if (a->dict_ref != NULL) {
                 for (size_t i = 0; i < DICT_SIZE; i += 1) {
                     Pair* c = a->dict_ref->items[i];
@@ -687,12 +697,12 @@ static inline void fr_mm(Xl* a) {
                 free(a->dict_ref);
             }
             break;
-        case LAMBDA:
+        case XL_LAMBDA:
             if (a->ctx_ref != NULL) {
                 fr_mm(a->ctx_ref);
             }
             break;
-        case ITERATOR:
+        case XL_ITERATOR:
             if (a->iterator_ref != NULL) {
                 free(a->iterator_ref);
             }
@@ -726,6 +736,9 @@ typedef struct {
     String (*to_string)(Xl*);
     Int (*to_int)(Xl*);
     Float (*to_float)(Xl*);
+    Xl* NONE;
+    Xl* TRUE;
+    Xl* FALSE;
 } XlNamespace;
 
 const static XlNamespace xl = {
@@ -751,6 +764,9 @@ const static XlNamespace xl = {
     .to_string = to_s,
     .to_int = to_i,
     .to_float = to_f,
+    .NONE = &xln,
+    .TRUE = &xlbt,
+    .FALSE = &xlbf,
 };
 
 #define init_list(...) mk_l(__VA_ARGS__, NULL)

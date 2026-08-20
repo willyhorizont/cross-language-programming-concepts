@@ -1,17 +1,17 @@
 source [file join [file dirname [file normalize [info script]]] ".." ".." "runtimes" "tcl" "willyhorizont" "runtime" "xl.tcl"]
 
-# // -- 1. support lambda as value, or has workaround
-set say_hello [xl::lambda [list] {{va} {
+# // -- 1. support init_lambda as value, or has workaround
+set say_hello [xl::init_lambda [list] {{va} {
     lassign $va callback
     puts "hello"
     $callback call
 }}]
-$say_hello call [list [xl::lambda [list] {{va} {
+$say_hello call [list [xl::init_lambda [list] {{va} {
     puts "world"
 }}]]
-set create_multiplier [xl::lambda [list] {{va} {
+set create_multiplier [xl::init_lambda [list] {{va} {
     lassign $va aa
-    return [xl::lambda [list $aa] {{va} {
+    return [xl::init_lambda [list $aa] {{va} {
         lassign $va aa bb
         return [expr {$aa * $bb}]
     }}]
@@ -34,7 +34,7 @@ set xl_list [list \
     -123.789 \
     [list 1 2 3] \
     [dict create "foo" "bar"] \
-    [xl::lambda [list] {{va} {
+    [xl::init_lambda [list] {{va} {
         lassign $va aa bb
         return [expr {$aa * $bb}]
     }}] \
@@ -52,7 +52,7 @@ set xl_dict [dict create \
     "xl_float_negative" -123.789 \
     "xl_list" [list 1 2 3] \
     "xl_dict" [dict create "foo" "bar"] \
-    "xl_lambda" [xl::lambda [list] {{va} {
+    "xl_lambda" [xl::init_lambda [list] {{va} {
         lassign $va aa bb
         return [expr {$aa * $bb}]
     }}] \

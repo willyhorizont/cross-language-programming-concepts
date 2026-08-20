@@ -10,19 +10,19 @@ class Program
         /*
         1. support lambda as value, or has workaround
         */
-        dynamic SayHello = (Xl.Lambda)((Va) => {
+        dynamic SayHello = Xl.InitLambda((Va) => {
             dynamic Itr = Xl.Iter(Va);
             dynamic Callback = Xl.Next(Itr);
             Console.WriteLine("hello");
             Callback.Call();
         });
-        SayHello.Call((Xl.Lambda)((Va) => {
+        SayHello.Call(Xl.InitLambda((Va) => {
             Console.WriteLine("world");
         }));
-        dynamic CreateMultiplier = (Xl.Lambda)((Va) => {
+        dynamic CreateMultiplier = Xl.InitLambda((Va) => {
             dynamic Itr = Xl.Iter(Va);
             dynamic Aa = Xl.Next(Itr);
-            return (Xl.Lambda)((Va) => {
+            return Xl.InitLambda((Va) => {
                 dynamic Itr = Xl.Iter(Va);
                 dynamic Bb = Xl.Next(Itr);
                 return Aa * Bb; 
@@ -37,7 +37,7 @@ class Program
         /*
         2. support dynamic-typed value, or has workaround
         */
-        dynamic XlList = new Xl.List {
+        dynamic XlList = Xl.InitList(
             null,
             true,
             false,
@@ -46,35 +46,35 @@ class Program
             -123,
             123.789,
             -123.789,
-            new Xl.List {1, 2, 3},
-            new Xl.Dict { { "foo", "bar" } },
-            (Xl.Lambda)((Va) => {
+            Xl.InitList(1, 2, 3),
+            Xl.InitDict(("foo", "bar")),
+            Xl.InitLambda((Va) => {
                 dynamic Itr = Xl.Iter(Va);
                 dynamic Aa = Xl.Next(Itr);
                 dynamic Bb = Xl.Next(Itr);
                 return Aa * Bb;
-            }),
-        };
+            })
+        );
         Console.WriteLine($"xl_list: {Xl.JsonStringify(XlList)}");
         Console.WriteLine($"xl_list: {Xl.JsonStringify(XlList, Pretty: true)}");
-        dynamic XlDict = new Xl.Dict {
-            { "xl_none", null },
-            { "xl_bool_true", true },
-            { "xl_bool_false", false },
-            { "xl_string", "foo" },
-            { "xl_int_positive", 0 },
-            { "xl_int_negative", -123 },
-            { "xl_float_positive", 123.789 },
-            { "xl_float_negative", -123.789 },
-            { "xl_list", new Xl.List {1, 2, 3} },
-            { "xl_dict", new Xl.Dict { { "foo", "bar" } } },
-            { "xl_lambda", (Xl.Lambda)((Va) => {
+        dynamic XlDict = Xl.InitDict(
+            ( "xl_none", null ),
+            ( "xl_bool_true", true ),
+            ( "xl_bool_false", false ),
+            ( "xl_string", "foo" ),
+            ( "xl_int_positive", 0 ),
+            ( "xl_int_negative", -123 ),
+            ( "xl_float_positive", 123.789 ),
+            ( "xl_float_negative", -123.789 ),
+            ( "xl_list", Xl.InitList(1, 2, 3) ),
+            ( "xl_dict", Xl.InitDict(("foo", "bar")) ),
+            ( "xl_lambda", Xl.InitLambda((Va) => {
                 dynamic Itr = Xl.Iter(Va);
                 dynamic Aa = Xl.Next(Itr);
                 dynamic Bb = Xl.Next(Itr);
                 return Aa * Bb;
-            }) },
-        };
+            }) )
+        );
         Console.WriteLine($"xl_dict: {Xl.JsonStringify(XlDict)}");
         Console.WriteLine($"xl_dict: {Xl.JsonStringify(XlDict, Pretty: true)}");
     }

@@ -16,6 +16,22 @@ public type Vararg = Array<Any>
 public type Lambda = (Vararg) -> Any
 public type `Iterator` = Iterator<Any>
 
+public func initList(a: Array<Any>): List {
+    let l = ArrayList<Any>()
+    for (el in a) {
+        l.add(el)
+    }
+    return l
+}
+
+public func initDict(dpl: Array<(String, Any)>): Dict {
+    let d = HashMap<String, Any>()
+    for ((k, v) in dpl) {
+        d[k] = v
+    }
+    return d
+}
+
 public func iter(va: Vararg): `Iterator` {
     return va.iterator()
 }

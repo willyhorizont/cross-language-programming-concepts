@@ -10,14 +10,14 @@ int main(int argc, char *argv[]) {
         Xl* itr = xl.iter(vararg);
         Xl* callback = xl.next(itr);
         printf("hello\n");
-        xl.free(xl.call(callback, xl.init_none()));
+        xl.free(xl.call(callback, xl.NONE));
         xl.free(itr);
         xl.free(vararg);
-        return xl.init_none();
+        return xl.NONE;
     }, NULL);
     xl.call(say_hello, xl.init_lambda({
         printf("world\n");
-        return xl.init_none();
+        return xl.NONE;
     }, NULL));
     xl.free(say_hello);
     Xl* create_multiplier = xl.init_lambda({
@@ -49,9 +49,9 @@ int main(int argc, char *argv[]) {
     2. support dynamic-typed value, or has workaround
     */
     Xl* xl_list = xl.init_list(
-        xl.init_none(),
-        xl.init_bool(true),
-        xl.init_bool(false),
+        xl.NONE,
+        xl.TRUE,
+        xl.FALSE,
         xl.init_string("foo"),
         xl.init_int(0),
         xl.init_int(-123),
@@ -73,9 +73,9 @@ int main(int argc, char *argv[]) {
     xl.print("xl_list: ", xl.json_stringify(xl_list, .pretty = true));
     xl.free(xl_list);
     Xl* xl_dict = xl.init_dict(
-        xl.init_pair("xl_none", xl.init_none()),
-        xl.init_pair("xl_bool_true", xl.init_bool(true)),
-        xl.init_pair("xl_bool_false", xl.init_bool(false)),
+        xl.init_pair("xl_none", xl.NONE),
+        xl.init_pair("xl_bool_true", xl.TRUE),
+        xl.init_pair("xl_bool_false", xl.FALSE),
         xl.init_pair("xl_string", xl.init_string("foo")),
         xl.init_pair("xl_int_positive", xl.init_int(0)),
         xl.init_pair("xl_int_negative", xl.init_int(-123)),

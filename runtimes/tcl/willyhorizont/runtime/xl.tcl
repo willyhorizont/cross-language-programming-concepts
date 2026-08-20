@@ -23,7 +23,7 @@ namespace eval xl {
         }
     }
 
-    proc lambda {args} {
+    proc init_lambda {args} {
         return [Lambda new {*}$args]
     }
 

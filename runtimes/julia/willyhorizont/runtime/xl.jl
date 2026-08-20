@@ -1,4 +1,6 @@
 module Xl
+    export init_dict
+    const init_dict = Dict
     export escape_string
     function escape_string(s)
         if s === nothing

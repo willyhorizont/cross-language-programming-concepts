@@ -29,6 +29,57 @@ Iterator :: struct {
     index:  int,
 }
 
+init_bool :: proc(v: Bool) -> Type {
+    return Type(v)
+}
+
+init_string :: proc(v: String) -> Type {
+    return Type(v)
+}
+
+init_int :: proc(v: Int) -> Type {
+    return Type(v)
+}
+
+init_float :: proc(v: Float) -> Type {
+    return Type(v)
+}
+
+init_list :: proc(va: ..Type) -> Type {
+    l := make(List)
+    for el in va {
+        append(&l, el)
+    }
+    return l
+}
+
+init_pair :: proc(pk: String, pv: Type) -> Pair {
+    return Pair{key = pk, value = pv}
+}
+
+init_dict :: proc(dpl: ..Pair) -> Type {
+    d := make(Dict)
+    for p in dpl {
+        d[p.key] = p.value
+    }
+    return d
+}
+
+init_lambda :: proc(value: proc(self: ^Lambda, va: ..Type) -> Type, ctx: rawptr = nil) -> Type {
+    return Lambda{
+        ctx = ctx,
+        call = value,
+    }
+}
+
+call :: proc(a: Type, va: ..Type) -> Type {
+    if c, ok := a.(Lambda); ok {
+        cc := c
+        return cc.call(&cc, ..va)
+    }
+    panic("XlRuntimeError: Expected Lambda.")
+}
+
 iter :: proc(va: ..Type) -> Iterator {
     return Iterator{ args = va, index = 0 }
 }

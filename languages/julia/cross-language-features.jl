@@ -30,12 +30,12 @@ xl_list = [
     123.789,
     -123.789,
     [1, 2, 3],
-    Dict("foo" => "bar"),
+    Xl.init_dict("foo" => "bar"),
     (aa, bb) -> aa * bb,
 ]
 println("xl_list: $(Xl.json_stringify(xl_list))")
 println("xl_list: $(Xl.json_stringify(xl_list, pretty=true))")
-xl_dict = Dict(
+xl_dict = Xl.init_dict(
     "xl_none" => nothing,
     "xl_bool_true" => true,
     "xl_bool_false" => false,
@@ -45,7 +45,7 @@ xl_dict = Dict(
     "xl_float_positive" => 123.789,
     "xl_float_negative" => -123.789,
     "xl_list" => [1, 2, 3],
-    "xl_dict" => Dict("foo" => "bar"),
+    "xl_dict" => Xl.init_dict("foo" => "bar"),
     "xl_lambda" => (aa, bb) -> aa * bb,
 )
 println("xl_dict: $(Xl.json_stringify(xl_dict))")

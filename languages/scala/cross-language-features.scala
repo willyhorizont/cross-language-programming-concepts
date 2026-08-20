@@ -4,40 +4,43 @@ import willyhorizont.runtime.Xl
     /*
     ' -- 1. support lambda as value, or has workaround
     */
-    val sayHello = ((va: Seq[Any]) => {
-        def invoke(): Any = {
-            val callback = va(0)
+    val sayHello = ((va: Any) => {
+        def call(): Any = {
+            val itr = Xl.iter(va)
+            val callback = Xl.next(itr)
             println("hello")
-            callback.asInstanceOf[Seq[Any] => Any](Seq(null))
+            Xl.call(callback)
             return null
         }
-        invoke()
-    }).asInstanceOf[Seq[Any] => Any]
-    sayHello.asInstanceOf[Seq[Any] => Any](Seq(((va: Seq[Any]) => {
-        def invoke(): Any = {
+        call()
+    })
+    Xl.call(sayHello, ((va: Any) => {
+        def call(): Any = {
             println("world")
             return null
         }
-        invoke()
-    }).asInstanceOf[Seq[Any] => Any]))
-    val createMultiplier = ((va: Seq[Any]) => {
-        def invoke(): Any = {
-            val aa = va(0)
-            return ((va: Seq[Any]) => {
-                def invoke(): Any = {
-                    val bb = va(0)
+        call()
+    }))
+    val createMultiplier = ((va: Any) => {
+        def call(): Any = {
+            val itr = Xl.iter(va)
+            val aa = Xl.next(itr)
+            return ((va: Any) => {
+                def call(): Any = {
+                    val itr = Xl.iter(va)
+                    val bb = Xl.next(itr)
                     return aa.asInstanceOf[Int] * bb.asInstanceOf[Int]
                 }
-                invoke()
-            }).asInstanceOf[Seq[Any] => Any]
+                call()
+            })
         }
-        invoke()
-    }).asInstanceOf[Seq[Any] => Any]
-    val multiplyByTwo = createMultiplier.asInstanceOf[Seq[Any] => Any](Seq(2))
-    println(s"multiply_by_two(10): ${multiplyByTwo.asInstanceOf[Seq[Any] => Any](Seq(10))}")
-    val multiplyByEight = createMultiplier.asInstanceOf[Seq[Any] => Any](Seq(8))
-    println(s"multiply_by_eight(4): ${multiplyByEight.asInstanceOf[Seq[Any] => Any](Seq(4))}")
-    println(s"multiply_by_two(8): ${multiplyByTwo.asInstanceOf[Seq[Any] => Any](Seq(8))}")
+        call()
+    })
+    val multiplyByTwo = Xl.call(createMultiplier, 2)
+    println(s"multiply_by_two(10): ${Xl.call(multiplyByTwo, 10)}")
+    val multiplyByEight = Xl.call(createMultiplier, 8)
+    println(s"multiply_by_eight(4): ${Xl.call(multiplyByEight, 4)}")
+    println(s"multiply_by_two(8): ${Xl.call(multiplyByTwo, 8)}")
     
     /*
     ' -- 2. support dynamic-typed value, or has workaround
@@ -53,14 +56,15 @@ import willyhorizont.runtime.Xl
         -123.789,
         Xl.initList(1, 2, 3),
         Xl.initDict("foo" -> "bar"),
-        ((va: Seq[Any]) => {
-            def invoke(): Any = {
-                val aa = va(0)
-                val bb = va(1)
+        ((va: Any) => {
+            def call(): Any = {
+                val itr = Xl.iter(va)
+                val aa = Xl.next(itr)
+                val bb = Xl.next(itr)
                 return aa.asInstanceOf[Int] * bb.asInstanceOf[Int]
             }
-            invoke()
-        }).asInstanceOf[Seq[Any] => Any]
+            call()
+        })
     )
     println(s"xl_list: ${Xl.jsonStringify(xlList)}")
     println(s"xl_list: ${Xl.jsonStringify(xlList, pretty = true)}")
@@ -75,14 +79,15 @@ import willyhorizont.runtime.Xl
         "xl_float_negative" -> -123.789,
         "xl_list" -> Xl.initList(1, 2, 3),
         "xl_dict" -> Xl.initDict("foo" -> "bar"),
-        "xl_lambda" -> ((va: Seq[Any]) => {
-            def invoke(): Any = {
-                val aa = va(0)
-                val bb = va(1)
+        "xl_lambda" -> ((va: Any) => {
+            def call(): Any = {
+                val itr = Xl.iter(va)
+                val aa = Xl.next(itr)
+                val bb = Xl.next(itr)
                 return aa.asInstanceOf[Int] * bb.asInstanceOf[Int]
             }
-            invoke()
-        }).asInstanceOf[Seq[Any] => Any],
+            call()
+        }),
     )
     println(s"xl_dict: ${Xl.jsonStringify(xlDict)}")
     println(s"xl_dict: ${Xl.jsonStringify(xlDict, pretty = true)}")

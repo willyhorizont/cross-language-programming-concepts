@@ -2,7 +2,7 @@ package main
 
 import (
     "fmt"
-    xl "cross-language-programming-concepts/runtimes/go/willyhorizont/runtime"
+    "cross-language-programming-concepts/runtimes/go/willyhorizont/runtime/xl"
 )
 
 func main() {

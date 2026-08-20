@@ -100,3 +100,5 @@ runtimes/v/.cache
 
 tools/linguist-languages.json
 tools/linguist-languages.yml
+
+languages/vala/*.c

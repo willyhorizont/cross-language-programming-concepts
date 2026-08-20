@@ -1,23 +1,23 @@
 xl <- list(
     curry = \(f, ...) \(r) f(r, ...),
     catln = \(...) cat(paste0(..., "\n")),
-    dict = \(...) {
+    init_dict = \(...) {
         va <- list(...)
         d <- new.env(parent = emptyenv())
         dpl <- names(va)
         if (is.null(dpl)) {
-            if (length(va) > 0) stop("XlRuntimeError: Invalid dict.")
+            if (length(va) > 0) stop("XlRuntimeError: Invalid Dict.")
             return(d)
         }
         for (k in dpl) {
-            if (k == "") stop("XlRuntimeError: Invalid dict.")
+            if (k == "") stop("XlRuntimeError: Invalid Dict.")
             d[[k]] <- va[[k]]
         }
         return(d)
     },
     get = \(d, k) {
-        if (!is.environment(d)) stop("XlRuntimeError: Expected dict.")
-        if (!exists(k, envir = d, inherits = FALSE)) stop(paste0("XlRuntimeError: Key \"", k, "\" not found in dict."))
+        if (!is.environment(d)) stop("XlRuntimeError: Expected Dict.")
+        if (!exists(k, envir = d, inherits = FALSE)) stop(paste0("XlRuntimeError: Key \"", k, "\" not found in Dict."))
         return(d[[k]])
     },
     escape_string = \(s) {

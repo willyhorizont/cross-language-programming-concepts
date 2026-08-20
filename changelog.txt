@@ -1,3 +1,17 @@
+[Last updated: 20 Aug 2026 @ 08:12 AM][version: 2.9.3]
+update c;
+big update in c-plus-plus;
+big update in c-sharp;
+big update in cangjie;
+big update in go;
+big update in kotlin;
+update matlab-or-octave;
+big update in odin;
+update r;
+big update in scala;
+update tcl;
+update vala;
+
 [Last updated: 20 Aug 2026 @ 01:29 AM][version: 2.9.2]
 update github-programming-languages-card.png;
 

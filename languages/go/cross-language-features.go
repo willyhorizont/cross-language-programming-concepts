@@ -1,80 +1,80 @@
 package main
 
 import (
-    xl "cross-language-programming-concepts/runtimes/go/willyhorizont/runtime"
+    "cross-language-programming-concepts/runtimes/go/willyhorizont/runtime/xl"
 )
 
 func main() {
     /*
     1. support lambda as value, or has workaround
     */
-    sayHello := func(va ...interface{}) interface{} {
-        itr := xl.Iter(va)
+    sayHello := xl.InitLambda(func(va xl.Type) xl.Type {
+        itr := va.Iter()
         callback := itr.Next()
         xl.Println("hello")
-        xl.Call(callback)
-        return nil
-    }
-    sayHello(func(va ...interface{}) interface{} {
-        xl.Println("world")
-        return nil
+        callback.Call()
+        return xl.NONE
     })
-    createMultiplier := func(va ...interface{}) interface{} {
-        itr := xl.Iter(va)
+    sayHello.Call(xl.InitLambda(func(va xl.Type) xl.Type {
+        xl.Println("world")
+        return xl.NONE
+    }))
+    createMultiplier := xl.InitLambda(func(va xl.Type) xl.Type {
+        itr := va.Iter()
         aa := itr.Next()
-        return func(va ...interface{}) interface{} {
-            itr := xl.Iter(va)
+        return xl.InitLambda(func(va xl.Type) xl.Type {
+            itr := va.Iter()
             bb := itr.Next()
-            return xl.ToInt(aa) * xl.ToInt(bb)
-        }
-    }
-    multiplyByTwo := createMultiplier(2)
-    xl.Println("multiply_by_two(10): ", xl.Call(multiplyByTwo, 10))
-    multiplyByEight := createMultiplier(8)
-    xl.Println("multiply_by_eight(4): ", xl.Call(multiplyByEight, 4))
-    xl.Println("multiply_by_two(8): ", xl.Call(multiplyByTwo, 8))
+            return xl.InitInt(aa.ToInt() * bb.ToInt())
+        })
+    })
+    multiplyByTwo := createMultiplier.Call(xl.InitInt(2))
+    xl.Println("multiply_by_two(10): ", multiplyByTwo.Call(xl.InitInt(10)))
+    multiplyByEight := createMultiplier.Call(xl.InitInt(8))
+    xl.Println("multiply_by_eight(4): ", multiplyByEight.Call(xl.InitInt(4)))
+    xl.Println("multiply_by_two(8): ", multiplyByTwo.Call(xl.InitInt(8)))
 
     /*
     2. support dynamic-typed value, or has workaround
     */
-    xlList := xl.List{
-        nil,
-        true,
-        false,
-        "foo",
-        0,
-        -123,
-        123.789,
-        -123.789,
-        xl.List{1, 2, 3},
-        xl.Dict{"foo": "bar"},
-        func(va ...interface{}) interface{} {
-            itr := xl.Iter(va)
+    xlList := xl.InitList(
+        xl.NONE,
+        xl.TRUE,
+        xl.FALSE,
+        xl.InitString("foo"),
+        xl.InitInt(0),
+        xl.InitInt(-123),
+        xl.InitFloat(123.789),
+        xl.InitFloat(-123.789),
+        xl.InitList(xl.InitInt(1), xl.InitInt(2), xl.InitInt(3)),
+        xl.InitDict(xl.InitPair("foo", xl.InitString("bar"))),
+        xl.InitLambda(func(va xl.Type) xl.Type {
+            itr := va.Iter()
             aa := itr.Next()
             bb := itr.Next()
-            return xl.ToInt(aa) * xl.ToInt(bb)
-        },
-    }
+            return xl.InitInt(aa.ToInt() * bb.ToInt())
+        }),
+    )
     xl.Println("xl_list: ", xl.JsonStringify(xlList))
-    xl.Println("xl_list: ", xl.JsonStringify(xlList, xl.Dict{"pretty": true}))
-    xlDict := xl.Dict{
-        "xl_none": nil,
-        "xl_bool_true": true,
-        "xl_bool_false": false,
-        "xl_string": "foo",
-        "xl_int_positive": 0,
-        "xl_int_negative": -123,
-        "xl_float_positive": 123.789,
-        "xl_float_negative": -123.789,
-        "xl_list": xl.List{1, 2, 3},
-        "xl_dict": xl.Dict{"foo": "bar"},
-        "xl_lambda": func(va ...interface{}) interface{} {
-            itr := xl.Iter(va)
+    xl.Println("xl_list: ", xl.JsonStringify(xlList, xl.InitDict(xl.InitPair("pretty", xl.TRUE)))) 
+    xlDict := xl.InitDict(
+        xl.InitPair("xl_none", xl.NONE),
+        xl.InitPair("xl_bool_true", xl.TRUE),
+        xl.InitPair("xl_bool_false", xl.FALSE),
+        xl.InitPair("xl_string", xl.InitString("foo")),
+        xl.InitPair("xl_int_positive", xl.InitInt(0)),
+        xl.InitPair("xl_int_negative", xl.InitInt(-123)),
+        xl.InitPair("xl_float_positive", xl.InitFloat(123.789)),
+        xl.InitPair("xl_float_negative", xl.InitFloat(-123.789)),
+        xl.InitPair("xl_list", xl.InitList(xl.InitInt(1), xl.InitInt(2), xl.InitInt(3))),
+        xl.InitPair("xl_dict", xl.InitDict(xl.InitPair("foo", xl.InitString("bar")))),
+        xl.InitPair("xl_lambda", xl.InitLambda(func(va xl.Type) xl.Type {
+            itr := va.Iter()
             aa := itr.Next()
             bb := itr.Next()
-            return xl.ToInt(aa) * xl.ToInt(bb)
-        },
-    }
+            return xl.InitInt(aa.ToInt() * bb.ToInt())
+        })),
+    )
     xl.Println("xl_dict: ", xl.JsonStringify(xlDict))
-    xl.Println("xl_dict: ", xl.JsonStringify(xlDict, xl.Dict{"pretty": true}))
+    xl.Println("xl_dict: ", xl.JsonStringify(xlDict, xl.InitDict(xl.InitPair("pretty", xl.TRUE))))
 }

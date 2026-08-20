@@ -1,6 +1,6 @@
 classdef xl
     methods (Static)
-        function d = dict(varargin)
+        function d = initdict(varargin)
             if mod(length(varargin), 2) ~= 0
                 error("XlRuntimeError: Invalid Dict.");
             end

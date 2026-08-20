@@ -1,24 +1,74 @@
 package runtimes.kotlin.willyhorizont.runtime
 
 object xl {
-    interface Lambda {
-        fun call(va: Array<out Any?>): Any?
-        operator fun invoke(vararg args: Any?): Any? {
-            return call(args)
+    fun toBool(a: Any?): Boolean {
+        return when (a) {
+            is Boolean -> a
+            else -> throw RuntimeException("XlRuntimeError: Expected Bool.")
         }
     }
-    
+    fun toString(a: Any?): String {
+        return when (a) {
+            null -> "null"
+            is String -> a
+            else -> throw RuntimeException("XlRuntimeError: Expected String.")
+        }
+    }
+    fun toInt(a: Any?): Long {
+        return when (a) {
+            is Number -> a.toLong()
+            else -> throw RuntimeException("XlRuntimeError: Expected Int.")
+        }
+    }
+    fun toFloat(a: Any?): Double {
+        return when (a) {
+            is Number -> a.toDouble()
+            else -> throw RuntimeException("XlRuntimeError: Expected Float.")
+        }
+    }
+    fun initList(vararg va: Any?): ArrayList<Any?> {
+        val l = ArrayList<Any?>()
+        l.addAll(va)
+        return l
+    }
+    fun initDict(vararg dpl: Pair<String, Any?>): HashMap<String, Any?> {
+        val d = HashMap<String, Any?>()
+        for (p in dpl) {
+            d[p.first] = p.second
+        }
+        return d
+    }
+    fun iter(va: Any?): Iterator<Any?> {
+        return when (va) {
+            is List<*> -> va.iterator()
+            is Array<*> -> va.iterator()
+            else -> throw RuntimeException("XlRuntimeError: Expected List.")
+        }
+    }
+    fun next(itr: Any?): Any? {
+        if (itr is Iterator<*>) {
+            return if (itr.hasNext()) itr.next() else null
+        }
+        throw RuntimeException("XlRuntimeError: Expected Iterator.")
+    }
+    @Suppress("UNCHECKED_CAST")
+    fun call(lambda: Any?, vararg a: Any?): Any? {
+        if (lambda is Function1<*, *>) {
+            val va = arrayListOf<Any?>()
+            va.addAll(a)
+            return (lambda as Function1<Any?, Any?>)(va)
+        }
+        throw RuntimeException("XlRuntimeError: Expected Lambda.")
+    }
     fun escapeString(s: Any?): String {
         if (s == null) return ""
-        var r = s.toString()
-        r = r.replace("\\", "\\\\")
-        r = r.replace("\"", "\\\"")
-        r = r.replace("\n", "\\n")
-        r = r.replace("\r", "\\r")
-        r = r.replace("\t", "\\t")
-        return r
+        return s.toString()
+            .replace("\\", "\\\\")
+            .replace("\"", "\\\"")
+            .replace("\n", "\\n")
+            .replace("\r", "\\r")
+            .replace("\t", "\\t")
     }
-    
     fun jsonStringify(a: Any?, pretty: Boolean = false): String {
         val p = pretty
         val t = " ".repeat(4)
@@ -48,7 +98,7 @@ object xl {
                 r += v.toString()
                 continue
             }
-            if (v is Lambda) {
+            if (v is Function1<*, *>) {
                 r += "\"[object Function]\""
                 continue
             }

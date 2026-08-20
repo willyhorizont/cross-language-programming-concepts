@@ -4,18 +4,22 @@ namespace Willyhorizont.Runtime.Xl {
             print (GLib.Environment.get_variable ("SEP") ?? "");
         }
         public enum Types {
-            NONE,
-            BASE,
-            LIST,
-            DICT,
-            LAMBDA,
+            XL_NONE,
+            XL_BASE,
+            XL_LIST,
+            XL_DICT,
+            XL_LAMBDA,
         }
         public class Type : GLib.Object {
             public Type () {}
-            public static Type None;
+            public static Type NONE;
+            public static Type TRUE;
+            public static Type FALSE;
             static construct {
                 welcome();
-                None = from_none ();
+                NONE = from_none ();
+                TRUE = from_bool (true);
+                FALSE = from_bool (false);
             }
             public Types data_type {
                 get;
@@ -50,8 +54,8 @@ namespace Willyhorizont.Runtime.Xl {
                 this._c = (owned) c;
             }
             public Type? call (Type[] args) {
-                if (this.data_type == Types.LAMBDA && this._c != null) return this._c (init_list (args));
-                return None;
+                if (this.data_type == Types.XL_LAMBDA && this._c != null) return this._c (init_list (args));
+                return NONE;
             }
             public class Iterator : GLib.Object {
                 private Gee.ArrayList<Type> _l;
@@ -66,11 +70,11 @@ namespace Willyhorizont.Runtime.Xl {
                         this._i += 1;
                         return cur_el;
                     }
-                    return None;
+                    return NONE;
                 }
             }
             public Iterator iter () {
-                if (this.data_type == Types.LIST && this.list != null) return new Iterator (this.list);
+                if (this.data_type == Types.XL_LIST && this.list != null) return new Iterator (this.list);
                 error ("XlRuntimeError: Expected List.\n");
             }
             public bool to_bool () {
@@ -86,32 +90,32 @@ namespace Willyhorizont.Runtime.Xl {
                 return (this.value != null && this.value.holds (typeof (double))) ? this.value.get_double () : 0.0;
             }
             public Type? at (int i) {
-                if (this.data_type == Types.LIST && this.list != null) {
+                if (this.data_type == Types.XL_LIST && this.list != null) {
                     if (i >= 0 && i < this.list.size) return this.list.get (i);
-                    return None;
+                    return NONE;
                 }
                 error ("XlRuntimeError: Expected List.\n");
             }
             public void push (Type el) {
-                if (this.data_type == Types.LIST && this.list != null) {
+                if (this.data_type == Types.XL_LIST && this.list != null) {
                     this.list.add (el);
                     return;
                 }
                 error ("XlRuntimeError: Expected List.\n");
             }
             public Type? pop () {
-                if (this.data_type == Types.LIST && this.list != null) {
+                if (this.data_type == Types.XL_LIST && this.list != null) {
                     if (this.list.size > 0) {
                         return this.list.remove_at (this.list.size - 1);
                     }
-                    return None;
+                    return NONE;
                 }
                 error ("XlRuntimeError: Expected List.\n");
             }
             public new Type? get_item (string key) {
-                if (this.data_type == Types.DICT && this.dict != null) {
+                if (this.data_type == Types.XL_DICT && this.dict != null) {
                     if (this.dict.has_key (key)) return this.dict.get (key);
-                    return None;
+                    return NONE;
                 }
                 error ("XlRuntimeError: Expected Dictionary.\n");
             }
@@ -127,7 +131,7 @@ namespace Willyhorizont.Runtime.Xl {
         }
         public static Type from_none () {
             var t = new Type ();
-            t.data_type = Types.NONE;
+            t.data_type = Types.XL_NONE;
             GLib.Value v = GLib.Value (typeof (GLib.Object));
             v.set_object (null);
             t.value = v;
@@ -135,7 +139,7 @@ namespace Willyhorizont.Runtime.Xl {
         }
         public static Type from_bool (bool a) {
             var t = new Type ();
-            t.data_type = Types.BASE;
+            t.data_type = Types.XL_BASE;
             GLib.Value v = GLib.Value (typeof (bool));
             v.set_boolean (a);
             t.value = v;
@@ -143,7 +147,7 @@ namespace Willyhorizont.Runtime.Xl {
         }
         public static Type from_string (string a) {
             var t = new Type ();
-            t.data_type = Types.BASE;
+            t.data_type = Types.XL_BASE;
             GLib.Value v = GLib.Value (typeof (string));
             v.set_string (a);
             t.value = v;
@@ -151,7 +155,7 @@ namespace Willyhorizont.Runtime.Xl {
         }
         public static Type from_int (int a) {
             var t = new Type ();
-            t.data_type = Types.BASE;
+            t.data_type = Types.XL_BASE;
             GLib.Value v = GLib.Value (typeof (int));
             v.set_int (a);
             t.value = v;
@@ -159,7 +163,7 @@ namespace Willyhorizont.Runtime.Xl {
         }
         public static Type from_float (double a) {
             var t = new Type ();
-            t.data_type = Types.BASE;
+            t.data_type = Types.XL_BASE;
             GLib.Value v = GLib.Value (typeof (double));
             v.set_double (a);
             t.value = v;
@@ -167,30 +171,30 @@ namespace Willyhorizont.Runtime.Xl {
         }
         public static Type from_list () {
             var t = new Type ();
-            t.data_type = Types.LIST;
+            t.data_type = Types.XL_LIST;
             t.list = new Gee.ArrayList<Type> ();
             return t;
         }
         public static Type from_dict () {
             var t = new Type ();
-            t.data_type = Types.DICT;
+            t.data_type = Types.XL_DICT;
             t.dict = new Gee.HashMap<string, Type> ();
             return t;
         }
         public static Type from_lambda (owned Type.Lambda c) {
             var t = new Type ();
-            t.data_type = Types.LAMBDA;
+            t.data_type = Types.XL_LAMBDA;
             t.set_lambda ((owned) c);
             return t;
         }
         public static Type from_value (GLib.Value a) {
             var t = new Type ();
-            t.data_type = Types.BASE;
+            t.data_type = Types.XL_BASE;
             t.value = a;
             return t;
         }
         public static Type init_none () {
-            return Type.None;
+            return Type.NONE;
         }
         public static Type init_bool (bool a) {
             return from_bool (a);
@@ -225,7 +229,7 @@ namespace Willyhorizont.Runtime.Xl {
             return from_lambda ((owned) c);
         }
         public static bool is_none (Type a) {
-            if (a.data_type == Types.NONE) return true;
+            if (a.data_type == Types.XL_NONE) return true;
             if (a.value != null && a.value.holds (typeof (GLib.Object)) && a.value.get_object () == null) return true;
             return false;
         }
@@ -255,7 +259,7 @@ namespace Willyhorizont.Runtime.Xl {
                     r += "null";
                     continue;
                 }
-                if (v.data_type == Types.BASE && v.value != null) {
+                if (v.data_type == Types.XL_BASE && v.value != null) {
                     var v_t = v.value.type ();
                     if (v_t == typeof (bool)) {
                         r += v.to_bool () ? "true" : "false";
@@ -274,11 +278,11 @@ namespace Willyhorizont.Runtime.Xl {
                         continue;
                     }
                 }
-                if (v.data_type == Types.LAMBDA) {
+                if (v.data_type == Types.XL_LAMBDA) {
                     r += "\"[object Function]\"";
                     continue;
                 }
-                if (v.data_type == Types.LIST && v.list != null) {
+                if (v.data_type == Types.XL_LIST && v.list != null) {
                     if (v.list.size == 0) {
                         r += "[]";
                         continue;
@@ -314,7 +318,7 @@ namespace Willyhorizont.Runtime.Xl {
                     }));
                     continue;
                 }
-                if (v.data_type == Types.DICT && v.dict != null) {
+                if (v.data_type == Types.XL_DICT && v.dict != null) {
                     if (v.dict.size == 0) {
                         r += "{}";
                         continue;

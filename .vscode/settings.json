@@ -486,9 +486,6 @@
     "rubyLsp.rubyVersionManager": {
         "identifier": "none"
     },
-    "[go]": {
-        "editor.formatOnSave": false
-    },
     "MATLAB.matlabConnectionTiming": "never",
     "MATLAB.telemetry": false,
     "lldb.library": "/mnt/c/WSL_Documents/Swift/swift-5.9.1-RELEASE-ubuntu22.04/usr/lib/liblldb.so",
@@ -553,6 +550,13 @@
         "editor.tabSize": 4,
         "editor.insertSpaces": true,
         "editor.detectIndentation": false
+    },
+    "[go]": {
+        "editor.wordWrap": "off",
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false,
+        "editor.formatOnSave": false
     },
     "[markdown]": {
         "editor.wordWrap": "off",

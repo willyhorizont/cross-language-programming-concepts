@@ -45,7 +45,7 @@ main() {
     /*
     2. support dynamic-typed value, or has workaround
     */
-    let xlList: Any = Xl.List([
+    let xlList: Any = Xl.initList([
         Xl.NONE,
         true,
         false,
@@ -54,8 +54,8 @@ main() {
         -123,
         123.789,
         -123.789,
-        Xl.List([1, 2, 3]),
-        Xl.Dict([("foo", "bar")]),
+        Xl.initList([1, 2, 3]),
+        Xl.initDict([("foo", "bar")]),
         { va: Xl.Vararg =>
             let itr = Xl.iter(va)
             (match ((
@@ -71,7 +71,7 @@ main() {
     ])
     println("xl_list: ${Xl.jsonStringify(xlList)}")
     println("xl_list: ${Xl.jsonStringify(xlList, pretty: true)}")
-    let xlDict: Any = Xl.Dict([
+    let xlDict: Any = Xl.initDict([
         ("xl_none", Xl.NONE),
         ("xl_bool_true", true),
         ("xl_bool_false", false),
@@ -80,8 +80,8 @@ main() {
         ("xl_int_negative", -123),
         ("xl_float_positive", 123.789),
         ("xl_float_negative", -123.789),
-        ("xl_list", Xl.List([1, 2, 3])),
-        ("xl_dict", Xl.Dict([("foo", "bar")])),
+        ("xl_list", Xl.initList([1, 2, 3])),
+        ("xl_dict", Xl.initDict([("foo", "bar")])),
         ("xl_lambda", { va: Xl.Vararg =>
             let itr = Xl.iter(va)
             (match ((

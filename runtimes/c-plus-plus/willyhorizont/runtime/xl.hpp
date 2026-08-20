@@ -109,8 +109,39 @@ namespace XL {
         return Type(NONE);
     }
 
+    inline const Type TRUE{Bool(true)};
+    inline const Type FALSE{Bool(false)};
+
+    inline Type init_none() {
+        return Type(NONE);
+    }
+
+    inline Type init_bool(Bool v) {
+        return Type(v);
+    }
+
+    inline Type init_string(const String& v) {
+        return Type(v);
+    }
+
+    inline Type init_string(const char* v) {
+        return Type(String(v));
+    }
+
+    inline Type init_int(Int v) {
+        return Type(v);
+    }
+
+    inline Type init_float(Float v) {
+        return Type(v);
+    }
+
+    inline Type init_lambda(Lambda v) {
+        return Type(std::move(v));
+    }
+
     template <typename... Args>
-    Type List(Args&&... args) {
+    inline Type init_list(Args&&... args) {
         ListValue l;
         l.reserve(sizeof...(args));
         (l.push_back(Type(std::forward<Args>(args))), ...);
@@ -118,7 +149,7 @@ namespace XL {
     }
 
     template <typename... Args>
-    Type Dict(Args&&... args) {
+    inline Type init_dict(Args&&... args) {
         DictValue d;
         (d.insert(std::forward<Args>(args)), ...);
         return Type(std::move(d));

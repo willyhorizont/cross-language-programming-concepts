@@ -13,6 +13,9 @@ namespace WillyHorizont.Runtime.Xl
             public List() : base()
             {
             }
+            public List(IEnumerable<dynamic> l) : base(l)
+            {
+            }
         }
         public class Dict : Dictionary<string, dynamic>
         {
@@ -47,6 +50,33 @@ namespace WillyHorizont.Runtime.Xl
                 }
                 return this.value(Va);
             }
+        }
+        public static List InitList(params dynamic[] el)
+        {
+            var l = new List();
+            if (el != null) l.AddRange(el);
+            return l;
+        }
+        public static Dict InitDict(params (string Key, dynamic Value)[] el)
+        {
+            var d = new Dict();
+            if (el != null)
+            {
+                foreach (var p in el) d[p.Key] = p.Value;
+            }
+            return d;
+        }
+        public static Lambda InitLambda(Func<dynamic[], dynamic> c)
+        {
+            return new Lambda(c);
+        }
+        public static Lambda InitLambda(Action<dynamic[]> c)
+        {
+            return new Lambda(delegate (dynamic[] Va)
+            {
+                c(Va);
+                return null;
+            });
         }
         public static dynamic Iter(dynamic[] Va)
         {
