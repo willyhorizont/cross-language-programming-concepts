@@ -1,3 +1,7 @@
+[Last updated: 21 Aug 2026 @ 02:40 AM][version: 2.9.8]
+update github-programming-languages-card.png;
+update languages.json colors;
+
 [Last updated: 21 Aug 2026 @ 12:28 AM][version: 2.9.7]
 update .vscode/settings.json;
 

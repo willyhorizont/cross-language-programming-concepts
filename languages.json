@@ -345,7 +345,7 @@
             {
                 "name": "Swift",
                 "url": "https://www.swift.org/",
-                "color": "#f15c44"
+                "color": "#F05138"
             }
         ],
         "file_extension": ".swift",
@@ -378,7 +378,7 @@
             {
                 "name": "Dart",
                 "url": "https://dart.dev/",
-                "color": "#009089"
+                "color": "#00B4AB"
             }
         ],
         "file_extension": ".dart",
@@ -525,7 +525,7 @@
             {
                 "name": "Wolfram Language (Mathematica)",
                 "url": "https://www.wolfram.com/wolframscript/",
-                "color": "#ff4131"
+                "color": "#dd1100"
             }
         ],
         "file_extension": ".wl",
@@ -568,7 +568,7 @@
             {
                 "name": "Raku",
                 "url": "https://raku.org/",
-                "color": "#357fff"
+                "color": "#0000fb"
             }
         ],
         "file_extension": ".raku",
