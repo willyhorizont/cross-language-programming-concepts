@@ -79,9 +79,9 @@ main :: proc() {
             ctx = global_ctx,
             value = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
                 itr := xl.iter(..va)
-                aa := xl.next(&itr).(xl.Int)
-                bb := xl.next(&itr).(xl.Int)
-                return xl.init_int(aa * bb)
+                aa := xl.next(&itr)
+                bb := xl.next(&itr)
+                return xl.init_int(aa.(xl.Int) * bb.(xl.Int))
             },
         ),
     )
@@ -102,9 +102,9 @@ main :: proc() {
             ctx = global_ctx,
             value = proc(self: ^xl.Lambda, va: ..xl.Type) -> xl.Type {
                 itr := xl.iter(..va)
-                aa := xl.next(&itr).(xl.Int)
-                bb := xl.next(&itr).(xl.Int)
-                return xl.init_int(aa * bb)
+                aa := xl.next(&itr)
+                bb := xl.next(&itr)
+                return xl.init_int(aa.(xl.Int) * bb.(xl.Int))
             },
         )),
     )

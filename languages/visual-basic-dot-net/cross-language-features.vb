@@ -8,7 +8,7 @@ Module Program
         ' 1. support lambda as value, or has workaround
         Dim SayHello As Object = Xl.InitLambda(Function(Va)
             Dim Itr As Object = Xl.Iter(Va)
-            Dim Callback As Object = Xl.NextItem(Itr)
+            Dim Callback As Object = Xl.GetNext(Itr)
             Console.WriteLine("hello")
             Callback.Invoke()
         End Function)
@@ -17,10 +17,10 @@ Module Program
         End Function))
         Dim CreateMultiplier As Object = Xl.InitLambda(Function(VaAa)
             Dim ItrAa As Object = Xl.Iter(VaAa)
-            Dim Aa As Object = Xl.NextItem(ItrAa)
+            Dim Aa As Object = Xl.GetNext(ItrAa)
             Return Xl.InitLambda(Function(VaBb)
                 Dim ItrBb As Object = Xl.Iter(VaBb)
-                Dim Bb As Object = Xl.NextItem(ItrBb)
+                Dim Bb As Object = Xl.GetNext(ItrBb)
                 Return Aa * Bb
             End Function)
         End Function)
@@ -44,8 +44,8 @@ Module Program
             Xl.InitDict(Xl.InitPair("foo", "bar")),
             Xl.InitLambda(Function(Va)
                 Dim Itr As Object = Xl.Iter(Va)
-                Dim Aa As Object = Xl.NextItem(Itr)
-                Dim Bb As Object = Xl.NextItem(Itr)
+                Dim Aa As Object = Xl.GetNext(Itr)
+                Dim Bb As Object = Xl.GetNext(Itr)
                 Return Aa * Bb
             End Function)
         )
@@ -64,8 +64,8 @@ Module Program
             Xl.InitPair("xl_dict", Xl.InitDict(Xl.InitPair("foo", "bar"))),
             Xl.InitPair("xl_lambda", Xl.InitLambda(Function(Va)
                 Dim Itr As Object = Xl.Iter(Va)
-                Dim Aa As Object = Xl.NextItem(Itr)
-                Dim Bb As Object = Xl.NextItem(Itr)
+                Dim Aa As Object = Xl.GetNext(Itr)
+                Dim Bb As Object = Xl.GetNext(Itr)
                 Return Aa * Bb
             End Function))
         )

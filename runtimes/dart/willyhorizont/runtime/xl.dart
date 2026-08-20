@@ -1,22 +1,15 @@
 class xl {
     xl._();
-
     static dynamic toList(dynamic l) {
         dynamic t = l.runtimeType.toString();
-        if (!t.contains("dynamic") && !t.contains("Object?")) {
-            return List<dynamic>.from(l as Iterable);
-        }
+        if (!t.contains("dynamic") && !t.contains("Object?")) return List<dynamic>.from(l as Iterable);
         return l;
     }
-
     static dynamic toDict(dynamic d) {
         dynamic t = d.runtimeType.toString();
-        if (!t.contains("dynamic") && !t.contains("Object?")) {
-            return Map<dynamic, dynamic>.from(d as Map);
-        }
+        if (!t.contains("dynamic") && !t.contains("Object?")) return Map<dynamic, dynamic>.from(d as Map);
         return d;
     }
-
     static dynamic push(dynamic l, dynamic item) {
         dynamic t = l.runtimeType.toString();
         if (!t.contains("dynamic") && !t.contains("Object?")) {
@@ -27,7 +20,6 @@ class xl {
         l.add(item);
         return l;
     }
-
     static dynamic set(dynamic d, dynamic k, dynamic v) {
         dynamic t = d.runtimeType.toString();
         if (!t.contains("dynamic") && !t.contains("Object?")) {
@@ -38,7 +30,17 @@ class xl {
         d[k] = v;
         return d;
     }
-
+    static dynamic iter(dynamic va) {
+        if (va == null) throw ArgumentError("XlRuntimeError: Expected List.");
+        dynamic safeVa = toList(va); 
+        if (safeVa is Iterable) return safeVa.iterator;
+        throw ArgumentError("XlRuntimeError: Expected List.");
+    }
+    static dynamic next(dynamic itr) {
+        if (itr is! Iterator) throw ArgumentError("XlRuntimeError: Expected Iterator.");
+        if (!itr.moveNext()) throw StateError("XlRuntimeError: Iterator has no next.");
+        return itr.current;
+    }
     static dynamic escapeString(dynamic s) {
         if (s == null) return "";
         dynamic r = s.toString();
@@ -49,7 +51,6 @@ class xl {
         r = r.replaceAll("\t", "\\t");
         return r;
     }
-
     static dynamic jsonStringify(dynamic o, {dynamic pretty = false}) {
         dynamic p = pretty;
         dynamic t = " " * 4;

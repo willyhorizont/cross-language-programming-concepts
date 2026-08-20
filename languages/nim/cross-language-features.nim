@@ -16,11 +16,11 @@ discard sayHello.call(xl.init(proc (args: xl.Type): xl.Type {.closure.} =
 ))
 let createMultiplier = xl.init(proc (args: xl.Type): xl.Type {.closure.} =
     let itr = xl.iter(args)
-    let aa = itr.next().toInt()
+    let aa = itr.next()
     return xl.init(proc (args: xl.Type): xl.Type {.closure.} =
         let itr = xl.iter(args)
-        let bb = itr.next().toInt()
-        return xl.init(aa * bb)
+        let bb = itr.next()
+        return xl.init(aa.toInt() * bb.toInt())
     )
 )
 let multiplyByTwo = createMultiplier.call(2)
@@ -45,9 +45,9 @@ let xlList = xl.init(@[
     xl.init(toTable({"foo": xl.init("bar")})),
     xl.init(proc (args: xl.Type): xl.Type {.closure.} =
         let itr = xl.iter(args)
-        let aa = itr.next().toInt()
-        let bb = itr.next().toInt()
-        return xl.init(aa * bb)
+        let aa = itr.next()
+        let bb = itr.next()
+        return xl.init(aa.toInt() * bb.toInt())
     ),
 ])
 echo fmt"xl_list: {jsonStringify(xlList)}"
@@ -65,9 +65,9 @@ let xlDict = xl.init(toTable({
     "xl_dict": xl.init(toTable({"foo": xl.init("bar")})),
     "xl_lambda": xl.init(proc (args: xl.Type): xl.Type {.closure.} =
         let itr = xl.iter(args)
-        let aa = itr.next().toInt()
-        let bb = itr.next().toInt()
-        return xl.init(aa * bb)
+        let aa = itr.next()
+        let bb = itr.next()
+        return xl.init(aa.toInt() * bb.toInt())
     ),
 }))
 echo fmt"xl_dict: {jsonStringify(xlDict)}"

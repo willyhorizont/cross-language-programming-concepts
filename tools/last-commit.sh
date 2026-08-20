@@ -2,7 +2,7 @@
 
 SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD/..")
-V="2.9.4" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
+V="2.9.5" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
 T=$(date "+%d %b %Y @ %I:%M %p")
 cd "$RD" || exit
 
@@ -24,19 +24,10 @@ H="
 H=$(sed -e '/./,$!d' <<< "$H")
 # ! DON'T FORGET TO CHANGE COMMIT MESSAGE BEFORE RUNNING !!!!
 M="
-update c;
-big update in c-plus-plus;
-big update in c-sharp;
-big update in cangjie;
-big update in go;
-big update in kotlin;
-update matlab-or-octave;
-big update in odin;
-update r;
-big update in scala;
-update tcl;
-update vala;
-big update in visual-basic-dot-net;
+update dart;
+update nim;
+update odin;
+update visual-basic-dot-net;
 "
 M=$(sed -e '/./,$!d' <<< "$M")
 M="$H

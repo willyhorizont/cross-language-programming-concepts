@@ -1,3 +1,9 @@
+[Last updated: 20 Aug 2026 @ 06:02 PM][version: 2.9.5]
+update dart;
+update nim;
+update odin;
+update visual-basic-dot-net;
+
 [Last updated: 20 Aug 2026 @ 08:28 AM][version: 2.9.4]
 update c;
 big update in c-plus-plus;

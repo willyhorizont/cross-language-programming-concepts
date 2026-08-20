@@ -5,8 +5,8 @@ void main() {
     1. support lambda as value, or has workaround
     */
     var sayHello = (va) {
-        var itr = va.iterator;
-        var callback = (itr..moveNext()).current;
+        var itr = xl.iter(va);
+        var callback = xl.next(itr);
         print("hello");
         callback([]);
     };
@@ -14,11 +14,11 @@ void main() {
         print("world");
     }]);
     var createMultiplier = (va) {
-        var itr = va.iterator;
-        var aa = (itr..moveNext()).current;
+        var itr = xl.iter(va);
+        var aa = xl.next(itr);
         return (va) {
-            var itr = va.iterator;
-            var bb = (itr..moveNext()).current;
+            var itr = xl.iter(va);
+            var bb = xl.next(itr);
             return aa * bb;
         };
     };
@@ -43,9 +43,9 @@ void main() {
         [1, 2, 3],
         { "foo": "bar" },
         (va) {
-            var itr = va.iterator;
-            var aa = (itr..moveNext()).current;
-            var bb = (itr..moveNext()).current;
+            var itr = xl.iter(va);
+            var aa = xl.next(itr);
+            var bb = xl.next(itr);
             return aa * bb;
         },
     ];
@@ -63,9 +63,9 @@ void main() {
         "xl_list": [1, 2, 3],
         "xl_dict": { "foo": "bar" },
         "xl_lambda": (va) {
-            var itr = va.iterator;
-            var aa = (itr..moveNext()).current;
-            var bb = (itr..moveNext()).current;
+            var itr = xl.iter(va);
+            var aa = xl.next(itr);
+            var bb = xl.next(itr);
             return aa * bb;
         },
     };

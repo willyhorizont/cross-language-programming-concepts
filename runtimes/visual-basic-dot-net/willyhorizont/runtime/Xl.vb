@@ -62,7 +62,7 @@ Namespace WillyHorizont.Runtime.Xl
             End If
             Return CType(Va, Object()).GetEnumerator()
         End Function
-        Public Shared Function NextItem(ByVal Itr As IEnumerator) As Object
+        Public Shared Function GetNext(ByVal Itr As IEnumerator) As Object
             Itr.MoveNext()
             Return Itr.Current
         End Function
