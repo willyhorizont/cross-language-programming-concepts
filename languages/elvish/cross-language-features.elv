@@ -8,7 +8,7 @@ var say-hello = {|callback|
 $say-hello {||
     echo "world"
 }
-var create-multiplier = {|a| put {|b| put (* $a $b) }}
+var create-multiplier = {|aa| put {|bb| put (* $aa $bb) }}
 var multiply-by-two = ($create-multiplier 2)
 echo "multiply_by_two(10):" ($multiply-by-two 10)
 var multiply-by-eight = ($create-multiplier 8)
@@ -27,7 +27,7 @@ var xl-list = [
     -123.789
     [1 2 3]
     [&"foo"="bar"]
-    {|a b| put (* $a $b)}
+    {|aa bb| put (* $aa $bb)}
 ]
 echo "xl_list:" ($xl:json-stringify $xl-list)
 echo "xl_list:" ($xl:json-stringify $xl-list &pretty=$true)
@@ -42,7 +42,7 @@ var xl-dict = [
     &"xl_float_negative"=-123.789
     &"xl_list"=[1 2 3]
     &"xl_dict"=[&"foo"="bar"]
-    &"xl_lambda"={|a b| put (* $a $b)}
+    &"xl_lambda"={|aa bb| put (* $aa $bb)}
 ]
 echo "xl_dict:" ($xl:json-stringify $xl-dict)
 echo "xl_dict:" ($xl:json-stringify $xl-dict &pretty=$true)

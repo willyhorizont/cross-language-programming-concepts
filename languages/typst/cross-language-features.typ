@@ -12,7 +12,7 @@
     say-hello(() => {
         xl.print-cmd("world")
     })
-    let create-multiplier = (a) => (b) => (a * b)
+    let create-multiplier = (aa) => (bb) => (aa * bb)
     let multiply-by-two = create-multiplier(2)
     xl.print-cmd([multiply_by_two(10): #{xl.json-stringify(multiply-by-two(10))}])
     let multiply-by-eight = create-multiplier(8)
@@ -33,7 +33,7 @@
         -123.789,
         (1, 2, 3),
         ("foo": "bar"),
-        (a, b) => (a * b),
+        (aa, bb) => (aa * bb),
     )
     xl.print-cmd([xl_list: #{xl.json-stringify(xl-list)}])
     xl.print-cmd([xl_list: #{xl.json-stringify(xl-list, pretty: true)}])
@@ -48,7 +48,7 @@
         "xl_float_negative": -123.789,
         "xl_list": (1, 2, 3),
         "xl_dict": ("foo": "bar"),
-        "xl_lambda": (a, b) => (a * b),
+        "xl_lambda": (aa, bb) => (aa * bb),
     )
     xl.print-cmd([xl_dict: #{xl.json-stringify(xl-dict)}])
     xl.print-cmd([xl_dict: #{xl.json-stringify(xl-dict, pretty: true)}])

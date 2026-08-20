@@ -26,11 +26,11 @@ int main() {
     2. support dynamic-typed value, or has workaround
     */
     mixed xl_list = ({
-        0, // none
-        1, // true
-        0, // false
+        0,
+        1,
+        0,
         "foo",
-        0, // 0
+        0,
         -123,
         123.789,
         -123.789,

@@ -5,20 +5,20 @@ import willyhorizont/runtime/xl
 #[
 // 1. support lambda as value, or has workaround
 ]#
-let sayHello = xl.init(proc (args: xl.Type): xl.Type {.closure.} =
-    let itr = xl.iter(args)
+let sayHello = xl.init(proc (va: xl.Type): xl.Type {.closure.} =
+    let itr = xl.iter(va)
     let callback = itr.next()
     echo "hello"
     discard callback.call()
 )
-discard sayHello.call(xl.init(proc (args: xl.Type): xl.Type {.closure.} =
+discard sayHello.call(xl.init(proc (va: xl.Type): xl.Type {.closure.} =
     echo "world"
 ))
-let createMultiplier = xl.init(proc (args: xl.Type): xl.Type {.closure.} =
-    let itr = xl.iter(args)
+let createMultiplier = xl.init(proc (va: xl.Type): xl.Type {.closure.} =
+    let itr = xl.iter(va)
     let aa = itr.next()
-    return xl.init(proc (args: xl.Type): xl.Type {.closure.} =
-        let itr = xl.iter(args)
+    return xl.init(proc (va: xl.Type): xl.Type {.closure.} =
+        let itr = xl.iter(va)
         let bb = itr.next()
         return xl.init(aa.toInt() * bb.toInt())
     )
@@ -43,8 +43,8 @@ let xlList = xl.init(@[
     xl.init(-123.789),
     xl.init(@[xl.init(1), xl.init(2), xl.init(3)]),
     xl.init(toTable({"foo": xl.init("bar")})),
-    xl.init(proc (args: xl.Type): xl.Type {.closure.} =
-        let itr = xl.iter(args)
+    xl.init(proc (va: xl.Type): xl.Type {.closure.} =
+        let itr = xl.iter(va)
         let aa = itr.next()
         let bb = itr.next()
         return xl.init(aa.toInt() * bb.toInt())
@@ -63,8 +63,8 @@ let xlDict = xl.init(toTable({
     "xl_float_negative": xl.init(-123.789),
     "xl_list": xl.init(@[xl.init(1), xl.init(2), xl.init(3)]),
     "xl_dict": xl.init(toTable({"foo": xl.init("bar")})),
-    "xl_lambda": xl.init(proc (args: xl.Type): xl.Type {.closure.} =
-        let itr = xl.iter(args)
+    "xl_lambda": xl.init(proc (va: xl.Type): xl.Type {.closure.} =
+        let itr = xl.iter(va)
         let aa = itr.next()
         let bb = itr.next()
         return xl.init(aa.toInt() * bb.toInt())

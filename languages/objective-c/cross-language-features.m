@@ -6,8 +6,8 @@ int main(int argc, const char * argv[]) {
         /*
         1. support lambda as value, or has workaround
         */
-        XL * sayHello = xl.initLambda(^(XL * args) {
-            XL * callback = [args next];
+        XL * sayHello = xl.initLambda(^(XL * va) {
+            XL * callback = [va next];
             NSLog(@"hello");
             [callback call:@[]];
             return xl.initNone();
@@ -16,10 +16,10 @@ int main(int argc, const char * argv[]) {
             NSLog(@"world");
             return xl.initNone();
         })]];
-        XL * createMultiplier = xl.initLambda(^(XL * args) {
-            XL * aa = [args next];
-            return xl.initLambda(^(XL * args) {
-                XL * bb = [args next];
+        XL * createMultiplier = xl.initLambda(^(XL * va) {
+            XL * aa = [va next];
+            return xl.initLambda(^(XL * va) {
+                XL * bb = [va next];
                 return xl.initInt(xl.toInt(aa) * xl.toInt(bb));
             });
         });
@@ -43,9 +43,9 @@ int main(int argc, const char * argv[]) {
             xl.initFloat(-123.789),
             xl.initList(@[xl.initInt(1), xl.initInt(2), xl.initInt(3)]),
             xl.initDict(@{ @"foo": xl.initString(@"bar") }),
-            xl.initLambda(^(XL * args) {
-                XL * aa = [args next];
-                XL * bb = [args next];
+            xl.initLambda(^(XL * va) {
+                XL * aa = [va next];
+                XL * bb = [va next];
                 return xl.initInt(xl.toInt(aa) * xl.toInt(bb));
             }),
         ]);
@@ -62,9 +62,9 @@ int main(int argc, const char * argv[]) {
             @"xl_float_negative": xl.initFloat(-123.789),
             @"xl_list": xl.initList(@[xl.initInt(1), xl.initInt(2), xl.initInt(3)]),
             @"xl_dict": xl.initDict(@{ @"foo": xl.initString(@"bar") }),
-            @"xl_lambda": xl.initLambda(^(XL * args) {
-                XL * aa = [args next];
-                XL * bb = [args next];
+            @"xl_lambda": xl.initLambda(^(XL * va) {
+                XL * aa = [va next];
+                XL * bb = [va next];
                 return xl.initInt(xl.toInt(aa) * xl.toInt(bb));
             }),
         });

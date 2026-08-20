@@ -1,3 +1,10 @@
+[Last updated: 20 Aug 2026 @ 06:15 PM][version: 2.9.6]
+update elvish;
+update nim;
+update objective-c;
+update pike;
+update typst;
+
 [Last updated: 20 Aug 2026 @ 06:02 PM][version: 2.9.5]
 update dart;
 update nim;
