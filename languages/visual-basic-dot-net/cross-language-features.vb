@@ -6,19 +6,19 @@ Imports WillyHorizont.Runtime.Xl
 Module Program
     Sub Main()
         ' 1. support lambda as value, or has workaround
-        Dim SayHello As Object = New Xl.Lambda(Function(Va)
+        Dim SayHello As Object = Xl.InitLambda(Function(Va)
             Dim Itr As Object = Xl.Iter(Va)
             Dim Callback As Object = Xl.NextItem(Itr)
             Console.WriteLine("hello")
             Callback.Invoke()
         End Function)
-        SayHello.Invoke(New Xl.Lambda(Function(Va)
+        SayHello.Invoke(Xl.InitLambda(Function(Va)
             Console.WriteLine("world")
         End Function))
-        Dim CreateMultiplier As Object = New Xl.Lambda(Function(VaAa)
+        Dim CreateMultiplier As Object = Xl.InitLambda(Function(VaAa)
             Dim ItrAa As Object = Xl.Iter(VaAa)
             Dim Aa As Object = Xl.NextItem(ItrAa)
-            Return New Xl.Lambda(Function(VaBb)
+            Return Xl.InitLambda(Function(VaBb)
                 Dim ItrBb As Object = Xl.Iter(VaBb)
                 Dim Bb As Object = Xl.NextItem(ItrBb)
                 Return Aa * Bb
@@ -31,7 +31,7 @@ Module Program
         Console.WriteLine($"multiply_by_two(8): {MultiplyByTwo.Invoke(8)}")
 
         ' 2. support dynamic-typed value, or has workaround
-        Dim XlList As Object = New Xl.List From {
+        Dim XlList As Object = Xl.InitList(
             Nothing,
             True,
             False,
@@ -40,35 +40,35 @@ Module Program
             -123,
             123.789,
             -123.789,
-            New Xl.List From {1, 2, 3},
-            New Xl.Dict From { { "foo", "bar" } },
-            New Xl.Lambda(Function(Va)
+            Xl.InitList(1, 2, 3),
+            Xl.InitDict(Xl.InitPair("foo", "bar")),
+            Xl.InitLambda(Function(Va)
                 Dim Itr As Object = Xl.Iter(Va)
                 Dim Aa As Object = Xl.NextItem(Itr)
                 Dim Bb As Object = Xl.NextItem(Itr)
                 Return Aa * Bb
             End Function)
-        }
+        )
         Console.WriteLine($"xl_list: {Xl.JsonStringify(XlList)}")
         Console.WriteLine($"xl_list: {Xl.JsonStringify(XlList, Pretty:=True)}")
-        Dim XlDict As Object = New Xl.Dict From {
-            { "xl_none", Nothing },
-            { "xl_bool_true", True },
-            { "xl_bool_false", False },
-            { "xl_string", "foo" },
-            { "xl_int_positive", 0 },
-            { "xl_int_negative", -123 },
-            { "xl_float_positive", 123.789 },
-            { "xl_float_negative", -123.789 },
-            { "xl_list", New Xl.List From {1, 2, 3} },
-            { "xl_dict", New Xl.Dict From { { "foo", "bar" } } },
-            { "xl_lambda", New Xl.Lambda(Function(Va)
+        Dim XlDict As Object = Xl.InitDict(
+            Xl.InitPair("xl_none", Nothing),
+            Xl.InitPair("xl_bool_true", True),
+            Xl.InitPair("xl_bool_false", False),
+            Xl.InitPair("xl_string", "foo"),
+            Xl.InitPair("xl_int_positive", 0),
+            Xl.InitPair("xl_int_negative", -123),
+            Xl.InitPair("xl_float_positive", 123.789),
+            Xl.InitPair("xl_float_negative", -123.789),
+            Xl.InitPair("xl_list", Xl.InitList(1, 2, 3)),
+            Xl.InitPair("xl_dict", Xl.InitDict(Xl.InitPair("foo", "bar"))),
+            Xl.InitPair("xl_lambda", Xl.InitLambda(Function(Va)
                 Dim Itr As Object = Xl.Iter(Va)
                 Dim Aa As Object = Xl.NextItem(Itr)
                 Dim Bb As Object = Xl.NextItem(Itr)
                 Return Aa * Bb
-            End Function) }
-        }
+            End Function))
+        )
         Console.WriteLine($"xl_dict: {Xl.JsonStringify(XlDict)}")
         Console.WriteLine($"xl_dict: {Xl.JsonStringify(XlDict, Pretty:=True)}")
     End Sub

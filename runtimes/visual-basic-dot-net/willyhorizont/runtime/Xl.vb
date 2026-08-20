@@ -34,7 +34,32 @@ Namespace WillyHorizont.Runtime.Xl
                 MyBase.New()
             End Sub
         End Class
+        Public Shared Function InitList(ParamArray Va As Object()) As List
+            Dim L As New List()
+            If Va IsNot Nothing Then
+                L.AddRange(Va)
+            End If
+            Return L
+        End Function
+        Public Shared Function InitPair(ByVal Pk As String, ByVal Pv As Object) As Tuple(Of String, Object)
+            Return Tuple.Create(Pk, Pv)
+        End Function
+        Public Shared Function InitDict(ParamArray Dpl As Tuple(Of String, Object)()) As Dict
+            Dim D As New Dict()
+            If Dpl IsNot Nothing Then
+                For Each P In Dpl
+                    D(P.Item1) = P.Item2
+                Next
+            End If
+            Return D
+        End Function
+        Public Shared Function InitLambda(ByVal C As XlLambda) As Lambda
+            Return New Lambda(C)
+        End Function
         Public Shared Function Iter(ByVal Va As Object) As Object
+            If TypeOf Va Is List Then
+                Return CType(Va, List).GetEnumerator()
+            End If
             Return CType(Va, Object()).GetEnumerator()
         End Function
         Public Shared Function NextItem(ByVal Itr As IEnumerator) As Object
@@ -46,9 +71,9 @@ Namespace WillyHorizont.Runtime.Xl
             Dim R As String = Convert.ToString(S)
             R = R.Replace("\", "\\")
             R = R.Replace("""", "\""")
-            R = R.Replace(vbLf, "\n")
-            R = R.Replace(vbCr, "\r")
-            R = R.Replace(vbTab, "\t")
+            R = R.Replace(VBLF, "\n")
+            R = R.Replace(VBCR, "\r")
+            R = R.Replace(VBTAB, "\t")
             Return R
         End Function
         Public Shared Function JsonStringify(A As Object, Optional Pretty As Object = False) As Object
@@ -95,7 +120,7 @@ Namespace WillyHorizont.Runtime.Xl
                     Dim ChildD As Integer = CurD + 1
                     S.Push(New Dictionary(Of String, Object) From {
                         {"t", "r"},
-                        {"v", If(P, vbLf & String.Concat(Enumerable.Repeat(T, CurD)) & "]", "]")},
+                        {"v", If(P, VBLF & String.Concat(Enumerable.Repeat(T, CurD)) & "]", "]")},
                         {"d", CurD}
                     })
                     For I As Integer = Vl.Count - 1 To 0 Step -1
@@ -107,14 +132,14 @@ Namespace WillyHorizont.Runtime.Xl
                         If I > 0 Then
                             S.Push(New Dictionary(Of String, Object) From {
                                 {"t", "r"},
-                                {"v", If(P, "," & vbLf & String.Concat(Enumerable.Repeat(T, ChildD)), ",")},
+                                {"v", If(P, "," & VBLF & String.Concat(Enumerable.Repeat(T, ChildD)), ",")},
                                 {"d", ChildD}
                             })
                         End If
                     Next
                     S.Push(New Dictionary(Of String, Object) From {
                         {"t", "r"},
-                        {"v", If(P, "[" & vbLf & String.Concat(Enumerable.Repeat(T, ChildD)), "[")},
+                        {"v", If(P, "[" & VBLF & String.Concat(Enumerable.Repeat(T, ChildD)), "[")},
                         {"d", ChildD}
                     })
                     Continue While
@@ -128,7 +153,7 @@ Namespace WillyHorizont.Runtime.Xl
                     Dim ChildD As Integer = CurD + 1
                     S.Push(New Dictionary(Of String, Object) From {
                         {"t", "r"},
-                        {"v", If(P, vbLf & String.Concat(Enumerable.Repeat(T, CurD)) & "}", "}")},
+                        {"v", If(P, VBLF & String.Concat(Enumerable.Repeat(T, CurD)) & "}", "}")},
                         {"d", CurD}
                     })
                     Dim Pk As New List(Of Object)(Vd.Keys.Cast(Of Object)())
@@ -147,14 +172,14 @@ Namespace WillyHorizont.Runtime.Xl
                         If I > 0 Then
                             S.Push(New Dictionary(Of String, Object) From {
                                 {"t", "r"},
-                                {"v", If(P, "," & vbLf & String.Concat(Enumerable.Repeat(T, ChildD)), ",")},
+                                {"v", If(P, "," & VBLF & String.Concat(Enumerable.Repeat(T, ChildD)), ",")},
                                 {"d", ChildD}
                             })
                         End If
                     Next
                     S.Push(New Dictionary(Of String, Object) From {
                         {"t", "r"},
-                        {"v", If(P, "{" & vbLf & String.Concat(Enumerable.Repeat(T, ChildD)), "{")},
+                        {"v", If(P, "{" & VBLF & String.Concat(Enumerable.Repeat(T, ChildD)), "{")},
                         {"d", ChildD}
                     })
                     Continue While

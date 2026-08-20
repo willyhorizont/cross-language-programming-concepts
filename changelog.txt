@@ -1,3 +1,18 @@
+[Last updated: 20 Aug 2026 @ 08:28 AM][version: 2.9.4]
+update c;
+big update in c-plus-plus;
+big update in c-sharp;
+big update in cangjie;
+big update in go;
+big update in kotlin;
+update matlab-or-octave;
+big update in odin;
+update r;
+big update in scala;
+update tcl;
+update vala;
+big update in visual-basic-dot-net;
+
 [Last updated: 20 Aug 2026 @ 08:12 AM][version: 2.9.3]
 update c;
 big update in c-plus-plus;

@@ -2,7 +2,7 @@
 
 SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD/..")
-V="2.9.3" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
+V="2.9.4" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
 T=$(date "+%d %b %Y @ %I:%M %p")
 cd "$RD" || exit
 
@@ -36,6 +36,7 @@ update r;
 big update in scala;
 update tcl;
 update vala;
+big update in visual-basic-dot-net;
 "
 M=$(sed -e '/./,$!d' <<< "$M")
 M="$H
