@@ -1,9 +1,20 @@
 #!/bin/bash
 
 PTFNX="$1"
+if [[ "$PTFNX" == ./* ]]; then
+    PTFNX="$RD/${PTFNX#./}"
+fi
+PTFNXD="$(dirname "$PTFNX")"
+FNX="$(basename "$PTFNX")"
+FN="${FNX%.*}"
+FX="${FNX##*.}"
 
-PTFNXD=$(dirname "$PTFNX")
-LID=$(basename "$PTFNXD")
+if [[ ".$FX" == ".sh" ]]; then
+    bash "$PTFNX"
+    exit 0
+fi
+
+LID="$(basename "$PTFNXD")"
 RD=$(dirname "$(dirname "$PTFNXD")")
 
 CODE_RUNNER="$RD/languages/$LID/runner.sh"
