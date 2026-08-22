@@ -1,3 +1,7 @@
+[Last updated: 22 Aug 2026 @ 08:40 AM][version: 2.9.9]
+add .kateconfig;
+update code-runner config;
+
 [Last updated: 21 Aug 2026 @ 02:40 AM][version: 2.9.8]
 update github-programming-languages-card.png;
 update languages.json colors;

@@ -210,39 +210,6 @@
     },
     // "files.defaultLanguage": "javascript",
     // "files.defaultLanguage": "typescriptreact",
-    "files.associations": {
-        "*.m": "objective-c",
-        "*.h": "objective-c",
-
-        "*.as": "rust",
-        "*.c3": "rust",
-        "*.cj": "swift",
-        "*.cr": "ruby",
-        "*.d": "csharp",
-        "*.exs": "ruby",
-        "*.elv": "python",
-        "*.erl": "rust",
-        "*.gd": "dart",
-        "*.gleam": "rust",
-        "*.kt": "rust",
-        "*.nim": "rust",
-        "*.nix": "lua",
-        "*.nu": "julia",
-        "*.ml": "rust",
-        "*.odin": "rust",
-        "*.pike": "rust",
-        "*.scala": "swift",
-        "*.st": "groovy",
-        "*.tcl": "lua",
-        "*.typ": "dart",
-        "*.v": "go",
-        "*.vala": "rust",
-        "*.vim": "csharp",
-        "*.wl": "cpp",
-        "*.wren": "rust",
-        "*.zig": "java",
-        "*.raku": "java",
-    },
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.cursorStyleInactive": "line",
@@ -367,112 +334,308 @@
     },
     "code-runner.ignoreSelection": true,
     "code-runner.runInTerminal": true,
+    "files.associations": {
+        // 1. JavaScript / TypeScript
+        "*.js": "javascript",
+
+        // 2. Python
+        "*.py": "python",
+
+        // 3. PHP
+        "*.php": "php",
+
+        // 4. Go
+        "*.go": "go",
+
+        // 5. Perl
+        "*.pl": "perl",
+
+        // 6. Julia
+        "*.jl": "julia",
+
+        // 7. Lua
+        "*.lua": "lua",
+
+        // 8. Ruby
+        "*.rb": "ruby",
+
+        // 9. R
+        "*.r": "r",
+
+        // 10. Kotlin
+        "*.kt": "rust",
+
+        // 11. Swift
+        "*.swift": "swift",
+
+        // 12. Dart
+        "*.dart": "dart",
+
+        // 13. VB.NET (Visual Basic dotNET)
+        "*.vb": "vb",
+
+        // 14. C# (C Sharp)
+        "*.cs": "csharp",
+
+        // 15. MATLAB / Octave
+        "*.m": "objective-c",
+
+        // 16. Wolfram Language (Mathematica)
+        "*.wl": "cpp",
+
+        // 17. Raku
+        "*.raku": "java",
+
+        // 18. Scala
+        "*.scala": "swift",
+
+        // 19. Java
+        "*.java": "java",
+
+        // 20. Nu
+        "*.nu": "julia",
+
+        // 21. Elvish
+        "*.elv": "python",
+
+        // 22. Vim Script
+        "*.vim": "csharp",
+
+        // 23. Rust
+        "*.rs": "rust",
+
+        // 24. Nix
+        "*.nix": "lua",
+
+        // 25. Tcl
+        "*.tcl": "lua",
+
+        // 26. GDScript
+        "*.gd": "dart",
+
+        // 27. Typst
+        "*.typ": "dart",
+
+        // 28. PowerShell
+        "*.ps1": "powershell",
+
+        // 29. Elixir
+        "*.exs": "ruby",
+
+        // 30. OCaml
+        "*.ml": "rust",
+
+        // 31. Erlang
+        "*.erl": "rust",
+
+        // 32. Gleam
+        "*.gleam": "rust",
+
+        // 33. Zig
+        "*.zig": "java",
+
+        // 34. Nim
+        "*.nim": "rust",
+
+        // 35. Odin
+        "*.odin": "rust",
+
+        // 36. C++ (C Plus Plus)
+        "*.cpp": "cpp",
+
+        // 37. Objective C
+        "*.m": "objective-c",
+
+        // 38. Smalltalk
+        "*.st": "groovy",
+
+        // 39. ActionScript
+        "*.as": "rust",
+
+        // 40. Groovy
+        "*.groovy": "groovy",
+
+        // 41. Cangjie
+        "*.cj": "swift",
+
+        // 42. C3
+        "*.c3": "rust",
+
+        // 43. C
+        "*.c": "c",
+
+        // 44. D
+        "*.d": "csharp",
+
+        // 45. V
+        "*.v": "go",
+
+        // 46. Vala
+        "*.vala": "rust",
+
+        // 47. Crystal
+        "*.cr": "ruby",
+
+        // 48. Wren
+        "*.wren": "rust",
+
+        // 49. Pike
+        "*.pike": "rust",
+
+        "*.h": "objective-c",
+    },
     "code-runner.executorMapByFileExtension": {
+        // 1. JavaScript / TypeScript
+        ".js": "bash $workspaceRoot/languages/javascript-or-typescript/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 2. Python
+        ".py": "bash $workspaceRoot/languages/python/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 3. PHP
+        ".php": "bash $workspaceRoot/languages/php/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 4. Go
+        ".go": "bash $workspaceRoot/languages/go/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 5. Perl
+        ".pl": "bash $workspaceRoot/languages/perl/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 6. Julia
+        ".jl": "bash $workspaceRoot/languages/julia/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 7. Lua
+        ".lua": "bash $workspaceRoot/languages/lua/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 8. Ruby
+        ".rb": "bash $workspaceRoot/languages/ruby/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 9. R
+        ".r": "bash $workspaceRoot/languages/r/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 10. Kotlin
         ".kt": "bash $workspaceRoot/languages/kotlin/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 11. Swift
+        ".swift": "bash $workspaceRoot/languages/swift/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 12. Dart
+        ".dart": "bash $workspaceRoot/languages/dart/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 13. VB.NET (Visual Basic dotNET)
+        ".vb": "bash $workspaceRoot/languages/visual-basic-dot-net/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 14. C# (C Sharp)
+        ".cs": "bash $workspaceRoot/languages/c-sharp/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 15. MATLAB / Octave
+        ".m": "bash $workspaceRoot/languages/objective-c/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 16. Wolfram Language (Mathematica)
+        ".wl": "bash $workspaceRoot/languages/wolfram-language-mathematica/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 17. Raku
+        ".raku": "bash $workspaceRoot/languages/raku/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 18. Scala
         ".scala": "bash $workspaceRoot/languages/scala/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 19. Java
+        ".java": "bash $workspaceRoot/languages/java/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 20. Nu
         ".nu": "bash $workspaceRoot/languages/nu/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 21. Elvish
         ".elv": "bash $workspaceRoot/languages/elvish/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 22. Vim Script
         ".vim": "bash $workspaceRoot/languages/vim-script/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 23. Rust
+        ".rs": "bash $workspaceRoot/languages/rust/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 24. Nix
         ".nix": "bash $workspaceRoot/languages/nix/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 25. Tcl
         ".tcl": "bash $workspaceRoot/languages/tcl/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 26. GDScript
         ".gd": "bash $workspaceRoot/languages/gdscript/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 27. Typst
         ".typ": "bash $workspaceRoot/languages/typst/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 28. PowerShell
+        ".ps1": "bash $workspaceRoot/languages/powershell/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 29. Elixir
         ".exs": "bash $workspaceRoot/languages/elixir/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 30. OCaml
         ".ml": "bash $workspaceRoot/languages/ocaml/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 31. Erlang
         ".erl": "bash $workspaceRoot/languages/erlang/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 32. Gleam
         ".gleam": "bash $workspaceRoot/languages/gleam/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 33. Zig
         ".zig": "bash $workspaceRoot/languages/zig/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 34. Nim
         ".nim": "bash $workspaceRoot/languages/nim/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 35. Odin
         ".odin": "bash $workspaceRoot/languages/odin/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 36. C++ (C Plus Plus)
         ".cpp": "bash $workspaceRoot/languages/c-plus-plus/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 37. Objective C
+        ".m": "bash $workspaceRoot/languages/objective-c/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 38. Smalltalk
         ".st": "bash $workspaceRoot/languages/smalltalk/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 39. ActionScript
         ".as": "bash $workspaceRoot/languages/actionscript/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 40. Groovy
+        ".groovy": "bash $workspaceRoot/languages/groovy/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 41. Cangjie
         ".cj": "bash $workspaceRoot/languages/cangjie/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 42. C3
         ".c3": "bash $workspaceRoot/languages/c3/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 43. C
         ".c": "bash $workspaceRoot/languages/c/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 44. D
+        ".d": "bash $workspaceRoot/languages/d/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 45. V
+        ".v": "bash $workspaceRoot/languages/v/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 46. Vala
+        ".vala": "bash $workspaceRoot/languages/vala/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 47. Crystal
+        ".cr": "bash $workspaceRoot/languages/crystal/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 48. Wren
         ".wren": "bash $workspaceRoot/languages/wren/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        // 49. Pike
         ".pike": "bash $workspaceRoot/languages/pike/runner.sh $dirWithoutTrailingSlash/$fileName",
+
+        ".sh": "bash $fullFileName",
     },
     "code-runner.executorMap": {
         "shellscript": "bash $fullFileName",
-        "javascript": "bash $workspaceRoot/languages/javascript-or-typescript/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "python": "bash $workspaceRoot/languages/python/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "php": "bash $workspaceRoot/languages/php/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "go": "bash $workspaceRoot/languages/go/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "perl": "bash $workspaceRoot/languages/perl/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "julia": "bash $workspaceRoot/languages/julia/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "lua": "bash $workspaceRoot/languages/lua/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "ruby": "bash $workspaceRoot/languages/ruby/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "r": "bash $workspaceRoot/languages/r/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "kotlin": "bash $workspaceRoot/languages/kotlin/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "swift": "bash $workspaceRoot/languages/swift/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "dart": "bash $workspaceRoot/languages/dart/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "vb": "bash $workspaceRoot/languages/visual-basic-dot-net/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "csharp": "bash $workspaceRoot/languages/c-sharp/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "matlab": "bash $workspaceRoot/languages/matlab-or-octave/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "wolfram": "bash $workspaceRoot/languages/wolfram-language-mathematica/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "raku": "bash $workspaceRoot/languages/raku/runner.sh $dirWithoutTrailingSlash/$fileName",
-        // "scala": "cd $dir && scala $fileName", // run .scala file using scala interpreter
-        "scala": "bash $workspaceRoot/languages/scala/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "java": "bash $workspaceRoot/languages/java/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "gdscript": "bash $workspaceRoot/languages/gdscript/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "rust": "bash $workspaceRoot/languages/rust/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "powershell": "bash $workspaceRoot/languages/powershell/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "elixir": "bash $workspaceRoot/languages/elixir/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "ocaml": "bash $workspaceRoot/languages/ocaml/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "erlang": "bash $workspaceRoot/languages/erlang/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "gleam": "bash $workspaceRoot/languages/gleam/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "zig": "bash $workspaceRoot/languages/zig/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "nim": "bash $workspaceRoot/languages/nim/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "odin": "bash $workspaceRoot/languages/odin/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "cpp": "bash $workspaceRoot/languages/c-plus-plus/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "objective-c": "bash $workspaceRoot/languages/objective-c/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "smalltalk": "bash $workspaceRoot/languages/smalltalk/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "actionscript": "bash $workspaceRoot/languages/actionscript/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "groovy": "bash $workspaceRoot/languages/groovy/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "cangjie": "bash $workspaceRoot/languages/cangjie/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "c3": "bash $workspaceRoot/languages/c3/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "c": "bash $workspaceRoot/languages/c/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "d": "bash $workspaceRoot/languages/d/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "v": "bash $workspaceRoot/languages/v/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "vala": "bash $workspaceRoot/languages/vala/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "crystal": "bash $workspaceRoot/languages/crystal/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "wren": "bash $workspaceRoot/languages/wren/runner.sh $dirWithoutTrailingSlash/$fileName",
-
-        "mojo": "bash $workspaceRoot/languages/mojo/runner.sh $dirWithoutTrailingSlash/$fileName",
-        "scala2": "cd $dir && scalac $fileName && scala $fileNameWithoutExt && del \"$dir*.class\"", // compile .scala file to .class and run the .class
-        "scala3": "cd $dir && scalac $fileName && scala $fileNameWithoutExt && del \"$dir*.class\"  && del \"$dir*.tasty\"", // compile .scala file to .class and run the .class
-        // "c": "gcc --version",
-        // "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt && rm -f \"$dir$fileNameWithoutExt\"",
-        // "java": "cd $dir && javac $fileName && java $fileNameWithoutExt && del \"$dir*.class\"",
-        "perl6": "cd $dir && perl6 $fileName",
-        // "odin": "cd $dir && odin run $fileName -file",
-        // "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        // "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "bat": "cmd /c",
-        "fsharp": "fsi",
-        "typescript": "ts-node",
-        "coffeescript": "coffee",
-        "applescript": "osascript",
-        "clojure": "lein exec",
-        "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
-        "racket": "racket",
-        "scheme": "csi -script",
-        "ahk": "autohotkey",
-        "autoit": "autoit3",
-        "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
-        "haskell": "runghc",
-        // "nim": "nim compile --verbosity:0 --hints:off --run",
-        "lisp": "sbcl --script",
-        "kit": "kitc --run",
-        "sass": "sass --style expanded",
-        "scss": "scss --style expanded",
-        "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
-        "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "sml": "cd $dir && sml $fileName"
     },
     "java.project.resourceFilters": [
         "node_modules",
