@@ -1,0 +1,133 @@
+{
+    "languages": {
+        "javascript": {
+            "extensions": [
+                "js"
+            ]
+        },
+        "python": {
+            "extensions": [
+                "py",
+                "elv"
+            ]
+        },
+        "php": {
+            "extensions": [
+                "php"
+            ]
+        },
+        "go": {
+            "extensions": [
+                "go",
+                "v"
+            ]
+        },
+        "perl": {
+            "extensions": [
+                "pl"
+            ]
+        },
+        "julia": {
+            "extensions": [
+                "jl",
+                "nu"
+            ]
+        },
+        "lua": {
+            "extensions": [
+                "lua",
+                "nix",
+                "tcl"
+            ]
+        },
+        "ruby": {
+            "extensions": [
+                "rb",
+                "exs",
+                "cr"
+            ]
+        },
+        "rust": {
+            "extensions": [
+                "kt",
+                "rs",
+                "ml",
+                "erl",
+                "gleam",
+                "nim",
+                "odin",
+                "as",
+                "c3",
+                "vala",
+                "wren",
+                "pike"
+            ]
+        },
+        "r": {
+            "extensions": [
+                "r"
+            ]
+        },
+        "swift": {
+            "extensions": [
+                "swift",
+                "scala",
+                "cj"
+            ]
+        },
+        "dart": {
+            "extensions": [
+                "dart",
+                "gd",
+                "typ"
+            ]
+        },
+        "vb": {
+            "extensions": [
+                "vb"
+            ]
+        },
+        "csharp": {
+            "extensions": [
+                "cs",
+                "vim",
+                "d"
+            ]
+        },
+        "objective-c": {
+            "extensions": [
+                "m",
+                "h"
+            ]
+        },
+        "cpp": {
+            "extensions": [
+                "cpp",
+                "wl"
+            ]
+        },
+        "java": {
+            "extensions": [
+                "java",
+                "raku",
+                "zig"
+            ]
+        },
+        "powershell": {
+            "extensions": [
+                "ps1"
+            ]
+        },
+        "groovy": {
+            "extensions": [
+                "st",
+                "groovy"
+            ]
+        },
+        "c": {
+            "extensions": [
+                "c"
+            ]
+        }
+    }
+}
