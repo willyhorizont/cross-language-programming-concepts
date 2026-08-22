@@ -4,149 +4,149 @@ kate: tab-width 4; indent-width 4; replace-tabs on;
 # https://kate-editor.org/syntax/
 
 # 1. JavaScript / TypeScript
-kate-wildcard(*.js): runner '%{Project:Path}/languages/javascript-or-typescript/runner.sh'; hl 'JavaScript';
+kate-wildcard(*.js): hl "JavaScript";
 
 # 2. Python
-kate-wildcard(*.py): runner '%{Project:Path}/languages/python/runner.sh'; hl 'Python';
+kate-wildcard(*.py): hl "Python";
 
 # 3. PHP
-kate-wildcard(*.php): runner '%{Project:Path}/languages/php/runner.sh'; hl 'PHP/PHP';
+kate-wildcard(*.php): hl "PHP/PHP";
 
 # 4. Go
-kate-wildcard(*.go): runner '%{Project:Path}/languages/go/runner.sh'; hl 'Go';
+kate-wildcard(*.go): hl "Go";
 
 # 5. Perl
-kate-wildcard(*.pl): runner '%{Project:Path}/languages/perl/runner.sh'; hl 'Perl';
+kate-wildcard(*.pl): hl "Perl";
 
 # 6. Julia
-kate-wildcard(*.jl): runner '%{Project:Path}/languages/julia/runner.sh'; hl 'Julia';
+kate-wildcard(*.jl): hl "Julia";
 
 # 7. Lua
-kate-wildcard(*.lua): runner '%{Project:Path}/languages/lua/runner.sh'; hl 'Lua';
+kate-wildcard(*.lua): hl "Lua";
 
 # 8. Ruby
-kate-wildcard(*.rb): runner '%{Project:Path}/languages/ruby/runner.sh'; hl 'Ruby';
+kate-wildcard(*.rb): hl "Ruby";
 
 # 9. R
-kate-wildcard(*.r): runner '%{Project:Path}/languages/r/runner.sh'; hl 'R Script';
+kate-wildcard(*.r): hl "R Script";
 
 # 10. Kotlin
-kate-wildcard(*.kt): runner '%{Project:Path}/languages/kotlin/runner.sh'; hl 'Kotlin';
+kate-wildcard(*.kt): hl "Kotlin";
 
 # 11. Swift
-kate-wildcard(*.swift): runner '%{Project:Path}/languages/swift/runner.sh'; hl 'Swift';
+kate-wildcard(*.swift): hl "Swift";
 
 # 12. Dart
-kate-wildcard(*.dart): runner '%{Project:Path}/languages/dart/runner.sh'; hl 'Dart';
+kate-wildcard(*.dart): hl "Dart";
 
 # 13. VB.NET (Visual Basic dotNET)
-kate-wildcard(*.vb): runner '%{Project:Path}/languages/visual-basic-dot-net/runner.sh'; hl 'MonoBasic';
+kate-wildcard(*.vb): hl "MonoBasic";
 
 # 14. C# (C Sharp)
-kate-wildcard(*.cs): runner '%{Project:Path}/languages/c-sharp/runner.sh'; hl 'C#';
+kate-wildcard(*.cs): hl "C#";
 
 # 15. MATLAB / Octave
-kate-wildcard(*.m): runner '%{Project:Path}/languages/objective-c/runner.sh'; hl 'Objective-C';
+# kate-wildcard(*.m): hl "Matlab";
 
 # 16. Wolfram Language (Mathematica)
-kate-wildcard(*.wl): runner '%{Project:Path}/languages/wolfram-language-mathematica/runner.sh'; hl 'Mathematica';
+kate-wildcard(*.wl): hl "Mathematica";
 
 # 17. Raku
-kate-wildcard(*.raku): runner '%{Project:Path}/languages/raku/runner.sh'; hl 'Raku';
+kate-wildcard(*.raku): hl "Raku";
 
 # 18. Scala
-kate-wildcard(*.scala): runner '%{Project:Path}/languages/scala/runner.sh'; hl 'Scala';
+kate-wildcard(*.scala): hl "Scala";
 
 # 19. Java
-kate-wildcard(*.java): runner '%{Project:Path}/languages/java/runner.sh'; hl 'Java';
+kate-wildcard(*.java): hl "Java";
 
 # 20. Nu
-kate-wildcard(*.nu): runner '%{Project:Path}/languages/nu/runner.sh'; hl 'Julia';
+kate-wildcard(*.nu): hl "Julia";
 
 # 21. Elvish
-kate-wildcard(*.elv): runner '%{Project:Path}/languages/elvish/runner.sh'; hl 'Elvish';
+kate-wildcard(*.elv): hl "Elvish";
 
 # 22. Vim Script
-kate-wildcard(*.vim): runner '%{Project:Path}/languages/vim-script/runner.sh'; hl 'C#';
+kate-wildcard(*.vim): hl "C#";
 
 # 23. Rust
-kate-wildcard(*.rs): runner '%{Project:Path}/languages/rust/runner.sh'; hl 'Rust';
+kate-wildcard(*.rs): hl "Rust";
 
 # 24. Nix
-kate-wildcard(*.nix): runner '%{Project:Path}/languages/nix/runner.sh'; hl 'Nix';
+kate-wildcard(*.nix): hl "Nix";
 
 # 25. Tcl
-kate-wildcard(*.tcl): runner '%{Project:Path}/languages/tcl/runner.sh'; hl 'Tcl/Tk';
+kate-wildcard(*.tcl): hl "Tcl/Tk";
 
 # 26. GDScript
-kate-wildcard(*.gd): runner '%{Project:Path}/languages/gdscript/runner.sh'; hl 'Godot';
+kate-wildcard(*.gd): hl "Godot";
 
 # 27. Typst
-kate-wildcard(*.typ): runner '%{Project:Path}/languages/typst/runner.sh'; hl 'Typst';
+kate-wildcard(*.typ): hl "Typst";
 
 # 28. PowerShell
-kate-wildcard(*.ps1): runner '%{Project:Path}/languages/powershell/runner.sh'; hl 'PowerShell';
+kate-wildcard(*.ps1): hl "PowerShell";
 
 # 29. Elixir
-kate-wildcard(*.exs): runner '%{Project:Path}/languages/elixir/runner.sh'; hl 'Elixir';
+kate-wildcard(*.exs): hl "Elixir";
 
 # 30. OCaml
-kate-wildcard(*.ml): runner '%{Project:Path}/languages/ocaml/runner.sh'; hl 'Objective Caml';
+kate-wildcard(*.ml): hl "Objective Caml";
 
 # 31. Erlang
-kate-wildcard(*.erl): runner '%{Project:Path}/languages/erlang/runner.sh'; hl 'Erlang';
+kate-wildcard(*.erl): hl "Erlang";
 
 # 32. Gleam
-kate-wildcard(*.gleam): runner '%{Project:Path}/languages/gleam/runner.sh'; hl 'Gleam';
+kate-wildcard(*.gleam): hl "Gleam";
 
 # 33. Zig
-kate-wildcard(*.zig): runner '%{Project:Path}/languages/zig/runner.sh'; hl 'Zig';
+kate-wildcard(*.zig): hl "Zig";
 
 # 34. Nim
-kate-wildcard(*.nim): runner '%{Project:Path}/languages/nim/runner.sh'; hl 'Nim';
+kate-wildcard(*.nim): hl "Nim";
 
 # 35. Odin
-kate-wildcard(*.odin): runner '%{Project:Path}/languages/odin/runner.sh'; hl 'Odin';
+kate-wildcard(*.odin): hl "Odin";
 
 # 36. C++ (C Plus Plus)
-kate-wildcard(*.cpp): runner '%{Project:Path}/languages/c-plus-plus/runner.sh'; hl 'C++';
+kate-wildcard(*.cpp): hl "C++";
 
 # 37. Objective C
-kate-wildcard(*.m): runner '%{Project:Path}/languages/objective-c/runner.sh'; hl 'Objective-C';
-kate-wildcard(*.h): runner '%{Project:Path}/languages/objective-c/runner.sh'; hl 'Objective-C';
+kate-wildcard(*.m): hl "Objective-C";
+kate-wildcard(*.h): hl "Objective-C";
 
 # 38. Smalltalk
-kate-wildcard(*.st): runner '%{Project:Path}/languages/smalltalk/runner.sh'; hl 'Groovy';
+kate-wildcard(*.st): hl "Groovy";
 
 # 39. ActionScript
-kate-wildcard(*.as): runner '%{Project:Path}/languages/actionscript/runner.sh'; hl 'Rust';
+kate-wildcard(*.as): hl "Rust";
 
 # 40. Groovy
-kate-wildcard(*.groovy): runner '%{Project:Path}/languages/groovy/runner.sh'; hl 'Groovy';
+kate-wildcard(*.groovy): hl "Groovy";
 
 # 41. Cangjie
-kate-wildcard(*.cj): runner '%{Project:Path}/languages/cangjie/runner.sh'; hl 'Swift';
+kate-wildcard(*.cj): hl "Swift";
 
 # 42. C3
-kate-wildcard(*.c3): runner '%{Project:Path}/languages/c3/runner.sh'; hl 'Rust';
+kate-wildcard(*.c3): hl "Rust";
 
 # 43. C
-kate-wildcard(*.c): runner '%{Project:Path}/languages/c/runner.sh'; hl 'C';
+kate-wildcard(*.c): hl "C";
 
 # 44. D
-kate-wildcard(*.d): runner '%{Project:Path}/languages/d/runner.sh'; hl 'D';
+kate-wildcard(*.d): hl "D";
 
 # 45. V
-kate-wildcard(*.v): runner '%{Project:Path}/languages/v/runner.sh'; hl 'V';
+kate-wildcard(*.v): hl "V";
 
 # 46. Vala
-kate-wildcard(*.vala): runner '%{Project:Path}/languages/vala/runner.sh'; hl 'Vala';
+kate-wildcard(*.vala): hl "Vala";
 
 # 47. Crystal
-kate-wildcard(*.cr): runner '%{Project:Path}/languages/crystal/runner.sh'; hl 'Crystal';
+kate-wildcard(*.cr): hl "Crystal";
 
 # 48. Wren
-kate-wildcard(*.wren): runner '%{Project:Path}/languages/wren/runner.sh'; hl 'Rust';
+kate-wildcard(*.wren): hl "Rust";
 
 # 49. Pike
-kate-wildcard(*.pike): runner '%{Project:Path}/languages/pike/runner.sh'; hl 'Pike';
+kate-wildcard(*.pike): hl "Pike";

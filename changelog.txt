@@ -1,3 +1,8 @@
+[Last updated: 22 Aug 2026 @ 11:03 AM][version: 2.9.10]
+update .vscode/settings.json;
+update .kateconfig;
+add code-runner.sh;
+
 [Last updated: 22 Aug 2026 @ 08:40 AM][version: 2.9.9]
 add .kateconfig;
 update code-runner config;
