@@ -5,12 +5,12 @@
             {
                 "name": "JavaScript",
                 "url": "https://nodejs.org/",
-                "color": "#f1e05a"
+                "color": "#F1E05A"
             },
             {
                 "name": "TypeScript",
                 "url": "https://www.typescriptlang.org/",
-                "color": "#3178c6"
+                "color": "#3178C6"
             }
         ],
         "file_extension": ".js",
@@ -140,7 +140,7 @@
             {
                 "name": "Perl",
                 "url": "https://www.perl.org/",
-                "color": "#0298c3"
+                "color": "#0298C3"
             }
         ],
         "file_extension": ".pl",
@@ -173,7 +173,7 @@
             {
                 "name": "Julia",
                 "url": "https://julialang.org/",
-                "color": "#a270ba"
+                "color": "#A270BA"
             }
         ],
         "file_extension": ".jl",
@@ -412,7 +412,7 @@
             {
                 "name": "VB.NET (Visual Basic dotNET)",
                 "url": "https://learn.microsoft.com/en-us/dotnet/visual-basic/",
-                "color": "#945db7"
+                "color": "#945DB7"
             }
         ],
         "file_extension": ".vb",
@@ -478,12 +478,12 @@
             {
                 "name": "MATLAB",
                 "url": "https://www.mathworks.com/products/matlab.html",
-                "color": "#e16737"
+                "color": "#E16737"
             },
             {
                 "name": "Octave",
                 "url": "https://octave.org/",
-                "color": "#e16737"
+                "color": "#E16737"
             }
         ],
         "file_extension": ".m",
@@ -525,7 +525,7 @@
             {
                 "name": "Wolfram Language (Mathematica)",
                 "url": "https://www.wolfram.com/wolframscript/",
-                "color": "#dd1100"
+                "color": "#DD1100"
             }
         ],
         "file_extension": ".wl",
@@ -568,7 +568,7 @@
             {
                 "name": "Raku",
                 "url": "https://raku.org/",
-                "color": "#0000fb"
+                "color": "#0000FB"
             }
         ],
         "file_extension": ".raku",
@@ -608,7 +608,7 @@
             {
                 "name": "Scala",
                 "url": "https://www.scala-lang.org/",
-                "color": "#c22d40"
+                "color": "#C22D40"
             }
         ],
         "file_extension": ".scala",
@@ -647,7 +647,7 @@
             {
                 "name": "Java",
                 "url": "https://www.oracle.com/java/",
-                "color": "#b07219"
+                "color": "#B07219"
             }
         ],
         "file_extension": ".java",
@@ -681,7 +681,7 @@
             {
                 "name": "Nu",
                 "url": "https://www.nushell.sh/",
-                "color": "#c9df40"
+                "color": "#C9DF40"
             }
         ],
         "file_extension": ".nu",
@@ -757,7 +757,7 @@
             {
                 "name": "Vim Script",
                 "url": "https://vimhelp.org/vim9.txt.html",
-                "color": "#199f4b"
+                "color": "#199F4B"
             }
         ],
         "file_extension": ".vim",
@@ -800,7 +800,7 @@
             {
                 "name": "Rust",
                 "url": "https://rust-lang.org/",
-                "color": "#dea584"
+                "color": "#DEA584"
             }
         ],
         "file_extension": ".rs",
@@ -834,7 +834,7 @@
             {
                 "name": "Nix",
                 "url": "https://nixos.org/",
-                "color": "#7e7eff"
+                "color": "#7E7EFF"
             }
         ],
         "file_extension": ".nix",
@@ -876,7 +876,7 @@
             {
                 "name": "Tcl",
                 "url": "https://www.tcl-lang.org/",
-                "color": "#e4cc98"
+                "color": "#E4CC98"
             }
         ],
         "file_extension": ".tcl",
@@ -958,7 +958,7 @@
             {
                 "name": "Typst",
                 "url": "https://typst.app/",
-                "color": "#239dad"
+                "color": "#239DAD"
             }
         ],
         "file_extension": ".typ",
@@ -1029,7 +1029,7 @@
             {
                 "name": "Elixir",
                 "url": "https://elixir-lang.org/",
-                "color": "#6e4a7e"
+                "color": "#6E4A7E"
             }
         ],
         "file_extension": ".exs",
@@ -1066,7 +1066,7 @@
             {
                 "name": "OCaml",
                 "url": "https://ocaml.org/",
-                "color": "#ef7a08"
+                "color": "#EF7A08"
             }
         ],
         "file_extension": ".ml",
@@ -1143,7 +1143,7 @@
             {
                 "name": "Gleam",
                 "url": "https://gleam.run/",
-                "color": "#ffaff3"
+                "color": "#FFAFF3"
             }
         ],
         "file_extension": ".gleam",
@@ -1179,7 +1179,7 @@
             {
                 "name": "Zig",
                 "url": "https://ziglang.org/",
-                "color": "#ec915c"
+                "color": "#EC915C"
             }
         ],
         "file_extension": ".zig",
@@ -1222,7 +1222,7 @@
             {
                 "name": "Nim",
                 "url": "https://nim-lang.org/",
-                "color": "#ffc200"
+                "color": "#FFC200"
             }
         ],
         "file_extension": ".nim",
@@ -1298,7 +1298,7 @@
             {
                 "name": "C++ (C Plus Plus)",
                 "url": "https://isocpp.org/",
-                "color": "#f34b7d"
+                "color": "#F34B7D"
             }
         ],
         "file_extension": ".cpp",
@@ -1331,7 +1331,7 @@
             {
                 "name": "Objective C",
                 "url": "https://developer.apple.com/documentation/objectivec/",
-                "color": "#438eff"
+                "color": "#438EFF"
             }
         ],
         "file_extension": ".m",
@@ -1445,7 +1445,7 @@
             {
                 "name": "Groovy",
                 "url": "https://groovy-lang.org/",
-                "color": "#4298b8"
+                "color": "#4298B8"
             }
         ],
         "file_extension": ".groovy",
@@ -1518,7 +1518,7 @@
             {
                 "name": "C3",
                 "url": "https://c3-lang.org/",
-                "color": "#2563eb"
+                "color": "#2563EB"
             }
         ],
         "file_extension": ".c3",
@@ -1593,7 +1593,7 @@
             {
                 "name": "D",
                 "url": "https://dlang.org/",
-                "color": "#ba595e"
+                "color": "#BA595E"
             }
         ],
         "file_extension": ".d",
@@ -1636,7 +1636,7 @@
             {
                 "name": "V",
                 "url": "https://vlang.io/",
-                "color": "#4f87c4"
+                "color": "#4F87C4"
             }
         ],
         "file_extension": ".v",
@@ -1675,7 +1675,7 @@
             {
                 "name": "Vala",
                 "url": "https://vala.dev/",
-                "color": "#a56de2"
+                "color": "#A56DE2"
             }
         ],
         "file_extension": ".vala",
