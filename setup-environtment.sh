@@ -74,8 +74,8 @@ if [ ! -f /usr/local/bin/flashplayer ]; then
         curl -L -o "$PTFNX_FLASH" https://fpdownload.macromedia.com/pub/flashplayer/updaters/32/flash_player_sa_linux_debug.x86_64.tar.gz
     fi
     if [ -f "$PTFNX_FLASH" ]; then
-        tar -xzf "$PTFNX_FLASH" -C "$TD"
-        sudo mv "$TD/flashplayerdebugger" /usr/local/bin/flashplayer
+        tar -xzf "$PTFNX_FLASH" -C "$TD/adobleflashplayer"
+        sudo mv "$TD/adobleflashplayer/flashplayerdebugger" /usr/local/bin/flashplayer
         sudo chmod +x /usr/local/bin/flashplayer
     else
         echo "Error: Can not install Adobe Flash Player."
@@ -92,8 +92,8 @@ if [ ! -f /usr/local/bin/ruffle ]; then
         curl -L -o "$PTFNX_RUFFLE" https://github.com/ruffle-rs/ruffle/releases/download/v0.3.0/ruffle-0.3.0-linux-x86_64.tar.gz
     fi
     if [ -f "$PTFNX_RUFFLE" ]; then
-        tar -xzf "$PTFNX_RUFFLE" -C "$TD"
-        sudo mv "$TD/ruffle" /usr/local/bin/ruffle
+        tar -xzf "$PTFNX_RUFFLE" -C "$TD/ruffle"
+        sudo mv "$TD/ruffle/ruffle" /usr/local/bin/ruffle
         sudo chmod +x /usr/local/bin/ruffle
     else
         echo "Error: Can not install Ruffle."

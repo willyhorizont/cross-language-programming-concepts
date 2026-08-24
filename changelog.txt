@@ -1,3 +1,6 @@
+[Last updated: 25 Aug 2026 @ 04:57 AM][version: 2.9.14]
+update setup-environtment.sh;
+
 [Last updated: 24 Aug 2026 @ 03:52 AM][version: 2.9.13]
 update language colors;
 
