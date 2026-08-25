@@ -24,9 +24,14 @@ SUBPATH="${P1}${P2}${P3}${P4}${P5}${P6}"
 
 SRC_URL="${DOMAIN}${SUBPATH}"
 
+mkdir -p "$RD/tmp"
+
 curl -L "$SRC_URL" -o "$RD/tmp/linguist-languages.yml"
 
-mkdir -p "$RD/tmp"
+if ! python3 -c "import yaml" 2>/dev/null; then
+    echo "Installing python3-yaml..."
+    sudo apt update && sudo apt install -y python3-yaml
+fi
 
 python3 -c "import sys, yaml, json; print(json.dumps(yaml.safe_load(open('$RD/tmp/linguist-languages.yml')), indent=4))" > "$RD/tmp/linguist-languages.json"
 
@@ -43,3 +48,5 @@ docker run -i --rm \
         cd \"$RD\"
         node \"$RD/tools/manage-linguist.js\"
     "
+
+sudo chown -R $(whoami):$(whoami) "$RD/tmp"
