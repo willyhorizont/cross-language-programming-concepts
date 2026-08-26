@@ -143,6 +143,13 @@
         "tab.inactiveBackground": "#29161d",
         "editorOverviewRuler.border": "#29161d",
         "panel.background": "#29161d",
+        "editor.lineHighlightBorder": "#FF0000",
+        "editor.rangeHighlightBorder": "#FF0000",
+        "editor.rangeHighlightBackground": "#FF00001A",
+        "editor.lineHighlightBackground": "#FF00001A",
+        "editor.findMatchBackground": "#FFFFFF33",
+        "editor.findMatchBorder": "#FFFFFFFF",
+        "editor.findMatchHighlightBackground": "#FF000044",
     },
     "editor.tokenColorCustomizations": {
         "[Visual Studio 2017 Dark - C++]": {
