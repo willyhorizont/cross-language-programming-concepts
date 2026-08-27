@@ -1,0 +1,8 @@
+latest version per Q3 2026
+Free Pascal 3.2.2
+Free Basic 1.10.1
+Simula Standard 1986
+ALGOL 68
+ABAP 7.58
+AL 17.0
+Ada 2022

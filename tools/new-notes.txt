@@ -35,6 +35,15 @@ https://weberdominik.com/blog/vscode-vertical-tabs/
 @category:"programming languages" tcl
 ext:vim
 
+konteks=programming/scripting language.
+sumber=github-linguist/languages.yml
+name=(BlitzMax).
+1. latest di version berapa dan kapan?
+2. berapa cara bikin function?
+3. berapa cara bikin function anonymous?
+4. install di linux bisa?
+jawab no 4 hanya kalau no 3 bisa.
+
 add:
 https://nue.nu/
 ~~ps1 / pwsh / powershell~~
@@ -47,9 +56,9 @@ https://nue.nu/
 ~~Objective-C~~
 ~~smalltalk = pharo, squeak, cuis smalltalk, ~dolphin smalltalk~~
 ~~actionscript~~
-~~freebasic~~ tried, canceled, no closure as value, already have Ms. tho...
-~~freepascal~~ tried, canceled, no closure as value, FPC >= 3.3.x still not stable, even using paid software Embarcadero Delphi >= 2009, the syntax is still "unique"
-~~c~~ tried, canceled, no closure as value, already have C++ tho...
+~~freebasic~~ tried, canceled, no lambda as value, already have Ms. tho...
+~~freepascal~~ tried, canceled, no lambda as value, FPC >= 3.3.x still not stable, even using paid software Embarcadero Delphi >= 2009, the syntax is still "unique"
+~~c~~ tried, canceled, no lambda as value, already have C++ tho...
 ~~groovy~~
 ~~cangjie~~
 ~~c3~~
@@ -113,7 +122,7 @@ change none() to none
 ~~add escape_string~~
 add std_json_stringify
 ~~change associative list to xl_dict, and add xl_dict_indexed~~
-AnyType -> ~DynamicType~ CrossType [xlNone, xlBool, xlString, xlInt, xlFloat, xlList, xlDict, xlClosure] ext .xl (xl = cross language)
+AnyType -> ~DynamicType~ CrossType [xlNone, xlBool, xlString, xlInt, xlFloat, xlList, xlDict, xlLambda] ext .xl (xl = cross language)
 
 change Language Mode to:
 cuda-cpp
@@ -139,7 +148,7 @@ XlFloat : float paling besar di bahasa target, misal pake float64 kalau di bahas
 XlList : list dengan length dinamis dan isi heterogen (CrossType)
 XlDict : dict/map berisi pasangan2 string dan CrossType
 XlDictIndexed : dict/map berisi pasangan2 string dan CrossType tapi preserve insertion orders
-XlClosure : closure function anonymous argumentnya varargs, parameternya getNextArguments dan outputnya CrossType
+XlLambda : lambda function anonymous argumentnya varargs, parameternya getNextArguments dan outputnya CrossType
 Xl adalah kepanjangan dari CrossLanguages, Xl bisa juga karena tiap type memakai ukuran paling besar misal int64 dan float 64, xl juga nama repoku atau nama runtime atau nama bahasa pemrogramanku
 
 \*(?=[a-z]) -> {
@@ -149,12 +158,12 @@ Xl adalah kepanjangan dari CrossLanguages, Xl bisa juga karena tiap type memakai
     int main(int argc, const char * argv[]) {} -> objective-c
 }
 
-Xl::Type create_multiplier = Xl::Closure([](const Xl::Type& args) -> Xl::Type {
+Xl::Type create_multiplier = Xl::Lambda([](const Xl::Type& args) -> Xl::Type {
     Xl::Type itr = args.iter();
     Xl::Type aa = itr.next();
     Xl::Type cc = itr.next();
 
-    return Xl::Closure([aa = std::move(aa), cc = std::move(cc)](const Xl::Type& args) -> Xl::Type {
+    return Xl::Lambda([aa = std::move(aa), cc = std::move(cc)](const Xl::Type& args) -> Xl::Type {
         Xl::Type itr = args.iter();
         Xl::Type bb = itr.next();
 

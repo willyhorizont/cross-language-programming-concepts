@@ -25,10 +25,10 @@ void main () {
         });
     });
     var multiply_by_two = create_multiplier.call ({ Xl.init_int (2) });
-    print (@"multiply_by_two(10): $(multiply_by_two.call ({ Xl.init_int (10) }).to_int())\n");
+    print (@"multiply_by_two(10): $(multiply_by_two.call ({ Xl.init_int (10) }).to_int ())\n");
     var multiply_by_eight = create_multiplier.call ({ Xl.init_int (8) });
-    print (@"multiply_by_eight(4): $(multiply_by_eight.call ({ Xl.init_int (4) }).to_int())\n");
-    print (@"multiply_by_two(8): $(multiply_by_two.call ({ Xl.init_int (8) }).to_int())\n");
+    print (@"multiply_by_eight(4): $(multiply_by_eight.call ({ Xl.init_int (4) }).to_int ())\n");
+    print (@"multiply_by_two(8): $(multiply_by_two.call ({ Xl.init_int (8) }).to_int ())\n");
 
     /*
     ' -- 2. support dynamic-typed value, or has workaround
@@ -43,7 +43,7 @@ void main () {
         Xl.init_float (123.789),
         Xl.init_float (-123.789),
         Xl.init_list ({ Xl.init_int (1), Xl.init_int (2), Xl.init_int (3) }),
-        Xl.init_dict ({ Xl.init_pair ("foo", Xl.init_string("bar")) }),
+        Xl.init_dict ({ Xl.init_pair ("foo", Xl.init_string ("bar")) }),
         Xl.init_lambda ((va) => {
             var itr = va.iter ();
             var aa = itr.next ();
@@ -52,7 +52,7 @@ void main () {
         }),
     });
     print (@"xl_list: $(Xl.json_stringify(xl_list))\n");
-    print (@"xl_list: $(Xl.json_stringify(xl_list, Xl.init_pair("pretty", Xl.init_bool(true))))\n");
+    print (@"xl_list: $(Xl.json_stringify(xl_list, Xl.init_pair ("pretty", Xl.init_bool (true))))\n");
     var xl_dict = Xl.init_dict ({
         Xl.init_pair ("xl_none", Xl.init_none ()),
         Xl.init_pair ("xl_bool_true", Xl.init_bool (true)),
@@ -63,7 +63,7 @@ void main () {
         Xl.init_pair ("xl_float_positive", Xl.init_float (123.789)),
         Xl.init_pair ("xl_float_negative", Xl.init_float (-123.789)),
         Xl.init_pair ("xl_list", Xl.init_list ({ Xl.init_int (1), Xl.init_int (2), Xl.init_int (3) })),
-        Xl.init_pair ("xl_dict", Xl.init_dict ({ Xl.init_pair ("foo", Xl.init_string("bar")) })),
+        Xl.init_pair ("xl_dict", Xl.init_dict ({ Xl.init_pair ("foo", Xl.init_string ("bar")) })),
         Xl.init_pair ("xl_lambda", Xl.init_lambda ((va) => {
             var itr = va.iter ();
             var aa = itr.next ();
@@ -72,5 +72,5 @@ void main () {
         })),
     });
     print (@"xl_dict: $(Xl.json_stringify(xl_dict))\n");
-    print (@"xl_dict: $(Xl.json_stringify(xl_dict, Xl.init_pair("pretty", Xl.init_bool(true))))\n");
+    print (@"xl_dict: $(Xl.json_stringify(xl_dict, Xl.init_pair ("pretty", Xl.init_bool (true))))\n");
 }

@@ -49,4 +49,4 @@ docker run -i --rm \
         node \"$RD/tools/manage-linguist.js\"
     "
 
-sudo chown -R $(whoami):$(whoami) "$RD/tmp"
+sudo chown -R $(whoami):$(whoami) "$RD/tmp/linguist-programming-languages.json"
