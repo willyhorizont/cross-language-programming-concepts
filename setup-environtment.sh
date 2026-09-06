@@ -74,6 +74,7 @@ if [ ! -f /usr/local/bin/flashplayer ]; then
         curl -L -o "$PTFNX_FLASH" https://fpdownload.macromedia.com/pub/flashplayer/updaters/32/flash_player_sa_linux_debug.x86_64.tar.gz
     fi
     if [ -f "$PTFNX_FLASH" ]; then
+        mkdir -p "$TD/adobleflashplayer"
         tar -xzf "$PTFNX_FLASH" -C "$TD/adobleflashplayer"
         sudo mv "$TD/adobleflashplayer/flashplayerdebugger" /usr/local/bin/flashplayer
         sudo chmod +x /usr/local/bin/flashplayer
@@ -92,6 +93,7 @@ if [ ! -f /usr/local/bin/ruffle ]; then
         curl -L -o "$PTFNX_RUFFLE" https://github.com/ruffle-rs/ruffle/releases/download/v0.3.0/ruffle-0.3.0-linux-x86_64.tar.gz
     fi
     if [ -f "$PTFNX_RUFFLE" ]; then
+        mkdir -p "$TD/ruffle"
         tar -xzf "$PTFNX_RUFFLE" -C "$TD/ruffle"
         sudo mv "$TD/ruffle/ruffle" /usr/local/bin/ruffle
         sudo chmod +x /usr/local/bin/ruffle
@@ -103,7 +105,7 @@ fi
 
 hash -r
 
-sudo usermod -aG docker $USER
-newgrp docker
+sudo usermod -aG docker "$USER"
 
-echo "setup environment finished"
+echo "Setup environment finished"
+echo "Please log out and log in back (or restart terminal)"

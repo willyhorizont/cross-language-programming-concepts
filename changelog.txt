@@ -1,3 +1,6 @@
+[Last updated: 07 Sep 2026 @ 04:45 AM][version: 2.9.18]
+update setup-environtment.sh;
+
 [Last updated: 28 Aug 2026 @ 12:26 AM][version: 2.9.17]
 update notes;
 
