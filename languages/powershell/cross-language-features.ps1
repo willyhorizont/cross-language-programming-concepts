@@ -12,7 +12,7 @@ $SayHello = {
     Param()
     Write-Host "world"
 }.GetNewClosure()
-$CreateMultiplier = { Param($Aa) { Param($Bb) ($Aa * $Bb) }.GetNewClosure() }
+$CreateMultiplier = { Param($Aa) { Param($Bb) ($Aa * $Bb) }.GetNewClosure() }.GetNewClosure()
 $MultiplyByTwo = &$CreateMultiplier 2
 Write-Host "multiply_by_two(10): $(&$MultiplyByTwo 10)"
 $MultiplyByEight = &$CreateMultiplier 8
