@@ -33,7 +33,7 @@
         #text(fill: rgb("#ddd"))[#cmd-out]
     ]
 }
-#let runtime = (doc) => {
+#let terminal = (doc) => {
     let n-doc = setup-doc(doc)
     return [
         #set page(
@@ -46,7 +46,7 @@
             fill: rgb("#00e287"),
             size: 10pt,
         )
-        #p-prompt()#print-cmd([typst compile #f-n-x])#{"\n"}#text(fill: rgb("#ddd"))[#n-doc|]
+        #p-prompt()#print-cmd([typst compile #f-n-x])#{"\n"}#text(fill: rgb("#ddd"))[#n-doc\_]
     ]
 }
 #let escape-string(s) = {

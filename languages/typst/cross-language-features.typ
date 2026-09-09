@@ -1,5 +1,5 @@
 #import "/runtimes/typst/willyhorizont/runtime/xl.typ" as xl
-#show: xl.runtime
+#show: xl.terminal
 
 #{
     /*

@@ -76,7 +76,7 @@ package willyhorizont.runtime {
             var fP:String = hA + hB + hC + hD;
             var rP:String = N + "@" + PC + ":" + D + "$ ";
             var cP:String = cleanTx.split(rP).join(fP);
-            var dP:String = "<font color='#777777'>|</font>";
+            var dP:String = "<font color='#777777'>_</font>";
             return cP + dP;
         }
         private function wrapChar(hTx:String, maxWidth:Number):String {
