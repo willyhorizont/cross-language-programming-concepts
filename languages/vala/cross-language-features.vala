@@ -51,8 +51,8 @@ void main () {
             return Xl.init_int (aa.to_int () * bb.to_int ());
         }),
     });
-    print (@"xl_list: $(Xl.json_stringify(xl_list))\n");
-    print (@"xl_list: $(Xl.json_stringify(xl_list, Xl.init_pair ("pretty", Xl.init_bool (true))))\n");
+    print (@"xl_list: $(Xl.json_stringify (xl_list))\n");
+    print (@"xl_list: $(Xl.json_stringify (xl_list, Xl.init_pair ("pretty", Xl.init_bool (true))))\n");
     var xl_dict = Xl.init_dict ({
         Xl.init_pair ("xl_none", Xl.init_none ()),
         Xl.init_pair ("xl_bool_true", Xl.init_bool (true)),
@@ -71,6 +71,6 @@ void main () {
             return Xl.init_int (aa.to_int () * bb.to_int ());
         })),
     });
-    print (@"xl_dict: $(Xl.json_stringify(xl_dict))\n");
-    print (@"xl_dict: $(Xl.json_stringify(xl_dict, Xl.init_pair ("pretty", Xl.init_bool (true))))\n");
+    print (@"xl_dict: $(Xl.json_stringify (xl_dict))\n");
+    print (@"xl_dict: $(Xl.json_stringify (xl_dict, Xl.init_pair ("pretty", Xl.init_bool (true))))\n");
 }
