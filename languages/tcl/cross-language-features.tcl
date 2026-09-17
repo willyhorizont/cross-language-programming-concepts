@@ -1,6 +1,6 @@
 source [file join [file dirname [file normalize [info script]]] ".." ".." "runtimes" "tcl" "willyhorizont" "runtime" "xl.tcl"]
 
-# // -- 1. support init_lambda as value, or has workaround
+# // -- 1. support lambda as value, or has workaround
 set say_hello [xl::init_lambda [list] {{va} {
     lassign $va callback
     puts "hello"
