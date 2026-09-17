@@ -56,7 +56,7 @@ func main() {
         }),
     )
     xl.Println("xl_list: ", xl.JsonStringify(xlList))
-    xl.Println("xl_list: ", xl.JsonStringify(xlList, xl.InitDict(xl.InitPair("pretty", xl.TRUE)))) 
+    xl.Println("xl_list: ", xl.JsonStringify(xlList, xl.InitPair("pretty", xl.TRUE)))
     xlDict := xl.InitDict(
         xl.InitPair("xl_none", xl.NONE),
         xl.InitPair("xl_bool_true", xl.TRUE),
@@ -76,5 +76,5 @@ func main() {
         })),
     )
     xl.Println("xl_dict: ", xl.JsonStringify(xlDict))
-    xl.Println("xl_dict: ", xl.JsonStringify(xlDict, xl.InitDict(xl.InitPair("pretty", xl.TRUE))))
+    xl.Println("xl_dict: ", xl.JsonStringify(xlDict, xl.InitPair("pretty", xl.TRUE)))
 }

@@ -30,7 +30,7 @@ type Dict map[string]Type
 type Lambda func(va Type) Type
 
 type Pair struct {
-    kind   string
+    key   string
     value Type
 }
 
@@ -62,13 +62,13 @@ func InitList(va ...Type) Type {
 }
 
 func InitPair(k string, v Type) Pair {
-    return Pair{kind: k, value: v}
+    return Pair{key: k, value: v}
 }
 
 func InitDict(dpl ...Pair) Type {
     d := make(Dict)
     for _, p := range dpl {
-        d[p.kind] = p.value
+        d[p.key] = p.value
     }
     return Type{kind: XlDict, value: d}
 }
@@ -190,10 +190,9 @@ func JsonStringify(va ...interface{}) string {
     }
     p := false
     if len(va) > 1 && va[1] != nil {
-        if o, ok := va[1].(Type); ok && o.kind == XlDict {
-            oD := o.value.(Dict)
-            if odP, exists := oD["pretty"]; exists && odP.kind == XlBool {
-                p = odP.value.(bool)
+        if odP, ok := va[1].(Pair); ok {
+            if odP.key == "pretty" && odP.value.kind == XlBool {
+                p = odP.value.value.(bool)
             }
         }
     }
