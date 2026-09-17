@@ -45,7 +45,7 @@ void main() {
         123.789,
         -123.789,
         xl.initList(1, 2, 3),
-        xl.initDict(xl.pair("foo", "bar")),
+        xl.initDict(xl.initPair("foo", "bar")),
         xl.initLambda(delegate(Xl va) {
             Xl itr = xl.iter(va);
             Xl aa = xl.next(itr);
@@ -56,17 +56,17 @@ void main() {
     writeln(i"xl_list: $(xl.jsonStringify(xlList))".text);
     writeln(i"xl_list: $(xl.jsonStringify(xlList, pretty: true))".text);
     Xl xlDict = xl.initDict(
-        xl.pair("xl_none", xl.None),
-        xl.pair("xl_bool_true", true),
-        xl.pair("xl_bool_false", false),
-        xl.pair("xl_string", "foo"),
-        xl.pair("xl_int_positive", 0),
-        xl.pair("xl_int_negative", -123),
-        xl.pair("xl_float_positive", 123.789),
-        xl.pair("xl_float_negative", -123.789),
-        xl.pair("xl_list", xl.initList(1, 2, 3)),
-        xl.pair("xl_dict", xl.initDict(xl.pair("foo", "bar"))),
-        xl.pair("xl_lambda", xl.initLambda(delegate(Xl va) {
+        xl.initPair("xl_none", xl.None),
+        xl.initPair("xl_bool_true", true),
+        xl.initPair("xl_bool_false", false),
+        xl.initPair("xl_string", "foo"),
+        xl.initPair("xl_int_positive", 0),
+        xl.initPair("xl_int_negative", -123),
+        xl.initPair("xl_float_positive", 123.789),
+        xl.initPair("xl_float_negative", -123.789),
+        xl.initPair("xl_list", xl.initList(1, 2, 3)),
+        xl.initPair("xl_dict", xl.initDict(xl.initPair("foo", "bar"))),
+        xl.initPair("xl_lambda", xl.initLambda(delegate(Xl va) {
             Xl itr = xl.iter(va);
             Xl aa = xl.next(itr);
             Xl bb = xl.next(itr);

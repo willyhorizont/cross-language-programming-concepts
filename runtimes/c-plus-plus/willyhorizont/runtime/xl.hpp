@@ -148,6 +148,10 @@ namespace XL {
         return Type(std::move(l));
     }
 
+    inline Pair init_pair(std::string k, Type v) {
+        return std::make_pair(std::move(k), std::move(v));
+    }
+
     template <typename... Args>
     inline Type init_dict(Args&&... args) {
         DictValue d;

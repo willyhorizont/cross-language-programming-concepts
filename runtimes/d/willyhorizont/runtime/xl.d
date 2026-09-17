@@ -56,7 +56,7 @@ struct xl {
         Xl value;
     }
 
-    static Pair pair(T)(string k, T v) {
+    static Pair initPair(T)(string k, T v) {
         return Pair(k, Xl(v));
     }
 

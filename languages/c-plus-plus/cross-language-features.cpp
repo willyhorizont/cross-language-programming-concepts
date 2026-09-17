@@ -45,7 +45,7 @@ int main(int argc, char* argv[]) {
         XL::init_float(123.789),
         XL::init_float(-123.789),
         XL::init_list(XL::init_int(1), XL::init_int(2), XL::init_int(3)),
-        XL::init_dict(XL::Pair("foo", XL::init_string("bar"))),
+        XL::init_dict(XL::init_pair("foo", XL::init_string("bar"))),
         XL::init_lambda([](const XL::Type& va) -> XL::Type {
             XL::Type itr = va.iter();
             XL::Type aa = itr.next();
@@ -56,17 +56,17 @@ int main(int argc, char* argv[]) {
     std::cout << "xl_list: " << XL::json_stringify(xl_list) << '\n';
     std::cout << "xl_list: " << XL::json_stringify(xl_list, { .pretty = true }) << '\n';
     XL::Type xl_dict = XL::init_dict(
-        XL::Pair("xl_none", XL::NONE),
-        XL::Pair("xl_bool_true", XL::TRUE),
-        XL::Pair("xl_bool_false", XL::FALSE),
-        XL::Pair("xl_string", XL::init_string("foo")),
-        XL::Pair("xl_int_positive", XL::init_int(0)),
-        XL::Pair("xl_int_negative", XL::init_int(-123)),
-        XL::Pair("xl_float_positive", XL::init_float(123.789)),
-        XL::Pair("xl_float_negative", XL::init_float(-123.789)),
-        XL::Pair("xl_list", XL::init_list(XL::init_int(1), XL::init_int(2), XL::init_int(3))),
-        XL::Pair("xl_dict", XL::init_dict(XL::Pair("foo", XL::init_string("bar")))),
-        XL::Pair("xl_lambda", XL::init_lambda([](const XL::Type& va) -> XL::Type {
+        XL::init_pair("xl_none", XL::NONE),
+        XL::init_pair("xl_bool_true", XL::TRUE),
+        XL::init_pair("xl_bool_false", XL::FALSE),
+        XL::init_pair("xl_string", XL::init_string("foo")),
+        XL::init_pair("xl_int_positive", XL::init_int(0)),
+        XL::init_pair("xl_int_negative", XL::init_int(-123)),
+        XL::init_pair("xl_float_positive", XL::init_float(123.789)),
+        XL::init_pair("xl_float_negative", XL::init_float(-123.789)),
+        XL::init_pair("xl_list", XL::init_list(XL::init_int(1), XL::init_int(2), XL::init_int(3))),
+        XL::init_pair("xl_dict", XL::init_dict(XL::init_pair("foo", XL::init_string("bar")))),
+        XL::init_pair("xl_lambda", XL::init_lambda([](const XL::Type& va) -> XL::Type {
             XL::Type itr = va.iter();
             XL::Type aa = itr.next();
             XL::Type bb = itr.next();
