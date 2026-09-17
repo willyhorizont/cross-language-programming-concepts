@@ -2,7 +2,7 @@
 
 SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD/..")
-V="2.9.24" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
+V="2.9.25" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
 T=$(date "+%d %b %Y @ %I:%M %p")
 cd "$RD" || exit
 
@@ -24,8 +24,8 @@ H="
 H=$(sed -e '/./,$!d' <<< "$H")
 # ! DON'T FORGET TO CHANGE COMMIT MESSAGE BEFORE RUNNING !!!!
 M="
-update d;
-update c-plus-plus;
+update v;
+update nim;
 update in debian-lxde btw ;)
 "
 M=$(sed -e '/./,$!d' <<< "$M")

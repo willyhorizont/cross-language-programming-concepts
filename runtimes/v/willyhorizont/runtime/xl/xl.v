@@ -239,6 +239,10 @@ pub fn init(va ...Type) Type {
     return va[0]
 }
 
+pub fn init_lambda(f fn (Type) Type) Type {
+    return Lambda{ value: f }
+}
+
 pub fn lambda(v Lambda) Type {
     return v
 }

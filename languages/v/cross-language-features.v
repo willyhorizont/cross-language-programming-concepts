@@ -6,26 +6,26 @@ fn main() {
     /*
     -- 1. support lambda as value, or has workaround
     */
-    say_hello := xl.init(xl.lambda(value: fn (va xl.Type) xl.Type {
+    say_hello := xl.init_lambda(fn (va xl.Type) xl.Type {
         mut itr := xl.iter(va)
         callback := xl.next(mut itr)
         println("hello")
         callback.call()
         return xl.init()
-    }))
-    say_hello.call(xl.init(xl.lambda(value: fn (va xl.Type) xl.Type {
+    })
+    say_hello.call(xl.init_lambda(fn (va xl.Type) xl.Type {
         println("world")
         return xl.init()
-    })))
-    create_multiplier := xl.init(xl.lambda(value: fn (va xl.Type) xl.Type {
+    }))
+    create_multiplier := xl.init_lambda(fn (va xl.Type) xl.Type {
         mut itr := xl.iter(va)
         aa := xl.next(mut itr)
-        return xl.init(xl.lambda(value: fn [aa] (va xl.Type) xl.Type {
+        return xl.init_lambda(fn [aa] (va xl.Type) xl.Type {
             mut itr := xl.iter(va)
             bb := xl.next(mut itr)
             return xl.init(xl.to_int(aa) * xl.to_int(bb))
-        }))
-    }))
+        })
+    })
     multiply_by_two := create_multiplier.call(2)
     println("multiply_by_two(10): ${multiply_by_two.call(10).to_int()}")
     multiply_by_eight := create_multiplier.call(8)
@@ -46,12 +46,12 @@ fn main() {
         xl.init(-123.789),
         xl.init([xl.init(1), xl.init(2), xl.init(3)]),
         xl.init({ "foo": xl.init("bar") }),
-        xl.init(xl.lambda(value: fn (va xl.Type) xl.Type {
+        xl.init_lambda(fn (va xl.Type) xl.Type {
             mut itr := xl.iter(va)
             aa := xl.next(mut itr)
             bb := xl.next(mut itr)
             return xl.init(xl.to_int(aa) * xl.to_int(bb))
-        })),
+        }),
     ])
     println("xl_list: ${xl.json_stringify(xl_list)}")
     println("xl_list: ${xl.json_stringify(xl_list, pretty: true)}")
@@ -66,12 +66,12 @@ fn main() {
         "xl_float_negative": xl.init(-123.789),
         "xl_list": xl.init([xl.init(1), xl.init(2), xl.init(3)]),
         "xl_dict": xl.init({ "foo": xl.init("bar") }),
-        "xl_lambda": xl.init(xl.lambda(value: fn (va xl.Type) xl.Type {
+        "xl_lambda": xl.init_lambda(fn (va xl.Type) xl.Type {
             mut itr := xl.iter(va)
             aa := xl.next(mut itr)
             bb := xl.next(mut itr)
             return xl.init(xl.to_int(aa) * xl.to_int(bb))
-        })),
+        }),
     })
     println("xl_dict: ${xl.json_stringify(xl_dict)}")
     println("xl_dict: ${xl.json_stringify(xl_dict, pretty: true)}")

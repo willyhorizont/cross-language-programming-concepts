@@ -42,7 +42,7 @@ let xlList = xl.init(@[
     xl.init(123.789),
     xl.init(-123.789),
     xl.init(@[xl.init(1), xl.init(2), xl.init(3)]),
-    xl.init(toTable({"foo": xl.init("bar")})),
+    xl.init({"foo": xl.init("bar")}),
     xl.init(proc (va: xl.Type): xl.Type {.closure.} =
         let itr = xl.iter(va)
         let aa = itr.next()
@@ -52,7 +52,7 @@ let xlList = xl.init(@[
 ])
 echo fmt"xl_list: {jsonStringify(xlList)}"
 echo fmt"xl_list: {jsonStringify(xlList, pretty = true)}"
-let xlDict = xl.init(toTable({
+let xlDict = xl.init({
     "xl_none": xl.none,
     "xl_bool_true": xl.init(true),
     "xl_bool_false": xl.init(false),
@@ -62,13 +62,13 @@ let xlDict = xl.init(toTable({
     "xl_float_positive": xl.init(123.789),
     "xl_float_negative": xl.init(-123.789),
     "xl_list": xl.init(@[xl.init(1), xl.init(2), xl.init(3)]),
-    "xl_dict": xl.init(toTable({"foo": xl.init("bar")})),
+    "xl_dict": xl.init({"foo": xl.init("bar")}),
     "xl_lambda": xl.init(proc (va: xl.Type): xl.Type {.closure.} =
         let itr = xl.iter(va)
         let aa = itr.next()
         let bb = itr.next()
         return xl.init(aa.toInt() * bb.toInt())
     ),
-}))
+})
 echo fmt"xl_dict: {jsonStringify(xlDict)}"
 echo fmt"xl_dict: {jsonStringify(xlDict, pretty = true)}"
