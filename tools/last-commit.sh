@@ -2,7 +2,7 @@
 
 SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD/..")
-V="2.9.28" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
+V="2.9.29" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
 T=$(date "+%d %b %Y @ %I:%M %p")
 cd "$RD" || exit
 
@@ -24,7 +24,7 @@ H="
 H=$(sed -e '/./,$!d' <<< "$H")
 # ! DON'T FORGET TO CHANGE COMMIT MESSAGE BEFORE RUNNING !!!!
 M="
-move stop docker.service and containerd.service after last docker command in one file at the end of the file;
+undo stupid 644 change back to 755;
 "
 M=$(sed -e '/./,$!d' <<< "$M")
 M="$H

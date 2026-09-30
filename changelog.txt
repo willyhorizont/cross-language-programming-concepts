@@ -1,3 +1,6 @@
+[Last updated: 30 Sep 2026 @ 10:18 PM][version: 2.9.29]
+undo stupid 644 change back to 755;
+
 [Last updated: 30 Sep 2026 @ 10:09 PM][version: 2.9.28]
 move stop docker.service and containerd.service after last docker command in one file at the end of the file;
 
