@@ -43,4 +43,4 @@ git tag -a "$V" -m "$M"
 git push origin dev # ! development
 git push origin --tags
 
-sudo systemctl stop --no-block docker\.service containerd\.service 2>/dev/null
+sudo systemctl stop --no-block docker.service containerd.service 2>/dev/null
