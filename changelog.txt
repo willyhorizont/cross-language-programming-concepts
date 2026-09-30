@@ -1,3 +1,7 @@
+[Last updated: 01 Oct 2026 @ 01:48 AM][version: 2.9.31]
+update typst, remove import alias;
+update vim-script, remove import alias;
+
 [Last updated: 30 Sep 2026 @ 10:44 PM][version: 2.9.30]
 fix stupid stop docker.service containerd.service;
 

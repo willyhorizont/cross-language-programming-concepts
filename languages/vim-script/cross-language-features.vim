@@ -1,21 +1,21 @@
 vim9script
 
-import "../../runtimes/vimscript/willyhorizont/runtime/xl.vim" as Xl
+import "../../runtimes/vimscript/willyhorizont/runtime/xl.vim"
 
 # // ' -- 1. support lambda as value, or has workaround
 var SayHello = (Callback) => {
-    Xl.Echoln("hello")
+    xl.Echoln("hello")
     Callback()
 }
 SayHello(() => {
-    Xl.Echoln("world")
+    xl.Echoln("world")
 })
 var CreateMultiplier = (aa) => (bb) => aa * bb
 var MultiplyByTwo = CreateMultiplier(2)
-Xl.Echoln($"multiply_by_two(10): {MultiplyByTwo(10)}")
+xl.Echoln($"multiply_by_two(10): {MultiplyByTwo(10)}")
 var MultiplyByEight = CreateMultiplier(8)
-Xl.Echoln($"multiply_by_eight(4): {MultiplyByEight(4)}")
-Xl.Echoln($"multiply_by_two(8): {MultiplyByTwo(8)}")
+xl.Echoln($"multiply_by_eight(4): {MultiplyByEight(4)}")
+xl.Echoln($"multiply_by_two(8): {MultiplyByTwo(8)}")
 
 # // ' -- 2. support dynamic-typed value, or has workaround
 var XlList = [
@@ -31,8 +31,8 @@ var XlList = [
     {"foo": "bar"},
     (aa, bb) => aa * bb,
 ]
-Xl.Echoln($"xl_list: {Xl.JsonStringify(XlList)}")
-Xl.Echoln($"xl_list: {Xl.JsonStringify(XlList, {"pretty": true})}")
+xl.Echoln($"xl_list: {xl.JsonStringify(XlList)}")
+xl.Echoln($"xl_list: {xl.JsonStringify(XlList, {"pretty": true})}")
 var XlDict = {
     "xl_none": null,
     "xl_bool_true": true,
@@ -46,5 +46,5 @@ var XlDict = {
     "xl_dict": {"foo": "bar"},
     "xl_lambda": (aa, bb) => aa * bb,
 }
-Xl.Echoln($"xl_dict: {Xl.JsonStringify(XlDict)}")
-Xl.Echoln($"xl_dict: {Xl.JsonStringify(XlDict, {"pretty": true})}")
+xl.Echoln($"xl_dict: {xl.JsonStringify(XlDict)}")
+xl.Echoln($"xl_dict: {xl.JsonStringify(XlDict, {"pretty": true})}")

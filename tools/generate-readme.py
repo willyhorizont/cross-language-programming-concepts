@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 
+
 with open("../languages.json", "r", encoding="utf-8") as fb:
     ll = json.load(fb)
 

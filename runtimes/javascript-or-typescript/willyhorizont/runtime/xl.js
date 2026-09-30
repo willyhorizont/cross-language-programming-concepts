@@ -131,6 +131,10 @@
         }
         return r;
     };
+    globalThis.xl = {
+        escapeString,
+        jsonStringify,
+    };
     return {
         escapeString,
         jsonStringify,

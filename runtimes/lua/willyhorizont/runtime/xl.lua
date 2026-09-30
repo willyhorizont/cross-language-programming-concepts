@@ -1,4 +1,4 @@
-local XL = {}
+local xl = {}
 
 local is_none = function (a) return (type(a) == "nil") end
 local is_bool = function (a) return (type(a) == "boolean") end
@@ -174,16 +174,17 @@ local json_stringify = function (a)
     return r
 end
 
-XL.escapeString = escapeString
-XL.is_none = is_none
-XL.is_bool = is_bool
-XL.is_string = is_string
-XL.is_int = is_int
-XL.is_float = is_float
-XL.is_lambda = is_lambda
-XL.is_list = is_list
-XL.is_dict = is_dict
-XL.dict_to_list = dict_to_list
-XL.json_stringify = json_stringify
+xl.escapeString = escapeString
+xl.is_none = is_none
+xl.is_bool = is_bool
+xl.is_string = is_string
+xl.is_int = is_int
+xl.is_float = is_float
+xl.is_lambda = is_lambda
+xl.is_list = is_list
+xl.is_dict = is_dict
+xl.dict_to_list = dict_to_list
+xl.json_stringify = json_stringify
 
-return XL
+_G.xl = xl
+return xl
