@@ -49,6 +49,7 @@ docker run -i --rm \
 
         $CRLC
     "
+sudo systemctl stop --no-block docker.service containerd.service 2>/dev/null
 
 if [ -f "$PTOFNX" ]; then
     code -r "$PTOFNX"

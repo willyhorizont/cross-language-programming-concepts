@@ -112,6 +112,7 @@ docker run -i --rm \
 
         $CCLC
     "
+sudo systemctl stop --no-block docker.service containerd.service 2>/dev/null
 
 echo "$L"
 

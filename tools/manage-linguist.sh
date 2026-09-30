@@ -48,5 +48,6 @@ docker run -i --rm \
         cd \"$RD\"
         node \"$RD/tools/manage-linguist.js\"
     "
+sudo systemctl stop --no-block docker.service containerd.service 2>/dev/null
 
 sudo chown -R $(whoami):$(whoami) "$RD/tmp/linguist-programming-languages.json"

@@ -17,6 +17,7 @@ docker run -i --rm \
         cd \"$RD\"
         npm version \"$V\" --no-git-tag-version
     "
+sudo systemctl stop --no-block docker.service containerd.service 2>/dev/null
 
 H="
 [Last updated: $T][version: $V]
