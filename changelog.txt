@@ -1,3 +1,6 @@
+[Last updated: 30 Sep 2026 @ 10:09 PM][version: 2.9.28]
+move stop docker.service and containerd.service after last docker command in one file at the end of the file;
+
 [Last updated: 30 Sep 2026 @ 09:41 PM][version: 2.9.27]
 add stop docker.service and containerd.service after last docker command in one file;
 

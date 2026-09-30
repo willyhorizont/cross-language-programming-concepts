@@ -57,4 +57,5 @@ docker run -i --rm \
 
         $CCRLC
     "
+
 sudo systemctl stop --no-block docker.service containerd.service 2>/dev/null

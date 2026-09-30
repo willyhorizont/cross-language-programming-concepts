@@ -2,7 +2,7 @@
 
 SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD/..")
-V="2.9.27" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
+V="2.9.28" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
 T=$(date "+%d %b %Y @ %I:%M %p")
 cd "$RD" || exit
 
@@ -17,7 +17,6 @@ docker run -i --rm \
         cd \"$RD\"
         npm version \"$V\" --no-git-tag-version
     "
-sudo systemctl stop --no-block docker.service containerd.service 2>/dev/null
 
 H="
 [Last updated: $T][version: $V]
@@ -25,7 +24,7 @@ H="
 H=$(sed -e '/./,$!d' <<< "$H")
 # ! DON'T FORGET TO CHANGE COMMIT MESSAGE BEFORE RUNNING !!!!
 M="
-add stop docker.service and containerd.service after last docker command in one file;
+move stop docker.service and containerd.service after last docker command in one file at the end of the file;
 "
 M=$(sed -e '/./,$!d' <<< "$M")
 M="$H
@@ -41,3 +40,5 @@ git tag -d "$V" 2>/dev/null
 git tag -a "$V" -m "$M"
 git push origin main
 git push origin --tags
+
+sudo systemctl stop --no-block docker\.service containerd\.service 2>/dev/null

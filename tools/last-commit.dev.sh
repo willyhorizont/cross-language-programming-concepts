@@ -17,7 +17,6 @@ docker run -i --rm \
         cd \"$RD\"
         npm version \"$V\" --no-git-tag-version
     "
-sudo systemctl stop --no-block docker.service containerd.service 2>/dev/null
 
 H="
 [Last updated: $T][version: $V]
@@ -43,3 +42,5 @@ git tag -d "$V" 2>/dev/null
 git tag -a "$V" -m "$M"
 git push origin dev # ! development
 git push origin --tags
+
+sudo systemctl stop --no-block docker\.service containerd\.service 2>/dev/null
