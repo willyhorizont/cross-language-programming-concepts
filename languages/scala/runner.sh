@@ -16,9 +16,9 @@ if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; the
 fi
 
 CPV="
-echo \">docker images\"
+echo \"docker images\"
 echo \"$IMG\"
-echo \">scala-cli version\"
+echo \"scala-cli version\"
 scala-cli version
 "
 
@@ -45,8 +45,11 @@ if [ ! "$(docker ps -q -f name=$DCN)" ]; then
     docker run -d \
         --name $DCN \
         --entrypoint "" \
-        -v scala-coursier-cache:/root/.cache/coursier \
+        -v scala-coursier-cache:/root/.cache/coursier \    
+        -v "$HOME:$HOME" \
+        -v "$PWD:$PWD" \
         -v "$RD:$RD" \
+        -v "$SD:$SD" \
         "$IMG" \
         sleep infinity > /dev/null
     echo "$DCN" > "$PTDCNTFNX"
@@ -56,9 +59,12 @@ fi
 docker exec -i $DCN /bin/bash -c "
     $CPV
 
+    echo \"$CRLC\"
+
     echo \"$L\"
 
     $CRLC
 "
 
-sudo systemctl stop --no-block docker.service containerd.service 2>/dev/null
+sudo -p "$L
+Enter password to stop docker container: " systemctl stop --no-block docker.service containerd.service 2>/dev/null

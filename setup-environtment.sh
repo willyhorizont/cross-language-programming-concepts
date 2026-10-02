@@ -103,6 +103,8 @@ if [ ! -f /usr/local/bin/ruffle ]; then
     fi
 fi
 
+sed -i '/alias xlrun=/d' ~/.bashrc && echo "alias xlrun='\$HOME/willyhorizont.github.io/cross-language-programming-concepts/xlrun.sh'" >> ~/.bashrc && source ~/.bashrc
+
 hash -r
 
 sudo usermod -aG docker "$USER"

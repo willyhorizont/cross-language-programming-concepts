@@ -21,11 +21,11 @@ PTTFNX="$RD/runtimes/erlang/main.erl"
 mkdir -p "$PTTFNXD"
 
 CPV="
-echo \">docker images\"
+echo \"docker images\"
 echo \"$IMG\"
-echo \">erl -noshell -eval 'io:format(\\\"~s~n\\\", [erlang:system_info(system_version)]), halt().'\"
+echo \"erl -noshell -eval 'io:format(\\\"~s~n\\\", [erlang:system_info(system_version)]), halt().'\"
 erl -noshell -eval 'io:format(\"~s~n\", [erlang:system_info(system_version)]), halt().'
-echo \">cat /usr/local/lib/erlang/releases/29/OTP_VERSION\"
+echo \"cat /usr/local/lib/erlang/releases/29/OTP_VERSION\"
 cat /usr/local/lib/erlang/releases/29/OTP_VERSION
 "
 
@@ -42,14 +42,20 @@ find \"$PTTFNXD\" -name \"*.dump\" -delete
 
 docker run -i --rm \
     --entrypoint bash \
+    -v "$HOME:$HOME" \
+    -v "$PWD:$PWD" \
     -v "$RD:$RD" \
+    -v "$SD:$SD" \
     "$IMG" \
     -c "
         $CPV
+
+        echo \"$CRLC\"
 
         echo \"$L\"
 
         $CRLC
     "
 
-sudo systemctl stop --no-block docker.service containerd.service 2>/dev/null
+sudo -p "$L
+Enter password to stop docker container: " systemctl stop --no-block docker.service containerd.service 2>/dev/null

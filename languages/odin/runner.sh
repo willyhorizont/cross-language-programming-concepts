@@ -24,9 +24,9 @@ cp -f "$PTFNX" "$PTTFNX"
 # perl -i -pe 's/main :: proc\(\) \{/main :: proc() {\n    arena: virtual.Arena\n    err := virtual.arena_init_growing(\&arena)\n    if err != nil {\n        fmt.eprintln("Error: Failed initialize virtual memory arena.")\n        return\n    }\n    defer virtual.arena_destroy(\&arena) \n    context.allocator = virtual.arena_allocator(\&arena)/' "$PTTFNX"
 
 CPV="
-echo \">docker images\"
+echo \"docker images\"
 echo \"$IMG\"
-echo \">odin version\"
+echo \"odin version\"
 odin version
 "
 
@@ -59,14 +59,20 @@ fi
 
 docker run -i --rm \
     --entrypoint bash \
+    -v "$HOME:$HOME" \
+    -v "$PWD:$PWD" \
     -v "$RD:$RD" \
+    -v "$SD:$SD" \
     "$IMG" \
     -c "
         $CPV
+
+        echo \"$CCRLC\"
 
         echo \"$L\"
 
         $CCRLC
     "
 
-sudo systemctl stop --no-block docker.service containerd.service 2>/dev/null
+sudo -p "$L
+Enter password to stop docker container: " systemctl stop --no-block docker.service containerd.service 2>/dev/null

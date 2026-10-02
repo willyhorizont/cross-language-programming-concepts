@@ -19,7 +19,7 @@ PTPM="$RD/composer"
 PTPMS="$RD/composer-setup.php"
 
 CCPMV="
-echo \">composer --version\"
+echo \"composer --version\"
 \"$PTPM\" --version
 "
 
@@ -27,9 +27,9 @@ CPV="
 if [ -f \"$PTPM\" ]; then
     $CCPMV
 fi
-echo \">docker images\"
+echo \"docker images\"
 echo \"$IMG\"
-echo \">php --version\"
+echo \"php --version\"
 php --version
 "
 
@@ -47,17 +47,23 @@ if [ ! -f \"$PTPM\" ]; then
 fi
 "
 
-docker run -i --rm \
+docker run -i --rm \    
+    -v "$HOME:$HOME" \
+    -v "$PWD:$PWD" \
     -v "$RD:$RD" \
+    -v "$SD:$SD" \
     "$IMG" \
     bash -c "
         $CIPM
 
         $CPV
 
+        echo \"$CRLC\"
+
         echo \"$L\"
 
         $CRLC
     "
 
-sudo systemctl stop --no-block docker.service containerd.service 2>/dev/null
+sudo -p "$L
+Enter password to stop docker container: " systemctl stop --no-block docker.service containerd.service 2>/dev/null

@@ -22,11 +22,11 @@ mkdir -p "$PTTFNXD"
 cp -f "$PTFNX" "$PTTFNX"
 
 CPV="
-echo \">docker images\"
+echo \"docker images\"
 echo \"$IMG\"
-echo \">nim --version\"
+echo \"nim --version\"
 nim --version
-echo \">nim -v\"
+echo \"nim -v\"
 nim -v
 "
 
@@ -38,14 +38,20 @@ rm -f \"$PTTFNXD/$TFN\"
 
 docker run -i --rm \
     --entrypoint bash \
+    -v "$HOME:$HOME" \
+    -v "$PWD:$PWD" \
     -v "$RD:$RD" \
+    -v "$SD:$SD" \
     "$IMG" \
     -c "
         $CPV
+
+        echo \"$CRLC\"
 
         echo \"$L\"
 
         $CRLC
     "
 
-sudo systemctl stop --no-block docker.service containerd.service 2>/dev/null
+sudo -p "$L
+Enter password to stop docker container: " systemctl stop --no-block docker.service containerd.service 2>/dev/null

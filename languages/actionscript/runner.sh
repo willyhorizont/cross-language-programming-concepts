@@ -79,10 +79,16 @@ mkdir -p "$PTOFXD"
 cp -f "$PTFNX" "$PTCFX"
 
 CPV="
-echo \">docker images\"
+echo \"docker images\"
 echo \"$IMG\"
-echo \">mxmlc -version\"
+echo \"mxmlc -version\"
 mxmlc -version
+echo \"Flash Player version:\"
+sed -n 's|.*<target-player>\(.*\)</target-player>.*|\1|p' /apache-flex-sdk/frameworks/flex-config.xml
+echo \"SWF version:\"
+sed -n 's|.*<swf-version>\(.*\)</swf-version>.*|\1|p' /apache-flex-sdk/frameworks/flex-config.xml
+echo \"as3:\"
+sed -n 's|.*<as3>\(.*\)</as3>.*|\1|p' /apache-flex-sdk/frameworks/flex-config.xml
 "
 
 SW=800
@@ -95,20 +101,22 @@ C2="cp -f \"$PTFNX\" \"$PTCFX\""
 C3="mxmlc \"$PTRFNX\" -output \"$PTOFNX\""
 
 CCLC="
-rm -f \"$PTOFNX\"
 mxmlc -source-path+=\"$PTTFNXD\" -default-size 800 450 -compiler.define=CONFIG::SCREEN_WIDTH,\"'${SW}'\" -compiler.define=CONFIG::SCREEN_HEIGHT,\"'${SH}'\" -compiler.define=CONFIG::USER_NAME,\"'${UN}'\" -compiler.define=CONFIG::USER_COMPUTER,\"'${UC}'\" -compiler.define=CONFIG::USER_PWD,\"'${UD}'\" -compiler.define=CONFIG::COMMAND_1,\"'${C1}'\" -compiler.define=CONFIG::COMMAND_2,\"'${C2}'\" -compiler.define=CONFIG::COMMAND_3,\"'${C3}'\" \"$PTRFNX\" -output \"$PTOFNX\"
-echo \">SWF version:\"
-java -jar /apache-flex-sdk/lib/swfdump.jar \"$PTOFNX\" | grep \"version=\"
-echo \">Flash Player version:\"
-grep \"<target-player>\" /apache-flex-sdk/frameworks/flex-config.xml
 "
 
 docker run -i --rm \
     --entrypoint bash \
+    -v "$HOME:$HOME" \
+    -v "$PWD:$PWD" \
     -v "$RD:$RD" \
+    -v "$SD:$SD" \
     "$IMG" \
     -c "
         $CPV
+
+        rm -f \"$PTOFNX\"
+
+        echo \"$CCLC\"
 
         $CCLC
     "
@@ -129,4 +137,5 @@ if [ -f "$PTOFNX" ]; then
     fi
 fi
 
-sudo systemctl stop --no-block docker.service containerd.service 2>/dev/null
+sudo -p "$L
+Enter password to stop docker container: " systemctl stop --no-block docker.service containerd.service 2>/dev/null

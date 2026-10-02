@@ -6,7 +6,13 @@ PTEF="$RD/.env"
 [ -f $PTEF ] && source $PTEF
 
 print_separator() {
-    printf '%*s\n' "$(tput cols)" '' | tr ' ' '-'
+    local cols=$(tput cols 2>/dev/null || echo 54)
+    cols=$(( cols - 3 ))
+
+    local ln
+    printf -v ln "%*s" "$cols" ""
+    
+    printf '%s\033[K\n' "${ln// /-}"
 }
 
 get_docker_image() {

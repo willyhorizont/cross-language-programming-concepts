@@ -15,21 +15,25 @@ if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; the
     exit 1
 fi
 
-DN_INFO="
-.NET SDK: 10.0.302
-ASP.NET Core Runtime: 10.0.10
-Visual Studio support: Visual Studio 2026 (v18.8)
-Included in: Visual Studio 18.8.0
-Included runtimes: .NET Runtime 10.0.10, ASP.NET Core Runtime 10.0.10, .NET Desktop Runtime 10.0.10
-Language support: C# 14.0, F# 10.0, Visual Basic 17.13
-more info: https://dotnet.microsoft.com/en-us/download/dotnet/10.0
-"
+JSON_DIR="$RD/tmp"
+JSON_FILE_NAME="dotnet-release-10.0.10.json"
+JSON_FILE="$JSON_DIR/$JSON_FILE_NAME"
+mkdir -p "$JSON_DIR"
+
+if [ ! -f "$JSON_FILE" ]; then
+    echo "Downloading $JSON_FILE_NAME to $JSON_DIR"
+    curl -sL "https://raw.githubusercontent.com/dotnet/core/refs/heads/main/release-notes/10.0/10.0.10/release.json" -o "$JSON_FILE"
+fi
+
+CVER="cat \"$JSON_FILE\" | jq -r '.release.sdks[] | select(.version == \"10.0.302\") | .\"vb-version\"'"
+
+RVER=$(eval "$CVER")
 
 CPV="
-echo \">docker images\"
+echo \"docker images\"
 echo \"$IMG\"
-echo \">dotnet --info\"
-echo \"$DN_INFO\"
+echo \"$CVER\"
+echo \"$RVER\"
 "
 
 CCRLC="
@@ -69,14 +73,20 @@ fi
 
 docker run -i --rm \
     --entrypoint bash \
+    -v "$HOME:$HOME" \
+    -v "$PWD:$PWD" \
     -v "$RD:$RD" \
+    -v "$SD:$SD" \
     "$IMG" \
     -c "
         $CPV
+
+        echo \"$CCRLC\"
 
         echo \"$L\"
 
         $CCRLC
     "
 
-sudo systemctl stop --no-block docker.service containerd.service 2>/dev/null
+sudo -p "$L
+Enter password to stop docker container: " systemctl stop --no-block docker.service containerd.service 2>/dev/null

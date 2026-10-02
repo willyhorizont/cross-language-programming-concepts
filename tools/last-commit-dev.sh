@@ -11,7 +11,10 @@ IMG=$("$RD/tools/utils.sh" --get-docker-image $LID 2>/dev/null)
 
 docker run -i --rm \
     --entrypoint bash \
+    -v "$HOME:$HOME" \
+    -v "$PWD:$PWD" \
     -v "$RD:$RD" \
+    -v "$SD:$SD" \
     "$IMG" \
     -c "
         cd \"$RD\"
@@ -43,4 +46,5 @@ git tag -a "$V" -m "$M"
 git push origin dev # ! development
 git push origin --tags
 
-sudo systemctl stop --no-block docker.service containerd.service 2>/dev/null
+sudo -p "$L
+Enter password to stop docker container: " systemctl stop --no-block docker.service containerd.service 2>/dev/null

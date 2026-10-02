@@ -16,11 +16,11 @@ if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; the
 fi
 
 CPV="
-echo \">docker images\"
+echo \"docker images\"
 echo \"$IMG\"
-echo \">kotlinc -version\"
+echo \"kotlinc -version\"
 kotlinc -version
-echo \">kotlin -version\"
+echo \"kotlin -version\"
 kotlin -version
 "
 
@@ -31,10 +31,15 @@ kotlin \"$FN.jar\"
 
 docker run -i --rm \
     --entrypoint bash \
+    -v "$HOME:$HOME" \
+    -v "$PWD:$PWD" \
     -v "$RD:$RD" \
+    -v "$SD:$SD" \
     "$IMG" \
     -c "
         $CPV
+
+        echo \"$CRLC\"
 
         echo \"$L\"
 
@@ -43,4 +48,5 @@ docker run -i --rm \
 
 rm -f "$PTFNXD/$FN.jar"
 
-sudo systemctl stop --no-block docker.service containerd.service 2>/dev/null
+sudo -p "$L
+Enter password to stop docker container: " systemctl stop --no-block docker.service containerd.service 2>/dev/null

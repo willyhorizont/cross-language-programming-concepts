@@ -42,7 +42,10 @@ IMG=$("$RD/tools/utils.sh" --get-docker-image $LID 2>/dev/null)
 
 docker run -i --rm \
     --entrypoint bash \
+    -v "$HOME:$HOME" \
+    -v "$PWD:$PWD" \
     -v "$RD:$RD" \
+    -v "$SD:$SD" \
     "$IMG" \
     -c "
         cd \"$RD\"
@@ -51,4 +54,5 @@ docker run -i --rm \
 
 sudo chown -R $(whoami):$(whoami) "$RD/tmp/linguist-programming-languages.json"
 
-sudo systemctl stop --no-block docker.service containerd.service 2>/dev/null
+sudo -p "$L
+Enter password to stop docker container: " systemctl stop --no-block docker.service containerd.service 2>/dev/null

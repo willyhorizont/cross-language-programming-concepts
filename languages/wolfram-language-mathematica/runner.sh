@@ -61,11 +61,11 @@ if [ ! -s "$PTLIC" ]; then
 fi
 
 CPV="
-echo \">docker images\"
+echo \"docker images\"
 echo \"$IMG\"
-echo \">wolframscript -version\"
+echo \"wolframscript -version\"
 wolframscript -version
-echo \">wolframscript --version\"
+echo \"wolframscript --version\"
 wolframscript --version
 "
 
@@ -89,8 +89,11 @@ if [ ! "$(docker ps -q -f name=$DCN)" ]; then
     fi
     docker run -d \
         --name $DCN \
-        --entrypoint "" \
+        --entrypoint "" \    
+        -v "$HOME:$HOME" \
+        -v "$PWD:$PWD" \
         -v "$RD:$RD" \
+        -v "$SD:$SD" \
         -v "$RD/runtimes/wolfram-language-mathematica/Licensing:/home/wolframengine/.WolframEngine/Licensing" \
         "$IMG" \
         sleep infinity > /dev/null
@@ -101,9 +104,12 @@ fi
 docker exec -i $DCN /bin/bash -c "
     $CPV
 
+    echo \"$CRLC\"
+
     echo \"$L\"
 
     $CRLC
 "
 
-sudo systemctl stop --no-block docker.service containerd.service 2>/dev/null
+sudo -p "$L
+Enter password to stop docker container: " systemctl stop --no-block docker.service containerd.service 2>/dev/null

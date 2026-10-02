@@ -16,13 +16,13 @@ if [ "$(realpath "$1" 2>/dev/null)" = "$(realpath "$PTRFNX" 2>/dev/null)" ]; the
 fi
 
 CPV="
-echo \">docker images\"
+echo \"docker images\"
 echo \"$IMG\"
-echo \">crystal --version\"
+echo \"crystal --version\"
 crystal --version
-echo \">crystal -v\"
+echo \"crystal -v\"
 crystal -v
-echo \">shards --version\"
+echo \"shards --version\"
 shards --version
 "
 
@@ -61,14 +61,20 @@ fi
 
 docker run -i --rm \
     --entrypoint bash \
+    -v "$HOME:$HOME" \
+    -v "$PWD:$PWD" \
     -v "$RD:$RD" \
+    -v "$SD:$SD" \
     "$IMG" \
     -c "
         $CPV
+
+        echo \"$CCRLC\"
 
         echo \"$L\"
 
         $CCRLC
     "
 
-sudo systemctl stop --no-block docker.service containerd.service 2>/dev/null
+sudo -p "$L
+Enter password to stop docker container: " systemctl stop --no-block docker.service containerd.service 2>/dev/null

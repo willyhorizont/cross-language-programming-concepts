@@ -29,11 +29,11 @@ if [[ " ${PTFFNX[*]} " == *" $PTFNXA "* ]]; then
 fi
 
 CPV="
-echo \">docker images\"
+echo \"docker images\"
 echo \"$IMG\"
-echo \">rustc --version\"
+echo \"rustc --version\"
 rustc --version
-echo \">cargo --version\"
+echo \"cargo --version\"
 cargo --version
 "
 
@@ -48,14 +48,20 @@ cd \"$RD\"
 
 docker run -i --rm \
     --entrypoint bash \
+    -v "$HOME:$HOME" \
+    -v "$PWD:$PWD" \
     -v "$RD:$RD" \
+    -v "$SD:$SD" \
     "$IMG" \
     -c "
         $CPV
+
+        echo \"$CCRLC\"
 
         echo \"$L\"
 
         $CCRLC
     "
 
-sudo systemctl stop --no-block docker.service containerd.service 2>/dev/null
+sudo -p "$L
+Enter password to stop docker container: " systemctl stop --no-block docker.service containerd.service 2>/dev/null
