@@ -147,8 +147,10 @@
         "editor.rangeHighlightBorder": "#FF0000",
         "editor.rangeHighlightBackground": "#FF00001A",
         "editor.lineHighlightBackground": "#FF00001A",
-        "editor.findMatchBackground": "#FFFFFF33",
-        "editor.findMatchBorder": "#FFFFFFFF",
+        "editor.findMatchBackground": "#ffffff33",
+        "editor.wordHighlightBorder": "#0095ff",
+        "editor.wordHighlightBackground": "#0000004f",
+        "editor.findMatchBorder": "#ffffff",
         "editor.findMatchHighlightBackground": "#FF000044",
     },
     "editor.tokenColorCustomizations": {
