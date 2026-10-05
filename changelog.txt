@@ -1,3 +1,10 @@
+[Last updated: 05 Oct 2026 @ 10:32 AM][version: 2.10.3]
+add npm-version.py;
+update languages.json, add runner;
+update xlrun.sh to load id and runner dynamically from languages.json;
+update generate-readme.py, update requirements, add setup, add running the code;
+update last-commit.sh;
+
 [Last updated: 05 Oct 2026 @ 10:04 AM][version: 2.10.2]
 add npm-version.py;
 update last-commit.sh;

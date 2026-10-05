@@ -30,5 +30,3 @@ else
     echo "$RUNNER_PATH not found!"
     exit 1
 fi
-
-# sed -i '/alias xlrun=/d' ~/.bashrc && echo "alias xlrun='\$HOME/willyhorizont.github.io/cross-language-programming-concepts/xlrun.sh'" >> ~/.bashrc && source ~/.bashrc

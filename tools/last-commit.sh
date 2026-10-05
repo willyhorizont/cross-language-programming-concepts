@@ -2,7 +2,7 @@
 
 SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD/..")
-V="2.10.2" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
+V="2.10.3" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
 T=$(date "+%d %b %Y @ %I:%M %p")
 cd "$RD" || exit
 
@@ -18,6 +18,9 @@ H=$(sed -e '/./,$!d' <<< "$H")
 # ! DON'T FORGET TO CHANGE COMMIT MESSAGE BEFORE RUNNING !!!!
 M="
 add npm-version.py;
+update languages.json, add runner;
+update xlrun.sh to load id and runner dynamically from languages.json;
+update generate-readme.py, update requirements, add setup, add running the code;
 update last-commit.sh;
 "
 M=$(sed -e '/./,$!d' <<< "$M")

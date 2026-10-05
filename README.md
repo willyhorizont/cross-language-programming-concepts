@@ -6,8 +6,6 @@ Cross-language implementations of common programming concepts, data structures, 
 
 ## Requirements
 
-- [Visual Studio Code](https://code.visualstudio.com/) + [Code Runner VSCode Extension](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
-
 ### Linux
 - [Git](https://git-scm.com/install/linux)
 - [Docker Engine](https://docs.docker.com/engine/install/)
@@ -16,6 +14,18 @@ Cross-language implementations of common programming concepts, data structures, 
 - [WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
 - [Git](https://git-scm.com/install/linux)
 - [Docker Engine](https://docs.docker.com/engine/install/)
+
+## Setup
+
+Run ```setup-environtment.sh```
+
+## Running the code
+
+### via [Visual Studio Code](https://code.visualstudio.com/) + [Code Runner VSCode Extension](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
+
+or
+
+### via ```xlrun <filename>.<ext>```
 
 ---
 
