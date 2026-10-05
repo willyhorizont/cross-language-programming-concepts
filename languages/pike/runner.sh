@@ -41,6 +41,7 @@ if ! docker image inspect "$IMG" > /dev/null 2>&1; then
             -o "$RD/tmp/$FNX_PIKE" "https://pike.lysator.liu.se/pub/pike/latest-stable/Pike-v8.0.1956.tar.gz"
     fi
 
+    sudo systemctl start docker
     docker build \
         --no-cache \
         -t "$IMG" \

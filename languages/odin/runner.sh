@@ -50,6 +50,7 @@ if ! docker image inspect "$IMG" > /dev/null 2>&1; then
             -o "$RD/tmp/$FNX_ODIN" "https://github.com/odin-lang/Odin/releases/download/dev-2026-06/odin-linux-amd64-dev-2026-06.tar.gz"
     fi
 
+    sudo systemctl start docker
     docker build \
         --no-cache \
         -t "$IMG" \

@@ -26,10 +26,19 @@ gcc -std=c23 -dM -E -x c /dev/null | grep \"__STDC_VERSION__\"
 
 CCRLC="
 cd \"$PTFNXD\"
-gcc -std=c23 \"$FNX\" -o \"$FN\"
+gcc -std=c23 \"$FNX\" -o \"$FN\" -lgc
 ./$FN
 rm -f \"$PTFNXD/$FN\"
 "
+
+if ! docker image inspect "$IMG" > /dev/null 2>&1; then
+    sudo systemctl start docker
+    docker build \
+        --no-cache \
+        -t "$IMG" \
+        -f "$RD/docker/$LID/Dockerfile" \
+        "$RD"
+fi
 
 docker run -i --rm \
     --entrypoint bash \

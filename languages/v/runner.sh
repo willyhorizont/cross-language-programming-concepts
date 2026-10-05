@@ -54,6 +54,7 @@ if ! docker image inspect "$IMG" > /dev/null 2>&1; then
             -o "$RD/tmp/$FNX_V" "https://github.com/vlang/v/releases/download/0.5.2/v_linux.zip"
     fi
 
+    sudo systemctl start docker
     docker build \
         --no-cache \
         -t "$IMG" \

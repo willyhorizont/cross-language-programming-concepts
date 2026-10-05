@@ -48,6 +48,7 @@ if ! docker image inspect "$IMG" > /dev/null 2>&1; then
             -o "$RD/tmp/$FNX_C3" "https://github.com/c3lang/c3c/releases/download/v0.8.2/c3-linux-static.tar.gz"
     fi
 
+    sudo systemctl start docker
     docker build \
         --no-cache \
         -t "$IMG" \

@@ -59,6 +59,7 @@ if ! docker image inspect "$IMG" > /dev/null 2>&1; then
             -o "$RD/tmp/$FNX_VALA" "$FURL_VALA_ONE"
     fi
 
+    sudo systemctl start docker
     docker build \
         --no-cache \
         -t "$IMG" \

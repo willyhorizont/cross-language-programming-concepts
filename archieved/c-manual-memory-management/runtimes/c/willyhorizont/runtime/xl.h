@@ -6,7 +6,6 @@
 #include <stdbool.h>
 #include <string.h>
 #include <stdarg.h>
-#include <gc.h>
 
 typedef void* None;
 typedef bool Bool;
@@ -95,9 +94,7 @@ typedef struct {
     size_t size;
 } StringBuilder;
 
-#define malloc(sz) GC_MALLOC(sz)
-#define realloc(ptr, sz) GC_REALLOC(ptr, sz)
-#define strdup(str) GC_STRDUP(str)
+static inline void fr_mm(Xl* a);
 
 static inline Xl* mk_n() {
     Xl* r = malloc(sizeof(Xl));
@@ -159,6 +156,7 @@ static inline void set(Dict* d, String k, Xl* v) {
     Pair* h = d->items[i];
     while (h != NULL) {
         if (strcmp(h->key, k) == 0) {
+            fr_mm(h->value);
             h->value = v;
             return;
         }
@@ -335,6 +333,8 @@ static inline Xl* s_jn(Xl* frs_el, ...) {
         va_end(args);
     }
     Xl* r = mk_s(sb->value);
+    free(sb->value);
+    free(sb);
     return r;
 }
 
@@ -347,6 +347,8 @@ static inline Xl* s_rpt(String this_str, Int count) {
         sb_apd(sb, this_str);
     }
     Xl* r = mk_s(sb->value);
+    free(sb->value);
+    free(sb);
     return r;
 }
 
@@ -359,10 +361,15 @@ static inline void prnt(String fst, ...) {
         String nxt;
         while ((nxt = va_arg(args, String)) != NULL) {
             sb_apd(sb, nxt);
+            if (strlen(nxt) > 1 || (nxt[0] != ']' && nxt[0] != '[' && nxt[0] != ',' && nxt[0] != '{' && nxt[0] != '}')) {
+                free((void*)nxt); 
+            }
         }
         va_end(args);
     }
     printf("%s\n", sb->value);
+    free(sb->value);
+    free(sb);
 }
 
 static inline void s_esc(StringBuilder* r, String s) {
@@ -548,6 +555,7 @@ static inline String jify(Xl* a, JifyOpt o) {
                         l_psh(gcor, spsep);
                     }
                 }
+                free(dpl);
                 Xl* stdob = s_rpt(t->string_value, child_dd);
                 Xl* sdob = p ? s_jn(mk_s("{\n"), stdob, NULL) : mk_s("{");
                 jify_stk_push(&s, (JifyStkEl){
@@ -565,7 +573,23 @@ static inline String jify(Xl* a, JifyOpt o) {
                 break;
         }
     }
+    free(s.value);
+    fr_mm(t);
     String rv = r->value ? strdup(r->value) : "";
+    free(r->value);
+    free(r);
+    for (size_t i = 0; i < gcor->len; i += 1) {
+        Xl* g = gcor->value[i];
+        if (g->type == XL_STRING && g->string_value != NULL) {
+            size_t s_len = strlen(g->string_value);
+            if (s_len > 1 || (g->string_value[0] != ']' && g->string_value[0] != '[' && g->string_value[0] != ',' && g->string_value[0] != '{' && g->string_value[0] != '}')) {
+                free((void*)g->string_value);
+            }
+        }
+        free(g);
+    }
+    free(gcor->value);
+    free(gcor);
     return rv;
 }
 
@@ -611,20 +635,24 @@ static inline Float to_f(Xl* a) {
 
 static inline String to_s(Xl* a) {
     if (a == NULL || a->type == XL_NONE) return strdup("null");
-    char buf[64];
     switch (a->type) {
         case XL_BOOL:
             return strdup(a->bool_value ? "true" : "false");
         case XL_STRING:
             return a->string_value ? strdup(a->string_value) : strdup("");
-        case XL_INT:
+        case XL_INT: {
+            char buf[64];
             sprintf(buf, "%d", a->int_value);
             return strdup(buf);
-        case XL_FLOAT:
+        }
+        case XL_FLOAT: {
+            char buf[64];
             sprintf(buf, "%g", a->float_value);
             return strdup(buf);
-        default:
+        }
+        default: {
             return jify(a, (JifyOpt){ .pretty = false });
+        }
     }
 }
 
@@ -635,6 +663,55 @@ static Xl xlbf = { .type = XL_BOOL, .bool_value = false, .ctx_ref = NULL };
 static Xl* const NONE_PTR = &xln;
 static Xl* const TRUE_PTR = &xlbt;
 static Xl* const FALSE_PTR = &xlbf;
+
+static inline void fr_mm(Xl* a) {
+    if (a == NULL) return;
+    if (a == &xln || a == &xlbt || a == &xlbf) return;
+
+    switch (a->type) {
+        case XL_STRING:
+            if (a->string_value != NULL) {
+                free((void*)a->string_value);
+            }
+            break;
+        case XL_LIST:
+            if (a->list_ref != NULL) {
+                for (size_t i = 0; i < a->list_ref->len; i += 1) {
+                    fr_mm(a->list_ref->value[i]);
+                }
+                free(a->list_ref->value);
+                free(a->list_ref);
+            }
+            break;
+        case XL_DICT:
+            if (a->dict_ref != NULL) {
+                for (size_t i = 0; i < DICT_SIZE; i += 1) {
+                    Pair* c = a->dict_ref->items[i];
+                    while (c != NULL) {
+                        Pair* tmp = c;
+                        c = c->next;
+                        fr_mm(tmp->value);
+                        free(tmp);
+                    }
+                }
+                free(a->dict_ref);
+            }
+            break;
+        case XL_LAMBDA:
+            if (a->ctx_ref != NULL) {
+                fr_mm(a->ctx_ref);
+            }
+            break;
+        case XL_ITERATOR:
+            if (a->iterator_ref != NULL) {
+                free(a->iterator_ref);
+            }
+            break;
+        default:
+            break;
+    }
+    free(a);
+}
 
 typedef struct {
     Xl* (*init_none)();
@@ -649,6 +726,7 @@ typedef struct {
     Xl* (*get)(Xl*, String);
     Xl* (*iter)(Xl*);
     Xl* (*next)(Xl*);
+    void (*free)(Xl*);
     Xl* (*join)(Xl*, ...);
     Xl* (*repeat)(String, Int);
     String (*jify)(Xl*, JifyOpt);
@@ -676,6 +754,7 @@ const static XlNamespace xl = {
     .get = d_g,
     .iter = l_itr,
     .next = itr_nxt,
+    .free = fr_mm,
     .join = s_jn,
     .repeat = s_rpt,
     .jify = jify,

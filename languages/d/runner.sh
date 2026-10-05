@@ -47,6 +47,7 @@ if ! docker image inspect "$IMG" > /dev/null 2>&1; then
             -o "$RD/tmp/$FNX_DMD" "https://downloads.dlang.org/releases/2.x/2.112.0/dmd.2.112.0.linux.tar.xz"
     fi
 
+    sudo systemctl start docker
     docker build \
         --no-cache \
         -t "$IMG" \

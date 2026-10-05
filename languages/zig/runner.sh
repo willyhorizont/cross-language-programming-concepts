@@ -55,6 +55,7 @@ if ! docker image inspect "$IMG" > /dev/null 2>&1; then
             -o "$RD/tmp/$FNX_ZIG" "https://ziglang.org/download/0.16.0/zig-x86_64-linux-0.16.0.tar.xz"
     fi
 
+    sudo systemctl start docker
     docker build \
         --no-cache \
         -t "$IMG" \

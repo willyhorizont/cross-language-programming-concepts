@@ -1,3 +1,14 @@
+[Last updated: 05 Oct 2026 @ 12:48 PM][version: 2.10.4]
+add willyhorizont/c/gcc:16.1.0-trixie Dockerfile;
+update languages.json, add willyhorizont/c/gcc:16.1.0-trixie docker image;
+update some runner.sh, add start docker before docker build;
+update runner.c, add lgc; add docker build;
+update cross-language-features.c, replace manual memory management with boehm garbage collector gc.h;
+update xl.h, replace manual memory management with boehm garbage collector gc.h;
+move old runner.c to archieved;
+move old cross-language-features.c to archieved;
+move old xl.h to archieved;
+
 [Last updated: 05 Oct 2026 @ 10:32 AM][version: 2.10.3]
 add npm-version.py;
 update languages.json, add runner;

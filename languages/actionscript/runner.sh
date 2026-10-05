@@ -63,6 +63,7 @@ if ! docker image inspect "$IMG" > /dev/null 2>&1; then
             -o "$RD/tmp/$FNX_SWC" "https://github.com/nexussays/playerglobal/raw/refs/heads/master/27.0/playerglobal.swc"
     fi
 
+    sudo systemctl start docker
     docker build \
         --no-cache \
         -t "$IMG" \
