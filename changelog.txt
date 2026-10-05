@@ -1,3 +1,6 @@
+[Last updated: 05 Oct 2026 @ 09:22 PM][version: 2.10.10]
+update c3, remove defer free memory;
+
 [Last updated: 05 Oct 2026 @ 09:07 PM][version: 2.10.9]
 update base-runner.sh, add c syntax highlighter;
 update languages.json, update c syntax highlighter;

@@ -275,12 +275,13 @@ fn String String.repeat(String this, int count)
         return "";
     }
     usz s_len = this.len * (usz)count;
-    char* sb = (char*)mem::new_array(char, (sz)s_len);
+    char* sb = (char*)mem::new_array(char, (sz)s_len + 1);
     usz offset = 0;
     for (int i = 0; i < count; i += 1) {
         mem::copy(sb + offset, this.ptr, this.len);
         offset += this.len;
     }
+    sb[s_len] = '\0';
     return (String)sb[0..s_len];
 }
 
@@ -329,10 +330,8 @@ fn String json_stringify(Type* a, bool pretty = false) @public
     String t = " ".repeat(4);
     list::List{JifyStkEl} s;
     s.init(mem);
-    defer s.free();
     s.push({ .t = JifyStkElT.V, .v = a, .r = "", .d = 0 });
     DString r;
-    defer r.free();
     while (s.len() > 0)
     {
         JifyStkEl c = s.get(s.len() - 1);
@@ -421,7 +420,6 @@ fn String json_stringify(Type* a, bool pretty = false) @public
                 });
                 list::List{Pair} dpl;
                 dpl.init(mem);
-                defer dpl.free();
                 foreach (i, del : v.dict_ref.iter())
                 {
                     dpl.push({ del.key, del.value });
@@ -457,13 +455,18 @@ fn String json_stringify(Type* a, bool pretty = false) @public
                     .r = p ? join("{\n", t.repeat(child_dd)) : "{",
                     .d = child_dd,
                 });
+                dpl.free();
                 break;
             default:
                 r.append("\"[object [\\\"C3 Object\\\"]]\"");
                 break;
         }
     }
-    return join(r.str_view());
+    s.free();
+    String res_vw = r.str_view();
+    String fnl_str = join(res_vw);
+    r.free();
+    return fnl_str;
 }
 
 fn Bool to_bool(Type* a) @public
@@ -562,9 +565,6 @@ macro printn(...) @public
         $switch $Typeof($vaarg[$i]):
             $case String:
                 io::print((String)$vaarg[$i]);
-                $if $stringify($vaarg[$i])[0] != '"':
-                    mem::free(($vaarg[$i]).ptr);
-                $endif
             $case Type*:
                 Type* $t = (Type*)$vaarg[$i];
                 if ($t != null) {
@@ -585,7 +585,6 @@ macro printn(...) @public
                             io::print("[object Object]");
                             break;
                     }
-                    free($t);
                 }
             $default:
                 io::print($vaarg[$i]);
