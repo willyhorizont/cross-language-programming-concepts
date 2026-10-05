@@ -2,18 +2,18 @@ import json
 from pathlib import Path
 
 
-with open("../languages.json", "r", encoding="utf-8") as fb:
+with open("languages.json", "r", encoding="utf-8") as fb:
     ll = json.load(fb)
 
 r_burl = "https://github.com/willyhorizont/cross-language-programming-concepts/blob/main/languages/"
 
 
 def gplc():
-    with open("../concepts.json", "r", encoding="utf-8") as fb:
+    with open("concepts.json", "r", encoding="utf-8") as fb:
         lc = json.load(fb)
     gcpld = lambda lic, lil: "" if not (pc := lil["concept_definition"].get(lic["id"])) else f" : {pc}"
     gcpll = lambda lic, lil: f"{r_burl}{lil["id"]}/{lic["id"]}{lil["file_extension"]}"
-    gcl = lambda lic, lil: f"[{" / ".join(list(map(lambda s: s["name"], lil["stack"])))}]({gcpll(lic, lil)})" if Path(f"../languages/{lil["id"]}/{lic["id"]}{lil["file_extension"]}").is_file() else f"{" / ".join(list(map(lambda s: s["name"], lil["stack"])))}"
+    gcl = lambda lic, lil: f"[{" / ".join(list(map(lambda s: s["name"], lil["stack"])))}]({gcpll(lic, lil)})" if Path(f"languages/{lil["id"]}/{lic["id"]}{lil["file_extension"]}").is_file() else f"{" / ".join(list(map(lambda s: s["name"], lil["stack"])))}"
     gcpl = lambda lic: "\n".join([f"  {n}. {gcl(lic, lil)}{gcpld(lic, lil)}  " for n, lil in enumerate(ll, start=1)])
     gct = lambda lic: f"{lic["name"]} {lic["concept_definition"]}" if lic["concept_definition"] else f"{lic["name"]}"
     return "\n\n---\n\n".join([f"### {gct(lic)}{" --work-in-progess" if lic["status"] != "finished" else ""}  \n{gcpl(lic)}" for lic in lc])
@@ -59,7 +59,7 @@ Cross-language implementations of common programming concepts, data structures, 
 - [https://pypl.github.io/PYPL.html](https://pypl.github.io/PYPL.html)
 - [https://tjpalmer.github.io/languish/](https://tjpalmer.github.io/languish/)
 """.strip() + "  \n")
-    with open("../README.md", "w", encoding="utf-8") as fb:
+    with open("README.md", "w", encoding="utf-8") as fb:
         fb.write(gendrm)
 
 

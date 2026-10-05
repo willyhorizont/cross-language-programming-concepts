@@ -1,3 +1,7 @@
+[Last updated: 05 Oct 2026 @ 10:04 AM][version: 2.10.2]
+add npm-version.py;
+update last-commit.sh;
+
 [Last updated: 05 Oct 2026 @ 08:43 AM][version: 2.10.1]
 small update in utils.sh;
 update last-commit.sh;

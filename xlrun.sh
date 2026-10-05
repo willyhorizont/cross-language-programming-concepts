@@ -6,68 +6,22 @@ if [ -z "$1" ]; then
 fi
 
 TARGET_FILE="$(realpath "$1")"
-
 EXT=".${TARGET_FILE##*.}"
+JSON_PATH="$(dirname "$(realpath "$0")")/languages.json"
 
-declare -A MAP
+if [ ! -f "$JSON_PATH" ]; then
+    echo "Error: languages.json not found at $JSON_PATH"
+    exit 1
+fi
 
-MAP[".js"]="javascript-or-typescript"
-MAP[".py"]="python"
-MAP[".php"]="php"
-MAP[".go"]="go"
-MAP[".pl"]="perl"
-MAP[".jl"]="julia"
-MAP[".lua"]="lua"
-MAP[".rb"]="ruby"
-MAP[".r"]="r"
-MAP[".kt"]="kotlin"
-MAP[".swift"]="swift"
-MAP[".dart"]="dart"
-MAP[".vb"]="visual-basic-dot-net"
-MAP[".cs"]="c-sharp"
-MAP[".wl"]="wolfram-language-mathematica"
-MAP[".raku"]="raku"
-MAP[".scala"]="scala"
-MAP[".java"]="java"
-MAP[".nu"]="nu"
-MAP[".elv"]="elvish"
-MAP[".vim"]="vim-script"
-MAP[".rs"]="rust"
-MAP[".nix"]="nix"
-MAP[".tcl"]="tcl"
-MAP[".gd"]="gdscript"
-MAP[".typ"]="typst"
-MAP[".ps1"]="powershell"
-MAP[".exs"]="elixir"
-MAP[".ml"]="ocaml"
-MAP[".erl"]="erlang"
-MAP[".gleam"]="gleam"
-MAP[".zig"]="zig"
-MAP[".nim"]="nim"
-MAP[".odin"]="odin"
-MAP[".cpp"]="c-plus-plus"
-MAP[".m"]="objective-c"
-MAP[".st"]="smalltalk"
-MAP[".as"]="actionscript"
-MAP[".groovy"]="groovy"
-MAP[".cj"]="cangjie"
-MAP[".c3"]="c3"
-MAP[".c"]="c"
-MAP[".d"]="d"
-MAP[".v"]="v"
-MAP[".vala"]="vala"
-MAP[".cr"]="crystal"
-MAP[".wren"]="wren"
-MAP[".pike"]="pike"
+RUNNER_ID=$(jq -r --arg ext "$EXT" '.[] | select(.file_extension == $ext) | .runner' "$JSON_PATH")
 
-LANG_ID="${MAP[$EXT]}"
-
-if [ -z "$LANG_ID" ]; then
+if [ -z "$RUNNER_ID" ] || [ "$RUNNER_ID" == "null" ]; then
     echo "Error: File extension '$EXT' is not supported!"
     exit 1
 fi
 
-RUNNER_PATH="$HOME/willyhorizont.github.io/cross-language-programming-concepts/languages/$LANG_ID/runner.sh"
+RUNNER_PATH="$HOME/willyhorizont.github.io/cross-language-programming-concepts/languages/$RUNNER_ID/runner.sh"
 
 if [ -f "$RUNNER_PATH" ]; then
     echo "$RUNNER_PATH $TARGET_FILE"
