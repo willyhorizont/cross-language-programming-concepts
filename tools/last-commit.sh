@@ -2,7 +2,7 @@
 
 SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD/..")
-V="2.10.8" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
+V="2.10.9" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
 T=$(date "+%d %b %Y @ %I:%M %p")
 cd "$RD" || exit
 
@@ -17,7 +17,10 @@ H="
 H=$(sed -e '/./,$!d' <<< "$H")
 # ! DON'T FORGET TO CHANGE COMMIT MESSAGE BEFORE RUNNING !!!!
 M="
-update last-commit.sh;
+update base-runner.sh, add c syntax highlighter;
+update languages.json, update c syntax highlighter;
+update .vscode settings.json, update c syntax highlighter;
+update c, replace Xl* to var macro;
 "
 M=$(sed -e '/./,$!d' <<< "$M")
 M="$H

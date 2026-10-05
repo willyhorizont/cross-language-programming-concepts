@@ -1608,6 +1608,12 @@
         ],
         "file_extension": ".c",
         "syntax_highlighters": [
+            "c-plus-plus",
+            "objective-c",
+            "c-sharp",
+            "java",
+            "go",
+
             "c"
         ],
         "concept_definition": {

@@ -696,4 +696,6 @@ const static XlNamespace xl = {
 #define json_stringify(_a, ...) jify((_a), (JifyOpt){ .pretty = false, __VA_ARGS__ })
 #define print(...) prnt(__VA_ARGS__, NULL)
 
+#define var Xl*
+
 #endif // WILLYHORIZONT_RUNTIME_XL_H

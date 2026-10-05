@@ -211,6 +211,10 @@ if [[ "$XPECT_FX" == ".go" ]]; then
         bash "$RD/languages/wren/runner.sh" "$1"
         exit 0
     fi
+    if [[ ".$FX" == ".c" ]]; then
+        bash "$RD/languages/c/runner.sh" "$1"
+        exit 0
+    fi
 fi
 
 if [[ "$XPECT_FX" == ".swift" ]]; then
@@ -289,6 +293,10 @@ if [[ "$XPECT_FX" == ".cpp" ]]; then
         bash "$RD/languages/zig/runner.sh" "$1"
         exit 0
     fi
+    if [[ ".$FX" == ".c" ]]; then
+        bash "$RD/languages/c/runner.sh" "$1"
+        exit 0
+    fi
 fi
 
 if [[ "$XPECT_FX" == ".m" ]]; then
@@ -310,6 +318,10 @@ if [[ "$XPECT_FX" == ".m" ]]; then
     fi
     if [[ ".$FX" == ".raku" ]]; then
         bash "$RD/languages/raku/runner.sh" "$1"
+        exit 0
+    fi
+    if [[ ".$FX" == ".c" ]]; then
+        bash "$RD/languages/c/runner.sh" "$1"
         exit 0
     fi
     # if [[ ".$FX" == ".m" ]]; then
@@ -348,6 +360,10 @@ if [[ "$XPECT_FX" == ".cs" ]]; then
     fi
     if [[ ".$FX" == ".vim" ]]; then
         bash "$RD/languages/vim-script/runner.sh" "$1"
+        exit 0
+    fi
+    if [[ ".$FX" == ".c" ]]; then
+        bash "$RD/languages/c/runner.sh" "$1"
         exit 0
     fi
 fi
@@ -402,6 +418,10 @@ if [[ "$XPECT_FX" == ".java" ]]; then
     fi
     if [[ ".$FX" == ".raku" ]]; then
         bash "$RD/languages/raku/runner.sh" "$1"
+        exit 0
+    fi
+    if [[ ".$FX" == ".c" ]]; then
+        bash "$RD/languages/c/runner.sh" "$1"
         exit 0
     fi
 fi
