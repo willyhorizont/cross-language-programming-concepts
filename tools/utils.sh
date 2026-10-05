@@ -5,17 +5,17 @@ RD=$(realpath "$SD/..")
 PTEF="$RD/.env"
 [ -f $PTEF ] && source $PTEF
 
-print_separator() {
+prt_sep() {
     local cols=$(tput cols 2>/dev/null || echo 54)
     cols=$(( cols - 3 ))
 
     local ln
     printf -v ln "%*s" "$cols" ""
     
-    printf '%s\033[K\n' "${ln// /-}"
+    printf '%s\n\033[K\n' "${ln// /-}"
 }
 
-get_docker_image() {
+get_docker_img() {
     if [ -z "$1" ]; then
         echo "expected <language-id>"
         exit 1
@@ -32,7 +32,7 @@ get_docker_image() {
     echo "$IMG"
 }
 
-get_language_file_extension() {
+get_lang_ext() {
     if [ -z "$1" ]; then
         echo "expected <language-id>"
         exit 1
@@ -48,13 +48,13 @@ get_language_file_extension() {
 
 case "$1" in
     --print-sep)
-        print_separator
+        prt_sep
         ;;
     --get-docker-image)
-        get_docker_image "$2"
+        get_docker_img "$2"
         ;;
     --get-lang-ext)
-        get_language_file_extension "$2"
+        get_lang_ext "$2"
         ;;
     *)
         echo "Usage: $0 {--get-docker-image} {--get-lang-ext} {--print-sep}"

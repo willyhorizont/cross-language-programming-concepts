@@ -2,24 +2,29 @@
 
 SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD/..")
-V="2.10.0" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
+V="2.10.1" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
 T=$(date "+%d %b %Y @ %I:%M %p")
 cd "$RD" || exit
 
 LID="javascript-or-typescript"
 IMG=$("$RD/tools/utils.sh" --get-docker-image $LID 2>/dev/null)
 
-docker run -i --rm \
-    --entrypoint bash \
-    -v "$HOME:$HOME" \
-    -v "$PWD:$PWD" \
-    -v "$RD:$RD" \
-    -v "$SD:$SD" \
-    "$IMG" \
-    -c "
-        cd \"$RD\"
-        npm version \"$V\" --no-git-tag-version
-    "
+python3 -c '
+import json, os
+v = "'"$V"'"
+rd = "'"$RD"'"
+for name in ["package.json", "package-lock.json"]:
+    f = os.path.join(rd, name)
+    if os.path.exists(f):
+        with open(f, "r+") as file:
+            d = json.load(file)
+            d["version"] = v
+            if name == "package-lock.json" and "packages" in d and "" in d["packages"]:
+                d["packages"][""]["version"] = v
+            file.seek(0)
+            json.dump(d, file, indent=2)
+            file.truncate()
+'
 
 H="
 [Last updated: $T][version: $V]
@@ -27,17 +32,8 @@ H="
 H=$(sed -e '/./,$!d' <<< "$H")
 # ! DON'T FORGET TO CHANGE COMMIT MESSAGE BEFORE RUNNING !!!!
 M="
-update .vscode settings.json, update code runner command;
-update runner.sh, turn into global runner;
-fix actionscript runner.sh, update check version command;
-update c runner.sh, update check version command;
-update c-plus-plus runner.sh, update check version command;
-update objective-c runner.sh, update check version command;
-update c-sharp runner.sh, update check version command;
-update visual-basic-dot-net runner.sh, update check version command;
-add xlrun.sh;
-update setup-environtment.sh, add xlrun;
-update stop docker container command;
+small update in utils.sh;
+update last-commit.sh;
 "
 M=$(sed -e '/./,$!d' <<< "$M")
 M="$H
@@ -46,7 +42,7 @@ touch "$RD/changelog.txt" && awk -v msg="$M" 'BEGIN {print msg; print ""} {print
 git add changelog.txt
 git add package-lock.json
 git add package.json
-"$RD/languages/python/runner.sh" "$RD/tools/generate-readme.py"
+python3 "$RD/tools/generate-readme.py"
 git add .
 git commit -m "$M"
 git tag -d "$V" 2>/dev/null

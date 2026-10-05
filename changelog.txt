@@ -1,3 +1,7 @@
+[Last updated: 05 Oct 2026 @ 08:43 AM][version: 2.10.1]
+small update in utils.sh;
+update last-commit.sh;
+
 [Last updated: 03 Oct 2026 @ 02:30 AM][version: 2.10.0]
 update .vscode settings.json, update code runner command;
 update runner.sh, turn into global runner;
