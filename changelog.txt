@@ -1,3 +1,6 @@
+[Last updated: 05 Oct 2026 @ 06:01 PM][version: 2.10.5]
+update c runner;
+
 [Last updated: 05 Oct 2026 @ 12:48 PM][version: 2.10.4]
 add willyhorizont/c/gcc:16.1.0-trixie Dockerfile;
 update languages.json, add willyhorizont/c/gcc:16.1.0-trixie docker image;

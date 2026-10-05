@@ -2,7 +2,7 @@
 
 SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD/..")
-V="2.10.4" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
+V="2.10.5" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
 T=$(date "+%d %b %Y @ %I:%M %p")
 cd "$RD" || exit
 
@@ -17,15 +17,7 @@ H="
 H=$(sed -e '/./,$!d' <<< "$H")
 # ! DON'T FORGET TO CHANGE COMMIT MESSAGE BEFORE RUNNING !!!!
 M="
-add willyhorizont/c/gcc:16.1.0-trixie Dockerfile;
-update languages.json, add willyhorizont/c/gcc:16.1.0-trixie docker image;
-update some runner.sh, add start docker before docker build;
-update runner.c, add lgc; add docker build;
-update cross-language-features.c, replace manual memory management with boehm garbage collector gc.h;
-update xl.h, replace manual memory management with boehm garbage collector gc.h;
-move old runner.c to archieved;
-move old cross-language-features.c to archieved;
-move old xl.h to archieved;
+update c runner;
 "
 M=$(sed -e '/./,$!d' <<< "$M")
 M="$H

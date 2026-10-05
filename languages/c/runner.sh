@@ -57,5 +57,8 @@ docker run -i --rm \
         $CCRLC
     "
 
+sudo rm -f "$PTFNXD/core"*
+sudo rm -f "$PTFNXD/"core*.*
+
 sudo -p "$L
 Enter password to stop docker container: " systemctl stop --no-block docker.service containerd.service 2>/dev/null
