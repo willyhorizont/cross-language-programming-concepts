@@ -32,7 +32,8 @@ rm -f \"$PTFNXD/$FN\"
 "
 
 if ! docker image inspect "$IMG" > /dev/null 2>&1; then
-    sudo systemctl start docker
+    sudo systemctl enable --now docker.service
+    sudo systemctl enable --now containerd.service
     docker build \
         --no-cache \
         -t "$IMG" \
@@ -61,4 +62,5 @@ sudo rm -f "$PTFNXD/core"*
 sudo rm -f "$PTFNXD/"core*.*
 
 sudo -p "$L
-Enter password to stop docker container: " systemctl stop --no-block docker.service containerd.service 2>/dev/null
+Enter password to stop docker container: " systemctl disable --now docker.service 2>/dev/null
+sudo systemctl disable --now containerd.service

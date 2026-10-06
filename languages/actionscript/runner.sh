@@ -63,7 +63,8 @@ if ! docker image inspect "$IMG" > /dev/null 2>&1; then
             -o "$RD/tmp/$FNX_SWC" "https://github.com/nexussays/playerglobal/raw/refs/heads/master/27.0/playerglobal.swc"
     fi
 
-    sudo systemctl start docker
+    sudo systemctl enable --now docker.service
+    sudo systemctl enable --now containerd.service
     docker build \
         --no-cache \
         -t "$IMG" \
@@ -139,4 +140,5 @@ if [ -f "$PTOFNX" ]; then
 fi
 
 sudo -p "$L
-Enter password to stop docker container: " systemctl stop --no-block docker.service containerd.service 2>/dev/null
+Enter password to stop docker container: " systemctl disable --now docker.service 2>/dev/null
+sudo systemctl disable --now containerd.service

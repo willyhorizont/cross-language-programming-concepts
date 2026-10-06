@@ -54,4 +54,5 @@ docker run -i --rm \
     "
 
 sudo -p "$L
-Enter password to stop docker container: " systemctl stop --no-block docker.service containerd.service 2>/dev/null
+Enter password to stop docker container: " systemctl disable --now docker.service 2>/dev/null
+sudo systemctl disable --now containerd.service

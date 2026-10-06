@@ -55,7 +55,8 @@ if ! docker image inspect "$IMG" > /dev/null 2>&1; then
             -o "$RD/tmp/$FNX_ZIG" "https://ziglang.org/download/0.16.0/zig-x86_64-linux-0.16.0.tar.xz"
     fi
 
-    sudo systemctl start docker
+    sudo systemctl enable --now docker.service
+    sudo systemctl enable --now containerd.service
     docker build \
         --no-cache \
         -t "$IMG" \
@@ -81,4 +82,5 @@ docker run -i --rm \
     "
 
 sudo -p "$L
-Enter password to stop docker container: " systemctl stop --no-block docker.service containerd.service 2>/dev/null
+Enter password to stop docker container: " systemctl disable --now docker.service 2>/dev/null
+sudo systemctl disable --now containerd.service

@@ -2,7 +2,7 @@
 
 SD=$(dirname "$(realpath "$0")")
 RD=$(realpath "$SD/..")
-V="2.10.10" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
+V="2.10.11" # ! DON'T FORGET TO CHANGE VERSION BEFORE RUNNING !!!!
 T=$(date "+%d %b %Y @ %I:%M %p")
 cd "$RD" || exit
 
@@ -17,7 +17,7 @@ H="
 H=$(sed -e '/./,$!d' <<< "$H")
 # ! DON'T FORGET TO CHANGE COMMIT MESSAGE BEFORE RUNNING !!!!
 M="
-update c3, remove defer free memory;
+update docker container enable disable;
 "
 M=$(sed -e '/./,$!d' <<< "$M")
 M="$H
@@ -35,4 +35,5 @@ git push origin main
 git push origin --tags
 
 sudo -p "$L
-Enter password to stop docker container: " systemctl stop --no-block docker.service containerd.service 2>/dev/null
+Enter password to stop docker container: " systemctl disable --now docker.service 2>/dev/null
+sudo systemctl disable --now containerd.service

@@ -64,7 +64,8 @@ if ! docker image inspect "$IMG" > /dev/null 2>&1; then
             -o "$RD/tmp/$FNX_DOTNET" "https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.302/dotnet-sdk-10.0.302-linux-x64.tar.gz"
     fi
 
-    sudo systemctl start docker
+    sudo systemctl enable --now docker.service
+    sudo systemctl enable --now containerd.service
     docker build \
         --no-cache \
         -t "$IMG" \
@@ -90,4 +91,5 @@ docker run -i --rm \
     "
 
 sudo -p "$L
-Enter password to stop docker container: " systemctl stop --no-block docker.service containerd.service 2>/dev/null
+Enter password to stop docker container: " systemctl disable --now docker.service 2>/dev/null
+sudo systemctl disable --now containerd.service
