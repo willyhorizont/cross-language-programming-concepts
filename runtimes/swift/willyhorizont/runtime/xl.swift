@@ -3,6 +3,9 @@ import Foundation
 public struct WillyHorizont {
     public struct Runtime {
         public struct Xl {
+            public static func iter(_ array: [Any?]) -> IndexingIterator<[Any?]> {
+                return array.makeIterator()
+            }
             public static func escapeString(_ s: Any?) -> String {
                 guard let s = s else {
                     return ""
@@ -15,7 +18,6 @@ public struct WillyHorizont {
                 r = r.replacingOccurrences(of: "\t", with: "\\t")
                 return r
             }
-            
             public static func jsonStringify(_ a: Any?, pretty: Bool = false) -> String {
                 let p = pretty
                 let t = String(repeating: " ", count: 4)
@@ -143,5 +145,10 @@ public struct WillyHorizont {
                 return r
             }
         }
+    }
+}
+extension Array {
+    public func iter() -> IndexingIterator<[Element]> {
+        return self.makeIterator()
     }
 }

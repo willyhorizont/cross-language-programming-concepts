@@ -8,7 +8,7 @@ struct App {
         1. support lambda as value, or has workaround
         */
         let sayHello = { (va: [Any?]) -> Any? in
-            var itr = va.makeIterator()
+            var itr = va.iter()
             let callback = itr.next()!! as! ([Any?]) -> Any?
             print("hello")
             _ = callback([])
@@ -19,10 +19,10 @@ struct App {
             return nil as Any?
         }])
         let createMultiplier = { (va: [Any?]) -> Any? in
-            var itr = va.makeIterator()
+            var itr = va.iter()
             let aa = itr.next()!!
             return { (va: [Any?]) -> Any? in
-                var itr = va.makeIterator()
+                var itr = va.iter()
                 let bb = itr.next()!!
                 return ((aa as! Int) * (bb as! Int)) as Any?
             }
@@ -48,7 +48,7 @@ struct App {
             [1, 2, 3],
             ["foo": "bar"],
             { (va: [Any?]) -> Any? in
-                var itr = va.makeIterator()
+                var itr = va.iter()
                 let aa = itr.next()!!
                 let bb = itr.next()!!
                 return ((aa as! Int) * (bb as! Int)) as Any?
@@ -68,7 +68,7 @@ struct App {
             "xl_list": [1, 2, 3],
             "xl_dict": ["foo": "bar"],
             "xl_lambda": { (va: [Any?]) -> Any? in
-                var itr = va.makeIterator()
+                var itr = va.iter()
                 let aa = itr.next()!!
                 let bb = itr.next()!!
                 return ((aa as! Int) * (bb as! Int)) as Any?
